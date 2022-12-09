@@ -1,0 +1,42 @@
+Items needed for the save file:
+
+Hero data
+Hero data
+Hero data
+
+Position in dungon (save points should be registered)
+
+Inventory
+Key inventory
+
+Progress flags:
+	doors
+	chests
+	progression (bosses/quests)
+
+/////////////////////////////
+
+Hero data:
+	name
+	job
+	color (inverse color can be determined on load)
+	level
+	nextLevel
+	exp
+	(alive will be true, hp/mp/ability scores could be based strictly on level)
+	weapon
+	armor (NEED TO NUMBER THESE?)
+	(will not be poisoned, weakened, etc)
+	(created will be true)
+
+Position:
+	Could just be a number if save points are listed
+
+Inventory:
+	number these items, or store by name and values?
+
+Key Inventory:
+	store by Enum
+
+Progress flags:
+	great big boolean array for all progress switches - will need good documentation

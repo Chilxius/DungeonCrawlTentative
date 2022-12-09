@@ -1,0 +1,92 @@
+Bennett
+KNIGHT
+255	//red
+255	//green
+0	//blue
+1	//level (determines all other stats)
+500	//exp to next level
+324	//current exp
+Sword	//weapon name
+20 	//value
+5 	//attack power
+Chainmail	//armor name
+25		//value
+4		//defense power
+
+Matt
+KARATE
+255
+0
+0
+1
+500
+324
+Sword
+20 //value
+5 //attack power
+Chainmail
+25
+4
+
+Erik
+MAGE
+150
+0
+255
+1
+500
+324
+Sword
+20 //value
+5 //attack power
+Chainmail
+25
+4
+
+0 //save point number
+
+Potion	//item name
+5	//item's value
+Potion
+5
+Sword
+20
+Crystal
+100
+XX //end item list
+
+COPPER_KEY
+IRON_KEY
+XX //end key list
+
+TRUE	//big annoying boolean list of items
+TRUE
+FALSE
+TRUE
+TRUE
+TRUE
+FALSE
+TRUE
+TRUE
+FALSE
+TRUE
+TRUE
+TRUE
+XX
+
+FALSE	//big annoying list of doors
+TRUE
+TRUE
+FALSE
+TRUE
+TRUE
+TRUE
+FALSE
+TRUE
+TRUE
+FALSE
+TRUE
+TRUE
+TRUE
+FALSE
+XX
