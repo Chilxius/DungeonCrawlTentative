@@ -19,6 +19,8 @@ class Hero
   
   boolean created;
   
+  boolean defending;
+  
   public Hero()
   {
     this("Unknown", Job.NONE, color(50), color(200) );
@@ -38,6 +40,7 @@ class Hero
     created = true;
     assignBaseStats();
     alive = true;
+    defending = false;
     
     //for testing
     weapon = new Equipment("Club",1,true,1);
@@ -126,7 +129,7 @@ class Hero
   public void takeDamage( int damage )
   {
     hp -= (max(damage-armor.power,1));
-    pushTextLine( name + " takes " + damage + " damage.");
+    displayTextLine( name + " takes " + damage + " damage.");
     if(hp <= 0)
     {
       hp = 0;
@@ -140,6 +143,7 @@ class Hero
     if(alive)
     {
       hp += amount;
+      displayTextLine(name + " is healed for " + amount + ".");
       if(hp > maxHp)
         hp = maxHp;
     }
@@ -148,6 +152,30 @@ class Hero
       alive = true;
       hp = level;
     }
+  }
+  
+  public void heal( int amount, boolean vapor ) //for all-group heal
+  {
+    if(alive)
+    {
+      hp += amount;
+      //pushTextLine(name + " is healed for " + amount + ".");
+      if(hp > maxHp)
+        hp = maxHp;
+    }
+    else
+    {
+      alive = true;
+      hp = level;
+    }
+  }
+  
+  public void healMana( int amount )
+  {
+    mp += amount;
+    displayTextLine(name + " recovers " + amount + " mana.");
+    if(mp > maxMp)
+      mp = maxMp;
   }
   
   public boolean inDanger()

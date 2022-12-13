@@ -1,6 +1,10 @@
 //Basic Dungeon Crawl Game
 //Bennett Ritchie
 
+/*TO FIX:
+  Single-line message signs force player to search
+*/
+
 import processing.sound.*;
 
 Map [] m = new Map[3];
@@ -38,6 +42,9 @@ Party party = new Party( new Hero(false), new Hero(false), new Hero(false));
 //UI data
 Artist vanGogh = new Artist();
 
+//Image data
+PImage tileImage[] = new PImage[48];
+
 //Sound data - still testing
 public SoundFile beep1,beep2,beep3;
 public SoundFile openDoorSound, openChestSound, lockedDoorSound, potionDrinkSound, foodBiteSound;
@@ -65,6 +72,7 @@ Battle battle;
 Beastiary zoo;// = new Beastiary();
 int randomBattleCounter = 0;
 Monster battleMonsters[];// = new Monster[3];
+int potionType = 0; //potion being drunk
 
 PrintWriter saveOutput;
 
@@ -73,6 +81,36 @@ void setup()
   size(700,700);
   
   zoo = new Beastiary();
+  
+  //Setting up image files
+  tileImage[0] = loadImage("wall.png"); tileImage[0].resize(30,0);
+  tileImage[1] = loadImage("tree.png"); tileImage[1].resize(40,40);
+  tileImage[2] = loadImage("darkTree.png"); tileImage[2].resize(40,40);
+  tileImage[3] = loadImage("flower.png"); tileImage[3].resize(30,0);
+  for(int i = 1; i <= 16; i++)
+  {  tileImage[3+i] = loadImage("water"+i+".png"); tileImage[3+i].resize(30,0);}
+  for(int i = 1; i <= 8; i++)
+  {  tileImage[19+i] = loadImage("save"+i+".png"); tileImage[19+i].resize(40,0);}
+  tileImage[28] = loadImage("barrel.png"); tileImage[28].resize(30,0);
+  tileImage[29] = loadImage("barrelEmpty.png"); tileImage[29].resize(30,0);
+  tileImage[30] = loadImage("chest.png"); tileImage[30].resize(30,0);
+  tileImage[31] = loadImage("chestBone.png"); tileImage[31].resize(30,0);
+  tileImage[32] = loadImage("chestDark.png"); tileImage[32].resize(30,0);
+  tileImage[33] = loadImage("chestGold.png"); tileImage[33].resize(30,0);
+  tileImage[34] = loadImage("chestSilver.png"); tileImage[34].resize(30,0);
+  tileImage[35] = loadImage("chestSnow.png"); tileImage[35].resize(30,0);
+  tileImage[36] = loadImage("sign.png"); tileImage[36].resize(30,0);
+  tileImage[37] = loadImage("signUsed.png"); tileImage[37].resize(30,0);
+  tileImage[38] = loadImage("door.png"); tileImage[38].resize(30,0);
+  tileImage[39] = loadImage("doorDouble.png"); tileImage[39].resize(30,0);
+  tileImage[40] = loadImage("portcullis.png"); tileImage[40].resize(30,0);
+  tileImage[41] = loadImage("gateCemetery.png"); tileImage[41].resize(30,0);
+  tileImage[42] = loadImage("grave.png"); tileImage[42].resize(30,0);
+  tileImage[43] = loadImage("stainedGlass.png"); tileImage[43].resize(30,0);
+  tileImage[44] = loadImage("treeDead.png"); tileImage[44].resize(45,40);
+  tileImage[45] = loadImage("wallDark.png"); tileImage[45].resize(30,0);
+  tileImage[46] = loadImage("wallSand.png"); tileImage[46].resize(30,0);
+  tileImage[47] = loadImage("treePath.png"); tileImage[47].resize(40,40);
   
   beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
   beep2 = new SoundFile(this, "Beep2.mp3"); //Short low
@@ -103,22 +141,26 @@ void setup()
   party.inventory[8] = new Item( "Elixer", 48 );
   
   party.setPosition(2,1);
+  
+  //Key:  D-dark tree    T-tree    t-secret tree    #-wall    =-chest    ?-sign    *-save crystal
+  //      +-locked door  .-safe path  w-water       g-grave   &-stained glass
+  //      c-copper key   i-iron key
 
   //String testMapString = "#####################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  #####################################################################################################";
   String testMapString = "";
   testMapString += "D########T~~tt~~t~~~~T~~~~~~~~~~~~~~~~~~~~~~~TTTTT#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  testMapString += "##.?.?.?############~~~%%%%%%%%%~~~~~~~~###~~~TTTT#                                                ~";
-  testMapString += "#.....?*.#.....=.==#~~~%%%www%%%~~~~T~~~#=#~~~~TTT#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+  testMapString += "##.?.?.?############~~~%%%%%%%%%~~~~~~~~###~~~TTTT#######                                          ~";
+  testMapString += "#.....?*.#.....=.==#~~~%%%www%%%~~~~T~~~#=#~~~~TTT#&&&&&#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
   testMapString += "#?.......###.#######~~~%%%%%%%%%~~~~~~~~#+#~~T~~TT############~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  testMapString += "#..........?......c+......~?~............c......i+        s+=                                      ~";
+  testMapString += "#..........?......c+......~?~............c.......i+       s+=                                      ~";
   testMapString += "#=.?.=..........?.?#~~~~~.....~~~~~~~~~~%.%~T~~~TT############~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  testMapString += "####################%~~~~~~~~~~~~%~~~~T~%.%~~~~~TT#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  testMapString += "~TTTTTTTTTTTT~~~~~~%~~~~~~~~~~~~~~~~~~~~%.%~~~~TTT#                                                ~";
-  testMapString += "~TTtttttt~ttt~~~~~%~~%~%%www~~~~~~~~%~~~%*%~T~TTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+  testMapString += "####################%~~~~~~~~~~~g%~~~~T~%.%~~~~~TT#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
+  testMapString += "~TTTTTTTTTTTT~~~~~~%~~~~~~~~~~g~~~~~~~~~%.%~~~~TTT#                                                ~";
+  testMapString += "~TTtttttttttt~~~~~%~~%~%%www~~~~~g~~%~~~%*%~T~TTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
   testMapString += "#TTtTTTTTTTTTT~~~~~%~~~~~wDw~~~%~~~~~~T~%%%~~TTT~T~TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  testMapString += "#TTtt~ttttTTTTT~~~~~%~~~%www~~~~~~~~~~~~~~~~TTT~T~TTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
+  testMapString += "#TTtttttttTTTTT~~~~~%~~~%www~~~~~~~~~~~~~~~~TTT~T~TTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
   testMapString += "~TTTTTTTTtTTTTTTTTTTTTTTTTwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  testMapString += "~TTTTT=~ttTTTTTTTTTTTTTTTTwwTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+  testMapString += "~TTTTT=tttTTTTTTTTTTTTTTTTwwTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
   testMapString += "#TTTTTTTTTTTTTTTTTTTTTTTTTTwTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
   testMapString += "~TTTTTTTTTTTTTTTTTTTTTTTTTTwwwwTTTTTTTTTTTTTTTTTTTTTTTT                                            ~";
   testMapString += "~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTwTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
@@ -487,6 +529,12 @@ void draw()
     //if(battle.turn == 0 || battle.turn == 1 || battle.turn == 2)
     //  vanGogh.drawBattleIcons(battle.turn);
     
+    //if(input == Input.BATTLE_ITEM)
+    //{
+    //  println("ENTERED ITEM MODE");
+    //  vanGogh.drawBattleItems( battle.turn, party.inventory );
+    //}
+    
     int partWhereBattleLoopHappens; //I NEED TO FIX THE TEXT PUSH
   }
   
@@ -505,6 +553,8 @@ void draw()
   
   //Advance any animations
   vanGogh.animate();
+  
+  //println(input);
 }
 
 void drawConditions()
@@ -579,6 +629,12 @@ void advanceNextTextLine() //pops the queue (do you pop queues? I don't recall)
   advanceText(log.message());
   if( log.isEmpty() ) //<>//
     input = previous;
+}
+
+void displayTextLine( String s )
+{
+  pushTextLine( s );
+  key = ' '; keyPressed();
 }
 
 void pushTextLine( String s ) //Add a line to the queue
@@ -918,12 +974,13 @@ void keyPressed()
   //BATTLE OPTIONS
   else if(display == Display.BATTLE)
   {
-    if(input == Input.BATTLE_MENU)
+    if(input == Input.BATTLE_MENU && battle.turn >=0 && battle.turn < 3) //Top menu - (A)ttack, (D)efend, (S)kill/(S)pell, (X)-item
     {
       if(key == 'a')
       {
         int randomTarget = int(random(3)); //FOR TESTING
         pushTextLine( party.hero[battle.turn].name + " attacks!");
+        key = ' '; keyPressed(); //Force text to advance
         battle.waitingForText=true;
         delay(500);
         pushTextLine( battleMonsters[randomTarget].name + " is dealt " + party.hero[battle.turn].str + " damage.");
@@ -932,8 +989,80 @@ void keyPressed()
         delay(300);
         battle.resumeInitiative();
       }
+      if( key == 'd')
+      {
+        pushTextLine( party.hero[battle.turn].name + " defends!");
+        key = ' '; keyPressed(); //Force text to advance
+        party.hero[battle.turn].defending = true;
+        battle.setBattleDelay(1);
+        battle.resumeInitiative();
+      }
+      if( key == 's')
+      {
+        input = Input.BATTLE_SKILL;
+      }
+      if( key == 'x')
+      {
+        displayTextLine( "Selcet a potion to drink.");
+        input = Input.BATTLE_ITEM;
+      }
+    }
+    else if(input == Input.BATTLE_SKILL)
+    {
+      if( key == 'x' || key == ' ' )
+      {
+        input = Input.BATTLE_MENU;
+      }
+    }
+    else if(input == Input.BATTLE_ITEM)
+    {
+      if( key == 'a' ) key = '1';
+      if( key == 's' ) key = '2';
+      if( key == 'd' ) key = '3';
+      if( key == 'f' ) key = '4';
+      if( ( key == '1' || key == '2' || key == '3' || key == '4' ) && party.hasPotion(key-48) ) //used health potion and has at least one of that potion
+      {
+        if( key == '3' )
+        {
+          potionDrinkSound.play();
+          if( party.consume(36,0) )
+          {
+            input = Input.BATTLE_MENU;
+            battle.setBattleDelay(1);
+            battle.resumeInitiative();
+            displayTextLine("The vapors heal the party.");
+          }
+        }
+        else
+        {
+          input = Input.BATTLE_ITEM_HERO_CHOICE;
+          potionType = key-48;
+          //println("Potion Type: " + potionType);
+        }
+      }
+      if( key == 'x' || key == ' ' )
+      {
+        input = Input.BATTLE_MENU;
+      }
+    }
+    else if(input == Input.BATTLE_ITEM_HERO_CHOICE) //choosing target hero for item
+    {
+      if( key == ' ' )
+        input = Input.BATTLE_ITEM;
+      if( key == 'a' ) key = '1'; if( key == 's' ) key = '2'; if( key == 'd' ) key = '3';
+      if( key == '1' || key == '2' || key == '3' )
+      {
+        potionDrinkSound.play();
+        if( party.consume(potionType*12,key-49) ) //-49 to account for array index offset
+        {
+          input = Input.BATTLE_MENU;
+          battle.setBattleDelay(1);
+          battle.resumeInitiative();
+        }
+      }
     }
   }
+  //else if(display == Display.BATTLE_ITEM)
   
   //REASONS FOR SELECTING A HERO
   else if(display == Display.HERO_SELECT && input == Input.HERO_SELECT)
@@ -982,7 +1111,7 @@ void keyPressed()
       textBuffer += key;
     }
   }
-  if(input == Input.ADVANCE_TEXT)
+  if(input == Input.ADVANCE_TEXT) //waiting for player to hit space
   {
     if( key == ' ' )
       advanceNextTextLine();
@@ -1107,7 +1236,8 @@ void mouseReleased()
 public enum Input
 {
   NONE, ADVANCE_TEXT, TYPING, EXPLORING, ITEM_USE,
-  HERO_SELECT, BATTLE_MENU, BATTLE_SKILL, BATTLE_ITEM,
+  HERO_SELECT,
+  BATTLE_MENU, BATTLE_SKILL, BATTLE_ITEM, BATTLE_ITEM_HERO_CHOICE,
   HERO_JOB_CHOICE, HERO_COLOR_CHOICE
 }
 

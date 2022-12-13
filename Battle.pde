@@ -42,7 +42,11 @@ class Battle
           turn = initiativeTicker;
           println("TURN: " + list[turn].name);
           if(turn<3) //Set input to allow battle commands
+          {
+            displayTextLine( party.hero[turn].name + "'s turn. What will you do?" );
             input = Input.BATTLE_MENU;
+            party.hero[turn].defending = false;
+          }
         }
         else
           initiativeTicker++;
@@ -53,7 +57,10 @@ class Battle
         
       if( turn >= 3 ) //Monster's turn
       {
-        battleMonsters[turn-3].makeAttack();
+        if(!waitingForText)
+          battleMonsters[turn-3].makeAttack();
+        else
+          battleMonsters[turn-3].resolveAttack();
       }
       
       //if( turn < 3 && turn > -1) //Hero turn

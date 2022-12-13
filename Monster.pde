@@ -10,6 +10,8 @@ class Monster
    
   boolean poisoned, weakened, paralyzed, asleep, cursed;
   
+  int target; //target of attack in battle
+  
 
   public Monster()
   {
@@ -39,13 +41,19 @@ class Monster
   
   public void makeAttack()
   {
-    int target = int(random(3)); //shouldn't get here if party is dead
+    
+    target = int(random(3)); //shouldn't get here if party is dead
+    
     while( !party.hero[target].alive )
       target = int(random(3));
     
-    pushTextLine( name + " attacks " + party.hero[target].name + "!");
+    displayTextLine( name + " attacks " + party.hero[target].name + "!");
     battle.waitingForText = true;
     battle.setBattleDelay(1);
+  }
+  
+  public void resolveAttack()
+  {
     battle.waitingForText = false;
     party.hero[target].takeDamage(str);
     battle.setBattleDelay(1);

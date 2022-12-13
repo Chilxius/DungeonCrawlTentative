@@ -108,11 +108,32 @@ class Party
         if( i.value%10==0) //food
         {
           hero[heroChoice].heal(type);
-          advanceText(hero[heroChoice].name + " is healed for " + type + ".");
         }
-        else //potions
+        else if( i.value%12==0) //potion
         {
-          //to be finished
+          int amount = 0;
+          if( type == 12 ) //health potion heals 50% of max hp
+          {
+            amount = hero[heroChoice].maxHp/2;
+            hero[heroChoice].heal(amount);
+          }
+          else if( type == 24 ) //mana potion recovers 40% of max mp and 10% hp
+          {
+            amount = int(hero[heroChoice].maxMp*0.4);
+            hero[heroChoice].heal(hero[heroChoice].maxHp/10);
+            hero[heroChoice].healMana(amount);
+          }
+          else if( type == 36 ) //vapor potion recovers 40% hp for each hero
+          {
+            hero[0].heal(int(hero[0].maxHp*0.4),true);
+            hero[1].heal(int(hero[1].maxHp*0.4),true);
+            hero[2].heal(int(hero[2].maxHp*0.4),true);
+          }
+          else if( type == 48 )
+          {
+            hero[heroChoice].heal(hero[heroChoice].maxHp);
+            hero[heroChoice].healMana(hero[heroChoice].maxMp);
+          }
         }
         i.value=0;
         return true;

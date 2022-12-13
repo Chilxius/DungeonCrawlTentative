@@ -4,15 +4,20 @@
 
 class Artist
 {
-  int animationStage;
-  int animationStep;
+  float animationStage;
+  float animationStep;
   color rand1, rand2, rand3, rand4;
   boolean battleWindowOpening = false;
+  
+  float savePointFloat;
+  float savePointStep;
   
   public Artist()
   {
     animationStage = 0;
-    animationStep = 1;
+    animationStep = 0.3;
+    savePointFloat = 0;
+    savePointStep = .05;
     rand1 = color(random(255),random(255),random(255));
     rand2 = color(random(255),random(255),random(255));
     rand3 = color(random(255),random(255),random(255));
@@ -22,11 +27,14 @@ class Artist
   public void animate()
   {
     animationStage+=animationStep;
-    if(animationStage < 0 || animationStage>50)
-      animationStep*=-1;
+    if(animationStage < 0 || animationStage>159)
+      animationStage = 0;
+    savePointFloat += savePointStep;
+    if(savePointFloat <= 0 || savePointFloat > 5)
+      savePointStep *=-1;
   }
   
-  public int stage()
+  public float stage()
   {
     return animationStage;
   }
@@ -182,10 +190,10 @@ class Artist
     fill(200); textAlign(CENTER); textSize(40);
     text("Select Potion",width/2,150);
     
-    drawPotion(150,200,rand1);
-    drawPotion(150,400,rand2);
-    drawPotion(530,200,rand3);
-    drawPotion(530,400,rand4);
+    drawPotion(150,200,1,rand1);
+    drawPotion(150,400,1,rand2);
+    drawPotion(530,200,1,rand3);
+    drawPotion(530,400,1,rand4);
         
     for( Item i : items )
       if( i.value == 12 )
@@ -210,6 +218,56 @@ class Artist
     fill(200); textAlign(CENTER); textSize(25);
     text("Select by number or",width/2,560);
     text("press space to cancel.",width/2,580);
+  }
+  
+  public void drawHeroSkills( int h )
+  {
+    float baseX;
+    //Set offset based on hero
+    if(h == 0) baseX = width/5;else if(h == 1) baseX = width/2;else baseX = width*0.8;
+
+    rectMode(CENTER); strokeWeight(5);
+    stroke(200); fill(0);
+    rect(140,280,70,70,20);
+    rect(280,280,70,70,20);
+    if(party.hero[h].level>5)  rect(420,280,70,70,20);
+    if(party.hero[h].level>10) rect(560,280,70,70,20);
+    if(party.hero[h].level>15) rect(140,430,70,70,20);
+    if(party.hero[h].level>20) rect(280,430,70,70,20);
+    if(party.hero[h].level>25) rect(420,430,70,70,20);
+    if(party.hero[h].level>30) rect(560,430,70,70,20);
+    
+    rect(baseX+75,545,70,70,20);drawCancelIcon(baseX+75,545);
+  }
+  
+  public void drawBattleItems( int h, Item [] items )
+  {
+    int healthPots=0,manaPots=0,vapors=0,elixirs=0;
+    float baseX;
+    
+    //Get number of potion types
+    for( Item i : items )if( i.value == 12 )healthPots++;else if( i.value == 24 )manaPots++;else if( i.value == 36 )vapors++;else if( i.value == 48 )elixirs++;
+    
+    //Set offset based on hero
+    if(h == 0) baseX = width/5;else if(h == 1) baseX = width/2;else baseX = width*0.8;
+    
+    rectMode(CENTER); strokeWeight(5);
+    stroke(200); fill(0);
+    rect(140,380,70,70,20);rect(280,380,70,70,20);
+    rect(420,380,70,70,20);rect(560,380,70,70,20);
+    rect(baseX+75,545,70,70,20);
+    
+    textAlign(CENTER); textSize(10); fill(200);
+    text("Health: "+healthPots,140,410);
+    text("Mana: "  +manaPots,280,410);
+    text("Vapor: " +vapors,420,410);
+    text("Elixir: "+elixirs,560,410);
+    
+    drawCancelIcon(baseX+75,545);
+    if(healthPots>0)drawPotion( 135,350,.5,#00FF0A);
+    if(manaPots>0)  drawPotion( 275,350,.5,#0063FF);
+    if(vapors>0)    drawPotion( 415,350,.5,#FF6FF1);
+    if(elixirs>0)   drawPotion( 555,350,.5,#FFD500);
   }
   
   public void drawHeroData( int h )
@@ -326,15 +384,15 @@ class Artist
     }
   }
   
-  public void drawPotion( int xPos, int yPos, color c )
+  public void drawPotion( int xPos, int yPos, float scale, color c )
   {          //draws from the top left corner of neck
-    fill(c);
+    fill(c); stroke(200); strokeWeight(5*scale);
     beginShape();    //x-150, y-300
     vertex(xPos,yPos);
-    vertex(xPos,yPos+50);
-    bezierVertex(xPos-50,yPos+70,xPos-30,yPos+100,xPos+10,yPos+100);
-    bezierVertex(xPos+50,yPos+100,xPos+70,yPos+70,xPos+20,yPos+50);
-    vertex(xPos+20,yPos);
+    vertex(xPos,yPos+50*scale);
+    bezierVertex(xPos-50*scale,yPos+70*scale,xPos-30*scale,yPos+100*scale,xPos+10*scale,yPos+100*scale);
+    bezierVertex(xPos+50*scale,yPos+100*scale,xPos+70*scale,yPos+70*scale,xPos+20*scale,yPos+50*scale);
+    vertex(xPos+20*scale,yPos);
     endShape();
   }
   
@@ -373,18 +431,25 @@ class Artist
     switch(o)
     {
       case CHEST:
+        /*
         fill(90,70,30);
         rect(xPos+13,yPos+13,15,15,3);
         fill(255,225,0);
         rect(xPos+13,yPos+17,15,2);
         rect(xPos+18,yPos+17,4,4);
+        */
+        image(tileImage[30],xPos,yPos);
         break;
       case SIGN:
+        /*
         fill(90,70,30);
         rect(xPos+5,yPos+5,20,15);
         rect(xPos+14,yPos+5,2,20);
+        */
+        image(tileImage[36],xPos,yPos);
         break;
       case SAVEPOINT:
+        /*
         fill(animationStage*2.5,animationStage*2.5,255);
         beginShape();
         vertex(xPos+15,yPos+5);
@@ -393,6 +458,11 @@ class Artist
         vertex(xPos+7,yPos+15);
         vertex(xPos+15,yPos+5);
         endShape();
+        */
+        if(animationStage<8)
+          image(tileImage[int(20+animationStage)],xPos-5,yPos-5-savePointFloat);
+        else
+          image(tileImage[20],xPos-5,yPos-5-savePointFloat);
         break;
     }
   }
@@ -563,11 +633,21 @@ class Artist
       rectMode(CORNER);
       rect(3,159,width-7,height-266,20);
       
-      drawHeroesInBattle();
-      if(!battle.waitingForText && 
-          battle.turn==0||battle.turn==1||battle.turn==2)
-        drawBattleIcons(battle.turn);
       drawMonsters();
+      drawHeroesInBattle();
+        
+      if(!battle.waitingForText)
+      {
+        if(input == Input.BATTLE_ITEM)
+          drawBattleItems(battle.turn,party.inventory);
+        else if(input == Input.BATTLE_SKILL)
+          drawHeroSkills(battle.turn);
+        else if(input == Input.BATTLE_ITEM_HERO_CHOICE) //choosing who to use item on
+          drawHeroSelectScreen();
+        else if(battle.turn==0||battle.turn==1||battle.turn==2)
+          drawBattleIcons(battle.turn);
+      }
+        //drawBattleItems(0,party.inventory); //for testing
     }
   }
   
@@ -787,6 +867,19 @@ class Artist
     rect(x,y-15,20,5);
     
     fill(c); textSize(10);
+    text("X",x+27,y+27);
+  }
+  
+  void drawCancelIcon( float x, float y )
+  {
+    stroke(127); strokeWeight(10);
+    line(x-20,y-20,x+20,y+20);
+    line(x-20,y+20,x+20,y-20);
+    stroke(200,0,0); strokeWeight(7);
+    line(x-19,y-19,x+19,y+19);
+    line(x-19,y+19,x+19,y-19);
+    
+    fill(200); textSize(10);
     text("X",x+27,y+27);
   }
   
