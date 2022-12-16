@@ -660,26 +660,22 @@ class Artist
   void drawAttackTargetArrows( int h )
   {
     noStroke(); textAlign(CENTER);
-    fill( party.hero[h].inverseColor );
+    fill( party.hero[h].inverseColor );  //Arrow Outline
     triangle(140,378, 115,400, 165,400);
     triangle(350,378, 325,400, 375,400);
     triangle(560,378, 535,400, 585,400);
-    fill( party.hero[h].favColor );
+    fill( party.hero[h].favColor );      //Arrow Main
     triangle(140,380, 115,400, 165,400);
     triangle(350,380, 325,400, 375,400);
     triangle(560,380, 535,400, 585,400);
-    fill(0);
+    fill(0);                             //Arrow's cut-out
     triangle(140,390, 115,400, 165,400);
     triangle(350,390, 325,400, 375,400);
     triangle(560,390, 535,400, 585,400);
-    fill( party.hero[h].favColor );textSize(24);
-    text("A",140,420);
-    text("S",350,420);
-    text("D",560,420);
-    fill( party.hero[h].inverseColor );textSize(25);
-    text("A",140,420);
-    text("S",350,420);
-    text("D",560,420);
+    fill( party.hero[h].favColor );textSize(24); //Letter Backing
+    text("A",140,420); text("S",350,420); text("D",560,420);
+    fill( party.hero[h].inverseColor );textSize(25); //Letter
+    text("A",140,420); text("S",350,420); text("D",560,420);
   }
   
   void drawBattleIcons( int h )
