@@ -58,7 +58,7 @@ class Logbook
     }
     if( i % 45 != 0 ) //if we didn't just add...
     {
-      while( textToAdd.charAt(0) == ' ' ) //shave off leading spaces //<>//
+      while( textToAdd.charAt(0) == ' ' ) //shave off leading spaces
         textToAdd = textToAdd.substring(1);
       messages.add(textToAdd); //add what's left over in the buffer
     }

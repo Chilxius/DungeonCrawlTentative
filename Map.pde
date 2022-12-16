@@ -51,10 +51,11 @@ class Map
   
   void drawPartyPosition(color a,color b,color c)
   {
+    //fullscreen testing
     noStroke();
-    fill(a); ellipse(width/2,370,10,10);
-    fill(b); ellipse(width/2-7,380,10,10);
-    fill(c); ellipse(width/2+7,380,10,10);
+    fill(a); ellipse(350,370,10,10);
+    fill(b); ellipse(350-7,380,10,10);
+    fill(c); ellipse(350+7,380,10,10);
     
     //For Testing
     textSize(10);

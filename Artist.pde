@@ -6,11 +6,15 @@ class Artist
 {
   float animationStage;
   float animationStep;
+  
   color rand1, rand2, rand3, rand4;
   boolean battleWindowOpening = false;
   
   float savePointFloat;
   float savePointStep;
+  
+  float textPromptStep;
+  float textPromptStage;
   
   public Artist()
   {
@@ -18,6 +22,8 @@ class Artist
     animationStep = 0.3;
     savePointFloat = 0;
     savePointStep = .05;
+    textPromptStage = 0;
+    textPromptStep = 1;
     rand1 = color(random(255),random(255),random(255));
     rand2 = color(random(255),random(255),random(255));
     rand3 = color(random(255),random(255),random(255));
@@ -32,6 +38,9 @@ class Artist
     savePointFloat += savePointStep;
     if(savePointFloat <= 0 || savePointFloat > 5)
       savePointStep *=-1;
+    textPromptStage+=textPromptStep;
+    if(textPromptStage <=0 || textPromptStage > 50)
+      textPromptStep*=-1;
   }
   
   public float stage()
@@ -222,10 +231,8 @@ class Artist
   
   public void drawHeroSkills( int h )
   {
-    float baseX;
-    //Set offset based on hero
-    if(h == 0) baseX = width/5;else if(h == 1) baseX = width/2;else baseX = width*0.8;
-
+    float baseX = party.heroX(h);
+    
     rectMode(CENTER); strokeWeight(5);
     stroke(200); fill(0);
     rect(140,280,70,70,20);
@@ -243,13 +250,10 @@ class Artist
   public void drawBattleItems( int h, Item [] items )
   {
     int healthPots=0,manaPots=0,vapors=0,elixirs=0;
-    float baseX;
+    float baseX = party.heroX(h);
     
     //Get number of potion types
     for( Item i : items )if( i.value == 12 )healthPots++;else if( i.value == 24 )manaPots++;else if( i.value == 36 )vapors++;else if( i.value == 48 )elixirs++;
-    
-    //Set offset based on hero
-    if(h == 0) baseX = width/5;else if(h == 1) baseX = width/2;else baseX = width*0.8;
     
     rectMode(CENTER); strokeWeight(5);
     stroke(200); fill(0);
@@ -469,9 +473,11 @@ class Artist
   
   public void drawAdvanceTextPrompt()
   {
-    fill(100+animationStage*2);  //prompt will flash
+    noStroke(); fill(50+textPromptStage*2);  //prompt will flash
     textSize(10); textAlign(RIGHT);
-    text("push SPACE to continue",width-15,height-6-animationStage/9); //prompt will move to get player's attention
+    text("push SPACE to continue",width-15,height-6-textPromptStage/8); //prompt will move to get player's attention
+    //triangle(width-130-textPromptStage/8,height-9,  width-140-textPromptStage/8,height-12, width-140-textPromptStage/8,height-6);
+    triangle(width-75,height-115+textPromptStage/8, width-45,height-130+textPromptStage/8, width-105,height-130+textPromptStage/8);
   }
   
   public void drawColorBars( float r, float g, float b )
@@ -651,15 +657,37 @@ class Artist
     }
   }
   
+  void drawAttackTargetArrows( int h )
+  {
+    noStroke(); textAlign(CENTER);
+    fill( party.hero[h].inverseColor );
+    triangle(140,378, 115,400, 165,400);
+    triangle(350,378, 325,400, 375,400);
+    triangle(560,378, 535,400, 585,400);
+    fill( party.hero[h].favColor );
+    triangle(140,380, 115,400, 165,400);
+    triangle(350,380, 325,400, 375,400);
+    triangle(560,380, 535,400, 585,400);
+    fill(0);
+    triangle(140,390, 115,400, 165,400);
+    triangle(350,390, 325,400, 375,400);
+    triangle(560,390, 535,400, 585,400);
+    fill( party.hero[h].favColor );textSize(24);
+    text("A",140,420);
+    text("S",350,420);
+    text("D",560,420);
+    fill( party.hero[h].inverseColor );textSize(25);
+    text("A",140,420);
+    text("S",350,420);
+    text("D",560,420);
+  }
+  
   void drawBattleIcons( int h )
   {
-    float baseX;
-    if(h == 0)
-      baseX = width/5;
-    else if(h == 1)
-      baseX = width/2;
-    else
-      baseX = width*0.8;
+    float baseX = party.heroX(h);
+    
+    //testing
+    drawAttackTargetArrows( h );
 
     rectMode(CENTER); strokeWeight(5);
     stroke(200); fill(0);

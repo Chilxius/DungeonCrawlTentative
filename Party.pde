@@ -84,6 +84,19 @@ class Party
         }
   }
   
+  public float heroX( int h )
+  {
+    if( h ==0 )
+      return width/5;
+    if( h == 1 )
+      return width/2;
+    if( h == 2 )
+    return width * 0.8;
+
+    println("ERROR IN HERO X METHOD");
+    return 0;
+  }
+  
   public boolean hasFood()
   {
     for( Item i : inventory )

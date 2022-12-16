@@ -1,10 +1,6 @@
 //Basic Dungeon Crawl Game
 //Bennett Ritchie
 
-/*TO FIX:
-  Single-line message signs force player to search
-*/
-
 import processing.sound.*;
 
 Map [] m = new Map[3];
@@ -28,7 +24,6 @@ String textLine2 = " ";
 String textBuffer = ""; //For when something is being typed in (character limit 10).
 
 //Hero Data
-//Hero [] hero = {new Hero(false),new Hero(false),new Hero(false)};
 int currentHero = 0; //0,1,2
 String tempName;
 Job tempJob = Job.NONE;
@@ -78,6 +73,7 @@ PrintWriter saveOutput;
 
 void setup()
 {
+  //fullScreen();
   size(700,700);
   
   zoo = new Beastiary();
@@ -144,7 +140,7 @@ void setup()
   
   //Key:  D-dark tree    T-tree    t-secret tree    #-wall    =-chest    ?-sign    *-save crystal
   //      +-locked door  .-safe path  w-water       g-grave   &-stained glass
-  //      c-copper key   i-iron key
+  //      c-copper key   i-iron key   s-skeleton key
 
   //String testMapString = "#####################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  #####################################################################################################";
   String testMapString = "";
@@ -256,13 +252,13 @@ void setup()
   m[0].tiles[22][0].placeOccupant( color(120,120,250), "- Where did my sister go?");
   
   m[0].tiles[11][4].createEvent(true,"- Walk into people to talk to them.");
-  m[0].tiles[1][3].createEvent(true,"- Press (space) to search your current square. You can open chests this way, and also find items dropped by clumsy monsters.");
-  m[0].tiles[3][1].createEvent(true,"- Press (i) to view your inventory. You can hold up to thirty items. While viewing, press (s) to sort.");
-  m[0].tiles[5][1].createEvent(true,"- Press (E) to eat something. There are only four kinds of food on the planet.");
-  m[0].tiles[7][1].createEvent(true,"- Press (D) to use magic potions. These are better than food items, but more expensive. We blame prohibition.");
-  m[0].tiles[3][5].createEvent(true,"- This sign paid for by a generous donation from the sign foundation. And viewers like you.");
-  m[0].tiles[6][2].createEvent(true,"- This is a save crystal. Step on it and type capital (S) to activate it. Press (ENTER) to confirm or any other key to abort.");
-  m[0].tiles[18][5].createEvent(true,"- Press (k) to view your Keys. This door requires a Copper Key");
+  m[0].tiles[1][3].createEvent(true, "- Press (space) to search your current square. You can open chests this way, and also find items dropped by clumsy monsters.");
+  m[0].tiles[3][1].createEvent(true, "- Hold (i) to view your inventory. You can hold up to thirty items. While viewing, press (s) to sort.");
+  m[0].tiles[5][1].createEvent(true, "- Press capital (E) to eat something. There are only four kinds of food on the planet.");
+  m[0].tiles[7][1].createEvent(true, "- Press capital (D) to drink magic potions. These are better than food items, but more expensive. We blame prohibition.");
+  m[0].tiles[3][5].createEvent(true, "- This sign paid for by a generous donation from the sign foundation. And viewers like you.");
+  m[0].tiles[6][2].createEvent(true, "- This is a save crystal. Step on it and type capital (S) to activate it. Press (ENTER) to confirm or any other key to abort.");
+  m[0].tiles[18][5].createEvent(true,"- Hold (k) to view your Keys. This door requires a Copper Key");
   m[0].tiles[16][5].createEvent(true,"- Press (o) to attempt to open a door. If you have the right key, it will be used up.");
   m[0].tiles[27][4].createEvent(true,"- Please do not step on the flowers.");
   //m.tiles[6][1].createEvent(false,"Event C","Three lines of text","Only happens once");
@@ -378,108 +374,6 @@ void setup()
   testDangerMap += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
   testDangerMap += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
   dm = new DangerMap(testDangerMap);
-  
-  String tempMapString = "";
-  tempMapString += "D########T~~tt~~t~~~~T~~~~~~~~~~~~~~~~~~~~~~~TTTTT#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "##.?.?.?############~~~%%%%%%%%%~~~~~~~~###~~~TTTT#                                                ~";
-  tempMapString += "#.....?*.#.....=.==#~~~%%%www%%%~~~~T~~~#=#~~~~TTT#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#?.......###.#######~~~%%%%%%%%%~~~~~~~~#+#~~T~~TT############~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "#..........?......c+......~?~............c......i+        s+=                                      ~";
-  tempMapString += "#=.?.=..........?.?#~~~~~.....~~~~~~~~~~%.%~T~~~TT############~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "####################%~~~~~~~~~~~~%~~~~T~%.%~~~~~TT#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~TTTTTTTTTTTT~~~~~~%~~~~~~~~~~~~~~~~~~~~%.%~~~~TTT#                                                ~";
-  tempMapString += "~TTtttttt~ttt~~~~~%~~%~%%www~~~~~~~~%~~~%*%~T~TTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#TTtTTTTTTTTTT~~~~~%~~~~~wDw~~~%~~~~~~T~%%%~~TTT~T~TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "#TTtt~ttttTTTTT~~~~~%~~~%www~~~~~~~~~~~~~~~~TTT~T~TTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~TTTTTTTTtTTTTTTTTTTTTTTTTwTTTTTTTTTTTTTTTTTTTTTTTTTTTT                                            ~";
-  tempMapString += "~TTTTT=~ttTTTTTTTTTTTTTTTTwwTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#TTTTTTTTTTTTTTTTTTTTTTTTTTwTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~TTTTTTTTTTTTTTTTTTTTTTTTTTwwwwTTTTTTTTTTTTTTTTTTTTTTTT                                            ~";
-  tempMapString += "~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTwTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#TTTTTTTTTTTTTTTTTTTTTTTTTTTTwwwTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                 wwwww                 T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~wwwww~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~wwwww~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~         ~                                       T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~                                                 T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~                                                 T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~                                                 T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~                                                 T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~                                                 T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~                                                 T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~                                                 T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  tempMapString += "~                                                 T                                                ~";
-  tempMapString += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  tempMapString += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
 
   for(int i = 0; i < savePoints.length; i++)
     savePoints[i]=new SavePoint();
@@ -535,7 +429,7 @@ void draw()
     //  vanGogh.drawBattleItems( battle.turn, party.inventory );
     //}
     
-    int partWhereBattleLoopHappens; //I NEED TO FIX THE TEXT PUSH
+    int partWhereBattleLoopHappens;
   }
   
   if(heroDataDisplayed[0]||heroDataDisplayed[1]||heroDataDisplayed[2])
@@ -627,22 +521,23 @@ void advanceText( String s ) //usually for specific edge cases. most text should
 void advanceNextTextLine() //pops the queue (do you pop queues? I don't recall)
 {
   advanceText(log.message());
-  if( log.isEmpty() ) //<>//
+  if( log.isEmpty() )
     input = previous;
 }
 
 void displayTextLine( String s )
 {
   pushTextLine( s );
-  key = ' '; keyPressed();
+  //key = ' ';
+  keyPressed();
 }
 
 void pushTextLine( String s ) //Add a line to the queue
 {
   previous = input;
   input = Input.ADVANCE_TEXT; //forces text advance prompt for more than two lines 
-  key = ' ';
   log.addMessage(s);
+  key = ' ';
 }
 
 void createInventories()
@@ -856,6 +751,13 @@ void triggerBattle( char danger )
   }
 }
 
+boolean mouseInBox( float boxX, float boxY ) //assumes boxes are 70x70
+{
+  if( mouseX > boxX-35 && mouseX < boxX+35 && mouseY > boxY-35 && mouseY < boxY+35 )
+    return true;
+  return false;
+}
+
 void keyPressed()
 {
   //if(key == '1')
@@ -867,8 +769,19 @@ void keyPressed()
   
   if(input == Input.EXPLORING && display == Display.MAP)
   {
+    if(key == ' ') //needs to come first to avoid strange errors
+    {  //this is a bit of a mess. could improve
+      int lootIndex = max(squareHasLoot(party.X,party.Y),squareHasKey(party.X,party.Y));
+      if(lootIndex>=0)
+      {
+        party.addToInventory(lootTable[party.floor][lootIndex].item);
+        clearLoot(lootIndex);
+        flipItemSwitch(lootIndex);
+      }
+      else
+        advanceText("Nothing found.");
+    }
     if(key == 'a' || keyCode == LEFT)
-      //if(!attemptMove("left"))advanceText("Bonk");
       if(!attemptMove("left"))advanceText(bonkText('l'));
     if(key == 'd' || keyCode == RIGHT)
       if(!attemptMove("right"))advanceText(bonkText('r'));
@@ -881,18 +794,7 @@ void keyPressed()
       {
         m[party.floor].openDoorsAround(party.X,party.Y);
       }
-    if(key == ' ')
-    {  //this is a bit of a mess. could improve
-      int lootIndex = max(squareHasLoot(party.X,party.Y),squareHasKey(party.X,party.Y));
-      if(lootIndex>=0)
-      {
-        party.addToInventory(lootTable[party.floor][lootIndex].item);
-        clearLoot(lootIndex);
-        flipItemSwitch(lootIndex);
-      }
-      else
-        advanceText("Nothing found.");
-    }
+
     if(key == 'E') //eat consumable
     {
       if(!party.hasFood())
@@ -978,6 +880,7 @@ void keyPressed()
     {
       if(key == 'a')
       {
+        input = Input.BATTLE_ATTACK_TARGET;
         int randomTarget = int(random(3)); //FOR TESTING
         pushTextLine( party.hero[battle.turn].name + " attacks!");
         key = ' '; keyPressed(); //Force text to advance
@@ -991,8 +894,7 @@ void keyPressed()
       }
       if( key == 'd')
       {
-        pushTextLine( party.hero[battle.turn].name + " defends!");
-        key = ' '; keyPressed(); //Force text to advance
+        displayTextLine( party.hero[battle.turn].name + " defends!");
         party.hero[battle.turn].defending = true;
         battle.setBattleDelay(1);
         battle.resumeInitiative();
@@ -1003,9 +905,12 @@ void keyPressed()
       }
       if( key == 'x')
       {
-        displayTextLine( "Selcet a potion to drink.");
         input = Input.BATTLE_ITEM;
       }
+    }
+    else if(input == Input.BATTLE_ATTACK_TARGET)
+    {
+      //if(
     }
     else if(input == Input.BATTLE_SKILL)
     {
@@ -1194,23 +1099,31 @@ void mousePressed()
     if( mouseX > 100 && mouseX < 600 && mouseY >290 && mouseY < 310 )
       tempBlue = (mouseX-100)/2;
   }
-  if( input == Input.HERO_SELECT )  //THIS WORKS!?!?
+  if( input == Input.HERO_SELECT || input == Input.BATTLE_ITEM_HERO_CHOICE ) //clicked on hero
   {
-    if(dist( mouseX,mouseY, 150,320)<37.5)
-    {
-      key='1';
-      keyPressed();
-    }
-    if(dist( mouseX,mouseY, 350,320)<37.5)
-    {
-      key='2';
-      keyPressed();
-    }
-    if(dist( mouseX,mouseY, 550,320)<37.5)
-    {
-      key='3';
-      keyPressed();
-    }
+    if(dist( mouseX,mouseY, 150,320)<37.5) { key='1'; keyPressed(); }
+    if(dist( mouseX,mouseY, 350,320)<37.5) { key='2'; keyPressed(); }
+    if(dist( mouseX,mouseY, 550,320)<37.5) { key='3'; keyPressed(); }
+  }
+  else if( input == Input.BATTLE_SKILL )
+  {
+    if( mouseInBox(party.heroX(battle.turn)+75,545) ) { key = 'x'; keyPressed(); }
+  }
+  else if( input == Input.BATTLE_ITEM ) //clicked on potion in battle
+  {
+    if( mouseInBox(140,380) ) { key = '1'; keyPressed(); }
+    if( mouseInBox(280,380) ) { key = '2'; keyPressed(); }
+    if( mouseInBox(420,380) ) { key = '3'; keyPressed(); }
+    if( mouseInBox(560,380) ) { key = '4'; keyPressed(); }
+    if( mouseInBox(party.heroX(battle.turn)+75,545) ) { key = 'x'; keyPressed(); } 
+  }
+  else if( input == Input.BATTLE_MENU ) //main battle menu
+  {
+    float baseX = party.heroX(battle.turn);
+    if( mouseInBox(baseX-75,455) ) { key = 'a'; keyPressed(); }
+    if( mouseInBox(baseX+75,455) ) { key = 'd'; keyPressed(); }
+    if( mouseInBox(baseX-75,545) ) { key = 's'; keyPressed(); }
+    if( mouseInBox(baseX+75,545) ) { key = 'x'; keyPressed(); }
   }
   
   //This displays hero stats if their boxes are clicked
@@ -1237,7 +1150,7 @@ public enum Input
 {
   NONE, ADVANCE_TEXT, TYPING, EXPLORING, ITEM_USE,
   HERO_SELECT,
-  BATTLE_MENU, BATTLE_SKILL, BATTLE_ITEM, BATTLE_ITEM_HERO_CHOICE,
+  BATTLE_MENU, BATTLE_ATTACK_TARGET, BATTLE_SKILL, BATTLE_ITEM, BATTLE_ITEM_HERO_CHOICE,
   HERO_JOB_CHOICE, HERO_COLOR_CHOICE
 }
 

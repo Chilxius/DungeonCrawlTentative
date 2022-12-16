@@ -244,12 +244,6 @@ class Tile
     
   }
   
-  /*public void drawTile() //old version
-  {
-    fill(tileColor);noStroke();
-    rect(x*30,y*30,30,30);
-  }*/
-  
   public void drawTile(int xPos, int yPos)
   {
     rectMode(CORNER);
@@ -266,96 +260,23 @@ class Tile
     noStroke();
     rect(xPos,yPos,30,30);
     if(type == TileType.WALL)
-    {
-      /*
-      stroke(150); strokeWeight(1);
-      line(xPos,yPos,xPos+30,yPos);
-      line(xPos,yPos+15,xPos+30,yPos+15);
-      line(xPos+7.5,yPos,xPos+7.5,yPos+15);
-      line(xPos+22.5,yPos,xPos+22.5,yPos+15);
-      line(xPos,yPos+15,xPos,yPos+30);
-      line(xPos+15,yPos+15,xPos+15,yPos+30);
-      line(xPos+30,yPos+15,xPos+30,yPos+30);
-      */
       image(tileImage[0],xPos,yPos);
-    }
     else if(type == TileType.S_GLASS)
-    {
       image(tileImage[43],xPos,yPos);
-    }
     else if(type == TileType.DOOR)
-    {
       image(tileImage[39],xPos,yPos);
-    }
     else if(type == TileType.FLOWER)
-    {
-      /*
-      noStroke();
-      fill(255,50,50); ellipse(xPos+4.75,yPos+7.5,9,6);
-      fill(255,50,50); ellipse(xPos+4.75,yPos+7.5,6,9);
-      fill(250,250,0); ellipse(xPos+4.75,yPos+7.5,3,3);
-      
-      fill(255,50,50); ellipse(xPos+10.75,yPos+22.5,9,6);
-      fill(255,50,50); ellipse(xPos+10.75,yPos+22.5,6,9);
-      fill(250,250,0); ellipse(xPos+10.75,yPos+22.5,3,3);
-      
-      fill(255,50,50); ellipse(xPos+19.25,yPos+7.5,9,6);
-      fill(255,50,50); ellipse(xPos+19.25,yPos+7.5,6,9);
-      fill(250,250,0); ellipse(xPos+19.25,yPos+7.5,3,3);
-      
-      fill(255,50,50); ellipse(xPos+25.25,yPos+22.5,9,6);
-      fill(255,50,50); ellipse(xPos+25.25,yPos+22.5,6,9);
-      fill(250,250,0); ellipse(xPos+25.25,yPos+22.5,3,3);
-      */
       image(tileImage[3],xPos,yPos);
-    }
     else if(type == TileType.WATER)
-    {
-      /*
-      stroke(220,220,255); strokeWeight(1);
-      curve(xPos,yPos+30+tileAnimation/4,xPos+3.75,yPos+7.5,xPos+15,yPos+7.5,xPos+30,yPos-18.75);
-      curve(xPos,yPos+67.5,xPos+11.25,yPos+18.75,xPos+26.35,yPos+18.75,xPos+30,yPos-18.75-tileAnimation/6);
-      */
       image(tileImage[int(4+vanGogh.stage()/10)],xPos,yPos);
-    }
-    else if(type == TileType.TREE || type == TileType.DARK_TREE)
-    {
-      strokeWeight(1);
-      
-      if(type==TileType.DARK_TREE)
-      {
-        /*
-        //fill(85,65,25); rect(xPos-3,yPos+5,7,13);
-        //fill(0,160,0); stroke(0,140,0); triangle(xPos+1.5,yPos-15,xPos-9.5,yPos+10,xPos+10.5,yPos+10);
-        fill(85,65,25); noStroke(); rect(xPos+11,yPos+5,7,13);
-        fill(0,160,0); stroke(0,140,0); triangle(xPos+15.5,yPos-15,xPos+2.5,yPos+10,xPos+25.5,yPos+10);
-        */
-        image(tileImage[2],xPos-10,yPos-10);
-      }
-      else
-      /*
-      fill(88,68,28); noStroke(); rect(xPos+1.5,yPos+10,7,16);
-      fill(0,180,0); stroke(0,140,0);  triangle(xPos+5,yPos-10,xPos-5,yPos+15,xPos+15,yPos+15);
-      fill(90,70,30); noStroke(); rect(xPos+16.5,yPos+15,7,13);
-      fill(0,200,0); stroke(0,140,0);  triangle(xPos+20,yPos-5,xPos+10,yPos+20,xPos+30,yPos+20);
-      */
+    else if(type==TileType.DARK_TREE)
+      image(tileImage[2],xPos-10,yPos-10);
+    else if(type==TileType.TREE)
       image(tileImage[1],xPos-10,yPos-10);
-    }
     else if(type == TileType.TREE_PATH)
-    {
-      /*
-      strokeWeight(1);
-      fill(88,68,28); noStroke(); rect(xPos+1.5,yPos+10,7,16);
-      fill(0,180,0); stroke(0,160,0); triangle(xPos+5,yPos-10,xPos-5,yPos+15,xPos+15,yPos+15);
-      fill(90,70,30); noStroke(); rect(xPos+16.5,yPos+15,7,13);
-      fill(0,200,0); stroke(0,160,0); triangle(xPos+20,yPos-5,xPos+10,yPos+20,xPos+30,yPos+20);
-      */
       image(tileImage[47],xPos-10,yPos-10);
-    }
     else if(type == TileType.GRAVE)
-    {
       image(tileImage[42],xPos,yPos);
-    }
     if(occupied)
     {
       fill(occupantColor); noStroke();
@@ -372,16 +293,7 @@ class Tile
     float xPos = width/2-15;
     float yPos = 360;
     if(type == TileType.TREE_PATH)
-    {
-      /*
-      strokeWeight(1);
-      fill(88,68,28); noStroke(); rect(xPos+1.5,yPos+10,7,16);
-      fill(0,180,0); stroke(0,160,0); triangle(xPos+5,yPos-10,xPos-5,yPos+15,xPos+15,yPos+15);
-      fill(90,70,30); noStroke(); rect(xPos+16.5,yPos+15,7,13);
-      fill(0,200,0); stroke(0,160,0); triangle(xPos+20,yPos-5,xPos+10,yPos+20,xPos+30,yPos+20);
-      */
       image(tileImage[47],xPos-10,yPos-10);
-    }
   }
   
   public boolean canOpen()

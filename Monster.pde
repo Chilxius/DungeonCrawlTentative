@@ -15,7 +15,7 @@ class Monster
 
   public Monster()
   {
-    this("EMPTY", "016.png", 1,1,1,1,1,1,1);
+    this("EMPTY", "016.png", 1,0,1,1,1,1,1);
     alive = false;
   }
   
