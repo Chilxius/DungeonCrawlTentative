@@ -17,21 +17,22 @@ class Initiative
   
   public Initiative( Monster m, int i )
   {
-    this(m.name, i, m.spd);
+    this(m.name, i, m.spd, m.alive);
   }
   
-  public Initiative( String n, int i, int s )
+  public Initiative( String n, int i, int s, boolean a )
   {
     name = n;
     index = i;
     speed = s;
     counter = 0;
-    active = true;
+    active = a;
   }
   
   public boolean tick()
   {
-    counter += speed;
+    if(active)
+      counter += speed;
     if(counter >= 100)
       return true;
     return false;

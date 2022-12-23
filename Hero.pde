@@ -51,10 +51,10 @@ class Hero
   {
     switch(job)
     {
-      case KNIGHT:   hp=maxHp=30;str=4;dex=3;con=5;mag=0;wil=2;spd=2;break;
+      case KNIGHT:   hp=maxHp=30;str=40;dex=3;con=5;mag=0;wil=2;spd=2;break;
       case BARBARIAN:hp=maxHp=40;str=5;dex=3;con=3;mag=0;wil=1;spd=2;break;
-      case KARATE:   hp=maxHp=45;str=4;dex=4;con=4;mag=0;wil=4;spd=3;break;
-      case THIEF:    hp=maxHp=25;str=3;dex=5;con=3;mag=0;wil=2;spd=3;break;
+      case KARATE:   hp=maxHp=45;str=40;dex=4;con=4;mag=0;wil=4;spd=3;break;
+      case THIEF:    hp=maxHp=25;str=30;dex=5;con=3;mag=0;wil=2;spd=3;break;
       case PRIEST:   hp=maxHp=20;str=2;dex=2;con=2;mag=4;wil=5;spd=2;mp=maxMp=20;break;
       case MAGE:     hp=maxHp=15;str=1;dex=2;con=2;mag=5;wil=4;spd=2;mp=maxMp=25;break;
       default:       hp=maxHp=1;str=1;dex=1;con=1;mag=1;wil=1;spd=1;mp=maxMp=1;break;
@@ -124,6 +124,17 @@ class Hero
       case MAGE:      return "Mage";
       default: return "Unemployed";
     }
+  }
+  
+  public boolean resolveAttack( int targetMonster ) //true if monster killed
+  {
+    battle.waitingForText = false;
+    battleMonsters[targetMonster].takeDamage(str);
+    battle.setBattleDelay();
+    battle.resumeInitiative();
+    if( battleMonsters[targetMonster].alive )
+      return false;
+    return true;
   }
   
   public void takeDamage( int damage )

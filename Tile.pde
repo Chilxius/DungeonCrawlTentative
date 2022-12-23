@@ -246,7 +246,7 @@ class Tile
   
   public void drawTile(int xPos, int yPos)
   {
-    rectMode(CORNER);
+    rectMode(CORNER); imageMode(CORNER);
     if(obj!=Object.NONE)  //tiles with objects will fill with the color of the last pathable tile above it
       fill(safeColor);
     else

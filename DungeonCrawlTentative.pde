@@ -15,7 +15,7 @@ HeroCreationStep step = HeroCreationStep.NAME;
 HeroSelectReason reason = HeroSelectReason.NONE;
 
 //NEW LOG SYSTEM
-Logbook log = new Logbook(40);
+Logbook log = new Logbook(39);
 
 //The text to be displayed in the box
 String textLine1 = " ";
@@ -417,7 +417,11 @@ void draw()
     if(vanGogh.battleWindowOpening)
       m[0].drawMapOnPosition(party.X,party.Y,party.hero(0).getColor(),party.hero(1).getColor(),party.hero(2).getColor());
     else
-      battle.runBattle(); //don't begin initiative until battle is loaded
+      if(!battle.runBattle()) //don't begin initiative until battle is loaded
+      {
+        display = Display.MAP;
+        input = Input.EXPLORING;
+      }
       
     vanGogh.drawBattleWindow();
     //if(battle.turn == 0 || battle.turn == 1 || battle.turn == 2)
@@ -448,7 +452,7 @@ void draw()
   //Advance any animations
   vanGogh.animate();
   
-  //println(input);
+  println(input);
 }
 
 void drawConditions()
@@ -881,6 +885,7 @@ void keyPressed()
       if(key == 'a')
       {
         input = Input.BATTLE_ATTACK_TARGET;
+        /*
         int randomTarget = int(random(3)); //FOR TESTING
         pushTextLine( party.hero[battle.turn].name + " attacks!");
         key = ' '; keyPressed(); //Force text to advance
@@ -891,33 +896,39 @@ void keyPressed()
         battle.waitingForText=false;
         delay(300);
         battle.resumeInitiative();
+        */
       }
       if( key == 'd')
       {
         displayTextLine( party.hero[battle.turn].name + " defends!");
         party.hero[battle.turn].defending = true;
-        battle.setBattleDelay(1);
+        battle.setBattleDelay();
         battle.resumeInitiative();
       }
       if( key == 's')
-      {
         input = Input.BATTLE_SKILL;
-      }
+        
       if( key == 'x')
-      {
         input = Input.BATTLE_ITEM;
-      }
     }
     else if(input == Input.BATTLE_ATTACK_TARGET)
     {
-      //if(
+      if( ( key == 'a' || key == 'A' || key == '1' ) && battle.list[3].active )
+        battle.beginAttack( battle.turn, 3);
+
+      else if( ( key == 's' || key == 'S' || key == '2' ) && battle.list[4].active )
+        battle.beginAttack( battle.turn, 4);
+
+      else if( ( key == 'd' || key == 'D' || key == '3' ) && battle.list[5].active )
+        battle.beginAttack( battle.turn, 5);
+
+      else if( key == 'x' || key == ' ' ) //cancel and return to battle menu
+        input = Input.BATTLE_MENU;
     }
     else if(input == Input.BATTLE_SKILL)
     {
-      if( key == 'x' || key == ' ' )
-      {
+      if( key == 'x' || key == ' ' ) //cancel and return to battle menu
         input = Input.BATTLE_MENU;
-      }
     }
     else if(input == Input.BATTLE_ITEM)
     {
@@ -933,7 +944,7 @@ void keyPressed()
           if( party.consume(36,0) )
           {
             input = Input.BATTLE_MENU;
-            battle.setBattleDelay(1);
+            battle.setBattleDelay();
             battle.resumeInitiative();
             displayTextLine("The vapors heal the party.");
           }
@@ -945,10 +956,8 @@ void keyPressed()
           //println("Potion Type: " + potionType);
         }
       }
-      if( key == 'x' || key == ' ' )
-      {
+      if( key == 'x' || key == ' ' ) //cancel and return to battle menu
         input = Input.BATTLE_MENU;
-      }
     }
     else if(input == Input.BATTLE_ITEM_HERO_CHOICE) //choosing target hero for item
     {
@@ -961,7 +970,7 @@ void keyPressed()
         if( party.consume(potionType*12,key-49) ) //-49 to account for array index offset
         {
           input = Input.BATTLE_MENU;
-          battle.setBattleDelay(1);
+          battle.setBattleDelay();
           battle.resumeInitiative();
         }
       }

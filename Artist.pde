@@ -262,16 +262,16 @@ class Artist
     rect(baseX+75,545,70,70,20);
     
     textAlign(CENTER); textSize(10); fill(200);
-    text("Health: "+healthPots,140,410);
-    text("Mana: "  +manaPots,280,410);
-    text("Vapor: " +vapors,420,410);
-    text("Elixir: "+elixirs,560,410);
+    if(healthPots>0){text("Health: "+healthPots,140,357); text("A",165,407);}
+    if(manaPots>0)  {text("Mana: "  +manaPots,280,357);   text("S",305,407);}
+    if(vapors>0)    {text("Vapor: " +vapors,420,357);     text("D",445,407);}
+    if(elixirs>0)   {text("Elixir: "+elixirs,560,357);    text("F",585,407);}
     
     drawCancelIcon(baseX+75,545);
-    if(healthPots>0)drawPotion( 135,350,.5,#00FF0A);
-    if(manaPots>0)  drawPotion( 275,350,.5,#0063FF);
-    if(vapors>0)    drawPotion( 415,350,.5,#FF6FF1);
-    if(elixirs>0)   drawPotion( 555,350,.5,#FFD500);
+    if(healthPots>0)drawPotion( 135,360,.5,#00FF0A);
+    if(manaPots>0)  drawPotion( 275,360,.5,#0063FF);
+    if(vapors>0)    drawPotion( 415,360,.5,#FF6FF1);
+    if(elixirs>0)   drawPotion( 555,360,.5,#FFD500);
   }
   
   public void drawHeroData( int h )
@@ -650,6 +650,8 @@ class Artist
           drawHeroSkills(battle.turn);
         else if(input == Input.BATTLE_ITEM_HERO_CHOICE) //choosing who to use item on
           drawHeroSelectScreen();
+        else if(input == Input.BATTLE_ATTACK_TARGET)
+          drawAttackTargetArrows( battle.turn );
         else if(battle.turn==0||battle.turn==1||battle.turn==2)
           drawBattleIcons(battle.turn);
       }
@@ -661,29 +663,35 @@ class Artist
   {
     noStroke(); textAlign(CENTER);
     fill( party.hero[h].inverseColor );  //Arrow Outline
-    triangle(140,378, 115,400, 165,400);
-    triangle(350,378, 325,400, 375,400);
-    triangle(560,378, 535,400, 585,400);
+    if(battle.list[3].active) triangle(140,378, 115,400, 165,400);
+    if(battle.list[4].active) triangle(350,378, 325,400, 375,400);
+    if(battle.list[5].active) triangle(560,378, 535,400, 585,400);
     fill( party.hero[h].favColor );      //Arrow Main
-    triangle(140,380, 115,400, 165,400);
-    triangle(350,380, 325,400, 375,400);
-    triangle(560,380, 535,400, 585,400);
+    if(battle.list[3].active) triangle(140,380, 115,400, 165,400);
+    if(battle.list[4].active) triangle(350,380, 325,400, 375,400);
+    if(battle.list[5].active) triangle(560,380, 535,400, 585,400);
     fill(0);                             //Arrow's cut-out
-    triangle(140,390, 115,400, 165,400);
-    triangle(350,390, 325,400, 375,400);
-    triangle(560,390, 535,400, 585,400);
+    if(battle.list[3].active) triangle(140,390, 115,400, 165,400);
+    if(battle.list[4].active) triangle(350,390, 325,400, 375,400);
+    if(battle.list[5].active) triangle(560,390, 535,400, 585,400);
     fill( party.hero[h].favColor );textSize(24); //Letter Backing
-    text("A",140,420); text("S",350,420); text("D",560,420);
+    if(battle.list[3].active) text("A",140,420);
+    if(battle.list[4].active) text("S",350,420);
+    if(battle.list[5].active) text("D",560,420);
     fill( party.hero[h].inverseColor );textSize(25); //Letter
-    text("A",140,420); text("S",350,420); text("D",560,420);
+    if(battle.list[3].active) text("A",140,420);
+    if(battle.list[4].active) text("S",350,420); 
+    if(battle.list[5].active) text("D",560,420);
+     
+    rectMode(CENTER); strokeWeight(5);
+    stroke(200); fill(0);
+    rect(party.heroX(h)+75,545,70,70,20);
+    drawCancelIcon(party.heroX(h)+75,545);
   }
   
   void drawBattleIcons( int h )
   {
     float baseX = party.heroX(h);
-    
-    //testing
-    drawAttackTargetArrows( h );
 
     rectMode(CENTER); strokeWeight(5);
     stroke(200); fill(0);

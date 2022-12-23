@@ -14,9 +14,9 @@ class Beastiary
     list[0][3] = new Monster();
     list[0][4] = new Monster();
     
-    list[1][0] = new Monster("GreenDragon","GreenBoxBoy.png",10,3,5,3,0,1,1);
-    list[1][1] = new Monster("StoneGargoyle","GreenBoxBoy.png",12,4,4,3,0,1,2);
-    list[1][2] = new Monster("Angry Bird","GreenBoxBoy.png",8,2,6,2,0,1,3);
+    list[1][0] = new Monster("GreenDragon","GreenDragon.png",10,3,5,3,0,1,1);
+    list[1][1] = new Monster("StoneGargoyle","StoneGargoyle.png",12,4,4,3,0,1,2);
+    list[1][2] = new Monster("Green Squid","GreenSquid.png",8,2,6,2,0,1,3);
     list[1][3] = new Monster();
     list[1][4] = new Monster();
   }

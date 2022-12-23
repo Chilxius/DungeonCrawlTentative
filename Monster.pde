@@ -19,6 +19,12 @@ class Monster
     alive = false;
   }
   
+  public Monster( Monster m )
+  {
+    this( m.name, m.imageName, m.hp, m.str, m.dex, m.con, m.mag, m.wil, m.spd );
+    alive = m.alive;
+  }
+  
   public Monster( String n, String image, int health, int s, int d, int c, int m, int w, int sp)
   {
    name = n;
@@ -39,7 +45,8 @@ class Monster
    poisoned=weakened=paralyzed=asleep=cursed=false;
   }
   
-  public void makeAttack()
+  /*
+  public void makeAttack() //outdated
   {
     
     target = int(random(3)); //shouldn't get here if party is dead
@@ -49,14 +56,15 @@ class Monster
     
     displayTextLine( name + " attacks " + party.hero[target].name + "!");
     battle.waitingForText = true;
-    battle.setBattleDelay(1);
+    battle.setBattleDelay();
   }
+  */
   
-  public void resolveAttack()
+  public void resolveAttack( int targetHero )
   {
     battle.waitingForText = false;
-    party.hero[target].takeDamage(str);
-    battle.setBattleDelay(1);
+    party.hero[targetHero].takeDamage(str);
+    battle.setBattleDelay();
     battle.resumeInitiative();
   }
   
@@ -80,7 +88,10 @@ class Monster
   
   public void takeDamage( int damage )
   {
+    println("HP: " + hp + "    DAM: " + damage); //testing
     hp -= damage;
+    println("HP: " + hp); //testing
+    displayTextLine( name + " takes " + damage + " damage.");
     if(hp <= 0)
     {
       hp = 0;
