@@ -106,12 +106,14 @@ class Artist
       }
   }
   
-  public void drawItems( Item [] items )
-  {
+  public void drawItems( Item [] items ) //add gold in side window and loot sack
+  {      
+    drawGoldBox();
     fill(0);  rectMode(CORNER);
     stroke(200);
     strokeWeight(5);
-    rect(100,100,width-200,height-200,20);
+    rect(10,height-320,110,200,20); //loot box
+    rect(100,100,width-200,height-200,20); //main window
     
     fill(200); textAlign(LEFT); textSize(25);
     text("Your Inventory:",120,130);
@@ -132,6 +134,7 @@ class Artist
         text("__________",120+(230*int(i/15)),(130+30*(i+1))-(450*int(i/15)));
         println((130+30*(i+1))-(450*int(1/15)));
       }
+
   }
   
   public void drawFoodMenu( Item [] items )
@@ -386,6 +389,44 @@ class Artist
       text("willpower are.",570,460);
       text("sealed.",570,472);
     }
+  }
+  
+  public void drawGoldBox()
+  {
+    fill(200,200,0); textAlign(CENTER);
+    textSize(15); text("GOLD",645,220);
+    textSize(12); text(party.gold,645,235);
+    noStroke();
+    if( party.gold > 100 ) rect(615,260,20,41);
+    if( party.gold > 500 ) rect(635,250,20,51);
+    if( party.gold > 0   ) rect(660,280,20,21);
+    stroke(150,150,50); strokeWeight(1);
+    
+    if( party.gold > 100 ) //Left stack
+    {
+      arc(625,295,19,10,0,PI); arc(625,290,19,10,0,PI);
+      arc(625,285,19,10,0,PI); arc(625,280,19,10,0,PI);
+      arc(625,275,19,10,0,PI); arc(625,270,19,10,0,PI);
+      arc(625,265,19,10,0,PI); ellipse(625,260,19,10);
+    }
+    
+    if( party.gold > 500 ) //Center stack
+    {
+      arc(645,295,19,10,0,PI); arc(645,290,19,10,0,PI);
+      arc(645,285,19,10,0,PI); arc(645,280,19,10,0,PI);
+      arc(645,275,19,10,0,PI); arc(645,270,19,10,0,PI);
+      arc(645,265,19,10,0,PI); arc(645,260,19,10,0,PI);
+      arc(645,255,19,10,0,PI); ellipse(645,250,19,10);
+    }
+    
+    if( party.gold > 0 ) //Right stack
+    {
+      arc(670,295,19,10,0,PI); arc(670,290,19,10,0,PI);
+      arc(670,285,19,10,0,PI); ellipse(670,280,19,10);
+    }
+    noFill(); rectMode(CORNER);
+    stroke(200); strokeWeight(5);
+    rect(580,200,110,103,20); //box
   }
   
   public void drawPotion( int xPos, int yPos, float scale, color c )

@@ -5,6 +5,7 @@ class Party
   protected int X, Y, floor; //dungeon level
   Key [] keyInventory = new Key[10];
   Item [] inventory = new Item[30];
+  int gold;
   
   public Party()
   {
@@ -20,6 +21,8 @@ class Party
     X = 0;
     Y = 0;
     floor = 0;
+    
+    gold = 0;
   }
   
   public void setPosition( int xPos, int yPos )

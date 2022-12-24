@@ -40,7 +40,7 @@ Artist vanGogh = new Artist();
 //Image data
 PImage tileImage[] = new PImage[48];
 
-//Sound data - still testing
+//Sound data - still testing (need to switch to Beads)
 public SoundFile beep1,beep2,beep3;
 public SoundFile openDoorSound, openChestSound, lockedDoorSound, potionDrinkSound, foodBiteSound;
 
@@ -68,6 +68,7 @@ Beastiary zoo;// = new Beastiary();
 int randomBattleCounter = 0;
 Monster battleMonsters[];// = new Monster[3];
 int potionType = 0; //potion being drunk
+int battleTextSpeed = 1; //speed battle text displays
 
 PrintWriter saveOutput;
 
@@ -78,7 +79,7 @@ void setup()
   
   zoo = new Beastiary();
   
-  //Setting up image files
+  //Setting up image files (move to Artist)
   tileImage[0] = loadImage("wall.png"); tileImage[0].resize(30,0);
   tileImage[1] = loadImage("tree.png"); tileImage[1].resize(40,40);
   tileImage[2] = loadImage("darkTree.png"); tileImage[2].resize(40,40);
@@ -381,9 +382,9 @@ void setup()
   savePoints[1] = new SavePoint(41,8,0);
   
   battleMonsters = new Monster[3];
-  battleMonsters[0] = new Monster();
-  battleMonsters[1] = new Monster();
-  battleMonsters[2] = new Monster();
+  //battleMonsters[0] = new Monster(); //Battle should take care of this
+  //battleMonsters[1] = new Monster();
+  //battleMonsters[2] = new Monster();
 }
 
 void draw()
@@ -394,7 +395,9 @@ void draw()
 
   vanGogh.drawTextBoxes(input,textBuffer,textLine1,textLine2);
   vanGogh.drawHeroBoxes( party.hero );
-  drawConditions();
+  drawConditions(); // <- move to drawHeroBoxes
+  
+  //Hero creation process only
   if(step == HeroCreationStep.JOB)
     vanGogh.drawJobChoices(currentHero);
   else if(step == HeroCreationStep.COLOR)
@@ -418,7 +421,7 @@ void draw()
       m[0].drawMapOnPosition(party.X,party.Y,party.hero(0).getColor(),party.hero(1).getColor(),party.hero(2).getColor());
     else
       if(!battle.runBattle()) //don't begin initiative until battle is loaded
-      {
+      {                        //returns true when battle is over
         display = Display.MAP;
         input = Input.EXPLORING;
       }
@@ -438,12 +441,9 @@ void draw()
   
   if(heroDataDisplayed[0]||heroDataDisplayed[1]||heroDataDisplayed[2])
   {
-    if(heroDataDisplayed[0])
-      vanGogh.drawHeroData(0);
-    else if(heroDataDisplayed[1])
-      vanGogh.drawHeroData(1);
-    else if(heroDataDisplayed[2])
-      vanGogh.drawHeroData(2);
+    if     (heroDataDisplayed[0]) vanGogh.drawHeroData(0);
+    else if(heroDataDisplayed[1]) vanGogh.drawHeroData(1);
+    else if(heroDataDisplayed[2]) vanGogh.drawHeroData(2);
   }
 
   if(input==Input.ADVANCE_TEXT)
@@ -452,7 +452,7 @@ void draw()
   //Advance any animations
   vanGogh.animate();
   
-  println(input);
+  //println(input);
 }
 
 void drawConditions()
@@ -667,6 +667,8 @@ boolean checkForBattle()
 String bonkText( char direction ) //for when the heroes run into obstacles
 {
   int x = party.X, y = party.Y;
+  
+  //party tried to move off the map
   if( direction == 'l'){ x--; if(x<0)return"BONK";}
   else if( direction == 'r'){ x++; if(x>=m[0].tiles.length)return"BONK";}
   else if( direction == 'u'){ y--; if(y<0)return"BONK";}

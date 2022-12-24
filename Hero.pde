@@ -50,7 +50,7 @@ class Hero
   public void assignBaseStats()
   {
     switch(job)
-    {
+    {                      
       case KNIGHT:   hp=maxHp=30;str=40;dex=3;con=5;mag=0;wil=2;spd=2;break;
       case BARBARIAN:hp=maxHp=40;str=5;dex=3;con=3;mag=0;wil=1;spd=2;break;
       case KARATE:   hp=maxHp=45;str=40;dex=4;con=4;mag=0;wil=4;spd=3;break;
@@ -61,8 +61,21 @@ class Hero
     }
     level = 1;
     exp = 0;
-    nextLevel = 50;
+    nextLevel = level*10;
     poisoned=weakened=paralyzed=asleep=cursed=false;
+  }
+  
+  public boolean gainExp( int amount )
+  {
+    exp += amount;
+    if( exp > nextLevel )
+    {
+      level++;
+      exp = 0;
+      nextLevel = level*100;
+      return true;
+    }
+    return false;
   }
   
   public boolean hasCondition(int x)
@@ -97,6 +110,7 @@ class Hero
   {
     return favColor;
   }
+  
   public color getInvColor()
   {
     return inverseColor;
@@ -139,13 +153,15 @@ class Hero
   
   public void takeDamage( int damage )
   {
-    hp -= (max(damage-armor.power,1));
+    damage -= armor.power;  //subtract armor value
+    damage = max(damage,1); //minimum 1 damage
+    hp -= damage;
     displayTextLine( name + " takes " + damage + " damage.");
     if(hp <= 0)
     {
       hp = 0;
       alive = false;
-      pushTextLine( name + " falls!" );
+      displayTextLine( name + " falls!" );
     }
   }
   
@@ -213,7 +229,7 @@ class Hero
   
 enum Job
 {
-  KNIGHT, MAGE, THIEF, PRIEST, BARBARIAN, KARATE,
+  KNIGHT, BARBARIAN, KARATE, THIEF, PRIEST, MAGE,
   NONE
 }
 
@@ -221,12 +237,12 @@ Job stringToJob( String s )
 {
   switch(s)
   {
-    case "KNIGHT": return Job.KNIGHT;
+    case "KNIGHT":    return Job.KNIGHT;
     case "BARBARIAN": return Job.BARBARIAN;
-    case "KARATE": return Job.KARATE;
-    case "THIEF": return Job.THIEF;
-    case "PRIEST": return Job.PRIEST;
-    default: return Job.MAGE;
+    case "KARATE":    return Job.KARATE;
+    case "THIEF":     return Job.THIEF;
+    case "PRIEST":    return Job.PRIEST;
+    default:          return Job.MAGE;
   }
 }
 

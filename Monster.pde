@@ -7,6 +7,7 @@ class Monster
   int maxHp, hp;
   int str, dex, con, mag, wil, spd;
   boolean alive;
+  int gold;
    
   boolean poisoned, weakened, paralyzed, asleep, cursed;
   
@@ -15,17 +16,17 @@ class Monster
 
   public Monster()
   {
-    this("EMPTY", "016.png", 1,0,1,1,1,1,1);
+    this("EMPTY", "016.png", 1,0,1,1,1,1,1,0);
     alive = false;
   }
   
   public Monster( Monster m )
   {
-    this( m.name, m.imageName, m.hp, m.str, m.dex, m.con, m.mag, m.wil, m.spd );
+    this( m.name, m.imageName, m.hp, m.str, m.dex, m.con, m.mag, m.wil, m.spd, m.gold );
     alive = m.alive;
   }
   
-  public Monster( String n, String image, int health, int s, int d, int c, int m, int w, int sp)
+  public Monster( String n, String image, int health, int s, int d, int c, int m, int w, int sp, int g )
   {
    name = n;
    imageName = image;
@@ -39,6 +40,8 @@ class Monster
    mag=m;
    wil=w;
    spd=sp;
+   
+   gold = g;
    
    alive=true;
    
@@ -66,6 +69,11 @@ class Monster
     party.hero[targetHero].takeDamage(str);
     battle.setBattleDelay();
     battle.resumeInitiative();
+  }
+  
+  public int experiencePoints()
+  {
+    return (maxHp/10 + str + dex + con + mag + wil + spd)/2;
   }
   
   public boolean hasCondition(int x)
@@ -96,6 +104,9 @@ class Monster
     {
       hp = 0;
       alive = false;
+      println("EXP: " + experiencePoints() ); //testing
+      battle.exp += experiencePoints();
+      battle.gold += gold;
     }
   }
   

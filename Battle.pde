@@ -5,8 +5,6 @@ class Battle
   int initiativeTicker = 0; //which fighter's initiative is ticking up
   boolean waitingForText = false;
   
-  int battleSpeed = 1; //speed battle text displays
-  
   //For standard attacks (one charcter damaging one character)
   int attackerIndex, defenderIndex;
   
@@ -14,8 +12,22 @@ class Battle
   DelayType delayType = DelayType.NONE;
   int battleDelayCounter = 0; //used for timed events in battle
   
+  String [] startBattleMessage = {
+  "Monsters approach!", "Prepare for battle!", "Danger!", "Wild monsters appear!",
+  "To arms!", "Get ready to fight!", "To battle!", "It's time to fight!",
+  "Monsters!", "Foes approach!", "Here they come!", "To battle!",
+  "Let battle be joined!", "They are relentless!", "Peace was never an option." };
+  
+  boolean battleOver = false; //triggers end-of-battle report
+  EndStage end = EndStage.NONE;
+  int heroExpCheck = 0; //which hero's exp is being checked for level up
+  
+  int exp = 0;
+  int gold = 0;
+  
   public Battle( Hero [] h, int danger )
   {
+    displayTextLine( randomMessage() );
     list[0] = new Initiative(h[0].name,0,h[0].spd,h[0].alive);
     list[1] = new Initiative(h[1].name,1,h[1].spd,h[1].alive);
     list[2] = new Initiative(h[2].name,2,h[2].spd,h[1].alive);
@@ -36,13 +48,45 @@ class Battle
   {
     turn = -1;
   }
-  
+      //FIX PROBLEM: battle not ending when monsters all dead
   public boolean runBattle() //true if battle still running
   {
     if(!battleDelayed) //these commands will run once the battle delay timer ends
     {
-      //No one's turn and not waiting for text to advance
-      if(turn == -1 && !waitingForText)
+      if( end != EndStage.NONE ) //if battle is over and exp/gold are being given out
+        switch( end )
+        {
+          case EXP:  //checking for levelups
+            if(heroExpCheck >=3) //done with levelup check
+              end = EndStage.GOLD;
+            else if( !list[heroExpCheck].active ) //hero dead
+              heroExpCheck++; //ready for next hero
+            else
+            {
+              if( party.hero[heroExpCheck].gainExp(exp) ) //gain exp and return true if leveled up
+              {
+                displayTextLine( list[heroExpCheck].name + " is now level " + party.hero[heroExpCheck].level );
+                setBattleDelay();
+              }
+              heroExpCheck++; //ready for next hero
+              return true;
+            }
+            break;
+            
+          case GOLD:  //party gains gold
+            if( gold > 0 )
+            {
+              party.gold += gold;
+              displayTextLine( "Party loots " + gold + " coins." );
+              setBattleDelay();
+            }
+            end = EndStage.DONE;
+            break;
+            
+          case DONE: //battle fully over
+            return false;
+        }
+      else if(turn == -1 && !waitingForText) //No one's turn and not waiting for text to advance
       {
         //println(list[initiativeTick].name + " ticked up to " + list[initiativeTick].counter); //<>//
         checkForActive(initiativeTicker); //checks for alive/dead
@@ -69,6 +113,7 @@ class Battle
           if( party.hero[attackerIndex].resolveAttack(defenderIndex-3) )
           {
             displayTextLine( list[defenderIndex].name + " is vanquished!");
+            list[defenderIndex].active = false;
           }
         }
         else if(attackerIndex>2) //monster
@@ -107,8 +152,15 @@ class Battle
     }
     
     
-    if( playersDead() || monstersDead() )
-      return false;
+    if( !battleOver && ( playersDead() || monstersDead() ) )
+    {
+      //displayTextLine("Victory!");
+      //return false;
+      displayTextLine("EXP: " + exp);
+      setBattleDelay(2);
+      end = EndStage.EXP;
+      battleOver = true;
+    }
     return true;
   }
   
@@ -161,7 +213,7 @@ class Battle
   
   public void setBattleDelay() //delays by a number of seconds equal to battleSpeed
   {
-    setBattleDelay( battleSpeed );
+    setBattleDelay( battleTextSpeed );
   }
   
   public void setBattleDelay( int delay ) //delays by a number of seconds equal to delay
@@ -169,9 +221,19 @@ class Battle
     battleDelayCounter = millis() + (delay*1000);
     battleDelayed = true;
   }
+  
+  private String randomMessage()
+  {
+    return startBattleMessage[int(random(startBattleMessage.length))];
+  }
 }
   
 public enum DelayType
 {
   ATTACK, NONE
+}
+
+public enum EndStage
+{
+  NONE, EXP, GOLD, DONE
 }
