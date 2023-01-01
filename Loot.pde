@@ -1,3 +1,4 @@
+//For the contents of chests
 class Loot
 {
   int xPos;

@@ -1,6 +1,17 @@
 //Basic Dungeon Crawl Game
 //Bennett Ritchie
 
+//TO DO BEFORE IT CAN BE A REAL GAME:
+//Get new items (chest and shop)
+//Inns
+
+//TO DO BEFORE IT IS BE GOOD:
+//Skills
+//Level up
+//Enemy attacks
+//Character backs
+
+
 import processing.sound.*;
 
 Map [] m = new Map[3];
@@ -45,7 +56,7 @@ public SoundFile beep1,beep2,beep3;
 public SoundFile openDoorSound, openChestSound, lockedDoorSound, potionDrinkSound, foodBiteSound;
 
 //Item data
-Loot [][] lootTable = new Loot[1][50];
+Loot [][] lootList = new Loot[1][50];
 Loot emptyChest = new Loot(0,0,new Item(),"EMPTY CHEST ERROR");
 int consumableValue = 0;
 
@@ -59,8 +70,10 @@ boolean confirmSave = false;
 //boolean [] progressSwitch = new boolean[100]; //don't know how big this will get
 ProgressSwitch itemSwitches[] = new ProgressSwitch[100]; //don't know how big this will get
 ProgressSwitch doorSwitches[] = new ProgressSwitch[100]; //or this
+ProgressSwitch bossSwitches[] = new ProgressSwitch[10];  //or, in fact, this
 static int itemSwitchCount = 0;
 static int doorSwitchCount = 0;
+static int bossSwitchCount = 0;
 
 //Battle Data
 Battle battle;
@@ -69,6 +82,7 @@ int randomBattleCounter = 0;
 Monster battleMonsters[];// = new Monster[3];
 int potionType = 0; //potion being drunk
 int battleTextSpeed = 1; //speed battle text displays
+int currentBoss = -1; //index of boss being fought
 
 PrintWriter saveOutput;
 
@@ -121,13 +135,13 @@ void setup()
   potionDrinkSound = new SoundFile(this, "gulp.mp3");
 
   createInventories();
-  setUpLootTable();
+  setUpLootList();
     
   //party.keyInventory[0] = Key.SKELETON_KEY;
   
-  party.inventory[0] = new Item( "Potion", 12 );
-  party.inventory[4] = new Item( "Bread", 10 );
-  party.inventory[6] = new Item( "Pork", 20 );
+  party.inventory[0]  = new Item( "Potion", 12 );
+  party.inventory[4]  = new Item( "Bread", 10 );
+  party.inventory[6]  = new Item( "Pork", 20 );
   party.inventory[14] = new Item( "Bread", 10 );
   party.inventory[20] = new Item( "Bread", 10 );
   party.inventory[15] = new Item( "Fruit", 30 );
@@ -135,7 +149,7 @@ void setup()
   party.inventory[10] = new Item( "Health Potion", 12 );
   party.inventory[21] = new Item( "Mana Potion", 24 );
   party.inventory[13] = new Item( "Vapor Potion", 36 );
-  party.inventory[8] = new Item( "Elixer", 48 );
+  party.inventory[8]  = new Item( "Elixer", 48 );
   
   party.setPosition(2,1);
   
@@ -263,6 +277,8 @@ void setup()
   m[0].tiles[16][5].createEvent(true,"- Press (o) to attempt to open a door. If you have the right key, it will be used up.");
   m[0].tiles[27][4].createEvent(true,"- Please do not step on the flowers.");
   //m.tiles[6][1].createEvent(false,"Event C","Three lines of text","Only happens once");
+
+  m[0].tiles[54][4].placeBoss( color(200,0,0), "The First Boss", new Monster( "TEST BOSS", "BlueMindflair.png", 100, 4, 2, 3, 0, 0, 2, 100 ) );
 
   String testDangerMap = "";
   testDangerMap += "A000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
@@ -552,22 +568,22 @@ void createInventories()
     party.inventory[i] = new Item();
 }
 
-void setUpLootTable()
+void setUpLootList()
 {
   //Zeros out loot tables with worthless keys at 0,0
-  for(int i = 0; i < lootTable.length; i++)
-    for(int j = 0; j < lootTable[0].length; j++)
-      lootTable[i][j] = new Loot(0,0,Key.NONE);
+  for(int i = 0; i < lootList.length; i++)
+    for(int j = 0; j < lootList[0].length; j++)
+      lootList[i][j] = new Loot(0,0,Key.NONE);
   
   //Sets up first floor's loot
-  createLoot(0,0,15,2,Key.COPPER_KEY);
-  createLoot(0,1,1,5,new Item("Red Crystal",75));
-  createLoot(0,2,5,5,new Item("Orange Crystal",75));
-  createLoot(0,3,30,2,Key.COPPER_KEY);
-  createLoot(0,4,41,2,Key.IRON_KEY);
-  createLoot(0,5,6,12,Key.SKELETON_KEY);
-  createLoot(0,6,60,4,new Item("Win Crystal",1000));
-  createLoot(0,7,2,3,new Item("Gold Coin",1));
+  createLoot(0,0, 15,2 ,Key.COPPER_KEY);
+  createLoot(0,1, 1, 5 ,new Item("Red Crystal",75));
+  createLoot(0,2, 5, 5 ,new Item("Orange Crystal",75));
+  createLoot(0,3, 30,2 ,Key.COPPER_KEY);
+  createLoot(0,4, 41,2 ,Key.IRON_KEY);
+  createLoot(0,5, 6, 12,Key.SKELETON_KEY);
+  createLoot(0,6, 60,4 ,new Item("Win Crystal",1000));
+  createLoot(0,7, 2, 3 ,new Item("Gold Coin",1));
   
   //fill empty progressSwitches
   for(int i = 0; i < itemSwitches.length; i++)
@@ -578,14 +594,14 @@ void setUpLootTable()
 //Gets floor, x, y, and key type. Adds to the loot table and progress switches
 void createLoot( int fl, int serial, int xP, int yP, Key k )
 {
-  lootTable[fl][serial] = new Loot(xP,yP,k);
+  lootList[fl][serial] = new Loot(xP,yP,k);
   itemSwitches[itemSwitchCount++] = new ProgressSwitch( SwitchType.CHEST, xP, yP );
 }
 
 //Gets floor, x, y, and item details. Adds to the loot table and progress switches
 void createLoot( int fl, int serial, int xP, int yP, Item i )
 {
-  lootTable[fl][serial] = new Loot(xP,yP,i);
+  lootList[fl][serial] = new Loot(xP,yP,i);
   itemSwitches[itemSwitchCount++] = new ProgressSwitch( SwitchType.CHEST, xP, yP );
 }
 
@@ -665,7 +681,7 @@ boolean checkForBattle()
 }
 
 String bonkText( char direction ) //for when the heroes run into obstacles
-{
+{                                  //also handles boss activation
   int x = party.X, y = party.Y;
   
   //party tried to move off the map
@@ -682,28 +698,50 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case DOOR: return m[party.floor].tiles[party.X][party.Y].keyMessage();
   }
   
-  if(m[party.floor].tiles[x][y].occupied)
+  if( m[party.floor].tiles[x][y].isBoss ) //<>//
+  {
+    for( int i = 0; i < bossSwitches.length; i++ )
+      if( bossSwitches[i].floor == party.floor && partyNextToBoss() ) //bossSwitches[i].X == party.X && bossSwitches[i].Y == party.Y ) //too tired to do this better right now
+      {
+        currentBoss = i; //<>//
+        return m[party.floor].tiles[x][y].occupantText;
+      }
+    println("MISSING BOSS ERROR");
+  }
+  
+  if(m[party.floor].tiles[x][y].occupied) //If space occupied by person
     return m[party.floor].tiles[x][y].occupantText;
     
   return "Bonk";
 }
 
+boolean partyNextToBoss() //party is orthaganally adjacent to a boss
+{
+  for( int i = 0; i < bossSwitches.length; i++ )
+  {
+    if( ( party.X > bossSwitches[i].X-1 || party.X < bossSwitches[i].X+1 ) 
+    &&  ( party.Y > bossSwitches[i].Y-1 || party.Y < bossSwitches[i].Y+1 ) )
+      return true;
+  }
+  return false;
+}
+
 int squareHasLoot( int x, int y ) //-1 if nothing
 {
-  for(int i = 0; i < lootTable[party.floor].length; i++)
-    if(lootTable[party.floor][i].xPos == x
-    && lootTable[party.floor][i].yPos == y
-    && lootTable[party.floor][i].item.keyType == Key.NONE )
+  for(int i = 0; i < lootList[party.floor].length; i++)
+    if(lootList[party.floor][i].xPos == x
+    && lootList[party.floor][i].yPos == y
+    && lootList[party.floor][i].item.keyType == Key.NONE )
       return i;
   return -1;
 }
 
 int squareHasKey( int x, int y )
 {
-  for(int i = 0; i < lootTable[party.floor].length; i++)
-    if(lootTable[party.floor][i].xPos == x
-    && lootTable[party.floor][i].yPos == y
-    && lootTable[party.floor][i].item.keyType != Key.NONE )
+  for(int i = 0; i < lootList[party.floor].length; i++)
+    if(lootList[party.floor][i].xPos == x
+    && lootList[party.floor][i].yPos == y
+    && lootList[party.floor][i].item.keyType != Key.NONE )
       return i;
   return -1;
   
@@ -712,7 +750,7 @@ int squareHasKey( int x, int y )
 //This assumes the party is standing on the loot to be cleared
 void clearLoot( int index )
 {
-  lootTable[party.floor][index] = emptyChest;
+  lootList[party.floor][index] = emptyChest;
   if(m[party.floor].tiles[party.X][party.Y].obj == Object.CHEST)
     openChestSound.play();
   m[party.floor].tiles[party.X][party.Y].obj = Object.NONE;
@@ -721,7 +759,7 @@ void clearLoot( int index )
 //For loading from files - fixes disappearing save point problem (I hope)
 void clearLoot( int floor, int xPos, int yPos, int index )
 {
-  lootTable[floor][index] = emptyChest;
+  lootList[floor][index] = emptyChest;
   m[party.floor].tiles[xPos][yPos].obj = Object.NONE;
 }
 
@@ -740,9 +778,19 @@ void flipDoorSwitch( int xPos, int yPos )
     }
 }
 
+void flipBossSwitch( int xPos, int yPos )
+{
+  for(int i = 0; i < bossSwitches.length; i++)
+    if(bossSwitches[i].X==xPos && bossSwitches[i].Y==yPos)
+    {
+      bossSwitches[i].active = false;
+      break;
+    }
+}
+
 void triggerBattle( char danger )
 {
-  if( danger == '0' || danger > 119 || m[0].tiles[party.X][party.Y].type == TileType.SAFE )
+  if( danger == '0' || danger > 119 || m[0].tiles[party.X][party.Y].type == TileType.SAFE || currentBoss == -1 )
   {
     println("BATTLE NOT TRIGGERED");
     println("Danger Rating: " + danger);
@@ -753,7 +801,7 @@ void triggerBattle( char danger )
     vanGogh.beginBattleAnimation();
     display = Display.BATTLE;
     input = Input.NONE;
-    battle = new Battle(party.hero,dm.dangerValueChar(party.X,party.Y));
+    battle = new Battle(party.hero,dm.dangerValueChar(party.X,party.Y),-1);
   }
 }
 
@@ -780,7 +828,7 @@ void keyPressed()
       int lootIndex = max(squareHasLoot(party.X,party.Y),squareHasKey(party.X,party.Y));
       if(lootIndex>=0)
       {
-        party.addToInventory(lootTable[party.floor][lootIndex].item);
+        party.addToInventory(lootList[party.floor][lootIndex].item);
         clearLoot(lootIndex);
         flipItemSwitch(lootIndex);
       }
@@ -788,13 +836,23 @@ void keyPressed()
         advanceText("Nothing found.");
     }
     if(key == 'a' || keyCode == LEFT)
-      if(!attemptMove("left"))advanceText(bonkText('l'));
+      if(!attemptMove("left")&&display!=Display.BATTLE)displayTextLine(bonkText('l'));
     if(key == 'd' || keyCode == RIGHT)
-      if(!attemptMove("right"))advanceText(bonkText('r'));
+      if(!attemptMove("right")&&display!=Display.BATTLE)displayTextLine(bonkText('r'));
     if(key == 's' || keyCode == DOWN)
-      if(!attemptMove("down"))advanceText(bonkText('d'));
+      if(!attemptMove("down")&&display!=Display.BATTLE)displayTextLine(bonkText('d'));
     if(key == 'w' || keyCode == UP)
-      if(!attemptMove("up"))advanceText(bonkText('u'));
+      if(!attemptMove("up")&&display!=Display.BATTLE)displayTextLine(bonkText('u'));
+    
+    //Moved into a boss space
+    if(currentBoss != -1)
+    {  
+      vanGogh.beginBattleAnimation();
+      display = Display.BATTLE;
+      input = Input.NONE;
+      battle = new Battle( party.hero, 0, currentBoss );
+    }
+      
     if(key == 'o' && m[party.floor].tiles[party.X][party.Y].interactive) //open
       if(m[party.floor].tiles[party.X][party.Y].interact(party.keyInventory))
       {
@@ -978,7 +1036,6 @@ void keyPressed()
       }
     }
   }
-  //else if(display == Display.BATTLE_ITEM)
   
   //REASONS FOR SELECTING A HERO
   else if(display == Display.HERO_SELECT && input == Input.HERO_SELECT)
@@ -1136,6 +1193,12 @@ void mousePressed()
     if( mouseInBox(baseX-75,545) ) { key = 's'; keyPressed(); }
     if( mouseInBox(baseX+75,545) ) { key = 'x'; keyPressed(); }
   }
+  else if( input == Input.BATTLE_ATTACK_TARGET )
+  {
+    if( mouseX > 40 && mouseX < 240 && mouseY > 180 && mouseY < 380 ) { key = 'a'; keyPressed(); }
+    if( mouseX > 250 && mouseX < 450 && mouseY > 180 && mouseY < 380 ) { key = 's'; keyPressed(); }
+    if( mouseX > 460 && mouseX < 660 && mouseY > 180 && mouseY < 380 ) { key = 'd'; keyPressed(); }
+  }
   
   //This displays hero stats if their boxes are clicked
   if( (display == Display.MAP || display == Display.BATTLE )
@@ -1190,7 +1253,7 @@ public void saveGame( String fileName )
 {
   saveOutput = createWriter(fileName); 
   
-  for (int i = 0; i < 3; i++) 
+  for (int i = 0; i < 3; i++) //Writes Hero data
   {
     saveOutput.println(party.hero[i].name);
     saveOutput.println(party.hero[i].job);
@@ -1209,7 +1272,7 @@ public void saveGame( String fileName )
     saveOutput.println();
   } 
   
-  for(int i = 0; i < savePoints.length; i++)
+  for(int i = 0; i < savePoints.length; i++) //Writes current save point
     if(party.X==savePoints[i].X && party.Y == savePoints[i].Y)
     {
       saveOutput.println(i);
@@ -1217,7 +1280,7 @@ public void saveGame( String fileName )
       break;
     }
   
-  for(int i = 0; i < party.inventory.length; i++)
+  for(int i = 0; i < party.inventory.length; i++) //Writes inventory
   {
     if(party.inventory[i].value>0)
     {
@@ -1228,13 +1291,13 @@ public void saveGame( String fileName )
   saveOutput.println("XX");
   saveOutput.println();
   
-  for(int i = 0; i < party.keyInventory.length; i++)
+  for(int i = 0; i < party.keyInventory.length; i++) //Writes keys
     if(party.keyInventory[i]!=Key.NONE)
       saveOutput.println(party.keyInventory[i]);
   saveOutput.println("XX");
   saveOutput.println();
   
-  for(int i = 0; i < itemSwitches.length; i++)
+  for(int i = 0; i < itemSwitches.length; i++) //Writes item switches
   {
     if(itemSwitches[i]==null)
       saveOutput.println(false);
@@ -1244,12 +1307,22 @@ public void saveGame( String fileName )
   saveOutput.println("XX");
   saveOutput.println();
   
-  for(int i = 0; i < doorSwitches.length; i++)
+  for(int i = 0; i < doorSwitches.length; i++) //Writes door switches
   {
     if(doorSwitches[i]==null)
       saveOutput.println(false);
     else
       saveOutput.println(doorSwitches[i].active);
+  }
+  saveOutput.println("XX");
+  saveOutput.println();
+  
+  for(int i = 0; i < bossSwitches.length; i++) //Writes boss switches
+  {
+    if(bossSwitches[i]==null)
+      saveOutput.println(false);
+    else
+      saveOutput.println(bossSwitches[i].active);
   }
   saveOutput.println("XX");
   
@@ -1318,6 +1391,11 @@ public void loadFile( String fileName )
     fileLine+=2;
     while(!saveFileText[fileLine].equals("XX") && doorSwitches[switchIndex]!=null)
       doorSwitches[switchIndex++].active = boolean(saveFileText[fileLine++]);
+      
+    switchIndex=0;
+    fileLine+=2;
+    while(!saveFileText[fileLine].equals("XX") && bossSwitches[switchIndex]!=null)
+      bossSwitches[switchIndex++].active = boolean(saveFileText[fileLine++]);
     
     //interacts with all progress switches
     flipSwitches();
@@ -1339,7 +1417,7 @@ public void loadFile( String fileName )
     pushTextLine("What is your first hero's name?");
     
     //Begin normal character creation
-    display = Display.NONE; //<>//
+    display = Display.NONE;
     step = HeroCreationStep.NAME;
     newGame = true;
     //input = Input.TYPING;
@@ -1349,7 +1427,7 @@ public void loadFile( String fileName )
 
 void flipSwitches()
 {
-  for(int i = 0; i < min(itemSwitches.length,lootTable[0].length); i++) //**only checking one floor**
+  for(int i = 0; i < min(itemSwitches.length,lootList[0].length); i++) //**only checking one floor**
     if(itemSwitches[i]!=null && !itemSwitches[i].active) //switch has been deactivated
       clearLoot(party.floor,itemSwitches[i].X,itemSwitches[i].Y,i);
   for(int i = 0; i < doorSwitches.length; i++)
@@ -1358,4 +1436,7 @@ void flipSwitches()
       m[doorSwitches[i].floor].openDoorsAround(doorSwitches[i].X,doorSwitches[i].Y);
       m[doorSwitches[i].floor].tiles[doorSwitches[i].X][doorSwitches[i].Y].interactive=false; //had to add this because the interact() method normally handles it
     }
+  for(int i = 0; i < bossSwitches.length; i++)
+    if(bossSwitches[i]!=null && !bossSwitches[i].active)
+      m[bossSwitches[i].floor].removeBoss(bossSwitches[i].X,bossSwitches[i].Y);
 }

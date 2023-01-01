@@ -61,7 +61,7 @@ class Hero
     }
     level = 1;
     exp = 0;
-    nextLevel = level*10;
+    nextLevel = level*100;
     poisoned=weakened=paralyzed=asleep=cursed=false;
   }
   

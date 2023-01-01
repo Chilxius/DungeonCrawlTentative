@@ -23,6 +23,9 @@ class Tile
   boolean repeatable; //true if event re-triggers
   String eventText = " ";//[] = {" "," "," "," "," "," "," "," "," "," "}; //text displayed when event is triggered - sends to queue as [0],[1],[2]
   
+  boolean isBoss;
+  Monster boss;
+  
   TileType type;
   Object obj;
   
@@ -37,6 +40,7 @@ class Tile
     y = Y;
     occupied = false;
     safe = false;
+    isBoss = false;
     occupantColor = color(255);
     
     switch(t)
@@ -163,6 +167,11 @@ class Tile
   void addToProgressSwitches()
   {
     doorSwitches[doorSwitchCount++] = new ProgressSwitch( SwitchType.DOOR, x, y );
+  } 
+  
+  void addBossProgressSwitch()
+  {
+    bossSwitches[bossSwitchCount++] = new ProgressSwitch( SwitchType.BOSS, x, y );
   }
   
   public void placeOccupant( color c, String message )
@@ -171,6 +180,17 @@ class Tile
     pathable = false;
     occupantColor = c;
     occupantText = message;
+  }
+  
+  public void placeBoss( color c, String message, Monster m )
+  {
+    occupied = true;
+    pathable = false;
+    occupantColor = c;
+    occupantText = message;
+    isBoss = true;
+    boss = new Monster(m);
+    addBossProgressSwitch();
   }
   
   public void createEvent( boolean r, String s )
@@ -241,7 +261,6 @@ class Tile
       case SKELETON_KEY: return "A door with a skull-shaped emblem.";
       default: return "A strange door...";
     }
-    
   }
   
   public void drawTile(int xPos, int yPos)

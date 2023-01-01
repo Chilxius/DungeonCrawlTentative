@@ -25,20 +25,29 @@ class Battle
   int exp = 0;
   int gold = 0;
   
-  public Battle( Hero [] h, int danger )
-  {
-    displayTextLine( randomMessage() );
+  public Battle( Hero [] h, int danger, int bossIndex ) //bossIndex will be -1 unless it is a boss fight
+  {                                                     //in that situation, danger level does not matter
+    if(currentBoss == -1) //bosses have their own message, handled in bonkText
+      displayTextLine( randomMessage() );
+      
     list[0] = new Initiative(h[0].name,0,h[0].spd,h[0].alive);
     list[1] = new Initiative(h[1].name,1,h[1].spd,h[1].alive);
     list[2] = new Initiative(h[2].name,2,h[2].spd,h[1].alive);
     
     battleMonsters[0] = battleMonsters[1] = battleMonsters[2] = new Monster(); //zero out old monsters
     
-    battleMonsters[0] = new Monster( zoo.monsterByDanger(danger) );
-    while(battleMonsters[1].name.equals("EMPTY")) //can't have empty group
-      battleMonsters[1] = new Monster( zoo.monsterByDanger(danger) );
-    battleMonsters[2] = new Monster( zoo.monsterByDanger(danger) );
-    
+    if(currentBoss == -1) //regular encounter
+    {
+      battleMonsters[0] = new Monster( zoo.monsterByDanger(danger) );
+      while(battleMonsters[1].name.equals("EMPTY")) //can't have empty group
+        battleMonsters[1] = new Monster( zoo.monsterByDanger(danger) );
+      battleMonsters[2] = new Monster( zoo.monsterByDanger(danger) );
+    }
+    else
+    {
+      battleMonsters[1] = zoo.boss[currentBoss];
+    }
+      
     list[3] = new Initiative(battleMonsters[0],3);
     list[4] = new Initiative(battleMonsters[1],4);
     list[5] = new Initiative(battleMonsters[2],5);
@@ -154,14 +163,24 @@ class Battle
     
     if( !battleOver && ( playersDead() || monstersDead() ) )
     {
-      //displayTextLine("Victory!");
-      //return false;
-      displayTextLine("EXP: " + exp);
+      //displayTextLine(victoryLine(exp));    //NOT WORKING
+      displayTextLine("Victory!          EXP: " + exp);
       setBattleDelay(2);
       end = EndStage.EXP;
       battleOver = true;
     }
     return true;
+  }
+  
+  private String victoryLine( int xp )
+  {
+    String returnValue = "";
+    returnValue += "Victory!";
+    while( returnValue.length() < (39 - 5 - Integer.toString(xp).length()) ) //39 is the size of messages lines
+      returnValue+=' ';
+    returnValue += "EXP: " + xp;
+    println(returnValue);
+    return returnValue;
   }
   
   public void resumeInitiative()

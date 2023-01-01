@@ -9,6 +9,13 @@ class Item
     this( "Empty", 0 );
   }
   
+  public Item( Item i )
+  {
+    name = i.name;
+    value = i.value;
+    keyType = i.keyType;
+  }
+  
   public Item( String n, int v )
   {
     name = n;
@@ -25,7 +32,7 @@ class Item
   public boolean isFood() //all foods will have unique values
   {
     //10-bread  20-pork  30-fruit  40-crab
-    if(value == 10 || value == 20)
+    if(value == 10 || value == 20 || value == 30 || value == 40)
       return true;
     return false;
   }

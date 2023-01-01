@@ -37,5 +37,5 @@ class ProgressSwitch
 
 public enum SwitchType
 {
-  CHEST, DOOR, NONE
+  CHEST, DOOR, BOSS, NONE
 }

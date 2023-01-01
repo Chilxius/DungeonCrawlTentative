@@ -96,4 +96,9 @@ class Map
     flipDoorSwitch(xPos,yPos);
     
   }
+  public void removeBoss( int xPos, int yPos )
+  {
+    tiles[xPos][yPos].isBoss = false;
+    flipBossSwitch(xPos,yPos);
+  }
 }
