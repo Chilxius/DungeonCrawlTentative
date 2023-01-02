@@ -7,7 +7,7 @@ class Equipment extends Item
   
   public Equipment()
   {
-    this( "None", 1, true, 1 );
+    this( "None", 1, true, 0, Job.KNIGHT );
   }
   
   public Equipment( Equipment e )
@@ -60,5 +60,13 @@ class Equipment extends Item
       pic = loadImage("error.png");
       return false;
     }
+  }
+  
+  public boolean usableBy( Job j )
+  {
+    for( Job job: allowedJobs )
+      if( job == j )
+        return true;
+    return false;
   }
 }

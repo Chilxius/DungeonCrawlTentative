@@ -44,7 +44,12 @@ class Party
     return hero[x];
   }
   
-  public boolean addToInventory( Item item )
+  public boolean addToInventory( Item item ) //for normal item pickups/buys
+  {
+    return addToInventory( item, false );
+  }
+  
+  public boolean addToInventory( Item item, boolean loadingFile) //for loading save files
   {
     if( item.keyType != Key.NONE )
     {
@@ -56,6 +61,12 @@ class Party
       {
         inventory[i] = item;
         advanceText("You recieve " + indefArticle(item.name) + " " + item );
+        if( !loadingFile && inventory[i] instanceof Equipment ) //Checks if the item is a weapon or armor
+        {                                                       //Should not trigger during file load
+          newEquip = (Equipment)item; //Should be able to safely assume that item is an instance of Equipment
+          display = Display.EQUIP; //Set display to equip mode
+          newEquipIndex = i;
+        }
         return true;
       }
       

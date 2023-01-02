@@ -441,34 +441,127 @@ class Artist
     endShape();
   }
   
+  public void drawHelpMenuScreen()
+  {
+    //Scroll
+    noStroke();
+    rectMode(CENTER);
+    fill(195,175,135);
+    rect(width/2,375,490,400);
+    fill(90,70,30);
+    rect(width/2,170,510,6);
+    rect(width/2,575,510,6);
+    fill(180,160,120);
+    rect(width/2,170,500,14,5);
+    rect(width/2,575,500,14,5);
+    
+    //fill(0);  rectMode(CORNER);
+    //stroke(200);
+    //strokeWeight(5);
+    //rect(100,175,width-200,400,20);
+    textSize(25); fill(50); textAlign(CORNER);
+    text("Keyboard Commands:",110,205);
+    textSize(20);
+    text("(w)(a)(s)(d) - Move party around map",110,235);
+    text("(E) - Eat food",110,260);
+    text("(D) - Drink potion",110,285);
+    text("(B) - Buy item from vendor",110,310);
+    text("(S) - Save at a crystal",110,335);
+    text("(R) - Rest at an inn or camp",110,360);
+    text("(o) - Open door",110,385);
+    text("(space) - Open chest / Search current space",110,410);
+    text("Hold (i) - View inventory",110,435);
+    text("Hold (k) - View keys",110,460);
+    text("Hold (h) - View help menu",110,485);
+    textSize(15);
+    text(" Battle inputs are shown. The (space) key can usually be used to",110,515);
+    text(" cancel. (1)(2)(3) are interchangable with (a)(s)(d) when selecting",110,535);
+    text(" heroes or targets. Click hero boxes for detailed information.",110,555);
+  }
+  
   public void drawHeroSelectScreen()
   {
+    //This will change the window for equipping
+    int equipOffset = 0; if( display == Display.EQUIP ) equipOffset = 50;
+    
     fill(0);  rectMode(CORNER);
     stroke(200);
     strokeWeight(5);
-    rect(100,200,width-200,height-400,20);
+    rect(100,200,width-200,height-400+equipOffset,20);
     
     fill(200); textAlign(CENTER); textSize(40);
-    text("Select Hero",width/2,250);
+    if( display == Display.EQUIP ) text(newEquip.name,width/2,250);
+    else                           text("Select Hero",width/2,250);
     
     fill(party.hero[0].getColor()); drawHeroByType(party.hero[0],150,320,1,0,true); //ellipse(150,320,75,75);
     fill(200); text(1,150,333);
     if( dist( mouseX,mouseY, 150,320)<37.5)
-      text(party.hero[0].name,width/2,400);
+      text(party.hero[0].name,width/2,400+equipOffset);
     
     fill(party.hero[1].getColor()); drawHeroByType(party.hero[1],350,320,1,1,true); //ellipse(350,320,75,75);
     fill(200); text(2,350,333);
     if( dist( mouseX,mouseY, 350,320)<37.5)
-      text(party.hero[1].name,width/2,400);
+      text(party.hero[1].name,width/2,400+equipOffset);
     
     fill(party.hero[2].getColor()); drawHeroByType(party.hero[2],550,320,1,2,true); //ellipse(550,320,75,75);
     fill(200); text(3,550,333);
     if( dist( mouseX,mouseY, 550,320)<37.5)
-      text(party.hero[2].name,width/2,400);
+      text(party.hero[2].name,width/2,400+equipOffset);
+      
+    if( display == Display.EQUIP )
+    {
+      //use textPromptStage for color animation
+      showStatComparison( 0, newEquip, 150, 400 );
+      showStatComparison( 1, newEquip, 350, 400 );
+      showStatComparison( 2, newEquip, 550, 400 );
+    }
       
     fill(200); textAlign(CENTER); textSize(25);
-    text("Select by number or",width/2,460);
-    text("press space to cancel.",width/2,480);
+    if( display != Display.EQUIP )
+    {
+      text("Select by number or",width/2,460);
+      text("press space to cancel.",width/2,480);
+    }
+    else
+    {
+      text("Equip by number or press", width/2,510);
+      text("capital (X) to put aisde for sale.",width/2,540);
+    }
+  }
+  
+  public void showStatComparison( int heroIndex, Equipment thing, float xPos, float yPos )
+  {
+    textSize(30);
+    if( !thing.usableBy( party.hero[heroIndex].job ) ) //can't use
+      fill(200); //non-flashing gray
+    else if( thing.isWeapon && party.hero[heroIndex].weapon.power < thing.power ||
+            !thing.isWeapon && party.hero[heroIndex].armor.power  < thing.power) //new equipment is better
+    {  fill(0,100+textPromptStage*3,0); stroke(0,100+textPromptStage*3,0); }//flash green
+    else if( thing.isWeapon && party.hero[heroIndex].weapon.power > thing.power ||
+            !thing.isWeapon && party.hero[heroIndex].armor.power  > thing.power) //new equipment is worse 
+    {  fill(150+textPromptStage*1.5,0,0); stroke(100+textPromptStage*1.5,0,0); }//flash red
+    else //new equipment has same power as old
+      fill(200); //non-flashing gray
+      
+    //Display comparison
+    if( !thing.usableBy( party.hero[heroIndex].job ) ) //hero can't use
+    {
+      textSize(25);
+      text("Can't", xPos, yPos-10);
+      text("use.", xPos, yPos+10);
+    }
+    
+    else //hero can use
+    {
+      //display old power
+      if( thing.isWeapon) text( party.hero[heroIndex].weapon.power, xPos-20, yPos );
+      else                text( party.hero[heroIndex].armor.power, xPos-20, yPos );
+      text( thing.power, xPos+20, yPos ); //display new power
+      strokeWeight(2);
+      line(xPos-5,yPos-12,xPos+5,yPos-12);
+      line(xPos+2,yPos-9,xPos+5,yPos-12);
+      line(xPos+2,yPos-15,xPos+5,yPos-12);
+    }
   }
   
   public void drawObject( Object o, int xPos, int yPos )

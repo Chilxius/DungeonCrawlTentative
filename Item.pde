@@ -49,4 +49,9 @@ class Item
     return name;
   }
 
+  public boolean usableBy( Job j )
+  {
+    println("ERROR - CHECKED ITEM FOR EQUIPABILITY");
+    return false;
+  }
 }

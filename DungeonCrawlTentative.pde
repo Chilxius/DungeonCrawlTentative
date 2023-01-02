@@ -2,7 +2,7 @@
 //Bennett Ritchie
 
 //TO DO BEFORE IT CAN BE A REAL GAME:
-//Get new items (chest and shop)
+//Get new items (chest and shop) - inventory full check
 //Inns
 
 //TO DO BEFORE IT IS BE GOOD:
@@ -10,7 +10,11 @@
 //Level up
 //Enemy attacks
 //Character backs
+//Improve hero select widnow (circle sizes)
+//Have equipment actually matter
 
+//IMAGES I NEED:
+//Campsite
 
 import processing.sound.*;
 
@@ -59,6 +63,8 @@ public SoundFile openDoorSound, openChestSound, lockedDoorSound, potionDrinkSoun
 Loot [][] lootList = new Loot[1][50];
 Loot emptyChest = new Loot(0,0,new Item(),"EMPTY CHEST ERROR");
 int consumableValue = 0;
+Equipment newEquip = new Equipment(), oldEquip = new Equipment(); //for switching in new equipment
+int newEquipIndex = -1;
 
 //Save data
 String saveFileName = "";
@@ -159,7 +165,7 @@ void setup()
 
   //String testMapString = "#####################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  ##########################################################################################################################################################################################################                                                                                                  ######################################################################################################                                                                                                  #####################################################################################################";
   String testMapString = "";
-  testMapString += "D########T~~tt~~t~~~~T~~~~~~~~~~~~~~~~~~~~~~~TTTTT#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
+  testMapString += "D########T~~tt~~t~~~~T~~~~~=~~~~~~~~~~~~~~~~~TTTTT#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
   testMapString += "##.?.?.?############~~~%%%%%%%%%~~~~~~~~###~~~TTTT#######                                          ~";
   testMapString += "#.....?*.#.....=.==#~~~%%%www%%%~~~~T~~~#=#~~~~TTT#&&&&&#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
   testMapString += "#?.......###.#######~~~%%%%%%%%%~~~~~~~~#+#~~T~~TT############~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
@@ -425,11 +431,13 @@ void draw()
     vanGogh.drawKeys(party.keyInventory);
   else if(display == Display.ITEM_LIST)
     vanGogh.drawItems(party.inventory);
+  else if(display == Display.HELP_MENU)
+    vanGogh.drawHelpMenuScreen();
   else if(display == Display.FOOD_MENU)
     vanGogh.drawFoodMenu(party.inventory);
   else if(display == Display.POTION_MENU)
     vanGogh.drawPotionMenu(party.inventory);
-  else if(display == Display.HERO_SELECT)
+  else if(display == Display.HERO_SELECT || display == Display.EQUIP )
     vanGogh.drawHeroSelectScreen();
   else if(display == Display.BATTLE)
   {
@@ -584,6 +592,8 @@ void setUpLootList()
   createLoot(0,5, 6, 12,Key.SKELETON_KEY);
   createLoot(0,6, 60,4 ,new Item("Win Crystal",1000));
   createLoot(0,7, 2, 3 ,new Item("Gold Coin",1));
+  
+  createLoot(0,8, 27,0 ,new Equipment("Sword",15,true,4,Job.KNIGHT)); 
   
   //fill empty progressSwitches
   for(int i = 0; i < itemSwitches.length; i++)
@@ -823,17 +833,20 @@ void keyPressed()
   
   if(input == Input.EXPLORING && display == Display.MAP)
   {
-    if(key == ' ') //needs to come first to avoid strange errors
-    {  //this is a bit of a mess. could improve
-      int lootIndex = max(squareHasLoot(party.X,party.Y),squareHasKey(party.X,party.Y));
+    if(key == ' ') //Needs to come first to avoid strange errors
+    {              //This is a bit of a mess. could improve
+      int lootIndex = max(squareHasLoot(party.X,party.Y),squareHasKey(party.X,party.Y)); //<>//
       if(lootIndex>=0)
       {
-        party.addToInventory(lootList[party.floor][lootIndex].item);
-        clearLoot(lootIndex);
-        flipItemSwitch(lootIndex);
+        if( party.addToInventory(lootList[party.floor][lootIndex].item) ) //checks for full inventory
+        {
+          clearLoot(lootIndex);
+          flipItemSwitch(lootIndex);
+        }
       }
       else
         advanceText("Nothing found.");
+      
     }
     if(key == 'a' || keyCode == LEFT)
       if(!attemptMove("left")&&display!=Display.BATTLE)displayTextLine(bonkText('l'));
@@ -895,18 +908,23 @@ void keyPressed()
       advanceText("Save aborted");
       confirmSave = false;
     }
-    if(display == Display.MAP && key == 'k')
+    if(display == Display.MAP && key == 'k') //keys
     {
       previousDisplay = display;
       display = Display.KEY_LIST;
     }
-    if(display == Display.MAP && key == 'i')
+    if(display == Display.MAP && key == 'i') //inventory
     {
       previousDisplay = display;
       display = Display.ITEM_LIST;
     }
+    if(display == Display.MAP && key == 'h') //help menu
+    {
+      previousDisplay = display;
+      display = Display.HELP_MENU;
+    }
     
-    if(display == Display.MAP && key == 'z')
+    if(display == Display.MAP && key == 'z') //testing
       party.hero[0].takeDamage(5);
   }
   //ITEM USE INPUT
@@ -1037,6 +1055,64 @@ void keyPressed()
     }
   }
   
+  //FOUND OR BOUGHT A WEAPON OR ARMOR
+  else if( display == Display.EQUIP )
+  {
+    if( key == '1' && newEquip.usableBy(party.hero[0].job) ) //equipped to hero 1
+    {
+      if( newEquip.isWeapon ) //Change weapon
+      {
+        oldEquip = new Equipment(party.hero[0].weapon);
+        party.hero[0].weapon = new Equipment( newEquip );
+      }
+      else                    //Change armor
+      {
+        oldEquip = new Equipment(party.hero[0].armor);
+        party.hero[0].armor = new Equipment( newEquip );
+      }
+      party.inventory[newEquipIndex] = new Equipment( oldEquip );
+      display = Display.MAP;
+      input = input.EXPLORING;
+    }
+    if( key == '2' && newEquip.usableBy(party.hero[1].job) ) //equipped to hero 2
+    {
+      if( newEquip.isWeapon ) //Change weapon
+      {
+        oldEquip = new Equipment(party.hero[1].weapon);
+        party.hero[1].weapon = new Equipment( newEquip );
+      }
+      else                    //Change armor
+      {
+        oldEquip = new Equipment(party.hero[1].armor);
+        party.hero[1].armor = new Equipment( newEquip );
+      }
+      party.inventory[newEquipIndex] = new Equipment( oldEquip );
+      display = Display.MAP;
+      input = input.EXPLORING;
+    }
+    if( key == '3' && newEquip.usableBy(party.hero[2].job) ) //equipped to hero 3
+    {
+      if( newEquip.isWeapon ) //Change weapon
+      {
+        oldEquip = new Equipment(party.hero[2].weapon);
+        party.hero[2].weapon = new Equipment( newEquip );
+      }
+      else                    //Change armor
+      {
+        oldEquip = new Equipment(party.hero[2].armor);
+        party.hero[2].armor = new Equipment( newEquip );
+      }
+      party.inventory[newEquipIndex] = new Equipment( oldEquip );
+      display = Display.MAP;
+      input = input.EXPLORING;
+    }
+    if( key == 'x' || key == 'X' ) //not equipped - left in bag
+    {
+      display = Display.MAP;
+      input = input.EXPLORING;
+    }
+  }
+  
   //REASONS FOR SELECTING A HERO
   else if(display == Display.HERO_SELECT && input == Input.HERO_SELECT)
   {
@@ -1102,7 +1178,7 @@ void keyReleased()
 {
   if( display == Display.ITEM_LIST && key == 's' )
     party.sortInventory();
-  else if( previousDisplay != Display.NONE && (key == 'k' || key == 'i') )
+  else if( previousDisplay != Display.NONE && (key == 'k' || key == 'i' || key == 'h' ) )
   {
     display = previousDisplay;
     previousDisplay = Display.NONE;
@@ -1236,7 +1312,7 @@ public enum HeroCreationStep //for the initial setup
 public enum Display
 {
   MAIN_MENU, MAP, BATTLE, KEY_LIST, ITEM_LIST, 
-  FOOD_MENU, POTION_MENU, HERO_SELECT, NONE
+  FOOD_MENU, POTION_MENU, HELP_MENU, HERO_SELECT, EQUIP, NONE
 }
 
 public enum HeroSelectReason
@@ -1363,13 +1439,13 @@ public void loadFile( String fileName )
     int fileLine = 47; //first line of inventory data
     while(!saveFileText[fileLine].equals("XX"))
     {
-      party.addToInventory(new Item(saveFileText[fileLine],int(saveFileText[fileLine+1])));
+      party.addToInventory(new Item(saveFileText[fileLine],int(saveFileText[fileLine+1])),true);
       fileLine+=2;
     }
     fileLine+=2;
     while(!saveFileText[fileLine].equals("XX"))
     {
-      party.addToInventory(new Item( stringToKey(saveFileText[fileLine])));
+      party.addToInventory(new Item( stringToKey(saveFileText[fileLine])),true);
       fileLine++;
     }
     
