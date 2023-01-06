@@ -800,7 +800,7 @@ void flipBossSwitch( int xPos, int yPos )
 
 void triggerBattle( char danger )
 {
-  if( danger == '0' || danger > 119 || m[0].tiles[party.X][party.Y].type == TileType.SAFE || currentBoss == -1 )
+  if( danger == '0' || danger > 119 || m[0].tiles[party.X][party.Y].type == TileType.SAFE || currentBoss != -1 )
   {
     println("BATTLE NOT TRIGGERED");
     println("Danger Rating: " + danger);
@@ -835,7 +835,7 @@ void keyPressed()
   {
     if(key == ' ') //Needs to come first to avoid strange errors
     {              //This is a bit of a mess. could improve
-      int lootIndex = max(squareHasLoot(party.X,party.Y),squareHasKey(party.X,party.Y)); //<>//
+      int lootIndex = max(squareHasLoot(party.X,party.Y),squareHasKey(party.X,party.Y));
       if(lootIndex>=0)
       {
         if( party.addToInventory(lootList[party.floor][lootIndex].item) ) //checks for full inventory
@@ -1395,7 +1395,7 @@ public void saveGame( String fileName )
   
   for(int i = 0; i < bossSwitches.length; i++) //Writes boss switches
   {
-    if(bossSwitches[i]==null)
+    if(bossSwitches[i]==null) //<>//
       saveOutput.println(false);
     else
       saveOutput.println(bossSwitches[i].active);
@@ -1449,7 +1449,9 @@ public void loadFile( String fileName )
       fileLine++;
     }
     
-    //set progress switches
+    //Set progress switches
+    
+    //Item switches
     fileLine+=2;
     int switchIndex=0;
     while(!saveFileText[fileLine].equals("XX"))
@@ -1463,18 +1465,42 @@ public void loadFile( String fileName )
       fileLine++;
     }
       
-    switchIndex=0;
+    //Door switches
     fileLine+=2;
-    while(!saveFileText[fileLine].equals("XX") && doorSwitches[switchIndex]!=null)
-      doorSwitches[switchIndex++].active = boolean(saveFileText[fileLine++]);
+    switchIndex=0;
+    while(!saveFileText[fileLine].equals("XX"))
+    {
+      if(doorSwitches[switchIndex]!=null)
+        doorSwitches[switchIndex].active = boolean(saveFileText[fileLine]);
+        
+      switchIndex++;
+      fileLine++;
+    }
+ 
+    //Boss switches
+    fileLine+=2;
+    switchIndex=0;
+    while(!saveFileText[fileLine].equals("XX"))
+    { //<>//
+      if(bossSwitches[switchIndex]!=null)
+        bossSwitches[switchIndex].active = boolean(saveFileText[fileLine]);
+        
+      switchIndex++;
+      fileLine++;
+    }
       
-    switchIndex=0;
-    fileLine+=2;
-    while(!saveFileText[fileLine].equals("XX") && bossSwitches[switchIndex]!=null)
-      bossSwitches[switchIndex++].active = boolean(saveFileText[fileLine++]);
+    //switchIndex=0;
+    //fileLine+=2;
+    //while(!saveFileText[fileLine].equals("XX") && doorSwitches[switchIndex]!=null)
+    //  doorSwitches[switchIndex++].active = boolean(saveFileText[fileLine++]);
+      
+    //switchIndex=0;
+    //fileLine+=2;
+    //while(!saveFileText[fileLine].equals("XX") && bossSwitches[switchIndex]!=null)
+    //  bossSwitches[switchIndex++].active = boolean(saveFileText[fileLine++]);
     
     //interacts with all progress switches
-    flipSwitches();
+    flipSwitches(); // <- Empty switches must be NULL
     
     //After load is finished, resume game
     display = Display.MAP;
@@ -1509,6 +1535,7 @@ void flipSwitches()
   for(int i = 0; i < doorSwitches.length; i++)
     if(doorSwitches[i]!=null && !doorSwitches[i].active) //switch has been deactivated
     {
+      println("Door Switch " + i );
       m[doorSwitches[i].floor].openDoorsAround(doorSwitches[i].X,doorSwitches[i].Y);
       m[doorSwitches[i].floor].tiles[doorSwitches[i].X][doorSwitches[i].Y].interactive=false; //had to add this because the interact() method normally handles it
     }

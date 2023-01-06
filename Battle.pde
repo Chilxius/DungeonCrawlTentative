@@ -93,6 +93,12 @@ class Battle
             break;
             
           case DONE: //battle fully over
+            if(currentBoss!=-1)
+            {
+              m[party.floor].tiles[bossSwitches[currentBoss].X][bossSwitches[currentBoss].Y].removeBoss();
+              bossSwitches[currentBoss].active=false;
+              currentBoss = -1; //switch off boss mode
+            }
             return false;
         }
       else if(turn == -1 && !waitingForText) //No one's turn and not waiting for text to advance

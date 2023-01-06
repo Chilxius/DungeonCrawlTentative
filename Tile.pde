@@ -174,6 +174,13 @@ class Tile
     bossSwitches[bossSwitchCount++] = new ProgressSwitch( SwitchType.BOSS, x, y );
   }
   
+  void removeBoss()
+  {
+    occupied = false;
+    pathable = true;
+    isBoss = false;
+  }
+  
   public void placeOccupant( color c, String message )
   {
     occupied = true;

@@ -1,10 +1,10 @@
 Bennett
 KNIGHT
-248.0
-0.0
+223.0
+225.0
 0.0
 1
-50
+100
 0
 Club
 1
@@ -13,13 +13,13 @@ Shirt
 1
 1
 
-Todd
-KARATE
-0.0
+Matt
+BARBARIAN
 249.0
 0.0
+0.0
 1
-50
+100
 0
 Club
 1
@@ -28,13 +28,13 @@ Shirt
 1
 1
 
-Ritchie
-THIEF
+Erik
+MAGE
+207.0
 0.0
-0.0
-249.0
+213.0
 1
-50
+100
 0
 Club
 1
@@ -69,18 +69,17 @@ Crab
 40
 XX
 
-IRON_KEY
 XX
 
 false
 true
 true
-false
-false
 true
 true
-false
-false
+true
+true
+true
+true
 false
 false
 false
@@ -175,7 +174,7 @@ false
 XX
 
 false
-false
+true
 true
 true
 false
