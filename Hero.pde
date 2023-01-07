@@ -205,6 +205,14 @@ class Hero
       mp = maxMp;
   }
   
+  public void fullHeal()
+  {
+    hp = maxHp;
+    mp = maxMp;
+    poison = 0;
+    poisoned=weakened=paralyzed=asleep=cursed=false;
+  }
+  
   public boolean inDanger()
   {
     if(hp<=maxHp/10)

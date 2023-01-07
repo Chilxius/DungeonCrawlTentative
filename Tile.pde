@@ -29,6 +29,10 @@ class Tile
   TileType type;
   Object obj;
   
+  boolean isShop;
+  Item itemForSale;
+  int itemPrice;
+  
   public Tile()
   {
     this(1,1,color(255),true,false,false); 
@@ -45,6 +49,7 @@ class Tile
     
     switch(t)
     {
+      case '@':type=TileType.CAMP;break;
       case '#':type=TileType.WALL;break;
       case '~':type=TileType.GRASS;break;
       case '+':type=TileType.DOOR;break;
@@ -90,6 +95,12 @@ class Tile
       }
       case SAFE: {
         tileColor = safeColor;
+        pathable = true;
+        interactive = false;
+        event = false; safe = true; break;
+      }
+      case CAMP: {
+        tileColor = color(150,0,0);
         pathable = true;
         interactive = false;
         event = false; safe = true; break;
@@ -187,6 +198,15 @@ class Tile
     pathable = false;
     occupantColor = c;
     occupantText = message;
+  }
+  
+  public void placeShop( Item i, int price )
+  {
+    occupied = false;
+    pathable = true;
+    itemPrice = price;
+    itemForSale = i;
+    type = TileType.SHOP;
   }
   
   public void placeBoss( color c, String message, Monster m )
@@ -352,7 +372,7 @@ class Tile
 public enum TileType
 {
   EMPTY, WALL, GRASS, EVENT, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH,
-  DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE
+  DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE, CAMP, SHOP
 }
 
 public enum Key //special items for interactive tiles

@@ -59,7 +59,9 @@ class Party
     for(int i = 0; i < inventory.length; i++)
       if( inventory[i].value == 0 )
       {
-        inventory[i] = item;
+        if(item.value == 10) item.name = theStuff.breadName();
+        if(item instanceof Item) inventory[i] = new Item( item );    //don't like this, but it seems to work
+        if(item instanceof Equipment) inventory[i] = new Equipment( (Equipment)item );
         advanceText("You recieve " + indefArticle(item.name) + " " + item );
         if( !loadingFile && inventory[i] instanceof Equipment ) //Checks if the item is a weapon or armor
         {                                                       //Should not trigger during file load
@@ -183,5 +185,12 @@ class Party
       if( inventory[j].value == i*12 )
         return true;
     return false;
+  }
+  
+  public void healAll()
+  {
+    hero[0].fullHeal();
+    hero[1].fullHeal();
+    hero[2].fullHeal();
   }
 }

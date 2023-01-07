@@ -16,6 +16,10 @@ class Artist
   float textPromptStep;
   float textPromptStage;
   
+  boolean resting = false;
+  boolean restFadeIn = true;
+  int restOpacity = 0;
+  
   public Artist()
   {
     animationStage = 0;
@@ -753,6 +757,53 @@ class Artist
     animationStage = 0;
     animationStep = 1;
     battleWindowOpening = true;
+  }
+  
+  void beginRestFadeout()
+  {
+    restOpacity = 0;
+    resting = true;
+    restFadeIn = true;
+    displayTextLine( restText() );
+  }
+  
+  String restText()
+  {
+    switch( int(random(10) ) )
+    {
+      case 0: return "Good Night.";
+      case 1: return "Time for a long rest.";
+      case 2: return "Break out the rations.";
+      case 3: return party.hero[0].name + ", pass the ale.";
+      case 4: return party.hero[0].name + " is exhausted.";
+      case 5: return "Oh no, " + party.hero[2].name + " is snoring again.";
+      case 6: return party.hero[2].name + " brews some tea.";
+      case 7: return party.hero[1].name + " falls asleep immediately.";
+      case 8: return "A cat keeps " + party.hero[1].name + " awake for hours.";
+      default: return "ZZZZzzzz....";
+    }
+  }
+  
+  void drawRestFadeout()
+  {
+    if(restFadeIn)
+      restOpacity+=3;
+    else
+      restOpacity-=5;
+      
+    fill(0,restOpacity); noStroke();
+    rect(0,160,700,440);
+    
+    if(restOpacity > 250)
+    {
+      restFadeIn=false;
+      party.healAll();
+    }
+    if(restOpacity <= 0)
+    {
+      resting = false;
+      input = Input.EXPLORING;
+    }
   }
   
   void drawBattleWindow()
