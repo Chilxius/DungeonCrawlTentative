@@ -8,6 +8,8 @@ class Monster
   int str, dex, con, mag, wil, spd;
   boolean alive;
   int gold;
+  
+  AttackType weakness = AttackType.NONE;
    
   boolean poisoned, weakened, paralyzed, asleep, cursed;
   
@@ -16,19 +18,19 @@ class Monster
 
   public Monster()
   {
-    this("EMPTY", "016.png", 1,0,1,1,1,1,1,0);
+    this("EMPTY", "016.png", 1,0,1,1,1,1,1,0,AttackType.NONE);
     alive = false;
   }
   
   public Monster( Monster m )
   {
-    this( m.name, m.imageName, m.hp, m.str, m.dex, m.con, m.mag, m.wil, m.spd, m.gold );
+    this( m.name, m.imageName, m.hp, m.str, m.dex, m.con, m.mag, m.wil, m.spd, m.gold, m.weakness );
     alive = m.alive;
   }
   
-  public Monster( String n, String image, int health, int s, int d, int c, int m, int w, int sp, int g )
+  public Monster( String n, String image, int health, int s, int d, int c, int m, int w, int sp, int g, AttackType weak)
   {
-   name = n;
+   name = n; //<>//
    imageName = image;
    pic = loadImage(imageName);
    pic.resize(200,0);
@@ -40,6 +42,8 @@ class Monster
    mag=m;
    wil=w;
    spd=sp;
+   
+   weakness = weak;
    
    gold = g;
    

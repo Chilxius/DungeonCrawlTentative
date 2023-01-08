@@ -54,4 +54,34 @@ class Item
     println("ERROR - CHECKED ITEM FOR EQUIPABILITY");
     return false;
   }
+  
+  public boolean isSellable()
+  {
+    if( value == 10 || value == 20 || value == 30 || value == 40
+     || value == 12 || value == 24 || value == 36 || value == 48 || value == 0 )
+     return false;
+    return true;
+  }
+}
+
+public String keyName( Key k )
+{
+  switch(k)
+  {
+    case COPPER_KEY: return "Copper Key";
+    case SKELETON_KEY: return "Skeleton Key";
+    case IRON_KEY: return "Iron Key";
+    default: return "";
+  }
+}
+  
+Key stringToKey( String s )
+{
+  switch(s)
+  {
+    case "COPPER_KEY": return Key.COPPER_KEY;
+    case "SKELETON_KEY": return Key.SKELETON_KEY;
+    case "IRON_KEY": return Key.IRON_KEY;
+    default: return Key.NONE;
+  }
 }

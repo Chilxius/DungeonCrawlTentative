@@ -255,7 +255,7 @@ Job stringToJob( String s )
 }
 
 /*
-Base stats by class:
+Base stats by class:                        At level 50 (MAX) (50 to 200)
 
 Job    HP  Str  Dex  Con  Mag  Will
 Kni    30  4    3    5    1    2
@@ -264,6 +264,8 @@ Art    45  4    4    4    2    4
 Thf    25  3    5    3    1    2
 Pri    20  2    2    2    4    5
 Mag    15  1    2    2    5    4
+
+Max dex of 150. 150 spd should get 3 turns for every 1 turn of a character with spd 50
 
 */
 

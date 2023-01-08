@@ -209,7 +209,14 @@ class Tile
     type = TileType.SHOP;
   }
   
-  public void placeBoss( color c, String message, Monster m )
+  public void placeSeller()
+  {
+    occupied = false;
+    pathable = true;
+    type = TileType.SELL;
+  }
+  
+  public void placeBoss( color c, String message, Monster m ) //not working properly - boss is being replaced
   {
     occupied = true;
     pathable = false;
@@ -323,6 +330,8 @@ class Tile
       image(tileImage[47],xPos-10,yPos-10);
     else if(type == TileType.GRAVE)
       image(tileImage[42],xPos,yPos);
+    else if(type == TileType.SELL)
+      image(tileImage[28],xPos,yPos);
     if(occupied)
     {
       fill(occupantColor); noStroke();
@@ -367,12 +376,25 @@ class Tile
     if(tileAnimation<=0)
       animationIncreasing=true;
   }
+  
+  public boolean isSafe()
+  {
+    switch( type )
+    {
+      case SAFE:
+      case SHOP:
+      case SELL:
+      case CAMP:
+      return true;
+    }
+    return false;
+  }
 }
 
 public enum TileType
 {
   EMPTY, WALL, GRASS, EVENT, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH,
-  DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE, CAMP, SHOP
+  DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE, CAMP, SHOP, SELL
 }
 
 public enum Key //special items for interactive tiles

@@ -243,13 +243,13 @@ class Artist
     rectMode(CENTER); strokeWeight(5);
     stroke(200); fill(0);
     rect(140,280,70,70,20);
-    rect(280,280,70,70,20);
-    if(party.hero[h].level>5)  rect(420,280,70,70,20);
-    if(party.hero[h].level>10) rect(560,280,70,70,20);
-    if(party.hero[h].level>15) rect(140,430,70,70,20);
-    if(party.hero[h].level>20) rect(280,430,70,70,20);
-    if(party.hero[h].level>25) rect(420,430,70,70,20);
-    if(party.hero[h].level>30) rect(560,430,70,70,20);
+    if(party.hero[h].level>5 ) rect(280,280,70,70,20);
+    if(party.hero[h].level>10) rect(420,280,70,70,20);
+    if(party.hero[h].level>15) rect(560,280,70,70,20);
+    if(party.hero[h].level>20) rect(140,430,70,70,20);
+    if(party.hero[h].level>25) rect(280,430,70,70,20);
+    if(party.hero[h].level>30) rect(420,430,70,70,20);
+    if(party.hero[h].level>35) rect(560,430,70,70,20);
     
     rect(baseX+75,545,70,70,20);drawCancelIcon(baseX+75,545);
   }
@@ -469,9 +469,9 @@ class Artist
     text("(w)(a)(s)(d) - Move party around map",110,235);
     text("(E) - Eat food",110,260);
     text("(D) - Drink potion",110,285);
-    text("(B) - Buy item from vendor",110,310);
-    text("(S) - Save at a crystal",110,335);
-    text("(R) - Rest at an inn or camp",110,360);
+    text("(S) - Save at a crystal",110,310);
+    text("(R) - Rest at an inn or camp",110,335);
+    text("(B) - Bargain with a vendor",110,360);
     text("(o) - Open door",110,385);
     text("(space) - Open chest / Search current space",110,410);
     text("Hold (i) - View inventory",110,435);
@@ -769,32 +769,55 @@ class Artist
   
   String restText()
   {
-    switch( int(random(10) ) )
+    switch( int(random(35) ) )
     {
-      case 0: return "Good Night.";
-      case 1: return "Time for a long rest.";
-      case 2: return "Break out the rations.";
-      case 3: return party.hero[0].name + ", pass the ale.";
-      case 4: return party.hero[0].name + " is exhausted.";
-      case 5: return "Oh no, " + party.hero[2].name + " is snoring again.";
-      case 6: return party.hero[2].name + " brews some tea.";
-      case 7: return party.hero[1].name + " falls asleep immediately.";
-      case 8: return "A cat keeps " + party.hero[1].name + " awake for hours.";
-      default: return "ZZZZzzzz....";
+      case 0: return party.hero[0].name + " pulls out a lyre and soothes the group with song.";
+      case 1: return party.hero[0].name + " pulls out a lyre and rocks the night away.";
+      case 2: return party.hero[0].name + ", pass the ale.";
+      case 3: return party.hero[0].name + " is exhausted after a long day.";
+      case 4: return "Where did " + party.hero[0].name + " find chocolate? Who cares!?";
+      case 5: return party.hero[0].name + " practices using the " + party.hero[0].weapon.name.toLowerCase() + ".";
+      
+      case 6: return "A cat keeps " + party.hero[1].name + " awake for hours.";
+      case 7: return party.hero[1].name + " brews some tea.";
+      case 8: return party.hero[1].name + " falls asleep immediately.";
+      case 9: return party.hero[1].name + " hits the pillow hard.";
+      case 10: return party.hero[1].name + " volunteers to mend the holes in everyone's socks.";
+      case 11: return "A cat is meowing in the distance. It keeps " + party.hero[1].name + " awake for hours.";
+      
+      case 12: return party.hero[2].name + "'s book is missing. Everyone empty your packs. Yes, now!";
+      case 13: return party.hero[2].name + " stays up reading \"Dragon Island\".";
+      case 14: return party.hero[2].name + " stays up reading \"Dragon Island\".";
+      case 15: return party.hero[2].name + " stays up reading \"Dragon Island\".";
+      case 16: return party.hero[2].name + " stays up reading \"Dragon Island 2: Return of the Revenge\".";
+      case 17: return "Oh no, " + party.hero[2].name + " is snoring again.";
+      
+      case 18: return "ZZZZzzzz....";
+      case 19: return "Time for a long rest.";
+      case 20: return "Break out the rations.";
+      case 21: return "A warm bed is just what we need right now.";
+      case 22: return "The warm fire brings life back to your weary bones.";
+      case 23: return "Ahhhhhh. Pass the marshmallows.";
+      case 24: return "Sweet dreams. ";
+      case 25: return "You feel safe, at least for the night.";
+      case 26: return "A quiet night and your energy is restored.";
+      case 27: return "You clean your armor and empty the rocks from your shoes.";
+      case 28: return "You clean your weapons and massage your sore muscles.";
+      default: return "Good Night.";
     }
   }
   
   void drawRestFadeout()
   {
     if(restFadeIn)
-      restOpacity+=3;
+      restOpacity+=2;
     else
       restOpacity-=5;
       
     fill(0,restOpacity); noStroke();
     rect(0,160,700,440);
     
-    if(restOpacity > 250)
+    if(restOpacity > 300)
     {
       restFadeIn=false;
       party.healAll();

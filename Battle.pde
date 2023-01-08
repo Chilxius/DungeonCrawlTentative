@@ -251,6 +251,38 @@ class Battle
   {
     return startBattleMessage[int(random(startBattleMessage.length))];
   }
+  
+  public int calculateDamage()
+  {
+    /*
+    //level 50 flareon using tackle against an abra
+
+float damage;
+float level = 50;
+float crit = 1;
+float power = 35;
+float attack = 40;
+float defense = 17;
+float type = 1;
+float random;
+
+float highest = 0, lowest = 10000;
+
+for(int i = 0; i < 20; i++)
+{
+  random = (int)random(217,255);
+  damage = ((((((2.0*level*crit)/5.0)+2.0)*power*attack/defense)/50.0)+2.0)*type*random/255;
+  print(damage + " ");
+  if( damage > highest)
+    highest = damage;
+  if( damage < lowest )
+    lowest = damage;
+}
+
+println( "Highest: " + highest + "     Lowest: " + lowest );
+*/
+    return 0;
+  }
 }
   
 public enum DelayType
@@ -261,4 +293,9 @@ public enum DelayType
 public enum EndStage
 {
   NONE, EXP, GOLD, DONE
+}
+
+public enum AttackType
+{
+  NONE, FIRE, ICE, WIND, EARTH, HOLY
 }

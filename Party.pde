@@ -25,11 +25,11 @@ class Party
     gold = 0;
   }
   
-  public void setPosition( int xPos, int yPos )
+  public void setPosition( int f, int xPos, int yPos )
   {
     X = xPos;
     Y = yPos;
-    floor = 0;
+    floor = f;
   }
   
   public void setPosition( SavePoint s )
@@ -192,5 +192,31 @@ class Party
     hero[0].fullHeal();
     hero[1].fullHeal();
     hero[2].fullHeal();
+  }
+  
+  public boolean needsRest()
+  {
+    if( hero[0].hp < hero[0].maxHp
+     || hero[1].hp < hero[1].maxHp
+     || hero[2].hp < hero[2].maxHp
+     || hero[0].mp < hero[0].maxMp
+     || hero[1].mp < hero[1].maxMp
+     || hero[2].mp < hero[2].maxMp )
+      return true;
+    return false;
+  }
+  
+  int sellItems() //sells all non-consumables and returns the total gold value
+  {
+    int result = 0;
+    for( int i = 0; i < inventory.length; i++ )
+    {
+      if( inventory[i].isSellable() )
+      {
+        result += inventory[i].value;
+        inventory[i] = new Item();
+      }
+    }
+    return result;
   }
 }
