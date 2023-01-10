@@ -24,7 +24,7 @@ class Tile
   String eventText = " ";//[] = {" "," "," "," "," "," "," "," "," "," "}; //text displayed when event is triggered - sends to queue as [0],[1],[2]
   
   boolean isBoss;
-  Monster boss;
+  //Monster boss;
   
   TileType type;
   Object obj;
@@ -223,7 +223,7 @@ class Tile
     occupantColor = c;
     occupantText = message;
     isBoss = true;
-    boss = new Monster(m);
+    zoo.addBossToList(m);
     addBossProgressSwitch();
   }
   

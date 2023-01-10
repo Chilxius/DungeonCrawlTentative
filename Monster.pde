@@ -30,7 +30,7 @@ class Monster
   
   public Monster( String n, String image, int health, int s, int d, int c, int m, int w, int sp, int g, AttackType weak)
   {
-   name = n; //<>//
+   name = n;
    imageName = image;
    pic = loadImage(imageName);
    pic.resize(200,0);

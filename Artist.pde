@@ -568,6 +568,19 @@ class Artist
     }
   }
   
+  void drawAndCleanupFloatingNumbers()
+  {
+    for( int i = 0; i < floatingNumbers.size(); i++)
+    {
+      floatingNumbers.get(i).moveAndDrawNumber();
+      if( !floatingNumbers.get(i).active )
+      {
+        floatingNumbers.remove(i);
+        i--;
+      }
+    }
+  }
+  
   public void drawObject( Object o, int xPos, int yPos )
   {
     switch(o)

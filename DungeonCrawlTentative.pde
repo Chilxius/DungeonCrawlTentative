@@ -49,6 +49,7 @@ Party party = new Party( new Hero(false), new Hero(false), new Hero(false));
 
 //UI data
 Artist vanGogh = new Artist();
+ArrayList<GhostNumber> floatingNumbers = new ArrayList<GhostNumber>();
 
 //Test files
 SoundFile beep1,beep2,beep3;
@@ -215,6 +216,8 @@ void draw()
       
     vanGogh.drawBattleWindow();
   }
+  
+  vanGogh.drawAndCleanupFloatingNumbers();
   
   if(heroDataDisplayed[0]||heroDataDisplayed[1]||heroDataDisplayed[2])
   {
@@ -1043,6 +1046,7 @@ void mousePressed()
   }
 
   println(mouseX + " " + mouseY);
+  floatingNumbers.add( new GhostNumber( mouseX, mouseY, color(255), int(random(10000) ) ) );
 }
 
 void mouseReleased()

@@ -137,7 +137,7 @@ void setupMaps()
   m[0].tiles[27][4].createEvent(true, "- Please do not step on the flowers.");
   //m.tiles[6][1].createEvent(false,"Event C","Three lines of text","Only happens once");
 
-  m[0].tiles[54][4].placeBoss( color(200, 0, 0), "The First Boss", new Monster() );
+  m[0].tiles[54][4].placeBoss( color(200, 0, 0), "The First Boss", new Monster("Test Boss", "BlueMindflair.png", 1, 1, 1, 1, 1, 1, 1, 20, AttackType.HOLY) );
 
   String testDangerMap = "";
   testDangerMap += "A000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";

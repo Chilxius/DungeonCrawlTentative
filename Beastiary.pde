@@ -3,6 +3,7 @@ class Beastiary
   Monster [][] list;
   Monster [] boss;
   int bossIndex = 0;
+  int addBossIndex = 0;
   //[danger level][creature number]
   
   public Beastiary()
@@ -24,7 +25,13 @@ class Beastiary
     
     boss = new Monster[10]; //TEMPORARY
     
-    boss[0] = new Monster("TEST BOSS", "GreenDragon.png", 1, 1, 1, 1, 1, 1, 1, 1, AttackType.NONE);
+    //boss[0] = new Monster("TEST BOSS", "GreenDragon.png", 1, 1, 1, 1, 1, 1, 1, 1, AttackType.NONE);
+  }
+  
+  public void addBossToList( Monster m )
+  {
+    boss[addBossIndex] = m;
+    addBossIndex++;
   }
   
   public Monster monsterByDanger( int d )
