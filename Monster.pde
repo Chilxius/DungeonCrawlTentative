@@ -70,7 +70,8 @@ class Monster
   public void resolveAttack( int targetHero )
   {
     battle.waitingForText = false;
-    party.hero[targetHero].takeDamage(str);
+    int damage = party.hero[targetHero].takeDamage(str);
+    floatingNumbers.add( new GhostNumber( 160+210*targetHero, 550, color(255), damage) );
     battle.setBattleDelay();
     battle.resumeInitiative();
   }
@@ -98,7 +99,7 @@ class Monster
     return name;
   }
   
-  public void takeDamage( int damage )
+  public int takeDamage( int damage )
   {
     println("HP: " + hp + "    DAM: " + damage); //testing
     hp -= damage;
@@ -112,6 +113,7 @@ class Monster
       battle.exp += experiencePoints();
       battle.gold += gold;
     }
+    return damage;
   }
   
   public void heal( int amount )

@@ -2,14 +2,15 @@
 //Bennett Ritchie
 
 //TO DO:
+//Delay before "vanquished" line where enemy vanishes
 //Skills
-//Level up
 //Enemy attacks
 //Attack types
 //Character backs
 //Improve hero select widnow (circle sizes)
 //Have equipment actually matter
 //Have inns charge money?
+//Make loaded games not start with full HP
 
 //IMAGES I NEED:
 //Campsite
@@ -61,7 +62,7 @@ SoundFile openDoorSound, openChestSound, lockedDoorSound, potionDrinkSound, food
 //NONE YET
 
 //Image data
-PImage tileImage[] = new PImage[48];
+PImage tileImage[] = new PImage[49];
 
 //Item data
 Loot [][] lootList = new Loot[1][50];
@@ -132,6 +133,7 @@ void setup()
   tileImage[45] = loadImage("wallDark.png"); tileImage[45].resize(30,0);
   tileImage[46] = loadImage("wallSand.png"); tileImage[46].resize(30,0);
   tileImage[47] = loadImage("treePath.png"); tileImage[47].resize(40,40);
+  tileImage[48] = loadImage("merchant.png"); tileImage[48].resize(30,0);
   
   //Test sounds
   beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
@@ -324,8 +326,8 @@ void setUpLootList()
   createLoot(0,3, 30,2 ,Key.COPPER_KEY);
   createLoot(0,4, 41,2 ,Key.IRON_KEY);
   createLoot(0,5, 6, 12,Key.SKELETON_KEY);
-  createLoot(0,6, 60,4 ,new Item("Win Crystal",1000));
-  createLoot(0,7, 2, 3 ,new Item("Gold Coin",1));
+  createLoot(0,6, 60,4 ,new Item("Win Crystal",800));
+  createLoot(0,7, 2, 3 ,new Item("Gold Coin",5));
   
   createLoot(0,8, 27,0 ,new Equipment("Sword",15,true,4,Job.KNIGHT)); 
   
@@ -1046,7 +1048,7 @@ void mousePressed()
   }
 
   println(mouseX + " " + mouseY);
-  floatingNumbers.add( new GhostNumber( mouseX, mouseY, color(255), 888888888 ) );
+  //floatingNumbers.add( new GhostNumber( mouseX, mouseY, color(255), 888888888 ) );
 }
 
 void mouseReleased()

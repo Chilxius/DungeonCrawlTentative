@@ -49,20 +49,87 @@ class Hero
   
   public void assignBaseStats()
   {
+    /*
     switch(job)
     {                      
       case KNIGHT:   hp=maxHp=30;str=40;dex=3;con=5;mag=0;wil=2;spd=2;break;
-      case BARBARIAN:hp=maxHp=40;str=5;dex=3;con=3;mag=0;wil=1;spd=2;break;
+      case BARBARIAN:hp=maxHp=40;str=5; dex=3;con=3;mag=0;wil=1;spd=2;break;
       case KARATE:   hp=maxHp=45;str=40;dex=4;con=4;mag=0;wil=4;spd=3;break;
       case THIEF:    hp=maxHp=25;str=30;dex=5;con=3;mag=0;wil=2;spd=3;break;
-      case PRIEST:   hp=maxHp=20;str=2;dex=2;con=2;mag=4;wil=5;spd=2;mp=maxMp=20;break;
-      case MAGE:     hp=maxHp=15;str=1;dex=2;con=2;mag=5;wil=4;spd=2;mp=maxMp=25;break;
-      default:       hp=maxHp=1;str=1;dex=1;con=1;mag=1;wil=1;spd=1;mp=maxMp=1;break;
-    }
+      case PRIEST:   hp=maxHp=20;str=2; dex=2;con=2;mag=4;wil=5;spd=2;mp=maxMp=20;break;
+      case MAGE:     hp=maxHp=15;str=1; dex=2;con=2;mag=5;wil=4;spd=2;mp=maxMp=25;break;
+      default:       hp=maxHp=1; str=1; dex=1;con=1;mag=1;wil=1;spd=1;mp=maxMp=1; break;
+    }*/
     level = 1;
     exp = 0;
     nextLevel = level*100;
+    adjustStats();
     poisoned=weakened=paralyzed=asleep=cursed=false;
+  }
+  
+  public void adjustStats()
+  {
+    switch(job)
+    {
+      case KNIGHT:
+        hp=maxHp=int((270/50.0)*(level-1)+30);
+        str =    int((116/50.0)*(level-1)+4);
+        dex =    int((97/50.0)*(level-1)+3);
+        con =    int((125/50.0)*(level-1)+5);
+        mag =    level; 
+        wil =    int((98/50.0)*(level-1)+2);
+        spd =    int((98/50.0)*(level-1)+2);
+        break;
+      case BARBARIAN:
+        hp=maxHp=int((320/50.0)*(level-1)+30);
+        str =    int((145/50.0)*(level-1)+5);
+        dex =    int((107/50.0)*(level-1)+3);
+        con =    int((97/50.0)*(level-1)+3);
+        mag =    0;
+        wil =    int((69/50.0)*(level-1)+1);
+        spd =    int((118/50.0)*(level-1)+2);
+        break;
+      case KARATE:
+        hp=maxHp=int((360/50.0)*(level-1)+40);
+        str =    int((116/50.0)*(level-1)+4);
+        dex =    int((116/50.0)*(level-1)+4);
+        con =    int((116/50.0)*(level-1)+4);
+        mag =    level;
+        wil =    int((116/50.0)*(level-1)+4);
+        spd =    int((136/50.0)*(level-1)+3);
+        break;
+      case THIEF:
+        hp=maxHp=int((225/50.0)*(level-1)+25);
+        str =    int((87/50.0)*(level-1)+3);
+        dex =    int((135/50.0)*(level-1)+5);
+        con =    int((87/50.0)*(level-1)+3);
+        mag =    0;
+        wil =    int((88/50.0)*(level-1)+2);
+        spd =    int((147/50.0)*(level-1)+3);
+        break;
+      case PRIEST:
+        hp=maxHp=int((180/50.0)*(level-1)+20);
+        str =    int((58/50.0)*(level-1)+2);
+        dex =    int((78/50.0)*(level-1)+2);
+        con =    int((88/50.0)*(level-1)+2);
+        mag =    int((96/50.0)*(level-1)+4);
+        wil =    int((145/50.0)*(level-1)+5);
+        spd =    int((78/50.0)*(level-1)+2);
+        mp=maxMp=int((180/50.0)*(level-1)+20);
+        break;
+      case MAGE:
+        hp=maxHp=int((135/50.0)*(level-1)+15);
+        str =    int((49/50.0)*(level-1)+1);
+        dex =    int((98/50.0)*(level-1)+2);
+        con =    int((68/50.0)*(level-1)+2);
+        mag =    int((145/50.0)*(level-1)+5);
+        wil =    int((96/50.0)*(level-1)+4);
+        spd =    int((88/50.0)*(level-1)+2);
+        mp=maxMp=int((225/50.0)*(level-1)+25);
+        break;
+      
+      default:       hp=maxHp=1;str=1;dex=1;con=1;mag=1;wil=1;spd=1;mp=maxMp=1;break;
+    }
   }
   
   public boolean gainExp( int amount )
@@ -71,6 +138,7 @@ class Hero
     if( exp > nextLevel )
     {
       level++;
+      adjustStats();
       exp = 0;
       nextLevel = level*100;
       return true;
@@ -143,7 +211,8 @@ class Hero
   public boolean resolveAttack( int targetMonster ) //true if monster killed
   {
     battle.waitingForText = false;
-    battleMonsters[targetMonster].takeDamage(str);
+    int damage = battleMonsters[targetMonster].takeDamage(str);
+    floatingNumbers.add( new GhostNumber( 160+210*targetMonster, 320, color(255), damage) );
     battle.setBattleDelay();
     battle.resumeInitiative();
     if( battleMonsters[targetMonster].alive )
@@ -151,7 +220,7 @@ class Hero
     return true;
   }
   
-  public void takeDamage( int damage )
+  public int takeDamage( int damage )
   {
     damage -= armor.power;  //subtract armor value
     damage = max(damage,1); //minimum 1 damage
@@ -163,6 +232,7 @@ class Hero
       alive = false;
       displayTextLine( name + " falls!" );
     }
+    return damage;
   }
   
   public void heal( int amount )
@@ -258,12 +328,12 @@ Job stringToJob( String s )
 Base stats by class:                          At level 50 (MAX) (50 to 200)
 
 Job    HP  Str  Dex  Con  Mag  Will  Spd      HP    Str  Dex  Con  Mag  Will Spd
-Kni    30  4    3    5    0    2     2        0     0    0    0    20   0    100
-Bar    40  5    3    3    0    1     2        0     150  0    0    0    0    120
-Art    45  4    4    4    0    4     3        0     120  120  120  50   120  140
-Thf    25  3    5    3    0    2     3        0     0    0    0    0    0    150
-Pri    20  2    2    2    4    5     2        0     0    0    0    100  150  80
-Mag    15  1    2    2    5    4     2        0     0    0    0    150  100  90
+Kni    30  4    3    5    0    2     2        300   120  100  130  50   100  100
+Bar    35  5    3    3    0    1     2        350   150  110  100  0    70   120
+Art    40  4    4    4    0    4     3        400   120  120  120  50   120  140
+Thf    25  3    5    3    0    2     3        250   90   140  90   0    90   150
+Pri  20/20 2    2    2    4    5     2     200/200  60   80   80   100  150  80
+Mag  15/25 1    2    2    5    4     2     150/250  50   100  70   150  100  90
 
 Max dex of 150. 150 spd should get 3 turns for every 1 turn of a character with spd 50
 

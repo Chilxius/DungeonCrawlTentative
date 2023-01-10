@@ -116,8 +116,11 @@ void setupMaps()
   m[0].tiles[16][2].placeOccupant( color(255, 150, 0), "- I love hiding things in chests!");
   m[0].tiles[22][0].placeOccupant( color(120, 120, 250), "- Where did my sister go?");
   m[0].tiles[37][2].placeOccupant( color(90, 70, 30), "- Welcome to my tavern. Press capital (R) to rest and recover.");
-  m[0].tiles[34][9].placeOccupant( color(190, 170, 130), "- Welcome to my shop. I sell bread, cheap! Only one coin per loaf. And it's fresh! Fresh as it can be! Please buy some...");
+  m[0].tiles[34][9].placeOccupant( color(190, 170, 130), "- Welcome to my shop. I sell bread, cheap! Only one coin per loaf.");
+  m[0].tiles[34][9].type = TileType.MERCHANT;
   m[0].tiles[32][9].placeOccupant( color(190, 170, 130), "- Me sell axe. It cost five. You like?");
+  m[0].tiles[32][9].type = TileType.MERCHANT;
+  
   m[0].tiles[32][11].placeOccupant( color(50), "- You got something to sell me, bud?");
 
   m[0].tiles[34][8].placeShop( new Item( "Bread", 10 ), 1 );
@@ -137,7 +140,7 @@ void setupMaps()
   m[0].tiles[27][4].createEvent(true, "- Please do not step on the flowers.");
   //m.tiles[6][1].createEvent(false,"Event C","Three lines of text","Only happens once");
 
-  m[0].tiles[54][4].placeBoss( color(200, 0, 0), "The First Boss", new Monster("Test Boss", "BlueMindflair.png", 1, 1, 1, 1, 1, 1, 1, 20, AttackType.HOLY) );
+  m[0].tiles[54][4].placeBoss( color(200, 0, 0), "A terrible creature guards the way!", new Monster("Xaxaphar", "BlueMindflair.png", 20, 5, 2, 2, 2, 2, 2, 50, AttackType.HOLY) );
 
   String testDangerMap = "";
   testDangerMap += "A000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";

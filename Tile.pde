@@ -332,6 +332,8 @@ class Tile
       image(tileImage[42],xPos,yPos);
     else if(type == TileType.SELL)
       image(tileImage[28],xPos,yPos);
+    else if(type == TileType.MERCHANT)
+      image(tileImage[48],xPos,yPos);
     if(occupied)
     {
       fill(occupantColor); noStroke();
@@ -394,7 +396,7 @@ class Tile
 public enum TileType
 {
   EMPTY, WALL, GRASS, EVENT, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH,
-  DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE, CAMP, SHOP, SELL
+  DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE, CAMP, MERCHANT, SHOP, SELL
 }
 
 public enum Key //special items for interactive tiles

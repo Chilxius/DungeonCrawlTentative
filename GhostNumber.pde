@@ -14,7 +14,7 @@ class GhostNumber
     Y = yPos;
     numColor = c;
     value = v;
-    duration = 300;
+    duration = 60;
     digits = 1;
     active = true;
     int tempValue = value;
@@ -32,9 +32,9 @@ class GhostNumber
     fill(numColor);
     for( int i = 0; i < digits; i++)
     {
-      if(duration < 300-i*5) //makes the numbers appear from left to right
+      if(duration < 60-i*5) //makes the numbers appear from left to right
       {
-        if( duration > 294 - i*5 )
+        if( duration > 54 - i*5 )
           yOffsets[i]-=3;
         else
           yOffsets[i]+=3;
