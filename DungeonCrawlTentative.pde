@@ -1046,7 +1046,7 @@ void mousePressed()
   }
 
   println(mouseX + " " + mouseY);
-  floatingNumbers.add( new GhostNumber( mouseX, mouseY, color(255), int(random(10000) ) ) );
+  floatingNumbers.add( new GhostNumber( mouseX, mouseY, color(255), 888888888 ) );
 }
 
 void mouseReleased()

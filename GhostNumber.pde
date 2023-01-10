@@ -30,15 +30,17 @@ class GhostNumber
   {                           //Movement not based on millis()
     textSize(30);
     fill(numColor);
-    for( int i = digits; i > 0; i--)
+    for( int i = 0; i < digits; i++)
     {
       if(duration < 300-i*5) //makes the numbers appear from left to right
       {
-        if( duration > 290 - i*5 )
-          yOffsets[i-1]-=2;
+        if( duration > 294 - i*5 )
+          yOffsets[i]-=3;
         else
-          yOffsets[i-1]+=2;
-        text( (value/(i*10))%10, X-10*digits+20*i, min(Y+yOffsets[i-1],Y) );
+          yOffsets[i]+=3;
+          
+        //This works. Don't touch it.
+        text( (value/(int(pow(10,digits-i-1))))%10, X-9*digits+20*i, min(Y+yOffsets[i],Y) );
       }
     }
     duration--;
