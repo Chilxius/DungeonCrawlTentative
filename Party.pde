@@ -206,6 +206,11 @@ class Party
     return false;
   }
   
+  int averageLevel()
+  {
+    return (hero[0].level + hero[0].level + hero[0].level)/3;
+  }
+  
   int sellItems() //sells all non-consumables and returns the total gold value
   {
     int result = 0;

@@ -252,8 +252,24 @@ class Battle
     return startBattleMessage[int(random(startBattleMessage.length))];
   }
   
-  public int calculateDamage()
+  public int isCrit( int attackerDex, int defenderDex ) //1 for normal hit, 2 for crit
   {
+    int chance = 2;
+    chance += (max(0,attackerDex-defenderDex));
+    
+    if( int( random(100) ) >= chance )
+      return 2;
+    return 1;
+  }
+  
+  public int calculateDamage( int level, int crit, int wepPower, int attackStr, int defense, AttackType aType, AttackType dType )
+  {
+    int type =1;
+    if(aType==dType)
+      type = 2;
+    int random = (int)random(217,255);
+    return (int)((((((2.0*level*crit)/5.0)+2.0)*wepPower*attackStr/defense)/50.0)+2.0)*type*random/255;
+
     /*
     //level 50 flareon using tackle against an abra
 
@@ -281,7 +297,6 @@ for(int i = 0; i < 20; i++)
 
 println( "Highest: " + highest + "     Lowest: " + lowest );
 */
-    return 0;
   }
 }
   

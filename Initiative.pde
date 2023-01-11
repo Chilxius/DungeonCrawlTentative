@@ -33,7 +33,7 @@ class Initiative
   {
     if(active)
       counter += speed;
-    if(counter >= 100)
+    if(counter >= 20*party.averageLevel())
       return true;
     return false;
   }

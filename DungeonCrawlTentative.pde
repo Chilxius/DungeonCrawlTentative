@@ -2,6 +2,8 @@
 //Bennett Ritchie
 
 //TO DO:
+//Fix speed for initiative
+//Fix equipment comparison display
 //Delay before "vanquished" line where enemy vanishes
 //Skills
 //Enemy attacks

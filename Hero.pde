@@ -211,7 +211,9 @@ class Hero
   public boolean resolveAttack( int targetMonster ) //true if monster killed
   {
     battle.waitingForText = false;
-    int damage = battleMonsters[targetMonster].takeDamage(str);
+    //int damage = battleMonsters[targetMonster].takeDamage(str);
+    int damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex), weapon.power, str, battleMonsters[targetMonster].con, AttackType.NONE, battleMonsters[targetMonster].weakness);
+    battleMonsters[targetMonster].takeDamage(damage);
     floatingNumbers.add( new GhostNumber( 160+210*targetMonster, 320, color(255), damage) );
     battle.setBattleDelay();
     battle.resumeInitiative();
@@ -325,17 +327,18 @@ Job stringToJob( String s )
 }
 
 /*
-Base stats by class:                          At level 50 (MAX) (50 to 200)
+Base stats by class:                           At level 50 (MAX) (50 to 200)
 
-Job    HP  Str  Dex  Con  Mag  Will  Spd      HP    Str  Dex  Con  Mag  Will Spd
-Kni    30  4    3    5    0    2     2        300   120  100  130  50   100  100
-Bar    35  5    3    3    0    1     2        350   150  110  100  0    70   120
-Art    40  4    4    4    0    4     3        400   120  120  120  50   120  140
-Thf    25  3    5    3    0    2     3        250   90   140  90   0    90   150
-Pri  20/20 2    2    2    4    5     2     200/200  60   80   80   100  150  80
-Mag  15/25 1    2    2    5    4     2     150/250  50   100  70   150  100  90
+Job    HP  Str  Dex  Con  Mag  Will  Spd       HP    Str  Dex  Con  Mag  Will Spd
+Kni    30  4    3    5    0    2     2         300   120  100  130  50   100  100
+Bar    35  5    3    3    0    1     2         350   150  110  100  0    70   120
+Art    40  4    4    4    0    4     3         400   120  120  120  50   120  140
+Thf    25  3    5    3    0    2     3         250   90   140  90   0    90   150
+Pri  20/20 2    2    2    4    5     2      200/200  60   80   80   100  150  80
+Mag  15/25 1    2    2    5    4     2      150/250  50   100  70   150  100  90
 
 Max dex of 150. 150 spd should get 3 turns for every 1 turn of a character with spd 50
+Crit chance = 2% + 1% per dex difference
 
 */
 
