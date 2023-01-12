@@ -70,7 +70,9 @@ class Monster
   public void resolveAttack( int targetHero )
   {
     battle.waitingForText = false;
-    int damage = party.hero[targetHero].takeDamage(str);
+    //int damage = party.hero[targetHero].takeDamage(str);
+    int damage = battle.calculateDamage( party.averageLevel(), battle.isCrit(dex,party.hero[targetHero].dex,false), party.averageLevel(), str, party.hero[targetHero].con+party.hero[targetHero].armor.power, AttackType.NONE, AttackType.NONE);
+    party.hero[targetHero].takeDamage(damage);
     floatingNumbers.add( new GhostNumber( 160+210*targetHero, 550, color(255), damage) );
     battle.setBattleDelay();
     battle.resumeInitiative();
@@ -104,7 +106,7 @@ class Monster
     println("HP: " + hp + "    DAM: " + damage); //testing
     hp -= damage;
     println("HP: " + hp); //testing
-    displayTextLine( name + " takes " + damage + " damage.");
+    displayTextLine( name + " is " + damageMessage() + " wounded.");
     if(hp <= 0)
     {
       hp = 0;
@@ -114,6 +116,18 @@ class Monster
       battle.gold += gold;
     }
     return damage;
+  }
+  
+  public String damageMessage()
+  {
+    if( hp > maxHp*.60 )
+      return "slightly";
+    else if( hp > maxHp*.25)
+      return "moderately";
+    else if( hp > maxHp*.10)
+      return "severely";
+    else
+      return "critically";
   }
   
   public void heal( int amount )

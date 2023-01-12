@@ -252,20 +252,26 @@ class Battle
     return startBattleMessage[int(random(startBattleMessage.length))];
   }
   
-  public int isCrit( int attackerDex, int defenderDex ) //1 for normal hit, 2 for crit
+  public int isCrit( int attackerDex, int defenderDex, boolean heroAttack ) //1 for normal hit, 2 for crit
   {
     int chance = 2;
     chance += (max(0,attackerDex-defenderDex));
     
-    if( int( random(100) ) >= chance )
+    if( int( random(100) ) <= chance )
+    {
+      if(heroAttack)
+        vanGogh.startScreenShake(40,true);
+      else
+        vanGogh.startScreenShake(40,false);
       return 2;
+    }
     return 1;
   }
   
   public int calculateDamage( int level, int crit, int wepPower, int attackStr, int defense, AttackType aType, AttackType dType )
   {
     int type =1;
-    if(aType==dType)
+    if(aType==dType && aType!=AttackType.NONE)
       type = 2;
     int random = (int)random(217,255);
     return (int)((((((2.0*level*crit)/5.0)+2.0)*wepPower*attackStr/defense)/50.0)+2.0)*type*random/255;

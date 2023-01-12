@@ -12,7 +12,6 @@
 //Improve hero select widnow (circle sizes)
 //Have equipment actually matter
 //Have inns charge money?
-//Make loaded games not start with full HP
 
 //IMAGES I NEED:
 //Campsite
@@ -53,6 +52,7 @@ Party party = new Party( new Hero(false), new Hero(false), new Hero(false));
 //UI data
 Artist vanGogh = new Artist();
 ArrayList<GhostNumber> floatingNumbers = new ArrayList<GhostNumber>();
+int windowX, windowY;
 
 //Test files
 SoundFile beep1,beep2,beep3;
@@ -103,6 +103,10 @@ void setup()
 {
   //fullScreen();
   size(700,700);
+  surface.setTitle("Ritchie's Dungeon Crawler");
+  windowX = displayWidth/2-width/2;
+  windowY = displayHeight/2-height/2;
+  surface.setLocation(windowX, windowY);
   
   zoo = new Beastiary();
   
@@ -171,14 +175,15 @@ void setup()
 
   setupMaps();
 
- 
-  battleMonsters = new Monster[3];
-  
+  battleMonsters = new Monster[3];  
 }
 
 
 void draw()
 {
+  if(vanGogh.screenShaking)
+    vanGogh.shakeScreen();
+  
   background(0);
   if(display == Display.MAIN_MENU)
     vanGogh.drawMainMenu();
@@ -933,6 +938,11 @@ void keyPressed()
     println(party.X + " " + party.Y);
     println(dm.dangerValueChar(party.X,party.Y)); //<>//
   }
+  
+  if(key == 'u')
+    vanGogh.startScreenShake(40,true);
+  if(key == 'l')
+    vanGogh.startScreenShake(100,false);
 }
 
 void keyReleased()
@@ -969,7 +979,7 @@ void mouseClicked()
     if( mouseX > 300 && mouseX < 400 && mouseY >362.5 && mouseY < 437.5 )
     {
       tempColor = color(tempRed,tempGreen,tempBlue);
-      tempInverseColor = color(255-tempRed,255-tempGreen,255-tempBlue);
+      tempInverseColor = color((255-tempRed)*.65,(255-tempGreen)*.65,(255-tempBlue)*.65);
       party.hero[currentHero]=new Hero(tempName,tempJob,tempColor,tempInverseColor);
       tempRed = tempGreen = tempBlue = 0;
       currentHero++; 
@@ -1101,6 +1111,7 @@ public void saveGame( String fileName )
     saveOutput.println(party.hero[i].level);
     saveOutput.println(party.hero[i].nextLevel);
     saveOutput.println(party.hero[i].exp);
+    saveOutput.println(party.hero[i].hp);
     saveOutput.println(party.hero[i].weapon.name);
     saveOutput.println(party.hero[i].weapon.value);
     saveOutput.println(party.hero[i].weapon.power);
@@ -1180,7 +1191,7 @@ public void loadFile( String fileName )
     //load hero data
     for (int i = 0, offset; i < 3; i++) 
     {
-      offset = i*15;
+      offset = i*16;
       party.hero[i] = new Hero(saveFileText[0+offset],
                                stringToJob(saveFileText[1+offset]),
                                color(int(saveFileText[2+offset]),int(saveFileText[3+offset]),int(saveFileText[4+offset])),
@@ -1188,21 +1199,22 @@ public void loadFile( String fileName )
       //party.hero[i].setStatsToLevel(saveFileText[5+offset]);
       party.hero[i].nextLevel = int(saveFileText[6+offset]);
       party.hero[i].exp = int(saveFileText[7+offset]);
+      party.hero[i].hp = int(saveFileText[8+offset]);
       
-      party.hero[i].weapon = new Equipment(saveFileText[8+offset],int(saveFileText[9+offset]),true,int(saveFileText[10+offset]));
-      party.hero[i].armor = new Equipment(saveFileText[11+offset],int(saveFileText[12+offset]),false,int(saveFileText[13+offset]));
+      party.hero[i].weapon = new Equipment(saveFileText[9+offset],int(saveFileText[10+offset]),true,int(saveFileText[11+offset]));
+      party.hero[i].armor = new Equipment(saveFileText[12+offset],int(saveFileText[13+offset]),false,int(saveFileText[14+offset]));
     }  
     
     //load save point
-    println("Save point # " + int(saveFileText[45]));
-    party.setPosition(savePoints[int(saveFileText[45])]); //line 45, will be based on list
+    println("Save point # " + int(saveFileText[48]));
+    party.setPosition(savePoints[int(saveFileText[48])]); //line 45, will be based on list
     //AT THIS POINT, SAVE POINT IS DELETED
     
-    party.gold = int(saveFileText[47]);
+    party.gold = int(saveFileText[50]);
     
     //load inventory items
     createInventories(); //zeros out inventories - may be redundant in final version
-    int fileLine = 48; //first line of inventory data
+    int fileLine = 51; //first line of inventory data
     while(!saveFileText[fileLine].equals("XX"))
     {
       party.addToInventory(new Item(saveFileText[fileLine],int(saveFileText[fileLine+1])),true);

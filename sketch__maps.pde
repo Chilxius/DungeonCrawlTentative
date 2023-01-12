@@ -124,7 +124,7 @@ void setupMaps()
   m[0].tiles[32][11].placeOccupant( color(50), "- You got something to sell me, bud?");
 
   m[0].tiles[34][8].placeShop( new Item( "Bread", 10 ), 1 );
-  m[0].tiles[32][8].placeShop( new Equipment( "Axe", 5, true, 15, true ), 5 );
+  m[0].tiles[32][8].placeShop( new Equipment( "Axe", 5, true, 35, true ), 5 );
 
   m[0].tiles[33][11].placeSeller();
 

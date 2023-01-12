@@ -20,6 +20,12 @@ class Artist
   boolean restFadeIn = true;
   int restOpacity = 0;
   
+  int screenShakeAmountX = 0;
+  int screenShakeAmountY = 0;
+  boolean screenShaking = false;
+  boolean shakeLeft = true;
+  boolean shakeUp = true;
+  
   public Artist()
   {
     animationStage = 0;
@@ -778,6 +784,40 @@ class Artist
     resting = true;
     restFadeIn = true;
     displayTextLine( restText() );
+  }
+  
+  void startScreenShake( int amount, boolean up )
+  {
+    if(!screenShaking)
+    {
+      if(up)
+        screenShakeAmountY = amount;
+      else
+        screenShakeAmountX = amount;
+    }
+    screenShaking = true;
+  }
+  
+  void shakeScreen()
+  {
+    if( screenShakeAmountX >= 0 )
+      if( !shakeLeft )
+        surface.setLocation(windowX+screenShakeAmountX,windowY);
+      else
+        surface.setLocation(windowX-screenShakeAmountX,windowY);
+      
+    if( screenShakeAmountY >= 0 )
+      if( !shakeUp )
+        surface.setLocation(windowX,windowY+screenShakeAmountY);
+      else
+        surface.setLocation(windowX,windowY-screenShakeAmountY);
+    
+    screenShakeAmountX *= .9;
+    screenShakeAmountY *= .95;
+    shakeLeft = !shakeLeft;
+    shakeUp = !shakeUp;
+    if(screenShakeAmountX <=0 && screenShakeAmountY <= 0)
+      screenShaking = false;
   }
   
   String restText()

@@ -72,16 +72,16 @@ class Hero
     switch(job)
     {
       case KNIGHT:
-        hp=maxHp=int((270/50.0)*(level-1)+30);
+        maxHp =  int((270/50.0)*(level-1)+30);
         str =    int((116/50.0)*(level-1)+4);
-        dex =    int((97/50.0)*(level-1)+3);
+        dex =    int((5097/50.0)*(level-1)+3); //should be 97 - changed for testing purposes
         con =    int((125/50.0)*(level-1)+5);
         mag =    level; 
         wil =    int((98/50.0)*(level-1)+2);
         spd =    int((98/50.0)*(level-1)+2);
         break;
       case BARBARIAN:
-        hp=maxHp=int((320/50.0)*(level-1)+30);
+        maxHp =  int((320/50.0)*(level-1)+30);
         str =    int((145/50.0)*(level-1)+5);
         dex =    int((107/50.0)*(level-1)+3);
         con =    int((97/50.0)*(level-1)+3);
@@ -90,7 +90,7 @@ class Hero
         spd =    int((118/50.0)*(level-1)+2);
         break;
       case KARATE:
-        hp=maxHp=int((360/50.0)*(level-1)+40);
+        maxHp =  int((360/50.0)*(level-1)+40);
         str =    int((116/50.0)*(level-1)+4);
         dex =    int((116/50.0)*(level-1)+4);
         con =    int((116/50.0)*(level-1)+4);
@@ -99,7 +99,7 @@ class Hero
         spd =    int((136/50.0)*(level-1)+3);
         break;
       case THIEF:
-        hp=maxHp=int((225/50.0)*(level-1)+25);
+        maxHp =  int((225/50.0)*(level-1)+25);
         str =    int((87/50.0)*(level-1)+3);
         dex =    int((135/50.0)*(level-1)+5);
         con =    int((87/50.0)*(level-1)+3);
@@ -108,24 +108,24 @@ class Hero
         spd =    int((147/50.0)*(level-1)+3);
         break;
       case PRIEST:
-        hp=maxHp=int((180/50.0)*(level-1)+20);
+        maxHp =  int((180/50.0)*(level-1)+20);
         str =    int((58/50.0)*(level-1)+2);
         dex =    int((78/50.0)*(level-1)+2);
         con =    int((88/50.0)*(level-1)+2);
         mag =    int((96/50.0)*(level-1)+4);
         wil =    int((145/50.0)*(level-1)+5);
         spd =    int((78/50.0)*(level-1)+2);
-        mp=maxMp=int((180/50.0)*(level-1)+20);
+        maxMp =  int((180/50.0)*(level-1)+20);
         break;
       case MAGE:
-        hp=maxHp=int((135/50.0)*(level-1)+15);
+        maxHp =  int((135/50.0)*(level-1)+15);
         str =    int((49/50.0)*(level-1)+1);
         dex =    int((98/50.0)*(level-1)+2);
         con =    int((68/50.0)*(level-1)+2);
         mag =    int((145/50.0)*(level-1)+5);
         wil =    int((96/50.0)*(level-1)+4);
         spd =    int((88/50.0)*(level-1)+2);
-        mp=maxMp=int((225/50.0)*(level-1)+25);
+        maxMp =  int((225/50.0)*(level-1)+25);
         break;
       
       default:       hp=maxHp=1;str=1;dex=1;con=1;mag=1;wil=1;spd=1;mp=maxMp=1;break;
@@ -212,7 +212,7 @@ class Hero
   {
     battle.waitingForText = false;
     //int damage = battleMonsters[targetMonster].takeDamage(str);
-    int damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex), weapon.power, str, battleMonsters[targetMonster].con, AttackType.NONE, battleMonsters[targetMonster].weakness);
+    int damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weapon.power, str, battleMonsters[targetMonster].con, AttackType.NONE, battleMonsters[targetMonster].weakness);
     battleMonsters[targetMonster].takeDamage(damage);
     floatingNumbers.add( new GhostNumber( 160+210*targetMonster, 320, color(255), damage) );
     battle.setBattleDelay();
