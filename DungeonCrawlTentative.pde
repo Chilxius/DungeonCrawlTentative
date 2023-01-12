@@ -19,7 +19,7 @@
 
 import processing.sound.*;
 
-Map [] m = new Map[3];
+Map [] m = new Map[3]; //<>//
 DangerMap dm;
 
 //Game begins waiting for a typed input, which will be stored as the save file name
@@ -70,7 +70,7 @@ PImage tileImage[] = new PImage[49];
 Loot [][] lootList = new Loot[1][50];
 Loot emptyChest = new Loot(0,0,new Item(),"EMPTY CHEST ERROR");
 int consumableValue = 0;
-Equipment newEquip = new Equipment(), oldEquip = new Equipment(); //for switching in new equipment
+Equipment newEquip, oldEquip; //for switching in new equipment
 int newEquipIndex = -1;
 LootTable theStuff = new LootTable();
 
@@ -107,6 +107,9 @@ void setup()
   windowX = displayWidth/2-width/2;
   windowY = displayHeight/2-height/2;
   surface.setLocation(windowX, windowY);
+  
+  newEquip = new Equipment();
+  oldEquip = new Equipment();
   
   zoo = new Beastiary();
   
@@ -336,7 +339,7 @@ void setUpLootList()
   createLoot(0,6, 60,4 ,new Item("Win Crystal",800));
   createLoot(0,7, 2, 3 ,new Item("Gold Coin",5));
   
-  createLoot(0,8, 27,0 ,new Equipment("Sword",15,true,4,Job.KNIGHT)); 
+  createLoot(0,8, 27,0 ,new Equipment("Sword","MetalSword.png",15,true,4,Job.KNIGHT)); 
   
   //fill empty progressSwitches
   for(int i = 0; i < itemSwitches.length; i++)
@@ -942,7 +945,7 @@ void keyPressed()
   if(key == 'u')
     vanGogh.startScreenShake(40,true);
   if(key == 'l')
-    vanGogh.startScreenShake(100,false);
+    vanGogh.startScreenShake(40,false);
 }
 
 void keyReleased()
@@ -1113,9 +1116,11 @@ public void saveGame( String fileName )
     saveOutput.println(party.hero[i].exp);
     saveOutput.println(party.hero[i].hp);
     saveOutput.println(party.hero[i].weapon.name);
+    saveOutput.println(party.hero[i].weapon.imageName);
     saveOutput.println(party.hero[i].weapon.value);
     saveOutput.println(party.hero[i].weapon.power);
     saveOutput.println(party.hero[i].armor.name);
+    saveOutput.println(party.hero[i].armor.imageName);
     saveOutput.println(party.hero[i].armor.value);
     saveOutput.println(party.hero[i].armor.power);
     saveOutput.println();
@@ -1191,7 +1196,7 @@ public void loadFile( String fileName )
     //load hero data
     for (int i = 0, offset; i < 3; i++) 
     {
-      offset = i*16;
+      offset = i*18;
       party.hero[i] = new Hero(saveFileText[0+offset],
                                stringToJob(saveFileText[1+offset]),
                                color(int(saveFileText[2+offset]),int(saveFileText[3+offset]),int(saveFileText[4+offset])),
@@ -1201,20 +1206,20 @@ public void loadFile( String fileName )
       party.hero[i].exp = int(saveFileText[7+offset]);
       party.hero[i].hp = int(saveFileText[8+offset]);
       
-      party.hero[i].weapon = new Equipment(saveFileText[9+offset],int(saveFileText[10+offset]),true,int(saveFileText[11+offset]));
-      party.hero[i].armor = new Equipment(saveFileText[12+offset],int(saveFileText[13+offset]),false,int(saveFileText[14+offset]));
+      party.hero[i].weapon = new Equipment(saveFileText[9+offset],saveFileText[10+offset],int(saveFileText[11+offset]),true,int(saveFileText[12+offset]));
+      party.hero[i].armor = new Equipment(saveFileText[13+offset],saveFileText[14+offset],int(saveFileText[15+offset]),false,int(saveFileText[16+offset]));
     }  
     
     //load save point
-    println("Save point # " + int(saveFileText[48]));
-    party.setPosition(savePoints[int(saveFileText[48])]); //line 45, will be based on list
+    println("Save point # " + int(saveFileText[54]));
+    party.setPosition(savePoints[int(saveFileText[54])]); //line 54, will be based on list
     //AT THIS POINT, SAVE POINT IS DELETED
     
-    party.gold = int(saveFileText[50]);
+    party.gold = int(saveFileText[56]);
     
     //load inventory items
     createInventories(); //zeros out inventories - may be redundant in final version
-    int fileLine = 51; //first line of inventory data
+    int fileLine = 57; //first line of inventory data
     while(!saveFileText[fileLine].equals("XX"))
     {
       party.addToInventory(new Item(saveFileText[fileLine],int(saveFileText[fileLine+1])),true);

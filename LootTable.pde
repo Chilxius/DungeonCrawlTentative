@@ -14,17 +14,17 @@ class LootTable
     item[0][3] = new Item( "Health Potion", 12 );
     item[0][4] = new Item( "Salt Pork", 20 );
     
-    item[1][0] = new Equipment("Knife",2,true,1,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST,Job.MAGE);
-    item[1][1] = new Equipment("Robe",3,false,1,true);
-    item[1][2] = new Equipment("Staff",4,true,2,Job.PRIEST,Job.PRIEST);
-    item[1][3] = new Equipment("Robe",3,false,1,true);
-    item[1][4] = new Equipment("Wood Sword",4,true,3,Job.KNIGHT,Job.BARBARIAN );
+    //item[1][0] = new Equipment("Knife",2,true,1,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST,Job.MAGE);
+    //item[1][1] = new Equipment("Robe",3,false,1,true);
+    //item[1][2] = new Equipment("Staff",4,true,2,Job.PRIEST,Job.PRIEST);
+    //item[1][3] = new Equipment("Robe",3,false,1,true);
+    //item[1][4] = new Equipment("Wood Sword",4,true,3,Job.KNIGHT,Job.BARBARIAN );
     
-    item[2][0] = new Equipment( "Dagger", 4, true, 3, Job.KNIGHT, Job.THIEF );
-    item[2][1] = new Equipment( "Axe", 6, true, 4, Job.KNIGHT, Job.BARBARIAN  );
-    item[2][2] = new Equipment( "Boiled Leather", 3, false, 2, Job.KNIGHT, Job.BARBARIAN, Job.THIEF );
-    item[2][3] = new Equipment( "Darkwood Staff", 3, true, 3, Job.PRIEST, Job.MAGE );
-    item[2][4] = new Equipment( "Wool Robe", 3, false, 2, Job.KARATE, Job.PRIEST, Job.MAGE );
+    //item[2][0] = new Equipment( "Dagger", 4, true, 3, Job.KNIGHT, Job.THIEF );
+    //item[2][1] = new Equipment( "Axe", 6, true, 4, Job.KNIGHT, Job.BARBARIAN  );
+    //item[2][2] = new Equipment( "Boiled Leather", 3, false, 2, Job.KNIGHT, Job.BARBARIAN, Job.THIEF );
+    //item[2][3] = new Equipment( "Darkwood Staff", 3, true, 3, Job.PRIEST, Job.MAGE );
+    //item[2][4] = new Equipment( "Wool Robe", 3, false, 2, Job.KARATE, Job.PRIEST, Job.MAGE );
   }
   
   public String breadName()

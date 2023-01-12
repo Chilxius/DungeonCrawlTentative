@@ -43,8 +43,10 @@ class Hero
     defending = false;
     
     //for testing
-    weapon = new Equipment("Club",1,true,1);
-    armor = new Equipment("Shirt",1,false,1);
+    weapon = new Equipment("Club","ClayClub.png",5,true,3);
+    if(j==Job.KARATE)
+      weapon = new Equipment("Fist","Fist.png",25,true,0);
+    armor = new Equipment("Shirt","WhiteShirt.png",1,false,5);
   }
   
   public void assignBaseStats()
@@ -64,6 +66,7 @@ class Hero
     exp = 0;
     nextLevel = level*100;
     adjustStats();
+    hp = maxHp; mp = maxMp;
     poisoned=weakened=paralyzed=asleep=cursed=false;
   }
   

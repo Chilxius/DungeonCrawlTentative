@@ -309,10 +309,12 @@ class Artist
     text("Experience: " + party.hero[h].exp,225,510);
     text("Next Level: " + party.hero[h].nextLevel,225,540);
     
-    fill(0);  rectMode(CORNER);
+    fill(0); rectMode(CORNER); imageMode(CENTER);
     stroke(200); strokeWeight(5);
     rect(85,170,100,100,20);
+    image(party.hero[h].weapon.pic,135,220);
     rect(85,290,100,100,20);
+    image(party.hero[h].armor.pic,135,340);
     textSize(10); fill(200); textAlign(CENTER);
     text("WEAPON",135,185);
     text("ARMOR",135,305);
@@ -800,20 +802,20 @@ class Artist
   
   void shakeScreen()
   {
-    if( screenShakeAmountX >= 0 )
+    if( screenShakeAmountX > 0 )
       if( !shakeLeft )
         surface.setLocation(windowX+screenShakeAmountX,windowY);
       else
         surface.setLocation(windowX-screenShakeAmountX,windowY);
       
-    if( screenShakeAmountY >= 0 )
+    if( screenShakeAmountY > 0 )
       if( !shakeUp )
         surface.setLocation(windowX,windowY+screenShakeAmountY);
       else
         surface.setLocation(windowX,windowY-screenShakeAmountY);
     
     screenShakeAmountX *= .9;
-    screenShakeAmountY *= .95;
+    screenShakeAmountY *= .9;
     shakeLeft = !shakeLeft;
     shakeUp = !shakeUp;
     if(screenShakeAmountX <=0 && screenShakeAmountY <= 0)
@@ -959,7 +961,7 @@ class Artist
     rect(baseX-75,455,70,70,20);rect(baseX+75,455,70,70,20);
     rect(baseX-75,545,70,70,20);rect(baseX+75,545,70,70,20);
     
-    drawAttackIcon(baseX-75,455,party.hero[h].favColor,party.hero[h].inverseColor,party.hero[h].job);
+    drawAttackIcon(baseX-75,455,party.hero[h].favColor,party.hero[h].inverseColor,party.hero[h].weapon.pic);
     drawDefendIcon(baseX+75,455,party.hero[h].favColor,party.hero[h].inverseColor,party.hero[h].job);
     drawSkillIcon(baseX-75,545,party.hero[h].favColor,party.hero[h].inverseColor,party.hero[h].job);
     drawItemIcon(baseX+75,545,party.hero[h].favColor);
@@ -975,8 +977,10 @@ class Artist
     //drawHeroByType(party.hero[2],int(width*.8),500,2,2,false);
   }
   
-  void drawAttackIcon( float x, float y, color c, color i, Job j )
+  void drawAttackIcon( float x, float y, color c, color i, PImage p )
   {
+    image(p,x,y);
+    /*
     if( j ==Job.KNIGHT || j == Job.THIEF)//sword/dagger
     {
       noStroke();
@@ -1008,6 +1012,7 @@ class Artist
     {
       
     }
+    */
     
     fill(c); textSize(10);
     text("A",x+27,y+27);
