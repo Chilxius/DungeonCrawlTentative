@@ -15,6 +15,7 @@ class Monster
   
   int target; //target of attack in battle
   
+  Attack [] attacks = new Attack[5];
 
   public Monster()
   {
@@ -26,6 +27,11 @@ class Monster
   {
     this( m.name, m.imageName, m.hp, m.str, m.dex, m.con, m.mag, m.wil, m.spd, m.gold, m.weakness );
     alive = m.alive;
+    attacks[0] = m.attacks[0];
+    attacks[1] = m.attacks[1];
+    attacks[2] = m.attacks[2];
+    attacks[3] = m.attacks[3];
+    attacks[4] = m.attacks[4];
   }
   
   public Monster( String n, String image, int health, int s, int d, int c, int m, int w, int sp, int g, AttackType weak)
@@ -50,6 +56,8 @@ class Monster
    alive=true;
    
    poisoned=weakened=paralyzed=asleep=cursed=false;
+   
+   attacks[0]=attacks[1]=attacks[2]=attacks[3]=attacks[4]=new Attack("does nothing.");
   }
   
   /*
@@ -71,6 +79,10 @@ class Monster
   {
     battle.waitingForText = false;
     //int damage = party.hero[targetHero].takeDamage(str);
+    if( attacks[battle.enemyAttackIndex].targetAll )
+    {
+      //party.hero[0].takeDamage( battle.calculateDamage( party.averageLevel(), 1, attacks[battle.enemyAttackIndex].power, 
+    }
     int damage = battle.calculateDamage( party.averageLevel(), battle.isCrit(dex,party.hero[targetHero].dex,false), party.averageLevel(), str, party.hero[targetHero].con+party.hero[targetHero].armor.power, AttackType.NONE, AttackType.NONE);
     party.hero[targetHero].takeDamage(damage);
     floatingNumbers.add( new GhostNumber( 160+210*targetHero, 550, color(255), damage) );

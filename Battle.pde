@@ -8,6 +8,8 @@ class Battle
   //For standard attacks (one charcter damaging one character)
   int attackerIndex, defenderIndex;
   
+  int enemyAttackIndex = 0;
+  
   boolean battleDelayed = false;
   DelayType delayType = DelayType.NONE;
   int battleDelayCounter = 0; //used for timed events in battle
@@ -228,7 +230,13 @@ class Battle
     attackerIndex = a;
     defenderIndex = d;
     
-    displayTextLine(list[attackerIndex].name + " attacks " + list[defenderIndex].name + "!");
+    if(turn<3) //hero basic attack
+      displayTextLine(list[attackerIndex].name + " attacks " + list[defenderIndex].name + "!");
+    else
+    {
+      enemyAttackIndex = int(random(5));
+      displayTextLine(list[attackerIndex].name + " " + battleMonsters[attackerIndex-3].attacks[enemyAttackIndex].description );
+    }
     setBattleDelay();
     battleDelayed = true;
     waitingForText = true;
@@ -314,9 +322,4 @@ public enum DelayType
 public enum EndStage
 {
   NONE, EXP, GOLD, DONE
-}
-
-public enum AttackType
-{
-  NONE, FIRE, ICE, WIND, EARTH, HOLY
 }
