@@ -57,7 +57,7 @@ WhiteShirt.png
 50
 Potion
 12
-Bread
+Birthday Cake
 10
 Pork
 20

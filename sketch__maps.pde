@@ -125,6 +125,9 @@ void setupMaps()
 
   m[0].tiles[34][8].placeShop( new Item( "Bread", 10 ), 1 );
   m[0].tiles[32][8].placeShop( new Equipment( "Axe","MetalSpikedAxe.png", 5, true, 35, true ), 5 );
+  m[0].tiles[32][7].placeShop( new Equipment( "Big Axe","MetalSpikedAxe.png", 5, true, 35, true ), 5 );
+  m[0].tiles[32][6].placeShop( new Equipment( "Mighty Axe","MetalSpikedAxe.png", 5, true, 35, true ), 5 );
+  m[0].tiles[32][5].placeShop( new Equipment( "Mighty Mighty Axe","MetalSpikedAxe.png", 5, true, 35, true ), 5 );
 
   m[0].tiles[33][11].placeSeller();
 

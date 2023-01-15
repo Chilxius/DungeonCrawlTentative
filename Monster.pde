@@ -79,15 +79,51 @@ class Monster
   {
     battle.waitingForText = false;
     //int damage = party.hero[targetHero].takeDamage(str);
-    if( attacks[battle.enemyAttackIndex].targetAll )
+    int damage = 0;
+    
+    if( attacks[battle.enemyAttackIndex].type != AttackType.WASTE )
     {
-      //party.hero[0].takeDamage( battle.calculateDamage( party.averageLevel(), 1, attacks[battle.enemyAttackIndex].power, 
+      if( attacks[battle.enemyAttackIndex].targetAll ) //multi-target attack
+      {
+        damage = battle.calculateDamage( party.averageLevel(), 1, attacks[battle.enemyAttackIndex].power, appropriateStat(attacks[battle.enemyAttackIndex]), party.hero[0].appropriateDefense(attacks[battle.enemyAttackIndex]) );
+        party.hero[0].takeDamage( damage, false );
+        floatingNumbers.add( new GhostNumber( 160, 550, attacks[battle.enemyAttackIndex].appropriateColor(), damage ) );
+        
+        damage = battle.calculateDamage( party.averageLevel(), 1, attacks[battle.enemyAttackIndex].power, appropriateStat(attacks[battle.enemyAttackIndex]), party.hero[1].appropriateDefense(attacks[battle.enemyAttackIndex]) );
+        party.hero[1].takeDamage( damage, false );
+        floatingNumbers.add( new GhostNumber( 370, 550, attacks[battle.enemyAttackIndex].appropriateColor(), damage ) );
+        
+        damage = battle.calculateDamage( party.averageLevel(), 1, attacks[battle.enemyAttackIndex].power, appropriateStat(attacks[battle.enemyAttackIndex]), party.hero[2].appropriateDefense(attacks[battle.enemyAttackIndex]) );
+        party.hero[2].takeDamage( damage, false );
+        floatingNumbers.add( new GhostNumber( 580, 550, attacks[battle.enemyAttackIndex].appropriateColor(), damage ) );
+      }
+      else
+      {
+        damage = battle.calculateDamage( party.averageLevel(), battle.isCrit(dex,party.hero[targetHero].dex,false), party.averageLevel(), str, party.hero[targetHero].con+party.hero[targetHero].armor.power);
+        party.hero[targetHero].takeDamage(damage,true);
+        floatingNumbers.add( new GhostNumber( 160+210*targetHero, 550, attacks[battle.enemyAttackIndex].appropriateColor(), damage) );
+      }
     }
-    int damage = battle.calculateDamage( party.averageLevel(), battle.isCrit(dex,party.hero[targetHero].dex,false), party.averageLevel(), str, party.hero[targetHero].con+party.hero[targetHero].armor.power, AttackType.NONE, AttackType.NONE);
-    party.hero[targetHero].takeDamage(damage);
-    floatingNumbers.add( new GhostNumber( 160+210*targetHero, 550, color(255), damage) );
     battle.setBattleDelay();
     battle.resumeInitiative();
+  }
+  
+  int appropriateStat( Attack a )
+  {
+    if( a.stat == AttackStat.DEX )
+      return dex;
+    if( a.stat == AttackStat.MAG )
+      return mag;
+    else
+      return str;
+  }
+  
+  int appropriateDefense( Attack a )
+  {
+    if( a.stat == AttackStat.DEX || a.stat == AttackStat.STR )
+      return con;
+    else
+      return wil;
   }
   
   public int experiencePoints()
@@ -118,7 +154,6 @@ class Monster
     println("HP: " + hp + "    DAM: " + damage); //testing
     hp -= damage;
     println("HP: " + hp); //testing
-    displayTextLine( name + " is " + damageMessage() + " wounded.");
     if(hp <= 0)
     {
       hp = 0;
@@ -127,6 +162,8 @@ class Monster
       battle.exp += experiencePoints();
       battle.gold += gold;
     }
+    else
+      displayTextLine( name + " is " + damageMessage() + " wounded.");
     return damage;
   }
   

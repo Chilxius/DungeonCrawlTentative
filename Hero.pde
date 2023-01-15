@@ -225,12 +225,12 @@ class Hero
     return true;
   }
   
-  public int takeDamage( int damage )
+  public int takeDamage( int damage, boolean displayText )
   {
-    damage -= armor.power;  //subtract armor value
     damage = max(damage,1); //minimum 1 damage
     hp -= damage;
-    displayTextLine( name + " takes " + damage + " damage.");
+    if(displayText)
+      displayTextLine( name + " takes " + damage + " damage.");
     if(hp <= 0)
     {
       hp = 0;
@@ -238,6 +238,29 @@ class Hero
       displayTextLine( name + " falls!" );
     }
     return damage;
+  }
+  
+  int appropriateStat( Attack a )
+  {
+    if( a.stat == AttackStat.DEX )
+      return dex;
+    if( a.stat == AttackStat.MAG )
+      return mag;
+    else
+      return str;
+  }
+  
+  int appropriateDefense( Attack a )
+  {
+    if( a.stat == AttackStat.DEX || a.stat == AttackStat.STR )
+    {
+      if( defending )
+        return (con + armor.power)*2;
+      else
+        return con + armor.power;
+    }
+    else
+      return wil;
   }
   
   public void heal( int amount )

@@ -496,15 +496,16 @@ class Artist
     //This will change the window for equipping
     int equipOffset = 0; if( display == Display.EQUIP ) equipOffset = 50;
     
-    fill(0);  rectMode(CORNER);
+    fill(0);  rectMode(CORNER); imageMode(CENTER);
     stroke(200);
     strokeWeight(5);
     rect(100,200,width-200,height-400+equipOffset,20);
     
-    fill(200); textAlign(CENTER); textSize(40);
-    if( display == Display.EQUIP ) text(newEquip.name,width/2,250);
-    else                           text("Select Hero",width/2,250);
+    fill(200); textSize(40);
+    if( display == Display.EQUIP ) { textAlign(CORNER); text(newEquip.name,350-(9*newEquip.name.length()),250); image(newEquip.pic,320-(9*newEquip.name.length()),240); }
+    else                           { textAlign(CENTER); text("Select Hero",width/2,250); }
     
+    textAlign(CENTER);
     fill(party.hero[0].getColor()); drawHeroByType(party.hero[0],150,320,1,0,true); //ellipse(150,320,75,75);
     fill(200); text(1,150,333);
     if( dist( mouseX,mouseY, 150,320)<37.5)
@@ -562,13 +563,12 @@ class Artist
       text("Can't", xPos, yPos-10);
       text("use.", xPos, yPos+10);
     }
-    
     else //hero can use
     {
       //display old power
-      if( thing.isWeapon) text( party.hero[heroIndex].weapon.power, xPos-20, yPos );
-      else                text( party.hero[heroIndex].armor.power, xPos-20, yPos );
-      text( thing.power, xPos+20, yPos ); //display new power
+      if( thing.isWeapon) text( party.hero[heroIndex].weapon.power, xPos-25, yPos );
+      else                text( party.hero[heroIndex].armor.power, xPos-25, yPos );
+      text( thing.power, xPos+25, yPos ); //display new power
       strokeWeight(2);
       line(xPos-5,yPos-12,xPos+5,yPos-12);
       line(xPos+2,yPos-9,xPos+5,yPos-12);

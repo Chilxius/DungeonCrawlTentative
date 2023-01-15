@@ -123,7 +123,7 @@ class Battle
         if(initiativeTicker>=list.length)
           initiativeTicker = 0;
       }
-      else if(delayType == DelayType.ATTACK) //someone is using basic attack
+      else if(delayType == DelayType.ATTACK) //someone is attacking (or using an attack skill)
       {
         if(attackerIndex<3) //hero
         {
@@ -234,7 +234,7 @@ class Battle
       displayTextLine(list[attackerIndex].name + " attacks " + list[defenderIndex].name + "!");
     else
     {
-      enemyAttackIndex = int(random(5));
+      enemyAttackIndex = int(random(5)); //choose random attack for monster to use
       displayTextLine(list[attackerIndex].name + " " + battleMonsters[attackerIndex-3].attacks[enemyAttackIndex].description );
     }
     setBattleDelay();
@@ -274,6 +274,11 @@ class Battle
       return 2;
     }
     return 1;
+  }
+  
+  public int calculateDamage( int level, int crit, int wepPower, int attackStr, int defense ) //enemies can't get type advantage
+  {
+    return calculateDamage(level, crit, wepPower, attackStr, defense, AttackType.NONE, AttackType.NONE );
   }
   
   public int calculateDamage( int level, int crit, int wepPower, int attackStr, int defense, AttackType aType, AttackType dType )

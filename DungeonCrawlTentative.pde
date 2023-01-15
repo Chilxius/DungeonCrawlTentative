@@ -706,7 +706,7 @@ void keyPressed()
     }
     
     if(display == Display.MAP && key == 'z') //testing
-      party.hero[0].takeDamage(5);
+      party.hero[0].takeDamage(5,true);
   }
   //ITEM USE INPUT
   else if(input == Input.ITEM_USE)
@@ -875,7 +875,7 @@ void keyPressed()
       display = Display.MAP;
       input = input.EXPLORING;
     }
-    if( key == 'x' || key == 'X' ) //not equipped - left in bag
+    if( key == 'X' ) //not equipped - left in bag
     {
       display = Display.MAP;
       input = input.EXPLORING;

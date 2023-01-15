@@ -17,24 +17,24 @@ class Beastiary
     list[0][3] = new Monster();
     list[0][4] = new Monster();
     
-    list[1][0] = new Monster("GreenDragon",  "GreenDragon.png",  10,3,5,3,0,1,1,10,AttackType.NONE);
+    list[1][0] = new Monster("GreenDragon",  "GreenDragon.png",  10,5,2,3,5,2,2,10,AttackType.NONE);
       list[1][0].attacks[0] = new Attack("rubbs its tummy.");
       list[1][0].attacks[1] = new Attack("rubbs its tummy.");
-      list[1][0].attacks[2] = new Attack("bites.", 40, false, true);
-      list[1][0].attacks[3] = new Attack("claws at you.", 35, false, true);
-      list[1][0].attacks[4] = new Attack("breathes fire.", 20,  false, false, AttackType.FIRE);
+      list[1][0].attacks[2] = new Attack("claws at you.", 35, false);
+      list[1][0].attacks[3] = new Attack("breathes fire.", 40,  true, AttackType.FIRE);
+      list[1][0].attacks[4] = new Attack("breathes fire.", 40,  true, AttackType.FIRE);
     list[1][1] = new Monster("StoneGargoyle","StoneGargoyle.png",12,4,4,3,0,1,2,0,AttackType.NONE);
       list[1][1].attacks[0] = new Attack("is still.");
       list[1][1].attacks[1] = new Attack("inches closer.");
-      list[1][1].attacks[2] = new Attack("bites.", 40, false, true);
-      list[1][1].attacks[3] = new Attack("claws at you.", 35, false, true);
-      list[1][1].attacks[4] = new Attack("throws a stone.", 35,  false, true);
+      list[1][1].attacks[2] = new Attack("bites.", 40, false);
+      list[1][1].attacks[3] = new Attack("claws at you.", 35, false);
+      list[1][1].attacks[4] = new Attack("throws a stone.", 35,  false);
     list[1][2] = new Monster("Green Squid",  "GreenSquid.png",    8,2,6,2,0,1,3,0,AttackType.NONE);
       list[1][2].attacks[0] = new Attack("wriggles and writhes.");
       list[1][2].attacks[1] = new Attack("gazes at you.");
-      list[1][2].attacks[2] = new Attack("bites.", 40, false, true);
-      list[1][2].attacks[3] = new Attack("lashes at you.", 35, false, true);
-      list[1][2].attacks[4] = new Attack("shoots ink.", 20,  false, false);
+      list[1][2].attacks[2] = new Attack("bites.", 40, false);
+      list[1][2].attacks[3] = new Attack("lashes at you.", 35, false);
+      list[1][2].attacks[4] = new Attack("shoots ink.", 20,  false, AttackStat.MAG);
     list[1][3] = new Monster();
     list[1][4] = new Monster();
     
