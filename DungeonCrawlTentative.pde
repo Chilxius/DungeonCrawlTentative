@@ -19,7 +19,7 @@
 
 import processing.sound.*;
 
-Map [] m = new Map[3]; //<>//
+Map [] m = new Map[3];
 DangerMap dm;
 
 //Game begins waiting for a typed input, which will be stored as the save file name
@@ -98,6 +98,8 @@ int battleTextSpeed = 1; //speed battle text displays
 int currentBoss = -1; //index of boss being fought
 
 PrintWriter saveOutput;
+
+boolean gameover = false;
 
 void setup()
 {
@@ -220,13 +222,19 @@ void draw()
     if(vanGogh.battleWindowOpening)
       m[0].drawMapOnPosition(party.X,party.Y,party.hero(0).getColor(),party.hero(1).getColor(),party.hero(2).getColor());
     else
-      if(!battle.runBattle()) //don't begin initiative until battle is loaded
+    {
+      if(gameover)
+      {
+        vanGogh.runGameoverAnimation();
+      }
+      else if(!battle.runBattle()) //don't begin initiative until battle is loaded
       {                        //returns true when battle is over
         display = Display.MAP;
         input = Input.EXPLORING;
       }
-      
-    vanGogh.drawBattleWindow();
+    }
+    if(!gameover)
+      vanGogh.drawBattleWindow();
   }
   
   vanGogh.drawAndCleanupFloatingNumbers();
@@ -457,12 +465,12 @@ String bonkText( char direction ) //for when the heroes run into obstacles
   
   if( m[party.floor].tiles[x][y].isBoss )
   {
-    for( int i = 0; i < bossSwitches.length; i++ ) //<>//
+    for( int i = 0; i < bossSwitches.length; i++ )
       if( bossSwitches[i].floor == party.floor && partyNextToBoss() ) //bossSwitches[i].X == party.X && bossSwitches[i].Y == party.Y ) //too tired to do this better right now
       {
         currentBoss = i;
         return m[party.floor].tiles[x][y].occupantText;
-      } //<>//
+      }
     println("MISSING BOSS ERROR");
   }
   
@@ -706,7 +714,11 @@ void keyPressed()
     }
     
     if(display == Display.MAP && key == 'z') //testing
+    {
       party.hero[0].takeDamage(5,true);
+      party.hero[1].takeDamage(5,true);
+      party.hero[2].takeDamage(5,true);
+    }
   }
   //ITEM USE INPUT
   else if(input == Input.ITEM_USE)
@@ -939,7 +951,7 @@ void keyPressed()
   {
     println("DEBUG");
     println(party.X + " " + party.Y);
-    println(dm.dangerValueChar(party.X,party.Y)); //<>//
+    println(dm.dangerValueChar(party.X,party.Y));
   }
   
   if(key == 'u')
@@ -1266,7 +1278,7 @@ public void loadFile( String fileName )
     while(!saveFileText[fileLine].equals("XX"))
     {
       if(bossSwitches[switchIndex]!=null)
-        bossSwitches[switchIndex].active = boolean(saveFileText[fileLine]); //<>//
+        bossSwitches[switchIndex].active = boolean(saveFileText[fileLine]);
         
       switchIndex++;
       fileLine++;

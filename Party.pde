@@ -59,7 +59,7 @@ class Party
     for(int i = 0; i < inventory.length; i++)
       if( inventory[i].value == 0 )
       {
-        if(item.name.equals("Bread")) item.name = theStuff.breadName();
+        if(item.value == 10 && !loadingFile) item.name = theStuff.breadName();
         if(item instanceof Item) inventory[i] = new Item( item );    //don't like this, but it seems to work
         if(item instanceof Equipment) inventory[i] = new Equipment( (Equipment)item );
         advanceText("You recieve " + indefArticle(item.name) + " " + item );
@@ -223,5 +223,12 @@ class Party
       }
     }
     return result;
+  }
+  
+  boolean partyDead()
+  {
+    if( !hero[0].alive && !hero[1].alive && !hero[2].alive )
+      return true;
+    return false;
   }
 }

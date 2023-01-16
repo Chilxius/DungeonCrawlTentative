@@ -125,9 +125,6 @@ void setupMaps()
 
   m[0].tiles[34][8].placeShop( new Item( "Bread", 10 ), 1 );
   m[0].tiles[32][8].placeShop( new Equipment( "Axe","MetalSpikedAxe.png", 5, true, 35, true ), 5 );
-  m[0].tiles[32][7].placeShop( new Equipment( "Big Axe","MetalSpikedAxe.png", 5, true, 35, true ), 5 );
-  m[0].tiles[32][6].placeShop( new Equipment( "Mighty Axe","MetalSpikedAxe.png", 5, true, 35, true ), 5 );
-  m[0].tiles[32][5].placeShop( new Equipment( "Mighty Mighty Axe","MetalSpikedAxe.png", 5, true, 35, true ), 5 );
 
   m[0].tiles[33][11].placeSeller();
 
@@ -143,8 +140,13 @@ void setupMaps()
   m[0].tiles[27][4].createEvent(true, "- Please do not step on the flowers.");
   //m.tiles[6][1].createEvent(false,"Event C","Three lines of text","Only happens once");
 
-  m[0].tiles[54][4].placeBoss( color(200, 0, 0), "A terrible creature guards the way!", new Monster("Xaxaphar", "BlueMindflair.png", 20, 5, 2, 2, 2, 2, 2, 50, AttackType.HOLY) );
-
+  m[0].tiles[54][4].placeBoss( color(200, 0, 0), "A terrible creature guards the way!", new Monster("Xaxaphar", "BlueMindflair.png", 20, 5, 5, 5, 5, 5, 5, 50, AttackType.HOLY) );
+      zoo.boss[0].attacks[0] = new Attack("whips his tentacles.", 40, false);
+      zoo.boss[0].attacks[1] = new Attack("shoots fire!", 35, false, AttackStat.MAG, AttackType.FIRE);
+      zoo.boss[0].attacks[2] = new Attack("causes a quake!", 30, true, AttackStat.MAG, AttackType.EARTH);
+      zoo.boss[0].attacks[3] = new Attack("causes a hurricane!", 30, true, AttackStat.MAG, AttackType.WIND);
+      zoo.boss[0].attacks[4] = new Attack("casts a freezing ray!", 35, false, AttackStat.MAG, AttackType.ICE);
+  
   String testDangerMap = "";
   testDangerMap += "A000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
   testDangerMap += "0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";

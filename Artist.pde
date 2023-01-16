@@ -26,6 +26,8 @@ class Artist
   boolean shakeLeft = true;
   boolean shakeUp = true;
   
+  float gameoverOpacity = 0;
+  
   public Artist()
   {
     animationStage = 0;
@@ -542,6 +544,25 @@ class Artist
     }
   }
   
+  public void beginGameoverAnimation()
+  {
+    gameoverOpacity = 0;
+    gameover = true;
+  }
+  
+  public void runGameoverAnimation()
+  {
+    drawBattleWindow();
+    gameoverOpacity+=0.5;
+    fill(0,gameoverOpacity);
+    noStroke();
+    ellipse(350,542.5,700,315);
+    fill(0,0,150,gameoverOpacity);
+    textAlign(CENTER);
+    textSize(75);
+    text("GAME OVER",width/2,542.5);
+  }
+  
   public void showStatComparison( int heroIndex, Equipment thing, float xPos, float yPos )
   {
     textSize(30);
@@ -554,7 +575,7 @@ class Artist
             !thing.isWeapon && party.hero[heroIndex].armor.power  > thing.power) //new equipment is worse 
     {  fill(150+textPromptStage*1.5,0,0); stroke(100+textPromptStage*1.5,0,0); }//flash red
     else //new equipment has same power as old
-      fill(200); //non-flashing gray
+    {  fill(200); stroke(200); } //non-flashing gray
       
     //Display comparison
     if( !thing.usableBy( party.hero[heroIndex].job ) ) //hero can't use
@@ -735,11 +756,33 @@ class Artist
         if(h[i].getMaxMp()>0)text(h[i].getMp()+"/"+h[i].getMaxMp(),190+250*i,115);
       }
     }
+    drawEnergyBoxes();
     
     //for testing
     //drawMage(150,350,2,h[0].getColor(),h[0].getInvColor());
     //drawMage(350,350,2,h[1].getColor(),h[1].getInvColor());
     //drawMage(550,350,2,h[2].getColor(),h[2].getInvColor());
+  }
+  
+  void drawEnergyBoxes()
+  {  
+    for(int i = 0; i < 3; i++)
+    {
+      if( party.hero[i].energy > 0 )
+      {
+        fill(200); textAlign(LEFT);
+        text("POWER:",12+i*248,115);
+        strokeWeight(1);
+        stroke(party.hero[i].inverseColor);
+        fill(party.hero[i].favColor);
+        for(int k = 0; k < min(13,party.hero[i].energy); k++ )
+          rect(100+i*248+7*k,95,7,13);
+        for(int k = 0; k < min(13,party.hero[i].energy-13); k++ )
+          rect(100+i*248+7*k,110,7,13);
+        for(int k = 0; k < min(24,party.hero[i].energy-26); k++ )
+          rect(16+i*248+7*k,125,7,13);
+      }
+    }
   }
 
   void drawTextBoxes( Input in, String tb, String tl1, String tl2 ) //Draws large text box and small input box if applicable
@@ -956,6 +999,7 @@ class Artist
   {
     float baseX = party.heroX(h);
 
+    textAlign(CENTER);
     rectMode(CENTER); strokeWeight(5);
     stroke(200); fill(0);
     rect(baseX-75,455,70,70,20);rect(baseX+75,455,70,70,20);
@@ -1015,7 +1059,7 @@ class Artist
     */
     
     fill(c); textSize(10);
-    text("A",x+27,y+27);
+    text("A",x+25,y+27);
   }
   
   void drawDefendIcon( float x, float y, color c, color i, Job j )
@@ -1082,7 +1126,7 @@ class Artist
     }
     
     fill(c); textSize(10);
-    text("D",x+27,y+27);
+    text("D",x+25,y+27);
   }
   
   void drawSkillIcon( float x, float y, color c, color i, Job j)
@@ -1152,7 +1196,7 @@ class Artist
     }
     
     fill(c); textSize(10);
-    text("S",x+27,y+27);
+    text("S",x+25,y+27);
   }
   
   void drawItemIcon( float x, float y, color c )
@@ -1165,7 +1209,7 @@ class Artist
     rect(x,y-15,20,5);
     
     fill(c); textSize(10);
-    text("X",x+27,y+27);
+    text("X",x+25,y+27);
   }
   
   void drawCancelIcon( float x, float y )
@@ -1178,7 +1222,7 @@ class Artist
     line(x-19,y+19,x+19,y-19);
     
     fill(200); textSize(10);
-    text("X",x+27,y+27);
+    text("X",x+25,y+27);
   }
   
   void drawMage(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)

@@ -3,6 +3,7 @@ class Attack
   int power;
   
   boolean targetAll;
+  boolean healing;
   
   AttackType type;
   AttackStat stat;
@@ -14,6 +15,7 @@ class Attack
     description = a.description;
     power = a.power;
     targetAll = a.targetAll;
+    healing = a.healing;
     stat = a.stat;
     type = a.type;
   }
@@ -23,8 +25,19 @@ class Attack
     description = d;
     power = 0;
     targetAll = false;
+    healing = false;
     stat = AttackStat.STR;
     type = AttackType.WASTE;
+  }
+  
+  public Attack( String d, int p, boolean all, boolean heal ) //healing move
+  {
+    description = d;
+    power = p;
+    targetAll = all;
+    healing = heal;
+    stat = AttackStat.MAG;
+    type = AttackType.HOLY;
   }
   
   public Attack( String d, int p, boolean all ) //normal physical attacks
@@ -47,6 +60,7 @@ class Attack
     description = d;
     power = p;
     targetAll = all;
+    healing = false;
     stat = s;
     type = t;
   }

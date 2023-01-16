@@ -32,6 +32,10 @@ class Battle
     if(currentBoss == -1) //bosses have their own message, handled in bonkText
       displayTextLine( randomMessage() );
       
+    for(int i = 0; i < 3; i++)
+      if(party.hero[i].maxMp==0)
+        party.hero[i].energy = party.hero[i].level/5 + 1;
+      
     list[0] = new Initiative(h[0].name,0,h[0].spd,h[0].alive);
     list[1] = new Initiative(h[1].name,1,h[1].spd,h[1].alive);
     list[2] = new Initiative(h[2].name,2,h[2].spd,h[1].alive);
@@ -64,45 +68,47 @@ class Battle
   {
     if(!battleDelayed) //these commands will run once the battle delay timer ends
     {
-      if( end != EndStage.NONE ) //if battle is over and exp/gold are being given out
-        switch( end )
-        {
-          case EXP:  //checking for levelups
-            if(heroExpCheck >=3) //done with levelup check
-              end = EndStage.GOLD;
-            else if( !list[heroExpCheck].active ) //hero dead
-              heroExpCheck++; //ready for next hero
-            else
-            {
-              if( party.hero[heroExpCheck].gainExp(exp) ) //gain exp and return true if leveled up
+      if( end != EndStage.NONE ) //if battle is over and exp/gold are being given out  OR  game over
+      {
+          switch( end )
+          {
+            case EXP:  //checking for levelups
+              if(heroExpCheck >=3) //done with levelup check
+                end = EndStage.GOLD;
+              else if( !list[heroExpCheck].active ) //hero dead
+                heroExpCheck++; //ready for next hero
+              else
               {
-                displayTextLine( list[heroExpCheck].name + " is now level " + party.hero[heroExpCheck].level );
+                if( party.hero[heroExpCheck].gainExp(exp) ) //gain exp and return true if leveled up
+                {
+                  displayTextLine( list[heroExpCheck].name + " is now level " + party.hero[heroExpCheck].level );
+                  setBattleDelay();
+                }
+                heroExpCheck++; //ready for next hero
+                return true;
+              }
+              break;
+              
+            case GOLD:  //party gains gold
+              if( gold > 0 )
+              {
+                party.gold += gold;
+                displayTextLine( "Party loots " + gold + " coins." );
                 setBattleDelay();
               }
-              heroExpCheck++; //ready for next hero
-              return true;
-            }
-            break;
-            
-          case GOLD:  //party gains gold
-            if( gold > 0 )
-            {
-              party.gold += gold;
-              displayTextLine( "Party loots " + gold + " coins." );
-              setBattleDelay();
-            }
-            end = EndStage.DONE;
-            break;
-            
-          case DONE: //battle fully over
-            if(currentBoss!=-1)
-            {
-              m[party.floor].tiles[bossSwitches[currentBoss].X][bossSwitches[currentBoss].Y].removeBoss();
-              bossSwitches[currentBoss].active=false;
-              currentBoss = -1; //switch off boss mode
-            }
-            return false;
-        }
+              end = EndStage.DONE;
+              break;
+              
+            case DONE: //battle fully over
+              if(currentBoss!=-1)
+              {
+                m[party.floor].tiles[bossSwitches[currentBoss].X][bossSwitches[currentBoss].Y].removeBoss();
+                bossSwitches[currentBoss].active=false;
+                currentBoss = -1; //switch off boss mode
+              }
+              return false;
+          }
+      }
       else if(turn == -1 && !waitingForText) //No one's turn and not waiting for text to advance
       {
         //println(list[initiativeTick].name + " ticked up to " + list[initiativeTick].counter); //<>//
@@ -140,27 +146,18 @@ class Battle
         attackerIndex = defenderIndex = 0;
       }
       
-      //testing
-      if( turn > 2 )
+      //Monster chooses target and attacks (might need to go somewhere else)
+      if( turn > 2 && !gameover)
       {
-        beginAttack(turn, int(random(3)) );
+        int targetChoice;
+        do
+        {
+          targetChoice = int(random(3));
+        }
+        while( !party.hero[targetChoice].alive );
+        
+        beginAttack(turn, targetChoice );
       }
-      
-      /*
-      //old version of monster attack
-      if( turn >= 3 ) //Monster's turn
-      {
-        if(!waitingForText)
-          battleMonsters[turn-3].makeAttack();
-        else
-          battleMonsters[turn-3].resolveAttack();
-      }
-      */
-      
-      //if( turn < 3 && turn > -1) //Hero turn
-      //{
-      //  input = Input.BATTLE_MENU;
-      //}
     }
     else
     {
@@ -169,13 +166,21 @@ class Battle
     }
     
     
-    if( !battleOver && ( playersDead() || monstersDead() ) )
+    if( !battleOver && ( party.partyDead() || monstersDead() ) )
     {
+      if( party.partyDead() )
+      {
+        displayTextLine("Your heroes have fallen in battle.");
+      }
       //displayTextLine(victoryLine(exp));    //NOT WORKING
-      displayTextLine("Victory!          EXP: " + exp);
-      setBattleDelay(2);
-      end = EndStage.EXP;
-      battleOver = true;
+      else
+      {
+        displayTextLine("Victory!          EXP: " + exp);
+        setBattleDelay(2);
+        party.hero[0].energy = party.hero[0].energy = party.hero[0].energy = 0;
+        end = EndStage.EXP;
+        battleOver = true;
+      }
     }
     return true;
   }

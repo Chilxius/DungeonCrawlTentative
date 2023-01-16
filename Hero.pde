@@ -19,7 +19,11 @@ class Hero
   
   boolean created;
   
+  //In-battle data
   boolean defending;
+  int energy;
+  
+  Attack skill[] = new Attack[8];
   
   public Hero()
   {
@@ -132,6 +136,23 @@ class Hero
         break;
       
       default:       hp=maxHp=1;str=1;dex=1;con=1;mag=1;wil=1;spd=1;mp=maxMp=1;break;
+    }
+  }
+  
+  public void assignSkills()
+  {
+    switch( job )
+    {
+      case KNIGHT:
+        skill[0] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
+        skill[1] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
+        skill[2] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
+        skill[3] = new Attack("Divine Grace", str*2, true, true );
+        skill[4] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
+        skill[5] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
+        skill[6] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
+        skill[7] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
+        //String d, int p, boolean all, AttackStat s, AttackType t
     }
   }
   
@@ -366,6 +387,41 @@ Mag  15/25 1    2    2    5    4     2      150/250  50   100  70   150  100  90
 Max dex of 150. 150 spd should get 3 turns for every 1 turn of a character with spd 50
 Crit chance = 2% + 1% per dex difference
 
+*/
+
+/*
+
+Abilities:
+Priest and Mage use MP to power abilities
+Others use Power, which charges by one per turn (max of lvl, caps out at 48)
+Start with 1 + level/10 power?
+Martial Artists starts with twice as much as others
+Knight gets +1 when defending
+Barbarian gains +1 when damaged
+thief gains +5 after crits
+
+Knight
+  Power Attack (double power)
+  
+  
+  Divine Grace (heal all)
+Barbarian
+  Blood Strike (spend HP to increase damage)
+  Cleave       (attack all)
+Artist
+  Stone Fist   (earth element attack)
+  
+Thief
+  Knives       (attack all)
+  Backstab     (high-crit)
+Priest
+  Smite        (holy element attack)
+  Heal
+
+Mage
+  Fire         (fire element attack)
+  
+  
 */
 
 /* Poison
