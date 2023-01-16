@@ -957,7 +957,8 @@ void keyPressed()
   if(key == 'u')
     vanGogh.startScreenShake(40,true);
   if(key == 'l')
-    vanGogh.startScreenShake(40,false);
+    //vanGogh.startScreenShake(40,false);
+    floatingNumbers.add( new GhostNumber(140,320,color(255),12345678) );
 }
 
 void keyReleased()

@@ -81,7 +81,7 @@ class Hero
       case KNIGHT:
         maxHp =  int((270/50.0)*(level-1)+30);
         str =    int((116/50.0)*(level-1)+4);
-        dex =    int((5097/50.0)*(level-1)+3); //should be 97 - changed for testing purposes
+        dex =    int((97/50.0)*(level-1)+3); //should be 97 - changed for testing purposes
         con =    int((125/50.0)*(level-1)+5);
         mag =    level; 
         wil =    int((98/50.0)*(level-1)+2);
@@ -108,7 +108,7 @@ class Hero
       case THIEF:
         maxHp =  int((225/50.0)*(level-1)+25);
         str =    int((87/50.0)*(level-1)+3);
-        dex =    int((135/50.0)*(level-1)+5);
+        dex =    int((5135/50.0)*(level-1)+5); //should be 135; changed for testing purposes
         con =    int((87/50.0)*(level-1)+3);
         mag =    0;
         wil =    int((88/50.0)*(level-1)+2);
@@ -154,6 +154,13 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
         //String d, int p, boolean all, AttackStat s, AttackType t
     }
+  }
+  
+  public void energize( int amount )
+  {
+    energy += amount;
+    if( energy > max(2,level) )
+      energy = max(2,level);
   }
   
   public boolean gainExp( int amount )
@@ -238,7 +245,7 @@ class Hero
     //int damage = battleMonsters[targetMonster].takeDamage(str);
     int damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weapon.power, str, battleMonsters[targetMonster].con, AttackType.NONE, battleMonsters[targetMonster].weakness);
     battleMonsters[targetMonster].takeDamage(damage);
-    floatingNumbers.add( new GhostNumber( 160+210*targetMonster, 320, color(255), damage) );
+    floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, color(255), damage) );
     battle.setBattleDelay();
     battle.resumeInitiative();
     if( battleMonsters[targetMonster].alive )
@@ -252,9 +259,12 @@ class Hero
     hp -= damage;
     if(displayText)
       displayTextLine( name + " takes " + damage + " damage.");
+    if(job == Job.BARBARIAN)
+      energize(1);
     if(hp <= 0)
     {
       hp = 0;
+      energy = 0;
       alive = false;
       displayTextLine( name + " falls!" );
     }
@@ -297,6 +307,8 @@ class Hero
     {
       alive = true;
       hp = level;
+      if( maxMp == 0 )
+        energy = 1 + level/5;
     }
   }
   

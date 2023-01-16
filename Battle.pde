@@ -111,7 +111,7 @@ class Battle
       }
       else if(turn == -1 && !waitingForText) //No one's turn and not waiting for text to advance
       {
-        //println(list[initiativeTick].name + " ticked up to " + list[initiativeTick].counter); //<>//
+        //println(list[initiativeTick].name + " ticked up to " + list[initiativeTick].counter);
         checkForActive(initiativeTicker); //checks for alive/dead
         if(list[initiativeTicker].tick())
         {
@@ -203,6 +203,10 @@ class Battle
      || ( turn > 2 && !battleMonsters[turn-3].alive ) )
       list[turn].active = false;
 
+    //add energy
+    if( turn < 3 && party.hero[turn].maxMp == 0 )
+      party.hero[turn].energize(1);
+
     list[turn].counter = 0;
     turn = -1;
     delayType = DelayType.NONE;
@@ -268,12 +272,17 @@ class Battle
   public int isCrit( int attackerDex, int defenderDex, boolean heroAttack ) //1 for normal hit, 2 for crit
   {
     int chance = 2;
-    chance += (max(0,attackerDex-defenderDex));
+    chance += (max(0,attackerDex-defenderDex)); //<>//
     
     if( int( random(100) ) <= chance )
     {
       if(heroAttack)
+      {
         vanGogh.startScreenShake(40,true);
+        party.hero[attackerIndex].energize(1);
+        if(party.hero[attackerIndex].job==Job.THIEF)
+          party.hero[attackerIndex].energize(4);
+      }
       else
         vanGogh.startScreenShake(40,false);
       return 2;

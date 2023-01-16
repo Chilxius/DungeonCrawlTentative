@@ -29,6 +29,7 @@ class GhostNumber
   void moveAndDrawNumber() //Causes the number's digits to bounce once before settling
   {                           //Movement not based on millis()
     textSize(30);
+    textAlign(CENTER);
     fill(numColor);
     for( int i = 0; i < digits; i++)
     {
@@ -40,6 +41,9 @@ class GhostNumber
           yOffsets[i]+=3;
           
         //This works. Don't touch it.
+        textSize(36); fill(0); //black outline
+        text( (value/(int(pow(10,digits-i-1))))%10, X-9*digits+20*i, min(3+Y+yOffsets[i],3+Y) );
+        textSize(30); fill(numColor);
         text( (value/(int(pow(10,digits-i-1))))%10, X-9*digits+20*i, min(Y+yOffsets[i],Y) );
       }
     }
