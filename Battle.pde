@@ -1,3 +1,6 @@
+//Only one instance of this class will be used.
+//Handles the battle until one side is dead.
+
 class Battle
 {
   Initiative [] list = new Initiative[6];
@@ -129,14 +132,28 @@ class Battle
         if(initiativeTicker>=list.length)
           initiativeTicker = 0;
       }
-      else if(delayType == DelayType.ATTACK) //someone is attacking (or using an attack skill)
+      else if(delayType == DelayType.ATTACK) //someone is attacking (or using a skill)
       {
         if(attackerIndex<3) //hero
         {
-          if( party.hero[attackerIndex].resolveAttack(defenderIndex-3) )
+          if( skillSelection == -1 ) //normal attack
           {
-            displayTextLine( list[defenderIndex].name + " is vanquished!");
-            list[defenderIndex].active = false;
+            if( party.hero[attackerIndex].resolveAttack(defenderIndex-3) )
+            {
+              displayTextLine( list[defenderIndex].name + " is vanquished!");
+              list[defenderIndex].active = false;
+            }
+          }
+          else  //skill
+          {
+            if(party.hero[turn].skill[skillSelection].healing) //is a healing skill
+            {
+              
+            }
+            else
+            {
+              
+            }
           }
         }
         else if(attackerIndex>2) //monster
@@ -177,7 +194,7 @@ class Battle
       {
         displayTextLine("Victory!          EXP: " + exp);
         setBattleDelay(2);
-        party.hero[0].energy = party.hero[0].energy = party.hero[0].energy = 0;
+        party.hero[0].energy = party.hero[1].energy = party.hero[2].energy = 0;
         end = EndStage.EXP;
         battleOver = true;
       }
@@ -236,11 +253,16 @@ class Battle
   
   public void beginAttack( int a, int d )
   {
-    attackerIndex = a;
+    attackerIndex = a; //<>//
     defenderIndex = d;
     
-    if(turn<3) //hero basic attack
-      displayTextLine(list[attackerIndex].name + " attacks " + list[defenderIndex].name + "!");
+    if(turn<3) //hero attack
+    {
+      if( skillSelection == -1 )
+        displayTextLine(list[attackerIndex].name + " attacks " + list[defenderIndex].name + "!");
+      else
+        displayTextLine(list[attackerIndex].name + " uses " + party.hero[attackerIndex].skill[skillSelection].description + "!");
+    }
     else
     {
       enemyAttackIndex = int(random(5)); //choose random attack for monster to use
@@ -272,7 +294,7 @@ class Battle
   public int isCrit( int attackerDex, int defenderDex, boolean heroAttack ) //1 for normal hit, 2 for crit
   {
     int chance = 2;
-    chance += (max(0,attackerDex-defenderDex)); //<>//
+    chance += (max(0,attackerDex-defenderDex));
     
     if( int( random(100) ) <= chance )
     {
@@ -302,9 +324,22 @@ class Battle
       type = 2;
     int random = (int)random(217,255);
     return (int)((((((2.0*level*crit)/5.0)+2.0)*wepPower*attackStr/defense)/50.0)+2.0)*type*random/255;
+  }
+}
+  
+public enum DelayType
+{
+  ATTACK, NONE
+}
 
-    /*
-    //level 50 flareon using tackle against an abra
+public enum EndStage
+{
+  NONE, EXP, GOLD, DONE
+}
+
+//Calculate Damage Example:
+/*
+//level 50 flareon using tackle against an abra
 
 float damage;
 float level = 50;
@@ -330,15 +365,3 @@ for(int i = 0; i < 20; i++)
 
 println( "Highest: " + highest + "     Lowest: " + lowest );
 */
-  }
-}
-  
-public enum DelayType
-{
-  ATTACK, NONE
-}
-
-public enum EndStage
-{
-  NONE, EXP, GOLD, DONE
-}

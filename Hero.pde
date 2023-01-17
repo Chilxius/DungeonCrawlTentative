@@ -51,21 +51,12 @@ class Hero
     if(j==Job.KARATE)
       weapon = new Equipment("Fist","Fist.png",25,true,0);
     armor = new Equipment("Shirt","WhiteShirt.png",1,false,5);
+    
+    assignSkills();
   }
   
   public void assignBaseStats()
   {
-    /*
-    switch(job)
-    {                      
-      case KNIGHT:   hp=maxHp=30;str=40;dex=3;con=5;mag=0;wil=2;spd=2;break;
-      case BARBARIAN:hp=maxHp=40;str=5; dex=3;con=3;mag=0;wil=1;spd=2;break;
-      case KARATE:   hp=maxHp=45;str=40;dex=4;con=4;mag=0;wil=4;spd=3;break;
-      case THIEF:    hp=maxHp=25;str=30;dex=5;con=3;mag=0;wil=2;spd=3;break;
-      case PRIEST:   hp=maxHp=20;str=2; dex=2;con=2;mag=4;wil=5;spd=2;mp=maxMp=20;break;
-      case MAGE:     hp=maxHp=15;str=1; dex=2;con=2;mag=5;wil=4;spd=2;mp=maxMp=25;break;
-      default:       hp=maxHp=1; str=1; dex=1;con=1;mag=1;wil=1;spd=1;mp=maxMp=1; break;
-    }*/
     level = 1;
     exp = 0;
     nextLevel = level*100;
@@ -144,14 +135,66 @@ class Hero
     switch( job )
     {
       case KNIGHT:
-        skill[0] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
-        skill[1] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
-        skill[2] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
+        skill[0] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
-        skill[4] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
-        skill[5] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
-        skill[6] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
-        skill[7] = new Attack("Forceful Strike", str*2, false, AttackStat.STR );
+        skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        break;
+      case BARBARIAN:
+        skill[0] = new Attack("Blood Strike", str*2, false, true, AttackStat.STR );
+        skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[3] = new Attack("Divine Grace", str*2, true, true );
+        skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        break;
+      case KARATE:
+        skill[0] = new Attack("Stone Fist", 40, false, true, AttackStat.STR, AttackType.EARTH );
+        skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[3] = new Attack("Divine Grace", str*2, true, true );
+        skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        break;
+      case THIEF:
+        skill[0] = new Attack("Knives", str, true, true, AttackStat.STR );
+        skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[3] = new Attack("Divine Grace", str*2, true, true );
+        skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        break;
+      case PRIEST:
+        skill[0] = new Attack("Divine Light", 30, false, false, AttackStat.MAG, AttackType.HOLY );
+        skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[3] = new Attack("Divine Grace", str*2, true, true );
+        skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        break;
+      default:
+        skill[0] = new Attack("Fire", 30, false, false, AttackStat.MAG, AttackType.FIRE );
+        skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[3] = new Attack("Divine Grace", str*2, true, true );
+        skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        break;
+        
         //String d, int p, boolean all, AttackStat s, AttackType t
     }
   }
@@ -241,16 +284,54 @@ class Hero
   
   public boolean resolveAttack( int targetMonster ) //true if monster killed
   {
+    int damage = 0;
+    int weaponPower = 1;
+    if(skillSelection != -1 && skill[skillSelection].useWeapon)
+      weaponPower = weapon.power;
     battle.waitingForText = false;
-    //int damage = battleMonsters[targetMonster].takeDamage(str);
-    int damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weapon.power, str, battleMonsters[targetMonster].con, AttackType.NONE, battleMonsters[targetMonster].weakness);
-    battleMonsters[targetMonster].takeDamage(damage);
-    floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, color(255), damage) );
+    if( skillSelection == -1 ) //normal attack
+    {
+      damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weapon.power, str, battleMonsters[targetMonster].con, AttackType.NONE, battleMonsters[targetMonster].weakness);
+      battleMonsters[targetMonster].takeDamage(damage);
+      floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, color(255), damage) );
+    }
+    else
+    {
+      if( skill[skillSelection].targetAll )
+        for(int i = 0; i < 3; i++)
+          if(battleMonsters[i].alive)
+          {
+            damage = battle.calculateDamage( level, 1, weaponPower, appropriateStat( skill[skillSelection] ), battleMonsters[i].appropriateDefense( skill[skillSelection] ), skill[skillSelection].type, battleMonsters[i].weakness );
+            battleMonsters[i].takeDamage(damage);
+            floatingNumbers.add( new GhostNumber( 150+210*i, 320, skill[skillSelection].appropriateColor(), damage) );
+          }
+      else
+      {
+        damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weaponPower, appropriateStat( skill[skillSelection] ), battleMonsters[i].appropriateDefense( skill[skillSelection] ), skill[skillSelection].type, battleMonsters[i].weakness );
+        battleMonsters[i].takeDamage(damage);
+        floatingNumbers.add( new GhostNumber( 150+210*i, 320, skill[skillSelection].appropriateColor(), damage) );
+      }
+    }
+    
+    //calculateDamage( int level, int crit, int wepPower, int attackStr, int defense, AttackType aType, AttackType dType )
+    
     battle.setBattleDelay();
     battle.resumeInitiative();
+    skillSelection = -1;
     if( battleMonsters[targetMonster].alive )
       return false;
     return true;
+  }
+  
+  public void resolveHeal( int target )
+  {
+    battle.waitingForText = false;
+    int amount = battle.calculateDamage( level, 1, 1, mag, 1);
+    party.hero[target].heal(amount);
+    floatingNumbers.add( new GhostNumber( 150+210*target, 550, color(100,255,100), amount) );
+    battle.setBattleDelay();
+    battle.resumeInitiative();
+    skillSelection = -1;
   }
   
   public int takeDamage( int damage, boolean displayText )
@@ -411,6 +492,9 @@ Martial Artists starts with twice as much as others
 Knight gets +1 when defending
 Barbarian gains +1 when damaged
 thief gains +5 after crits
+
+Abilties cost 2*level energy to use. (2,4,6,8,10,12,14,16)
+Spells have various costs
 
 Knight
   Power Attack (double power)

@@ -2,20 +2,17 @@
 //Bennett Ritchie
 
 //TO DO:
-//Fix speed for initiative
-//Fix equipment comparison display
-//Delay before "vanquished" line where enemy vanishes
 //Skills
-//Enemy attacks
-//Attack types
 //Character backs
+//Changing dungeon levels
 //Improve hero select widnow (circle sizes)
-//Have equipment actually matter
 //Have inns charge money?
+//Delay before "vanquished" line where enemy vanishes
 
 //IMAGES I NEED:
 //Campsite
 //Vendor stall
+//Skills
 
 import processing.sound.*;
 
@@ -96,6 +93,7 @@ Monster battleMonsters[];
 int potionType = 0; //potion being drunk
 int battleTextSpeed = 1; //speed battle text displays
 int currentBoss = -1; //index of boss being fought
+int skillSelection = -1; //index of chosen skill (hero)
 
 PrintWriter saveOutput;
 
@@ -577,6 +575,13 @@ boolean mouseInBox( float boxX, float boxY ) //assumes boxes are 70x70
   return false;
 }
 
+Input appropriateInputMode()
+{
+  if( party.hero[battle.turn].skill[skillSelection].healing )
+    return Input.BATTLE_HEAL_TARGET;
+  return Input.BATTLE_SKILL_TARGET;
+}
+
 void keyPressed()
 {
   //if(key == '1')
@@ -788,6 +793,27 @@ void keyPressed()
     {
       if( key == 'x' || key == ' ' ) //cancel and return to battle menu
         input = Input.BATTLE_MENU;
+        
+      if(   key == 'q' || key == '1' ) { skillSelection = 0; input = appropriateInputMode(); }
+      if( ( key == 'w' || key == '2' ) && party.hero[battle.turn].level >= 5 ) { skillSelection = 1; input = appropriateInputMode(); }
+      if( ( key == 'e' || key == '3' ) && party.hero[battle.turn].level >= 10 ){ skillSelection = 2; input = appropriateInputMode(); }
+      if( ( key == 'r' || key == '4' ) && party.hero[battle.turn].level >= 15 ){ skillSelection = 3; input = appropriateInputMode(); }
+      if( ( key == 'a' || key == '5' ) && party.hero[battle.turn].level >= 20 ){ skillSelection = 4; input = appropriateInputMode(); }
+      if( ( key == 's' || key == '6' ) && party.hero[battle.turn].level >= 25 ){ skillSelection = 5; input = appropriateInputMode(); }
+      if( ( key == 'd' || key == '7' ) && party.hero[battle.turn].level >= 30 ){ skillSelection = 6; input = appropriateInputMode(); }
+      if( ( key == 'f' || key == '8' ) && party.hero[battle.turn].level >= 35 ){ skillSelection = 7; input = appropriateInputMode(); }
+    }
+    else if(input == Input.BATTLE_SKILL_TARGET)
+    {
+      if(      ( key == 'a' || key == 'A' || key == '1' ) && battle.list[3].active )
+        battle.beginAttack( battle.turn, 3);
+      else if( ( key == 's' || key == 'S' || key == '2' ) && battle.list[4].active )
+        battle.beginAttack( battle.turn, 4);
+      else if( ( key == 'd' || key == 'D' || key == '3' ) && battle.list[5].active )
+        battle.beginAttack( battle.turn, 5);
+        
+      else if( key == 'x' || key == ' ' ) //cancel and return to skill menu
+        input = Input.BATTLE_SKILL;
     }
     else if(input == Input.BATTLE_ITEM)
     {
@@ -950,7 +976,7 @@ void keyPressed()
   if(key == '`') //for placing a break point
   {
     println("DEBUG");
-    println(party.X + " " + party.Y);
+    println(party.X + " " + party.Y); //<>//
     println(dm.dangerValueChar(party.X,party.Y));
   }
   
@@ -1036,9 +1062,22 @@ void mousePressed()
     if(dist( mouseX,mouseY, 350,320)<37.5) { key='2'; keyPressed(); }
     if(dist( mouseX,mouseY, 550,320)<37.5) { key='3'; keyPressed(); }
   }
-  else if( input == Input.BATTLE_SKILL )
+  else if( input == Input.BATTLE_SKILL ) //clicked on skill or cancel
   {
     if( mouseInBox(party.heroX(battle.turn)+75,545) ) { key = 'x'; keyPressed(); }
+    if( mouseInBox(140,280) ) { key = 'q'; keyPressed(); }
+    if( mouseInBox(280,280) ) { key = 'w'; keyPressed(); }
+    if( mouseInBox(420,280) ) { key = 'e'; keyPressed(); }
+    if( mouseInBox(560,280) ) { key = 'r'; keyPressed(); }
+    if( mouseInBox(140,430) ) { key = 'a'; keyPressed(); }
+    if( mouseInBox(280,430) ) { key = 's'; keyPressed(); }
+    if( mouseInBox(420,430) ) { key = 'd'; keyPressed(); }
+    if( mouseInBox(560,430) ) { key = 'f'; keyPressed(); }
+  }
+  else if( input == Input.BATTLE_SKILL_TARGET )
+  {
+    if( mouseInBox(party.heroX(battle.turn)+75,545) ) { key = 'x'; keyPressed(); }
+    int thisNeedsWorkNext;
   }
   else if( input == Input.BATTLE_ITEM ) //clicked on potion in battle
   {
@@ -1088,7 +1127,7 @@ public enum Input
 {
   NONE, ADVANCE_TEXT, TYPING, EXPLORING, ITEM_USE,
   HERO_SELECT,
-  BATTLE_MENU, BATTLE_ATTACK_TARGET, BATTLE_SKILL, BATTLE_ITEM, BATTLE_ITEM_HERO_CHOICE,
+  BATTLE_MENU, BATTLE_ATTACK_TARGET, BATTLE_SKILL, BATTLE_SKILL_TARGET, BATTLE_HEAL_TARGET, BATTLE_ITEM, BATTLE_ITEM_HERO_CHOICE,
   HERO_JOB_CHOICE, HERO_COLOR_CHOICE
 }
 
@@ -1214,13 +1253,15 @@ public void loadFile( String fileName )
                                stringToJob(saveFileText[1+offset]),
                                color(int(saveFileText[2+offset]),int(saveFileText[3+offset]),int(saveFileText[4+offset])),
                                color(255-int(saveFileText[2+offset]),255-int(saveFileText[3+offset]),255-int(saveFileText[4+offset])));
-      //party.hero[i].setStatsToLevel(saveFileText[5+offset]);
+      party.hero[i].level = int(saveFileText[5+offset]);
       party.hero[i].nextLevel = int(saveFileText[6+offset]);
       party.hero[i].exp = int(saveFileText[7+offset]);
       party.hero[i].hp = int(saveFileText[8+offset]);
       
       party.hero[i].weapon = new Equipment(saveFileText[9+offset],saveFileText[10+offset],int(saveFileText[11+offset]),true,int(saveFileText[12+offset]));
       party.hero[i].armor = new Equipment(saveFileText[13+offset],saveFileText[14+offset],int(saveFileText[15+offset]),false,int(saveFileText[16+offset]));
+      party.hero[i].adjustStats();
+      //party.hero[i].assignSkills();
     }  
     
     //load save point

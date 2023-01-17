@@ -1,3 +1,8 @@
+//This class will handle the monsters that appear in the game.
+//Bosses are created along with the map, but their moves are
+//handled here. These objects are reused, so they should be
+//copied via constructors instead of referenced.
+
 class Beastiary
 {
   Monster [][] list;
@@ -21,8 +26,8 @@ class Beastiary
       list[1][0].attacks[0] = new Attack("rubbs its tummy.");
       list[1][0].attacks[1] = new Attack("rubbs its tummy.");
       list[1][0].attacks[2] = new Attack("claws at you.", 35, false);
-      list[1][0].attacks[3] = new Attack("breathes fire.", 40,  true, AttackType.FIRE);
-      list[1][0].attacks[4] = new Attack("breathes fire.", 40,  true, AttackType.FIRE);
+      list[1][0].attacks[3] = new Attack("breathes fire.", 40, true, false, AttackType.FIRE);
+      list[1][0].attacks[4] = new Attack("breathes fire.", 40, true, false, AttackType.FIRE);
     list[1][1] = new Monster("StoneGargoyle","StoneGargoyle.png",12,4,4,3,0,1,2,0,AttackType.NONE);
       list[1][1].attacks[0] = new Attack("is still.");
       list[1][1].attacks[1] = new Attack("inches closer.");
@@ -34,7 +39,7 @@ class Beastiary
       list[1][2].attacks[1] = new Attack("gazes at you.");
       list[1][2].attacks[2] = new Attack("bites.", 40, false);
       list[1][2].attacks[3] = new Attack("lashes at you.", 35, false);
-      list[1][2].attacks[4] = new Attack("shoots ink.", 20,  false, AttackStat.MAG);
+      list[1][2].attacks[4] = new Attack("shoots ink.", 20, false, false, AttackStat.MAG);
     list[1][3] = new Monster();
     list[1][4] = new Monster();
     

@@ -1,7 +1,14 @@
+//This class represents the attacks monster use and
+//the special attacks the heroes use. Can be given
+//elemental types, can be flagged to attack all
+//three targets, can be flagged to heal allies (for
+//heroes only)
+
 class Attack
 {
   int power;
   
+  boolean useWeapon;
   boolean targetAll;
   boolean healing;
   
@@ -14,6 +21,7 @@ class Attack
   {
     description = a.description;
     power = a.power;
+    useWeapon = a.useWeapon;
     targetAll = a.targetAll;
     healing = a.healing;
     stat = a.stat;
@@ -24,6 +32,7 @@ class Attack
   {
     description = d;
     power = 0;
+    useWeapon = false;
     targetAll = false;
     healing = false;
     stat = AttackStat.STR;
@@ -42,24 +51,30 @@ class Attack
   
   public Attack( String d, int p, boolean all ) //normal physical attacks
   {
-    this(d,p,all,AttackStat.STR,AttackType.NONE);
+    this(d,p,all,true,AttackStat.STR,AttackType.NONE);
   }
   
-  public Attack( String d, int p, boolean all, AttackStat s ) //attacks that use different stats but have no type
+  public Attack( String d, int p, boolean all, boolean wep, AttackStat s ) //attacks that use different stats but have no type
   {
-    this(d,p,all,s,AttackType.NONE);
+    this(d,p,all,wep,s,AttackType.NONE);
   }
   
-  public Attack( String d, int p, boolean all, AttackType t ) //attacks that use str stats but have an attack type
+  public Attack( String d, int p, boolean all, boolean wep, AttackType t ) //attacks that use str stats but have an attack type
   {
-    this(d,p,all,AttackStat.STR,t);
+    this(d,p,all,wep,AttackStat.STR,t);
+  }
+  
+  public Attack( String d, int p, boolean all, AttackStat s, AttackType t ) //typical monster skill (no weapon)
+  {
+    this(d,p,all,false,s,t);
   }
 
-  public Attack( String d, int p, boolean all, AttackStat s, AttackType t ) //description, power, does it hit all, used stat, attack type
+  public Attack( String d, int p, boolean all, boolean wep, AttackStat s, AttackType t ) //description, power, does it hit all, used stat, attack type
   {
     description = d;
     power = p;
     targetAll = all;
+    useWeapon = wep;
     healing = false;
     stat = s;
     type = t;

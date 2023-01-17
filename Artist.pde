@@ -946,6 +946,7 @@ class Artist
       rect(3,159,width-7,height-266,20);
       
       drawMonsters();
+      drawProgressBars();
       drawHeroesInBattle();
         
       if(!battle.waitingForText)
@@ -956,8 +957,8 @@ class Artist
           drawHeroSkills(battle.turn);
         else if(input == Input.BATTLE_ITEM_HERO_CHOICE) //choosing who to use item on
           drawHeroSelectScreen();
-        else if(input == Input.BATTLE_ATTACK_TARGET)
-          drawAttackTargetArrows( battle.turn );
+        else if(input == Input.BATTLE_ATTACK_TARGET || input == Input.BATTLE_SKILL_TARGET)
+          drawAttackTargetArrows( battle.turn, true );
         else if(battle.turn==0||battle.turn==1||battle.turn==2)
           drawBattleIcons(battle.turn);
       }
@@ -965,21 +966,62 @@ class Artist
     }
   }
   
-  void drawAttackTargetArrows( int h )
+  void drawProgressBars()
+  {
+    int total = 20*party.averageLevel();
+     strokeWeight(1); stroke(150);
+    for(int i = 0; i < 3; i++)
+    {
+      if(battle.list[i].active){ fill(party.hero[i].inverseColor); rect(100+210*i,578, min(80,(battle.list[i].counter/total)*80) ,10); }
+      noFill(); if(battle.list[i].active) rect(100+210*i,578,80,10);
+    }
+  }
+  
+  void drawAttackTargetArrows( int h, boolean attack )
   {
     noStroke(); textAlign(CENTER);
     fill( party.hero[h].inverseColor );  //Arrow Outline
-    if(battle.list[3].active) triangle(140,378, 115,400, 165,400);
-    if(battle.list[4].active) triangle(350,378, 325,400, 375,400);
-    if(battle.list[5].active) triangle(560,378, 535,400, 585,400);
+    if(attack)
+    {
+      if(battle.list[3].active) triangle(140,378, 115,400, 165,400);
+      if(battle.list[4].active) triangle(350,378, 325,400, 375,400);
+      if(battle.list[5].active) triangle(560,378, 535,400, 585,400);
+    }
+    else
+    {
+      if(battle.list[3].active) triangle(140,447, 115,425, 165,425);
+      if(battle.list[4].active) triangle(350,447, 325,425, 375,425);
+      if(battle.list[5].active) triangle(560,447, 535,425, 585,425);
+    }
+    
     fill( party.hero[h].favColor );      //Arrow Main
-    if(battle.list[3].active) triangle(140,380, 115,400, 165,400);
-    if(battle.list[4].active) triangle(350,380, 325,400, 375,400);
-    if(battle.list[5].active) triangle(560,380, 535,400, 585,400);
+    if( attack )
+    {
+      if(battle.list[3].active) triangle(140,380, 115,400, 165,400);
+      if(battle.list[4].active) triangle(350,380, 325,400, 375,400);
+      if(battle.list[5].active) triangle(560,380, 535,400, 585,400);
+    }
+    else
+    {
+      if(battle.list[3].active) triangle(140,445, 115,425, 165,425);
+      if(battle.list[4].active) triangle(350,445, 325,425, 375,425);
+      if(battle.list[5].active) triangle(560,445, 535,425, 585,425);
+    }
+    
     fill(0);                             //Arrow's cut-out
-    if(battle.list[3].active) triangle(140,390, 115,400, 165,400);
-    if(battle.list[4].active) triangle(350,390, 325,400, 375,400);
-    if(battle.list[5].active) triangle(560,390, 535,400, 585,400);
+    if( attack )
+    {
+      if(battle.list[3].active) triangle(140,390, 115,400, 165,400);
+      if(battle.list[4].active) triangle(350,390, 325,400, 375,400);
+      if(battle.list[5].active) triangle(560,390, 535,400, 585,400);
+    }
+    else
+    {
+      if(battle.list[3].active) triangle(140,435, 115,425, 165,425);
+      if(battle.list[4].active) triangle(350,435, 325,425, 375,425);
+      if(battle.list[5].active) triangle(560,435, 535,425, 585,425);
+    }
+    
     fill( party.hero[h].favColor );textSize(24); //Letter Backing
     if(battle.list[3].active) text("A",140,420);
     if(battle.list[4].active) text("S",350,420);
@@ -1222,6 +1264,7 @@ class Artist
     line(x-19,y+19,x+19,y-19);
     
     fill(200); textSize(10);
+    textAlign(CENTER);
     text("X",x+25,y+27);
   }
   

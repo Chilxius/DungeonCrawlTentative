@@ -33,7 +33,7 @@ class Initiative
   {
     if(active)
       counter += speed;
-    if(counter >= 20*party.averageLevel())
+    if(counter >= 20*party.averageLevel()) //Wait time adjusts with party level
       return true;
     return false;
   }
