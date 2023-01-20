@@ -1,0 +1,193 @@
+float imageScale =9;
+
+void setup()
+{
+  size(700,700);
+}
+
+void draw()
+{
+  background(0);
+  drawPriest(width/2,height/2,imageScale,color(200,0,0),color(0,0,200),1,true);
+}
+
+void drawPriest(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+{
+  //Staff
+  noStroke();
+  fill(110,90,50);
+  pushMatrix();
+  translate(x+17.5*scale, y+6.5*scale);
+  rotate(-1.2);
+  rectMode(CORNERS);
+  rect(-22*scale, -1.5*scale, 22*scale, 1.5*scale);
+  popMatrix();
+  ellipse(x+25.5*scale,y-14*scale,8*scale, 8*scale);
+  
+  stroke(255);
+  strokeWeight(0.5);
+  fill(c2);
+  ellipse(x+25.5*scale,y-14*scale,5*scale, 5*scale);
+  
+  //Circle
+  noFill();
+  if(initial)
+    ellipse(x,y,75*scale, 75*scale);
+  
+  //Hair - color based on which hero (brown, blonde, black)
+  if(heroNumber==0)
+    fill(90,70,30);
+  else if(heroNumber==1)
+    fill(210,190,70);
+  else
+    fill(10,10,5);
+  stroke(255);
+  strokeWeight(0.5);
+  ellipse(x,y-12*scale,scale*25,scale*25);
+  
+  /*
+  //Boots
+  stroke(255);
+  strokeWeight(0.5);
+  //Heel
+  fill(90,70,30);
+  quad(x-3.5*scale,y+37.25*scale, x-9.5*scale,y+36.2*scale, x-9.5*scale,y+35.2*scale, x-3.5*scale,y+36.25*scale);
+  quad(x+3.5*scale,y+37.25*scale, x+9.5*scale,y+36.2*scale, x+9.5*scale,y+35.2*scale, x+3.5*scale,y+36.25*scale);
+  //Shoe
+  fill(c2);
+  quad(x-3.5*scale,y+36.25*scale, x-9.5*scale,y+35.2*scale, x-9.5*scale,y+25.2*scale, x-3.5*scale,y+26.25*scale);
+  quad(x+3.5*scale,y+36.25*scale, x+9.5*scale,y+35.2*scale, x+9.5*scale,y+25.2*scale, x+3.5*scale,y+26.25*scale);
+  */
+  
+  //Skirt/Robe 
+  fill(c1);
+  //stroke(0);
+  beginShape();
+  vertex(x-14*scale, y+1*scale);
+  bezierVertex(x-14*scale,y+1*scale, x-14*scale, y-3*scale, x-10*scale,y-3*scale);
+  vertex(x+10*scale,y-3*scale);
+  bezierVertex(x+10*scale,y-3*scale, x+14*scale, y-3*scale, x+14*scale,y+1*scale);
+  vertex(x+14*scale, y+1*scale);
+  vertex(x+21*scale, y+30*scale);
+  bezierVertex(x+15*scale, y+37*scale, x-15*scale, y+37*scale, x-21*scale, y+30*scale);
+  vertex(x-14*scale, y+1*scale );
+  endShape();
+  //Flap
+  beginShape();
+  vertex(x-6.5*scale,y+10*scale);
+  vertex(x-10*scale,y+35*scale);
+  bezierVertex(x-10*scale,y+38*scale, x+10*scale,y+38*scale, x+10*scale,y+35*scale);
+  vertex(x+6.5*scale,y+10*scale);
+  endShape();
+  
+  //Pauldrons
+  fill(195,200,205);
+  beginShape();
+  vertex(x-6.25*scale,y-5.2*scale);
+  vertex(x-6.25*scale,y-.5*scale);
+  bezierVertex(x-8.5*scale,y-0*scale, x-8.5*scale,y-0*scale,  x-9*scale,y+2.5*scale);
+  vertex(x-19.5*scale,y+4.5*scale);
+  bezierVertex(x-19*scale,y-4*scale, x-19*scale,y-4*scale, x-9.25*scale,y-5.2*scale);
+  endShape();
+  beginShape();
+  vertex(x+6.25*scale,y-5.2*scale);
+  vertex(x+6.25*scale,y-.5*scale);
+  bezierVertex(x+8.5*scale,y-0*scale, x+8.5*scale,y-0*scale,  x+9*scale,y+2.5*scale);
+  vertex(x+19.5*scale,y+4.5*scale);
+  bezierVertex(x+19*scale,y-4*scale, x+19*scale,y-4*scale, x+9.25*scale,y-5.2*scale);
+  endShape();
+  
+  fill(c2);
+  beginShape();
+  vertex(x-7.25*scale,y-5.2*scale);
+  vertex(x-7.25*scale,y-1.5*scale);
+  bezierVertex(x-9.5*scale,y-1*scale, x-9.5*scale,y-1*scale,  x-10*scale,y+1.5*scale);
+  vertex(x-19.5*scale,y+3.5*scale);
+  bezierVertex(x-19*scale,y-4*scale, x-19*scale,y-4*scale, x-9.25*scale,y-5.2*scale);
+  endShape();
+  beginShape();
+  vertex(x+7.25*scale,y-5.2*scale);
+  vertex(x+7.25*scale,y-1.5*scale);
+  bezierVertex(x+9.5*scale,y-0*scale, x+9.5*scale,y-0*scale,  x+10*scale,y+1.5*scale);
+  vertex(x+19.5*scale,y+3.5*scale);
+  bezierVertex(x+19*scale,y-4*scale, x+19*scale,y-4*scale, x+9.25*scale,y-5.2*scale);
+  endShape();
+  
+  //Braid
+  if(heroNumber==0)
+    fill(90,70,30);
+  else if(heroNumber==1)
+    fill(210,190,70);
+  else
+    fill(10,10,5);
+  //Braided section
+  noStroke();
+  quad(x-3*scale,y-7*scale,  x+3*scale,y-7*scale,  x+1*scale,y+11.25*scale,  x-1*scale,y+11.25*scale);
+  //Bottom tuft
+  beginShape();
+  vertex(x+0*scale,y+16*scale);
+  bezierVertex(x+4.5*scale,y+10*scale, x-4.5*scale,y+10*scale, x+0*scale,y+16*scale);
+  endShape();
+  //Tie
+  stroke(c2);
+  strokeWeight(scale);
+  line(x-1*scale,y+11.15*scale,  x+1*scale,y+11.15*scale);
+  //Braid lines
+  stroke(0);
+  strokeWeight(0.1*scale);
+  line(x-1.2*scale,y+9.4*scale, x+1.0*scale,y+10.5*scale);
+  line(x+1.2*scale,y+8.7*scale, x-0.6*scale,y+9.6*scale);
+  line(x-1.4*scale,y+7.7*scale, x+0.7*scale,y+8.9*scale);
+  line(x+1.4*scale,y+6.7*scale, x-0.7*scale,y+8*scale);
+  line(x-1.6*scale,y+5.7*scale, x+0.8*scale,y+7.1*scale);
+  line(x+1.6*scale,y+4.7*scale, x-0.8*scale,y+6.2*scale);
+  line(x-1.8*scale,y+3.7*scale, x+0.8*scale,y+5.2*scale);
+  line(x+1.8*scale,y+2.7*scale, x-0.9*scale,y+4.2*scale);
+  line(x-2.0*scale,y+1.7*scale, x+0.9*scale,y+3.2*scale);
+  line(x+2.0*scale,y+0.7*scale, x-0.9*scale,y+2.2*scale);
+  line(x-2.3*scale,y-0.7*scale, x+1.0*scale,y+1.2*scale);
+  line(x+2.3*scale,y-1.7*scale, x-0.9*scale,y+0.0*scale);
+  line(x-2.5*scale,y-2.7*scale, x+0.8*scale,y-0.9*scale);
+  line(x+2.7*scale,y-4.2*scale, x-1.1*scale,y-2.1*scale);
+  line(x-2.8*scale,y-5.3*scale, x+0.8*scale,y-3.2*scale);
+  line(x+3*scale,y-7*scale, x-1.6*scale,y-4.7*scale);
+ 
+  //Emblem
+  //fill(c2);
+  //noStroke();
+  //rectMode(CENTER);
+  //rect(x,y+17*scale,4*scale,40*scale);
+  //ellipse(x,y+12*scale,scale*12,scale*12);
+  //fill(c1);
+  //ellipse(x,y+12*scale,scale*5,scale*5);
+  
+  //Mitre (outer)
+  stroke(255);
+  fill(c1);
+  beginShape();
+  vertex(x-16*scale, y-28*scale);
+  vertex(x+16*scale, y-28*scale);
+  vertex(x+15*scale, y-13*scale);
+  bezierVertex(x+15*scale, y-13*scale, x,y-5*scale ,x-15*scale, y-13*scale);
+  vertex(x-16*scale, y-28*scale);
+  endShape();
+  
+  //Mitre (stripe)
+  noStroke();
+  fill(c2);
+  rectMode(CENTER);
+  rect(x,y-18*scale,4*scale,17*scale);
+  
+  //Mitre (inside)
+  stroke(255);
+  beginShape();
+  vertex(x-16*scale,y-28*scale);
+  bezierVertex(x-16*scale,y-28*scale, x,y-33*scale, x+16*scale,y-28*scale);
+  bezierVertex(x+16*scale,y-28*scale, x,y-23*scale, x-16*scale,y-28*scale);
+  endShape();
+}
+
+void mousePressed()
+{
+  println( (mouseX-width/2)/imageScale + "  " + (mouseY-height/2)/imageScale );
+}
