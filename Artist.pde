@@ -688,8 +688,8 @@ class Artist
   public void drawJobChoices( int hero )
   {
     noStroke(); fill(150); //will be icons later
-    drawIncomplete(150,200,2,255,0,hero,true);drawIncomplete(350,200,2,255,0,hero,true);drawIncomplete(550,200,2,255,0,hero,true);
-    drawIncomplete(150,400,2,255,0,hero,true);drawPriest(350,400,2,255,0,hero,true);drawMage(550,400,2,255,0,hero,true);
+    drawKnight(150,200,2,200,50,hero,true);drawBarbarian(350,200,2,200,50,hero,true);drawIncomplete(550,200,2,200,50,hero,true);
+    drawIncomplete(150,400,2,200,50,hero,true);drawPriest(350,400,2,200,50,hero,true);drawMage(550,400,2,200,50,hero,true);
   
     fill(200); textAlign(CENTER); textSize(30);
     if( dist(mouseX,mouseY,150,200)<75 )text("KNIGHT",width/2,height-150);
@@ -1268,6 +1268,354 @@ class Artist
     text("X",x+25,y+27);
   }
   
+  void drawKnight(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+  {
+    strokeWeight(0.5);
+    //Sword
+    fill(195,200,205);
+    push();
+    translate(x+6*scale,y+8*scale);
+    rotate(PI/4);
+    beginShape();
+    vertex(3*scale,0);
+    vertex(4*scale,-33*scale);
+    vertex(0,-37.5*scale);
+    vertex(-4*scale,-33*scale);
+    vertex(-3*scale,0);
+    endShape();
+    line(0,0,0,-34*scale);
+    pop();
+  
+    //Circle
+    noFill();
+    stroke(255);
+    if(initial)
+      ellipse(x,y,75*scale, 75*scale);
+    
+    //Hair - color based on which hero (brown, blonde, black)
+    if(heroNumber==0)
+      fill(90,70,30);
+    else if(heroNumber==1)
+      fill(210,190,70);
+    else
+      fill(10,10,5);
+    stroke(255);
+    strokeWeight(0.5);
+    ellipse(x,y-12*scale,scale*25,scale*25);
+  
+    //Cape
+    fill(c1);
+    //stroke(0);
+    beginShape();
+    vertex(x-14*scale, y+1*scale);
+    bezierVertex(x-14*scale,y+1*scale, x-14*scale, y-3*scale, x-10*scale,y-5*scale);
+    bezierVertex(x-10*scale,y-2*scale, x+10*scale,y-2*scale, x+10*scale,y-5*scale);
+    bezierVertex(x+10*scale,y-3*scale, x+14*scale, y-3*scale, x+14*scale,y+1*scale);
+    vertex(x+14*scale, y+1*scale);
+    vertex(x+21*scale, y+30*scale);
+    bezierVertex(x+15*scale, y+37*scale, x-15*scale, y+37*scale, x-21*scale, y+30*scale);
+    vertex(x-14*scale, y+1*scale );
+    endShape();
+    //Flap
+    beginShape();
+    vertex(x-6.5*scale,y+10*scale);
+    vertex(x-10*scale,y+35*scale);
+    bezierVertex(x-10*scale,y+38*scale, x+10*scale,y+38*scale, x+10*scale,y+35*scale);
+    vertex(x+6.5*scale,y+10*scale);
+    endShape();
+  
+    //Braid
+    if(heroNumber==0)
+      fill(90,70,30);
+    else if(heroNumber==1)
+      fill(210,190,70);
+    else
+      fill(10,10,5);
+    //Braided section
+    noStroke();
+    quad(x-3*scale,y-7*scale,  x+3*scale,y-7*scale,  x+1*scale,y+11.25*scale,  x-1*scale,y+11.25*scale);
+    //Bottom tuft
+    beginShape();
+    vertex(x+0*scale,y+16*scale);
+    bezierVertex(x+4.5*scale,y+10*scale, x-4.5*scale,y+10*scale, x+0*scale,y+16*scale);
+    endShape();
+    //Tie
+    stroke(c2);
+    strokeWeight(scale);
+    line(x-1*scale,y+11.15*scale,  x+1*scale,y+11.15*scale);
+    //Braid lines
+    stroke(0);
+    strokeWeight(0.1*scale);
+    line(x-1.2*scale,y+9.4*scale, x+1.0*scale,y+10.5*scale);
+    line(x+1.2*scale,y+8.7*scale, x-0.6*scale,y+9.6*scale);
+    line(x-1.4*scale,y+7.7*scale, x+0.7*scale,y+8.9*scale);
+    line(x+1.4*scale,y+6.7*scale, x-0.7*scale,y+8.0*scale);
+    line(x-1.6*scale,y+5.7*scale, x+0.8*scale,y+7.1*scale);
+    line(x+1.6*scale,y+4.7*scale, x-0.8*scale,y+6.2*scale);
+    line(x-1.8*scale,y+3.7*scale, x+0.8*scale,y+5.2*scale);
+    line(x+1.8*scale,y+2.7*scale, x-0.9*scale,y+4.2*scale);
+    line(x-2.0*scale,y+1.7*scale, x+0.9*scale,y+3.2*scale);
+    line(x+2.0*scale,y+0.7*scale, x-0.9*scale,y+2.2*scale);
+    line(x-2.3*scale,y-0.7*scale, x+1.0*scale,y+1.2*scale);
+    line(x+2.3*scale,y-1.7*scale, x-0.9*scale,y+0.0*scale);
+    line(x-2.5*scale,y-2.7*scale, x+0.8*scale,y-0.9*scale);
+    line(x+2.7*scale,y-4.2*scale, x-1.1*scale,y-2.1*scale);
+    line(x-2.8*scale,y-5.3*scale, x+0.8*scale,y-3.2*scale);
+    line(x+3.0*scale,y-7.0*scale, x-1.6*scale,y-4.7*scale);
+   
+    //Helmet
+    stroke(255);
+    fill(195,200,205);
+    beginShape();
+    vertex(x+10*scale,y-4*scale);
+    bezierVertex(x+10*scale,y-7*scale,x-10*scale,y-7*scale,x-10*scale,y-4*scale);
+    bezierVertex(x-23*scale,y-32*scale, x+23*scale,y-32*scale, x+10*scale,y-4*scale);
+    endShape();
+    fill(c2);
+    beginShape();
+    vertex(x+11*scale,y-4.2*scale);
+    bezierVertex(x+10*scale,y-9*scale,x-10*scale,y-9*scale,x-11*scale,y-4.2*scale);
+    bezierVertex(x-23*scale,y-32*scale, x+23*scale,y-32*scale, x+11*scale,y-4.2*scale);
+    endShape();
+    //Frills
+    fill(c1);
+    beginShape();
+    vertex(x,y-11*scale);
+    bezierVertex(x+6*scale,y-33*scale, x-6*scale,y-33*scale, x,y-11*scale);
+    endShape();
+    beginShape();
+    vertex(x+10*scale,y-13*scale);
+    bezierVertex(x+17*scale,y-27*scale, x+10*scale,y-27*scale, x+10*scale,y-13*scale);
+    endShape();
+    beginShape();
+    vertex(x-10*scale,y-13*scale);
+    bezierVertex(x-17*scale,y-27*scale, x-10*scale,y-27*scale, x-10*scale,y-13*scale);
+    endShape();
+     
+    //Pauldrons
+    fill(195,200,205);
+    beginShape();
+    vertex(x-6.25*scale,y-5.2*scale);
+    vertex(x-6.25*scale,y-.5*scale);
+    bezierVertex(x-8.5*scale,y-0*scale, x-8.5*scale,y-0*scale,  x-9*scale,y+2.5*scale);
+    vertex(x-19.5*scale,y+4.5*scale);
+    bezierVertex(x-19*scale,y-4*scale, x-19*scale,y-4*scale, x-9.25*scale,y-5.2*scale);
+    endShape();
+    beginShape();
+    vertex(x+6.25*scale,y-5.2*scale);
+    vertex(x+6.25*scale,y-.5*scale);
+    bezierVertex(x+8.5*scale,y-0*scale, x+8.5*scale,y-0*scale,  x+9*scale,y+2.5*scale);
+    vertex(x+19.5*scale,y+4.5*scale);
+    bezierVertex(x+19*scale,y-4*scale, x+19*scale,y-4*scale, x+9.25*scale,y-5.2*scale);
+    endShape();
+    
+    fill(c2);
+    beginShape();
+    vertex(x-7.25*scale,y-5.2*scale);
+    vertex(x-7.25*scale,y-1.5*scale);
+    bezierVertex(x-9.5*scale,y-1*scale, x-9.5*scale,y-1*scale,  x-10*scale,y+1.5*scale);
+    vertex(x-19.5*scale,y+3.5*scale);
+    bezierVertex(x-19*scale,y-4*scale, x-19*scale,y-4*scale, x-9.25*scale,y-5.2*scale);
+    endShape();
+    beginShape();
+    vertex(x+7.25*scale,y-5.2*scale);
+    vertex(x+7.25*scale,y-1.5*scale);
+    bezierVertex(x+9.5*scale,y-0*scale, x+9.5*scale,y-0*scale,  x+10*scale,y+1.5*scale);
+    vertex(x+19.5*scale,y+3.5*scale);
+    bezierVertex(x+19*scale,y-4*scale, x+19*scale,y-4*scale, x+9.25*scale,y-5.2*scale);
+    endShape();
+  }
+  
+  void drawBarbarian(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+  { 
+    color skin;
+    color hair;
+    //Circle
+    noFill();
+    strokeWeight(0.5);
+    if(initial)
+      ellipse(x,y,75*scale, 75*scale);
+    
+    if(heroNumber==0)
+    {
+      hair = color(90,70,30);
+      skin = color(#C68642);
+    }
+    else if(heroNumber==1)
+    {
+      hair = color(210,190,70);
+      skin = color(#F1C27D);
+    }
+    else
+    {
+      hair = color(10,10,5);
+      skin = color(#FFDBAC);
+    }
+    
+    //Upper Body
+    fill(skin);
+    beginShape();
+    vertex(x-1.4*scale,y-7.6*scale);
+    bezierVertex(x-3.4*scale,y-7.6*scale, x-22.0*scale,y-15.0*scale, x-22.0*scale,y-2*scale);
+    bezierVertex(x-23.0*scale,y-0*scale, x-23.0*scale,y+4.4*scale, x-21.0*scale,y+8.4*scale);
+    bezierVertex(x-21.6*scale,y+10.4*scale, x-16.5*scale,y+15.4*scale, x-16.5*scale,y+15.4*scale);
+    vertex(x-12.4*scale,y+12*scale);
+    bezierVertex(x-12.2*scale,y+11.6*scale, x-14*scale,y+7.4*scale, x-15.2*scale,y+6.4*scale);
+    bezierVertex(x-13.2*scale,y+6.4*scale, x-13.4*scale,y-1*scale, x-15.4*scale,y-1*scale);
+    bezierVertex(x-15.4*scale,y-1*scale, x-15.4*scale,y-1*scale, x-9.4*scale,y+7.8*scale);
+    bezierVertex(x-9.4*scale,y+7.8*scale, x-9.4*scale,y+7.8*scale, x-9.4*scale,y+11.8*scale);
+    vertex(x+9.6*scale,y+11.8*scale);
+    endShape();
+    beginShape();
+    vertex(x+1.4*scale,y-7.6*scale);
+    bezierVertex(x+3.4*scale,y-7.6*scale, x+22.0*scale,y-15.0*scale, x+22.0*scale,y-2*scale);
+    bezierVertex(x+23.0*scale,y-0*scale, x+23.0*scale,y+4.4*scale, x+21.0*scale,y+8.4*scale);
+    bezierVertex(x+21.6*scale,y+10.4*scale, x+16.5*scale,y+15.4*scale, x+16.5*scale,y+15.4*scale);
+    vertex(x+12.4*scale,y+12*scale);
+    bezierVertex(x+12.2*scale,y+11.6*scale, x+14*scale,y+7.4*scale, x+15.2*scale,y+6.4*scale);
+    bezierVertex(x+13.2*scale,y+6.4*scale, x+13.4*scale,y-1*scale, x+15.4*scale,y-1*scale);
+    bezierVertex(x+15.4*scale,y-1*scale, x+15.4*scale,y-1*scale, x+9.4*scale,y+7.8*scale);
+    bezierVertex(x+9.4*scale,y+7.8*scale, x+9.4*scale,y+7.8*scale, x+9.4*scale,y+11.8*scale);
+    vertex(x-9.6*scale,y+11.8*scale);
+    endShape();
+    
+    /*
+    //Scar/Tattoo
+    fill(c1);
+    beginShape();
+    vertex(x-17*scale,y-7*scale);
+    vertex(x-8*scale,y+2.5*scale);
+    bezierVertex(x-12*scale,y-2.8*scale, x-15*scale,y-6*scale, x-17*scale,y-7*scale);
+    endShape();
+    */
+    
+    //Weapon & Hands
+    fill(110,90,50);
+    rect(x-20*scale,y+14*scale,50*scale,2*scale);
+    fill(skin);
+    ellipse(x-13.2*scale,y+15*scale,7*scale,7*scale);
+    ellipse(x+13.2*scale,y+15*scale,7*scale,7*scale);
+    fill(195,200,205);
+    beginShape();
+    vertex(x+27.25*scale,y+16.5*scale);
+    bezierVertex(x+27.25*scale,y+17*scale, x+27.25*scale,y+20*scale, x+31*scale,y+21*scale);
+    bezierVertex(x+31*scale,y+23*scale, x+21*scale,y+23*scale, x+18*scale,y+21*scale);
+    bezierVertex(x+24.75*scale,y+21*scale, x+24.75*scale,y+16.5*scale, x+24.75*scale,y+16.5*scale);
+    endShape();
+    rect(x+24.5*scale,y+13.5*scale,3*scale,3*scale);
+    
+    //Harness
+    fill(120,100,60);
+    beginShape();
+    vertex(x-9.4*scale,y+8.4*scale);
+    vertex(x+9.8*scale,y+9*scale);
+    vertex(x+15.4*scale,y-0.2*scale);
+    vertex(x+13.2*scale,y-10*scale);
+    vertex(x+9.4*scale,y-10*scale);
+    vertex(x-15.2*scale,y-0.4*scale);
+    endShape();
+    
+    //Legs
+    fill(skin);
+    beginShape();
+    vertex(x-9.4*scale,y+13*scale);
+    bezierVertex(x-10.6*scale,y+13*scale, x-10.4*scale,y+24.2*scale, x-9.4*scale,y+24.2*scale);
+    vertex(x-9.4*scale,y+33.2*scale);
+    bezierVertex(x-9.4*scale,y+36.2*scale, x-3.2*scale,y+36.2*scale, x-3.2*scale,y+33.2*scale);
+    vertex(x-3.2*scale,y+24.2*scale);
+    vertex(x-0*scale,y+15*scale);
+    endShape();
+    beginShape();
+    vertex(x+9.4*scale,y+13*scale);
+    bezierVertex(x+10.6*scale,y+13*scale, x+10.4*scale,y+24.2*scale, x+9.4*scale,y+24.2*scale);
+    vertex(x+9.4*scale,y+33.2*scale);
+    bezierVertex(x+9.4*scale,y+36.2*scale, x+3.2*scale,y+36.2*scale, x+3.2*scale,y+33.2*scale);
+    vertex(x+3.2*scale,y+24.2*scale);
+    vertex(x+0*scale,y+15*scale);
+    endShape();
+    //Boots
+    fill(120,100,60);
+    beginShape();
+    vertex(x-8.4*scale,y+35.0*scale);
+    vertex(x-11.6*scale,y+32.4*scale);
+    bezierVertex(x-11.6*scale,y+30.4*scale, x-8.8*scale,y+31.2*scale, x-6.8*scale,y+31.2*scale);
+    endShape();
+    noStroke();
+    ellipse(x-6.2*scale,y+33.4*scale,6*scale,4.1*scale);
+    rect(x-9.4*scale,y+29*scale,6.3*scale,5.0*scale);
+    fill(120,100,60);
+    stroke(255);
+    beginShape();
+    vertex(x+8.4*scale,y+35.0*scale);
+    vertex(x+11.6*scale,y+32.4*scale);
+    bezierVertex(x+11.6*scale,y+30.4*scale, x+8.8*scale,y+31.2*scale, x+6.8*scale,y+31.2*scale);
+    endShape();
+    noStroke();
+    ellipse(x+6.2*scale,y+33.4*scale,6*scale,4.1*scale);
+    rect(x+3.2*scale,y+29*scale,6.3*scale,5.0*scale);
+    
+    //Hair - color based on which hero (brown, blonde, black)
+    fill(hair);
+    stroke(255);
+    strokeWeight(0.5);
+    ellipse(x,y-18*scale,scale*25,scale*25);
+    beginShape();
+    vertex(x-12.4*scale,y-16.0*scale);
+    vertex(x-14.8*scale,y-8.8*scale);
+    vertex(x-10.8*scale,y-9.8*scale);
+    vertex(x-11.0*scale,y-4.0*scale);
+    vertex(x-7.6*scale,y-7.2*scale);
+    vertex(x-6.4*scale,y-1.4*scale);
+    vertex(x-2.6*scale,y-4.6*scale);
+    vertex(x-0.2*scale,y-0.6*scale);
+    vertex(x+2.8*scale,y-4.6*scale);
+    vertex(x+6.0*scale,y-1.6*scale);
+    vertex(x+8.6*scale,y-7.2*scale);
+    vertex(x+11.8*scale,y-4.4*scale);
+    vertex(x+12.0*scale,y-10.8*scale);
+    vertex(x+15.8*scale,y-9.8*scale);
+    vertex(x+12*scale,y-16.4*scale);
+    endShape();
+    
+    //Helmet
+    fill(c1);
+    beginShape();
+    vertex(x-13*scale,y-18*scale);
+    bezierVertex(x-13*scale,y-16*scale, x+13*scale,y-16*scale, x+13*scale,y-18*scale);
+    bezierVertex(x+13*scale,y-36*scale, x-13*scale,y-36*scale, x-13*scale,y-18*scale);
+    endShape();
+    stroke(c2);
+    strokeWeight(scale*3);
+    noFill();
+    curve(x-13*scale,y-26*scale, x-13*scale,y-18*scale, x+13*scale,y-18*scale, x+13*scale,y-26*scale);
+    strokeWeight(0.5);
+    //Horns
+    fill(200);
+    stroke(255);
+    beginShape();
+    vertex(x+9*scale,y-28*scale);
+    bezierVertex(x+11*scale,y-28*scale, x+14*scale,y-31*scale, x+14*scale,y-33*scale);
+    bezierVertex(x+16*scale,y-33*scale, x+13.4*scale,y-24.6*scale, x+11.4*scale,y-24.6*scale);
+    endShape();
+    beginShape();
+    vertex(x-9*scale,y-28*scale);
+    bezierVertex(x-11*scale,y-28*scale, x-14*scale,y-31*scale, x-14*scale,y-33*scale);
+    bezierVertex(x-16*scale,y-33*scale, x-13.4*scale,y-24.6*scale, x-11.4*scale,y-24.6*scale);
+    endShape();
+    
+    //Cloth
+    fill(c1);
+    beginShape();
+    vertex(x-10*scale,y+12*scale);
+    vertex(x+10*scale,y+12*scale);
+    vertex(x+7.5*scale,y+24*scale);
+    vertex(x-7.5*scale,y+24*scale);
+    //bezierVertex(x+10*scale,y+25*scale, x-10*scale,y+25*scale, x-10*scale,y+10*scale);
+    endShape();
+    fill(120,100,60); //brown
+    rect(x-10*scale,y+11*scale,20*scale,2*scale);
+  }
+  
   void drawMage(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
   {
     //Staff
@@ -1422,6 +1770,22 @@ class Artist
     bezierVertex(x-16*scale,y-28*scale, x,y-33*scale, x+16*scale,y-28*scale);
     bezierVertex(x+16*scale,y-28*scale, x,y-23*scale, x-16*scale,y-28*scale);
     endShape();
+    
+    /*
+    //Mullet
+    if(heroNumber==0)
+      fill(90,70,30);
+    else if(heroNumber==1)
+      fill(210,190,70);
+    else
+      fill(10,10,5);
+    beginShape();
+    vertex(x-12*scale,y-10*scale);
+    vertex(x-13*scale,y-2*scale);
+    bezierVertex(x-12.5*scale,y-3*scale,  x+12.5*scale,y-3*scale,  x+13*scale,y-2*scale);
+    vertex(x+12*scale,y-10*scale);
+    endShape();
+    */
   }
   
   void drawIncomplete(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
@@ -1510,9 +1874,9 @@ class Artist
   void drawHeroByType( Hero h, int x, int y, float scale, int hair, boolean circle )
   {
     if( h.getJob() == Job.KNIGHT )
-      drawIncomplete(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+      drawKnight(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.BARBARIAN )
-      drawIncomplete(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+      drawBarbarian(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.KARATE )
       drawIncomplete(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.THIEF )

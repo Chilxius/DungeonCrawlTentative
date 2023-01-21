@@ -8,6 +8,7 @@
 //Improve hero select widnow (circle sizes)
 //Have inns charge money?
 //Delay before "vanquished" line where enemy vanishes
+//Improve Barbarian's Axe
 
 //IMAGES I NEED:
 //Campsite
