@@ -8,7 +8,7 @@
 //Improve hero select widnow (circle sizes)
 //Have inns charge money?
 //Delay before "vanquished" line where enemy vanishes
-//Improve Barbarian's Axe
+//Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair
 
 //IMAGES I NEED:
 //Campsite

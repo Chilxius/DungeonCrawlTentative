@@ -688,8 +688,8 @@ class Artist
   public void drawJobChoices( int hero )
   {
     noStroke(); fill(150); //will be icons later
-    drawKnight(150,200,2,200,50,hero,true);drawBarbarian(350,200,2,200,50,hero,true);drawIncomplete(550,200,2,200,50,hero,true);
-    drawIncomplete(150,400,2,200,50,hero,true);drawPriest(350,400,2,200,50,hero,true);drawMage(550,400,2,200,50,hero,true);
+    drawKnight(150,200,2,200,50,hero,true);drawBarbarian(350,200,2,200,50,hero,true);drawKarate(550,200,2,200,50,hero,true);
+    drawThief(150,400,2,200,50,hero,true);drawPriest(350,400,2,200,50,hero,true);drawMage(550,400,2,200,50,hero,true);
   
     fill(200); textAlign(CENTER); textSize(30);
     if( dist(mouseX,mouseY,150,200)<75 )text("KNIGHT",width/2,height-150);
@@ -1433,6 +1433,7 @@ class Artist
     //Circle
     noFill();
     strokeWeight(0.5);
+    stroke(255);
     if(initial)
       ellipse(x,y,75*scale, 75*scale);
     
@@ -1616,6 +1617,98 @@ class Artist
     rect(x-10*scale,y+11*scale,20*scale,2*scale);
   }
   
+  void drawKarate(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+  {
+    color skin;
+    color hair;
+    if(heroNumber==0)
+    {
+      hair = color(90,70,30);
+      skin = color(#C68642);
+    }
+    else if(heroNumber==1)
+    {
+      hair = color(210,190,70);
+      skin = color(#F1C27D);
+    }
+    else
+    {
+      hair = color(10,10,5);
+      skin = color(#FFDBAC);
+    }
+      
+    stroke(255);
+    strokeWeight(0.5);
+    //Circle
+    noFill();
+    strokeWeight(0.5);
+    if(initial)
+      ellipse(x,y,75*scale, 75*scale);
+    
+    //Head
+    fill(c2);
+    ellipse(x,y-12*scale,scale*25,scale*25);
+    //Headband
+    fill(hair);
+    arc(x,y-12*scale,scale*25,scale*25,PI*1.08,PI*1.92,CHORD);
+    arc(x,y-12*scale,scale*25,scale*25,0,PI,CHORD);
+    //ellipse(x,y-14.5*scale,scale*8,scale*8);
+    fill(skin);
+    arc(x,y-12*scale,scale*25,scale*25,PI*0.1,PI*0.9,CHORD);
+    
+    //Hands and Feet
+    fill(skin);
+    ellipse(x-17.2*scale,y+17*scale,5*scale,5*scale);
+    ellipse(x+17.2*scale,y+17*scale,5*scale,5*scale);
+    ellipse(x-5.5*scale,y+35.4*scale,6*scale,3*scale);
+    ellipse(x+5.5*scale,y+35.4*scale,6*scale,3*scale);
+    
+    //Gi - lower
+    fill(c1);
+    beginShape();
+    vertex(x-8*scale,y+18*scale);
+    vertex(x-9.3*scale,y+36*scale);
+    bezierVertex(x-9.3*scale,y+36.5*scale, x-2*scale,y+36.5*scale, x-2*scale,y+36*scale);
+    vertex(x+0*scale,y+23.5*scale);
+    vertex(x+2*scale,y+36*scale);
+    bezierVertex(x+2*scale,y+36.5*scale, x+9.3*scale,y+36.5*scale, x+9.3*scale,y+36*scale);
+    vertex(x+8*scale,y+18*scale);
+    endShape();
+    
+    //Gi - upper
+    fill(c1);
+    beginShape();
+    vertex(x-9.5*scale,y+22*scale);
+    vertex(x-8*scale, y+18*scale);
+    vertex(x-8.5*scale, y+6.3*scale);
+    vertex(x-12*scale, y+18*scale);
+    vertex(x-20*scale, y+16*scale);
+    bezierVertex(x-20*scale, y+16*scale, x-16*scale, y+5*scale, x-15*scale, y+5*scale);
+    bezierVertex(x-14*scale, y+0*scale, x-9.5*scale, y-0.3*scale, x-9.5*scale, y-0.3*scale);
+    bezierVertex(x-9.5*scale, y-0*scale, x+9.5*scale, y-0*scale, x+9.5*scale, y-0.3*scale);
+    bezierVertex(x+9.5*scale, y-0.3*scale, x+14*scale, y+0*scale, x+15*scale, y+5*scale);
+    bezierVertex(x+16*scale, y+5*scale, x+20*scale, y+16*scale, x+20*scale, y+16*scale);
+    vertex(x+12*scale, y+18*scale);
+    vertex(x+8.5*scale, y+6.3*scale);
+    vertex(x+8*scale, y+18*scale);
+    vertex(x+9.5*scale,y+22*scale);
+    vertex(x-9.5*scale,y+22*scale);
+    endShape();
+    fill(c2);
+    rect(x-8.1*scale,y+15*scale,16.2*scale,3*scale);
+    
+    //Ponytail
+    fill(hair);
+    beginShape();
+    vertex(x-2.8*scale,y-14*scale);
+    bezierVertex(x-2.8*scale,y-22*scale, x+2.8*scale,y-22*scale, x+2.8*scale,y-14*scale);
+    vertex(x+1.7*scale,y-5*scale);
+    vertex(x,y+5*scale);
+    vertex(x-1.7*scale,y-5*scale);
+    vertex(x-2.8*scale,y-14*scale);
+    endShape();
+  }
+  
   void drawMage(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
   {
     //Staff
@@ -1687,6 +1780,80 @@ class Artist
     vertex(x+2.5*scale, y-33.5*scale);
     vertex(x+9.5*scale, y-19.5*scale);
     endShape();
+  }
+  
+  void drawThief(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+  {
+    color skin;
+    color hair;
+    if(heroNumber==0)
+    {
+      hair = color(90,70,30);
+      skin = color(#C68642);
+    }
+    else if(heroNumber==1)
+    {
+      hair = color(210,190,70);
+      skin = color(#F1C27D);
+    }
+    else
+    {
+      hair = color(10,10,5);
+      skin = color(#FFDBAC);
+    }
+      
+    //Circle
+    noFill();
+    stroke(255);
+    strokeWeight(0.5);
+    if(initial)
+      ellipse(x,y,75*scale, 75*scale);
+      
+    //fill(hair);
+    //ellipse(x,y-12*scale,25*scale,25*scale);
+    
+    //Knife
+    fill(195,200,205);
+    push();
+    translate(x+16.5*scale,y+8.2*scale);
+    rotate(0.5);
+    triangle(1*scale,0, -1*scale,0, 0,-8*scale);
+    pop();
+    
+    //Hand
+    fill(skin);
+    ellipse(x+15*scale,y+9.5*scale,5*scale,5*scale);
+    
+    //Cape
+    fill(c1);
+    //stroke(0);
+    beginShape();
+    vertex(x-14*scale, y+1*scale);
+    bezierVertex(x-14*scale,y+1*scale, x-14*scale, y-3*scale, x-10*scale,y-5*scale);
+    bezierVertex(x-10*scale,y-2*scale, x+10*scale,y-2*scale, x+10*scale,y-5*scale);
+    bezierVertex(x+10*scale,y-3*scale, x+14*scale, y-3*scale, x+14*scale,y+1*scale);
+    vertex(x+14*scale, y+1*scale);
+    vertex(x+21*scale, y+30*scale);
+    bezierVertex(x+15*scale, y+37*scale, x-15*scale, y+37*scale, x-21*scale, y+30*scale);
+    vertex(x-14*scale, y+1*scale );
+    endShape();
+    //Flap
+    beginShape();
+    vertex(x-6.5*scale,y+10*scale);
+    vertex(x-10*scale,y+35*scale);
+    bezierVertex(x-10*scale,y+38*scale, x+10*scale,y+38*scale, x+10*scale,y+35*scale);
+    vertex(x+6.5*scale,y+10*scale);
+    endShape();
+    
+    //Cowl
+    fill(c1);
+    beginShape();
+    vertex(x-14.5*scale,y-6*scale);
+    bezierVertex(x-14.5*scale,y+1*scale, x+13*scale,y+1*scale, x+14.5*scale,y-6*scale);
+    bezierVertex(x+14.5*scale,y-3*scale, x+13*scale,y-30*scale, x,y-32*scale);
+    bezierVertex(x-13*scale,y-30*scale, x-14.5*scale,y-4*scale, x-14.5*scale,y-6*scale);
+    endShape();
+    curve(x-4.5*scale,y-55.5*scale, x-4.5*scale,y-21.5*scale, x+4.5*scale,y-21.5*scale, x+4.5*scale,y-55.5*scale);
   }
   
   void drawPriest(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
@@ -1878,9 +2045,9 @@ class Artist
     if( h.getJob() == Job.BARBARIAN )
       drawBarbarian(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.KARATE )
-      drawIncomplete(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+      drawKarate(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.THIEF )
-      drawIncomplete(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+      drawThief(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.PRIEST )
       drawPriest(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.MAGE )
