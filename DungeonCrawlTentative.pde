@@ -3,7 +3,6 @@
 
 //TO DO:
 //Skills
-//Character backs
 //Changing dungeon levels
 //Improve hero select widnow (circle sizes)
 //Have inns charge money?
@@ -193,8 +192,12 @@ void draw()
     vanGogh.drawMainMenu();
 
   vanGogh.drawTextBoxes(input,textBuffer,textLine1,textLine2);
-  vanGogh.drawHeroBoxes( party.hero );
-  drawConditions(); // <- move to drawHeroBoxes
+  
+  if( step == HeroCreationStep.DONE || step == HeroCreationStep.NAME )
+  {
+    vanGogh.drawHeroBoxes( party.hero );
+    drawConditions(); // <- move to drawHeroBoxes
+  }
   
   //Hero creation process only
   if(step == HeroCreationStep.JOB)
@@ -1019,7 +1022,7 @@ void mouseClicked()
   }
   else if( step == HeroCreationStep.COLOR )
   {
-    if( mouseX > 300 && mouseX < 400 && mouseY >362.5 && mouseY < 437.5 )
+    if( mouseX > 300 && mouseX < 400 && mouseY > 462.5 && mouseY < 537.5 )
     {
       tempColor = color(tempRed,tempGreen,tempBlue);
       tempInverseColor = color((255-tempRed)*.65,(255-tempGreen)*.65,(255-tempBlue)*.65);
@@ -1050,11 +1053,11 @@ void mousePressed()
 {
   if( step == HeroCreationStep.COLOR ) //for selecting hero colors
   {
-    if( mouseX > 100 && mouseX < 600 && mouseY >190 && mouseY < 210 )
-      tempRed = (mouseX-100)/2;
-    if( mouseX > 100 && mouseX < 600 && mouseY >240 && mouseY < 260 )
-      tempGreen = (mouseX-100)/2;
     if( mouseX > 100 && mouseX < 600 && mouseY >290 && mouseY < 310 )
+      tempRed = (mouseX-100)/2;
+    if( mouseX > 100 && mouseX < 600 && mouseY >340 && mouseY < 360 )
+      tempGreen = (mouseX-100)/2;
+    if( mouseX > 100 && mouseX < 600 && mouseY >390 && mouseY < 410 )
       tempBlue = (mouseX-100)/2;
   }
   if( input == Input.HERO_SELECT || input == Input.BATTLE_ITEM_HERO_CHOICE ) //clicked on hero

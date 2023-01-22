@@ -49,7 +49,7 @@ class Hero
     //for testing
     weapon = new Equipment("Club","ClayClub.png",5,true,3);
     if(j==Job.KARATE)
-      weapon = new Equipment("Fist","Fist.png",25,true,0);
+      weapon = new Equipment("Fist","Fist.png",0,true,25); //<>//
     armor = new Equipment("Shirt","WhiteShirt.png",1,false,5);
     
     assignSkills();
@@ -99,7 +99,7 @@ class Hero
       case THIEF:
         maxHp =  int((225/50.0)*(level-1)+25);
         str =    int((87/50.0)*(level-1)+3);
-        dex =    int((5135/50.0)*(level-1)+5); //should be 135; changed for testing purposes
+        dex =    int((135/50.0)*(level-1)+5); //should be 135; changed for testing purposes
         con =    int((87/50.0)*(level-1)+3);
         mag =    0;
         wil =    int((88/50.0)*(level-1)+2);
