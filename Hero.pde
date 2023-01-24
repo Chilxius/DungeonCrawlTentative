@@ -175,7 +175,8 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case PRIEST:
-        skill[0] = new Attack("Divine Light", 30, false, false, AttackStat.MAG, AttackType.HOLY );
+        //skill[0] = new Attack("Divine Light", 30, false, false, AttackStat.MAG, AttackType.HOLY );
+        skill[0] = new Attack("Heal", 30, false, true ); //healing move for testing
         skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
@@ -329,9 +330,9 @@ class Hero
     int amount = battle.calculateDamage( level, 1, 1, mag, 1);
     party.hero[target].heal(amount);
     floatingNumbers.add( new GhostNumber( 150+210*target, 550, color(100,255,100), amount) );
-    battle.setBattleDelay();
-    battle.resumeInitiative();
-    skillSelection = -1;
+    //battle.setBattleDelay();
+    //battle.resumeInitiative();
+    //skillSelection = -1;
   }
   
   public int takeDamage( int damage, boolean displayText )

@@ -134,7 +134,7 @@ class Battle
       }
       else if(delayType == DelayType.ATTACK) //someone is attacking (or using a skill)
       {
-        if(attackerIndex<3) //hero
+        if(attackerIndex<3) //hero //<>//
         {
           if( skillSelection == -1 ) //normal attack
           {
@@ -148,7 +148,19 @@ class Battle
           {
             if(party.hero[turn].skill[skillSelection].healing) //is a healing skill
             {
-              
+              if( party.hero[turn].skill[skillSelection].targetAll ) //<>//
+              {
+                party.hero[turn].resolveHeal(0);
+                party.hero[turn].resolveHeal(1);
+                party.hero[turn].resolveHeal(2);
+              }
+              else
+              {
+                party.hero[turn].resolveHeal(defenderIndex);
+              }
+              battle.setBattleDelay();
+              battle.resumeInitiative();
+              skillSelection = -1;
             }
             else
             {
@@ -253,8 +265,11 @@ class Battle
   
   public void beginAttack( int a, int d )
   {
-    attackerIndex = a; //<>//
+    attackerIndex = a;
     defenderIndex = d;
+    
+    if( skillSelection != -1 && party.hero[turn].skill[skillSelection].healing ) //switch index to heroes for healing skills
+      defenderIndex-=3;
     
     if(turn<3) //hero attack
     {

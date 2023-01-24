@@ -2,6 +2,7 @@
 //Bennett Ritchie
 
 //TO DO:
+//THERE IS NO PLACE THAT HANDLES BATTLE_SKILL_TARGET
 //Skills
 //Changing dungeon levels
 //Improve hero select widnow (circle sizes)
