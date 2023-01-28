@@ -79,3 +79,15 @@ class Equipment extends Item
     return false;
   }
 }
+
+/*
+//WEAPONS
+Keep weapon power between 1 and 99
+Martial Artist's fist should power up as they level
+Dealing single-digit damage should only happen in the first dungeon, against special high-defense monsters, and by the mage
+
+Barb weapons strongest
+Knight/Priest
+Thief/Karate
+Mage, except occasionally (magic weapons can deal high damage - won't help mage)
+*/

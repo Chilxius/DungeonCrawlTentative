@@ -2,9 +2,10 @@
 //Bennett Ritchie
 
 //TO DO:
-//THERE IS NO PLACE THAT HANDLES BATTLE_SKILL_TARGET
-//Skills
+//Skills: out-of-combat Power, MP cost, animation system, images, power cost
 //Changing dungeon levels
+
+//IMPROVEMENT:
 //Improve hero select widnow (circle sizes)
 //Have inns charge money?
 //Delay before "vanquished" line where enemy vanishes
@@ -808,13 +809,25 @@ void keyPressed()
       if( ( key == 'd' || key == '7' ) && party.hero[battle.turn].level >= 30 ){ skillSelection = 6; input = appropriateInputMode(); }
       if( ( key == 'f' || key == '8' ) && party.hero[battle.turn].level >= 35 ){ skillSelection = 7; input = appropriateInputMode(); }
     }
-    else if(input == Input.BATTLE_SKILL_TARGET)
+    else if(input == Input.BATTLE_SKILL_TARGET) //Choose target of attack skill
     {
       if(      ( key == 'a' || key == 'A' || key == '1' ) && battle.list[3].active )
         battle.beginAttack( battle.turn, 3);
       else if( ( key == 's' || key == 'S' || key == '2' ) && battle.list[4].active )
         battle.beginAttack( battle.turn, 4);
       else if( ( key == 'd' || key == 'D' || key == '3' ) && battle.list[5].active )
+        battle.beginAttack( battle.turn, 5);
+        
+      else if( key == 'x' || key == ' ' ) //cancel and return to skill menu
+        input = Input.BATTLE_SKILL;
+    }
+    else if(input == Input.BATTLE_HEAL_TARGET ) //Choose target of heal
+    {
+      if(      ( key == 'a' || key == 'A' || key == '1' )  )
+        battle.beginAttack( battle.turn, 3);
+      else if( ( key == 's' || key == 'S' || key == '2' ) )
+        battle.beginAttack( battle.turn, 4);
+      else if( ( key == 'd' || key == 'D' || key == '3' ) )
         battle.beginAttack( battle.turn, 5);
         
       else if( key == 'x' || key == ' ' ) //cancel and return to skill menu
@@ -1007,12 +1020,13 @@ void mouseClicked()
 {
   if(step==HeroCreationStep.JOB)
   {
-    if(dist(mouseX,mouseY,150,200)<37.5) tempJob = Job.KNIGHT;
-    else if(dist(mouseX,mouseY,350,200)<37.5) tempJob = Job.BARBARIAN;
-    else if(dist(mouseX,mouseY,550,200)<37.5) tempJob = Job.KARATE;
-    else if(dist(mouseX,mouseY,150,400)<37.5) tempJob = Job.THIEF;
-    else if(dist(mouseX,mouseY,350,400)<37.5) tempJob = Job.PRIEST;
-    else if(dist(mouseX,mouseY,550,400)<37.5) tempJob = Job.MAGE;
+    if(dist(mouseX,mouseY,150,200)<75) tempJob = Job.KNIGHT;
+    else if(dist(mouseX,mouseY,350,200)<75) tempJob = Job.BARBARIAN;
+    else if(dist(mouseX,mouseY,550,200)<75) tempJob = Job.KARATE;
+    else if(dist(mouseX,mouseY,150,400)<75) tempJob = Job.THIEF;
+    else if(dist(mouseX,mouseY,350,400)<75) tempJob = Job.PRIEST;
+    else if(dist(mouseX,mouseY,550,400)<75) tempJob = Job.MAGE;
+    else tempJob = Job.NONE;
 
     if(tempJob!=Job.NONE)
     {
@@ -1079,10 +1093,13 @@ void mousePressed()
     if( mouseInBox(420,430) ) { key = 'd'; keyPressed(); }
     if( mouseInBox(560,430) ) { key = 'f'; keyPressed(); }
   }
-  else if( input == Input.BATTLE_SKILL_TARGET )
+  else if( input == Input.BATTLE_SKILL_TARGET || input == Input.BATTLE_HEAL_TARGET ||input == Input.BATTLE_ATTACK_TARGET ) //attacked or healed or skill used or cancelled
   {
+    if( mouseX > 40 && mouseX < 240 && mouseY > 180 && mouseY < 380 ) { key = 'a'; keyPressed(); }
+    if( mouseX > 250 && mouseX < 450 && mouseY > 180 && mouseY < 380 ) { key = 's'; keyPressed(); }
+    if( mouseX > 460 && mouseX < 660 && mouseY > 180 && mouseY < 380 ) { key = 'd'; keyPressed(); }
+    
     if( mouseInBox(party.heroX(battle.turn)+75,545) ) { key = 'x'; keyPressed(); }
-    int thisNeedsWorkNext;
   }
   else if( input == Input.BATTLE_ITEM ) //clicked on potion in battle
   {
@@ -1099,12 +1116,6 @@ void mousePressed()
     if( mouseInBox(baseX+75,455) ) { key = 'd'; keyPressed(); }
     if( mouseInBox(baseX-75,545) ) { key = 's'; keyPressed(); }
     if( mouseInBox(baseX+75,545) ) { key = 'x'; keyPressed(); }
-  }
-  else if( input == Input.BATTLE_ATTACK_TARGET )
-  {
-    if( mouseX > 40 && mouseX < 240 && mouseY > 180 && mouseY < 380 ) { key = 'a'; keyPressed(); }
-    if( mouseX > 250 && mouseX < 450 && mouseY > 180 && mouseY < 380 ) { key = 's'; keyPressed(); }
-    if( mouseX > 460 && mouseX < 660 && mouseY > 180 && mouseY < 380 ) { key = 'd'; keyPressed(); }
   }
   
   //This displays hero stats if their boxes are clicked

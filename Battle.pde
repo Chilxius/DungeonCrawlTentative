@@ -162,9 +162,9 @@ class Battle
               battle.resumeInitiative();
               skillSelection = -1;
             }
-            else
+            else //is an attack ( multi-attack handled in Hero.resolveAttack() )
             {
-              
+              party.hero[turn].resolveAttack(defenderIndex-3);
             }
           }
         }

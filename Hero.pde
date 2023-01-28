@@ -49,7 +49,7 @@ class Hero
     //for testing
     weapon = new Equipment("Club","ClayClub.png",5,true,3);
     if(j==Job.KARATE)
-      weapon = new Equipment("Fist","Fist.png",0,true,25); //<>//
+      weapon = new Equipment("Fist","Fist.png",0,true,25);
     armor = new Equipment("Shirt","WhiteShirt.png",1,false,5);
     
     assignSkills();
@@ -286,7 +286,7 @@ class Hero
   public boolean resolveAttack( int targetMonster ) //true if monster killed
   {
     int damage = 0;
-    int weaponPower = 1;
+    int weaponPower = 1; //<>//
     if(skillSelection != -1 && skill[skillSelection].useWeapon)
       weaponPower = weapon.power;
     battle.waitingForText = false;
@@ -296,9 +296,10 @@ class Hero
       battleMonsters[targetMonster].takeDamage(damage);
       floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, color(255), damage) );
     }
-    else
+    else //skill
     {
       if( skill[skillSelection].targetAll )
+      {
         for(int i = 0; i < 3; i++)
           if(battleMonsters[i].alive)
           {
@@ -306,11 +307,12 @@ class Hero
             battleMonsters[i].takeDamage(damage);
             floatingNumbers.add( new GhostNumber( 150+210*i, 320, skill[skillSelection].appropriateColor(), damage) );
           }
+      }
       else
       {
-        damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weaponPower, appropriateStat( skill[skillSelection] ), battleMonsters[i].appropriateDefense( skill[skillSelection] ), skill[skillSelection].type, battleMonsters[i].weakness );
-        battleMonsters[i].takeDamage(damage);
-        floatingNumbers.add( new GhostNumber( 150+210*i, 320, skill[skillSelection].appropriateColor(), damage) );
+        damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weaponPower, appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skill[skillSelection].type, battleMonsters[targetMonster].weakness );
+        battleMonsters[targetMonster].takeDamage(damage);
+        floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, skill[skillSelection].appropriateColor(), damage) );
       }
     }
     
@@ -468,7 +470,7 @@ Job stringToJob( String s )
 }
 
 /*
-Base stats by class:                           At level 50 (MAX) (50 to 200)
+Base stats by class:                           At level 50 (MAX) (50 to 150)
 
 Job    HP  Str  Dex  Con  Mag  Will  Spd       HP    Str  Dex  Con  Mag  Will Spd
 Kni    30  4    3    5    0    2     2         300   120  100  130  50   100  100

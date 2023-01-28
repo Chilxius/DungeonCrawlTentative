@@ -1019,6 +1019,8 @@ class Artist
           drawHeroSelectScreen();
         else if(input == Input.BATTLE_ATTACK_TARGET || input == Input.BATTLE_SKILL_TARGET)
           drawAttackTargetArrows( battle.turn, true );
+        else if(input == Input.BATTLE_HEAL_TARGET)
+          drawAttackTargetArrows( battle.turn, false );
         else if(battle.turn==0||battle.turn==1||battle.turn==2)
           drawBattleIcons(battle.turn);
       }
@@ -1049,9 +1051,9 @@ class Artist
     }
     else
     {
-      if(battle.list[3].active) triangle(140,447, 115,425, 165,425);
-      if(battle.list[4].active) triangle(350,447, 325,425, 375,425);
-      if(battle.list[5].active) triangle(560,447, 535,425, 585,425);
+      triangle(140,447, 115,425, 165,425);
+      triangle(350,447, 325,425, 375,425);
+      triangle(560,447, 535,425, 585,425);
     }
     
     fill( party.hero[h].favColor );      //Arrow Main
@@ -1063,9 +1065,9 @@ class Artist
     }
     else
     {
-      if(battle.list[3].active) triangle(140,445, 115,425, 165,425);
-      if(battle.list[4].active) triangle(350,445, 325,425, 375,425);
-      if(battle.list[5].active) triangle(560,445, 535,425, 585,425);
+      triangle(140,445, 115,425, 165,425);
+      triangle(350,445, 325,425, 375,425);
+      triangle(560,445, 535,425, 585,425);
     }
     
     fill(0);                             //Arrow's cut-out
@@ -1077,19 +1079,29 @@ class Artist
     }
     else
     {
-      if(battle.list[3].active) triangle(140,435, 115,425, 165,425);
-      if(battle.list[4].active) triangle(350,435, 325,425, 375,425);
-      if(battle.list[5].active) triangle(560,435, 535,425, 585,425);
+      triangle(140,435, 115,425, 165,425);
+      triangle(350,435, 325,425, 375,425);
+      triangle(560,435, 535,425, 585,425);
     }
     
-    fill( party.hero[h].favColor );textSize(24); //Letter Backing
-    if(battle.list[3].active) text("A",140,420);
-    if(battle.list[4].active) text("S",350,420);
-    if(battle.list[5].active) text("D",560,420);
-    fill( party.hero[h].inverseColor );textSize(25); //Letter
-    if(battle.list[3].active) text("A",140,420);
-    if(battle.list[4].active) text("S",350,420); 
-    if(battle.list[5].active) text("D",560,420);
+    if(attack)
+    {
+      fill( party.hero[h].favColor );textSize(24); //Letter Backing
+      if(battle.list[3].active) text("A",140,420);
+      if(battle.list[4].active) text("S",350,420);
+      if(battle.list[5].active) text("D",560,420);
+      fill( party.hero[h].inverseColor );textSize(25); //Letter
+      if(battle.list[3].active) text("A",140,420);
+      if(battle.list[4].active) text("S",350,420); 
+      if(battle.list[5].active) text("D",560,420);
+    }
+    else
+    {
+      fill( party.hero[h].favColor );textSize(24); //Letter Backing
+      text("A",140,420); text("S",350,420); text("D",560,420);
+      fill( party.hero[h].inverseColor );textSize(25); //Letter
+      text("A",140,420); text("S",350,420); text("D",560,420);
+    }
      
     rectMode(CENTER); strokeWeight(5);
     stroke(200); fill(0);
