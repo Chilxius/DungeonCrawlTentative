@@ -15,7 +15,7 @@ class Beastiary
   {
     list = new Monster[5][5];
     
-    //Name, Image, Health, Str, Dex, Con, Mag, Wil, Spd
+    //Name, Image, Health, Str, Dex, Con, Mag, Wil, Spd, Gold, Weakness
     list[0][0] = new Monster("Error Rat","019.png",1,1,1,1,0,1,1,0,AttackType.NONE);
     list[0][1] = new Monster();
     list[0][2] = new Monster();
@@ -28,7 +28,7 @@ class Beastiary
       list[1][0].attacks[2] = new Attack("claws at you.", 35, false);
       list[1][0].attacks[3] = new Attack("breathes fire.", 40, true, false, AttackType.FIRE);
       list[1][0].attacks[4] = new Attack("breathes fire.", 40, true, false, AttackType.FIRE);
-    list[1][1] = new Monster("StoneGargoyle","StoneGargoyle.png",12,4,4,3,0,1,2,0,AttackType.NONE);
+    list[1][1] = new Monster("StoneGargoyle","StoneGargoyle.png",12,4,4,3,0,1,2,0,AttackType.HOLY);
       list[1][1].attacks[0] = new Attack("is still.");
       list[1][1].attacks[1] = new Attack("inches closer.");
       list[1][1].attacks[2] = new Attack("bites.", 40, false);

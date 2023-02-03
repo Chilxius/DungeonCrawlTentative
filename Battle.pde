@@ -158,15 +158,22 @@ class Battle
               {
                 party.hero[turn].resolveHeal(defenderIndex);
               }
-              battle.setBattleDelay();
-              battle.resumeInitiative();
-              skillSelection = -1;
+              //battle.setBattleDelay();
+              //battle.resumeInitiative();
+              //skillSelection = -1;
             }
             else //is an attack ( multi-attack handled in Hero.resolveAttack() )
             {
-              party.hero[turn].resolveAttack(defenderIndex-3);
+              if( party.hero[turn].resolveAttack(defenderIndex-3) )
+              {
+                displayTextLine( list[defenderIndex].name + " is vanquished!");
+                list[defenderIndex].active = false;
+              }
             }
           }
+          battle.setBattleDelay();
+          battle.resumeInitiative();
+          skillSelection = -1;
         }
         else if(attackerIndex>2) //monster
         {
@@ -276,7 +283,10 @@ class Battle
       if( skillSelection == -1 )
         displayTextLine(list[attackerIndex].name + " attacks " + list[defenderIndex].name + "!");
       else
+      {
+        party.hero[attackerIndex].payForSkill(skillSelection);
         displayTextLine(list[attackerIndex].name + " uses " + party.hero[attackerIndex].skill[skillSelection].description + "!");
+      }
     }
     else
     {
@@ -338,7 +348,7 @@ class Battle
     if(aType==dType && aType!=AttackType.NONE)
       type = 2;
     int random = (int)random(217,255);
-    return (int)((((((2.0*level*crit)/5.0)+2.0)*wepPower*attackStr/defense)/50.0)+2.0)*type*random/255;
+    return (int)((((((2.0*level*crit)/5.0)+2.0)*wepPower*attackStr/max(0,defense))/50.0)+2.0)*type*random/255;
   }
 }
   

@@ -2,7 +2,8 @@
 //Bennett Ritchie
 
 //TO DO:
-//Skills: out-of-combat Power, MP cost, animation system, images, power cost
+//Skills: out-of-combat Power, animation system, images
+//Energizing happening at the right moments, stop casters from gaining energy on crits
 //Changing dungeon levels
 
 //IMPROVEMENT:
@@ -800,14 +801,18 @@ void keyPressed()
       if( key == 'x' || key == ' ' ) //cancel and return to battle menu
         input = Input.BATTLE_MENU;
         
-      if(   key == 'q' || key == '1' ) { skillSelection = 0; input = appropriateInputMode(); }
-      if( ( key == 'w' || key == '2' ) && party.hero[battle.turn].level >= 5 ) { skillSelection = 1; input = appropriateInputMode(); }
-      if( ( key == 'e' || key == '3' ) && party.hero[battle.turn].level >= 10 ){ skillSelection = 2; input = appropriateInputMode(); }
-      if( ( key == 'r' || key == '4' ) && party.hero[battle.turn].level >= 15 ){ skillSelection = 3; input = appropriateInputMode(); }
-      if( ( key == 'a' || key == '5' ) && party.hero[battle.turn].level >= 20 ){ skillSelection = 4; input = appropriateInputMode(); }
-      if( ( key == 's' || key == '6' ) && party.hero[battle.turn].level >= 25 ){ skillSelection = 5; input = appropriateInputMode(); }
-      if( ( key == 'd' || key == '7' ) && party.hero[battle.turn].level >= 30 ){ skillSelection = 6; input = appropriateInputMode(); }
-      if( ( key == 'f' || key == '8' ) && party.hero[battle.turn].level >= 35 ){ skillSelection = 7; input = appropriateInputMode(); }
+      if( ( key == 'q' || key == '1' ) && party.hero[battle.turn].canAffordSkill(0) )                                       { skillSelection = 0; input = appropriateInputMode(); }
+      if( ( key == 'w' || key == '2' ) && party.hero[battle.turn].canAffordSkill(1) && party.hero[battle.turn].level >= 5 ) { skillSelection = 1; input = appropriateInputMode(); }
+      if( ( key == 'e' || key == '3' ) && party.hero[battle.turn].canAffordSkill(2) && party.hero[battle.turn].level >= 10 ){ skillSelection = 2; input = appropriateInputMode(); }
+      if( ( key == 'r' || key == '4' ) && party.hero[battle.turn].canAffordSkill(3) && party.hero[battle.turn].level >= 15 ){ skillSelection = 3; input = appropriateInputMode(); }
+      if( ( key == 'a' || key == '5' ) && party.hero[battle.turn].canAffordSkill(4) && party.hero[battle.turn].level >= 20 ){ skillSelection = 4; input = appropriateInputMode(); }
+      if( ( key == 's' || key == '6' ) && party.hero[battle.turn].canAffordSkill(5) && party.hero[battle.turn].level >= 25 ){ skillSelection = 5; input = appropriateInputMode(); }
+      if( ( key == 'd' || key == '7' ) && party.hero[battle.turn].canAffordSkill(6) && party.hero[battle.turn].level >= 30 ){ skillSelection = 6; input = appropriateInputMode(); }
+      if( ( key == 'f' || key == '8' ) && party.hero[battle.turn].canAffordSkill(7) && party.hero[battle.turn].level >= 35 ){ skillSelection = 7; input = appropriateInputMode(); }
+      
+      //Skips next step for targetAll skills
+      if( ( input == Input.BATTLE_SKILL_TARGET || input == Input.BATTLE_HEAL_TARGET ) && party.hero[battle.turn].skill[skillSelection].targetAll )
+        battle.beginAttack( battle.turn, 4 );
     }
     else if(input == Input.BATTLE_SKILL_TARGET) //Choose target of attack skill
     {

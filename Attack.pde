@@ -7,6 +7,7 @@
 class Attack
 {
   int power;
+  int cost = 0;
   
   boolean useWeapon;
   boolean targetAll;
@@ -26,6 +27,7 @@ class Attack
     healing = a.healing;
     stat = a.stat;
     type = a.type;
+    cost = a.cost;
   }
   
   public Attack( String d ) //for turn wasteing moves

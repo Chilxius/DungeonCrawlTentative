@@ -251,14 +251,14 @@ class Artist
     strokeWeight(5); fill(0);
     stroke(200); textSize(18); textAlign(CENTER);
     rectMode(CORNER); rect(40,200,620,300,20); rectMode(CENTER);
-    rect(140,280,70,70,20); fill(200); text(party.hero[h].skill[0].description,140,240);
-    if(party.hero[h].level>5 ) { fill(0); rect(280,280,70,70,20); fill(200); text(party.hero[h].skill[1].description,280,240); }
-    if(party.hero[h].level>10) { fill(0); rect(420,280,70,70,20); fill(200); text(party.hero[h].skill[2].description,420,240); }
-    if(party.hero[h].level>15) { fill(0); rect(560,280,70,70,20); fill(200); text(party.hero[h].skill[3].description,560,240); }
-    if(party.hero[h].level>20) { fill(0); rect(140,430,70,70,20); fill(200); text(party.hero[h].skill[4].description,140,390); }
-    if(party.hero[h].level>25) { fill(0); rect(280,430,70,70,20); fill(200); text(party.hero[h].skill[5].description,280,390); }
-    if(party.hero[h].level>30) { fill(0); rect(420,430,70,70,20); fill(200); text(party.hero[h].skill[6].description,420,390); }
-    if(party.hero[h].level>35) { fill(0); rect(560,430,70,70,20); fill(200); text(party.hero[h].skill[7].description,560,390); }
+    /*level 1 skill*/            fill(0); rect(140,280,70,70,20); fill(200); text(party.hero[h].skill[0].description,140,240); text(party.hero[h].skill[0].cost,140,335); text("Q",165,305);
+    if(party.hero[h].level>5 ) { fill(0); rect(280,280,70,70,20); fill(200); text(party.hero[h].skill[1].description,280,240); text(party.hero[h].skill[0].cost,280,335); text("W",305,305); }
+    if(party.hero[h].level>10) { fill(0); rect(420,280,70,70,20); fill(200); text(party.hero[h].skill[2].description,420,240); text(party.hero[h].skill[0].cost,420,335); text("E",445,305); }
+    if(party.hero[h].level>15) { fill(0); rect(560,280,70,70,20); fill(200); text(party.hero[h].skill[3].description,560,240); text(party.hero[h].skill[0].cost,560,335); text("R",585,305); }
+    if(party.hero[h].level>20) { fill(0); rect(140,430,70,70,20); fill(200); text(party.hero[h].skill[4].description,140,390); text(party.hero[h].skill[0].cost,140,485); text("A",165,455); }
+    if(party.hero[h].level>25) { fill(0); rect(280,430,70,70,20); fill(200); text(party.hero[h].skill[5].description,280,390); text(party.hero[h].skill[0].cost,280,485); text("S",305,455); }
+    if(party.hero[h].level>30) { fill(0); rect(420,430,70,70,20); fill(200); text(party.hero[h].skill[6].description,420,390); text(party.hero[h].skill[0].cost,420,485); text("D",445,455); }
+    if(party.hero[h].level>35) { fill(0); rect(560,430,70,70,20); fill(200); text(party.hero[h].skill[7].description,560,390); text(party.hero[h].skill[0].cost,560,485); text("F",585,455); }
     
     fill(0); rect(baseX+75,545,70,70,20);drawCancelIcon(baseX+75,545);
   }
@@ -831,7 +831,10 @@ class Artist
       if( party.hero[i].energy > 0 )
       {
         fill(200); textAlign(LEFT);
-        text("POWER:",12+i*248,115);
+        if( party.hero[i].job == Job.BARBARIAN )
+          text("ANGER:",12+i*248,115);
+        else
+          text("POWER:",12+i*248,115);
         strokeWeight(1);
         stroke(party.hero[i].inverseColor);
         fill(party.hero[i].favColor);
@@ -933,7 +936,7 @@ class Artist
       case 1: return party.hero[0].name + " pulls out a lyre and rocks the night away.";
       case 2: return party.hero[0].name + ", pass the ale.";
       case 3: return party.hero[0].name + " is exhausted after a long day.";
-      case 4: return "Where did " + party.hero[0].name + " find chocolate? Who cares!?";
+      case 4: return "Where did " + party.hero[0].name + " find chocolate? Who cares!? ";
       case 5: return party.hero[0].name + " practices using the " + party.hero[0].weapon.name.toLowerCase() + ".";
       
       case 6: return "A cat keeps " + party.hero[1].name + " awake for hours.";
@@ -1709,6 +1712,7 @@ class Artist
     vertex(x+10*scale,y+12*scale);
     vertex(x+7.5*scale,y+24*scale);
     vertex(x-7.5*scale,y+24*scale);
+    vertex(x-10*scale,y+12*scale);
     //bezierVertex(x+10*scale,y+25*scale, x-10*scale,y+25*scale, x-10*scale,y+10*scale);
     endShape();
     fill(120,100,60); //brown

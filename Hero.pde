@@ -49,7 +49,10 @@ class Hero
     //for testing
     weapon = new Equipment("Club","ClayClub.png",5,true,3);
     if(j==Job.KARATE)
+    {
       weapon = new Equipment("Fist","Fist.png",0,true,25);
+      adjustFistPower();
+    }
     armor = new Equipment("Shirt","WhiteShirt.png",1,false,5);
     
     assignSkills();
@@ -135,7 +138,7 @@ class Hero
     switch( job )
     {
       case KNIGHT:
-        skill[0] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[0] = new Attack("Defensive Strike", con/2, false, true, AttackStat.STR ); skill[0].cost = 2; //Puts knight into defense
         skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
@@ -145,7 +148,7 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case BARBARIAN:
-        skill[0] = new Attack("Blood Strike", str*2, false, true, AttackStat.STR );
+        skill[0] = new Attack("Blood Strike", str, false, true, AttackStat.STR ); skill[0].cost = 2;    //Loses str/10 hp
         skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
@@ -155,7 +158,7 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case KARATE:
-        skill[0] = new Attack("Stone Fist", 40, false, true, AttackStat.STR, AttackType.EARTH );
+        skill[0] = new Attack("Stone Fist", weapon.power, false, true, AttackStat.STR, AttackType.EARTH );  skill[0].cost = 2; //Double fist strength, adds earth element
         skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
@@ -165,7 +168,7 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case THIEF:
-        skill[0] = new Attack("Knives", str, true, true, AttackStat.STR );
+        skill[0] = new Attack("Knives", 5, true, true, AttackStat.STR );  skill[0].cost = 2; //Attacks all enemies
         skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
@@ -175,8 +178,8 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case PRIEST:
-        //skill[0] = new Attack("Divine Light", 30, false, false, AttackStat.MAG, AttackType.HOLY );
-        skill[0] = new Attack("Heal", 30, false, true ); //healing move for testing
+        skill[0] = new Attack("Divine Light", 30, false, false, AttackStat.MAG, AttackType.HOLY ); skill[0].cost = 2; //single-target holy attack
+        //skill[0] = new Attack("Heal", 30, true, true ); //healing move for testing
         skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
@@ -186,7 +189,7 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       default:
-        skill[0] = new Attack("Fire", 30, false, false, AttackStat.MAG, AttackType.FIRE );
+        skill[0] = new Attack("Fire", 50, false, false, AttackStat.MAG, AttackType.FIRE ); skill[0].cost = 3; //single-target fire attack
         skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
@@ -198,6 +201,40 @@ class Hero
         
         //String d, int p, boolean all, AttackStat s, AttackType t
     }
+  }
+  
+  public boolean canAffordSkill( int index )
+  {
+    if( maxMp > 0 ) //is a caster //<>//
+    {
+      if( skill[index].cost > mp )
+      {
+        displayTextLine("Not enough mana.");
+        return false;
+      }
+    }
+    else  //not a caster
+    {
+      if( skill[index].cost > energy )
+      {
+        displayTextLine("Not enough energy.");
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  public void payForSkill( int skillIndex )
+  {
+    if( maxMp > 0 )
+      mp -= skill[skillIndex].cost;
+    else
+      energy -= skill[skillIndex].cost;
+  }
+  
+  public void adjustFistPower()
+  {
+    weapon.power = int((65/50.0)*(level-1)+25);
   }
   
   public void energize( int amount )
@@ -214,6 +251,8 @@ class Hero
     {
       level++;
       adjustStats();
+      if( job == Job.KARATE )
+        adjustFistPower();
       exp = 0;
       nextLevel = level*100;
       return true;
@@ -286,7 +325,7 @@ class Hero
   public boolean resolveAttack( int targetMonster ) //true if monster killed
   {
     int damage = 0;
-    int weaponPower = 1; //<>//
+    int weaponPower = 0; //<>//
     if(skillSelection != -1 && skill[skillSelection].useWeapon)
       weaponPower = weapon.power;
     battle.waitingForText = false;
@@ -303,14 +342,16 @@ class Hero
         for(int i = 0; i < 3; i++)
           if(battleMonsters[i].alive)
           {
-            damage = battle.calculateDamage( level, 1, weaponPower, appropriateStat( skill[skillSelection] ), battleMonsters[i].appropriateDefense( skill[skillSelection] ), skill[skillSelection].type, battleMonsters[i].weakness );
+            damage = battle.calculateDamage( level, 1, weaponPower+skill[skillSelection].power, appropriateStat( skill[skillSelection] ), battleMonsters[i].appropriateDefense( skill[skillSelection] ), skill[skillSelection].type, battleMonsters[i].weakness );
             battleMonsters[i].takeDamage(damage);
             floatingNumbers.add( new GhostNumber( 150+210*i, 320, skill[skillSelection].appropriateColor(), damage) );
+            if( !battleMonsters[i].alive )
+              battle.list[i+3].active = false;
           }
       }
       else
       {
-        damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weaponPower, appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skill[skillSelection].type, battleMonsters[targetMonster].weakness );
+        damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weaponPower+skill[skillSelection].power, appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skill[skillSelection].type, battleMonsters[targetMonster].weakness ); //<>//
         battleMonsters[targetMonster].takeDamage(damage);
         floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, skill[skillSelection].appropriateColor(), damage) );
       }
@@ -318,9 +359,9 @@ class Hero
     
     //calculateDamage( int level, int crit, int wepPower, int attackStr, int defense, AttackType aType, AttackType dType )
     
-    battle.setBattleDelay();
-    battle.resumeInitiative();
-    skillSelection = -1;
+    //battle.setBattleDelay();
+    //battle.resumeInitiative();
+    //skillSelection = -1;
     if( battleMonsters[targetMonster].alive )
       return false;
     return true;
@@ -329,7 +370,7 @@ class Hero
   public void resolveHeal( int target )
   {
     battle.waitingForText = false;
-    int amount = battle.calculateDamage( level, 1, 1, mag, 1);
+    int amount = battle.calculateDamage( level, 1, skill[skillSelection].power, mag, 1);
     party.hero[target].heal(amount);
     floatingNumbers.add( new GhostNumber( 150+210*target, 550, color(100,255,100), amount) );
     //battle.setBattleDelay();
@@ -343,7 +384,7 @@ class Hero
     hp -= damage;
     if(displayText)
       displayTextLine( name + " takes " + damage + " damage.");
-    if(job == Job.BARBARIAN)
+    if(job == Job.BARBARIAN && display == Display.BATTLE)
       energize(1);
     if(hp <= 0)
     {
@@ -426,6 +467,7 @@ class Hero
     mp = maxMp;
     poison = 0;
     poisoned=weakened=paralyzed=asleep=cursed=false;
+    alive = true;
   }
   
   public boolean inDanger()
