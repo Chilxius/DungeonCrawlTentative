@@ -51,6 +51,7 @@ class Tile
     {
       case '@':type=TileType.CAMP;break;
       case '#':type=TileType.WALL;break;
+      case '$':type=TileType.SECRET_WALL;break;
       case '~':type=TileType.GRASS;break;
       case '+':type=TileType.DOOR;break;
       case 'w':type=TileType.WATER;break;
@@ -60,6 +61,9 @@ class Tile
       case 'D':type=TileType.DARK_TREE;break;
       case 'g':type=TileType.GRAVE;break;
       case '&':type=TileType.S_GLASS;break;
+      case '>':type=TileType.STAIR_DOWN;break;
+      case ' ':type=TileType.DARK;break;
+      case '£':type=TileType.DARK_WALL;break;
       //different key types
       case 'c':
       case 'i':
@@ -90,6 +94,18 @@ class Tile
       case EMPTY: {
         tileColor = color(190);
         pathable = true;
+        interactive = false;
+        event = false; break;
+      }
+      case DARK: {
+        tileColor = color(0);
+        pathable = true;
+        interactive = false;
+        event = false; break;
+      }
+      case DARK_WALL: {
+        tileColor = color(0);
+        pathable = false;
         interactive = false;
         event = false; break;
       }
@@ -130,6 +146,12 @@ class Tile
         interactive = false;
         event = false; break;
       }
+      case SECRET_WALL: {
+        tileColor = color(120);
+        pathable = true;
+        interactive = false;
+        event = false; break;
+      }
       case WATER: {
         tileColor = color(0,0,220);
         pathable = false;
@@ -155,6 +177,12 @@ class Tile
           createInteraction( Key.SKELETON_KEY );
         addToProgressSwitches();
         break;
+      }
+      case STAIR_DOWN: {
+        tileColor = color(0);
+        pathable = true;
+        interactive = false;
+        event = false; break;
       }
       default: {
         tileColor = color(200,0,0);
@@ -312,7 +340,7 @@ class Tile
     }
     noStroke();
     rect(xPos,yPos,30,30);
-    if(type == TileType.WALL)
+    if(type == TileType.WALL || type == TileType.SECRET_WALL)
       image(tileImage[0],xPos,yPos);
     else if(type == TileType.S_GLASS)
       image(tileImage[43],xPos,yPos);
@@ -334,6 +362,8 @@ class Tile
       image(tileImage[28],xPos,yPos);
     else if(type == TileType.MERCHANT)
       image(tileImage[48],xPos,yPos);
+    else if(type == TileType.STAIR_DOWN)
+      image(tileImage[40],xPos,yPos);
     if(occupied)
     {
       fill(occupantColor); noStroke();
@@ -395,8 +425,9 @@ class Tile
 
 public enum TileType
 {
-  EMPTY, WALL, GRASS, EVENT, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH,
-  DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE, CAMP, MERCHANT, SHOP, SELL
+  EMPTY, WALL, SECRET_WALL, GRASS, EVENT, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH,
+  DARK, DARK_WALL, DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE, CAMP, MERCHANT, SHOP, SELL,
+  STAIR_DOWN
 }
 
 public enum Key //special items for interactive tiles

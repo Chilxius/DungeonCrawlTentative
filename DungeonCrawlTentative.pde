@@ -2,8 +2,7 @@
 //Bennett Ritchie
 
 //TO DO:
-//Skills: out-of-combat Power, animation system, images
-//Energizing happening at the right moments, stop casters from gaining energy on crits
+//Skills: animation system, images
 //Changing dungeon levels
 
 //IMPROVEMENT:
@@ -11,16 +10,19 @@
 //Have inns charge money?
 //Delay before "vanquished" line where enemy vanishes
 //Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair
+//Fix lineLength error
 
 //IMAGES I NEED:
 //Campsite
 //Vendor stall
 //Skills
+//Stairs
 
 import processing.sound.*;
 
-Map [] m = new Map[3];
-DangerMap dm;
+int mapCount = 10;
+Map [] m = new Map[mapCount];
+DangerMap [] dm = new DangerMap[mapCount];
 
 //Game begins waiting for a typed input, which will be stored as the save file name
 Input input = Input.TYPING;
@@ -48,6 +50,7 @@ boolean heroDataDisplayed[] = {false,false,false};
 
 //Exploration Data
 Party party = new Party( new Hero(false), new Hero(false), new Hero(false));
+ArrayList<Portal> exits = new ArrayList<Portal>();
 
 //UI data
 Artist vanGogh = new Artist();
@@ -67,7 +70,7 @@ SoundFile openDoorSound, openChestSound, lockedDoorSound, potionDrinkSound, food
 PImage tileImage[] = new PImage[49];
 
 //Item data
-Loot [][] lootList = new Loot[1][50];
+Loot [][] lootList = new Loot[2][50];
 Loot emptyChest = new Loot(0,0,new Item(),"EMPTY CHEST ERROR");
 int consumableValue = 0;
 Equipment newEquip, oldEquip; //for switching in new equipment
@@ -209,7 +212,7 @@ void draw()
     vanGogh.drawColorBars(tempRed,tempGreen,tempBlue);
     
   if(display == Display.MAP)
-    m[0].drawMapOnPosition(party.X,party.Y,party.hero(0).getColor(),party.hero(1).getColor(),party.hero(2).getColor());
+    m[party.floor].drawMapOnPosition(party.X,party.Y,party.hero(0).getColor(),party.hero(1).getColor(),party.hero(2).getColor());
   else if(display == Display.KEY_LIST)
     vanGogh.drawKeys(party.keyInventory);
   else if(display == Display.ITEM_LIST)
@@ -225,7 +228,7 @@ void draw()
   else if(display == Display.BATTLE)
   {
     if(vanGogh.battleWindowOpening)
-      m[0].drawMapOnPosition(party.X,party.Y,party.hero(0).getColor(),party.hero(1).getColor(),party.hero(2).getColor());
+      m[party.floor].drawMapOnPosition(party.X,party.Y,party.hero(0).getColor(),party.hero(1).getColor(),party.hero(2).getColor());
     else
     {
       if(gameover)
@@ -351,8 +354,13 @@ void setUpLootList()
   createLoot(0,5, 6, 12,Key.SKELETON_KEY);
   createLoot(0,6, 60,4 ,new Item("Win Crystal",800));
   createLoot(0,7, 2, 3 ,new Item("Gold Coin",5));
+  createLoot(0,8, 27,0 ,new Equipment("Sword","MetalSword.png",15,true,40,Job.KNIGHT)); 
+  createLoot(0,13,86,1 ,new Equipment("The Hurter","RubyAxe.png",100,true,100,Job.KNIGHT,Job.BARBARIAN));
   
-  createLoot(0,8, 27,0 ,new Equipment("Sword","MetalSword.png",15,true,4,Job.KNIGHT)); 
+  createLoot(1,9, 12,7 ,new Item("Dog Statue",500));
+  createLoot(1,10,20,10,new Equipment("Steel Plate","MetalArmor.png",50,false,20,Job.KNIGHT,Job.PRIEST));
+  createLoot(1,11,22,10,new Equipment("Boiled Leather","LeatherArmor.png",25,false,12,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST));
+  createLoot(1,12,24,10,new Equipment("Silk Shirt","BlueShirt.png",15,false,8,true));
   
   //fill empty progressSwitches
   for(int i = 0; i < itemSwitches.length; i++)
@@ -423,7 +431,7 @@ boolean attemptMove( String direction )
   }
   
   if( checkForBattle() )
-    triggerBattle(dm.dangerValueChar(party.X,party.Y));
+    triggerBattle(dm[party.floor].dangerValueChar(party.X,party.Y));
   
   return result;
 }
@@ -446,6 +454,7 @@ boolean checkForBattle()
   }
   
   println(randomBattleCounter);
+  //println(m[1].tiles[40][4].occupantText);
   randomBattleCounter++;
   return false;
 }
@@ -466,12 +475,13 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case WATER: return "You never learned how to swim";
     case TREE: case DARK_TREE: return "A tree";
     case DOOR: return m[party.floor].tiles[party.X][party.Y].keyMessage();
+    case DARK_WALL: return "An unlit wall";
   }
   
   if( m[party.floor].tiles[x][y].isBoss )
   {
-    for( int i = 0; i < bossSwitches.length; i++ )
-      if( bossSwitches[i].floor == party.floor && partyNextToBoss() ) //bossSwitches[i].X == party.X && bossSwitches[i].Y == party.Y ) //too tired to do this better right now
+    for( int i = 0; i < bossSwitches.length; i++ ) //<>//
+      if( bossSwitches[i]!=null && bossSwitches[i].floor == party.floor && partyNextToBoss(i) ) //bossSwitches[i].X == party.X && bossSwitches[i].Y == party.Y ) //too tired to do this better right now
       {
         currentBoss = i;
         return m[party.floor].tiles[x][y].occupantText;
@@ -485,14 +495,14 @@ String bonkText( char direction ) //for when the heroes run into obstacles
   return "Bonk";
 }
 
-boolean partyNextToBoss() //party is orthaganally adjacent to a boss
+boolean partyNextToBoss( int index ) //party is orthaganally adjacent to a boss
 {
-  for( int i = 0; i < bossSwitches.length; i++ )
-  {
-    if( ( party.X > bossSwitches[i].X-1 || party.X < bossSwitches[i].X+1 ) 
-    &&  ( party.Y > bossSwitches[i].Y-1 || party.Y < bossSwitches[i].Y+1 ) )
+  //for( int i = 0; i < bossSwitches.length; i++ )
+  //{
+    if( ( ( party.X == bossSwitches[index].X-1 || party.X == bossSwitches[index].X+1 ) && party.Y == bossSwitches[index].Y ) 
+    ||  ( ( party.Y == bossSwitches[index].Y-1 || party.Y == bossSwitches[index].Y+1 ) && party.X == bossSwitches[index].X ) )
       return true;
-  }
+  //}
   return false;
 }
 
@@ -571,8 +581,23 @@ void triggerBattle( char danger )
     vanGogh.beginBattleAnimation();
     display = Display.BATTLE;
     input = Input.NONE;
-    battle = new Battle(party.hero,dm.dangerValueChar(party.X,party.Y),-1);
+    battle = new Battle(party.hero,dm[party.floor].dangerValueChar(party.X,party.Y),-1);
   }
+}
+
+public void changeMap()
+{
+  for(int i = 0; i < exits.size(); i++)
+    if(exits.get(i).originX == party.X
+    && exits.get(i).originY == party.Y 
+    && exits.get(i).originFloor == party.floor )
+    {
+      party.X = exits.get(i).destinationX;
+      party.Y = exits.get(i).destinationY;
+      party.floor = exits.get(i).destinationFloor;
+      return;
+    }
+  println("ERROR: NO EXIT FOUND");
 }
 
 boolean mouseInBox( float boxX, float boxY ) //assumes boxes are 70x70
@@ -623,6 +648,10 @@ void keyPressed()
       if(!attemptMove("down")&&display!=Display.BATTLE)displayTextLine(bonkText('d'));
     if(key == 'w' || keyCode == UP)
       if(!attemptMove("up")&&display!=Display.BATTLE)displayTextLine(bonkText('u'));
+    
+    if(key == '>') //Changing floors
+      if(m[party.floor].tiles[party.X][party.Y].type==TileType.STAIR_DOWN)
+        changeMap();
     
     //Moved into a boss space
     if(currentBoss != -1)
@@ -1000,7 +1029,7 @@ void keyPressed()
   {
     println("DEBUG");
     println(party.X + " " + party.Y); //<>//
-    println(dm.dangerValueChar(party.X,party.Y));
+    println(dm[party.floor].dangerValueChar(party.X,party.Y));
   }
   
   if(key == 'u')

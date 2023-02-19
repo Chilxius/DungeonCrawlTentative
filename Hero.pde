@@ -138,7 +138,7 @@ class Hero
     switch( job )
     {
       case KNIGHT:
-        skill[0] = new Attack("Defensive Strike", con/2, false, true, AttackStat.STR ); skill[0].cost = 2; //Puts knight into defense
+        skill[0] = new Attack("Defensive Strike", con/2, false, true, AttackStat.STR ); skill[0].cost = 2; //Puts knight into defense, adds con/2 to damage
         skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
@@ -148,7 +148,7 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case BARBARIAN:
-        skill[0] = new Attack("Blood Strike", str, false, true, AttackStat.STR ); skill[0].cost = 2;    //Loses str/10 hp
+        skill[0] = new Attack("Blood Strike", str, false, true, AttackStat.STR ); skill[0].cost = 2;    //Loses str/5 hp, add str again
         skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
@@ -218,6 +218,11 @@ class Hero
       if( skill[index].cost > energy )
       {
         displayTextLine("Not enough energy.");
+        return false;
+      }
+      else if( job == Job.BARBARIAN && hp <= str/5 && index==0 ) //can't afford blood strike
+      {
+        displayTextLine("That would kill you.");
         return false;
       }
     }
@@ -367,6 +372,22 @@ class Hero
     return true;
   }
   
+  void handleSkillEffect( int skillIndex )
+  {
+    switch( job )
+    {
+      case KNIGHT:
+        if(skillIndex==0) //defensive strike
+          defending = true;
+        break;
+        
+      case BARBARIAN:
+        if(skillIndex==0) //blood strike
+          takeDamage(str/5,false); //take 20% of str as damage
+        break;
+    }
+  }
+  
   public void resolveHeal( int target )
   {
     battle.waitingForText = false;
@@ -384,8 +405,10 @@ class Hero
     hp -= damage;
     if(displayText)
       displayTextLine( name + " takes " + damage + " damage.");
-    if(job == Job.BARBARIAN && display == Display.BATTLE)
+    if(job == Job.BARBARIAN && display == Display.BATTLE && skillSelection !=0) //shouldn't energize from self-infliction
       energize(1);
+    if(job == Job.KNIGHT && display == Display.BATTLE && defending)
+      energize(2);
     if(hp <= 0)
     {
       hp = 0;
@@ -534,20 +557,20 @@ Priest and Mage use MP to power abilities
 Others use Power, which charges by one per turn (max of lvl, caps out at 48)
 Start with 1 + level/10 power?
 Martial Artists starts with twice as much as others
-Knight gets +1 when defending
+Knight gets +2 when hit while defending
 Barbarian gains +1 when damaged
-thief gains +5 after crits
+Thief gains +5 on crits instead of +1
 
 Abilties cost 2*level energy to use. (2,4,6,8,10,12,14,16)
 Spells have various costs
 
 Knight
-  Power Attack (double power)
+  Defensive Strike (turn on defense)
   
   
   Divine Grace (heal all)
 Barbarian
-  Blood Strike (spend HP to increase damage)
+  Blood Strike (spend str/5 HP to increase damage)
   Cleave       (attack all)
 Artist
   Stone Fist   (earth element attack)

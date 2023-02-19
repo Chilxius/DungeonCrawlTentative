@@ -5,7 +5,7 @@ KNIGHT
 1.0
 1
 100
-0
+50
 30
 Club
 ClayClub.png
@@ -23,7 +23,7 @@ KARATE
 100.0
 1
 100
-0
+50
 40
 Fist
 Fist.png
@@ -41,7 +41,7 @@ THIEF
 106.0
 1
 100
-0
+50
 25
 Club
 ClayClub.png
@@ -287,7 +287,7 @@ false
 XX
 
 true
-false
+true
 false
 false
 false

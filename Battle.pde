@@ -36,9 +36,13 @@ class Battle
       displayTextLine( randomMessage() );
       
     for(int i = 0; i < 3; i++)
+    {
       if(party.hero[i].maxMp==0)
         party.hero[i].energy = party.hero[i].level/5 + 1;
-      
+      if(party.hero[i].job == Job.KARATE )
+        party.hero[i].energize( party.hero[i].level/5 + 1 );
+    }
+       
     list[0] = new Initiative(h[0].name,0,h[0].spd,h[0].alive);
     list[1] = new Initiative(h[1].name,1,h[1].spd,h[1].alive);
     list[2] = new Initiative(h[2].name,2,h[2].spd,h[1].alive);
@@ -60,6 +64,8 @@ class Battle
     list[3] = new Initiative(battleMonsters[0],3);
     list[4] = new Initiative(battleMonsters[1],4);
     list[5] = new Initiative(battleMonsters[2],5);
+    
+    party.hero[0].defending = party.hero[1].defending = party.hero[2].defending = false;
   }
   
   public void resumeInitiativeTick()
@@ -143,6 +149,9 @@ class Battle
               displayTextLine( list[defenderIndex].name + " is vanquished!");
               list[defenderIndex].active = false;
             }
+            //add energy
+            if( turn < 3 && party.hero[turn].maxMp == 0 )
+              party.hero[turn].energize(1);
           }
           else  //skill
           {
@@ -239,9 +248,6 @@ class Battle
      || ( turn > 2 && !battleMonsters[turn-3].alive ) )
       list[turn].active = false;
 
-    //add energy
-    if( turn < 3 && party.hero[turn].maxMp == 0 )
-      party.hero[turn].energize(1);
 
     list[turn].counter = 0;
     turn = -1;
@@ -285,6 +291,7 @@ class Battle
       else
       {
         party.hero[attackerIndex].payForSkill(skillSelection);
+        party.hero[attackerIndex].handleSkillEffect(skillSelection);
         displayTextLine(list[attackerIndex].name + " uses " + party.hero[attackerIndex].skill[skillSelection].description + "!");
       }
     }
@@ -326,7 +333,8 @@ class Battle
       if(heroAttack)
       {
         vanGogh.startScreenShake(40,true);
-        party.hero[attackerIndex].energize(1);
+        if(party.hero[attackerIndex].maxMp==0)
+          party.hero[attackerIndex].energize(1);
         if(party.hero[attackerIndex].job==Job.THIEF)
           party.hero[attackerIndex].energize(4);
       }

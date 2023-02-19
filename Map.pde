@@ -93,12 +93,29 @@ class Map
     if(tiles[xPos][yPos+1].canOpen())
     {  tiles[xPos][yPos+1].type = TileType.EMPTY; tiles[xPos][yPos+1].setTraitsByType();}
     
-    flipDoorSwitch(xPos,yPos);
-    
+    flipDoorSwitch(xPos,yPos); 
   }
+  
   public void removeBoss( int xPos, int yPos )
   {
     tiles[xPos][yPos].isBoss = false;
     flipBossSwitch(xPos,yPos);
+  }
+}
+
+public class Portal //for switching maps
+{
+  int originX, originY;
+  int destinationX, destinationY;
+  int originFloor, destinationFloor;
+  
+  public Portal( int oX, int oY, int oF, int dX, int dY, int dF )
+  {
+    originX = oX;
+    originY = oY;
+    destinationX = dX;
+    destinationY = dY;
+    originFloor = oF;
+    destinationFloor = dF;
   }
 }

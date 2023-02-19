@@ -816,7 +816,8 @@ class Artist
         if(h[i].getMaxMp()>0)text(h[i].getMp()+"/"+h[i].getMaxMp(),190+250*i,115);
       }
     }
-    drawEnergyBoxes();
+    if(display==Display.BATTLE)
+      drawEnergyBoxes();
     
     //for testing
     //drawMage(150,350,2,h[0].getColor(),h[0].getInvColor());
@@ -828,7 +829,8 @@ class Artist
   {  
     for(int i = 0; i < 3; i++)
     {
-      if( party.hero[i].energy > 0 )
+      //if( party.hero[i].energy > 0 )
+      if(party.hero[i].maxMp == 0)
       {
         fill(200); textAlign(LEFT);
         if( party.hero[i].job == Job.BARBARIAN )
@@ -1011,6 +1013,7 @@ class Artist
       drawMonsters();
       drawProgressBars();
       drawHeroesInBattle();
+      drawDefenseIcons();
         
       if(!battle.waitingForText)
       {
@@ -1029,6 +1032,28 @@ class Artist
       }
         //drawBattleItems(0,party.inventory); //for testing
     }
+  }
+  
+  void drawDefenseIcons()
+  {
+    for(int i = 0; i < 3; i++)
+      if(party.hero[i].defending)
+        drawDefendIcon(100+250*i,155,party.hero[i].favColor,color(1),party.hero[i].job);
+  }
+  
+  void drawShield( float x, float y, int heroIndex )
+  {
+    stroke(200);
+    strokeWeight(3);
+    fill(party.hero[heroIndex].favColor);
+    beginShape();
+    vertex(x-15,y-15);
+    vertex(x+15,y-15);
+    vertex(x+15,y+10);
+    vertex(x,y+15);
+    vertex(x-15,y+10);
+    vertex(x-15,y-15);
+    endShape();
   }
   
   void drawProgressBars()
@@ -1242,8 +1267,11 @@ class Artist
       noFill(); circle(x,y,51);
     }
     
-    fill(c); textSize(10);
-    text("D",x+25,y+27);
+    if( i == 1 )
+    {
+      fill(c); textSize(10);
+      text("D",x+25,y+27);
+    }
   }
   
   void drawSkillIcon( float x, float y, color c, color i, Job j)
