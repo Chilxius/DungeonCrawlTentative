@@ -71,6 +71,7 @@ public String keyName( Key k )
     case COPPER_KEY: return "Copper Key";
     case SKELETON_KEY: return "Skeleton Key";
     case IRON_KEY: return "Iron Key";
+    case BRASS_KEY: return "Brass Key";
     default: return "";
   }
 }

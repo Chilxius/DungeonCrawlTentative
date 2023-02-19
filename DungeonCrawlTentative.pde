@@ -2,8 +2,8 @@
 //Bennett Ritchie
 
 //TO DO:
+//Progress Switches: Need to assign floor (can't do from Tile)
 //Skills: animation system, images
-//Changing dungeon levels
 
 //IMPROVEMENT:
 //Improve hero select widnow (circle sizes)
@@ -17,6 +17,9 @@
 //Vendor stall
 //Skills
 //Stairs
+
+//NOTES:
+//I edited the log class to remove spaces in text - might cause errors downstream
 
 import processing.sound.*;
 
@@ -33,7 +36,7 @@ HeroCreationStep step = HeroCreationStep.NAME;
 HeroSelectReason reason = HeroSelectReason.NONE;
 
 //NEW LOG SYSTEM
-Logbook log = new Logbook(39);
+Logbook log = new Logbook(45);
 
 //The text to be displayed in the box
 String textLine1 = " ";
@@ -355,12 +358,15 @@ void setUpLootList()
   createLoot(0,6, 60,4 ,new Item("Win Crystal",800));
   createLoot(0,7, 2, 3 ,new Item("Gold Coin",5));
   createLoot(0,8, 27,0 ,new Equipment("Sword","MetalSword.png",15,true,40,Job.KNIGHT)); 
-  createLoot(0,13,86,1 ,new Equipment("The Hurter","RubyAxe.png",100,true,100,Job.KNIGHT,Job.BARBARIAN));
   
   createLoot(1,9, 12,7 ,new Item("Dog Statue",500));
   createLoot(1,10,20,10,new Equipment("Steel Plate","MetalArmor.png",50,false,20,Job.KNIGHT,Job.PRIEST));
   createLoot(1,11,22,10,new Equipment("Boiled Leather","LeatherArmor.png",25,false,12,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST));
   createLoot(1,12,24,10,new Equipment("Silk Shirt","BlueShirt.png",15,false,8,true));
+  
+  createLoot(0,13,86,1 ,new Equipment("The Hurter","RubyAxe.png",100,true,100,Job.KNIGHT,Job.BARBARIAN));
+  
+  createLoot(1,14,84,1 ,Key.BRASS_KEY);
   
   //fill empty progressSwitches
   for(int i = 0; i < itemSwitches.length; i++)

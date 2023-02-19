@@ -67,6 +67,7 @@ class Party
         {                                                       //Should not trigger during file load
           newEquip = (Equipment)item; //Should be able to safely assume that item is an instance of Equipment
           display = Display.EQUIP; //Set display to equip mode
+          input = Input.HERO_SELECT;
           newEquipIndex = i;
         }
         return true;

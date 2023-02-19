@@ -29,7 +29,7 @@ class Logbook
   
   public void addMessage( String newText ) //ISSUE: Text lines exactly lineLength chars long cause errors
   {
-    String buffer = " "; //holds the next word
+    String buffer = " "; //holds the next word //<>//
     String textToAdd = " "; //the string that will be added to the log
     
     int i = 0; //progress parsing through string
@@ -40,7 +40,7 @@ class Logbook
       i++;
       if( i == newText.length() || newText.charAt(i) == ' ' ) //reached a space or end of string
       {
-        textToAdd += buffer + " "; //add buffer to current message line
+        textToAdd += buffer + ""; //add buffer to current message line
         buffer = "";
       }
       if( i != 0 && i % lineLength == 0 ) //get line to pre-determined size, then add it to the messages

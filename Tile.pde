@@ -67,7 +67,8 @@ class Tile
       //different key types
       case 'c':
       case 'i':
-      case 's':type=TileType.DOORSTEP;safe=true;break;
+      case 's':
+      case 'b':type=TileType.DOORSTEP;safe=true;break;
       case '.':type=TileType.SAFE;safe=true;break;
       default :type=TileType.EMPTY;safe=true;break;
     }
@@ -175,6 +176,8 @@ class Tile
           createInteraction( Key.IRON_KEY );
         else if( t == 's' )
           createInteraction( Key.SKELETON_KEY );
+        else if( t == 'b' )
+          createInteraction( Key.BRASS_KEY );
         addToProgressSwitches();
         break;
       }
@@ -321,6 +324,7 @@ class Tile
       case COPPER_KEY: return "A door with a copper handle.";
       case IRON_KEY: return "A door banded with iron.";
       case SKELETON_KEY: return "A door with a skull-shaped emblem.";
+      case BRASS_KEY: return "An old door decorated with copper symbols.";
       default: return "A strange door...";
     }
   }
@@ -432,7 +436,7 @@ public enum TileType
 
 public enum Key //special items for interactive tiles
 {
-  COPPER_KEY, SKELETON_KEY, IRON_KEY, NONE
+  COPPER_KEY, SKELETON_KEY, IRON_KEY, BRASS_KEY, NONE
 }
 
 public enum Object //tile has an object (still pathable)

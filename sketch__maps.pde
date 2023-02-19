@@ -17,7 +17,7 @@ void setupMaps()
   //       -darkness     £-dark wall (alt-3)
 
   //      +-locked door  .-safe path  w-water       g-grave   &-stained glass    @-campsite/tavern
-  //      c-copper key   i-iron key   s-skeleton key
+  //      c-copper key   i-iron key   s-skel key    b-brass key
 
   //      >-New floor portal
 
@@ -164,7 +164,7 @@ void setupMaps()
       zoo.boss[0].attacks[3] = new Attack("causes a hurricane!", 30, true, AttackStat.MAG, AttackType.WIND);
       zoo.boss[0].attacks[4] = new Attack("casts a freezing ray!", 35, false, AttackStat.MAG, AttackType.ICE);
   
-  m[0].tiles[88][2].placeBoss( color(200, 150, 100), "You've entered a forbidden place...", new Monster("Werewolf", "BrownWerewolf.png", 40, 9, 9, 5, 0, 3, 7, 0, AttackType.FIRE) );
+  m[0].tiles[88][2].placeBoss( color(200, 150, 100), "You've entered a forbidden place...", new Monster("Werewolf", "BrownWerewolf.png", 40, 10, 10, 5, 0, 3, 7, 0, AttackType.FIRE) );
       zoo.boss[1].attacks[0] = new Attack("licks its lips.");
       zoo.boss[1].attacks[1] = new Attack("claws!", 40, false);
       zoo.boss[1].attacks[2] = new Attack("bites!", 50, false);
@@ -284,23 +284,23 @@ void setupMaps()
 
   mapStrings[1] = "";
   
-  mapStrings[1] += "  ###       ###      ###      ###     #####                                                         ";
-  mapStrings[1] += " #   #      #&#      #&#      #&#    ##   ##                                                        ";
-  mapStrings[1] += "#     ################################     #                                                        ";
-  mapStrings[1] += "# >                                      > #                                                        ";
-  mapStrings[1] += "#     ################ ###############     #                                                        ";
-  mapStrings[1] += " #   #     ###£££    # #             ##   ##                                                        ";
-  mapStrings[1] += "  ###      #    £    # #              #####                                                         ";
-  mapStrings[1] += "           #=#£ £    # #                                                                            ";
-  mapStrings[1] += "           ###£ £ #### ####                                                                         ";
-  mapStrings[1] += "              £ ££#       #                                                                         ";
-  mapStrings[1] += "              £   $ = = = #                                                                         ";
-  mapStrings[1] += "              ££££#########                                                                         ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "£ ###       ###      ###      ###     #####              ###£££££££££££££££££££££#####              ";
+  mapStrings[1] += " #   #      #&#      #&#      #&#    ##   ##    #        #                          =#              ";
+  mapStrings[1] += "#     ################################     #    #        # #£££££££££££££££££££££# ###              ";
+  mapStrings[1] += "# >                                      >*#    #        £ £                     # #                ";
+  mapStrings[1] += "#     ################ ###############     #             £ £                     £ £                ";
+  mapStrings[1] += " #   #     ###£££    # #             ##   ##             £ £                     £ £                ";
+  mapStrings[1] += "  ###      #    £    # #              #####              £ £                     £ £                ";
+  mapStrings[1] += "           #=#£ £    # #                                 £ £                     £ £                ";
+  mapStrings[1] += "           ###£ £ #### ####                              £ £                     £ £                ";
+  mapStrings[1] += "              £ ££#       #££££££££££££££££££££££££££££££# #                     £ £                ";
+  mapStrings[1] += "              £   $ = = = $                                #                     £ £                ";
+  mapStrings[1] += "              ££££#########££££££££££££££££££££££££££££££###                     £ £                ";
+  mapStrings[1] += "                                                                                 £ £                ";
+  mapStrings[1] += "                                                                                 #b#                ";
+  mapStrings[1] += "                                                                                 # #                ";
+  mapStrings[1] += "                                                                                 # #                ";
+  mapStrings[1] += "                                                                                 ###                ";
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
@@ -399,12 +399,23 @@ void setupMaps()
   m[1] = new Map(mapStrings[1]);
   
   m[1].tiles[3][4].placeOccupant( color(255), "- There's a fourth chest down here. I can smell it." );
-  m[1].tiles[40][4].placeOccupant( color(255), "- I wouldn't go up there if I were you, bud." );
+  m[1].tiles[40][4].placeOccupant( color(255), "- I wouldn't go up there if I were you." );
 
+  m[1].tiles[82][15].placeBoss( color(191, 182, 199), "SoMe ThInGs ShOuLd NeVeR bE rElEaSeD", new Monster("????????", "error.png", 50, 12, 12, 12, 10, 8, 6, 0, AttackType.HOLY) );
+      zoo.boss[2].attacks[0] = new Attack("grows stronger.");
+      zoo.boss[2].attacks[1] = new Attack("exists.", 40, true);
+      zoo.boss[2].attacks[2] = new Attack("strikes with [??????]!", 50, false);
+      zoo.boss[2].attacks[3] = new Attack("attacks with [??????]!", 45, false);
+      zoo.boss[2].attacks[4] = new Attack("freezes your game!", 35, true, AttackStat.MAG, AttackType.ICE);
+      
+      
+  //******************************************
+  //Set up save points
   for (int i = 0; i < savePoints.length; i++)
     savePoints[i]=new SavePoint();
   savePoints[0] = new SavePoint(7, 2, 0);
   savePoints[1] = new SavePoint(41, 8, 0);
+  savePoints[2] = new SavePoint(42, 3, 1);
   
   //for(int i = 2; i < m.length; i++)
   //  m[i] = new Map(mapStrings[i]);
