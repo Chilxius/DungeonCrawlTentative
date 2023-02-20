@@ -3,6 +3,7 @@
 
 //TO DO:
 //Skills: animation system, images
+//Need to fix switches: empty chests and non-fightable bosses coming back on reload (from different floor)
 
 //IMPROVEMENT:
 //Improve hero select widnow (circle sizes)
@@ -19,7 +20,6 @@
 
 //NOTES:
 //I edited the log class to remove spaces in text - might cause errors downstream
-//Might still need to fix item switches to work with different floors
 
 import processing.sound.*;
 

@@ -23,7 +23,7 @@ void setupMaps()
 
   mapStrings[0] = "";
   mapStrings[0] += "D########T~~tt~~t~~~~T~~~~~=~~~~~~~~~~~~~~~~>TTTTT#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DTTTDTTTT~~D~~~";
-  mapStrings[0] += "##.?.?.?############~~~%%%%%%%%%~~~~###~###~~~TTTT#######~~~~~~~~~~~~~~~~~~~~~~~~~~~DT=~~TTTTTT###D~";
+  mapStrings[0] += "##.?.?.?############~~~%%%%%%%%%~~~~###~###~~?TTTT#######~~~~~~~~~~~~~~~~~~~~~~~~~~~DT=~~TTTTTT###D~";
   mapStrings[0] += "#.....?*.#.....=.==#~~~%%%www%%%~~~T#.#~#=#~~~~TTT#&&&&&#~~~~~~~~~~~~~~~~~~~~~~~~~~~DT~~~~~~tt~~>#~~";
   mapStrings[0] += "#?.......###.#######~~~%%%%%%%%%~~~~#@#~#+#~~T~~TT############~~~~~~~~~~~~~~~~~~~~~~DT~~~TTTTTT###~D";
   mapStrings[0] += "#..........?......c+......~?~............c.......i+       s+=#~~~~~~~~~~~~~~~~~~~~~~~DTTTTwwTwTTTT~~";
@@ -155,6 +155,7 @@ void setupMaps()
   m[0].tiles[18][5].createEvent(true, "- Hold (k) to view your Keys. This door requires a Copper Key");
   m[0].tiles[16][5].createEvent(true, "- Press (o) to attempt to open a door. If you have the right key, it will be used up.");
   m[0].tiles[27][4].createEvent(true, "- Please do not step on the flowers.");
+  m[0].tiles[45][1].createEvent(true, "- Press (>) to go through doors such as this one.");
   //m.tiles[6][1].createEvent(false,"Event C","Three lines of text","Only happens once");
 
   m[0].tiles[54][4].placeBoss( 0, color(0, 0, 200), "A terrible creature guards the way!", new Monster("Xaxaphar", "BlueMindflair.png", 20, 5, 5, 5, 5, 5, 5, 50, AttackType.HOLY) );
@@ -397,6 +398,8 @@ void setupMaps()
   exits.add( new Portal(41,3,1,96,2,0) );
   
   m[1] = new Map(mapStrings[1]);
+  
+  m[1].tiles[50][10].createEvent(false, "You feel a chill in your bones...");
   
   m[1].tiles[3][4].placeOccupant( color(200,200,255), "- There's a fourth chest down here. I can smell it." );
   m[1].tiles[40][4].placeOccupant( color(200,200,255), "- I wouldn't go up there if I were you." );
