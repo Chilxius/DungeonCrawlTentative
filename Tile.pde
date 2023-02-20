@@ -38,7 +38,7 @@ class Tile
     this(1,1,color(255),true,false,false); 
   }
   
-  public Tile( int X, int Y, char t )
+  public Tile( int X, int Y, int fl, char t )
   {
     x = X;
     y = Y;
@@ -81,12 +81,12 @@ class Tile
       default: obj=Object.NONE;break;
     }
     
-    setTraitsByType(t);
+    setTraitsByType(t,fl);
   }
   
-  private void setTraitsByType(){setTraitsByType(' ');}
+  private void setTraitsByType(int floor){setTraitsByType(' ',floor);}
   
-  private void setTraitsByType(char t)
+  private void setTraitsByType(char t, int floor)
   {
     interactive = false;
     event = false;
@@ -178,7 +178,7 @@ class Tile
           createInteraction( Key.SKELETON_KEY );
         else if( t == 'b' )
           createInteraction( Key.BRASS_KEY );
-        addToProgressSwitches();
+        addToProgressSwitches(floor);
         break;
       }
       case STAIR_DOWN: {
@@ -206,14 +206,14 @@ class Tile
     event = e;
   }
   
-  void addToProgressSwitches()
+  void addToProgressSwitches( int floor )
   {
-    doorSwitches[doorSwitchCount++] = new ProgressSwitch( SwitchType.DOOR, x, y );
+    doorSwitches[doorSwitchCount++] = new ProgressSwitch( SwitchType.DOOR, x, y, floor );
   } 
   
-  void addBossProgressSwitch()
+  void addBossProgressSwitch( int floor )
   {
-    bossSwitches[bossSwitchCount++] = new ProgressSwitch( SwitchType.BOSS, x, y );
+    bossSwitches[bossSwitchCount++] = new ProgressSwitch( SwitchType.BOSS, x, y, floor );
   }
   
   void removeBoss()
@@ -247,7 +247,7 @@ class Tile
     type = TileType.SELL;
   }
   
-  public void placeBoss( color c, String message, Monster m ) //not working properly - boss is being replaced
+  public void placeBoss( int floor, color c, String message, Monster m ) //not working properly - boss is being replaced
   {
     occupied = true;
     pathable = false;
@@ -255,7 +255,7 @@ class Tile
     occupantText = message;
     isBoss = true;
     zoo.addBossToList(m);
-    addBossProgressSwitch();
+    addBossProgressSwitch( floor );
   }
   
   public void createEvent( boolean r, String s )

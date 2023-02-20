@@ -25,7 +25,7 @@ class Map
     //convert to tiles
     for(int y = 0; y < tiles.length; y++)
       for(int x = 0; x < tiles.length; x++)
-        tiles[x][y] = new Tile(x,y,m.charAt(x+y*100));
+        tiles[x][y] = new Tile(x,y,floorNumber,m.charAt(x+y*100));
   }
   
   /*public void drawMap()
@@ -85,13 +85,13 @@ class Map
   public void openDoorsAround(int xPos, int yPos)
   {
     if(tiles[xPos-1][yPos].canOpen())
-    {  tiles[xPos-1][yPos].type = TileType.EMPTY; tiles[xPos-1][yPos].setTraitsByType();}
+    {  tiles[xPos-1][yPos].type = TileType.EMPTY; tiles[xPos-1][yPos].setTraitsByType(floorNumber);}
     if(tiles[xPos+1][yPos].canOpen())
-    {  tiles[xPos+1][yPos].type = TileType.EMPTY; tiles[xPos+1][yPos].setTraitsByType();}
+    {  tiles[xPos+1][yPos].type = TileType.EMPTY; tiles[xPos+1][yPos].setTraitsByType(floorNumber);}
     if(tiles[xPos][yPos-1].canOpen())
-    {  tiles[xPos][yPos-1].type = TileType.EMPTY; tiles[xPos][yPos-1].setTraitsByType();}
+    {  tiles[xPos][yPos-1].type = TileType.EMPTY; tiles[xPos][yPos-1].setTraitsByType(floorNumber);}
     if(tiles[xPos][yPos+1].canOpen())
-    {  tiles[xPos][yPos+1].type = TileType.EMPTY; tiles[xPos][yPos+1].setTraitsByType();}
+    {  tiles[xPos][yPos+1].type = TileType.EMPTY; tiles[xPos][yPos+1].setTraitsByType(floorNumber);}
     
     flipDoorSwitch(xPos,yPos); 
   }

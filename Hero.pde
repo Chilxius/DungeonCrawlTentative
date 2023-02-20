@@ -47,7 +47,7 @@ class Hero
     defending = false;
     
     //for testing
-    weapon = new Equipment("Club","ClayClub.png",5,true,3);
+    weapon = new Equipment("Fist","Fist.png",0,true,3);
     if(j==Job.KARATE)
     {
       weapon = new Equipment("Fist","Fist.png",0,true,25);

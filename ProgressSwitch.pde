@@ -15,17 +15,17 @@ class ProgressSwitch
     active = false;
   }
   
-  public ProgressSwitch( SwitchType t, int xInput, int yInput )
-  {
-    this( t, xInput, yInput, 0 );
-  }
+  //public ProgressSwitch( SwitchType t, int xInput, int yInput )
+  //{
+  //  this( t, xInput, yInput, 0 );
+  //}
   
   public ProgressSwitch( SwitchType t, int xInput, int yInput, int floorInput )
   {
     type = t;
     X = xInput;
     Y = yInput;
-    floor = 0;
+    floor = floorInput;
     active = true;
   }
   
