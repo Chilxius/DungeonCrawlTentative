@@ -98,7 +98,9 @@ class Map
   
   public void removeBoss( int xPos, int yPos )
   {
-    tiles[xPos][yPos].isBoss = false;
+    //tiles[xPos][yPos].isBoss = false;
+    //tiles[xPos][yPos].occupied = false;
+    tiles[xPos][yPos].removeBoss();
     flipBossSwitch(xPos,yPos);
   }
 }

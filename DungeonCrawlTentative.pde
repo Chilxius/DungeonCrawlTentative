@@ -2,8 +2,7 @@
 //Bennett Ritchie
 
 //TO DO:
-//Skills: animation system, images
-//Need to fix switches: empty chests and non-fightable bosses coming back on reload (from different floor)
+//Skills: animation system, skill icons
 
 //IMPROVEMENT:
 //Improve hero select widnow (circle sizes)
@@ -87,8 +86,8 @@ boolean newGame = false;
 SavePoint [] savePoints = new SavePoint[10]; //10 is temporary
 SavePoint lastSave = new SavePoint(); //should defalt to starting position
 boolean confirmSave = false;
-ProgressSwitch itemSwitches[] = new ProgressSwitch[100]; //don't know how big this will get
-ProgressSwitch doorSwitches[] = new ProgressSwitch[100]; //or this
+ProgressSwitch itemSwitches[] = new ProgressSwitch[50]; //don't know how big this will get
+ProgressSwitch doorSwitches[] = new ProgressSwitch[50]; //or this
 ProgressSwitch bossSwitches[] = new ProgressSwitch[10];  //or, in fact, this
 static int itemSwitchCount = 0;
 static int doorSwitchCount = 0;
@@ -546,7 +545,7 @@ void clearLoot( int index )
 void clearLoot( int floor, int xPos, int yPos, int index )
 {
   lootList[floor][index] = emptyChest;
-  m[party.floor].tiles[xPos][yPos].obj = Object.NONE;
+  m[floor].tiles[xPos][yPos].obj = Object.NONE;
 }
 
 void flipItemSwitch( int index )
@@ -1316,12 +1315,12 @@ public void loadFile( String fileName )
       
       party.hero[i].weapon = new Equipment(saveFileText[9+offset],saveFileText[10+offset],int(saveFileText[11+offset]),true,int(saveFileText[12+offset]));
       party.hero[i].armor = new Equipment(saveFileText[13+offset],saveFileText[14+offset],int(saveFileText[15+offset]),false,int(saveFileText[16+offset]));
-      party.hero[i].adjustStats();
+      party.hero[i].adjustStats(); //<>//
       //party.hero[i].assignSkills();
     }  
     
     //load save point
-    println("Save point # " + int(saveFileText[54]));
+    println("Save point # " + int(saveFileText[54])); //<>//
     party.setPosition(savePoints[int(saveFileText[54])]); //line 54, will be based on list
     //AT THIS POINT, SAVE POINT IS DELETED
     
@@ -1330,7 +1329,7 @@ public void loadFile( String fileName )
     //load inventory items
     createInventories(); //zeros out inventories - may be redundant in final version
     int fileLine = 57; //first line of inventory data
-    while(!saveFileText[fileLine].equals("XX"))
+    while(!saveFileText[fileLine].equals("XX")) //<>//
     {
       party.addToInventory(new Item(saveFileText[fileLine],int(saveFileText[fileLine+1])),true);
       fileLine+=2;
@@ -1345,7 +1344,7 @@ public void loadFile( String fileName )
     //Set progress switches
     
     //Item switches
-    fileLine+=2;
+    fileLine+=2; //<>//
     int switchIndex=0;
     while(!saveFileText[fileLine].equals("XX"))
     {
@@ -1353,13 +1352,13 @@ public void loadFile( String fileName )
           itemSwitches[switchIndex].active = boolean(saveFileText[fileLine]);
       else
         itemSwitches[switchIndex].active = false;
-        
+       
       switchIndex++;
       fileLine++;
     }
       
     //Door switches
-    fileLine+=2;
+    fileLine+=2; //<>//
     switchIndex=0;
     while(!saveFileText[fileLine].equals("XX"))
     {
@@ -1422,9 +1421,14 @@ public void loadFile( String fileName )
 
 void flipSwitches()
 {
-  for(int i = 0; i < min(itemSwitches.length,lootList[0].length); i++) //**only checking one floor**
+  println("CLEARING ITEM SWITCHES");
+  for(int i = 0; i < itemSwitches.length; i++)//min(itemSwitches.length,lootList[0].length); i++) //**only checking one floor** //<>//
     if(itemSwitches[i]!=null && !itemSwitches[i].active) //switch has been deactivated
+    {
       clearLoot(itemSwitches[i].floor,itemSwitches[i].X,itemSwitches[i].Y,i);
+      println("Cleared item switch #"+(i+1));
+    }
+  println("ITEM SWITCHES CLEARED");;
   for(int i = 0; i < doorSwitches.length; i++)
     if(doorSwitches[i]!=null && !doorSwitches[i].active) //switch has been deactivated
     {
