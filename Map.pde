@@ -13,8 +13,9 @@ class Map
   }
   
   //Assumes m will be 100x100 (10,000 total tiles) Fills in the gaps otherwise.
-  public Map( String m )
+  public Map( String m, int f )
   {
+    floorNumber = f;
     //Fills empty map slots - will probably create a bad map if unintentional
     while(m.length()<tiles.length*tiles[0].length)
     {

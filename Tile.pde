@@ -46,6 +46,7 @@ class Tile
     safe = false;
     isBoss = false;
     occupantColor = color(255);
+    k = Key.NONE;
     
     switch(t)
     {
@@ -197,7 +198,7 @@ class Tile
         event = false; break;
       }
       case DOORSTEP: {
-        tileColor = color(200);
+        tileColor = color(200); //<>//
         pathable = true;
         interactive = false;
         event = false;

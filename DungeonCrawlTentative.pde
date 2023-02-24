@@ -1,6 +1,8 @@
 //Basic Dungeon Crawl Game
 //Bennett Ritchie
 
+//PROBLEMS:
+
 //TO DO:
 //Skills: animation system, skill icons
 
@@ -483,7 +485,7 @@ String bonkText( char direction ) //for when the heroes run into obstacles
 
 boolean partyNextToBoss( int index ) //party is orthaganally adjacent to a boss
 {
-  //for( int i = 0; i < bossSwitches.length; i++ )
+  //for( int i = 0; i < bossSwitches.length; i++ ) //<>//
   //{
     if( ( ( party.X == bossSwitches[index].X-1 || party.X == bossSwitches[index].X+1 ) && party.Y == bossSwitches[index].Y ) 
     ||  ( ( party.Y == bossSwitches[index].Y-1 || party.Y == bossSwitches[index].Y+1 ) && party.X == bossSwitches[index].X ) )
@@ -710,7 +712,7 @@ void keyPressed()
             party.gold -= m[party.floor].tiles[party.X][party.Y].itemPrice;
         }
         else
-          displayTextLine( "You cannot afford the " + m[party.floor].tiles[party.X][party.Y].itemForSale.name +"." ); //party does not have enough gold
+          displayTextLine( "You cannot afford the " + m[party.floor].tiles[party.X][party.Y].itemForSale.name +"." ); //party does not have enough gold //<>//
       }
       else if( m[party.floor].tiles[party.X][party.Y].type == TileType.SELL ) //sell
       {
@@ -1018,7 +1020,7 @@ void keyPressed()
   
   if(key == '`') //for placing a break point
   {
-    println("DEBUG");
+    println("DEBUG"); //<>//
     println(party.X + " " + party.Y); //<>//
     println(dm[party.floor].dangerValueChar(party.X,party.Y));
   }
@@ -1031,7 +1033,7 @@ void keyPressed()
 }
 
 void keyReleased()
-{
+{ //<>//
   if( display == Display.ITEM_LIST && key == 's' )
     party.sortInventory();
   else if( previousDisplay != Display.NONE && (key == 'k' || key == 'i' || key == 'h'|| key == '`' ) )
@@ -1282,7 +1284,7 @@ public void saveGame( String fileName )
 }
 
 public void loadFile( String fileName )
-{
+{ //<>//
   String [] saveFileText;
   try
   {
@@ -1313,12 +1315,12 @@ public void loadFile( String fileName )
     //AT THIS POINT, SAVE POINT IS DELETED
     
     party.gold = int(saveFileText[56]);
-    
+     //<>//
     //load inventory items
     createInventories(); //zeros out inventories - may be redundant in final version
     int fileLine = 57; //first line of inventory data
     while(!saveFileText[fileLine].equals("XX"))
-    {
+    { //<>//
       party.addToInventory(new Item(saveFileText[fileLine],int(saveFileText[fileLine+1])),true);
       fileLine+=2;
     }
@@ -1327,7 +1329,7 @@ public void loadFile( String fileName )
     {
       party.addToInventory(new Item( stringToKey(saveFileText[fileLine])),true);
       fileLine++;
-    }
+    } //<>//
     
     //Set progress switches
     
@@ -1342,7 +1344,7 @@ public void loadFile( String fileName )
         itemSwitches[switchIndex].active = false;
        
       switchIndex++;
-      fileLine++;
+      fileLine++; //<>//
     }
       
     //Door switches
@@ -1356,7 +1358,7 @@ public void loadFile( String fileName )
       switchIndex++;
       fileLine++;
     }
- 
+  //<>//
     //Boss switches
     fileLine+=2;
     switchIndex=0;
@@ -1420,7 +1422,7 @@ void flipSwitches()
       m[doorSwitches[i].floor].openDoorsAround(doorSwitches[i].X,doorSwitches[i].Y);
       m[doorSwitches[i].floor].tiles[doorSwitches[i].X][doorSwitches[i].Y].interactive=false; //had to add this because the interact() method normally handles it
     }
-  for(int i = 0; i < bossSwitches.length; i++)
+  for(int i = 0; i < bossSwitches.length; i++) //<>//
     if(bossSwitches[i]!=null && !bossSwitches[i].active)
       m[bossSwitches[i].floor].removeBoss(bossSwitches[i].X,bossSwitches[i].Y);
 }

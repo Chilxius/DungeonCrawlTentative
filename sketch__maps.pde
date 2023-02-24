@@ -1,10 +1,15 @@
 void setupMaps()
-{
+{ 
   String mapStrings[] = new String[mapCount]; //10 is temporary
   String dangerStrs[] = new String[mapCount];
   
+  //These should always ++ themselves when used
   int savePointIndex = 0;
   int lootIndex = 0;
+  int mapIndex = 0;
+  
+  //This should be ++'d when the boss is made, then used for its attacks
+  int bossIndex = 0;
   
   //******************************************
   //Zeros out loot tables with worthless keys at 0,0
@@ -35,9 +40,9 @@ void setupMaps()
   //      G-gargoyle     R-dark gargoyle
 
   //      +-locked door  .-safe path  w-water       g-grave   &-stained glass    @-campsite/tavern
-  //      c-copper key   i-iron key   s-skel key    b-brass key ~-grass          $-secret wall   ¢-secret dark wall
+  //      c-copper key   i-iron key   s-skel key    b-brass key ~-grass          $-secret wall   ¢-secret dark wall (alt-4)
 
-  //      >-New floor portal
+  //      >-Stairs
 
   mapStrings[0] = "";
   mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##################TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
@@ -45,24 +50,24 @@ void setupMaps()
   mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT########&#..................#&########TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTT########&#............................#&########TTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTT####&##&#....................................#&##&####TTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTTTTT#######....................................................#######TTTTTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTT####................................................................####TTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTT####....................................................................####TTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT####################TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[0] += "~TTtttttttttt~~~~~%~~%~%%www~~~#.#.#%~~~%*%~T~TTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[0] += "#TTtTTTTTTTTTT~~~~~%~~~~~wDw~~~#.#.#~~T~%%%~~TTT~T~TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[0] += "~TTTTTTTTtTTTTTTTTTTTTTTTTwTTTTT~~~~~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[0] += "~TTTTT=tttTTTTTTTTTTTTTTTTwwTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[0] += "#TTTTTTTTTTTTTTTTTTTTTTTTTTwTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[0] += "~TTTTTTTTTTTTTTTTTTTTTTTTTTwwwwTTTTTTTTTTTTTTTTTTTTTTTT                                            ~";
-  mapStrings[0] += "~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTwTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[0] += "#TTTTTTTTTTTTTTTTTTTTTTTTTTTTwwwTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[0] += "~         ~                 wwwww                 T                                                ~";
-  mapStrings[0] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~wwwww~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[0] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~wwwww~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[0] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[0] += "~         ~                                       T                                                ~";
-  mapStrings[0] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+  mapStrings[0] += "DTTTTTTTTTTTTTTTTTT#####&#................................................#&#####TTTTTTTTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTTTTTT#####........................................................#####TTTTTTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTTT####...##......................................................##...####TTTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTT###......##....................................................##......###TTTTTTTTTTTTT";
+  mapStrings[0] += "DTT###TT###T##.........##..................................................##.........##T###TTT###TT";
+  mapStrings[0] += "DTT#>#TT#>###...........##.........##############################.........##...........###>#TTT#.#TT";
+  mapStrings[0] += "DT##.####+##.............#####.#####..........www##www..........#####.#####.............##+#####.##T";
+  mapStrings[0] += "DT#......i................#..................wwww##wwww..................#................i.......#T";
+  mapStrings[0] += "TT#.........................................ww%%wwww%%ww..........................................#T";
+  mapStrings[0] += "TT#.i....i................#..................wwww##wwww..................#................i.....i.#T";
+  mapStrings[0] += "DT##+####+##.............##...................ww.##.ww...................##.............##+#####+##T";
+  mapStrings[0] += "DTT#>#TT#>###...........##.......................##.......................##...........###>#TTT#>#TT";
+  mapStrings[0] += "DTT###TT###T##.........###.....................c.##.i.....................###.........##T###TTT###TT";
+  mapStrings[0] += "DTTTTTTTTTTTT###......##.######################+####+######################.##......###TTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTTT##.....##......................................................##.....##TTTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTTTT##...##........................................................##...##TTTTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTTTTT##.##..........................................................##.##TTTTTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTTTTTT##################################################################TTTTTTTTTTTTTTTTT";
   mapStrings[0] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
   mapStrings[0] += "~         ~                                       T                                                ~";
   mapStrings[0] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
@@ -141,10 +146,17 @@ void setupMaps()
   mapStrings[0] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
   mapStrings[0] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
 
-  m[0] = new Map(mapStrings[0]);
+  m[0] = new Map(mapStrings[0],mapIndex++);
+  //m[0].floorNumber = 0;
   
-  //exits.add( new Portal(44,0,0,2,3,1) );
-  //exits.add( new Portal(96,2,0,41,3,1) );
+  
+  m[0].tiles[49][3].placeOccupant( color(150, 250, 250), "She doesn't have time to talk to you." );
+  
+  
+  m[0].tiles[3][12].placeOccupant( color(150, 250, 250), "She doesn't have time to talk to you." );
+  
+  //To west cellar
+  exits.add( new Portal(0,4,10,1,81,1) );
 
 /*
   m[0].tiles[10][0].placeOccupant( color(150, 150, 250), "- You found one of my hiding spots!" );
@@ -305,34 +317,32 @@ void setupMaps()
 
   mapStrings[1] = "";
   
-  mapStrings[1] += "£  333     £  33###########  £  ################     ###                                            ";
-  mapStrings[1] += "3333R3333  £  3...........#  £  #&#>#&#........#     #=#                                            ";
-  mapStrings[1] += "3=?...?*3  £  3.33#.w.###.#  £  ###.###.#####..#     £.£                                            ";
-  mapStrings[1] += "3.......3  £  3.3...w...#.#  £  ##...##....>#..#     £ £                                            ";
-  mapStrings[1] += "3[.[[.?.3  £  3.333.w.###.#  £  #.....#######..#££££££ £                                            ";
-  mapStrings[1] += "3333333c3  £  3.3...w...#.#  £  #..............¢       £                                            ";
-  mapStrings[1] += "3>33333+3  £  3.333.w.###.#  £  ################£££££££                                             ";
-  mapStrings[1] += "3.......3  £  3>3...w...#>#  £                                                                      ";
-  mapStrings[1] += "333333333  £  3333333333###  £                                                                      ";
-  mapStrings[1] += "                                                                                                    ";
-
+  mapStrings[1] += "£  333     £  33###########  £  ################     ###  £  ###     ################  £            ";
+  mapStrings[1] += "3333R3333  £  3...........#  £  #&#>#&#........#     #=#  £  #=#     #........#&#>#&#  £            ";
+  mapStrings[1] += "3=?...?*3  £  3.33#.w.###.#  £  ###.###.#####..#     £ £  £  £ £     #[.#####.###.###  £            ";
+  mapStrings[1] += "3.......3  £  3.3...w...#.#  £  ##...##....>#..#     £ £  £  £ £     #..#>....#.....#  £            ";
+  mapStrings[1] += "3[.[[.?.3  £  3.333.w.###.#  £  #.....#######..#££££££ £  £  £ ££££££#..#######.....#  £            ";
+  mapStrings[1] += "3333333c3  £  3.3...w...#.#  £  #..............¢       £  £  £       $............[[#  £            ";
+  mapStrings[1] += "3>33333+3  £  3.333.w.###.#  £  ################£££££££   £   £££££££################  £            ";
+  mapStrings[1] += "3.......3  £  3>3...w...#>#  £                            £                            £            ";
+  mapStrings[1] += "333333333  £  3333333333###  £                            £                            £            ";
+  mapStrings[1] += "           £                 £££££££££££££££££££££££££££££ ££££££££££££££££££££££££££££             ";
   mapStrings[1] += "           £                 £                                                                      ";
-  mapStrings[1] += "£££££££££££££££££££££££££££££££££                                                                   ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "£££££££££££ £££££££££££££££££                                                                       ";
   mapStrings[1] += "           £                 £                                                                      ";
   mapStrings[1] += "           £                 £                                                                      ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "333333333  £  33###########  £                                                                      ";
+  mapStrings[1] += "3.......3  £  3...........#  £                                                                      ";
+  mapStrings[1] += "3.3333333  £  3.33#.w.###.#  £                                                                      ";
+  mapStrings[1] += "3.......3  £  3.3...w...#.#  £                                                                      ";
+  mapStrings[1] += "3333333+3  £  3.333.w.###.#  £                                                                      ";
+  mapStrings[1] += "3>33333c3  £  3.3...w...#.#  £                                                                      ";
+  mapStrings[1] += "3.......3  £  3.333.w.###.#  £                                                                      ";
+  mapStrings[1] += "333333333  £  3>3=..w...#>#  £                                                                      ";
+  mapStrings[1] += "           £  3333333333###  £                                                                      ";
+  mapStrings[1] += "           £                 £                                                                      ";
+  mapStrings[1] += "££££££££££££                 £                                                                      ";
+  mapStrings[1] += "            £££££££££££££££££                                                                       ";
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
@@ -415,11 +425,14 @@ void setupMaps()
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
   
-  m[1] = new Map(mapStrings[1]);
+  m[1] = new Map(mapStrings[1],mapIndex++);
+  //m[1].floorNumber=1;
   
   createLoot(lootIndex++, 1, 3, 4, Key.COPPER_KEY);
   createLoot(lootIndex++, 1, 1, 2, new Equipment("Brocade","YellowShirt.png",5,false,5,true));
-  createLoot(lootIndex++, 1, 54, 1, new Equipment("Ivory Knife","IceDagger.png",15,true,15,true));
+  createLoot(lootIndex++, 1, 54, 1, new Equipment("Ivory Knife","IceDagger.png",15,true,15,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST,Job.MAGE));
+  createLoot(lootIndex++, 1, 62, 1, new Equipment("Club","OldClub.png",3,true,20,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST));
+  createLoot(lootIndex++, 1, 17, 21, Key.COPPER_KEY);
   
   m[1].tiles[2][2].createEvent(true, "- The (space) key can be used to open chests like this one. You also use this key to search your current square. See if you can find anything left behind in this room by careless initiates.");
   m[1].tiles[6][2].createEvent(true, "- This is a sacred Legend Gem. Gazing into it, you can feel your acomplishments being told around campfires centuries from now. Step on it and press capital (S) to activate it, and then press ENTER to confirm and save your progress.");
@@ -439,13 +452,36 @@ void setupMaps()
   
   savePoints[savePointIndex++] = new SavePoint(7, 2, 1);
   
+  //Start room - second room
   exits.add( new Portal(1,1,6,1,15,7) );
   exits.add( new Portal(1,15,7,1,1,6) );
   
+  //second room - third room
   exits.add( new Portal(1,25,7,1,43,3) );
   exits.add( new Portal(1,43,3,1,25,7) );
   
-  exits.add( new Portal(1,35,1,0,50,4) );
+  //To cathedral east
+  exits.add( new Portal(1,35,1,0,96,10) );
+  
+  //To cathedral west
+  exits.add( new Portal(1,81,1,0,4,10) );
+  
+  //West cellar upper to rat dungeon 1
+  exits.add( new Portal(1,73,3,1,25,21) );
+  exits.add( new Portal(1,25,21,1,73,3) );
+  
+  //Rat dungeon 1 and 2
+  exits.add( new Portal(1,15,21,1,1,19) );
+  exits.add( new Portal(1,1,19,1,15,21) );
+
+  m[1].tiles[7][15].placeBoss( 1, color(150, 80, 40), "This must be the matriarch.", new Monster("Giant Rat", "BrownRat.png", 15, 5, 10, 1, 100, 5, 5, 0, AttackType.FIRE) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
+      zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 30, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 30, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("summons its brood!", 35, true);
+  bossIndex++;
+  
   /*
   exits.add( new Portal(2,3,1,44,0,0) );
   exits.add( new Portal(41,3,1,96,2,0) );
