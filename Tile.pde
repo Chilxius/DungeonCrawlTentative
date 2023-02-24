@@ -1,4 +1,4 @@
-static color safeColor = #FFFFFF;
+static color safeColor = #C8C8C8;
 
 class Tile
 {
@@ -52,6 +52,9 @@ class Tile
       case '@':type=TileType.CAMP;break;
       case '#':type=TileType.WALL;break;
       case '$':type=TileType.SECRET_WALL;break;
+      case '3':type=TileType.DARK_WALL;break;
+      case '¢':type=TileType.SECRET_DARK_WALL;break;
+      case '4':type=TileType.SAND_WALL;break;
       case '~':type=TileType.GRASS;break;
       case '+':type=TileType.DOOR;break;
       case 'w':type=TileType.WATER;break;
@@ -63,7 +66,9 @@ class Tile
       case '&':type=TileType.S_GLASS;break;
       case '>':type=TileType.STAIR_DOWN;break;
       case ' ':type=TileType.DARK;break;
-      case '£':type=TileType.DARK_WALL;break;
+      case '£':type=TileType.BLACK_WALL;break;
+      case 'G':type=TileType.GARGOYLE;break;
+      case 'R':type=TileType.GARGOYLE_DARK;break;
       //different key types
       case 'c':
       case 'i':
@@ -78,6 +83,7 @@ class Tile
       case '=':obj=Object.CHEST;type=TileType.SAFE;break;
       case '?':obj=Object.SIGN;type=TileType.SAFE;break;
       case '*':obj=Object.SAVEPOINT;type=TileType.SAFE;break;
+      case '[':obj=Object.BARREL;type=TileType.SAFE;break;
       default: obj=Object.NONE;break;
     }
     
@@ -105,6 +111,18 @@ class Tile
         event = false; break;
       }
       case DARK_WALL: {
+        tileColor = color(200);
+        pathable = false;
+        interactive = false;
+        event = false; break;
+      }
+      case SECRET_DARK_WALL: {
+        tileColor = color(200);
+        pathable = true;
+        interactive = false;
+        event = false; break;
+      }
+      case BLACK_WALL: {
         tileColor = color(0);
         pathable = false;
         interactive = false;
@@ -150,6 +168,19 @@ class Tile
       case SECRET_WALL: {
         tileColor = color(120);
         pathable = true;
+        interactive = false;
+        event = false; break;
+      }
+      case S_GLASS: {
+        tileColor = color(255);
+        pathable = false;
+        interactive = false;
+        event = false; break;
+      }
+      case GARGOYLE_DARK:
+      case GARGOYLE: {
+        tileColor = color(200);
+        pathable = false;
         interactive = false;
         event = false; break;
       }
@@ -341,11 +372,17 @@ class Tile
         safeColor=tileColor;
       else if(type == TileType.WALL)
         safeColor=#FFFFFF;
+      else if(type == TileType.DARK_WALL)
+        safeColor=#C8C8C8;
     }
     noStroke();
     rect(xPos,yPos,30,30);
     if(type == TileType.WALL || type == TileType.SECRET_WALL)
       image(tileImage[0],xPos,yPos);
+    else if(type == TileType.DARK_WALL || type == TileType.SECRET_DARK_WALL)
+      image(tileImage[49],xPos,yPos);
+    else if(type == TileType.SAND_WALL)
+      image(tileImage[50],xPos,yPos);
     else if(type == TileType.S_GLASS)
       image(tileImage[43],xPos,yPos);
     else if(type == TileType.DOOR)
@@ -368,6 +405,10 @@ class Tile
       image(tileImage[48],xPos,yPos);
     else if(type == TileType.STAIR_DOWN)
       image(tileImage[40],xPos,yPos);
+    else if(type == TileType.GARGOYLE)
+      image(tileImage[51],xPos,yPos);
+    else if(type == TileType.GARGOYLE_DARK)
+      image(tileImage[52],xPos,yPos);
     if(occupied)
     {
       fill(occupantColor); noStroke();
@@ -385,6 +426,10 @@ class Tile
     float yPos = 360;
     if(type == TileType.TREE_PATH)
       image(tileImage[47],xPos-10,yPos-10);
+    if(type == TileType.SECRET_WALL)
+      image(tileImage[0],xPos,yPos);
+    if(type == TileType.SECRET_DARK_WALL)
+      image(tileImage[49],xPos,yPos);
   }
   
   public boolean canOpen()
@@ -430,7 +475,8 @@ class Tile
 public enum TileType
 {
   EMPTY, WALL, SECRET_WALL, GRASS, EVENT, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH,
-  DARK, DARK_WALL, DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE, CAMP, MERCHANT, SHOP, SELL,
+  DARK, BLACK_WALL, DARK_WALL, SECRET_DARK_WALL, SAND_WALL, DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE, GARGOYLE, GARGOYLE_DARK,
+  CAMP, MERCHANT, SHOP, SELL,
   STAIR_DOWN
 }
 
@@ -441,6 +487,6 @@ public enum Key //special items for interactive tiles
 
 public enum Object //tile has an object (still pathable)
 {
-  CHEST, SIGN, SAVEPOINT,
+  CHEST, SIGN, SAVEPOINT, BARREL,
   NONE
 }

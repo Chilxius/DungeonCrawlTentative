@@ -53,7 +53,7 @@ class Hero
       weapon = new Equipment("Fist","Fist.png",0,true,25);
       adjustFistPower();
     }
-    armor = new Equipment("Shirt","WhiteShirt.png",1,false,5);
+    armor = new Equipment("Shirt","WhiteShirt.png",1,false,1);
     
     assignSkills();
   }

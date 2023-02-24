@@ -88,10 +88,10 @@ class Artist
     rect(width/2,height/4-20-32,470,14,5);
     rect(width/2,height/4-20+32,470,14,5);
     
-    textSize(40);
-    fill(60,40,0);
+    textSize(45);
+    fill(127);
     textAlign(CENTER);
-    text("Ritchie's Dungon Crawl",width/2,height/4-5);
+    text("The Riddle of Iron",width/2,height/4-5);
     
     textSize(20);
     fill(255);
@@ -120,11 +120,12 @@ class Artist
   
   public void drawItems( Item [] items ) //add gold in side window and loot sack
   {      
-    drawGoldBox();
+    if(party.gold > 0)
+      drawGoldBox();
     fill(0);  rectMode(CORNER);
     stroke(200);
     strokeWeight(5);
-    rect(10,height-320,110,200,20); //loot box
+    //rect(10,height-320,110,200,20); //loot box
     rect(100,100,width-200,height-200,20); //main window
     
     fill(200); textAlign(LEFT); textSize(25);
@@ -480,20 +481,24 @@ class Artist
     text("Keyboard Commands:",110,205);
     textSize(20);
     text("(w)(a)(s)(d) - Move party around map",110,235);
-    text("(E) - Eat food",110,260);
-    text("(D) - Drink potion",110,285);
-    text("(S) - Save at a crystal",110,310);
-    text("(R) - Rest at an inn or camp",110,335);
-    text("(B) - Bargain with a vendor",110,360);
-    text("(o) - Open door",110,385);
-    text("(space) - Open chest / Search current space",110,410);
-    text("Hold (i) - View inventory",110,435);
-    text("Hold (k) - View keys",110,460);
-    text("Hold (h) - View help menu",110,485);
+    text("(E) - Eat food",110,260); text("(D) - Drink potion",350,260);
+    text("(S) - Save at a Legend Gem",110,285);
+    text("(R) - Rest at an inn or camp",110,310);
+    text("(B) - Bargain with a vendor",110,335);
+    text("(o) - Open door",110,360); text("(>) - Use a staircase",350,360);
+    text("(space) - Open chest / Search current space",110,385);
+    text("Hold (i) - View inventory",110,410);
+    text("Hold (k) - View keys",110,435);
+    text("Hold (h) - View help menu",110,460);
     textSize(15);
     text(" Battle inputs are shown. The (space) key can usually be used to",110,515);
     text(" cancel. (1)(2)(3) are interchangable with (a)(s)(d) when selecting",110,535);
     text(" heroes or targets. Click hero boxes for detailed information.",110,555);
+  }
+  
+  public void drawCredits()
+  {
+    
   }
   
   public void drawHeroSelectScreen()
@@ -618,38 +623,19 @@ class Artist
     switch(o)
     {
       case CHEST:
-        /*
-        fill(90,70,30);
-        rect(xPos+13,yPos+13,15,15,3);
-        fill(255,225,0);
-        rect(xPos+13,yPos+17,15,2);
-        rect(xPos+18,yPos+17,4,4);
-        */
         image(tileImage[30],xPos,yPos);
         break;
       case SIGN:
-        /*
-        fill(90,70,30);
-        rect(xPos+5,yPos+5,20,15);
-        rect(xPos+14,yPos+5,2,20);
-        */
         image(tileImage[36],xPos,yPos);
         break;
       case SAVEPOINT:
-        /*
-        fill(animationStage*2.5,animationStage*2.5,255);
-        beginShape();
-        vertex(xPos+15,yPos+5);
-        vertex(xPos+23,yPos+15);
-        vertex(xPos+15,yPos+25);
-        vertex(xPos+7,yPos+15);
-        vertex(xPos+15,yPos+5);
-        endShape();
-        */
         if(animationStage<8)
           image(tileImage[int(20+animationStage)],xPos-5,yPos-5-savePointFloat);
         else
           image(tileImage[20],xPos-5,yPos-5-savePointFloat);
+        break;
+      case BARREL:
+        image(tileImage[28],xPos,yPos);
         break;
     }
   }

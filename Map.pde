@@ -111,7 +111,7 @@ public class Portal //for switching maps
   int destinationX, destinationY;
   int originFloor, destinationFloor;
   
-  public Portal( int oX, int oY, int oF, int dX, int dY, int dF )
+  public Portal( int oF, int oX, int oY, int dF, int dX, int dY )
   {
     originX = oX;
     originY = oY;

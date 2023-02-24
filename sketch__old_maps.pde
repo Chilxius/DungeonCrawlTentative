@@ -1,56 +1,16 @@
-void setupMaps()
-{
-  String mapStrings[] = new String[mapCount]; //10 is temporary
-  String dangerStrs[] = new String[mapCount];
-  
-  int savePointIndex = 0;
-  int lootIndex = 0;
-  
-  //******************************************
-  //Zeros out loot tables with worthless keys at 0,0
-  for(int i = 0; i < lootList.length; i++)
-    for(int j = 0; j < lootList[0].length; j++)
-      lootList[i][j] = new Loot(0,0,Key.NONE);
-      
-  //******************************************
-  //Set up danger maps
-  for(int i = 0; i < dangerStrs.length; i++)
-  {
-    mapStrings[i] = " ";
-    dangerStrs[i] = "";
-    for(int j = 0; j < 9999; j++)
-      mapStrings[i]+=" ";
-    for(int j = 0; j < 10000; j++)
-      dangerStrs[i]+="0";
-  }
-        
-  //******************************************
-  //Set up save points
-  for (int i = 0; i < savePoints.length; i++)
-    savePoints[i]=new SavePoint();
-    
-    
-  //Key:  D-dark tree    T-tree    t-secret tree    #-wall      =-chest    ?-sign    *-save crystal
-  //       -darkness     £-darkness wall (alt-3)    3-dark wall 5-sandstone wall     [-barrel
-  //      G-gargoyle     R-dark gargoyle
-
-  //      +-locked door  .-safe path  w-water       g-grave   &-stained glass    @-campsite/tavern
-  //      c-copper key   i-iron key   s-skel key    b-brass key ~-grass          $-secret wall   ¢-secret dark wall
-
-  //      >-New floor portal
-
+/*
   mapStrings[0] = "";
-  mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##################TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#####&##&##&##&##&##&#####TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT########&#..................#&########TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTT########&#............................#&########TTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTT####&##&#....................................#&##&####TTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTTTTT#######....................................................#######TTTTTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTT####................................................................####TTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTT####....................................................................####TTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT####################TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[0] += "D########T~~tt~~t~~~~T~~~~~=~~~~~~~~~~~~~~~~>TTTTT#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DTTTDTTTT~~D~~~";
+  mapStrings[0] += "##.?.?.?############~~~%%%%%%%%%~~~~###~###~~?TTTT#######~~~~~~~~~~~~~~~~~~~~~~~~~~~DT=~~TTTTTT###D~";
+  mapStrings[0] += "#.....?*.#.....=.==#~~~%%%www%%%~~~T#.#~#=#~~~~TTT#&&&&&#~~~~~~~~~~~~~~~~~~~~~~~~~~~DT~~~~~~tt~~>#~~";
+  mapStrings[0] += "#?.......###.#######~~~%%%%%%%%%~~~~#@#~#+#~~T~~TT############~~~~~~~~~~~~~~~~~~~~~~DT~~~TTTTTT###~D";
+  mapStrings[0] += "#..........?......c+......~?~............c.......i+       s+=#~~~~~~~~~~~~~~~~~~~~~~~DTTTTwwTwTTTT~~";
+  mapStrings[0] += "#=.?.=..........?.?#~~~~~.....~~~~~~~~~~%.%~T~~~TT############~~~~~~~~~~~~~~~~~~~~~~~~DDDDDwwwTT~~T~";
+  mapStrings[0] += "####################%~~~~~~~~~~~g%~~~~T~%.%~~~~~TT#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%%wwwTT~~~";
+  mapStrings[0] += "~TTTTTTTTTTTT~~~~~~%~~~~~~~~~~g~~~~~~~~~%.%~~~~TTT#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%%%ww%~~~";
   mapStrings[0] += "~TTtttttttttt~~~~~%~~%~%%www~~~#.#.#%~~~%*%~T~TTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
   mapStrings[0] += "#TTtTTTTTTTTTT~~~~~%~~~~~wDw~~~#.#.#~~T~%%%~~TTT~T~TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
+  mapStrings[0] += "#TTtttttttTTTTT~~~~~%~~~%www~~~#####~~~~~~~~TTT~T~TTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
   mapStrings[0] += "~TTTTTTTTtTTTTTTTTTTTTTTTTwTTTTT~~~~~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[0] += "~TTTTT=tttTTTTTTTTTTTTTTTTwwTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
   mapStrings[0] += "#TTTTTTTTTTTTTTTTTTTTTTTTTTwTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
@@ -143,10 +103,9 @@ void setupMaps()
 
   m[0] = new Map(mapStrings[0]);
   
-  //exits.add( new Portal(44,0,0,2,3,1) );
-  //exits.add( new Portal(96,2,0,41,3,1) );
+  exits.add( new Portal(44,0,0,2,3,1) );
+  exits.add( new Portal(96,2,0,41,3,1) );
 
-/*
   m[0].tiles[10][0].placeOccupant( color(150, 150, 250), "- You found one of my hiding spots!" );
   m[0].tiles[10][2].placeOccupant( color(255, 0, 0), "- I think I dropped a key in the flower garden." );
   m[0].tiles[16][2].placeOccupant( color(255, 150, 0), "- I love hiding things in chests!");
@@ -190,22 +149,22 @@ void setupMaps()
       zoo.boss[1].attacks[2] = new Attack("bites!", 55, false);
       zoo.boss[1].attacks[3] = new Attack("rends and tears!", 45, true);
       zoo.boss[1].attacks[4] = new Attack("goes for the jugular!", 85, false);
-*/
+  
   dangerStrs[0] = "";
-  dangerStrs[0] += "A000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[0] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[0] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[0] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[0] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[0] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[0] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[0] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[0] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[0] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+  dangerStrs[0] += "A000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
+  dangerStrs[0] += "0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
+  dangerStrs[0] += "0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
+  dangerStrs[0] += "0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
+  dangerStrs[0] += "0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
+  dangerStrs[0] += "0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
+  dangerStrs[0] += "0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
+  dangerStrs[0] += "0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
+  dangerStrs[0] += "0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
+  dangerStrs[0] += "0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
 
-  dangerStrs[0] += "B000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[0] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[0] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+  dangerStrs[0] += "B000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
+  dangerStrs[0] += "0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
+  dangerStrs[0] += "0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111";
   dangerStrs[0] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
   dangerStrs[0] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
   dangerStrs[0] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
@@ -302,26 +261,79 @@ void setupMaps()
   dangerStrs[0] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
   dangerStrs[0] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-
   mapStrings[1] = "";
   
-  mapStrings[1] += "£  333     £  33###########  £  ################     ###                                            ";
-  mapStrings[1] += "3333R3333  £  3...........#  £  #&#>#&#........#     #=#                                            ";
-  mapStrings[1] += "3=?...?*3  £  3.33#.w.###.#  £  ###.###.#####..#     £.£                                            ";
-  mapStrings[1] += "3.......3  £  3.3...w...#.#  £  ##...##....>#..#     £ £                                            ";
-  mapStrings[1] += "3[.[[.?.3  £  3.333.w.###.#  £  #.....#######..#££££££ £                                            ";
-  mapStrings[1] += "3333333c3  £  3.3...w...#.#  £  #..............¢       £                                            ";
-  mapStrings[1] += "3>33333+3  £  3.333.w.###.#  £  ################£££££££                                             ";
-  mapStrings[1] += "3.......3  £  3>3...w...#>#  £                                                                      ";
-  mapStrings[1] += "333333333  £  3333333333###  £                                                                      ";
+  mapStrings[1] += "£ ###       ###      ###      ###     #####              ###£££££££££££££££££££££#####              ";
+  mapStrings[1] += " #   #      #&#      #&#      #&#    ##   ##    #        #                          =#              ";
+  mapStrings[1] += "#     ################################     #    #        # #£££££££££££££££££££££# ###              ";
+  mapStrings[1] += "# >                                      >*#    #        £ £                     # #                ";
+  mapStrings[1] += "#     ################ ###############     #             £ £                     £ £                ";
+  mapStrings[1] += " #   #     ###£££    # #             ##   ##             £ £                     £ £                ";
+  mapStrings[1] += "  ###      #    £    # #              #####              £ £                     £ £                ";
+  mapStrings[1] += "           #=#£ £    # #                                 £ £                     £ £                ";
+  mapStrings[1] += "           ###£ £ #### ####                              £ £                     £                  ";
+  mapStrings[1] += "              £ ££#       #££££££££££££££££££££££££££££££# #                     £ £                ";
+  mapStrings[1] += "              £   $ = = = $                                #                     £ £                ";
+  mapStrings[1] += "              ££££#########££££££££££££££££££££££££££££££###                       £                ";
+  mapStrings[1] += "                                                                                 £ £                ";
+  mapStrings[1] += "                                                                                 #b#                ";
+  mapStrings[1] += "                                                                                 #+#                ";
+  mapStrings[1] += "                                                                                 # #                ";
+  mapStrings[1] += "                                                                                 ###                ";
   mapStrings[1] += "                                                                                                    ";
-
-  mapStrings[1] += "           £                 £                                                                      ";
-  mapStrings[1] += "£££££££££££££££££££££££££££££££££                                                                   ";
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "           £                 £                                                                      ";
-  mapStrings[1] += "           £                 £                                                                      ";
+  
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+    
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+    
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
@@ -359,97 +371,11 @@ void setupMaps()
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
-    
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
   
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-    
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  
-  m[1] = new Map(mapStrings[1]);
-  
-  createLoot(lootIndex++, 1, 3, 4, Key.COPPER_KEY);
-  createLoot(lootIndex++, 1, 1, 2, new Equipment("Brocade","YellowShirt.png",5,false,5,true));
-  createLoot(lootIndex++, 1, 54, 1, new Equipment("Ivory Knife","IceDagger.png",15,true,15,true));
-  
-  m[1].tiles[2][2].createEvent(true, "- The (space) key can be used to open chests like this one. You also use this key to search your current square. See if you can find anything left behind in this room by careless initiates.");
-  m[1].tiles[6][2].createEvent(true, "- This is a sacred Legend Gem. Gazing into it, you can feel your acomplishments being told around campfires centuries from now. Step on it and press capital (S) to activate it, and then press ENTER to confirm and save your progress.");
-  m[1].tiles[6][4].createEvent(true, "- Some doors are locked. You can view your key ring by holding down the (k) key. By examining a door, you can determine what key is required. If you stand next to the door and press the (o) key, you will use the proper key if you possess it. Keys are fragile, and usually break after a single use.");
-  m[1].tiles[2][7].createEvent(false, "- This stairwell will lead to a different room. Stand on it and press the (>) key to ascend.");
-  m[1].tiles[18][1].createEvent(false, "- Some of the clerics are busy cleaning the cellar. Walk into their space to speak with them.");
-  m[1].tiles[35][3].createEvent(false, "- Sometimes, you can pass only one way across a threshold. This is one of those moments. Once you ascend these stairs, your story will truly begin. Good luck, young heroes.");
-  
-  m[1].tiles[17][3].placeOccupant( color(75,100,255), "- Good morning, young ones. We made fresh bread this morning. To eat food you are carrying, press capital (E). You need peace and quiet to eat. Don't try to eat during a fight or it will ruin your digestion." );
-  m[1].tiles[17][5].placeOccupant( color(75,100,255), "- I think we have some magical potions left in the western cellar. Those are quite useful as they can be consumed during combat. There are only four varieties of potion, though. Thanks, prohhibition. Press capital (D) to drink potions while in the field." );
-  m[1].tiles[17][7].placeOccupant( color(75,100,255), "- When you are weary, seek out an inn or campsite. The people of Irid left many tents of sturdy and long-lasting leather across the land. Press capital (R) to rest at such a site." );
-  m[1].tiles[23][3].placeOccupant( color(75,100,255), "- We have all we need here at the Irohill Cathedral. However, if you some day leave, you may need to trade with vendors. Press capital (B) to bargain with them, but be wary of those who would cheat you." );
-  m[1].tiles[23][5].placeOccupant( color(75,100,255), "- The Vendor's Guild is strict, and prohibits vedors from buying from you. Some will flaunt these rules and will give you gold for your unneeded treasures. Seek them out if you need coin." );
-  m[1].tiles[23][7].placeOccupant( color(75,100,255), "- You were given a map of the Cathedral, yes? There is a helpful list of tips on the back of it. Hold the (h) key to view these helpful tips whenever you need." );
-  m[1].tiles[46][2].placeOccupant( color(75,100,255), "- Good morning, children. I'm sorry to tell you, but Father Charis crossed the Veil last night. He was a man of towering benevolence, though you know that better than anyone. Mother Sunita will be speaking on his behaf during morning meal." );
-  m[1].tiles[46][4].placeOccupant( color(75,100,255), "- I wish Father Charis hadn't taken in so many orphans. You three made so much noise playing games and looking for secret rooms that I could barely focus on my gardening." );
-  
-  savePoints[savePointIndex++] = new SavePoint(7, 2, 1);
-  
-  exits.add( new Portal(1,1,6,1,15,7) );
-  exits.add( new Portal(1,15,7,1,1,6) );
-  
-  exits.add( new Portal(1,25,7,1,43,3) );
-  exits.add( new Portal(1,43,3,1,25,7) );
-  
-  exits.add( new Portal(1,35,1,0,50,4) );
-  /*
   exits.add( new Portal(2,3,1,44,0,0) );
   exits.add( new Portal(41,3,1,96,2,0) );
   
+  m[1] = new Map(mapStrings[1]);
   
   m[1].tiles[50][10].createEvent(false, "You feel a chill in your bones...");
   
@@ -464,43 +390,4 @@ void setupMaps()
       zoo.boss[2].attacks[2] = new Attack("strikes with [??????]!", 50, false);
       zoo.boss[2].attacks[3] = new Attack("attacks with [??????]!", 45, false);
       zoo.boss[2].attacks[4] = new Attack("freezes your game!", 35, true, AttackStat.MAG, AttackType.ICE);
-    */  
-
-  //savePoints[1] = new SavePoint(41, 8, 0);
-  //savePoints[2] = new SavePoint(42, 3, 1);
-  
-  //for(int i = 2; i < m.length; i++)
-  //  m[i] = new Map(mapStrings[i]);
-  
-  for(int i = 0; i < dm.length; i++)
-    dm[i] = new DangerMap(dangerStrs[i]);
-
-
-//---------LOOT SECTION-------------------//
-
-  /*
-  //Sets up first floor's loot
-  createLoot(0,0, 15,2 ,Key.COPPER_KEY);
-  createLoot(0,1, 1, 5 ,new Item("Red Crystal",75));
-  createLoot(0,2, 5, 5 ,new Item("Orange Crystal",75));
-  createLoot(0,3, 30,2 ,Key.COPPER_KEY);
-  createLoot(0,4, 41,2 ,Key.IRON_KEY);
-  createLoot(0,5, 6, 12,Key.SKELETON_KEY);
-  createLoot(0,6, 60,4 ,new Item("Win Crystal",800));
-  createLoot(0,7, 2, 3 ,new Item("Gold Coin",5));
-  createLoot(0,8, 27,0 ,new Equipment("Dagger","MetalDagger.png",15,true,25,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.MAGE)); 
-  
-  createLoot(1,9, 12,7 ,new Item("Dog Statue",500));
-  createLoot(1,10,20,10,new Equipment("Steel Plate","MetalArmor.png",50,false,20,Job.KNIGHT,Job.PRIEST));
-  createLoot(1,11,22,10,new Equipment("Boiled Leather","LeatherArmor.png",25,false,15,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST));
-  createLoot(1,12,24,10,new Equipment("Silk Shirt","BlueShirt.png",15,false,8,true));
-  
-  createLoot(0,13,86,1 ,new Equipment("The Hurter","RubyAxe.png",100,true,100,Job.KNIGHT,Job.BARBARIAN));
-  
-  createLoot(1,14,84,1 ,Key.BRASS_KEY);
-  */
-  //fill empty progressSwitches
-  for(int i = 0; i < itemSwitches.length; i++)
-    if(itemSwitches[i]==null)
-      itemSwitches[i]=new ProgressSwitch();
-}
+*/

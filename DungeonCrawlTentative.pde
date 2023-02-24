@@ -14,11 +14,14 @@
 //IMAGES I NEED:
 //Campsite
 //Vendor stall
-//Skills
 //Stairs
+//Staves
+//Robes
+//Fur armor
 
 //NOTES:
 //I edited the log class to remove spaces in text - might cause errors downstream
+//I edited the log class again to not add text from an empty string
 
 import processing.sound.*;
 
@@ -35,7 +38,7 @@ HeroCreationStep step = HeroCreationStep.NAME;
 HeroSelectReason reason = HeroSelectReason.NONE;
 
 //NEW LOG SYSTEM
-Logbook log = new Logbook(45);
+Logbook log = new Logbook(40);
 
 //The text to be displayed in the box
 String textLine1 = " ";
@@ -69,7 +72,7 @@ SoundFile openDoorSound, openChestSound, lockedDoorSound, potionDrinkSound, food
 //NONE YET
 
 //Image data
-PImage tileImage[] = new PImage[49];
+PImage tileImage[] = new PImage[53];
 
 //Item data
 Loot [][] lootList = new Loot[2][50];
@@ -151,6 +154,10 @@ void setup()
   tileImage[46] = loadImage("wallSand.png"); tileImage[46].resize(30,0);
   tileImage[47] = loadImage("treePath.png"); tileImage[47].resize(40,40);
   tileImage[48] = loadImage("merchant.png"); tileImage[48].resize(30,0);
+  tileImage[49] = loadImage("wallDark.png"); tileImage[49].resize(30,0);
+  tileImage[50] = loadImage("wallSand.png"); tileImage[50].resize(30,0);
+  tileImage[51] = loadImage("StoneGargoyle.png"); tileImage[51].resize(30,0);
+  tileImage[52] = loadImage("BlackGargoyle.png"); tileImage[52].resize(30,0);
   
   //Test sounds
   beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
@@ -166,10 +173,10 @@ void setup()
   potionDrinkSound = new SoundFile(this, "gulp.mp3");
 
   createInventories();
-  setUpLootList();
+  //setUpLootList();
     
   //party.keyInventory[0] = Key.SKELETON_KEY;
-  
+  /*
   party.inventory[0]  = new Item( "Potion", 12 );
   party.inventory[4]  = new Item( "Bread", 10 );
   party.inventory[6]  = new Item( "Pork", 20 );
@@ -181,8 +188,9 @@ void setup()
   party.inventory[21] = new Item( "Mana Potion", 24 );
   party.inventory[13] = new Item( "Vapor Potion", 36 );
   party.inventory[8]  = new Item( "Elixer", 48 );
+  */
   
-  party.setPosition(0,2,1);
+  party.setPosition(1,4,2);
 
   setupMaps();
 
@@ -221,6 +229,8 @@ void draw()
     vanGogh.drawItems(party.inventory);
   else if(display == Display.HELP_MENU)
     vanGogh.drawHelpMenuScreen();
+  else if(display == Display.CREDITS)
+    vanGogh.drawCredits();
   else if(display == Display.FOOD_MENU)
     vanGogh.drawFoodMenu(party.inventory);
   else if(display == Display.POTION_MENU)
@@ -340,48 +350,15 @@ void createInventories()
     party.inventory[i] = new Item();
 }
 
-void setUpLootList()
-{
-  //Zeros out loot tables with worthless keys at 0,0
-  for(int i = 0; i < lootList.length; i++)
-    for(int j = 0; j < lootList[0].length; j++)
-      lootList[i][j] = new Loot(0,0,Key.NONE);
-  
-  //Sets up first floor's loot
-  createLoot(0,0, 15,2 ,Key.COPPER_KEY);
-  createLoot(0,1, 1, 5 ,new Item("Red Crystal",75));
-  createLoot(0,2, 5, 5 ,new Item("Orange Crystal",75));
-  createLoot(0,3, 30,2 ,Key.COPPER_KEY);
-  createLoot(0,4, 41,2 ,Key.IRON_KEY);
-  createLoot(0,5, 6, 12,Key.SKELETON_KEY);
-  createLoot(0,6, 60,4 ,new Item("Win Crystal",800));
-  createLoot(0,7, 2, 3 ,new Item("Gold Coin",5));
-  createLoot(0,8, 27,0 ,new Equipment("Dagger","MetalDagger.png",15,true,25,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.MAGE)); 
-  
-  createLoot(1,9, 12,7 ,new Item("Dog Statue",500));
-  createLoot(1,10,20,10,new Equipment("Steel Plate","MetalArmor.png",50,false,20,Job.KNIGHT,Job.PRIEST));
-  createLoot(1,11,22,10,new Equipment("Boiled Leather","LeatherArmor.png",25,false,15,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST));
-  createLoot(1,12,24,10,new Equipment("Silk Shirt","BlueShirt.png",15,false,8,true));
-  
-  createLoot(0,13,86,1 ,new Equipment("The Hurter","RubyAxe.png",100,true,100,Job.KNIGHT,Job.BARBARIAN));
-  
-  createLoot(1,14,84,1 ,Key.BRASS_KEY);
-  
-  //fill empty progressSwitches
-  for(int i = 0; i < itemSwitches.length; i++)
-    if(itemSwitches[i]==null)
-      itemSwitches[i]=new ProgressSwitch();
-}
-
 //Gets floor, x, y, and key type. Adds to the loot table and progress switches
-void createLoot( int fl, int serial, int xP, int yP, Key k )
+void createLoot( int serial, int fl, int xP, int yP, Key k )
 {
   lootList[fl][serial] = new Loot(xP,yP,k);
   itemSwitches[itemSwitchCount++] = new ProgressSwitch( SwitchType.CHEST, xP, yP, fl );
 }
 
 //Gets floor, x, y, and item details. Adds to the loot table and progress switches
-void createLoot( int fl, int serial, int xP, int yP, Item i )
+void createLoot( int serial, int fl, int xP, int yP, Item i )
 {
   lootList[fl][serial] = new Loot(xP,yP,i);
   itemSwitches[itemSwitchCount++] = new ProgressSwitch( SwitchType.CHEST, xP, yP, fl );
@@ -476,16 +453,20 @@ String bonkText( char direction ) //for when the heroes run into obstacles
   
   switch( m[party.floor].tiles[x][y].type )
   {
-    case WALL: return "Solid stone";
+    case WALL:
+    case SAND_WALL:
+    case DARK_WALL: return "Solid stone";
     case WATER: return "You never learned how to swim";
     case TREE: case DARK_TREE: return "A tree";
     case DOOR: return m[party.floor].tiles[party.X][party.Y].keyMessage();
-    case DARK_WALL: return "An unlit wall";
+    case BLACK_WALL: return "An unlit wall";
+    case GARGOYLE_DARK: return "An image of the Black Vanguard";
+    case S_GLASS: return "A beautiful stained glass window";
   }
   
   if( m[party.floor].tiles[x][y].isBoss )
   {
-    for( int i = 0; i < bossSwitches.length; i++ ) //<>//
+    for( int i = 0; i < bossSwitches.length; i++ )
       if( bossSwitches[i]!=null && bossSwitches[i].floor == party.floor && partyNextToBoss(i) ) //bossSwitches[i].X == party.X && bossSwitches[i].Y == party.Y ) //too tired to do this better right now
       {
         currentBoss = i;
@@ -641,8 +622,8 @@ void keyPressed()
           flipItemSwitch(lootIndex);
         }
       }
-      else
-        advanceText("Nothing found.");
+      //else
+      //  advanceText("Nothing found.");
       
     }
     if(key == 'a' || keyCode == LEFT)
@@ -757,6 +738,11 @@ void keyPressed()
     {
       previousDisplay = display;
       display = Display.HELP_MENU;
+    }
+    if(display == Display.MAP && key == '`') //credits
+    {
+      previousDisplay = display;
+      display = Display.CREDITS;
     }
     
     if(display == Display.MAP && key == 'z') //testing
@@ -1037,18 +1023,18 @@ void keyPressed()
     println(dm[party.floor].dangerValueChar(party.X,party.Y));
   }
   
-  if(key == 'u')
-    vanGogh.startScreenShake(40,true);
-  if(key == 'l')
+  //if(key == 'u') //for testing
+    //vanGogh.startScreenShake(40,true);
+  //if(key == 'l') //for testing
     //vanGogh.startScreenShake(40,false);
-    floatingNumbers.add( new GhostNumber(140,320,color(255),12345678) );
+    //floatingNumbers.add( new GhostNumber(140,320,color(255),12345678) );
 }
 
 void keyReleased()
 {
   if( display == Display.ITEM_LIST && key == 's' )
     party.sortInventory();
-  else if( previousDisplay != Display.NONE && (key == 'k' || key == 'i' || key == 'h' ) )
+  else if( previousDisplay != Display.NONE && (key == 'k' || key == 'i' || key == 'h'|| key == '`' ) )
   {
     display = previousDisplay;
     previousDisplay = Display.NONE;
@@ -1092,9 +1078,10 @@ void mouseClicked()
       else  //creating heroes finished
       {
         step = HeroCreationStep.DONE;
-        pushTextLine("Our heroes are assembled!");
-        pushTextLine("Let the adventure begin!");
-        pushTextLine("Use (w)(a)(s)(d) or arrows to move.");
+        //pushTextLine("Our heroes are assembled!");
+        //pushTextLine("Let the adventure begin!");
+        //pushTextLine("Use (w)(a)(s)(d) or arrows to move.");
+        displayTextLine("You finish intoning your prayers to the Black Vanguard. His altars are found only in hidden and dark places such as this. It is he who carries souls across the Veil, and so you ask that he treat Father Charis well when his time to depart comes. The Cathedral bells echo from above. It is time for the morning meal. Use the (w)(a)(s)(d) or arrow keys to move.");
         display = Display.MAP;
         previous = Input.EXPLORING;
         advanceNextTextLine();
@@ -1194,7 +1181,8 @@ public enum HeroCreationStep //for the initial setup
 public enum Display
 {
   MAIN_MENU, MAP, BATTLE, KEY_LIST, ITEM_LIST, 
-  FOOD_MENU, POTION_MENU, HELP_MENU, HERO_SELECT, EQUIP, NONE
+  FOOD_MENU, POTION_MENU, HELP_MENU, HERO_SELECT, EQUIP,
+  CREDITS, NONE
 }
 
 public enum HeroSelectReason
@@ -1263,7 +1251,7 @@ public void saveGame( String fileName )
   for(int i = 0; i < itemSwitches.length; i++) //Writes item switches
   {
     if(itemSwitches[i]==null)
-      saveOutput.println(false);
+      saveOutput.println(true);
     else
       saveOutput.println(itemSwitches[i].active);
   }
@@ -1273,7 +1261,7 @@ public void saveGame( String fileName )
   for(int i = 0; i < doorSwitches.length; i++) //Writes door switches
   {
     if(doorSwitches[i]==null)
-      saveOutput.println(false);
+      saveOutput.println(true);
     else
       saveOutput.println(doorSwitches[i].active);
   }
@@ -1283,8 +1271,8 @@ public void saveGame( String fileName )
   for(int i = 0; i < bossSwitches.length; i++) //Writes boss switches
   {
     if(bossSwitches[i]==null)
-      saveOutput.println(false);
-    else //<>//
+      saveOutput.println(true);
+    else
       saveOutput.println(bossSwitches[i].active);
   }
   saveOutput.println("XX");
@@ -1315,12 +1303,12 @@ public void loadFile( String fileName )
       
       party.hero[i].weapon = new Equipment(saveFileText[9+offset],saveFileText[10+offset],int(saveFileText[11+offset]),true,int(saveFileText[12+offset]));
       party.hero[i].armor = new Equipment(saveFileText[13+offset],saveFileText[14+offset],int(saveFileText[15+offset]),false,int(saveFileText[16+offset]));
-      party.hero[i].adjustStats(); //<>//
+      party.hero[i].adjustStats();
       //party.hero[i].assignSkills();
     }  
     
     //load save point
-    println("Save point # " + int(saveFileText[54])); //<>//
+    println("Save point # " + int(saveFileText[54]));
     party.setPosition(savePoints[int(saveFileText[54])]); //line 54, will be based on list
     //AT THIS POINT, SAVE POINT IS DELETED
     
@@ -1329,7 +1317,7 @@ public void loadFile( String fileName )
     //load inventory items
     createInventories(); //zeros out inventories - may be redundant in final version
     int fileLine = 57; //first line of inventory data
-    while(!saveFileText[fileLine].equals("XX")) //<>//
+    while(!saveFileText[fileLine].equals("XX"))
     {
       party.addToInventory(new Item(saveFileText[fileLine],int(saveFileText[fileLine+1])),true);
       fileLine+=2;
@@ -1344,7 +1332,7 @@ public void loadFile( String fileName )
     //Set progress switches
     
     //Item switches
-    fileLine+=2; //<>//
+    fileLine+=2;
     int switchIndex=0;
     while(!saveFileText[fileLine].equals("XX"))
     {
@@ -1358,7 +1346,7 @@ public void loadFile( String fileName )
     }
       
     //Door switches
-    fileLine+=2; //<>//
+    fileLine+=2;
     switchIndex=0;
     while(!saveFileText[fileLine].equals("XX"))
     {
@@ -1407,7 +1395,7 @@ public void loadFile( String fileName )
   {
     println("SAVE FILE NOT FOUND");
     pushTextLine("New file " + fileName + " will be created.");
-    pushTextLine("Welcome to Ritchie's Dungeon Crawl!");
+    pushTextLine("The Riddle of Iron begins.");
     pushTextLine("What is your first hero's name?");
     
     //Begin normal character creation
@@ -1421,18 +1409,14 @@ public void loadFile( String fileName )
 
 void flipSwitches()
 {
-  println("CLEARING ITEM SWITCHES");
-  for(int i = 0; i < itemSwitches.length; i++)//min(itemSwitches.length,lootList[0].length); i++) //**only checking one floor** //<>//
+  for(int i = 0; i < itemSwitches.length; i++)//min(itemSwitches.length,lootList[0].length); i++) //**only checking one floor**
     if(itemSwitches[i]!=null && !itemSwitches[i].active) //switch has been deactivated
     {
       clearLoot(itemSwitches[i].floor,itemSwitches[i].X,itemSwitches[i].Y,i);
-      println("Cleared item switch #"+(i+1));
     }
-  println("ITEM SWITCHES CLEARED");;
   for(int i = 0; i < doorSwitches.length; i++)
     if(doorSwitches[i]!=null && !doorSwitches[i].active) //switch has been deactivated
     {
-      println("Door Switch " + i );
       m[doorSwitches[i].floor].openDoorsAround(doorSwitches[i].X,doorSwitches[i].Y);
       m[doorSwitches[i].floor].tiles[doorSwitches[i].X][doorSwitches[i].Y].interactive=false; //had to add this because the interact() method normally handles it
     }
