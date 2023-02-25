@@ -36,37 +36,37 @@ void setupMaps()
     
     
   //Key:  D-dark tree    T-tree    t-secret tree    #-wall      =-chest    ?-sign    *-save crystal
-  //       -darkness     £-darkness wall (alt-3)    3-dark wall 5-sandstone wall     [-barrel
-  //      G-gargoyle     R-dark gargoyle
+  //       -darkness     £-darkness wall (alt+3)    3-dark wall 5-sandstone wall     [-barrel        ©-werewolf statue (alt+©)
+  //      G-gargoyle     R-dark gargoyle            W-wood      ∑-dark wood (alt+w)     „-light wood (alt+shift+w)
 
   //      +-locked door  .-safe path  w-water       g-grave   &-stained glass    @-campsite/tavern
-  //      c-copper key   i-iron key   s-skel key    b-brass key ~-grass          $-secret wall   ¢-secret dark wall (alt-4)
+  //      c-copper key   i-iron key   s-skel key    b-brass key ~-grass          $-secret wall   ¢-secret dark wall (alt+4)
 
   //      >-Stairs
 
   mapStrings[0] = "";
   mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##################TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#####&##&##&##&##&##&#####TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT########&#..................#&########TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTT########&#............................#&########TTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT########&#......„„„„„„......#&########TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTTTTT########&#............„„„„............#&########TTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[0] += "DTTTTTTTTTTTTTTTTTTTTTT####&##&#....................................#&##&####TTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[0] += "DTTTTTTTTTTTTTTTTTT#####&#................................................#&#####TTTTTTTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTTTTT#####........................................................#####TTTTTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTT####...##......................................................##...####TTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTT###......##....................................................##......###TTTTTTTTTTTTT";
-  mapStrings[0] += "DTT###TT###T##.........##..................................................##.........##T###TTT###TT";
-  mapStrings[0] += "DTT#>#TT#>###...........##.........##############################.........##...........###>#TTT#.#TT";
-  mapStrings[0] += "DT##.####+##.............#####.#####..........www##www..........#####.#####.............##+#####.##T";
-  mapStrings[0] += "DT#......i................#..................wwww##wwww..................#................i.......#T";
-  mapStrings[0] += "TT#.........................................ww%%wwww%%ww..........................................#T";
-  mapStrings[0] += "TT#.i....i................#..................wwww##wwww..................#................i.....i.#T";
-  mapStrings[0] += "DT##+####+##.............##...................ww.##.ww...................##.............##+#####+##T";
-  mapStrings[0] += "DTT#>#TT#>###...........##.......................##.......................##...........###>#TTT#>#TT";
-  mapStrings[0] += "DTT###TT###T##.........###.....................c.##.i.....................###.........##T###TTT###TT";
-  mapStrings[0] += "DTTTTTTTTTTTT###......##.######################+####+######################.##......###TTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTT##.....##......................................................##.....##TTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTTT##...##........................................................##...##TTTTTTTTTTTTTTT";
-  mapStrings[0] += "DTTTTTTTTTTTTTTT##.##..........................................................##.##TTTTTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTTTTTT#####......................WWWWWWWWWWWW......................#####TTTTTTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTTT#########.....................WWWWWWWWWWWW.....................#########TTTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTT####.....##....................................................##G....####TTTTTTTTTTTTT";
+  mapStrings[0] += "DTT###TT###T####...*...##..................................................##.......####T###TTT###TT";
+  mapStrings[0] += "DTT#>#TT#>#####.........##....c....##############################.........##.........#####>#TTT#.#TT";
+  mapStrings[0] += "DT##.####+####..G..G..G..#####+#####~~~~~~~~D#wwwwwwww#~~T~~~~~~#####.#####..©..G..G..####+#####.##T";
+  mapStrings[0] += "DT#......i......................#~~~~~~~T~~~~wwwwwwwwww~~~~~T~~~~~~#.....##...............i......*#T";
+  mapStrings[0] += "TT#.............................#~~~T~~~~~~~TwwwwwwwwwwT~~~~~~~~T~~#..............................#T";
+  mapStrings[0] += "TT#.i....i.....G...G...G........~~~~~~~~~~~~~wwww##wwww~~~~t~~~~~~~~........G...G...G.....i.....i.#T";
+  mapStrings[0] += "DT##+####+#####........####.....~~~~~~T~~~T~~Tww####wwT~~~~~~~~~~~~~.....########...######+#####+##T";
+  mapStrings[0] += "DTT#>#TT#>####...„„„„„„„„##.....#~~~~~~~~~~~~~~~~##~~~~~~~~~~~~D~~~#.....##W.W.W#...######>#TTT#>#TT";
+  mapStrings[0] += "DTT###TT###T##[..„%%„%%„%##.....#~T~~~~D~~~~~~~b~##~i~~~~~T~~~~~~~~#.....##.....#...####T###TTT###TT";
+  mapStrings[0] += "DTTTTTTTTTTTT##..„%%„%%„%######################+####+######################.....#...###TTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTTT##.„%%„%%„%##..............................................##W.W.W#...##TTTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTTTT##„%%„%%„%##..............................................##.....#..##TTTTTTTTTTTTTTT";
+  mapStrings[0] += "DTTTTTTTTTTTTTTT##%%„%%„%##..............................................##.......##TTTTTTTTTTTTTTTT";
   mapStrings[0] += "DTTTTTTTTTTTTTTTT##################################################################TTTTTTTTTTTTTTTTT";
   mapStrings[0] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
   mapStrings[0] += "~         ~                                       T                                                ~";
@@ -147,16 +147,46 @@ void setupMaps()
   mapStrings[0] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
 
   m[0] = new Map(mapStrings[0],mapIndex++);
-  //m[0].floorNumber = 0;
   
+  createLoot(lootIndex++, 0, 47, 8, Key.COPPER_KEY);
+  createLoot(lootIndex++, 0, 59, 14, new Equipment("Chainmail","MetalMail.png",18,false,22,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST) );
   
+  //Mother Sunita
   m[0].tiles[49][3].placeOccupant( color(150, 250, 250), "She doesn't have time to talk to you." );
   
+  //Cellar keeper
+  m[0].tiles[3][12].placeOccupant( color(150, 150, 250), "- Ah, just who I wanted to see! Yes, I've been negligent and let vermin into the cellar again. You'll help me out, won't you? You're welcome to take the supplies. Mother Sunita will just sell them if you don't." );
   
-  m[0].tiles[3][12].placeOccupant( color(150, 250, 250), "She doesn't have time to talk to you." );
+  //Scribes
+  m[0].tiles[75][17].placeOccupant( color(150, 150, 250), "He's asleep at his desk." );
+  m[0].tiles[75][20].placeOccupant( color(150, 150, 250), "- I've been charged with writing Father Charis's obituary. What can I say that isn't already known?" );
+  //in method below
+  //in method below
+  m[0].tiles[79][17].placeOccupant( color(150, 150, 250), "- Are those the morning bells? I've been working since last night." );
+  m[0].tiles[79][20].placeOccupant( color(150, 150, 250), "- Could you bring me more ink? No, nevermind, you'd probably spill it." );
+  
+  //Garden/Cloyster
+  m[0].tiles[14][16].placeOccupant( color(150, 150, 250), "- All the potions made in the Cathedral use herbs from my garden. When the sweet, minty draught saves your life one day, know that you live by the sweat of my brow and the dirt on my knees." );
+  //in method below
+  
+  //People at the table
+  //in method below
+  
+  m[0].tiles[79][8].placeOccupant( color(150, 150, 250), "- My repairs have been delayed. Try to ignore that horrible thing for a few more days." );
   
   //To west cellar
-  exits.add( new Portal(0,4,10,1,81,1) );
+  exits.add( new Portal(0,4,10,1,81,1, "The West Cellar") );
+  
+  m[0].tiles[47][8].createEvent(false, "Mother Sunita clasps her hands and streightens her posture."+
+  " - Illamar's light be upon you. Five hours and one minute ago, Father Charis succumbed to his weak heart and now serves from the other side of the Veil."+
+  " I am honored to serve in his stead. Sadly, though he pledged to pass on his unique gift, neither I nor the other exarchs seemed to have received it."+
+  " This is an ill omen, and coupled with the reports from Baron's Field, changes must be made. Lay persons will no longer be housed in the Cathedral."+
+  " Loath as I am to undo one of Charis's beloved projects, the safety of the eparchy is our duty. Children, you will find a key on the table before you."+
+  " Take as much food as you need from the kitchens on your way out. The people Irohill will surely be gracious to you.");
+  
+  //Save points
+  savePoints[savePointIndex++] = new SavePoint(0, 19, 9);
+  savePoints[savePointIndex++] = new SavePoint(0, 97, 12);
 
 /*
   m[0].tiles[10][0].placeOccupant( color(150, 150, 250), "- You found one of my hiding spots!" );
@@ -333,12 +363,12 @@ void setupMaps()
   mapStrings[1] += "           £                 £                                                                      ";
   mapStrings[1] += "333333333  £  33###########  £                                                                      ";
   mapStrings[1] += "3.......3  £  3...........#  £                                                                      ";
-  mapStrings[1] += "3.3333333  £  3.33#.w.###.#  £                                                                      ";
-  mapStrings[1] += "3.......3  £  3.3...w...#.#  £                                                                      ";
-  mapStrings[1] += "3333333+3  £  3.333.w.###.#  £                                                                      ";
-  mapStrings[1] += "3>33333c3  £  3.3...w...#.#  £                                                                      ";
-  mapStrings[1] += "3.......3  £  3.333.w.###.#  £                                                                      ";
-  mapStrings[1] += "333333333  £  3>3=..w...#>#  £                                                                      ";
+  mapStrings[1] += "3.3333333  £  3.33#...###.#  £                                                                      ";
+  mapStrings[1] += "3.......3  £  3.3.......#.#  £                                                                      ";
+  mapStrings[1] += "3333333+3  £  3.333...###.#  £                                                                      ";
+  mapStrings[1] += "3>33333c3  £  3.3.......#.#  £                                                                      ";
+  mapStrings[1] += "3.......3  £  3.333...###.#  £                                                                      ";
+  mapStrings[1] += "333333333  £  3>3=......#>#  £                                                                      ";
   mapStrings[1] += "           £  3333333333###  £                                                                      ";
   mapStrings[1] += "           £                 £                                                                      ";
   mapStrings[1] += "££££££££££££                 £                                                                      ";
@@ -450,7 +480,7 @@ void setupMaps()
   m[1].tiles[46][2].placeOccupant( color(75,100,255), "- Good morning, children. I'm sorry to tell you, but Father Charis crossed the Veil last night. He was a man of towering benevolence, though you know that better than anyone. Mother Sunita will be speaking on his behaf during morning meal." );
   m[1].tiles[46][4].placeOccupant( color(75,100,255), "- I wish Father Charis hadn't taken in so many orphans. You three made so much noise playing games and looking for secret rooms that I could barely focus on my gardening." );
   
-  savePoints[savePointIndex++] = new SavePoint(7, 2, 1);
+  savePoints[savePointIndex++] = new SavePoint(1, 7, 2);
   
   //Start room - second room
   exits.add( new Portal(1,1,6,1,15,7) );
@@ -461,10 +491,10 @@ void setupMaps()
   exits.add( new Portal(1,43,3,1,25,7) );
   
   //To cathedral east
-  exits.add( new Portal(1,35,1,0,96,10) );
+  exits.add( new Portal(1,35,1,0,96,10, "Irohill Cathedral") );
   
   //To cathedral west
-  exits.add( new Portal(1,81,1,0,4,10) );
+  exits.add( new Portal(1,81,1,0,4,10, "Irohill Cathedral") );
   
   //West cellar upper to rat dungeon 1
   exits.add( new Portal(1,73,3,1,25,21) );
@@ -474,7 +504,7 @@ void setupMaps()
   exits.add( new Portal(1,15,21,1,1,19) );
   exits.add( new Portal(1,1,19,1,15,21) );
 
-  m[1].tiles[7][15].placeBoss( 1, color(150, 80, 40), "This must be the matriarch.", new Monster("Giant Rat", "BrownRat.png", 15, 5, 10, 1, 100, 5, 5, 0, AttackType.FIRE) );
+  m[1].tiles[7][15].placeBoss( 1, color(150, 80, 40), "This must be the matriarch.", new Monster("Giant Rat", "BrownRat.png", 15, 5, 10, 1, 100, 5, 5, 0, AttackType.FIRE), true );
       zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
       zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 30, false);
       zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false);
@@ -539,4 +569,26 @@ void setupMaps()
   for(int i = 0; i < itemSwitches.length; i++)
     if(itemSwitches[i]==null)
       itemSwitches[i]=new ProgressSwitch();
+}
+
+void setNameDependentText()
+{
+  //Floor 0
+  
+  //mean scribes
+  m[0].tiles[77][17].placeOccupant( color(150, 150, 250), "- You would have made a good scribe, " +party.hero[0].name+ ", if only you weren't stupid." );
+  m[0].tiles[77][20].placeOccupant( color(150, 150, 250), "- You would have made a good scribe, " +party.hero[1].name+ ", if only you were more patient." );
+    
+  //People at the table
+  for(int i = 0; i < 12; i++)
+  {
+    m[0].tiles[44+i][5].placeOccupant( color(150, 150, 250), "- Have a seat, "+party.hero[i%3].name+"." ); if(i!=3)
+    m[0].tiles[44+i][8].placeOccupant( color(150, 150, 250), "- Have a seat, "+party.hero[(i+1)%3].name+"." );
+  }
+  
+  //nevrous cleric
+  m[0].tiles[40][13].placeOccupant( color(150, 150, 250), "- Oh, h-hello, "+party.hero[2].name.charAt(0)+"-"+party.hero[2].name+". Is it really true that you're leaving? I can't believe it. I... I have something that will keep you safe. It's technically contraband, so I had to hide it in a tree. Check the other side of the cloister. Goodbye, "+party.hero[2].name+". I'll miss you." );
+  
+  
+  
 }

@@ -38,6 +38,8 @@ class Hero
   public Hero( String n, Job j, color c, color ic )
   {
     name = n;
+    //if(name.equals(""))
+    //  name = randomName();
     job = j;
     favColor = c;
     inverseColor = ic;

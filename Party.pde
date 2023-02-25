@@ -2,6 +2,7 @@ class Party
 {
   Hero [] hero = new Hero[3];
   
+  //String [] name = {"null","null","null"};
   protected int X, Y, floor; //dungeon level
   Key [] keyInventory = new Key[10];
   Item [] inventory = new Item[30];
@@ -82,7 +83,8 @@ class Party
     for(int i = 0;i<keyInventory.length;i++)
       if(keyInventory[i]==Key.NONE)
       {
-        advanceText("You find a " + keyName(k));
+        if(k!=Key.CHARIS)
+          advanceText("You find a " + keyName(k));
         keyInventory[i] = k;
         break;
       }

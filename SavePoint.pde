@@ -9,7 +9,7 @@ class SavePoint
     this(1,1,0);
   }
   
-  public SavePoint( int xPos, int yPos, int f )
+  public SavePoint(  int f, int xPos, int yPos )
   {
     X = xPos;
     Y = yPos;

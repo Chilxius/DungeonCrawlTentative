@@ -28,6 +28,9 @@ class Artist
   
   float gameoverOpacity = 0;
   
+  String locationTitleCard = "Cathedral Cellars";
+  float titleCardDuration = 0;
+  
   public Artist()
   {
     animationStage = 0;
@@ -53,6 +56,9 @@ class Artist
     textPromptStage+=textPromptStep;
     if(textPromptStage <=0 || textPromptStage > 50)
       textPromptStep*=-1;
+    
+    if(titleCardDuration > 0)
+      drawLocationTitleCard();
   }
   
   public float stage()
@@ -66,6 +72,21 @@ class Artist
     rand2 = color(random(255),random(255),random(255));
     rand3 = color(random(255),random(255),random(255));
     rand4 = color(random(255),random(255),random(255));
+  }
+  
+  public void drawLocationTitleCard()
+  {
+    titleCardDuration--;
+    textSize(30);
+    textAlign(CENTER);
+    fill(255,255*(titleCardDuration/100.0));
+    text(locationTitleCard,350,182);
+  }
+  
+  public void startLocationTitleCard( String title )
+  {
+    locationTitleCard = title;
+    titleCardDuration = 255;
   }
   
   public void drawMainMenu()

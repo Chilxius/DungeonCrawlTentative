@@ -59,6 +59,12 @@ class Battle
     else
     {
       battleMonsters[1] = zoo.boss[currentBoss];
+      if(multiBoss)
+      {
+        multiBoss = false;
+        battleMonsters[0] = new Monster( zoo.boss[currentBoss] );
+        battleMonsters[2] = new Monster( zoo.boss[currentBoss] );
+      }
     }
       
     list[3] = new Initiative(battleMonsters[0],3);

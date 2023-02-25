@@ -72,6 +72,7 @@ public String keyName( Key k )
     case SKELETON_KEY: return "Skeleton Key";
     case IRON_KEY: return "Iron Key";
     case BRASS_KEY: return "Brass Key";
+    case CHARIS: return "Charis's Iron Key";
     default: return "";
   }
 }
@@ -83,6 +84,8 @@ Key stringToKey( String s )
     case "COPPER_KEY": return Key.COPPER_KEY;
     case "SKELETON_KEY": return Key.SKELETON_KEY;
     case "IRON_KEY": return Key.IRON_KEY;
+    case "CHARIS": return Key.CHARIS;
+    case "BRASS_KEY": return Key.BRASS_KEY;
     default: return Key.NONE;
   }
 }

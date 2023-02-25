@@ -24,6 +24,7 @@ class Tile
   String eventText = " ";//[] = {" "," "," "," "," "," "," "," "," "," "}; //text displayed when event is triggered - sends to queue as [0],[1],[2]
   
   boolean isBoss;
+  boolean multipleBoss;
   //Monster boss;
   
   TileType type;
@@ -45,6 +46,7 @@ class Tile
     occupied = false;
     safe = false;
     isBoss = false;
+    multipleBoss = false;
     occupantColor = color(255);
     k = Key.NONE;
     
@@ -70,6 +72,10 @@ class Tile
       case '£':type=TileType.BLACK_WALL;break;
       case 'G':type=TileType.GARGOYLE;break;
       case 'R':type=TileType.GARGOYLE_DARK;break;
+      case '©':type=TileType.WEREWOLF_WHITE;break;
+      case 'W':type=TileType.WOOD;break;
+      case '∑':type=TileType.WOOD_DARK;break;
+      case '„':type=TileType.WOOD_LIGHT;break;
       //different key types
       case 'c':
       case 'i':
@@ -129,8 +135,22 @@ class Tile
         interactive = false;
         event = false; break;
       }
+      case WOOD_DARK:
+      case WOOD: {
+        tileColor = color(90,70,30);
+        pathable = false;
+        interactive = false;
+        event = false; break;
+      }
+      case WOOD_LIGHT: {
+        tileColor = color(190,170,130);
+        pathable = true;
+        interactive = false;
+        event = false; break;
+      }
       case SAFE: {
         tileColor = safeColor;
+        //tileColor = color((x+y)*5%50+150,(x+y)*5%50+150,(x+y)*5%50+150);
         pathable = true;
         interactive = false;
         event = false; safe = true; break;
@@ -185,6 +205,12 @@ class Tile
         interactive = false;
         event = false; break;
       }
+      case WEREWOLF_WHITE: {
+        tileColor = color(200);
+        pathable = false;
+        interactive = false;
+        event = false; break;
+      }
       case WATER: {
         tileColor = color(0,0,220);
         pathable = false;
@@ -198,7 +224,7 @@ class Tile
         event = false; break;
       }
       case DOORSTEP: {
-        tileColor = color(200); //<>//
+        tileColor = color(200);
         pathable = true;
         interactive = false;
         event = false;
@@ -210,6 +236,8 @@ class Tile
           createInteraction( Key.SKELETON_KEY );
         else if( t == 'b' )
           createInteraction( Key.BRASS_KEY );
+        else if( t == 'k' )
+          createInteraction( Key.CHARIS );
         addToProgressSwitches(floor);
         break;
       }
@@ -279,13 +307,14 @@ class Tile
     type = TileType.SELL;
   }
   
-  public void placeBoss( int floor, color c, String message, Monster m ) //not working properly - boss is being replaced
+  public void placeBoss( int floor, color c, String message, Monster m, boolean multiple )
   {
     occupied = true;
     pathable = false;
     occupantColor = c;
     occupantText = message;
     isBoss = true;
+    multipleBoss = multiple;
     zoo.addBossToList(m);
     addBossProgressSwitch( floor );
   }
@@ -321,7 +350,13 @@ class Tile
     for(int i = 0; i < keys.length; i++)
       if( keys[i] == k )
       {
-        advanceText("You use your " + keyName(k) + ".");
+        if( keys[i] == Key.CHARIS )
+        {
+          party.addToInventory( new Item( Key.CHARIS ) );
+          advanceText("Father Charis's Key opens the door.");
+        }
+        else
+          advanceText("You use your " + keyName(k) + ".");
         keys[i] = Key.NONE;
         interactive = false;
         openDoorSound.play();
@@ -357,6 +392,7 @@ class Tile
       case IRON_KEY: return "A door banded with iron.";
       case SKELETON_KEY: return "A door with a skull-shaped emblem.";
       case BRASS_KEY: return "An old door decorated with copper symbols.";
+      case CHARIS: return "The door has Father Charis's seal on it.";
       default: return "A strange door...";
     }
   }
@@ -384,6 +420,12 @@ class Tile
       image(tileImage[49],xPos,yPos);
     else if(type == TileType.SAND_WALL)
       image(tileImage[50],xPos,yPos);
+    else if(type == TileType.WOOD)
+      image(tileImage[57],xPos,yPos);
+    else if(type == TileType.WOOD_DARK)
+      image(tileImage[58],xPos,yPos);
+    else if(type == TileType.WOOD_LIGHT)
+      image(tileImage[59],xPos,yPos);
     else if(type == TileType.S_GLASS)
       image(tileImage[43],xPos,yPos);
     else if(type == TileType.DOOR)
@@ -409,7 +451,9 @@ class Tile
     else if(type == TileType.GARGOYLE)
       image(tileImage[51],xPos,yPos);
     else if(type == TileType.GARGOYLE_DARK)
-      image(tileImage[52],xPos,yPos);
+      image(tileImage[51],xPos,yPos);
+    else if(type == TileType.WEREWOLF_WHITE)
+      image(tileImage[60],xPos,yPos);
     if(occupied)
     {
       fill(occupantColor); noStroke();
@@ -475,15 +519,16 @@ class Tile
 
 public enum TileType
 {
-  EMPTY, WALL, SECRET_WALL, GRASS, EVENT, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH,
-  DARK, BLACK_WALL, DARK_WALL, SECRET_DARK_WALL, SAND_WALL, DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE, GARGOYLE, GARGOYLE_DARK,
+  EMPTY, WALL, SECRET_WALL, GRASS, EVENT, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH, WOOD, WOOD_DARK, WOOD_LIGHT,
+  DARK, BLACK_WALL, DARK_WALL, SECRET_DARK_WALL, SAND_WALL, DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE, GARGOYLE, GARGOYLE_DARK, WEREWOLF_WHITE,
   CAMP, MERCHANT, SHOP, SELL,
   STAIR_DOWN
 }
 
 public enum Key //special items for interactive tiles
 {
-  COPPER_KEY, SKELETON_KEY, IRON_KEY, BRASS_KEY, NONE
+  COPPER_KEY, SKELETON_KEY, IRON_KEY, BRASS_KEY, 
+  CHARIS, NONE
 }
 
 public enum Object //tile has an object (still pathable)

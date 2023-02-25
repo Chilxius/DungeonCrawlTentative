@@ -74,7 +74,7 @@ SoundFile openDoorSound, openChestSound, lockedDoorSound, potionDrinkSound, food
 //NONE YET
 
 //Image data
-PImage tileImage[] = new PImage[53];
+PImage tileImage[] = new PImage[100];
 
 //Item data
 Loot [][] lootList = new Loot[2][50];
@@ -106,6 +106,7 @@ Monster battleMonsters[];
 int potionType = 0; //potion being drunk
 int battleTextSpeed = 1; //speed battle text displays
 int currentBoss = -1; //index of boss being fought
+boolean multiBoss = false; //is this a multiple enemy boss fight
 int skillSelection = -1; //index of chosen skill (hero)
 
 PrintWriter saveOutput;
@@ -160,6 +161,14 @@ void setup()
   tileImage[50] = loadImage("wallSand.png"); tileImage[50].resize(30,0);
   tileImage[51] = loadImage("StoneGargoyle.png"); tileImage[51].resize(30,0);
   tileImage[52] = loadImage("BlackGargoyle.png"); tileImage[52].resize(30,0);
+  tileImage[53] = loadImage("SignEquipment.png"); tileImage[53].resize(30,0);
+  tileImage[54] = loadImage("SignFood.png"); tileImage[54].resize(30,0);
+  tileImage[55] = loadImage("signInn.png"); tileImage[55].resize(30,0);
+  tileImage[56] = loadImage("SignPotion.png"); tileImage[56].resize(30,0);
+  tileImage[57] = loadImage("wood.png"); tileImage[57].resize(30,0);
+  tileImage[58] = loadImage("woodDark.png"); tileImage[58].resize(30,0);
+  tileImage[59] = loadImage("woodLight.png"); tileImage[59].resize(30,0);
+  tileImage[60] = loadImage("WhiteWerewolf.png"); tileImage[60].resize(30,0);
   
   //Test sounds
   beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
@@ -308,7 +317,9 @@ public String inputText() //Retrieves the text in the box and switches game stat
     else
     {
       step = HeroCreationStep.JOB;
-      input = Input.HERO_JOB_CHOICE;
+      input = Input.HERO_JOB_CHOICE; //<>//
+      if(textBuffer.equals(""))
+        textBuffer = randomName();
       advanceText("Select "+textBuffer+"'s Job");
     }
   }
@@ -442,6 +453,39 @@ boolean checkForBattle()
   randomBattleCounter++;
   return false;
 }
+  
+public String randomName()
+{
+  switch( int(random(26)) )
+  {
+    case 1: return "Angel";
+    case 2: return "Björn";
+    case 3: return "Cadell";
+    case 4: return "Darya";
+    case 5: return "Enyo";
+    case 6: return "Fritjof";
+    case 7: return "Gunhild";
+    case 8: return "Homer";
+    case 9: return "Inola";
+    case 10: return "Joy";
+    case 11: return "Kai";
+    case 12: return "Leocadia";
+    case 13: return "Marc";
+    case 14: return "Nadya";
+    case 15: return "Orion";
+    case 16: return "Phoenix";
+    case 17: return "Quinn";
+    case 18: return "Raven";
+    case 19: return "Sky";
+    case 20: return "Tybalt";
+    case 21: return "Ursa";
+    case 22: return "Vela";
+    case 23: return "Wystan";
+    case 24: return "Xena";
+    case 25: return "Yoko";
+    default: return "Zazi";
+  }
+}
 
 String bonkText( char direction ) //for when the heroes run into obstacles
 {                                  //also handles boss activation
@@ -463,6 +507,8 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case DOOR: return m[party.floor].tiles[party.X][party.Y].keyMessage();
     case BLACK_WALL: return "An unlit wall";
     case GARGOYLE_DARK: return "An image of the Black Vanguard";
+    case GARGOYLE: return "A beautiful gargoyle statue";
+    case WEREWOLF_WHITE: return "A gargoyle statue...?";
     case S_GLASS: return "A beautiful stained glass window";
   }
   
@@ -472,6 +518,7 @@ String bonkText( char direction ) //for when the heroes run into obstacles
       if( bossSwitches[i]!=null && bossSwitches[i].floor == party.floor && partyNextToBoss(i) ) //bossSwitches[i].X == party.X && bossSwitches[i].Y == party.Y ) //too tired to do this better right now
       {
         currentBoss = i;
+        multiBoss = m[party.floor].tiles[x][y].multipleBoss;
         return m[party.floor].tiles[x][y].occupantText;
       }
     println("MISSING BOSS ERROR");
@@ -583,6 +630,7 @@ public void changeMap()
       party.X = exits.get(i).destinationX;
       party.Y = exits.get(i).destinationY;
       party.floor = exits.get(i).destinationFloor;
+      vanGogh.startLocationTitleCard(exits.get(i).title);
       return;
     }
   println("ERROR: NO EXIT FOUND");
@@ -1079,6 +1127,7 @@ void mouseClicked()
       }
       else  //creating heroes finished
       {
+        setNameDependentText();
         step = HeroCreationStep.DONE;
         //pushTextLine("Our heroes are assembled!");
         //pushTextLine("Let the adventure begin!");
@@ -1307,6 +1356,7 @@ public void loadFile( String fileName )
       party.hero[i].armor = new Equipment(saveFileText[13+offset],saveFileText[14+offset],int(saveFileText[15+offset]),false,int(saveFileText[16+offset]));
       party.hero[i].adjustStats();
       //party.hero[i].assignSkills();
+      setNameDependentText();
     }  
     
     //load save point
@@ -1399,6 +1449,8 @@ public void loadFile( String fileName )
     pushTextLine("New file " + fileName + " will be created.");
     pushTextLine("The Riddle of Iron begins.");
     pushTextLine("What is your first hero's name?");
+    
+    party.addToInventory( new Item( Key.CHARIS ) );
     
     //Begin normal character creation
     display = Display.NONE;

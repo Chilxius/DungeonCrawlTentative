@@ -111,8 +111,20 @@ public class Portal //for switching maps
   int originX, originY;
   int destinationX, destinationY;
   int originFloor, destinationFloor;
+  String title;
   
   public Portal( int oF, int oX, int oY, int dF, int dX, int dY )
+  {
+    this( oF, oX, oY, dF, dX, dY, "" );
+    //originX = oX;
+    //originY = oY;
+    //destinationX = dX;
+    //destinationY = dY;
+    //originFloor = oF;
+    //destinationFloor = dF;
+  }
+  
+  public Portal( int oF, int oX, int oY, int dF, int dX, int dY, String t )
   {
     originX = oX;
     originY = oY;
@@ -120,5 +132,6 @@ public class Portal //for switching maps
     destinationY = dY;
     originFloor = oF;
     destinationFloor = dF;
+    title = t;
   }
 }
