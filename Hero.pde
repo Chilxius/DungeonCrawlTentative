@@ -52,7 +52,7 @@ class Hero
     weapon = new Equipment("Fist","Fist.png",0,true,3);
     if(j==Job.KARATE)
     {
-      weapon = new Equipment("Fist","Fist.png",0,true,25);
+      weapon = new Equipment("Fist","Fist.png",0,true,20);
       adjustFistPower();
     }
     armor = new Equipment("Shirt","WhiteShirt.png",1,false,1);
@@ -160,7 +160,7 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case KARATE:
-        skill[0] = new Attack("Stone Fist", weapon.power, false, true, AttackStat.STR, AttackType.EARTH );  skill[0].cost = 2; //Double fist strength, adds earth element
+        skill[0] = new Attack("Stone Fist", int(weapon.power*0.6), false, true, AttackStat.STR, AttackType.EARTH );  skill[0].cost = 2; //1.6x fist strength, adds earth element
         skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
@@ -241,7 +241,7 @@ class Hero
   
   public void adjustFistPower()
   {
-    weapon.power = int((65/50.0)*(level-1)+25);
+    weapon.power = int((70/50.0)*(level-1)+20);
   }
   
   public void energize( int amount )

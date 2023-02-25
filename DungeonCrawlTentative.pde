@@ -11,15 +11,15 @@
 //Have inns charge money?
 //Delay before "vanquished" line where enemy vanishes
 //Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair
-//Fix lineLength error
+//Fix lineLength error and problem with not printing entire line
 
 //IMAGES I NEED:
-//Campsite
 //Vendor stall
 //Stairs
 //Staves
 //Robes
 //Fur armor
+//Rubble
 
 //NOTES:
 //I edited the log class to remove spaces in text - might cause errors downstream
@@ -46,6 +46,11 @@ Logbook log = new Logbook(40);
 String textLine1 = " ";
 String textLine2 = " ";
 String textBuffer = ""; //For when something is being typed in (character limit 10).
+
+//Game data limits
+int itemCount = 100;
+int doorCount = 100;
+int bossCount = 100;
 
 //Hero Data
 int currentHero = 0; //0,1,2
@@ -77,7 +82,7 @@ SoundFile openDoorSound, openChestSound, lockedDoorSound, potionDrinkSound, food
 PImage tileImage[] = new PImage[100];
 
 //Item data
-Loot [][] lootList = new Loot[2][50];
+Loot [][] lootList = new Loot[2][itemCount];
 Loot emptyChest = new Loot(0,0,new Item(),"EMPTY CHEST ERROR");
 int consumableValue = 0;
 Equipment newEquip, oldEquip; //for switching in new equipment
@@ -91,9 +96,9 @@ boolean newGame = false;
 SavePoint [] savePoints = new SavePoint[10]; //10 is temporary
 SavePoint lastSave = new SavePoint(); //should defalt to starting position
 boolean confirmSave = false;
-ProgressSwitch itemSwitches[] = new ProgressSwitch[50]; //don't know how big this will get
-ProgressSwitch doorSwitches[] = new ProgressSwitch[50]; //or this
-ProgressSwitch bossSwitches[] = new ProgressSwitch[10];  //or, in fact, this
+ProgressSwitch itemSwitches[] = new ProgressSwitch[itemCount]; //don't know how big this will get
+ProgressSwitch doorSwitches[] = new ProgressSwitch[doorCount]; //or this
+ProgressSwitch bossSwitches[] = new ProgressSwitch[bossCount];  //or, in fact, this
 static int itemSwitchCount = 0;
 static int doorSwitchCount = 0;
 static int bossSwitchCount = 0;
@@ -127,7 +132,7 @@ void setup()
   
   zoo = new Beastiary();
   
-  //Setting up image files (move to Artist)
+  //Setting up image files (MOVE THIS TO Artist)
   tileImage[0] = loadImage("wall.png"); tileImage[0].resize(30,0);
   tileImage[1] = loadImage("tree.png"); tileImage[1].resize(40,40);
   tileImage[2] = loadImage("darkTree.png"); tileImage[2].resize(40,40);
@@ -1128,6 +1133,7 @@ void mouseClicked()
       else  //creating heroes finished
       {
         setNameDependentText();
+        vanGogh.startLocationTitleCard("Cathedral Cellar");
         step = HeroCreationStep.DONE;
         //pushTextLine("Our heroes are assembled!");
         //pushTextLine("Let the adventure begin!");
@@ -1302,7 +1308,7 @@ public void saveGame( String fileName )
   for(int i = 0; i < itemSwitches.length; i++) //Writes item switches
   {
     if(itemSwitches[i]==null)
-      saveOutput.println(true);
+      saveOutput.println(false);
     else
       saveOutput.println(itemSwitches[i].active);
   }
@@ -1312,7 +1318,7 @@ public void saveGame( String fileName )
   for(int i = 0; i < doorSwitches.length; i++) //Writes door switches
   {
     if(doorSwitches[i]==null)
-      saveOutput.println(true);
+      saveOutput.println(false);
     else
       saveOutput.println(doorSwitches[i].active);
   }
@@ -1322,7 +1328,7 @@ public void saveGame( String fileName )
   for(int i = 0; i < bossSwitches.length; i++) //Writes boss switches
   {
     if(bossSwitches[i]==null)
-      saveOutput.println(true);
+      saveOutput.println(false);
     else
       saveOutput.println(bossSwitches[i].active);
   }
@@ -1333,11 +1339,13 @@ public void saveGame( String fileName )
 }
 
 public void loadFile( String fileName )
-{ //<>//
+{
   String [] saveFileText;
   try
   {
     saveFileText = loadStrings(fileName+".txt");
+    
+    println("Loading file: "+fileName);
     
     //load hero data
     for (int i = 0, offset; i < 3; i++) 
@@ -1356,21 +1364,23 @@ public void loadFile( String fileName )
       party.hero[i].armor = new Equipment(saveFileText[13+offset],saveFileText[14+offset],int(saveFileText[15+offset]),false,int(saveFileText[16+offset]));
       party.hero[i].adjustStats();
       //party.hero[i].assignSkills();
-      setNameDependentText();
-    }  
+    }
+    
+    println("Hero data loaded.");
+    
+    setNameDependentText();
     
     //load save point
     println("Save point # " + int(saveFileText[54]));
     party.setPosition(savePoints[int(saveFileText[54])]); //line 54, will be based on list
-    //AT THIS POINT, SAVE POINT IS DELETED
     
     party.gold = int(saveFileText[56]);
-     //<>//
+    
     //load inventory items
     createInventories(); //zeros out inventories - may be redundant in final version
     int fileLine = 57; //first line of inventory data
     while(!saveFileText[fileLine].equals("XX"))
-    { //<>//
+    {
       party.addToInventory(new Item(saveFileText[fileLine],int(saveFileText[fileLine+1])),true);
       fileLine+=2;
     }
@@ -1379,7 +1389,9 @@ public void loadFile( String fileName )
     {
       party.addToInventory(new Item( stringToKey(saveFileText[fileLine])),true);
       fileLine++;
-    } //<>//
+    }
+    
+    println("Inventory loaded.");
     
     //Set progress switches
     
@@ -1394,8 +1406,9 @@ public void loadFile( String fileName )
         itemSwitches[switchIndex].active = false;
        
       switchIndex++;
-      fileLine++; //<>//
+      fileLine++;
     }
+    println("Item switches loaded.");
       
     //Door switches
     fileLine+=2;
@@ -1408,7 +1421,8 @@ public void loadFile( String fileName )
       switchIndex++;
       fileLine++;
     }
-  //<>//
+    println("Door switches loaded.");
+ 
     //Boss switches
     fileLine+=2;
     switchIndex=0;
@@ -1420,6 +1434,7 @@ public void loadFile( String fileName )
       switchIndex++;
       fileLine++;
     }
+    println("Boss switches loaded.");
       
     //switchIndex=0;
     //fileLine+=2;
@@ -1433,6 +1448,8 @@ public void loadFile( String fileName )
     
     //interacts with all progress switches
     flipSwitches(); // <- Empty switches must be NULL
+    
+    println("Data switched on/off.");
     
     //After load is finished, resume game
     display = Display.MAP;
@@ -1463,18 +1480,22 @@ public void loadFile( String fileName )
 
 void flipSwitches()
 {
-  for(int i = 0; i < itemSwitches.length; i++)//min(itemSwitches.length,lootList[0].length); i++) //**only checking one floor**
+  for(int i = 0; i < itemSwitches.length; i++)//min(itemSwitches.length,lootList[0].length); i++)
     if(itemSwitches[i]!=null && !itemSwitches[i].active) //switch has been deactivated
     {
       clearLoot(itemSwitches[i].floor,itemSwitches[i].X,itemSwitches[i].Y,i);
+      println("Item switched: "+i);
     }
+  println("Item switches flipped.");
   for(int i = 0; i < doorSwitches.length; i++)
     if(doorSwitches[i]!=null && !doorSwitches[i].active) //switch has been deactivated
     {
       m[doorSwitches[i].floor].openDoorsAround(doorSwitches[i].X,doorSwitches[i].Y);
       m[doorSwitches[i].floor].tiles[doorSwitches[i].X][doorSwitches[i].Y].interactive=false; //had to add this because the interact() method normally handles it
     }
-  for(int i = 0; i < bossSwitches.length; i++) //<>//
+  println("Door switches flipped.");
+  for(int i = 0; i < bossSwitches.length; i++)
     if(bossSwitches[i]!=null && !bossSwitches[i].active)
       m[bossSwitches[i].floor].removeBoss(bossSwitches[i].X,bossSwitches[i].Y);
+  println("Boss switches flipped.");
 }

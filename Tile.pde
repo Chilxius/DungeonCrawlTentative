@@ -80,8 +80,10 @@ class Tile
       case 'c':
       case 'i':
       case 's':
+      case 'k':
       case 'b':type=TileType.DOORSTEP;safe=true;break;
-      case '.':type=TileType.SAFE;safe=true;break;
+      case '.':type=TileType.FLOOR;safe=true;break;
+      case '_':type=TileType.SAFE;safe=true;break;
       default :type=TileType.EMPTY;safe=true;break;
     }
     
@@ -107,6 +109,12 @@ class Tile
     {
       case EMPTY: {
         tileColor = color(190);
+        pathable = true;
+        interactive = false;
+        event = false; break;
+      }
+      case FLOOR: {
+        tileColor = color(200);
         pathable = true;
         interactive = false;
         event = false; break;
@@ -193,7 +201,7 @@ class Tile
         event = false; break;
       }
       case S_GLASS: {
-        tileColor = color(255);
+        tileColor = color(120);
         pathable = false;
         interactive = false;
         event = false; break;
@@ -307,6 +315,19 @@ class Tile
     type = TileType.SELL;
   }
   
+  public void placeBoss( int floor, color c, String message, Monster m )
+  {
+    placeBoss( floor, c, message, m, false );
+    //occupied = true;
+    //pathable = false;
+    //occupantColor = c;
+    //occupantText = message;
+    //isBoss = true;
+    //multipleBoss = multiple;
+    //zoo.addBossToList(m);
+    //addBossProgressSwitch( floor );
+  }
+  
   public void placeBoss( int floor, color c, String message, Monster m, boolean multiple )
   {
     occupied = true;
@@ -392,7 +413,7 @@ class Tile
       case IRON_KEY: return "A door banded with iron.";
       case SKELETON_KEY: return "A door with a skull-shaped emblem.";
       case BRASS_KEY: return "An old door decorated with copper symbols.";
-      case CHARIS: return "The door has Father Charis's seal on it.";
+      case CHARIS: return "The door has Father Charis's seal.";
       default: return "A strange door...";
     }
   }
@@ -400,7 +421,7 @@ class Tile
   public void drawTile(int xPos, int yPos)
   {
     rectMode(CORNER); imageMode(CORNER);
-    if(obj!=Object.NONE)  //tiles with objects will fill with the color of the last pathable tile above it
+    if(obj!=Object.NONE)  //tiles with objects will fill with the color of the last pathable tile above it (or below, in case of screen wrap)
       fill(safeColor);
     else
     {
@@ -408,7 +429,7 @@ class Tile
       if(pathable && type!=TileType.DOORSTEP)
         safeColor=tileColor;
       else if(type == TileType.WALL)
-        safeColor=#FFFFFF;
+        safeColor=#C8C8C8;
       else if(type == TileType.DARK_WALL)
         safeColor=#C8C8C8;
     }
@@ -451,7 +472,7 @@ class Tile
     else if(type == TileType.GARGOYLE)
       image(tileImage[51],xPos,yPos);
     else if(type == TileType.GARGOYLE_DARK)
-      image(tileImage[51],xPos,yPos);
+      image(tileImage[52],xPos,yPos);
     else if(type == TileType.WEREWOLF_WHITE)
       image(tileImage[60],xPos,yPos);
     if(occupied)
@@ -519,7 +540,7 @@ class Tile
 
 public enum TileType
 {
-  EMPTY, WALL, SECRET_WALL, GRASS, EVENT, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH, WOOD, WOOD_DARK, WOOD_LIGHT,
+  EMPTY, FLOOR, WALL, SECRET_WALL, GRASS, EVENT, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH, WOOD, WOOD_DARK, WOOD_LIGHT,
   DARK, BLACK_WALL, DARK_WALL, SECRET_DARK_WALL, SAND_WALL, DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE, GARGOYLE, GARGOYLE_DARK, WEREWOLF_WHITE,
   CAMP, MERCHANT, SHOP, SELL,
   STAIR_DOWN

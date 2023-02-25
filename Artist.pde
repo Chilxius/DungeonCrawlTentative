@@ -28,7 +28,7 @@ class Artist
   
   float gameoverOpacity = 0;
   
-  String locationTitleCard = "Cathedral Cellars";
+  String locationTitleCard = "";
   float titleCardDuration = 0;
   
   public Artist()
@@ -57,8 +57,6 @@ class Artist
     if(textPromptStage <=0 || textPromptStage > 50)
       textPromptStep*=-1;
     
-    if(titleCardDuration > 0)
-      drawLocationTitleCard();
   }
   
   public float stage()

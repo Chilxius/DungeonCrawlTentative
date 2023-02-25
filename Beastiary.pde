@@ -13,7 +13,8 @@ class Beastiary
   
   public Beastiary()
   {
-    list = new Monster[5][5];
+    boss = new Monster[bossCount]; //TEMPORARY
+    list = new Monster[5][5]; //first array size is temporary
     
     //Name, Image, Health, Str, Dex, Con, Mag, Wil, Spd, Gold, Weakness
     list[0][0] = new Monster("Error Rat","019.png",1,1,1,1,0,1,1,0,AttackType.NONE);
@@ -22,6 +23,28 @@ class Beastiary
     list[0][3] = new Monster();
     list[0][4] = new Monster();
     
+    list[1][0] = new Monster("Rat", "BrownRat.png",  4, 3, 2, 1, 0, 1, 2, 0, AttackType.FIRE);
+      list[1][0].attacks[0] = new Attack("squeaks.");
+      list[1][0].attacks[1] = new Attack("scurries.");
+      list[1][0].attacks[2] = new Attack("bites.", 30, false);
+      list[1][0].attacks[3] = new Attack("bites.", 30, false);
+      list[1][0].attacks[4] = new Attack("bites.", 30, false);
+    list[1][1] = new Monster("Tiny Rat", "GreyRat.png",  1, 1, 1, 1, 0, 1, 4, 0, AttackType.FIRE);
+      list[1][1].attacks[0] = new Attack("squeaks.");
+      list[1][1].attacks[1] = new Attack("scurries.");
+      list[1][1].attacks[2] = new Attack("bites.", 20, false);
+      list[1][1].attacks[3] = new Attack("bites.", 20, false);
+      list[1][1].attacks[4] = new Attack("bites.", 20, false);
+    list[1][2] = new Monster("Large Rat", "DarkRat.png",  7, 4, 2, 1, 0, 1, 1, 0, AttackType.FIRE);
+      list[1][2].attacks[0] = new Attack("squeaks.");
+      list[1][2].attacks[1] = new Attack("scurries.");
+      list[1][2].attacks[2] = new Attack("bites.", 35, false);
+      list[1][2].attacks[3] = new Attack("bites.", 35, false);
+      list[1][2].attacks[4] = new Attack("bites.", 35, false);
+    list[1][3] = new Monster();
+    list[1][4] = new Monster();
+    
+    /*
     list[1][0] = new Monster("GreenDragon",  "GreenDragon.png",  10,5,2,3,5,2,2,10,AttackType.NONE);
       list[1][0].attacks[0] = new Attack("rubbs its tummy.");
       list[1][0].attacks[1] = new Attack("rubbs its tummy.");
@@ -42,10 +65,7 @@ class Beastiary
       list[1][2].attacks[4] = new Attack("shoots ink.", 20, false, false, AttackStat.MAG);
     list[1][3] = new Monster();
     list[1][4] = new Monster();
-    
-    boss = new Monster[10]; //TEMPORARY
-    
-    //boss[0] = new Monster("TEST BOSS", "GreenDragon.png", 1, 1, 1, 1, 1, 1, 1, 1, AttackType.NONE);
+    */
   }
   
   public void addBossToList( Monster m )

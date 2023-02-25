@@ -42,12 +42,15 @@ class Map
     for(int i = pX-6, xDraw = 0; i <= pX+6; i++,xDraw+=30)
       for(int j = pY-6, yDraw = 0; j <= pY+6; j++,yDraw+=30)
         if( i >= 0 && j >= 0 && i < 100 && j < 100 )
-          tiles[i][j].drawTile(155+(xDraw),180+(yDraw));
+          tiles[i][j].drawTile(155+(xDraw),180+(yDraw)); //Draw Tile
         else
-          tiles[0][0].drawTile(155+(xDraw),180+(yDraw));
+          tiles[0][0].drawTile(155+(xDraw),180+(yDraw)); //Draw default tile, which is the tile at 0,0
           
     drawPartyPosition(a,b,c);  //Draws the heroes
     tiles[party.X][party.Y].drawForegroundObject(); //Re-draws the tile art if the heroes move behind it
+    
+    if(vanGogh.titleCardDuration > 0) //Location Title Card
+      vanGogh.drawLocationTitleCard();
   }
   
   void drawPartyPosition(color a,color b,color c)

@@ -181,7 +181,7 @@ class Battle
             {
               if( party.hero[turn].resolveAttack(defenderIndex-3) )
               {
-                displayTextLine( list[defenderIndex].name + " is vanquished!");
+                //displayTextLine( list[defenderIndex].name + " is vanquished!"); //was displaying for already dead monsters
                 list[defenderIndex].active = false;
               }
             }

@@ -140,7 +140,7 @@ class Monster
   
   public int experiencePoints()
   {
-    return (maxHp/10 + str + dex + con + mag + wil + spd)/2;
+    return (maxHp/10 + str + dex + con + mag + wil + spd)/3;
   }
   
   public boolean hasCondition(int x)
