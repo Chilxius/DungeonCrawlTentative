@@ -644,8 +644,26 @@ class Artist
       case CHEST:
         image(tileImage[30],xPos,yPos);
         break;
+      case CHEST_GOLD:
+        image(tileImage[61],xPos,yPos);
+        break;
+      case CHEST_DARK:
+        image(tileImage[62],xPos,yPos);
+        break;
       case SIGN:
         image(tileImage[36],xPos,yPos);
+        break;
+      case SIGN_E:
+        image(tileImage[63],xPos,yPos);
+        break;
+      case SIGN_F:
+        image(tileImage[64],xPos,yPos);
+        break;
+      case SIGN_D:
+        image(tileImage[65],xPos,yPos);
+        break;
+      case SIGN_I:
+        image(tileImage[66],xPos,yPos);
         break;
       case SAVEPOINT:
         if(animationStage<8)
@@ -653,8 +671,14 @@ class Artist
         else
           image(tileImage[20],xPos-5,yPos-5-savePointFloat);
         break;
+      case FAKE_SAVE:
+        image(tileImage[20],xPos-5,yPos-5-savePointFloat);
+        break;
       case BARREL:
         image(tileImage[28],xPos,yPos);
+        break;
+      case BARREL2:
+        image(tileImage[53],xPos,yPos);
         break;
     }
   }
@@ -710,10 +734,10 @@ class Artist
   
     //Class descriptions
     fill(200); textAlign(CENTER); textSize(30);
-    if( dist(mouseX,mouseY,150,200)<75 ){ text("KNIGHT",width/2,45);         textSize(20); text("A stalwart combatant that use most equipment.",width/2,75);                 text("Gains power when blocking attacks.",width/2,100);         drawStatBars(1); }
-    if( dist(mouseX,mouseY,350,200)<75 ){ text("BARBARIAN",width/2,45);      textSize(20); text("A powerful warrior that relishes battle.",width/2,75);                      text("Gains power when taking damage.",width/2,100);            drawStatBars(2); }
-    if( dist(mouseX,mouseY,550,200)<75 ){ text("MARTIAL ARTIST",width/2,45); textSize(20); text("A practitioner of martial arts who cannot use most equipment.",width/2,75); text("Always starts with extra power.",width/2,100);            drawStatBars(3); }
-    if( dist(mouseX,mouseY,150,400)<75 ){ text("THIEF",width/2,45);          textSize(20); text("An agile trickster that uses light equipment.",width/2,75);                 text("Gains power when scoring critical hits.",width/2,100);    drawStatBars(4); }
+    if( dist(mouseX,mouseY,150,200)<75 ){ text("KNIGHT",width/2,45);         textSize(20); text("A stalwart combatant that can use most equipment.",width/2,75);             text("Gains energy when blocking attacks.",width/2,100);        drawStatBars(1); }
+    if( dist(mouseX,mouseY,350,200)<75 ){ text("BARBARIAN",width/2,45);      textSize(20); text("A powerful warrior that relishes battle.",width/2,75);                      text("Gains energy when taking damage.",width/2,100);           drawStatBars(2); }
+    if( dist(mouseX,mouseY,550,200)<75 ){ text("MARTIAL ARTIST",width/2,45); textSize(20); text("A practitioner of martial arts who cannot use most equipment.",width/2,75); text("Always begins combat with extra energy.",width/2,100);    drawStatBars(3); }
+    if( dist(mouseX,mouseY,150,400)<75 ){ text("THIEF",width/2,45);          textSize(20); text("An agile trickster that uses light equipment.",width/2,75);                 text("Gains energy when scoring critical hits.",width/2,100);   drawStatBars(4); }
     if( dist(mouseX,mouseY,350,400)<75 ){ text("PRIEST",width/2,45);         textSize(20); text("A pious caster who can use some heavy armor.",width/2,75);                  text("Casts holy magic that can smite or heal.",width/2,100);   drawStatBars(5); }
     if( dist(mouseX,mouseY,550,400)<75 ){ text("MAGE",width/2,45);           textSize(20); text("An arcane caster unsuited to physical combat.",width/2,75);                 text("Casts elemental magic of tremendous power.",width/2,100); drawStatBars(6); }
     

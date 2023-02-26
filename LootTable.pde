@@ -55,4 +55,54 @@ class LootTable
       default: return "Bread";
     }
   }
+  
+  public String meatName()
+  {
+    switch( int(random(10)) )
+    {
+      case 0: return "Salted Pork";
+      case 1: return "Turkey Leg";
+      case 2: return "Back Bacon";
+      case 3: return "Mutton Chop";
+      case 4: return "Roast Lamb";
+      case 5: return "Roast Duck";
+      case 6: return "Jerked Beef";
+      case 7: return "Chicken Leg";
+      case 8: return "Sausage";
+      case 9: return "Leg of Yack";
+      default: return "Meat";
+    }
+  }
+  
+  public String fruitName()
+  {
+    switch( int(random(10)) )
+    {
+      case 0: return "Ardent Apple";
+      case 1: return "Grapes of Grace";
+      case 2: return "Pear of Purity";
+      case 3: return "Lemon of Life";
+      case 4: return "Bountiful Banana";
+      case 5: return "Cheerful Cherry";
+      case 6: return "Kiwi of Kindness";
+      case 7: return "Peach of Peace";
+      case 8: return "Lime of Love";
+      case 9: return "Divine Dates";
+      default: return "Magic Fruit";
+    }
+  }
+  
+  public String crabName()
+  {
+    switch( int(random(6)) )
+    {
+      case 0: return "King Crab";
+      case 1: return "Suzerain Shrimp";
+      case 2: return "King Crab";
+      case 3: return "Queen Crab";
+      case 4: return "Lord Lobster";
+      case 5: return "Prince Prawn";
+      default: return "Meat";
+    }
+  }
 }

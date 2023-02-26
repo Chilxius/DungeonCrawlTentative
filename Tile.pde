@@ -82,7 +82,9 @@ class Tile
       case 's':
       case 'k':
       case 'b':type=TileType.DOORSTEP;safe=true;break;
-      case '.':type=TileType.FLOOR;safe=true;break;
+      case '.':type=TileType.FLOOR;safe=false;break;
+      case 'r':type=TileType.FLOOR_RD;safe=false;break;
+      case '∫':type=TileType.FLOOR_BL;safe=false;break; //shift+b
       case '_':type=TileType.SAFE;safe=true;break;
       default :type=TileType.EMPTY;safe=true;break;
     }
@@ -90,9 +92,17 @@ class Tile
     switch(t)  //For objects
     {
       case '=':obj=Object.CHEST;type=TileType.SAFE;break;
+      case '≠':obj=Object.CHEST_GOLD;type=TileType.SAFE;break; //alt+=
+      case '±':obj=Object.CHEST_DARK;type=TileType.SAFE;break; //shift+alt+=
       case '?':obj=Object.SIGN;type=TileType.SAFE;break;
+      case '/':obj=Object.SIGN_E;type=TileType.SAFE;break;
+      case '÷':obj=Object.SIGN_F;type=TileType.SAFE;break; //alt+/
+      case '¿':obj=Object.SIGN_D;type=TileType.SAFE;break; //shift+alt+/
+      case 'ˆ':obj=Object.SIGN_I;type=TileType.SAFE;break; //shift+alt+i
       case '*':obj=Object.SAVEPOINT;type=TileType.SAFE;break;
+      case '•':obj=Object.FAKE_SAVE;type=TileType.SAFE;break; //alt+8
       case '[':obj=Object.BARREL;type=TileType.SAFE;break;
+      case ']':obj=Object.BARREL2;type=TileType.SAFE;break;
       default: obj=Object.NONE;break;
     }
     
@@ -105,133 +115,95 @@ class Tile
   {
     interactive = false;
     event = false;
+    pathable = true;
     switch(type)
     {
-      case EMPTY: {
+      case EMPTY: 
         tileColor = color(190);
-        pathable = true;
-        interactive = false;
-        event = false; break;
-      }
-      case FLOOR: {
+        break;
+      case FLOOR: 
         tileColor = color(200);
-        pathable = true;
-        interactive = false;
-        event = false; break;
-      }
-      case DARK: {
+        break;
+      case FLOOR_RD: 
+        tileColor = color(200,0,0);
+        break;
+      case FLOOR_BL: 
+        tileColor = color(0,0,200);
+        break;
+      case DARK: 
         tileColor = color(0);
-        pathable = true;
-        interactive = false;
-        event = false; break;
-      }
-      case DARK_WALL: {
+        break;
+      case DARK_WALL: 
         tileColor = color(200);
         pathable = false;
-        interactive = false;
-        event = false; break;
-      }
-      case SECRET_DARK_WALL: {
+        break;
+      case SECRET_DARK_WALL: 
         tileColor = color(200);
-        pathable = true;
-        interactive = false;
-        event = false; break;
-      }
-      case BLACK_WALL: {
+        break;
+      case BLACK_WALL:
         tileColor = color(0);
         pathable = false;
-        interactive = false;
-        event = false; break;
-      }
+        break;
       case WOOD_DARK:
-      case WOOD: {
+      case WOOD:
         tileColor = color(90,70,30);
         pathable = false;
-        interactive = false;
-        event = false; break;
-      }
-      case WOOD_LIGHT: {
+        break;
+      case WOOD_LIGHT:
         tileColor = color(190,170,130);
-        pathable = true;
-        interactive = false;
-        event = false; break;
-      }
-      case SAFE: {
+        break;
+      case SAFE: 
         tileColor = safeColor;
         //tileColor = color((x+y)*5%50+150,(x+y)*5%50+150,(x+y)*5%50+150);
-        pathable = true;
-        interactive = false;
-        event = false; safe = true; break;
-      }
-      case CAMP: {
+        safe = true; break;
+      case CAMP: 
         tileColor = color(150,0,0);
-        pathable = true;
-        interactive = false;
-        event = false; safe = true; break;
-      }
+        safe = true; break;
       case FLOWER:
+      case GRASS:
+        tileColor = color(0,180,0);
+        break;
       case GRAVE:
-      case GRASS: {
-        tileColor = color(0,180,0);
-        pathable = true;
-        interactive = false;
-        event = false; break;
-      }
+        tileColor = color(0,100,0);
+        break;
       case DARK_TREE:
-      case TREE: {
+      case TREE:
         tileColor = color(0,180,0);
         pathable = false;
-        interactive = false;
-        event = false; break;
-      }
-      case TREE_PATH: {
+        break;
+      case TREE_PATH: 
         tileColor = color(0,180,0);
-        pathable = true; break;
-      }
-      case WALL: {
+        break;
+      case WALL:
         tileColor = color(120);
         pathable = false;
-        interactive = false;
-        event = false; break;
-      }
-      case SECRET_WALL: {
+        break;
+      case SECRET_WALL:
         tileColor = color(120);
-        pathable = true;
-        interactive = false;
-        event = false; break;
-      }
-      case S_GLASS: {
+        break;
+      case S_GLASS:
         tileColor = color(120);
         pathable = false;
-        interactive = false;
-        event = false; break;
-      }
+        break;
       case GARGOYLE_DARK:
-      case GARGOYLE: {
+      case GARGOYLE:
         tileColor = color(200);
         pathable = false;
-        interactive = false;
-        event = false; break;
-      }
-      case WEREWOLF_WHITE: {
+        break;
+      case WEREWOLF_WHITE:
         tileColor = color(200);
         pathable = false;
-        interactive = false;
-        event = false; break;
-      }
-      case WATER: {
+        break;
+      case WATER:
         tileColor = color(0,0,220);
         pathable = false;
-        interactive = false;
-        event = false; break;
-      }
-      case DOOR: {
+        break;
+      case DOOR:
         tileColor = color(90,70,30);
         pathable = false;
-        interactive = false;
-        event = false; break;
-      }
-      case DOORSTEP: {
+        break;
+      case DOORSTEP: 
+      {
         tileColor = color(200);
         pathable = true;
         interactive = false;
@@ -249,18 +221,14 @@ class Tile
         addToProgressSwitches(floor);
         break;
       }
-      case STAIR_DOWN: {
+      case STAIR_DOWN: 
         tileColor = color(0);
-        pathable = true;
-        interactive = false;
-        event = false; break;
-      }
-      default: {
+        break;
+      default:
         tileColor = color(200,0,0);
         pathable = true;
         interactive = false;
         event = true; break;
-      }
     }
   }
   
@@ -540,7 +508,7 @@ class Tile
 
 public enum TileType
 {
-  EMPTY, FLOOR, WALL, SECRET_WALL, GRASS, EVENT, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH, WOOD, WOOD_DARK, WOOD_LIGHT,
+  EMPTY, FLOOR, FLOOR_RD, FLOOR_BL, WALL, SECRET_WALL, GRASS, EVENT, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH, WOOD, WOOD_DARK, WOOD_LIGHT,
   DARK, BLACK_WALL, DARK_WALL, SECRET_DARK_WALL, SAND_WALL, DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE, GARGOYLE, GARGOYLE_DARK, WEREWOLF_WHITE,
   CAMP, MERCHANT, SHOP, SELL,
   STAIR_DOWN
@@ -554,6 +522,9 @@ public enum Key //special items for interactive tiles
 
 public enum Object //tile has an object (still pathable)
 {
-  CHEST, SIGN, SAVEPOINT, BARREL,
+  CHEST, CHEST_GOLD, CHEST_DARK,
+  SIGN, SIGN_E, SIGN_F, SIGN_D, SIGN_I,
+  SAVEPOINT, FAKE_SAVE,
+  BARREL, BARREL2,
   NONE
 }

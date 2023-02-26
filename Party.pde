@@ -61,6 +61,9 @@ class Party
       if( inventory[i].value == 0 )
       {
         if(item.value == 10 && !loadingFile) item.name = theStuff.breadName();
+        if(item.value == 20 && !loadingFile) item.name = theStuff.meatName();
+        if(item.value == 30 && !loadingFile) item.name = theStuff.fruitName();
+        if(item.value == 40 && !loadingFile) item.name = theStuff.crabName();
         if(item instanceof Item) inventory[i] = new Item( item );    //don't like this, but it seems to work
         if(item instanceof Equipment) inventory[i] = new Equipment( (Equipment)item );
         advanceText("You recieve " + indefArticle(item.name) + " " + item );

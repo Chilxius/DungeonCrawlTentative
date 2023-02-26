@@ -12,6 +12,7 @@
 //Delay before "vanquished" line where enemy vanishes
 //Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair
 //Fix lineLength error and problem with not printing entire line
+//Fix objects getting strange tile colors
 
 //IMAGES I NEED:
 //Vendor stall
@@ -20,6 +21,7 @@
 //Robes
 //Fur armor
 //Rubble
+//Bed
 
 //NOTES:
 //I edited the log class to remove spaces in text - might cause errors downstream
@@ -122,7 +124,7 @@ void setup()
 {
   //fullScreen();
   size(700,700);
-  surface.setTitle("Ritchie's Dungeon Crawler");
+  surface.setTitle("THE RIDDLE OF IRON");
   windowX = displayWidth/2-width/2;
   windowY = displayHeight/2-height/2;
   surface.setLocation(windowX, windowY);
@@ -166,14 +168,20 @@ void setup()
   tileImage[50] = loadImage("wallSand.png"); tileImage[50].resize(30,0);
   tileImage[51] = loadImage("StoneGargoyle.png"); tileImage[51].resize(30,0);
   tileImage[52] = loadImage("BlackGargoyle.png"); tileImage[52].resize(30,0);
-  tileImage[53] = loadImage("SignEquipment.png"); tileImage[53].resize(30,0);
-  tileImage[54] = loadImage("SignFood.png"); tileImage[54].resize(30,0);
-  tileImage[55] = loadImage("signInn.png"); tileImage[55].resize(30,0);
-  tileImage[56] = loadImage("SignPotion.png"); tileImage[56].resize(30,0);
+  tileImage[53] = loadImage("barrelEmpty.png"); tileImage[53].resize(30,0);
+  //tileImage[54] = loadImage("SignFood.png"); tileImage[54].resize(30,0);
+  //tileImage[55] = loadImage("SignInn.png"); tileImage[55].resize(30,0);
+  //tileImage[56] = loadImage("SignPotion.png"); tileImage[56].resize(30,0);
   tileImage[57] = loadImage("wood.png"); tileImage[57].resize(30,0);
   tileImage[58] = loadImage("woodDark.png"); tileImage[58].resize(30,0);
   tileImage[59] = loadImage("woodLight.png"); tileImage[59].resize(30,0);
   tileImage[60] = loadImage("WhiteWerewolf.png"); tileImage[60].resize(30,0);
+  tileImage[61] = loadImage("chestGold.png"); tileImage[61].resize(30,0);
+  tileImage[62] = loadImage("chestDark.png"); tileImage[62].resize(30,0);
+  tileImage[63] = loadImage("SignEquipment.png"); tileImage[63].resize(30,0);
+  tileImage[64] = loadImage("SignFood.png"); tileImage[64].resize(30,0);
+  tileImage[65] = loadImage("SignPotion.png"); tileImage[65].resize(30,0);
+  tileImage[66] = loadImage("SignInn.png"); tileImage[66].resize(30,0);
   
   //Test sounds
   beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
@@ -681,16 +689,16 @@ void keyPressed()
       //  advanceText("Nothing found.");
       
     }
-    if(key == 'a' || keyCode == LEFT)
+    if(key == 'a' || keyCode == LEFT || key == '4')
       if(!attemptMove("left")&&display!=Display.BATTLE)displayTextLine(bonkText('l'));
-    if(key == 'd' || keyCode == RIGHT)
+    if(key == 'd' || keyCode == RIGHT || key == '6')
       if(!attemptMove("right")&&display!=Display.BATTLE)displayTextLine(bonkText('r'));
-    if(key == 's' || keyCode == DOWN)
+    if(key == 's' || keyCode == DOWN || key == '5' || key == '2')
       if(!attemptMove("down")&&display!=Display.BATTLE)displayTextLine(bonkText('d'));
-    if(key == 'w' || keyCode == UP)
+    if(key == 'w' || keyCode == UP || key == '8')
       if(!attemptMove("up")&&display!=Display.BATTLE)displayTextLine(bonkText('u'));
     
-    if(key == '>') //Changing floors
+    if(key == '>' || key == '9') //Changing floors
       if(m[party.floor].tiles[party.X][party.Y].type==TileType.STAIR_DOWN)
         changeMap();
     
@@ -703,7 +711,7 @@ void keyPressed()
       battle = new Battle( party.hero, 0, currentBoss );
     }
       
-    if(key == 'o' && m[party.floor].tiles[party.X][party.Y].interactive) //open
+    if( ( key == 'o' || key == '7' ) && m[party.floor].tiles[party.X][party.Y].interactive) //open
       if(m[party.floor].tiles[party.X][party.Y].interact(party.keyInventory))
       {
         m[party.floor].openDoorsAround(party.X,party.Y);
