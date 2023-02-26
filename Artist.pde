@@ -30,6 +30,8 @@ class Artist
   
   String locationTitleCard = "";
   float titleCardDuration = 0;
+  PImage skillIcon[][] = new PImage[6][8];
+  PImage skillButton[] = new PImage[4];
   
   public Artist()
   {
@@ -43,6 +45,7 @@ class Artist
     rand2 = color(random(255),random(255),random(255));
     rand3 = color(random(255),random(255),random(255));
     rand4 = color(random(255),random(255),random(255));
+    loadSkillIcons();
   }
   
   public void animate()
@@ -264,6 +267,26 @@ class Artist
     text("press space to cancel.",width/2,580);
   }
   
+  public void loadSkillIcons()
+  {
+    //Knight
+    skillButton[0] = loadImage("KnightSkill.png");     skillButton[0].resize(60,0);
+    skillIcon[0][0] = loadImage("DefenseStrike.png"); skillIcon[0][0].resize(60,0);
+    //Barbarian
+    skillButton[1] = loadImage("BarbSkill.png");     skillButton[1].resize(60,0);
+    skillIcon[1][0] = loadImage("BloodStrike.png");   skillIcon[1][0].resize(60,0);
+    //Karate
+    skillButton[2] = loadImage("ThiefSkill.png");     skillButton[2].resize(60,0);
+    skillIcon[2][0] = loadImage("StoneFist.png");     skillIcon[2][0].resize(60,0);
+    //Thief
+    skillButton[3] = loadImage("Fist.png");     skillButton[3].resize(60,0);
+    skillIcon[3][0] = loadImage("Knives.png");        skillIcon[3][0].resize(60,0);
+    //Priest
+    skillIcon[4][0] = loadImage("HolyLight.png");     skillIcon[4][0].resize(60,0);
+    //Mage    
+    skillIcon[5][0] = loadImage("Fire.png");          skillIcon[5][0].resize(60,0);
+  }
+  
   public void drawHeroSkills( int h )
   {
     float baseX = party.heroX(h);
@@ -271,16 +294,29 @@ class Artist
     strokeWeight(5); fill(0);
     stroke(200); textSize(18); textAlign(CENTER);
     rectMode(CORNER); rect(40,200,620,300,20); rectMode(CENTER);
-    /*level 1 skill*/            fill(0); rect(140,280,70,70,20); fill(200); text(party.hero[h].skill[0].description,140,240); text(party.hero[h].skill[0].cost,140,335); text("Q",165,305);
-    if(party.hero[h].level>5 ) { fill(0); rect(280,280,70,70,20); fill(200); text(party.hero[h].skill[1].description,280,240); text(party.hero[h].skill[0].cost,280,335); text("W",305,305); }
-    if(party.hero[h].level>10) { fill(0); rect(420,280,70,70,20); fill(200); text(party.hero[h].skill[2].description,420,240); text(party.hero[h].skill[0].cost,420,335); text("E",445,305); }
-    if(party.hero[h].level>15) { fill(0); rect(560,280,70,70,20); fill(200); text(party.hero[h].skill[3].description,560,240); text(party.hero[h].skill[0].cost,560,335); text("R",585,305); }
-    if(party.hero[h].level>20) { fill(0); rect(140,430,70,70,20); fill(200); text(party.hero[h].skill[4].description,140,390); text(party.hero[h].skill[0].cost,140,485); text("A",165,455); }
-    if(party.hero[h].level>25) { fill(0); rect(280,430,70,70,20); fill(200); text(party.hero[h].skill[5].description,280,390); text(party.hero[h].skill[0].cost,280,485); text("S",305,455); }
-    if(party.hero[h].level>30) { fill(0); rect(420,430,70,70,20); fill(200); text(party.hero[h].skill[6].description,420,390); text(party.hero[h].skill[0].cost,420,485); text("D",445,455); }
-    if(party.hero[h].level>35) { fill(0); rect(560,430,70,70,20); fill(200); text(party.hero[h].skill[7].description,560,390); text(party.hero[h].skill[0].cost,560,485); text("F",585,455); }
+    /*level 1 skill*/            noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],140,280); rect(140,280,70,70,20); fill(200); text(party.hero[h].skill[0].description,140,240); text("Cost: "+party.hero[h].skill[0].cost,140,335); text("Q",165,305);
+    if(party.hero[h].level>5 ) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],280,280); rect(280,280,70,70,20); fill(200); text(party.hero[h].skill[1].description,280,240); text("Cost: "+party.hero[h].skill[0].cost,280,335); text("W",305,305); }
+    if(party.hero[h].level>10) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],420,280); rect(420,280,70,70,20); fill(200); text(party.hero[h].skill[2].description,420,240); text("Cost: "+party.hero[h].skill[0].cost,420,335); text("E",445,305); }
+    if(party.hero[h].level>15) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],560,280); rect(560,280,70,70,20); fill(200); text(party.hero[h].skill[3].description,560,240); text("Cost: "+party.hero[h].skill[0].cost,560,335); text("R",585,305); }
+    if(party.hero[h].level>20) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],140,430); rect(140,430,70,70,20); fill(200); text(party.hero[h].skill[4].description,140,390); text("Cost: "+party.hero[h].skill[0].cost,140,485); text("A",165,455); }
+    if(party.hero[h].level>25) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],280,430); rect(280,430,70,70,20); fill(200); text(party.hero[h].skill[5].description,280,390); text("Cost: "+party.hero[h].skill[0].cost,280,485); text("S",305,455); }
+    if(party.hero[h].level>30) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],420,430); rect(420,430,70,70,20); fill(200); text(party.hero[h].skill[6].description,420,390); text("Cost: "+party.hero[h].skill[0].cost,420,485); text("D",445,455); }
+    if(party.hero[h].level>35) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],560,430); rect(560,430,70,70,20); fill(200); text(party.hero[h].skill[7].description,560,390); text("Cost: "+party.hero[h].skill[0].cost,560,485); text("F",585,455); }
     
     fill(0); rect(baseX+75,545,70,70,20);drawCancelIcon(baseX+75,545);
+  }
+  
+  public int jobToInt(Job j)
+  {
+    switch(j)
+    {
+      case KNIGHT: return 0;
+      case BARBARIAN: return 1;
+      case KARATE: return 2;
+      case THIEF: return 3;
+      case PRIEST: return 4;
+      default: return 5;
+    }
   }
   
   public void drawBattleItems( int h, Item [] items )
@@ -1067,7 +1103,7 @@ class Artist
   {
     for(int i = 0; i < 3; i++)
       if(party.hero[i].defending)
-        drawDefendIcon(100+250*i,155,party.hero[i].favColor,color(1),party.hero[i].job);
+        drawDefendIcon(100+250*i,155,party.hero[i].favColor,1,party.hero[i].job);
   }
   
   void drawShield( float x, float y, int heroIndex )
@@ -1296,7 +1332,7 @@ class Artist
       noFill(); circle(x,y,51);
     }
     
-    if( i == 1 )
+    if( i != 1 )
     {
       fill(c); textSize(10);
       text("D",x+25,y+27);
@@ -1308,9 +1344,21 @@ class Artist
     fill(c, 30); noStroke();
     for(int k = 0; k < 10; k++) circle(x,y,3*k+45);
     
-    if( j == Job.KNIGHT || j == Job.BARBARIAN || j == Job.KARATE || j == Job.THIEF )
+    if( j == Job.KNIGHT )
     {
-      
+      image(skillButton[0],x,y);
+    }
+    else if( j == Job.BARBARIAN )
+    {
+      image(skillButton[1],x,y);
+    }
+    else if( j == Job.THIEF )
+    {
+      image(skillButton[2],x,y);
+    }
+    else if( j == Job.KARATE )
+    {
+      image(skillButton[3],x,y);
     }
     else if( j == Job.PRIEST ) //cross
     {

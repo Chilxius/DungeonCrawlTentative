@@ -67,7 +67,7 @@ Party party = new Party( new Hero(false), new Hero(false), new Hero(false));
 ArrayList<Portal> exits = new ArrayList<Portal>();
 
 //UI data
-Artist vanGogh = new Artist();
+Artist vanGogh;// = new Artist();
 ArrayList<GhostNumber> floatingNumbers = new ArrayList<GhostNumber>();
 int windowX, windowY;
 
@@ -125,6 +125,7 @@ void setup()
   //fullScreen();
   size(700,700);
   surface.setTitle("THE RIDDLE OF IRON");
+  vanGogh = new Artist();
   windowX = displayWidth/2-width/2;
   windowY = displayHeight/2-height/2;
   surface.setLocation(windowX, windowY);
