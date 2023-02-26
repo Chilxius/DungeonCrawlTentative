@@ -60,6 +60,8 @@ class Tile
       case '4':type=TileType.SAND_WALL;break;
       case '~':type=TileType.GRASS;break;
       case '+':type=TileType.DOOR;break;
+      case '∏':type=TileType.DOOR_GATE;break; //shift+alt+p
+      case 'π':type=TileType.PORTCULLIS;break;
       case 'w':type=TileType.WATER;break;
       case '%':type=TileType.FLOWER;break;
       case 'T':type=TileType.TREE;break;
@@ -67,7 +69,8 @@ class Tile
       case 'D':type=TileType.DARK_TREE;break;
       case 'g':type=TileType.GRAVE;break;
       case '&':type=TileType.S_GLASS;break;
-      case '>':type=TileType.STAIR_DOWN;break;
+      case '>':type=TileType.STAIR;break;
+      case '<':type=TileType.STAIR_DOOR;break;
       case ' ':type=TileType.DARK;break;
       case '£':type=TileType.BLACK_WALL;break;
       case 'G':type=TileType.GARGOYLE;break;
@@ -81,6 +84,7 @@ class Tile
       case 'i':
       case 's':
       case 'k':
+      case '˚': // shift+k (Father Charis's notes)
       case 'b':type=TileType.DOORSTEP;safe=true;break;
       case '.':type=TileType.FLOOR;safe=false;break;
       case 'r':type=TileType.FLOOR_RD;safe=false;break;
@@ -198,6 +202,8 @@ class Tile
         tileColor = color(0,0,220);
         pathable = false;
         break;
+      case PORTCULLIS:
+      case DOOR_GATE:
       case DOOR:
         tileColor = color(90,70,30);
         pathable = false;
@@ -218,10 +224,13 @@ class Tile
           createInteraction( Key.BRASS_KEY );
         else if( t == 'k' )
           createInteraction( Key.CHARIS );
+        else if( t == '˚' )
+          createInteraction( Key.CHARIS_NOTES );
         addToProgressSwitches(floor);
         break;
       }
-      case STAIR_DOWN: 
+      case STAIR:
+      case STAIR_DOOR:
         tileColor = color(0);
         break;
       default:
@@ -344,6 +353,10 @@ class Tile
           party.addToInventory( new Item( Key.CHARIS ) );
           advanceText("Father Charis's Key opens the door.");
         }
+        else if( keys[i] == Key.CHARIS_NOTES )
+        {
+          advanceText("USED FATHER CHARIS'S NOTES");
+        }
         else
           advanceText("You use your " + keyName(k) + ".");
         keys[i] = Key.NONE;
@@ -382,6 +395,7 @@ class Tile
       case SKELETON_KEY: return "A door with a skull-shaped emblem.";
       case BRASS_KEY: return "An old door decorated with copper symbols.";
       case CHARIS: return "The door has Father Charis's seal.";
+      case CHARIS_NOTES: return "THIS IS WHERE THE NOTES ARE USED";
       default: return "A strange door...";
     }
   }
@@ -419,6 +433,10 @@ class Tile
       image(tileImage[43],xPos,yPos);
     else if(type == TileType.DOOR)
       image(tileImage[39],xPos,yPos);
+    else if(type == TileType.DOOR_GATE)
+      image(tileImage[41],xPos,yPos);
+    else if(type == TileType.PORTCULLIS)
+      image(tileImage[54],xPos,yPos);
     else if(type == TileType.FLOWER)
       image(tileImage[3],xPos,yPos);
     else if(type == TileType.WATER)
@@ -435,8 +453,10 @@ class Tile
       image(tileImage[28],xPos,yPos);
     else if(type == TileType.MERCHANT)
       image(tileImage[48],xPos,yPos);
-    else if(type == TileType.STAIR_DOWN)
+    else if(type == TileType.STAIR)
       image(tileImage[40],xPos,yPos);
+    else if(type == TileType.STAIR_DOOR)
+      image(tileImage[38],xPos,yPos);
     else if(type == TileType.GARGOYLE)
       image(tileImage[51],xPos,yPos);
     else if(type == TileType.GARGOYLE_DARK)
@@ -468,7 +488,7 @@ class Tile
   
   public boolean canOpen()
   {
-    if( type == TileType.DOOR )
+    if( type == TileType.DOOR || type == TileType.PORTCULLIS )
       return true;
     return false;
   }
@@ -508,16 +528,22 @@ class Tile
 
 public enum TileType
 {
-  EMPTY, FLOOR, FLOOR_RD, FLOOR_BL, WALL, SECRET_WALL, GRASS, EVENT, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH, WOOD, WOOD_DARK, WOOD_LIGHT,
-  DARK, BLACK_WALL, DARK_WALL, SECRET_DARK_WALL, SAND_WALL, DOOR, DOORSTEP, GRAVE, S_GLASS, SAFE, GARGOYLE, GARGOYLE_DARK, WEREWOLF_WHITE,
+  EMPTY, EVENT, SAFE,
+  FLOOR, FLOOR_RD, FLOOR_BL,
+  GRASS, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH,
+  WOOD, WOOD_DARK, WOOD_LIGHT,
+  DARK, BLACK_WALL,
+  WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, SAND_WALL,
+  DOOR, DOOR_GATE, PORTCULLIS, DOORSTEP,
+  GRAVE, S_GLASS, GARGOYLE, GARGOYLE_DARK, WEREWOLF_WHITE,
   CAMP, MERCHANT, SHOP, SELL,
-  STAIR_DOWN
+  STAIR, STAIR_DOOR
 }
 
 public enum Key //special items for interactive tiles
 {
   COPPER_KEY, SKELETON_KEY, IRON_KEY, BRASS_KEY, 
-  CHARIS, NONE
+  CHARIS, CHARIS_NOTES, NONE
 }
 
 public enum Object //tile has an object (still pathable)

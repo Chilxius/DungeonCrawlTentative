@@ -81,24 +81,24 @@ void setupMaps()
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G..?.rr.?..G..#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#################TTTTT#>.∫∫∫∫∫rr∫∫∫∫∫.>#TTTTT#########TTTTT#########TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#=≠±#[][#/÷¿#@ˆ€#TTTTT#..G....rr....G..#TTTTT#[[...∑]#TTTTT#==...3w#TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#=≠±#[][#/÷¿#.©.#TTTTT#..G....rr....G..#TTTTT#[[...∑]#TTTTT#==...3w#TTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT&...#...#...#...&TTTTT#######.rr.#######TTTTT#...W.∑.&TTTTT#.....33#TTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTT#########TTTT&.∫∫∫∫∫∫∫∫∫∫∫∫∫.&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#>....∑.&TTTTT#>......#TTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTT#∫∫∫#rrr#TtTT#.∫∫∫∫∫∫>∫∫∫∫∫∫.#TTTTTTTTTTT#.rr.#TTTTTTTTTTT#...W.∑.&TTTTT#..„„„..#TTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTT#.∫.#.r.#TTTT&.∫∫∫∫∫∫∫∫∫∫∫∫∫.&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#[[...∑]#TTTTT#„„„„„„„#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#.......#TTtT&...#...#.r.#.r.&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#########TTTTT#########TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTtT#.r.#.∫.$tttt$t$¢#*••#rGr#rRr#TTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTT#.......#TTtT&...#...#...#...&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#########TTTTT#########TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTtT#.r.#.∫.$tttt$t$¢#*••#.G.#.R.#TTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTtT#rrr#∫∫∫#TTTT#################TTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTtT##$$#####TtTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TttttttttTTTTTTTTTTtTTTTTTTTTTTTTTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G..?.rr.?..G..#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#>.∫∫∫∫∫rr∫∫∫∫∫.>#TTTTTT#TTTTTTTTTTTTTTTTTTTTTTTTT#########";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G....rr....G..#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#rr===..#";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT&.......#";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT&rr....>#";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT&.......#";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#rr.[]..#";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT#TTTTTTTTTTTTTTTTTTTTTTTTT#########";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#>.∫∫∫∫∫rr∫∫∫∫∫.>#TTTTTT################TTTTTTTTTT#########";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G....rr....G..#TTTTTT################TTTTTTTTTT#rr===..#";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######.rr.#######TTTTTT##~%~„.∫∫∫..∑w##TTTTTTTTTT&.......#";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##„„„„.∫∫∫..∑w##TTTTTTTTTT&rr....>#";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##.....i..k.∑∑##TTTTTTTTTT&.......#";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT###>###+##+###=#TTTTTTTTTT#rr.[]..#";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##########$$$$$#TTTTTTTTTT#########";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
@@ -108,57 +108,57 @@ void setupMaps()
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT###i..i...rr...i..i###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~######~~~~~~######~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "~         ~                                       T                                                ~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "~         ~                                       T                                                ~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "~         ~                                       T                                                ~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "~         ~                                       T                                                ~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "~         ~                                       T                                                ~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "~                                                 T                                                ~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "~                                                 T                                                ~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "~                                                 T                                                ~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "~                                                 T                                                ~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "~                                                 T                                                ~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "~                                                 T                                                ~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "~                                                 T                                                ~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#";
-  mapStrings[mapIndex] += "~                                                 T                                                ~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~G";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##.rr.##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##..rr..##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##...rr...##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##..#.rr.#..##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##.....rr.....##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT&..#...rr...#..&TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT&......rr......&TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT&..#...rr...#..&TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##.....rr.....##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##..#.rr.#..##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##...rr...##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##..rr..##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##.rr.##TTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#####&###&#.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rrrrrrrrrrrrrrr&TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rrrrrrrrrrrrrrr&TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##&###&###&###&#<#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTG";
 
   m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
   
   createLoot(lootIndex++, 0, 47, 8, Key.COPPER_KEY);
-  createLoot(lootIndex++, 0, 59, 14, new Equipment("Secret Armor","MetalMail.png",18,false,22,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST) );
-  createLoot(lootIndex++, 0, 21, 29, new Equipment("Vestment","BlueShirt.png",3,false,7,true) );
-  createLoot(lootIndex++, 0, 22, 29, new Equipment("Vestment","BlueShirt.png",3,false,7,true) );
+  createLoot(lootIndex++, 0, 59, 14, new Equipment("Admirer's Chain","MetalMail.png",18,false,22,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST) );
+  //createLoot(lootIndex++, 0, 21, 29, new Equipment("Vestment","BlueShirt.png",3,false,7,true) );
+  //createLoot(lootIndex++, 0, 22, 29, new Equipment("Vestment","BlueShirt.png",3,false,7,true) );
   createLoot(lootIndex++, 0, 26, 29, new Item("Gold Coin",1) );
   createLoot(lootIndex++, 0, 1, 25, new Item("Golden Dice",19) );
   createLoot(lootIndex++, 0, 65, 29, new Item("Bread",10) );
@@ -170,6 +170,7 @@ void setupMaps()
   createLoot(lootIndex++, 0, 94, 41, new Equipment("Chainmail","MetalMail.png",9,false,14,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST) );
   createLoot(lootIndex++, 0, 95, 41, new Equipment("Old Plate","RustyArmor.png",7,false,18,Job.KNIGHT,Job.PRIEST) );
   createLoot(lootIndex++, 0, 96, 41, new Equipment("Axe","MetalSpikedAxe.png",9,true,22,Job.KNIGHT,Job.BARBARIAN,Job.THIEF) );
+  createLoot(lootIndex++, 0, 79, 45, Key.CHARIS_NOTES);
   
   //Mother Sunita
   m[0].tiles[49][3].placeOccupant( color(150, 250, 250), "She doesn't have time to talk to you." );
@@ -189,10 +190,10 @@ void setupMaps()
   //in method below
   m[0].tiles[79][8].placeOccupant( color(150, 150, 250), "- My repairs have been delayed. Try to ignore that horrible thing for a few more days." );
   //Help room initiates
-  m[0].tiles[21][30].placeOccupant( color(150, 150, 200), "- Chests come in many styles. There will always be SOMETHING inside of them." );
+  m[0].tiles[21][30].placeOccupant( color(150, 150, 200), "- Chests come in many styles. These are mostly for show. Out in the world, there will always be SOMETHING inside of them." );
   m[0].tiles[25][30].placeOccupant( color(150, 150, 200), "- Chests are not the only place to store items. Always investigate if you sense something hidden." );
   m[0].tiles[29][30].placeOccupant( color(150, 150, 200), "- If you are seeking arms, rations, or tinctures, look for these signs to find a reputable vendor." );
-  m[0].tiles[33][30].placeOccupant( color(150, 150, 200), "- Inns dot this land. Simply look for this sign when you are weary. You will also find abandoned campsites that will do in an emergency." );
+  m[0].tiles[33][30].placeOccupant( color(150, 150, 200), "- Let's review your lessons. Strength, combined with the power of your weapon, will determine the damage you deal in combat. Dexterity is a more subtle skill, but you will find it valuable when it allows you to land critical blows. A strong Constitution will prevent harm from physical blows. Magical power, obviously, powers magic spells and techniques. Willpower serves as your defense against the magic of others. Speed will determine how quickly you can act in combat." );
   m[0].tiles[21][34].placeOccupant( color(150, 150, 200), "- There are often many ways forward, and not all of them are obvious." );
   m[0].tiles[25][34].placeOccupant( color(150, 150, 200), "- Only one of these Legend Gems is genuine. Human artifice has been unable to re-create the Tears of Ritisu, though many have tried. Always tell your tales to the Gems. You will learn from your past and your possible futures reflected in its clear facets." );
   m[0].tiles[29][34].placeOccupant( color(150, 150, 200), "- Energy is used by martial fighters to fuel their combat techniques. You start with some energy and gain one every time you attack. Your maximum energy is dictated by your level of experience." );
@@ -202,29 +203,47 @@ void setupMaps()
   //in method below
   //in method below
   //Chilxius
-  m[0].tiles[1][24].placeOccupant( color(0,200), "- Well done. You'll go far in this game. Look at your feet for a small reward. I will follow your progress, so seek me out in the future." );
+  m[0].tiles[1][24].placeOccupant( color(0,200), "- Well done. You'll go far in this world. Look at your feet for a small reward. I will follow your progress, so seek me out in the future." );
   m[0].tiles[67][30].placeOccupant( color(150, 150, 200), "- Imagine my kitchen without the sound of you three sneaking in during the night, and thinking I never heard you. Take as much as you can carry, my children. You may find more skilled chefs out there in the world, but no one else's bread will taste like home." );
   m[0].tiles[71][31].placeOccupant( color(150, 150, 200), "- Sorry, I'm busy." );
   m[0].tiles[68][33].placeOccupant( color(150, 150, 200), "- Fresh bread is the foundation of a quality meal. Tasty meat is more valuable, and fills you with more energy when properly prepared. Legend tells of magical fruits, infused with virtues. Their juices will renew your body and spirit. They say that crabs harvested from the tranquil southern seas reign over all common foods. Some day, I will taste it." );
   //in method below
   m[0].tiles[83][29].placeOccupant( color(150, 150, 200), "- Basic health potions restore half of your vitality when consumed and, in my opinion, taste the best. Mana potions restore magical power, and some health as well. Vapor potions are unstable and become a mist when exposed to the air. This will heal everyone who inhales the fumes. The process for brewing these is fascinating. Elixirs are the pinacle of alchemy. I tasted one during my apprenticeship. I felt reborn." );
   m[0].tiles[92][41].placeOccupant( color(190, 170, 130), "A training dummy." );
+  m[0].tiles[92][43].placeOccupant( color(190, 170, 130), "A training dummy." );
   //in method below
-  m[0].tiles[92][45].placeOccupant( color(190, 170, 130), "A training dummy." );
-  m[0].tiles[96][43].placeOccupant( color(150, 150, 200), "- The light of Illamar shines equally upon all people until the day they are ferried through the Veil. Weapons of war serve only to busy the Black Vanguard. If you cannot justify your use of a blade before the gods, best to turn it upon yourself. Take what you need and go in peace." );
+  m[0].tiles[96][43].placeOccupant( color(150, 150, 250), "- The light of Illamar shines equally upon all people until the day they are ferried through the Veil. Weapons of war serve only to busy the Black Vanguard. If you cannot justify your use of a blade before the gods, best to turn it upon yourself. Take what you need and go in peace." );
   //in method below
   //in method below
   m[0].tiles[93][43].placeOccupant( color(160, 160, 160), "He's busy training." );
   m[0].tiles[93][45].placeOccupant( color(160, 160, 160), "She's busy training." );
   m[0].tiles[52][51].placeOccupant( color(150, 150, 250), "- I've been tasked with cleaning out Father Charis's study. Yes, he was a good man, but Mother Sunita will prove to be a wiser leader." );
-  
+  m[0].tiles[49][59].placeOccupant( color(150, 150, 250), "- Could you help me? These people have gone mad." );
+  //Upper garrison
+  m[0].tiles[48][60].placeOccupant( color(160, 160, 160), "- Maybe it was a bad idea to leave our doors open to the public..." );
+  m[0].tiles[51][60].placeOccupant( color(160, 160, 160), "- I'm sworn to protect the cathedral. But these people need help too." );
+  //Townspeople
+  m[0].tiles[49][60].placeOccupant( color(165,150,50), "- Where is Father Charis? I demand to speak to him!" );
+  m[0].tiles[50][61].placeOccupant( color(150,50,165), "- Those abominations rise each night! We cannot live this way!" );
+  m[0].tiles[56][63].placeOccupant( color(250,230,0), "- I just came to view the windows. The play of colors is magnificent, especially in the morning light." );
+  m[0].tiles[48][62].placeOccupant( color(165,150,50), "- One of those things was wearing my grandfather's ring. It can't be..." );
+  m[0].tiles[51][63].placeOccupant( color(165,150,50), "- Let me join the garrison! I'll get something done around here." );
+  m[0].tiles[52][64].placeOccupant( color(230,150,250), "- Father Charis will protect us. I know he will." );
+  m[0].tiles[46][64].placeOccupant( color(150,50,165), "- How can they move with no flesh or muscle? It is a blasphemy against Am-asma. Please, do something!" );
+  m[0].tiles[49][65].placeOccupant( color(150,50,165), "- At least let us take shelter in the cathedral." );
+  m[0].tiles[54][71].placeOccupant( color(230,150,250), "The girl sits against the wall, staring ahead with bloodshot eyes." );
+  //Lower garrison
+  m[0].tiles[48][66].placeOccupant( color(160, 160, 160), "- Go home, Rask. You can tell the mayor that help is coming." );
+  m[0].tiles[51][66].placeOccupant( color(160, 160, 160), "- It's so tragic. What was all my training for if not this?" );
+  //in method below - Rask
+  m[0].tiles[62][72].placeOccupant( color(150, 150, 250), "- Once you leave, you cannot return. Farewell, and may the light of Illamar shine upon you always." );
   
   //To the dormitory
   exits.add( new Portal(0,9,10,1,94,6, "Dormitory") );
   //To west cellar
   exits.add( new Portal(0,4,10,1,81,1, "The West Cellar") );
   //To/from help room
-  exits.add( new Portal(0,42,28,0,27,32, "Initiate's Classroom") );
+  exits.add( new Portal(0,42,28,0,27,32, "Initiates' Classroom") );
   exits.add( new Portal(0,27,32,0,42,28) );
   //To/from kitchen
   exits.add( new Portal(0,57,28,0,65,31) );
@@ -236,8 +255,8 @@ void setupMaps()
   exits.add( new Portal(0,42,40,0,98,43) );
   exits.add( new Portal(0,98,43,0,42,40) );
   //Father Charis's study
-  exits.add( new Portal(0,57,49,0,91,23) );
-  exits.add( new Portal(0,91,23,0,57,49) );
+  exits.add( new Portal(0,57,49,0,68,45, "Father Charis's Study") );
+  exits.add( new Portal(0,68,45,0,57,49) );
   
   m[0].tiles[20][29].placeBoss( 0, color(255,5), "Something pops out of the chest!", new Monster("Box Goblin", "RedBoxBoy.png", 1, 1, 1, 1, 1, 1, 1, 0, AttackType.NONE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("looks around.");
@@ -257,6 +276,8 @@ void setupMaps()
   m[0].tiles[52][27].createEvent(true, "- Kitchen");
   m[0].tiles[47][39].createEvent(true, "- Armory");
   m[0].tiles[52][39].createEvent(true, "- Laboratory");
+  m[0].tiles[68][44].createEvent(false, "- In the waning days of his life, Father Charis's study went largely unused. You still remember days passed, when the smell of ink and herbs would mix with the sound of water and a scratching quill. How could this place be so empty when he was alive only yesterday?");
+  m[0].tiles[75][44].createEvent(false, "- Charis had no more worldly possessions than any other cleric. Why did he have an extra closet?");
   
   //Save points
   savePoints[savePointIndex++] = new SavePoint(0, 19, 9);
@@ -510,7 +531,7 @@ void setupMaps()
   m[1].tiles[2][2].createEvent(true, "- The (space) key can be used to open chests like this one. You also use this key to search your current square. See if you can find anything left behind in this room by careless initiates.");
   m[1].tiles[6][2].createEvent(true, "- This is a sacred Legend Gem. Gazing into it, you can feel your acomplishments being told around campfires centuries from now. Step on it and press capital (S) to activate it, and then press ENTER to confirm and save your progress.");
   m[1].tiles[6][4].createEvent(true, "- Some doors are locked. You can view your key ring by holding down the (k) key. By examining a door, you can determine what key is required. If you stand next to the door and press the (o) key, you will use the proper key if you possess it. Keys are fragile, and usually break after a single use.");
-  m[1].tiles[2][7].createEvent(false, "- This stairwell will lead to a different room. To use it, stand on it and press the (>) key.");
+  m[1].tiles[2][7].createEvent(false, "- This stairwell will lead to a new room. To use it, stand on it and press the (>) key.");
   m[1].tiles[18][1].createEvent(false, "- Some of the clerics are busy cleaning the cellar. Walk into their space to speak with them.");
   m[1].tiles[35][3].createEvent(false, "- Sometimes, you can pass only one way across a threshold. This is one of those moments. Once you ascend these stairs, your story will truly begin. Good luck, young heroes.");
   m[1].tiles[97][5].createEvent(true, "- Press capital (R) on a bed to rest. Resting in a safe place will fully restore health and magic.");
@@ -521,7 +542,7 @@ void setupMaps()
   m[1].tiles[17][7].placeOccupant( color(75,100,255), "- When you are weary, seek out an inn or campsite. The people of Irid left many tents of sturdy and long-lasting leather across the land. Press capital (R) to rest at such a site." );
   m[1].tiles[23][3].placeOccupant( color(75,100,255), "- We have all we need here at the Irohill Cathedral. However, if you some day leave, you may need to trade with vendors. Press capital (B) to bargain with them, but be wary of those who would cheat you." );
   m[1].tiles[23][5].placeOccupant( color(75,100,255), "- The Vendor's Guild is strict, and prohibits vedors from buying from you. Some will flaunt these rules and will give you gold for your unneeded treasures. Seek them out if you need coin." );
-  m[1].tiles[23][7].placeOccupant( color(75,100,255), "- You were given a map of the Cathedral, yes? There is a helpful list of tips on the back of it. Hold the (h) key to view these helpful tips whenever you need." );
+  m[1].tiles[23][7].placeOccupant( color(75,100,255), "- You were given a map of the Cathedral, yes? There is a helpful list of tips on the back of it. Hold the (h) key to view these tips whenever you need." );
   m[1].tiles[46][2].placeOccupant( color(75,100,255), "- Good morning, children. I'm sorry to tell you, but Father Charis crossed the Veil last night. He was a man of towering benevolence, though you know that better than anyone. Mother Sunita will be speaking on his behaf during morning meal." );
   m[1].tiles[46][4].placeOccupant( color(75,100,255), "- I wish Father Charis hadn't taken in so many orphans. You three made so much noise playing games and looking for secret rooms that I could barely focus on my gardening." );
   m[1].tiles[93][5].placeOccupant( color(75,100,255), "- Oh, good morning, children. I've just finished cleaning the dormitory. If you need to rest, there will be fresh sheets waiting for you here." );
@@ -586,7 +607,7 @@ void setupMaps()
       zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 39, false);
   bossIndex++;
 
-  m[1].tiles[5][15].placeBoss( 1, color(200, 80, 40), "This must be their matriarch.", new Monster("Rat Queen", "RedRat.png", 35, 10, 5, 2, 15, 3, 5, 0, AttackType.NONE) );
+  m[1].tiles[5][15].placeBoss( 1, color(200, 80, 40), "This must be their matriarch.", new Monster("Rat Queen", "RedRat.png", 35, 12, 5, 2, 15, 3, 5, 0, AttackType.NONE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("eyes you hungrily.");
       zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 35, false);
       zoo.boss[bossIndex].attacks[2] = new Attack("bites and scratches.", 40, false);
@@ -855,11 +876,15 @@ void setNameDependentText()
   //Teachers
   m[0].tiles[8][36].placeOccupant( color(200, 150, 200), "- Knights"+knightName+" rely on their armor, and gain two energy when they defend against an attack. Barbarians"+barbName+" gain one anger whenever they are attacked." );
   m[0].tiles[12][36].placeOccupant( color(200, 150, 200), "- Thieves"+thiefName+" gain five energy on successful critical blows. Martial artists"+monkName+" do not gain bonus energy, but will always start a fight full of spiritual power." );
-  m[0].tiles[33][34].placeOccupant( color(150, 150, 200), "- Magical Power is used by mages"+mageName+" and priests"+priestName+" to fuel their magic. The lure of magic is strong, but without magical power a mage can do little." );
+  m[0].tiles[33][34].placeOccupant( color(150, 150, 200), "- Magical Power is used by mages"+mageName+" and priests"+priestName+" to fuel their magic. The lure of magic is strong, but once their power is spent a mage can do little." );
   //Garrison
   m[0].tiles[98][41].placeOccupant( color(160, 160, 160), "- Knights"+knightName+" can wear heavy armor, which provides the best protection. Priests of Illamar"+priestName+" have been blessed with the strength to wear plate as well. Simpler armors like chain and leather can be worn by wild warriors"+barbName+" and rogues"+thiefName+". Martial artists"+monkName+" are trained to fight wearing common garb, and the magic of magi is disrupted by heavy material"+magePhrase+"." );
-  m[0].tiles[98][45].placeOccupant( color(160, 160, 160), "- Swords and axes are the weapons of warriors. Knights"+knightName+" and barbaric fighters"+barbName+" should have no trouble using them, or anything else. Simpler arms like the club or knife are suitable for those without training, though mages"+mageName+" can only manage simple knives and staves. Martial artists"+monkName+" need naught but the hands Am-asma gave them." );
-  m[0].tiles[92][43].placeOccupant( color(190, 170, 130), "A training dummy. Someone has drawn "+party.hero[0].name+"'s face on it." );
+  m[0].tiles[98][45].placeOccupant( color(160, 160, 160), "- Swords and axes are the weapons of warriors. Knights"+knightName+" and barbaric fighters"+barbName+" should see no difficulty wielding them. Simpler arms like the club or knife are suitable for those without formal training, though mages"+mageName+" can only manage simple knives and staves. Martial artists"+monkName+" need naught but the hands Am-asma gave them." );
+  m[0].tiles[92][45].placeOccupant( color(190, 170, 130), "A training dummy. Someone has drawn "+party.hero[0].name+"'s face on it." );
+  
+  //Rask
+  m[0].tiles[48][67].placeOccupant( color(250, 100, 50), "- "+party.hero[0].name+"? "+party.hero[1].name+"? Good, I'm glad to see you. We need help and we won't get it from Mother Sunita. I'm headed to the mayor's office. Meet me there as soon as you can." );
+  
 }
 
 //Deities:
@@ -867,3 +892,15 @@ void setNameDependentText()
 //Illamar - sun god
 //Ritisu - god of save crystals, legend, stories, history
 //Am-asma - god of creatures and medicine
+
+//NPC colors:
+//Chilxius (0,200)
+//Mother Sunita (150, 250, 250)
+//Clerics (150, 150, 250)
+//Initiates (150, 150, 200)
+//Secret teachers ( color(200, 150, 200)
+//Training dummy (190, 170, 130)
+//Garrison (160)
+//Commoner male  (165,150,50)  young (250,230,0)
+//Commoner female  (150,50,165)  young (230,150,250)
+//Rask (250, 100, 50)

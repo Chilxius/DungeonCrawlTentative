@@ -169,7 +169,7 @@ void setup()
   tileImage[51] = loadImage("StoneGargoyle.png"); tileImage[51].resize(30,0);
   tileImage[52] = loadImage("BlackGargoyle.png"); tileImage[52].resize(30,0);
   tileImage[53] = loadImage("barrelEmpty.png"); tileImage[53].resize(30,0);
-  //tileImage[54] = loadImage("SignFood.png"); tileImage[54].resize(30,0);
+  tileImage[54] = loadImage("portcullis.png"); tileImage[54].resize(30,0);
   //tileImage[55] = loadImage("SignInn.png"); tileImage[55].resize(30,0);
   //tileImage[56] = loadImage("SignPotion.png"); tileImage[56].resize(30,0);
   tileImage[57] = loadImage("wood.png"); tileImage[57].resize(30,0);
@@ -457,7 +457,7 @@ boolean checkForBattle()
 {
   if(random(100)<randomBattleCounter)
   {
-    randomBattleCounter = 0;
+    randomBattleCounter = -2;
     return true;
   }
   
@@ -517,6 +517,7 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case DARK_WALL: return "Solid stone";
     case WATER: return "You never learned how to swim";
     case TREE: case DARK_TREE: return "A tree";
+    case PORTCULLIS:
     case DOOR: return m[party.floor].tiles[party.X][party.Y].keyMessage();
     case BLACK_WALL: return "An unlit wall";
     case GARGOYLE_DARK: return "An image of the Black Vanguard";
@@ -699,7 +700,7 @@ void keyPressed()
       if(!attemptMove("up")&&display!=Display.BATTLE)displayTextLine(bonkText('u'));
     
     if(key == '>' || key == '9') //Changing floors
-      if(m[party.floor].tiles[party.X][party.Y].type==TileType.STAIR_DOWN)
+      if(m[party.floor].tiles[party.X][party.Y].type==TileType.STAIR || m[party.floor].tiles[party.X][party.Y].type==TileType.STAIR_DOOR)
         changeMap();
     
     //Moved into a boss space
