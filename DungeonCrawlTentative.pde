@@ -171,10 +171,10 @@ void setup()
   tileImage[50] = loadImage("wallSand.png"); tileImage[50].resize(30,0);
   tileImage[51] = loadImage("StoneGargoyle.png"); tileImage[51].resize(30,0);
   tileImage[52] = loadImage("BlackGargoyle.png"); tileImage[52].resize(30,0);
-  tileImage[53] = loadImage("barrelEmpty.png"); tileImage[53].resize(30,0);
+  tileImage[53] = loadImage("JadeGargoyle.png"); tileImage[53].resize(30,0);
   tileImage[54] = loadImage("portcullis.png"); tileImage[54].resize(30,0);
-  //tileImage[55] = loadImage("SignInn.png"); tileImage[55].resize(30,0);
-  //tileImage[56] = loadImage("SignPotion.png"); tileImage[56].resize(30,0);
+  tileImage[55] = loadImage("tent.png"); tileImage[55].resize(30,0);
+  tileImage[56] = loadImage("stairs.png"); tileImage[56].resize(30,0);
   tileImage[57] = loadImage("wood.png"); tileImage[57].resize(30,0);
   tileImage[58] = loadImage("woodDark.png"); tileImage[58].resize(30,0);
   tileImage[59] = loadImage("woodLight.png"); tileImage[59].resize(30,0);
@@ -185,6 +185,7 @@ void setup()
   tileImage[64] = loadImage("SignFood.png"); tileImage[64].resize(30,0);
   tileImage[65] = loadImage("SignPotion.png"); tileImage[65].resize(30,0);
   tileImage[66] = loadImage("SignInn.png"); tileImage[66].resize(30,0);
+  tileImage[67] = loadImage("rubble.png"); tileImage[67].resize(40,0);
   
   //Test sounds
   beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
@@ -523,6 +524,7 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case PORTCULLIS:
     case DOOR: return m[party.floor].tiles[party.X][party.Y].keyMessage();
     case BLACK_WALL: return "An unlit wall";
+    case GARGOYLE_JADE: return "A gargoyle carved of jade";
     case GARGOYLE_DARK: return "An image of the Black Vanguard";
     case GARGOYLE: return "A beautiful gargoyle statue";
     case WEREWOLF_WHITE: return "A gargoyle statue...?";

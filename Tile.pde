@@ -76,10 +76,12 @@ class Tile
       case '£':type=TileType.BLACK_WALL;break;
       case 'G':type=TileType.GARGOYLE;break;
       case 'R':type=TileType.GARGOYLE_DARK;break;
+      case 'J':type=TileType.GARGOYLE_JADE;break;
       case '©':type=TileType.WEREWOLF_WHITE;break;
       case 'W':type=TileType.WOOD;break;
       case '∑':type=TileType.WOOD_DARK;break;
       case '„':type=TileType.WOOD_LIGHT;break;
+      case '|':type=TileType.RUBBLE;break;
       //different key types
       case 'c':
       case 'i':
@@ -149,6 +151,10 @@ class Tile
         tileColor = color(0);
         pathable = false;
         break;
+      case RUBBLE:
+        tileColor = color(200);
+        pathable = false;
+        break;
       case WOOD_DARK:
       case WOOD:
         tileColor = color(90,70,30);
@@ -193,6 +199,7 @@ class Tile
         tileColor = color(120);
         pathable = false;
         break;
+      case GARGOYLE_JADE:
       case GARGOYLE_DARK:
       case GARGOYLE:
         tileColor = color(200);
@@ -235,7 +242,7 @@ class Tile
       }
       case STAIR:
       case STAIR_DOOR:
-        tileColor = color(0);
+        tileColor = safeColor;
         break;
       default:
         tileColor = color(200,0,0);
@@ -427,6 +434,8 @@ class Tile
       image(tileImage[49],xPos,yPos);
     else if(type == TileType.SAND_WALL)
       image(tileImage[50],xPos,yPos);
+    else if(type == TileType.RUBBLE)
+      image(tileImage[67],xPos-5,yPos-5);
     else if(type == TileType.WOOD)
       image(tileImage[57],xPos,yPos);
     else if(type == TileType.WOOD_DARK)
@@ -458,13 +467,15 @@ class Tile
     else if(type == TileType.MERCHANT)
       image(tileImage[48],xPos,yPos);
     else if(type == TileType.STAIR)
-      image(tileImage[40],xPos,yPos);
+      image(tileImage[56],xPos,yPos);
     else if(type == TileType.STAIR_DOOR)
       image(tileImage[38],xPos,yPos);
     else if(type == TileType.GARGOYLE)
       image(tileImage[51],xPos,yPos);
     else if(type == TileType.GARGOYLE_DARK)
       image(tileImage[52],xPos,yPos);
+    else if(type == TileType.GARGOYLE_JADE)
+      image(tileImage[53],xPos,yPos);
     else if(type == TileType.WEREWOLF_WHITE)
       image(tileImage[60],xPos,yPos);
     if(occupied)
@@ -538,9 +549,9 @@ public enum TileType
   TREE, DARK_TREE, TREE_PATH,
   WOOD, WOOD_DARK, WOOD_LIGHT,
   DARK, BLACK_WALL,
-  WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, SAND_WALL,
+  WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, SAND_WALL, RUBBLE,
   DOOR, DOOR_GATE, PORTCULLIS, DOORSTEP,
-  GRAVE, S_GLASS, GARGOYLE, GARGOYLE_DARK, WEREWOLF_WHITE,
+  GRAVE, S_GLASS, GARGOYLE, GARGOYLE_DARK, GARGOYLE_JADE, WEREWOLF_WHITE,
   CAMP, MERCHANT, SHOP, SELL,
   STAIR, STAIR_DOOR
 }

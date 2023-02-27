@@ -71,7 +71,7 @@ void setupMaps()
   mapStrings[mapIndex] += "TT##+####+######.......####.....~~~~~~T~~~t~~Tww####wwt~~~~~~~~~~~~~.....########...######+#####+##T";
   mapStrings[mapIndex] += "TTT#>#TT#>####...„„„„„„„„##..G..#~~~~~~~~~~~~~~~~##~~~~~~~~~~~t~~~~#..G..##W.W.W#...######>#TTT#>#TT";
   mapStrings[mapIndex] += "TTT###TT###T##[..„%%„%%„%##.....#~T~b~~D~~~~t~~~####~~~~~~T~~~~i~~~#.....##.....#...####T###TTT###TT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTT##..„%%„%%„%###########+############..########.###+###########.....#...###TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTT##..„%%„%%„%###########+############..############+###########.....#...###TTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTwww%TTTTT##.„%%„%%„%##....................................k.........##W.W.W#...##TTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTwwwwTTTTTT##„%%„%%„%##.G....................rr....................G.##.....#..##TTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTwwwTTTTTT##%%„%%„%##......................rr......................##.......##TTTTTT##########";
@@ -82,7 +82,7 @@ void setupMaps()
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G..?.rr.?..G..#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#################TTTTT#>.∫∫∫∫∫rr∫∫∫∫∫.>#TTTTT#########TTTTT#########TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#=≠±#[][#/÷¿#.©.#TTTTT#..G....rr....G..#TTTTT#[[...∑]#TTTTT#==...3w#TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#=≠±#[][#.J.#.©.#TTTTT#..G....rr....G..#TTTTT#[[...∑]#TTTTT#==...3w#TTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT&...#...#...#...&TTTTT#######.rr.#######TTTTT#...W.∑.&TTTTT#.....33#TTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTT#########TTTT&.∫∫∫∫∫∫∫∫∫∫∫∫∫.&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#>....∑.&TTTTT#>......#TTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTT#∫∫∫#rrr#TTTT#.∫∫∫∫∫∫>∫∫∫∫∫∫.#TTTTTTTTTTT#.rr.#TTTTTTTTTTT#...W.∑.&TTTTT#..„„„..#TTTTTTTTTTTTT";
@@ -94,7 +94,7 @@ void setupMaps()
   mapStrings[mapIndex] += "TttttttttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G..?.rr.?..G..#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTDTTTT#>.∫∫∫∫∫rr∫∫∫∫∫.>#TTTTTT################TTTTTTTTTT#########";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G....rr....G..#TTTTTT################TTTTTTTTTT#rr===..#";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G....rr....G..#TTTTTT################TTTTTTTTTT#rr]==..#";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTDTTTT#######.rr.#######TTTTTT##~%~„.∫∫∫..∑w##TTTTTTTTTT&.......#";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##„„„„.∫∫∫..∑w##TTTTTTTTTT&rr....>#";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##.....i..k.∑∑##TTTTTTTTTT&.......#";
@@ -104,14 +104,14 @@ void setupMaps()
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTT#π#TTTTTTT###i..i...rr...i..k###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTT~TTTTTTTTTTTTG.i.GTTTTTT#>+i......rr......i+>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTT~~~t~~~~TT~~~D...~TTTTTT###i..i...rr...i..i###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTT~~~~~~T~~t~~T~~`.`~TTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTT~TTTTTT#π#TTTTTTT###i..i...rr...i..k###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTT~TTTTTTTTTT~TG.i.GTTTTTT#>+i......rr......i+>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTT~~~t~~~~tt~~~D...~TTTTTT###i..i...rr...i..i###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTT~~~~~~T%~t~~T~~`.`~TTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTT~TTTTTTTTTT~~```~TTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTT~```~TTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTT~TTTTT~```~TTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTT~```~TTTTTTTTTTTT##.rr.##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTT~```~TTTTTTTTTTTT##..rr..##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTT~TT~```~TTTTTTTTTTTT##..rr..##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTT~```~TTTTTTTTTTT##...rr...##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTT~```~TTTTTTTTT##..#.rr.#..##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTT~```~TTTTTTTT##.....rr.....##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
@@ -168,7 +168,7 @@ void setupMaps()
   createLoot(lootIndex++, 0, 66, 33, new Item("Meat",20) );
   createLoot(lootIndex++, 0, 79, 29, new Item("Health Potion",12) );
   createLoot(lootIndex++, 0, 80, 29, new Item("Mana Potion",24) );
-  createLoot(lootIndex++, 0, 94, 41, new Equipment("Chainmail","MetalMail.png",9,false,14,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST) );
+  //createLoot(lootIndex++, 0, 94, 41, new Equipment("Chainmail","MetalMail.png",9,false,14,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST) );
   createLoot(lootIndex++, 0, 95, 41, new Equipment("Old Plate","RustyArmor.png",7,false,18,Job.KNIGHT,Job.PRIEST) );
   createLoot(lootIndex++, 0, 96, 41, new Equipment("Axe","MetalSpikedAxe.png",9,true,22,Job.KNIGHT,Job.BARBARIAN,Job.THIEF) );
   createLoot(lootIndex++, 0, 79, 45, Key.CHARIS_NOTES);
@@ -192,8 +192,8 @@ void setupMaps()
   m[0].tiles[79][8].placeOccupant( color(150, 150, 250), "- My repairs have been delayed. Try to ignore that horrible thing for a few more days." );
   //Help room initiates
   m[0].tiles[21][30].placeOccupant( color(150, 150, 200), "- Chests come in many styles. These are mostly for show. Out in the world, there will always be SOMETHING inside of them." );
-  m[0].tiles[25][30].placeOccupant( color(150, 150, 200), "- Chests are not the only place to store items. Always investigate if you sense something hidden." );
-  m[0].tiles[29][30].placeOccupant( color(150, 150, 200), "- If you are seeking arms, rations, or tinctures, look for these signs to find a reputable vendor." );
+  m[0].tiles[25][30].placeOccupant( color(150, 150, 200), "- Some monsters are especially vulnurable to certain elements. Fire opposes ice, wind opposes earth. The divine light of Illamar is effective against anything unholy. Even natural creatures may have elemental weaknesses. You may have noticed that fire is effective against rats." );
+  m[0].tiles[29][30].placeOccupant( color(150, 150, 200), "- There are many bodily ills in this world. Poison will sap your health until you perish or recover. Some monsters attack the senses so that you fall asleep while standing. Worse are those that induce paralysis. Some ailments are magical in nature, such as atrophy. It causes your muscles to weaken. If a curse is put upon you, your ability cast magic is reduced, as is your power to resist it." );
   m[0].tiles[33][30].placeOccupant( color(150, 150, 200), "- Let's review your lessons. Strength, combined with the power of your weapon, will determine the damage you deal in combat. Dexterity is a more subtle skill, but you will find it valuable when it allows you to land critical blows. A strong Constitution will prevent harm from physical blows. Magical power, obviously, powers magic spells and techniques. Willpower serves as your defense against the magic of others. Speed will determine how quickly you can act in combat." );
   m[0].tiles[21][34].placeOccupant( color(150, 150, 200), "- There are often many ways forward, and not all of them are obvious." );
   m[0].tiles[25][34].placeOccupant( color(150, 150, 200), "- Only one of these Legend Gems is genuine. Human artifice has been unable to re-create the Tears of Ritisu, though many have tried. Always tell your tales to the Gems. You will learn from your past and your possible futures reflected in its clear facets." );
@@ -226,7 +226,7 @@ void setupMaps()
   //Townspeople
   m[0].tiles[49][60].placeOccupant( color(165,150,50), "- Where is Father Charis? I demand to speak to him!" );
   m[0].tiles[50][61].placeOccupant( color(150,50,165), "- Those abominations rise each night! We cannot live this way!" );
-  m[0].tiles[56][63].placeOccupant( color(250,230,0), "- I just came to view the windows. The play of colors is magnificent, especially in the morning light." );
+  m[0].tiles[56][63].placeOccupant( color(250,230,0), "- I just wanted to see the windows. The play of colors in the morning light is magnificent. Standing here, I could forget anything." );
   m[0].tiles[48][62].placeOccupant( color(165,150,50), "- One of those things was wearing my grandfather's ring. It can't be..." );
   m[0].tiles[51][63].placeOccupant( color(165,150,50), "- Let me join the garrison! I'll get something done around here." );
   m[0].tiles[52][64].placeOccupant( color(230,150,250), "- Father Charis will protect us. I know he will." );
@@ -240,7 +240,7 @@ void setupMaps()
   m[0].tiles[62][72].placeOccupant( color(150, 150, 250), "- Once you leave, you cannot return. Farewell, and may the light of Illamar shine upon you always." );
   //Outside
   m[0].tiles[29][53].placeOccupant( color(160, 160, 160), "- Please help these people if you can. I'm constrained by my orders." );
-  m[0].tiles[31][53].placeOccupant( color(160, 160, 160), "- I've seen this before. Crowds gather in such numbers that the wagons can't even get through. Hysteria only makes things worse." );
+  m[0].tiles[31][53].placeOccupant( color(160, 160, 160), "- I've seen this before. Crowds gather in such numbers that the wagons cannot get through. Hysteria breeds hysteria." );
   //in method below
   m[0].tiles[31][56].placeOccupant( color(150,50,165), "- Let me talk to the exarchs. They'll listen to me." );
   m[0].tiles[29][56].placeOccupant( color(165,150,50), "- Are you with the garrison?" );
@@ -251,9 +251,11 @@ void setupMaps()
   m[0].tiles[31][63].placeOccupant( color(150,50,165), "- Unused text." );
   //Roadblock
   m[0].tiles[29][58].placeOccupant( color(250,230,0), "- Maybe we can stay safe by hiding the the woods?" );
-  m[0].tiles[30][58].placeOccupant( color(230,150,250), "- Master Rask says there are man-sized spiders in the woods! They're hungry and spit venom." );
+  m[0].tiles[30][58].placeOccupant( color(150,50,165), "- Master Rask says there are venomous spiders in the woods. It's not safe there either." );
   m[0].tiles[31][59].placeOccupant( color(250,230,0), "- I don't care how brave you are. The man-wolf will eat you!" );
-  m[0].tiles[32][59].placeOccupant( color(230,150,250), "- No, I know his weakness. I'll just hit him with my torch. Everyone knows he's afraid of fire." );
+  m[0].tiles[32][59].placeOccupant( color(230,150,250), "- No, I know his weakness. I'll just hit him with my torch." );
+  //Initiate chasing rats
+  m[0].tiles[27][55].placeOccupant( color(150, 150, 200), "- Me? Oh, I... I'm chasing down some giant rats that escaped from the cellar. Please don't tell the townsfolk. They have enough to worry about." );
 
   
   //To the dormitory
@@ -278,12 +280,22 @@ void setupMaps()
   //Exit the cathedral
   exits.add( new Portal(0,63,73,0,30,52, "Irohill Forest") );
   
+  //Chest goblin
   m[0].tiles[20][29].placeBoss( 0, color(255,5), "Something pops out of the chest!", new Monster("Box Goblin", "RedBoxBoy.png", 1, 1, 1, 1, 1, 1, 1, 0, AttackType.NONE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("looks around.");
       zoo.boss[bossIndex].attacks[1] = new Attack("pretends to be a box.");
       zoo.boss[bossIndex].attacks[2] = new Attack("speaks in a strange language.");
       zoo.boss[bossIndex].attacks[3] = new Attack("does nothing.");
       zoo.boss[bossIndex].attacks[4] = new Attack("does a little dance.");
+  bossIndex++;
+  
+  //Giant rat blocking woods
+  m[0].tiles[18][19].placeBoss( 1, color(150, 80, 40), "Looks like this one got out.", new Monster("Escaped Rat", "BrownRat.png", 26, 7, 5, 1, 6, 1, 4, 0, AttackType.FIRE) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
+      zoo.boss[bossIndex].attacks[1] = new Attack("squeaks.");
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 29, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 34, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 39, false);
   bossIndex++;
   
   m[0].tiles[47][8].createEvent(false, "- Mother Sunita clasps her hands and straightens her posture."+
@@ -436,9 +448,9 @@ void setupMaps()
   mapStrings[1] += "           £                 £                                                                      ";
   mapStrings[1] += "333333333  £  33###########  £                                                                      ";
   mapStrings[1] += "3......=3  £  3.....#.....#  £                                                                      ";
-  mapStrings[1] += "3.3333333  £  3.33#.#.###.#  £                                                                      ";
+  mapStrings[1] += "3.|333333  £  3.33|.#.###.#  £                                                                      ";
   mapStrings[1] += "3.......3  £  3.3[[.#..[#.#  £                                                                      ";
-  mapStrings[1] += "333[=[3+3  £  3.333.#.###.#  £                                                                      ";
+  mapStrings[1] += "333[=[3+3  £  3.333.#.|##.#  £                                                                      ";
   mapStrings[1] += "3>33333c3  £  3.3[..3.[=#.#  £                                                                      ";
   mapStrings[1] += "3.......3  £  3.333.3.###.#  £                                                                      ";
   mapStrings[1] += "333333333  £  3>3=.....[#>#  £                                                                      ";

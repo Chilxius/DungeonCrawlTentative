@@ -714,7 +714,7 @@ class Artist
         image(tileImage[28],xPos,yPos);
         break;
       case BARREL2:
-        image(tileImage[53],xPos,yPos);
+        image(tileImage[29],xPos,yPos);
         break;
     }
   }
