@@ -75,16 +75,16 @@ class Hero
     switch(job)
     {
       case KNIGHT:
-        maxHp =  int((270/50.0)*(level-1)+30);
+        maxHp =  int((275/50.0)*(level-1)+25);  //25 -> 300
         str =    int((116/50.0)*(level-1)+4);
-        dex =    int((97/50.0)*(level-1)+3); //should be 97 - changed for testing purposes
+        dex =    int((97/50.0)*(level-1)+3);
         con =    int((125/50.0)*(level-1)+5);
         mag =    level; 
         wil =    int((98/50.0)*(level-1)+2);
         spd =    int((98/50.0)*(level-1)+2);
         break;
       case BARBARIAN:
-        maxHp =  int((320/50.0)*(level-1)+30);
+        maxHp =  int((325/50.0)*(level-1)+25); //25 -> 350
         str =    int((145/50.0)*(level-1)+5);
         dex =    int((107/50.0)*(level-1)+3);
         con =    int((97/50.0)*(level-1)+3);
@@ -93,7 +93,7 @@ class Hero
         spd =    int((118/50.0)*(level-1)+2);
         break;
       case KARATE:
-        maxHp =  int((360/50.0)*(level-1)+40);
+        maxHp =  int((370/50.0)*(level-1)+30); //30 -> 400
         str =    int((116/50.0)*(level-1)+4);
         dex =    int((116/50.0)*(level-1)+4);
         con =    int((116/50.0)*(level-1)+4);
@@ -102,7 +102,7 @@ class Hero
         spd =    int((136/50.0)*(level-1)+3);
         break;
       case THIEF:
-        maxHp =  int((225/50.0)*(level-1)+25);
+        maxHp =  int((230/50.0)*(level-1)+20); //20 -> 250
         str =    int((87/50.0)*(level-1)+3);
         dex =    int((135/50.0)*(level-1)+5); //should be 135; changed for testing purposes
         con =    int((87/50.0)*(level-1)+3);
@@ -111,24 +111,24 @@ class Hero
         spd =    int((147/50.0)*(level-1)+3);
         break;
       case PRIEST:
-        maxHp =  int((180/50.0)*(level-1)+20);
+        maxHp =  int((185/50.0)*(level-1)+15); //15 -> 200
         str =    int((58/50.0)*(level-1)+2);
         dex =    int((78/50.0)*(level-1)+2);
         con =    int((88/50.0)*(level-1)+2);
         mag =    int((96/50.0)*(level-1)+4);
         wil =    int((145/50.0)*(level-1)+5);
         spd =    int((78/50.0)*(level-1)+2);
-        maxMp =  int((180/50.0)*(level-1)+20);
+        maxMp =  int((185/50.0)*(level-1)+15); //15 -> 200
         break;
       case MAGE:
-        maxHp =  int((135/50.0)*(level-1)+15);
+        maxHp =  int((135/50.0)*(level-1)+15); //15 -> 150
         str =    int((49/50.0)*(level-1)+1);
         dex =    int((98/50.0)*(level-1)+2);
         con =    int((68/50.0)*(level-1)+2);
         mag =    int((145/50.0)*(level-1)+5);
         wil =    int((96/50.0)*(level-1)+4);
         spd =    int((88/50.0)*(level-1)+2);
-        maxMp =  int((225/50.0)*(level-1)+25);
+        maxMp =  int((230/50.0)*(level-1)+20); //20 -> 250
         break;
       
       default:       hp=maxHp=1;str=1;dex=1;con=1;mag=1;wil=1;spd=1;mp=maxMp=1;break;
@@ -540,12 +540,12 @@ Job stringToJob( String s )
 Base stats by class:                           At level 50 (MAX) (50 to 150)
 
 Job    HP  Str  Dex  Con  Mag  Will  Spd       HP    Str  Dex  Con  Mag  Will Spd
-Kni    30  4    3    5    0    2     2         300   120  100  130  50   100  100
-Bar    35  5    3    3    0    1     2         350   150  110  100  0    70   120
-Art    40  4    4    4    0    4     3         400   120  120  120  50   120  140
-Thf    25  3    5    3    0    2     3         250   90   140  90   0    90   150
-Pri  20/20 2    2    2    4    5     2      200/200  60   80   80   100  150  80
-Mag  15/25 1    2    2    5    4     2      150/250  50   100  70   150  100  90
+Kni    30  4    3    5    0    2     2         300   120  100  130  50   100  100     25
+Bar    35  5    3    3    0    1     2         350   150  110  100  0    70   120     25
+Art    40  4    4    4    0    4     3         400   120  120  120  50   120  140     30
+Thf    25  3    5    3    0    2     3         250   90   140  90   0    90   150     20
+Pri  20/20 2    2    2    4    5     2      200/200  60   80   80   100  150  80      15/15
+Mag  15/25 1    2    2    5    4     2      150/250  50   100  70   150  100  90      15/20
 
 Max dex of 150. 150 spd should get 3 turns for every 1 turn of a character with spd 50
 Crit chance = 2% + 1% per dex difference

@@ -59,6 +59,7 @@ class Tile
       case '¢':type=TileType.SECRET_DARK_WALL;break;
       case '4':type=TileType.SAND_WALL;break;
       case '~':type=TileType.GRASS;break;
+      case '`':type=TileType.DIRT;break;
       case '+':type=TileType.DOOR;break;
       case '∏':type=TileType.DOOR_GATE;break; //shift+alt+p
       case 'π':type=TileType.PORTCULLIS;break;
@@ -166,6 +167,9 @@ class Tile
       case FLOWER:
       case GRASS:
         tileColor = color(0,180,0);
+        break;
+      case DIRT:
+        tileColor = color(170,150,110);
         break;
       case GRAVE:
         tileColor = color(0,100,0);
@@ -530,7 +534,8 @@ public enum TileType
 {
   EMPTY, EVENT, SAFE,
   FLOOR, FLOOR_RD, FLOOR_BL,
-  GRASS, FLOWER, WATER, TREE, DARK_TREE, TREE_PATH,
+  GRASS, DIRT, FLOWER, WATER,
+  TREE, DARK_TREE, TREE_PATH,
   WOOD, WOOD_DARK, WOOD_LIGHT,
   DARK, BLACK_WALL,
   WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, SAND_WALL,

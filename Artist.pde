@@ -380,9 +380,9 @@ class Artist
     
     textAlign(LEFT,TOP);
     text(party.hero[h].weapon.toString(),95,255);
-    text(party.hero[h].weapon.power,165,255);
+    text(party.hero[h].weapon.power,165,245);
     text(party.hero[h].armor.toString(),95,375);
-    text(party.hero[h].armor.power,165,375);
+    text(party.hero[h].armor.power,165,365);
     
     fill(0);  rectMode(CORNER);
     stroke(200); strokeWeight(5);

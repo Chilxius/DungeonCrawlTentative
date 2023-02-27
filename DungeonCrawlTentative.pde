@@ -4,7 +4,8 @@
 //PROBLEMS:
 
 //TO DO:
-//Skills: animation system, skill icons
+//Skills: animation system
+//Statues in initiate classroom, lessons about status
 
 //IMPROVEMENT:
 //Improve hero select widnow (circle sizes)
@@ -124,6 +125,7 @@ void setup()
 {
   //fullScreen();
   size(700,700);
+  frameRate(60);
   surface.setTitle("THE RIDDLE OF IRON");
   vanGogh = new Artist();
   windowX = displayWidth/2-width/2;
