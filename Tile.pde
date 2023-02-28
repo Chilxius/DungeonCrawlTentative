@@ -168,7 +168,7 @@ class Tile
         //tileColor = color((x+y)*5%50+150,(x+y)*5%50+150,(x+y)*5%50+150);
         safe = true; break;
       case CAMP: 
-        tileColor = color(150,0,0);
+        tileColor = color(170,150,110);
         safe = true; break;
       case FLOWER:
       case GRASS:
@@ -436,6 +436,8 @@ class Tile
       image(tileImage[50],xPos,yPos);
     else if(type == TileType.RUBBLE)
       image(tileImage[67],xPos-5,yPos-5);
+    else if(type == TileType.CAMP)
+      image(tileImage[55],xPos,yPos);
     else if(type == TileType.WOOD)
       image(tileImage[57],xPos,yPos);
     else if(type == TileType.WOOD_DARK)

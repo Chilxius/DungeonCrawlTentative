@@ -17,11 +17,9 @@
 
 //IMAGES I NEED:
 //Vendor stall
-//Stairs
 //Staves
 //Robes
 //Fur armor
-//Rubble
 //Bed
 
 //NOTES:

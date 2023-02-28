@@ -49,7 +49,7 @@ void setupMaps()
   //      >-Stairs    <-Door(stairs)
 
 
-  //-------------------------------------------------------------------------------------------------------------------\\
+  //---------------------------------------------------------------------------------------------------------------------------\\
   //Floor 0 - Cathedral
   
   mapIndex = 0; mapStrings[mapIndex] = "";
@@ -98,20 +98,20 @@ void setupMaps()
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTDTTTT#######.rr.#######TTTTTT##~%~„.∫∫∫..∑w##TTTTTTTTTT&.......#";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##„„„„.∫∫∫..∑w##TTTTTTTTTT&rr....>#";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##.....i..k.∑∑##TTTTTTTTTT&.......#";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTT#.rrrrrrrrrrrrrrr#TTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT###>###+##+###=#TTTTTTTTTT#rr.[]..#";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTT##&###&###&###&#<#TTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##########$$$$$#TTTTTTTTTT#########";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTT~TTTTTT#π#TTTTTTT###i..i...rr...i..k###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTT~TTTTTTTTTT~TG.i.GTTTTTT#>+i......rr......i+>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTT~~~t~~~~tt~~~D...~TTTTTT###i..i...rr...i..i###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTT~~~~~~T%~t~~T~~`.`~TTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTT~TTTTTTTTTT~~```~TTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTT~TTTTT~```~TTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTT~```~TTTTTTTTTTTT##.rr.##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTT~TT~```~TTTTTTTTTTTT##..rr..##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TT%%%TTTTTTTTT#.rrrrrrrrrrrrrrr#TTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT###>###+##+###=#TTTTTTTTTT#rr.[]..#";
+  mapStrings[mapIndex] += "TT%*%TTTTTTTTT##&###&###&###&#<#TTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##########$$$$$#TTTTTTTTTT#########";
+  mapStrings[mapIndex] += "TTT~TT~TTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "~TTtTTTTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTT~TTTTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTtTTTTTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTT~TTTTTTTTTTTTTTTTTT~TTTTT##π##TTTTTT###i..i...rr...i..k###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "```~TTTTTTTTTTT~TTTTTTTTTT~TG.i.GTTTTTT#>+i......rr......i+>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "`@`TTTTTTTTTTTT~~%t~~~~t%~~~D...~TTTTTT###i..i...rr...i..i###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "````~~~~~~~~~~~~~~~~T%~t~~T~~`.`~TTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "T``TTTTTTTTTTTTT~TTTTTTTTTT~~```~TTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTT~TTTTT~```TTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTT%TTTTTT~```TTTTTTTTTTTTT##.rr.##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTT%T~TT~```~TTTTTTTTTTTT##..rr..##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTT~```~TTTTTTTTTTT##...rr...##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTT~```~TTTTTTTTT##..#.rr.#..##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTT~```~TTTTTTTT##.....rr.....##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
@@ -131,7 +131,7 @@ void setupMaps()
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#π#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##π##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTG.i.GTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
@@ -192,7 +192,7 @@ void setupMaps()
   m[0].tiles[79][8].placeOccupant( color(150, 150, 250), "- My repairs have been delayed. Try to ignore that horrible thing for a few more days." );
   //Help room initiates
   m[0].tiles[21][30].placeOccupant( color(150, 150, 200), "- Chests come in many styles. These are mostly for show. Out in the world, there will always be SOMETHING inside of them." );
-  m[0].tiles[25][30].placeOccupant( color(150, 150, 200), "- Some monsters are especially vulnurable to certain elements. Fire opposes ice, wind opposes earth. The divine light of Illamar is effective against anything unholy. Even natural creatures may have elemental weaknesses. You may have noticed that fire is effective against rats." );
+  m[0].tiles[25][30].placeOccupant( color(150, 150, 200), "- Some monsters are especially vulnurable to elemental skills and magic. Fire opposes ice, wind opposes earth. The divine light of Illamar is effective against anything unholy. Even natural creatures may have elemental weaknesses. You may have noticed that fire is effective against rats." );
   m[0].tiles[29][30].placeOccupant( color(150, 150, 200), "- There are many bodily ills in this world. Poison will sap your health until you perish or recover. Some monsters attack the senses so that you fall asleep while standing. Worse are those that induce paralysis. Some ailments are magical in nature, such as atrophy. It causes your muscles to weaken. If a curse is put upon you, your ability cast magic is reduced, as is your power to resist it." );
   m[0].tiles[33][30].placeOccupant( color(150, 150, 200), "- Let's review your lessons. Strength, combined with the power of your weapon, will determine the damage you deal in combat. Dexterity is a more subtle skill, but you will find it valuable when it allows you to land critical blows. A strong Constitution will prevent harm from physical blows. Magical power, obviously, powers magic spells and techniques. Willpower serves as your defense against the magic of others. Speed will determine how quickly you can act in combat." );
   m[0].tiles[21][34].placeOccupant( color(150, 150, 200), "- There are often many ways forward, and not all of them are obvious." );
@@ -257,7 +257,6 @@ void setupMaps()
   //Initiate chasing rats
   m[0].tiles[27][55].placeOccupant( color(150, 150, 200), "- Me? Oh, I... I'm chasing down some giant rats that escaped from the cellar. Please don't tell the townsfolk. They have enough to worry about." );
 
-  
   //To the dormitory
   exits.add( new Portal(0,9,10,1,94,6, "Dormitory") );
   //To west cellar
@@ -290,12 +289,12 @@ void setupMaps()
   bossIndex++;
   
   //Giant rat blocking woods
-  m[0].tiles[18][19].placeBoss( 1, color(150, 80, 40), "Looks like this one got out.", new Monster("Escaped Rat", "BrownRat.png", 26, 7, 5, 1, 6, 1, 4, 0, AttackType.FIRE) );
+  m[0].tiles[3][54].placeBoss( 0, color(150, 80, 40), "Looks like this one got out.", new Monster("Escaped Rat", "BrownRat.png", 24, 9, 15, 2, 0, 2, 4, 0, AttackType.FIRE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
       zoo.boss[bossIndex].attacks[1] = new Attack("squeaks.");
-      zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 29, false);
-      zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 34, false);
-      zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 39, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 30, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("bites and claws.", 40, false);
   bossIndex++;
   
   m[0].tiles[47][8].createEvent(false, "- Mother Sunita clasps her hands and straightens her posture."+
@@ -314,6 +313,7 @@ void setupMaps()
   //Save points
   savePoints[savePointIndex++] = new SavePoint(0, 19, 9);
   savePoints[savePointIndex++] = new SavePoint(0, 24, 35);
+  savePoints[savePointIndex++] = new SavePoint(0, 3, 46);
 
   //Danger map 0
   dangerMapIndex = 0; dangerStrs[dangerMapIndex] = "";
@@ -428,7 +428,7 @@ void setupMaps()
   dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
 
-  //-------------------------------------------------------------------------------------------------------------------\\
+  //--------------------------------------------------------------------------------------------------------------------\\
   //Floor 1 - Cellars
 
   mapIndex = 1; mapStrings[mapIndex] = "";
@@ -615,7 +615,7 @@ void setupMaps()
       zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 35, false);
   bossIndex++;
 
-  m[1].tiles[20][21].placeBoss( 1, color(150, 80, 40), "A large rat guards the way.", new Monster("Giant Rat", "BrownRat.png", 18, 6, 5, 1, 6, 1, 3, 0, AttackType.FIRE) );
+  m[1].tiles[20][21].placeBoss( 1, color(150, 80, 40), "A large rat guards the way.", new Monster("Giant Rat", "BrownRat.png", 18, 6, 5, 1, 9, 1, 3, 0, AttackType.FIRE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
       zoo.boss[bossIndex].attacks[1] = new Attack("squeaks.");
       zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 27, false);
@@ -623,7 +623,7 @@ void setupMaps()
       zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 37, false);
   bossIndex++;
 
-  m[1].tiles[18][19].placeBoss( 1, color(150, 80, 40), "A large rat guards the way.", new Monster("Giant Rat", "BrownRat.png", 26, 7, 5, 1, 6, 1, 4, 0, AttackType.FIRE) );
+  m[1].tiles[18][19].placeBoss( 1, color(150, 80, 40), "A large rat guards the way.", new Monster("Giant Rat", "BrownRat.png", 26, 7, 5, 1, 9, 1, 4, 0, AttackType.FIRE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
       zoo.boss[bossIndex].attacks[1] = new Attack("squeaks.");
       zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 29, false);
@@ -631,7 +631,7 @@ void setupMaps()
       zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 39, false);
   bossIndex++;
 
-  m[1].tiles[1][16].placeBoss( 1, color(150, 80, 40), "A swarm comes for you!", new Monster("Giant Rat", "BrownRat.png", 18, 5, 5, 1, 6, 1, 3, 0, AttackType.FIRE), true );
+  m[1].tiles[1][16].placeBoss( 1, color(150, 80, 40), "A swarm comes for you!", new Monster("Giant Rat", "BrownRat.png", 18, 5, 5, 1, 9, 1, 3, 0, AttackType.FIRE), true );
       zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
       zoo.boss[bossIndex].attacks[1] = new Attack("squeaks.");
       zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 29, false);
@@ -639,7 +639,7 @@ void setupMaps()
       zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 39, false);
   bossIndex++;
 
-  m[1].tiles[5][15].placeBoss( 1, color(200, 80, 40), "This must be their matriarch.", new Monster("Rat Queen", "RedRat.png", 35, 12, 5, 2, 15, 3, 5, 0, AttackType.NONE) );
+  m[1].tiles[5][15].placeBoss( 1, color(200, 80, 40), "This must be their matriarch.", new Monster("Rat Queen", "RedRat.png", 35, 12, 5, 2, 21, 3, 5, 0, AttackType.NONE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("eyes you hungrily.");
       zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 35, false);
       zoo.boss[bossIndex].attacks[2] = new Attack("bites and scratches.", 40, false);
@@ -896,7 +896,7 @@ void setNameDependentText()
   if(party.hero[2].job==Job.MAGE)      hero3weapon = "magic";
   
   //player 3's friend
-  m[0].tiles[31][55].placeOccupant( color(165,150,50), "- Oh, hello "+party.hero[2].name+". Sorry I haven't brought you any new books lately. The library is next to Baron's Field, and was one of the first places we abandoned. If your "+hero3weapon+" can clear out the animated dead, I'll have them cede you enough stories to last a lifetime." );
+  m[0].tiles[32][55].placeOccupant( color(165,150,50), "- Oh, hello "+party.hero[2].name+". Sorry I haven't brought you any new books lately. The library is next to Baron's Field, and was one of the first places we abandoned. If your "+hero3weapon+" can clear out the animated dead, I'll have them cede you enough stories to last a lifetime." );
   
   String knightName="";
   String barbName="";

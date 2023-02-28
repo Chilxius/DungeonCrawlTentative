@@ -35,7 +35,7 @@ class Beastiary
       list[1][1].attacks[2] = new Attack("bites.", 20, false);
       list[1][1].attacks[3] = new Attack("bites.", 20, false);
       list[1][1].attacks[4] = new Attack("bites.", 20, false);
-    list[1][2] = new Monster("Large Rat", "DarkRat.png",  7, 4, 2, 1, 0, 1, 1, 0, AttackType.FIRE);
+    list[1][2] = new Monster("Large Rat", "DarkRat.png",  7, 4, 2, 1, 0, 1, 2, 0, AttackType.FIRE);
       list[1][2].attacks[0] = new Attack("squeaks.");
       list[1][2].attacks[1] = new Attack("scurries.");
       list[1][2].attacks[2] = new Attack("bites.", 35, false);
