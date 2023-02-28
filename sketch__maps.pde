@@ -109,16 +109,16 @@ void setupMaps()
   mapStrings[mapIndex] += "`@`TTTTTTTTTTTT~~%t~~~~t%~~~D...~TTTTTT###i..i...rr...i..i###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "````~~~~~~~~~~~~~~~~T%~t~~T~~`.`~TTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "T``TT~~TTTTTTTTT~TTTTTTTTTT~~```~TTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTt~TTTTTTTTTTTTTTTT~TTTTT~```TTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTT~TTTTTTTTTTTTTTTT~TTTTT~```TTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTT~tTTTTTT%TTTTTTTT%TTTTTT~```TTTTTTTTTTTTT##.rr.##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTT~~TTTTT~~~~~~~TTTTT%T~TT~```~TTTTTTTTTTTT##..rr..##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTT~~~TT~~~~T%TT~~TTDTTTTTT~```~TTTTTTTTTTT##...rr...##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTT~~~~~~TTTTTT~~~TTTTTTTTT~```~TTTTTTTTT##..#.rr.#..##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTT~~~tTTTTTTTTT~```~TTTTTTTT##.....rr.....##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTtTTT~~~TttTTTTTTT~```~TTTTTTTTT&..#...rr...#..&TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTT~~TT~~~~tt~~TTT=TTTTTTT~```~TTTTTTTTT&......rr......&TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTT~~~T~~TT~~~~TTTTTDTTTTTTT~```~TTTTTTTT&..#...rr...#..&TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTT~~~~~TTTT~~TTTTTTTTTTTTTTTTTTTTTTTTTTT##.....rr.....##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTg%%TT~~~~tt~~TTT=TTTTTTT~```~TTTTTTTTT&......rr......&TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTT%%%T~~TT~~~~TTTTTDTTTTTTT~```~TTTTTTTT&..#...rr...#..&TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTT%%~~~TTTT~~TTTTTTTTTTTTTTTTTTTTTTTTTTT##.....rr.....##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTT~~~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##..#.rr.#..##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTT~~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##...rr...##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##..rr..##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
@@ -172,6 +172,7 @@ void setupMaps()
   createLoot(lootIndex++, 0, 95, 41, new Equipment("Old Plate","RustyArmor.png",7,false,18,Job.KNIGHT,Job.PRIEST) );
   createLoot(lootIndex++, 0, 96, 41, new Equipment("Axe","MetalSpikedAxe.png",9,true,22,Job.KNIGHT,Job.BARBARIAN,Job.THIEF) );
   createLoot(lootIndex++, 0, 79, 45, Key.CHARIS_NOTES);
+  createLoot(lootIndex++, 0, 20, 63, new Equipment("Hunter's Garb","GreenLeatherArmor.png",4,false,14,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST) );
   
   //Mother Sunita
   m[0].tiles[49][3].placeOccupant( color(150, 250, 250), "She doesn't have time to talk to you." );
@@ -288,13 +289,22 @@ void setupMaps()
       zoo.boss[bossIndex].attacks[4] = new Attack("does a little dance.");
   bossIndex++;
   
+  //Giant rat blocking camp
+  m[0].tiles[3][54].placeBoss( 0, color(150, 80, 40), "It's guarding that campsite.", new Monster("Escaped Rat", "BrownRat.png", 20, 9, 15, 2, 0, 2, 4, 0, AttackType.FIRE) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
+      zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 30, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 30, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("bites and claws.", 40, false);
+  bossIndex++;
+  
   //Giant rat blocking woods
-  m[0].tiles[3][54].placeBoss( 0, color(150, 80, 40), "Looks like this one got out.", new Monster("Escaped Rat", "BrownRat.png", 24, 9, 15, 2, 0, 2, 4, 0, AttackType.FIRE) );
-      zoo.boss[bossIndex].attacks[0] = new Attack("bites.", 30, false, Debuff.POISON);
-      zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 30, false, Debuff.POISON);
-      zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false, Debuff.POISON);
-      zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 30, false, Debuff.POISON);
-      zoo.boss[bossIndex].attacks[4] = new Attack("bites and claws.", 30, false, Debuff.POISON);
+  m[0].tiles[6][56].placeBoss( 0, color(150, 80, 40), "Another big one that escaped.", new Monster("Escaped Rat", "BrownRat.png", 20, 11, 15, 2, 0, 2, 4, 0, AttackType.FIRE) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("squeaks angrily.");
+      zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 30, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites and claws.", 40, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("swipes with its tail.", 30, true);
   bossIndex++;
   
   m[0].tiles[47][8].createEvent(false, "- Mother Sunita clasps her hands and straightens her posture."+
