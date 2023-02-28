@@ -18,6 +18,8 @@ class Attack
   
   String description;
   
+  Debuff debuff;
+  
   public Attack( Attack a ) //for copying attacks
   {
     description = a.description;
@@ -56,6 +58,11 @@ class Attack
     this(d,p,all,true,AttackStat.STR,AttackType.NONE);
   }
   
+  public Attack( String d, int p, boolean all, Debuff bad  ) //normal physical attacks with status ailments
+  {
+    this(d,p,all,true,AttackStat.STR,AttackType.NONE,bad);
+  }
+  
   public Attack( String d, int p, boolean all, boolean wep, AttackStat s ) //attacks that use different stats but have no type
   {
     this(d,p,all,wep,s,AttackType.NONE);
@@ -73,6 +80,18 @@ class Attack
 
   public Attack( String d, int p, boolean all, boolean wep, AttackStat s, AttackType t ) //description, power, does it hit all, used stat, attack type
   {
+    this( d, p, all, wep, s, t, Debuff.NONE );
+    //description = d;
+    //power = p;
+    //targetAll = all;
+    //useWeapon = wep;
+    //healing = false;
+    //stat = s;
+    //type = t;
+  }
+
+  public Attack( String d, int p, boolean all, boolean wep, AttackStat s, AttackType t, Debuff bad ) //description, power, does it hit all, used stat, attack type, debuff type
+  {
     description = d;
     power = p;
     targetAll = all;
@@ -80,6 +99,7 @@ class Attack
     healing = false;
     stat = s;
     type = t;
+    debuff = bad;
   }
   
   public color appropriateColor()
@@ -111,4 +131,9 @@ public enum AttackStat
 public enum AttackType
 {
   NONE, FIRE, ICE, WIND, EARTH, HOLY, WASTE
+}
+
+public enum Debuff
+{
+  NONE, POISON, SLEEP, PARA, WEAK, CURSE
 }

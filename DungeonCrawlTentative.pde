@@ -26,7 +26,8 @@
 //I edited the log class to remove spaces in text - might cause errors downstream
 //I edited the log class again to not add text from an empty string
 
-import processing.sound.*;
+//Turned sound off for the time being. Will include later with Beads
+//import processing.sound.*;
 
 int mapCount = 10;
 Map [] m = new Map[mapCount];
@@ -71,10 +72,10 @@ ArrayList<GhostNumber> floatingNumbers = new ArrayList<GhostNumber>();
 int windowX, windowY;
 
 //Test files
-SoundFile beep1,beep2,beep3;
+//SoundFile beep1,beep2,beep3;
 
 //Sound effects
-SoundFile openDoorSound, openChestSound, lockedDoorSound, potionDrinkSound, foodBiteSound;
+//SoundFile openDoorSound, openChestSound, lockedDoorSound, potionDrinkSound, foodBiteSound;
 
 //Music
 //NONE YET
@@ -186,17 +187,17 @@ void setup()
   tileImage[67] = loadImage("rubble.png"); tileImage[67].resize(40,0);
   
   //Test sounds
-  beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
-  beep2 = new SoundFile(this, "Beep2.mp3"); //Short low
-  beep3 = new SoundFile(this, "Beep3.mp3"); //Long high
-  beep3.cue(5.0);
+  //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
+  //beep2 = new SoundFile(this, "Beep2.mp3"); //Short low
+  //beep3 = new SoundFile(this, "Beep3.mp3"); //Long high
+  //beep3.cue(5.0);
   
   //Sound effects
-  openDoorSound = new SoundFile(this, "lock.mp3");
-  openChestSound = new SoundFile(this, "chest.mp3");
-  lockedDoorSound = new SoundFile(this, "jiggle.mp3");
-  foodBiteSound = new SoundFile(this, "bite.mp3");
-  potionDrinkSound = new SoundFile(this, "gulp.mp3");
+  //openDoorSound = new SoundFile(this, "lock.mp3");
+  //openChestSound = new SoundFile(this, "chest.mp3");
+  //lockedDoorSound = new SoundFile(this, "jiggle.mp3");
+  //foodBiteSound = new SoundFile(this, "bite.mp3");
+  //potionDrinkSound = new SoundFile(this, "gulp.mp3");
 
   createInventories();
   //setUpLootList();
@@ -583,8 +584,8 @@ int squareHasKey( int x, int y )
 void clearLoot( int index )
 {
   lootList[party.floor][index] = emptyChest;
-  if(m[party.floor].tiles[party.X][party.Y].obj == Object.CHEST)
-    openChestSound.play();
+  //if(m[party.floor].tiles[party.X][party.Y].obj == Object.CHEST)
+  //  openChestSound.play();
   m[party.floor].tiles[party.X][party.Y].obj = Object.NONE;
 }
 
@@ -935,7 +936,7 @@ void keyPressed()
       {
         if( key == '3' )
         {
-          potionDrinkSound.play();
+          //potionDrinkSound.play();
           if( party.consume(36,0) )
           {
             input = Input.BATTLE_MENU;
@@ -961,7 +962,7 @@ void keyPressed()
       if( key == 'a' ) key = '1'; if( key == 's' ) key = '2'; if( key == 'd' ) key = '3';
       if( key == '1' || key == '2' || key == '3' )
       {
-        potionDrinkSound.play();
+        //potionDrinkSound.play();
         if( party.consume(potionType*12,key-49) ) //-49 to account for array index offset
         {
           input = Input.BATTLE_MENU;
@@ -1046,11 +1047,11 @@ void keyPressed()
       }
       else if( key > 48 && key < 52 ) //eat/drink and return to map
       {
-        if(reason == HeroSelectReason.EAT)
-          foodBiteSound.play();
+        //if(reason == HeroSelectReason.EAT)
+          //foodBiteSound.play();
          
-        if(reason == HeroSelectReason.DRINK)
-          potionDrinkSound.play();
+        //if(reason == HeroSelectReason.DRINK)
+          //potionDrinkSound.play();
          
         party.consume(consumableValue,key-49); //-49 to account for array index offset
         consumableValue = 0;

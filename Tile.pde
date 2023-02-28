@@ -372,11 +372,11 @@ class Tile
           advanceText("You use your " + keyName(k) + ".");
         keys[i] = Key.NONE;
         interactive = false;
-        openDoorSound.play();
+        //openDoorSound.play();
         return true;
       }
     advanceText("You lack the required item.");
-    lockedDoorSound.play();
+    //lockedDoorSound.play();
     return false;
   }
   

@@ -134,9 +134,14 @@ class Battle
           println("TURN: " + list[turn].name);
           if(turn<3) //Set input to allow battle commands
           {
-            displayTextLine( party.hero[turn].name + "'s turn. What will you do?" );
-            input = Input.BATTLE_MENU;
-            party.hero[turn].defending = false;
+            if(party.hero[turn].poisoned && party.hero[turn].takePoisonDamage())
+              resumeInitiativeTick();
+            else
+            {
+              displayTextLine( party.hero[turn].name + "'s turn. What will you do?" );
+              input = Input.BATTLE_MENU;
+              party.hero[turn].defending = false;
+            }
           }
         }
         else

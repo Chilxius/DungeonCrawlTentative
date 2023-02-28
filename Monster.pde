@@ -110,6 +110,17 @@ class Monster
         party.hero[targetHero].takeDamage(damage,true);
         floatingNumbers.add( new GhostNumber( 150+210*targetHero, 550, attacks[battle.enemyAttackIndex].appropriateColor(), damage) );
       }
+      
+      //Resolve status attacks
+      if(attacks[battle.enemyAttackIndex].debuff!=Debuff.NONE)
+      {
+        switch(attacks[battle.enemyAttackIndex].debuff)
+        {
+          case POISON:
+            if( random(100) < max(1,random(20)+damage-party.hero[targetHero].con) )
+              party.hero[targetHero].poison(str);
+        }
+      }
     }
     if(party.partyDead())
     {

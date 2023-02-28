@@ -15,7 +15,7 @@ class Hero
   
   //lose health,  strength reduced,  can't act,  can't act,  mag/will reduced
   boolean poisoned, weakened, paralyzed, asleep, cursed;
-  int poison=100; //Damage left. Will dole out based on level.
+  int poison=0; //Damage left. Will dole out based on level.
   
   boolean created;
   
@@ -478,6 +478,37 @@ class Hero
     }
   }
   
+  //I may have existing poison logic I forgot about
+  public void poison( int amount )
+  {
+    poisoned = true;
+    poison = amount;
+  }
+  
+  public boolean takePoisonDamage() //true if hero dies
+  {
+    if(poison<=0) //<>//
+      return false;
+    int poisonDamage = max(level*3-con,1); //minimum 1 damage
+    poison -= poisonDamage;
+    hp -= poisonDamage;
+    displayTextLine( name + " suffers " + poisonDamage + " poison damage...");
+    if(hp <= 0)
+    {
+      hp = 0;
+      energy = 0;
+      alive = false;
+      displayTextLine( "and succumbs to the affliction!" );
+      return true;
+    }
+    if(poison<0)
+    {
+      poison = 0;
+      poisoned = false;
+    }
+    return false;
+  }
+  
   public void healMana( int amount )
   {
     mp += amount;
@@ -592,7 +623,7 @@ Mage
 
 /* Poison
 Enemy poison will 'deal' a certain amount, stored in the integer "poison"
-Every turn, the hero will suffer an amount of damage equal to (level*2)-con, minimum 1.
+Every turn, the hero will suffer an amount of damage equal to (level*3)-con, minimum 1.
 That amount will be deducted from "poison" until it is emptied.
 "Badly afflicted" means more than 15 turns remaining
 "Afflicted" means more than 5 turns remaining
