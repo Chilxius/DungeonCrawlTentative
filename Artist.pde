@@ -32,6 +32,7 @@ class Artist
   float titleCardDuration = 0;
   PImage skillIcon[][] = new PImage[6][8];
   PImage skillButton[] = new PImage[4];
+  PImage blackVanguard;
   
   public Artist()
   {
@@ -78,10 +79,10 @@ class Artist
   public void drawLocationTitleCard()
   {
     titleCardDuration--;
-    textSize(30);
+    textSize(35);
     textAlign(CENTER);
     fill(255,255*(titleCardDuration/100.0));
-    text(locationTitleCard,350,182);
+    text(locationTitleCard,350,185);
   }
   
   public void startLocationTitleCard( String title )
@@ -611,12 +612,18 @@ class Artist
   {
     gameoverOpacity = 0;
     gameover = true;
+    blackVanguard=loadImage("BlackGargoyle.png");
   }
   
   public void runGameoverAnimation()
   {
     drawBattleWindow();
+    imageMode(CENTER);
     gameoverOpacity+=0.5;
+    push();
+    tint(255,gameoverOpacity);
+    image(blackVanguard,350,300);
+    pop();
     fill(0,gameoverOpacity);
     noStroke();
     ellipse(350,542.5,700,315);
@@ -715,6 +722,15 @@ class Artist
         break;
       case BARREL2:
         image(tileImage[29],xPos,yPos);
+        break;
+      case GRAVE:
+        image(tileImage[42],xPos,yPos);
+        break;
+      case RUBBLE:
+        image(tileImage[67],xPos,yPos);
+        break;
+      case TENT:
+        image(tileImage[55],xPos,yPos);
         break;
     }
   }

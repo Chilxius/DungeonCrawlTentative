@@ -107,6 +107,16 @@ class Map
     tiles[xPos][yPos].removeBoss();
     flipBossSwitch(xPos,yPos);
   }
+  
+  public boolean isStair( int x, int y )
+  {
+    for(Portal p: exits)
+    {
+      if( p.originX == x && p.originY == y )
+        return true;
+    }
+    return false;
+  }
 }
 
 public class Portal //for switching maps

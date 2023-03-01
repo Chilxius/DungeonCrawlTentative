@@ -52,7 +52,7 @@ class Tile
     
     switch(t)
     {
-      case '@':type=TileType.CAMP;break;
+      //case '@':type=TileType.CAMP;break;
       case '#':type=TileType.WALL;break;
       case '$':type=TileType.SECRET_WALL;break;
       case '3':type=TileType.DARK_WALL;break;
@@ -68,7 +68,7 @@ class Tile
       case 'T':type=TileType.TREE;break;
       case 't':type=TileType.TREE_PATH;break;
       case 'D':type=TileType.DARK_TREE;break;
-      case 'g':type=TileType.GRAVE;break;
+      //case 'g':type=TileType.GRAVE;break;
       case '&':type=TileType.S_GLASS;break;
       case '>':type=TileType.STAIR;break;
       case '<':type=TileType.STAIR_DOOR;break;
@@ -81,7 +81,7 @@ class Tile
       case 'W':type=TileType.WOOD;break;
       case '∑':type=TileType.WOOD_DARK;break;
       case '„':type=TileType.WOOD_LIGHT;break;
-      case '|':type=TileType.RUBBLE;break;
+      case '|':type=TileType.RUBBLE;
       //different key types
       case 'c':
       case 'i':
@@ -110,6 +110,9 @@ class Tile
       case '•':obj=Object.FAKE_SAVE;type=TileType.SAFE;break; //alt+8
       case '[':obj=Object.BARREL;type=TileType.SAFE;break;
       case ']':obj=Object.BARREL2;type=TileType.SAFE;break;
+      case 'g':obj=Object.GRAVE;type=TileType.SAFE;break;
+      case '|':obj=Object.RUBBLE;type=TileType.SAFE_BLOCKED;break;
+      case '@':obj=Object.TENT;type=TileType.SAFE;break;
       default: obj=Object.NONE;break;
     }
     
@@ -167,8 +170,14 @@ class Tile
         tileColor = safeColor;
         //tileColor = color((x+y)*5%50+150,(x+y)*5%50+150,(x+y)*5%50+150);
         safe = true; break;
+      case SAFE_BLOCKED: 
+        tileColor = safeColor;
+        pathable = false;
+        //tileColor = color((x+y)*5%50+150,(x+y)*5%50+150,(x+y)*5%50+150);
+        safe = true; break;
       case CAMP: 
-        tileColor = color(170,150,110);
+        //tileColor = color(170,150,110);
+        tileColor = safeColor;
         safe = true; break;
       case FLOWER:
       case GRASS:
@@ -545,7 +554,7 @@ class Tile
 
 public enum TileType
 {
-  EMPTY, EVENT, SAFE,
+  EMPTY, EVENT, SAFE, SAFE_BLOCKED,
   FLOOR, FLOOR_RD, FLOOR_BL,
   GRASS, DIRT, FLOWER, WATER,
   TREE, DARK_TREE, TREE_PATH,
@@ -570,5 +579,7 @@ public enum Object //tile has an object (still pathable)
   SIGN, SIGN_E, SIGN_F, SIGN_D, SIGN_I,
   SAVEPOINT, FAKE_SAVE,
   BARREL, BARREL2,
+  GRAVE, RUBBLE,
+  TENT,
   NONE
 }

@@ -5,7 +5,8 @@
 
 //TO DO:
 //Skills: animation system
-//Statues in initiate classroom, lessons about status
+//Statues in initiate classroom
+//Have poison deal a percent of remainaing poison
 
 //IMPROVEMENT:
 //Improve hero select widnow (circle sizes)
@@ -474,31 +475,31 @@ public String randomName()
 {
   switch( int(random(26)) )
   {
-    case 1: return "Angel";
-    case 2: return "Björn";
-    case 3: return "Cadell";
-    case 4: return "Darya";
-    case 5: return "Enyo";
-    case 6: return "Fritjof";
-    case 7: return "Gunhild";
-    case 8: return "Homer";
-    case 9: return "Inola";
-    case 10: return "Joy";
-    case 11: return "Kai";
-    case 12: return "Leocadia";
-    case 13: return "Marc";
-    case 14: return "Nadya";
-    case 15: return "Orion";
-    case 16: return "Phoenix";
-    case 17: return "Quinn";
-    case 18: return "Raven";
-    case 19: return "Sky";
-    case 20: return "Tybalt";
-    case 21: return "Ursa";
-    case 22: return "Vela";
-    case 23: return "Wystan";
-    case 24: return "Xena";
-    case 25: return "Yoko";
+    case 1: return "Angel";    case 26: return "Alex";     case 42: return "Ash";
+    case 2: return "Björn";    case 27: return "Briar";
+    case 3: return "Cadell";   case 28: return "Colette";
+    case 4: return "Darya";    case 29: return "Draco";    case 51: return "Dirk";
+    case 5: return "Enyo";     case 30: return "Elwyn";
+    case 6: return "Fritjof";  case 31: return "Faith";
+    case 7: return "Gunhild";  case 32: return "Gale";
+    case 8: return "Homer";    case 33: return "Hana";
+    case 9: return "Inola";    case 34: return "Ivan";
+    case 10: return "Joy";     case 35: return "Jazz";
+    case 11: return "Kai";     case 36: return "Kim";
+    case 12: return "Leocadia";case 37: return "Law";
+    case 13: return "Marc";    case 38: return "Misty";
+    case 14: return "Nadya";   case 39: return "Neon";
+    case 15: return "Orion";   case 40: return "Olga";
+    case 16: return "Phoenix"; case 41: return "Penelope";
+    case 17: return "Quinn";   
+    case 18: return "Raven";   case 43: return "Rook";
+    case 19: return "Sky";     case 44: return "Spike";
+    case 20: return "Tybalt";  case 45: return "Tabitha";
+    case 21: return "Ursa";    case 46: return "Ulric";
+    case 22: return "Vela";    case 47: return "Vulcan";
+    case 23: return "Wystan";  case 48: return "Willow";
+    case 24: return "Xena";    case 49: return "Xia";
+    case 25: return "Yoko";    case 50: return "Yin";
     default: return "Zazi";
   }
 }
@@ -528,6 +529,7 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case GARGOYLE: return "A beautiful gargoyle statue";
     case WEREWOLF_WHITE: return "A gargoyle statue...?";
     case S_GLASS: return "A beautiful stained glass window";
+    case SAFE_BLOCKED: return "Rubble blocks the way";
   }
   
   if( m[party.floor].tiles[x][y].isBoss )
@@ -704,7 +706,8 @@ void keyPressed()
       if(!attemptMove("up")&&display!=Display.BATTLE)displayTextLine(bonkText('u'));
     
     if(key == '>' || key == '9') //Changing floors
-      if(m[party.floor].tiles[party.X][party.Y].type==TileType.STAIR || m[party.floor].tiles[party.X][party.Y].type==TileType.STAIR_DOOR)
+      if(m[party.floor].isStair(party.X,party.Y))
+      //if(m[party.floor].tiles[party.X][party.Y].type==TileType.STAIR || m[party.floor].tiles[party.X][party.Y].type==TileType.STAIR_DOOR)
         changeMap();
     
     //Moved into a boss space
@@ -758,7 +761,7 @@ void keyPressed()
       advanceText("Save aborted");
       confirmSave = false;
     }
-    if(display == Display.MAP && key == 'R' && m[party.floor].tiles[party.X][party.Y].type == TileType.CAMP ) //rest
+    if(display == Display.MAP && key == 'R' && m[party.floor].tiles[party.X][party.Y].obj == Object.TENT ) //rest
     {
       if(party.needsRest())
       { //<>//
