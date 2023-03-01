@@ -9,6 +9,7 @@ class Beastiary
   Monster [] boss;
   int bossIndex = 0;
   int addBossIndex = 0;
+  int dangerZone = 0;
   //[danger level][creature number]
   
   public Beastiary()
@@ -23,49 +24,74 @@ class Beastiary
     list[0][3] = new Monster();
     list[0][4] = new Monster();
     
-    list[1][0] = new Monster("Rat", "SlimyRat.png",  4, 3, 2, 1, 0, 1, 2, 0, AttackType.FIRE);
-      list[1][0].attacks[0] = new Attack("squeaks.");
-      list[1][0].attacks[1] = new Attack("scurries.");
-      list[1][0].attacks[2] = new Attack("bites.", 30, false);
-      list[1][0].attacks[3] = new Attack("bites.", 30, false);
-      list[1][0].attacks[4] = new Attack("bites.", 30, false);
-    list[1][1] = new Monster("Tiny Rat", "GreyRat.png",  1, 1, 1, 1, 0, 1, 4, 0, AttackType.FIRE);
-      list[1][1].attacks[0] = new Attack("squeaks.");
-      list[1][1].attacks[1] = new Attack("scurries.");
-      list[1][1].attacks[2] = new Attack("bites.", 20, false);
-      list[1][1].attacks[3] = new Attack("bites.", 20, false);
-      list[1][1].attacks[4] = new Attack("bites.", 20, false);
-    list[1][2] = new Monster("Large Rat", "DarkRat.png",  7, 4, 2, 1, 0, 1, 2, 0, AttackType.FIRE);
-      list[1][2].attacks[0] = new Attack("squeaks.");
-      list[1][2].attacks[1] = new Attack("scurries.");
-      list[1][2].attacks[2] = new Attack("bites.", 35, false);
-      list[1][2].attacks[3] = new Attack("bites.", 35, false);
-      list[1][2].attacks[4] = new Attack("bites.", 35, false);
-    list[1][3] = new Monster();
-    list[1][4] = new Monster();
+    //1 - Rat cellar
+    dangerZone++;
+    list[dangerZone][0] = new Monster("Rat", "SlimyRat.png",  4, 3, 2, 1, 0, 1, 2, 0, AttackType.FIRE);
+      list[dangerZone][0].attacks[0] = new Attack("squeaks.");
+      list[dangerZone][0].attacks[1] = new Attack("scurries.");
+      list[dangerZone][0].attacks[2] = new Attack("bites.", 30, false);
+      list[dangerZone][0].attacks[3] = new Attack("bites.", 30, false);
+      list[dangerZone][0].attacks[4] = new Attack("bites.", 30, false);
+    list[dangerZone][1] = new Monster("Tiny Rat", "GreyRat.png",  1, 1, 1, 1, 0, 1, 4, 0, AttackType.FIRE);
+      list[dangerZone][1].attacks[0] = new Attack("squeaks.");
+      list[dangerZone][1].attacks[1] = new Attack("scurries.");
+      list[dangerZone][1].attacks[2] = new Attack("bites.", 20, false);
+      list[dangerZone][1].attacks[3] = new Attack("bites.", 20, false);
+      list[dangerZone][1].attacks[4] = new Attack("bites.", 20, false);
+    list[dangerZone][2] = new Monster("Large Rat", "DarkRat.png",  7, 4, 2, 1, 0, 1, 2, 0, AttackType.FIRE);
+      list[dangerZone][2].attacks[0] = new Attack("squeaks.");
+      list[dangerZone][2].attacks[1] = new Attack("scurries.");
+      list[dangerZone][2].attacks[2] = new Attack("bites.", 35, false);
+      list[dangerZone][2].attacks[3] = new Attack("bites.", 35, false);
+      list[dangerZone][2].attacks[4] = new Attack("bites.", 35, false);
+    list[dangerZone][3] = new Monster();
+    list[dangerZone][4] = new Monster();
     
-    /*
-    list[1][0] = new Monster("GreenDragon",  "GreenDragon.png",  10,5,2,3,5,2,2,10,AttackType.NONE);
-      list[1][0].attacks[0] = new Attack("rubbs its tummy.");
-      list[1][0].attacks[1] = new Attack("rubbs its tummy.");
-      list[1][0].attacks[2] = new Attack("claws at you.", 35, false);
-      list[1][0].attacks[3] = new Attack("breathes fire.", 40, true, false, AttackType.FIRE);
-      list[1][0].attacks[4] = new Attack("breathes fire.", 40, true, false, AttackType.FIRE);
-    list[1][1] = new Monster("StoneGargoyle","StoneGargoyle.png",12,4,4,3,0,1,2,0,AttackType.HOLY);
-      list[1][1].attacks[0] = new Attack("is still.");
-      list[1][1].attacks[1] = new Attack("inches closer.");
-      list[1][1].attacks[2] = new Attack("bites.", 40, false);
-      list[1][1].attacks[3] = new Attack("claws at you.", 35, false);
-      list[1][1].attacks[4] = new Attack("throws a stone.", 35,  false);
-    list[1][2] = new Monster("Green Squid",  "GreenSquid.png",    8,2,6,2,0,1,3,0,AttackType.NONE);
-      list[1][2].attacks[0] = new Attack("wriggles and writhes.");
-      list[1][2].attacks[1] = new Attack("gazes at you.");
-      list[1][2].attacks[2] = new Attack("bites.", 40, false);
-      list[1][2].attacks[3] = new Attack("lashes at you.", 35, false);
-      list[1][2].attacks[4] = new Attack("shoots ink.", 20, false, false, AttackStat.MAG);
-    list[1][3] = new Monster();
-    list[1][4] = new Monster();
-    */
+    //2 - River path (north)
+    dangerZone++;
+    list[dangerZone][0] = new Monster("Spider",  "GreenSpider.png",  9, 5, 10, 2, 0, 2, 4, 0, AttackType.NONE);
+      list[dangerZone][0].attacks[0] = new Attack("scratches.", 35, false);
+      list[dangerZone][0].attacks[1] = new Attack("scratches.", 35, false);
+      list[dangerZone][0].attacks[2] = new Attack("bites your foot.", 35, false, Debuff.POISON);
+      list[dangerZone][0].attacks[3] = new Attack("bites your arm.", 40, false, Debuff.POISON);
+      list[dangerZone][0].attacks[4] = new Attack("bites your leg.", 45, false, Debuff.POISON);
+    list[dangerZone][1] = new Monster("Large Rat", "DarkRat.png",    7, 4, 2, 1, 0, 1, 2, 0, AttackType.FIRE);
+      list[dangerZone][1].attacks[0] = new Attack("squeaks.");
+      list[dangerZone][1].attacks[1] = new Attack("scurries.");
+      list[dangerZone][1].attacks[2] = new Attack("bites.", 40, false);
+      list[dangerZone][1].attacks[3] = new Attack("bites.", 40, false);
+      list[dangerZone][1].attacks[4] = new Attack("bites.", 40,  false);
+    list[dangerZone][2] = new Monster();
+    list[dangerZone][3] = new Monster();
+    list[dangerZone][4] = new Monster();
+    
+    //3 - River path (south)
+    dangerZone++;
+    list[dangerZone][0] = new Monster("Spider",  "GreenSpider.png",  9, 5, 13, 2, 0, 2, 4, 0, AttackType.NONE);
+      list[dangerZone][0].attacks[0] = new Attack("scratches.", 35, false);
+      list[dangerZone][0].attacks[1] = new Attack("scratches.", 35, false);
+      list[dangerZone][0].attacks[2] = new Attack("bites your foot.", 35, false, Debuff.POISON);
+      list[dangerZone][0].attacks[3] = new Attack("bites your arm.", 40, false, Debuff.POISON);
+      list[dangerZone][0].attacks[4] = new Attack("bites your leg.", 45, false, Debuff.POISON);
+    list[dangerZone][1] = new Monster("Spider",  "GreenSpider.png",  10, 6, 13, 2, 0, 2, 3, 0, AttackType.NONE);
+      list[dangerZone][1].attacks[0] = new Attack("scratches.", 35, false);
+      list[dangerZone][1].attacks[1] = new Attack("scratches.", 35, false);
+      list[dangerZone][1].attacks[2] = new Attack("bites your foot.", 35, false, Debuff.POISON);
+      list[dangerZone][1].attacks[3] = new Attack("bites your arm.", 40, false, Debuff.POISON);
+      list[dangerZone][1].attacks[4] = new Attack("bites your leg.", 45, false, Debuff.POISON);
+    list[dangerZone][2] = new Monster("Spider",  "GreenSpider.png",  9, 5, 13, 2, 0, 2, 4, 0, AttackType.NONE);
+      list[dangerZone][2].attacks[0] = new Attack("scratches.", 35, false);
+      list[dangerZone][2].attacks[1] = new Attack("scratches.", 35, false);
+      list[dangerZone][2].attacks[2] = new Attack("bites your foot.", 35, false, Debuff.POISON);
+      list[dangerZone][2].attacks[3] = new Attack("bites your arm.", 40, false, Debuff.POISON);
+      list[dangerZone][2].attacks[4] = new Attack("bites your leg.", 45, false, Debuff.POISON);
+    list[dangerZone][3] = new Monster("Spider",  "GreenSpider.png",  10, 6, 13, 2, 0, 2, 3, 0, AttackType.NONE);
+      list[dangerZone][3].attacks[0] = new Attack("scratches.", 35, false);
+      list[dangerZone][3].attacks[1] = new Attack("scratches.", 35, false);
+      list[dangerZone][3].attacks[2] = new Attack("bites your foot.", 35, false, Debuff.POISON);
+      list[dangerZone][3].attacks[3] = new Attack("bites your arm.", 40, false, Debuff.POISON);
+      list[dangerZone][3].attacks[4] = new Attack("bites your leg.", 45, false, Debuff.POISON);
+    list[dangerZone][4] = new Monster();
   }
   
   public void addBossToList( Monster m )

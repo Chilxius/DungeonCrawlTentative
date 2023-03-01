@@ -466,7 +466,7 @@ boolean checkForBattle()
     return true;
   }
   
-  println(randomBattleCounter);
+  println(randomBattleCounter + "  DL:" +dm[party.floor].dangerValueChar(party.X,party.Y));
   //println(m[1].tiles[40][4].occupantText);
   randomBattleCounter++;
   return false;

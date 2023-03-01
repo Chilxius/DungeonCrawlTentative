@@ -134,7 +134,7 @@ class Battle
           println("TURN: " + list[turn].name);
           if(turn<3) //Set input to allow battle commands
           {
-            if(party.hero[turn].poisoned && party.hero[turn].takePoisonDamage()) //died of poison
+            if(party.hero[turn].poisoned && party.hero[turn].takePoisonDamage(turn)) //died of poison
             {
               turn = -1;
               resumeInitiativeTick();

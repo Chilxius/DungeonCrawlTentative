@@ -485,7 +485,7 @@ class Hero
     poison = amount;
   }
   
-  public boolean takePoisonDamage() //true if hero dies
+  public boolean takePoisonDamage( int heroPos ) //true if hero dies
   {
     if(poison<=0) //<>//
       return false;
@@ -493,6 +493,7 @@ class Hero
     poison -= poisonDamage;
     hp -= poisonDamage;
     displayTextLine( name + " suffers " + poisonDamage + " poison damage...");
+    floatingNumbers.add( new GhostNumber( 150+210*heroPos, 550, color(100,100,0), poisonDamage) );
     if(hp <= 0)
     {
       hp = 0;
