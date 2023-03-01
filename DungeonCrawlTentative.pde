@@ -4,6 +4,7 @@
 //PROBLEMS:
 
 //TO DO:
+//Level 2 enemy zone
 //Skills: animation system
 //Statues in initiate classroom
 //Have poison deal a percent of remainaing poison
