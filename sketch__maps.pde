@@ -303,7 +303,7 @@ void setupMaps()
   bossIndex++;
   
   //Giant rat blocking woods
-  m[0].tiles[6][56].placeBoss( 0, color(150, 80, 40), "Another big one that escaped.", new Monster("Escaped Rat", "BrownRat.png", 20, 11, 15, 2, 0, 2, 4, 0, AttackType.FIRE) );
+  m[0].tiles[6][56].placeBoss( 0, color(150, 80, 40), "One of the big ones escaped.", new Monster("Escaped Rat", "BrownRat.png", 20, 11, 15, 2, 0, 2, 4, 0, AttackType.FIRE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("squeaks angrily.");
       zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 30, false);
       zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false);

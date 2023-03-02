@@ -6,6 +6,8 @@
 //TO DO:
 //Skills: animation system
 //Statues in initiate classroom
+//Fix food menu
+//poison dealt 1 but removed 2
 
 //IMPROVEMENT:
 //Improve hero select widnow (circle sizes)
