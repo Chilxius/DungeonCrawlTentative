@@ -117,8 +117,10 @@ class Monster
         switch(attacks[battle.enemyAttackIndex].debuff)
         {
           case POISON:
-            if( random(100) < max(1,random(20)+damage-party.hero[targetHero].con) )
-              party.hero[targetHero].poison(str);
+            float largeRandom = random(100);
+            float smallRandom = 25; //this doesn't need to be random
+            if( largeRandom < max(1,smallRandom+damage-party.hero[targetHero].con) )
+              party.hero[targetHero].poison(max(str,con),targetHero);
         }
       }
     }

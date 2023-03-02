@@ -168,7 +168,7 @@ class Artist
       {
         textAlign(LEFT);
         text("__________",120+(230*int(i/15)),(130+30*(i+1))-(450*int(i/15)));
-        println((130+30*(i+1))-(450*int(1/15)));
+        //println((130+30*(i+1))-(450*int(1/15)));
       }
 
   }
@@ -214,13 +214,13 @@ class Artist
         
     fill(200); textAlign(LEFT); textSize(35);
     if(breadCount>0)
-      text("1 - Fresh Bread: "+breadCount,210,220);
+      text("A - Bread: "+breadCount,210,220);
     if(porkCount>0)
-      text("2 - Salt Pork: "+porkCount,210,300);
+      text("S - Meat: "+porkCount,210,300);
     if(fruitCount>0)
-      text("3 - Sunfruit: "+fruitCount,210,380);
+      text("D - Fruit: "+fruitCount,210,380);
     if(crabCount>0)
-      text("4 - King Crab: "+crabCount,210,460);
+      text("F - Crab: "+crabCount,210,460);
       
     fill(200); textAlign(CENTER); textSize(25);
     text("Select by number or",width/2,560);
@@ -571,40 +571,67 @@ class Artist
     if( display == Display.EQUIP ) { textAlign(CORNER); text(newEquip.name,350-(9*newEquip.name.length()),250); image(newEquip.pic,320-(9*newEquip.name.length()),240); }
     else                           { textAlign(CENTER); text("Select Hero",width/2,250); }
     
+    
+    
     textAlign(CENTER);
     fill(party.hero[0].getColor()); drawHeroByType(party.hero[0],150,320,1,0,true); //ellipse(150,320,75,75);
-    fill(200); text(1,150,333);
-    if( dist( mouseX,mouseY, 150,320)<37.5)
-      text(party.hero[0].name,width/2,400+equipOffset);
+    textSize(20); fill(200); text(1,150,275);
     
     fill(party.hero[1].getColor()); drawHeroByType(party.hero[1],350,320,1,1,true); //ellipse(350,320,75,75);
-    fill(200); text(2,350,333);
-    if( dist( mouseX,mouseY, 350,320)<37.5)
-      text(party.hero[1].name,width/2,400+equipOffset);
+    textSize(20); fill(200); text(2,350,275);
     
     fill(party.hero[2].getColor()); drawHeroByType(party.hero[2],550,320,1,2,true); //ellipse(550,320,75,75);
-    fill(200); text(3,550,333);
-    if( dist( mouseX,mouseY, 550,320)<37.5)
-      text(party.hero[2].name,width/2,400+equipOffset);
+    textSize(20); fill(200); text(3,550,275);
       
     if( display == Display.EQUIP )
     {
+      if(newEquip.isWeapon)
+      {
+        image(party.hero[0].weapon.pic,150,400);
+        image(party.hero[1].weapon.pic,350,400);
+        image(party.hero[2].weapon.pic,550,400);
+      }
+      else
+      {
+        image(party.hero[0].armor.pic,150,400);
+        image(party.hero[1].armor.pic,350,400);
+        image(party.hero[2].armor.pic,550,400);
+      }
       //use textPromptStage for color animation
-      showStatComparison( 0, newEquip, 150, 400 );
-      showStatComparison( 1, newEquip, 350, 400 );
-      showStatComparison( 2, newEquip, 550, 400 );
+      showStatComparison( 0, newEquip, 150, 470 );
+      showStatComparison( 1, newEquip, 350, 470 );
+      showStatComparison( 2, newEquip, 550, 470 );
     }
       
-    fill(200); textAlign(CENTER); textSize(25);
+    fill(200); textAlign(CENTER);// textSize(25);
     if( display != Display.EQUIP )
     {
+      textSize(40);
+      if(      dist( mouseX,mouseY, 150,320)<37.5)
+        text(party.hero[0].name,width/2,410);
+      else if( dist( mouseX,mouseY, 350,320)<37.5)
+        text(party.hero[1].name,width/2,410);
+      else if( dist( mouseX,mouseY, 550,320)<37.5)
+        text(party.hero[2].name,width/2,410);
+      textSize(25);
       text("Select by number or",width/2,460);
       text("press space to cancel.",width/2,480);
     }
     else
     {
-      text("Equip by number or press", width/2,510);
-      text("capital (X) to put aisde for sale.",width/2,540);
+      textSize(40);
+      if(      dist( mouseX,mouseY, 150,320)<37.5)
+        text(party.hero[0].name,width/2,530);
+      else if( dist( mouseX,mouseY, 350,320)<37.5)
+        text(party.hero[1].name,width/2,530);
+      else if( dist( mouseX,mouseY, 550,320)<37.5)
+        text(party.hero[2].name,width/2,530);
+      else
+      {
+        textSize(25);
+        text("Equip by number or press", width/2,510);
+        text("capital (X) to put aisde for sale.",width/2,540);
+      }
     }
   }
   
@@ -1075,6 +1102,7 @@ class Artist
   
   void drawBattleWindow()
   {
+    println("1: "+party.hero[0].poison+ "  2: "+party.hero[1].poison+"  3: "+party.hero[2].poison);
     strokeWeight(5);
     stroke(200);
     fill(0);
@@ -1082,7 +1110,7 @@ class Artist
     {
       rectMode(CENTER);
       rect(width/2,377,14*animationStage,8.7*animationStage,20);
-      println(14*animationStage + " " + 8.7*animationStage );
+      //println(14*animationStage + " " + 8.7*animationStage );
       if(animationStage==49)
         battleWindowOpening=false;
     }

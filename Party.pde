@@ -217,6 +217,18 @@ class Party
     return (hero[0].level + hero[0].level + hero[0].level)/3;
   }
   
+  void tickDownPoisons()
+  {
+    for(Hero h: hero)
+      if(h.poisoned && h.hp > 1)
+      {
+        h.hp--;
+        h.poison--;
+        if(h.poison==0)
+          h.poisoned=false;
+      }
+  }
+  
   int sellItems() //sells all non-consumables and returns the total gold value
   {
     int result = 0;

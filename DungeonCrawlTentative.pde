@@ -6,7 +6,6 @@
 //TO DO:
 //Skills: animation system
 //Statues in initiate classroom
-//Have poison deal a percent of remainaing poison
 
 //IMPROVEMENT:
 //Improve hero select widnow (circle sizes)
@@ -26,6 +25,7 @@
 //NOTES:
 //I edited the log class to remove spaces in text - might cause errors downstream
 //I edited the log class again to not add text from an empty string
+//Poison seems to be killing heroes properly
 
 //Turned sound off for the time being. Will include later with Beads
 //import processing.sound.*;
@@ -412,6 +412,13 @@ String indefArticle( String word )
   return "a";
 }
 
+String wasOrWere( char c )
+{
+  if( c == 's' )
+    return "were";
+  return "was";
+}
+
 boolean isVowel( char c )
 {
   if(c=='a' || c=='A'
@@ -442,7 +449,7 @@ boolean attemptMove( String direction )
       {  party.Y++; checkEvent(); result = true; } break;
   }
   
-  if( checkForBattle() )
+  if( result && checkForBattle() )
     triggerBattle(dm[party.floor].dangerValueChar(party.X,party.Y));
   
   return result;
@@ -468,6 +475,10 @@ boolean checkForBattle()
   println(randomBattleCounter + "  DL:" +dm[party.floor].dangerValueChar(party.X,party.Y));
   //println(m[1].tiles[40][4].occupantText);
   randomBattleCounter++;
+  
+  if(randomBattleCounter > 0 && randomBattleCounter % 5 == 0)
+    party.tickDownPoisons(); //<>//
+  
   return false;
 }
   
@@ -826,13 +837,18 @@ void keyPressed()
   //ITEM USE INPUT
   else if(input == Input.ITEM_USE)
   {
-    if(key == ' ')
+    if(key == 'a') key = 49; //convert
+    if(key == 's') key = 50; //to
+    if(key == 'd') key = 51; //numbers
+    if(key == 'f') key = 52;
+    
+    if(key == ' ') //<>//
     {
       display = Display.MAP;
       input = Input.EXPLORING;
     }
     else if(key > 48 && key < 53)
-    {
+    { //<>//
       if(display == Display.FOOD_MENU && party.hasFood(key-48))
       {
         consumableValue = (key-48)*10;
@@ -1038,6 +1054,10 @@ void keyPressed()
   else if(display == Display.HERO_SELECT && input == Input.HERO_SELECT)
   {
     //USING AN ITEM
+    if( key == 'a' ) key = 49;
+    if( key == 's' ) key = 50;
+    if( key == 'd' ) key = 51;
+    if( key == 'f' ) key = 52;
     if(consumableValue > 0)
     {
       if(key == ' ') //Return to food/potion menu

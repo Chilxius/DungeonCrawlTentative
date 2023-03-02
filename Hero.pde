@@ -55,7 +55,7 @@ class Hero
       weapon = new Equipment("Fist","Fist.png",0,true,20);
       adjustFistPower();
     }
-    armor = new Equipment("Shirt","WhiteShirt.png",0,false,1);
+    armor = new Equipment("Shirt","BrownShirt.png",0,false,1);
     
     assignSkills();
   }
@@ -207,7 +207,7 @@ class Hero
   
   public boolean canAffordSkill( int index )
   {
-    if( maxMp > 0 ) //is a caster //<>//
+    if( maxMp > 0 ) //is a caster
     {
       if( skill[index].cost > mp )
       {
@@ -332,7 +332,7 @@ class Hero
   public boolean resolveAttack( int targetMonster ) //true if monster killed
   {
     int damage = 0;
-    int weaponPower = 0; //<>//
+    int weaponPower = 0;
     if(skillSelection != -1 && skill[skillSelection].useWeapon)
       weaponPower = weapon.power;
     battle.waitingForText = false;
@@ -358,7 +358,7 @@ class Hero
       }
       else
       {
-        damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weaponPower+skill[skillSelection].power, appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skill[skillSelection].type, battleMonsters[targetMonster].weakness ); //<>//
+        damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weaponPower+skill[skillSelection].power, appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skill[skillSelection].type, battleMonsters[targetMonster].weakness );
         battleMonsters[targetMonster].takeDamage(damage);
         floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, skill[skillSelection].appropriateColor(), damage) );
       }
@@ -416,6 +416,9 @@ class Hero
       hp = 0;
       energy = 0;
       alive = false;
+      poison = 0;
+      poisoned = asleep = paralyzed = weakened = cursed = false;
+      defending = false;
       displayTextLine( name + " falls!" );
     }
     return damage;
@@ -479,30 +482,35 @@ class Hero
   }
   
   //I may have existing poison logic I forgot about
-  public void poison( int amount )
+  public void poison( int amount, int x )
   {
+    floatingNumbers.add( new GhostNumber( 150+210*x, 550, color(100,100,0), "POISON") );
     poisoned = true;
-    poison = amount;
+    poison += max(1,amount-con);
   }
   
   public boolean takePoisonDamage( int heroPos ) //true if hero dies
   {
-    if(poison<=0) //<>//
+    if(poison<=0)
       return false;
-    int poisonDamage = max(level*3-con,1); //minimum 1 damage
+    int poisonDamage = max(poison/3,1); //minimum 1 damage
     poison -= poisonDamage;
     hp -= poisonDamage;
-    displayTextLine( name + " suffers " + poisonDamage + " poison damage...");
+    if(hp > 0)
+      displayTextLine( name + " suffers " + poisonDamage + " poison damage.");
     floatingNumbers.add( new GhostNumber( 150+210*heroPos, 550, color(100,100,0), poisonDamage) );
     if(hp <= 0)
     {
       hp = 0;
       energy = 0;
       alive = false;
-      displayTextLine( "and succumbs to the affliction!" );
+      poison = 0;
+      poisoned = asleep = paralyzed = weakened = cursed = false;
+      defending = false;
+      displayTextLine( name + "collapses!" );
       return true;
     }
-    if(poison<0)
+    if(poison<=0)
     {
       poison = 0;
       poisoned = false;

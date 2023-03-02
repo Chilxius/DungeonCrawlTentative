@@ -7,6 +7,8 @@ class GhostNumber
   int duration;
   int digits;
   boolean active;
+  String word;
+  boolean isWord;
   
   public GhostNumber( float xPos, float yPos, color c, int v )
   {
@@ -24,6 +26,20 @@ class GhostNumber
       tempValue /= 10;
     }
     yOffsets = new int[digits];
+    isWord = false;
+  }
+  
+  public GhostNumber( float xPos, float yPos, color c, String w )
+  {
+    X = xPos;
+    Y = yPos;
+    numColor = c;
+    word = w;
+    duration = 60;
+    digits = w.length();
+    active = true;
+    yOffsets = new int[digits];
+    isWord = true;
   }
   
   void moveAndDrawNumber() //Causes the number's digits to bounce once before settling
@@ -39,12 +55,22 @@ class GhostNumber
           yOffsets[i]-=3;
         else
           yOffsets[i]+=3;
-          
-        //This works. Don't touch it.
-        textSize(36); fill(0); //black outline
-        text( (value/(int(pow(10,digits-i-1))))%10, X-9*digits+20*i, min(3+Y+yOffsets[i],3+Y) );
-        textSize(30); fill(numColor);
-        text( (value/(int(pow(10,digits-i-1))))%10, X-9*digits+20*i, min(Y+yOffsets[i],Y) );
+         
+        if(!isWord)
+        {
+          //This works. Don't touch it.
+          textSize(36); fill(0); //black outline
+          text( (value/(int(pow(10,digits-i-1))))%10, X-9*digits+20*i, min(3+Y+yOffsets[i],3+Y) );
+          textSize(30); fill(numColor);
+          text( (value/(int(pow(10,digits-i-1))))%10, X-9*digits+20*i, min(Y+yOffsets[i],Y) );
+        }
+        else
+        {
+          textSize(36); fill(0); //black outline
+          text( word.charAt(i), X-9*digits+20*i, min(3+Y+yOffsets[i],3+Y) );
+          textSize(30); fill(numColor);
+          text( word.charAt(i), X-9*digits+20*i, min(Y+yOffsets[i],Y) );
+        }
       }
     }
     duration--;

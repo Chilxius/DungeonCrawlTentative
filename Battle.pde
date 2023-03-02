@@ -136,8 +136,10 @@ class Battle
           {
             if(party.hero[turn].poisoned && party.hero[turn].takePoisonDamage(turn)) //died of poison
             {
+              list[turn].counter = 0;
               turn = -1;
-              resumeInitiativeTick();
+              delayType = DelayType.NONE; //<>//
+              //resumeInitiativeTick();
             }
             else
             {
@@ -154,7 +156,7 @@ class Battle
       }
       else if(delayType == DelayType.ATTACK) //someone is attacking (or using a skill)
       {
-        if(attackerIndex<3) //hero //<>//
+        if(attackerIndex<3) //hero
         {
           if( skillSelection == -1 ) //normal attack
           {
@@ -171,7 +173,7 @@ class Battle
           {
             if(party.hero[turn].skill[skillSelection].healing) //is a healing skill
             {
-              if( party.hero[turn].skill[skillSelection].targetAll ) //<>//
+              if( party.hero[turn].skill[skillSelection].targetAll )
               {
                 party.hero[turn].resolveHeal(0);
                 party.hero[turn].resolveHeal(1);

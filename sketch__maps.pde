@@ -106,8 +106,8 @@ void setupMaps()
   mapStrings[mapIndex] += "TTTtTTTTTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTT~TTTTTTTT%TTTTTTTTT~TTTTT##π##TTTTTT###i..i...rr...i..k###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "```~TT%TTTTTTTT~TTTTTTTTTT~TG.i.GTTTTTT#>+i......rr......i+>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "`@`TTTTTT~~~TTT~~%t~~~~t%~~~D...~TTTTTT###i..i...rr...i..i###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "````~~~~~~T~~~~~~~~~T%~t~~T~~`.`~TTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "`@`TTTTTT~~~TTT~~t%~~~~t%~~~D...~TTTTTT###i..i...rr...i..i###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "````~~~~~~T~~~~~~~~~%T~t~~T~~`.`~TTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "T``TT~~TTTTT~TTT~TTTTTTTTTT~~```~TTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTT~TT~TTTTTTTTTTTTT~TTTTT~```TTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTT~tTT|TTT%TTTTTTTT%TTTTTT~```TTTTTTTTTTTTT##.rr.##TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
@@ -258,7 +258,9 @@ void setupMaps()
   m[0].tiles[31][59].placeOccupant( color(250,230,0), "- I don't care how brave you are. The man-wolf will eat you!" );
   m[0].tiles[32][59].placeOccupant( color(230,150,250), "- No, I know his weakness. I'll just hit him with my torch." );
   //Initiate chasing rats
-  m[0].tiles[27][55].placeOccupant( color(150, 150, 200), "- Me? Oh, I... I'm chasing down some giant rats that escaped from the cellar. Please don't tell the townsfolk. They have enough to worry about." );
+  m[0].tiles[27][55].placeOccupant( color(150, 150, 200), "- Where is Kat? She was supposed to be in the laboratory an hour ago." );
+  //Kat
+  //in method below
 
   //To the dormitory
   exits.add( new Portal(0,9,10,1,94,6, "Dormitory") );
@@ -912,6 +914,32 @@ void setupMaps()
 
 void setNameDependentText()
 {
+  String knightName="";
+  String barbName="";
+  String thiefName="";
+  String monkName="";
+  String priestName="";
+  String mageName="";
+  String magePhrase = "";
+  String heroWeapon[] = {"","",""};
+  
+  for(int i=0;i<3;i++)
+  {
+    if(party.hero[i].job==Job.KNIGHT)knightName= " like "+party.hero[i].name;
+    if(party.hero[i].job==Job.BARBARIAN)barbName= " like "+party.hero[i].name;
+    if(party.hero[i].job==Job.THIEF)thiefName= " like "+party.hero[i].name;
+    if(party.hero[i].job==Job.KARATE)monkName= " like "+party.hero[i].name;
+    if(party.hero[i].job==Job.PRIEST)priestName= " such as "+party.hero[i].name;
+    if(party.hero[i].job==Job.MAGE){mageName= " such as "+party.hero[i].name;magePhrase=", as "+party.hero[i].name+" can attest";}  
+
+    if(party.hero[1].job==Job.KNIGHT)    heroWeapon[i] = "sword";
+    if(party.hero[1].job==Job.BARBARIAN) heroWeapon[i] = "axe";
+    if(party.hero[1].job==Job.KARATE)    heroWeapon[i] = "fists";
+    if(party.hero[1].job==Job.THIEF)     heroWeapon[i] = "knives";
+    if(party.hero[1].job==Job.PRIEST)    heroWeapon[i] = "faith";
+    if(party.hero[1].job==Job.MAGE)      heroWeapon[i] = "magic";
+  }
+  
   //Floor 0
   
   //mean scribes
@@ -924,8 +952,9 @@ void setNameDependentText()
     m[0].tiles[44+i][5].placeOccupant( color(150, 150, 250), "- Have a seat, "+party.hero[i%3].name+"." ); if(i!=3)
     m[0].tiles[44+i][8].placeOccupant( color(150, 150, 250), "- Have a seat, "+party.hero[(i+1)%3].name+"." );
   }
+  m[0].tiles[46][8].placeOccupant( color(150,150,250), "- I think she put the key by your plate.");
   
-  //nevrous cleric
+  //Admirer
   m[0].tiles[40][13].placeOccupant( color(150, 150, 250), "- Oh, h-hello, "+party.hero[2].name.charAt(0)+"-"+party.hero[2].name+". Is it really true that you're leaving? I... I have something that will keep you safe. It's technically contraband, so I had to hide it in a tree. Check the other side of the cloister. Goodbye. I'll m-miss you, "+party.hero[2].name+"." );
   
   //master alchemist
@@ -934,34 +963,8 @@ void setNameDependentText()
   //cleric owed money
   m[0].tiles[44][52].placeOccupant( color(150, 150, 250), "- You have to promise to return some day, "+party.hero[0]+". No matter where the path takes you, find your way home. You still owe me four gold for that ale I sneaked in." );
   
-  String hero3weapon = "";
-  if(party.hero[2].job==Job.KNIGHT)    hero3weapon = "sword";
-  if(party.hero[2].job==Job.BARBARIAN) hero3weapon = "axe";
-  if(party.hero[2].job==Job.KARATE)    hero3weapon = "fists";
-  if(party.hero[2].job==Job.THIEF)     hero3weapon = "knives";
-  if(party.hero[2].job==Job.PRIEST)    hero3weapon = "magic";
-  if(party.hero[2].job==Job.MAGE)      hero3weapon = "magic";
-  
   //player 3's friend
-  m[0].tiles[32][55].placeOccupant( color(165,150,50), "- Oh, hello "+party.hero[2].name+". Sorry I haven't brought you any new books lately. The library is next to Baron's Field, and was one of the first places we abandoned. If your "+hero3weapon+" can clear out the animated dead, I'll have them cede you enough stories to last a lifetime." );
-  
-  String knightName="";
-  String barbName="";
-  String thiefName="";
-  String monkName="";
-  String priestName="";
-  String mageName="";
-  String magePhrase = "";
-  
-  for(int i=0;i<3;i++)
-  {
-    if(party.hero[i].job==Job.KNIGHT)knightName= " like "+party.hero[i].name;
-    if(party.hero[i].job==Job.BARBARIAN)barbName= " like "+party.hero[i].name;
-    if(party.hero[i].job==Job.THIEF)thiefName= " like "+party.hero[i].name;
-    if(party.hero[i].job==Job.KARATE)monkName= " like "+party.hero[i].name;
-    if(party.hero[i].job==Job.PRIEST)priestName= " such as "+party.hero[i].name;
-    if(party.hero[i].job==Job.MAGE){mageName= " such as "+party.hero[i].name;magePhrase=", as "+party.hero[i].name+" can attest";}
-  }
+  m[0].tiles[32][55].placeOccupant( color(165,150,50), "- Oh, hello "+party.hero[2].name+". Sorry I haven't brought you any new books lately. The library is next to Baron's Field, and was one of the first places we abandoned. If your "+heroWeapon[2]+" can clear out the animated dead, I'll get you the next story in that series you like so much." );
   
   //Teachers
   m[0].tiles[8][36].placeOccupant( color(200, 150, 200), "- Knights"+knightName+" rely on their armor, and gain two energy when they defend against an attack. Barbarians"+barbName+" gain one anger whenever they are attacked." );
@@ -974,7 +977,8 @@ void setNameDependentText()
   
   //Rask
   m[0].tiles[48][67].placeOccupant( color(250, 100, 50), "- "+party.hero[0].name+"? "+party.hero[1].name+"? Good, I'm glad to see you. We need help and we won't get it from Mother Sunita. I'm headed to the mayor's office. Meet me there as soon as you can." );
-  
+  //Kat
+  m[0].tiles[19][53].placeOccupant( color(250,0,170), "- Ah! "+party.hero[1].name+", where did you come from? Was it you who slew those rats in the cellar? You're strong, "+party.hero[1].name+". Brave, too. If only I could borrow that courage. Some of them escaped the cellar with my prototype potion. I don't know what effect it will have on fauna, but it's my responsibilty to prevent harm. I-if you want to help, I'd appreciate it. My "+heroWeapon[1]+" "+wasOrWere(heroWeapon[1].charAt(heroWeapon[1].length()-1))+" never as strong as yours." );
 }
 
 //Deities:
@@ -994,3 +998,4 @@ void setNameDependentText()
 //Commoner male  (165,150,50)  young (250,230,0)
 //Commoner female  (150,50,165)  young (230,150,250)
 //Rask (250, 100, 50)
+//Kat (250,0,170)
