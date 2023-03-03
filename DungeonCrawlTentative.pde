@@ -187,6 +187,7 @@ void setup()
   tileImage[65] = loadImage("SignPotion.png"); tileImage[65].resize(30,0);
   tileImage[66] = loadImage("SignInn.png"); tileImage[66].resize(30,0);
   tileImage[67] = loadImage("rubble.png"); tileImage[67].resize(40,0);
+  tileImage[68] = loadImage("Sack.png"); tileImage[68].resize(50,0);
   
   //Test sounds
   //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
@@ -485,7 +486,7 @@ boolean checkForBattle()
   
 public String randomName()
 {
-  switch( int(random(26)) )
+  switch( int(random(52)) )
   {
     case 1: return "Angel";    case 26: return "Alex";     case 42: return "Ash";
     case 2: return "Björn";    case 27: return "Briar";

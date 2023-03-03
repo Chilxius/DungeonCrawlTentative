@@ -142,15 +142,15 @@ void setupMaps()
   mapStrings[mapIndex] += "|TTT|TTTTTTTTT`~wwwwwwwwwT````TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTT``TTwwwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTT``TTTTTwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTT``TTTTTTwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~T~TT``TTTTTwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTT|TTT``TTTTwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTT~T|TTTT~`TTTTwwwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTT|T~`~~~~````„„„„„„„„„TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "T*t~``~TT|TTTTTwwwwwwTTwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTT~TTTwwwwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTT|TT|TTTTTTTTTTTwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~TTTTTTTTTTTwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTT``TTTTTTwwwTTTTTTTTTTTTTT~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTT~T~TT``TTTTTwwwwTTTTTTTTTTT~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTT|TTT``TTTTwwwwwTTTTTTTTTTTTTTTTT|TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTT~T|TTTT~`TTTTwwwwwwwTTTTTT~TTTTT|TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTT|T~`~~~~````„„„„„„„„„~~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "T*t~``~TT|TTTTTwwwwwwTTwww~~t~~~t~tt>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTT~TTTwwwwwwwwTTTTTTTTTTTTTTT|TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTT|TT|TTTTTTTTTTTwwwwwTTTTTTT|TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTT~TTTTTTTTTTTwwTTTTTTTTTTTTT~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTG";
 
@@ -283,6 +283,8 @@ void setupMaps()
   exits.add( new Portal(0,68,45,0,57,49) );
   //Exit the cathedral
   exits.add( new Portal(0,63,73,0,30,52, "Irohill Forest") );
+  //To well tunnel
+  exits.add( new Portal(0,36,94,1,33,13) );
   
   //Chest goblin
   m[0].tiles[20][29].placeBoss( 0, color(255,5), "Something pops out of the chest!", new Monster("Box Goblin", "RedBoxBoy.png", 1, 1, 1, 1, 1, 1, 1, 0, AttackType.NONE) );
@@ -492,11 +494,11 @@ void setupMaps()
   mapStrings[1] += "           £                 £££££££££££££££££££££££££££££ £££££££££££££££££££££££££££££            ";
   mapStrings[1] += "           £                 £                                                          ££££££££££££";
   mapStrings[1] += "£££££££££££ £££££££££££££££££                                                                       ";
-  mapStrings[1] += "           £                 £                                                                      ";
-  mapStrings[1] += "           £                 £                                                                      ";
-  mapStrings[1] += "333333|33  £  33###########  £                                                                      ";
-  mapStrings[1] += "3......=3  £  3.....#.....#  £                                                                      ";
-  mapStrings[1] += "3.|333333  £  3.33|.#.###.#  £                                                                      ";
+  mapStrings[1] += "           £                 £   33333333                                                           ";
+  mapStrings[1] += "           £                 £  3>```````333333333                                                  ";
+  mapStrings[1] += "333333|33  £  33###########  £   3333`````````````3333                                              ";
+  mapStrings[1] += "3......=3  £  3.....#.....#  £       3333````````                                                   ";
+  mapStrings[1] += "3.|333333  £  3.33|.#.###.#  £           3333                                                       ";
   mapStrings[1] += "3.......3  £  3.3[[.#..[#.#  £                                                                      ";
   mapStrings[1] += "333[=[3+3  £  3.333.#.|##.#  £                                                                      ";
   mapStrings[1] += "3>33333c3  £  3.3[..3.[=#.#  £                                                                      ";

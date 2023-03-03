@@ -295,7 +295,7 @@ class Artist
     //Priest
     skillIcon[4][0] = loadImage("HolyLight.png");     skillIcon[4][0].resize(60,0);
     //Mage    
-    skillIcon[5][0] = loadImage("Fire.png");          skillIcon[5][0].resize(60,0);
+    skillIcon[5][0] = loadImage("FireBall.png");          skillIcon[5][0].resize(60,0);
   }
   
   public void drawHeroSkills( int h )
@@ -1477,12 +1477,17 @@ class Artist
   
   void drawItemIcon( float x, float y, color c )
   {
+    /*
     rectMode(CENTER);
     fill(140,120,80); noStroke();
     circle(x,y+5,40);
     quad(x+8,y-15,x+15,y-25,x-15,y-25,x-8,y-15);
     fill(80,60,20);
     rect(x,y-15,20,5);
+    */
+    
+    imageMode(CENTER);
+    image(tileImage[68],x,y);
     
     fill(c); textSize(10);
     text("X",x+25,y+27);
