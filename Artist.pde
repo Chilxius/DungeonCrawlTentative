@@ -175,14 +175,34 @@ class Artist
   
   public void drawFoodMenu( Item [] items )
   {
+    fill(255,127);
+    rect(215,195,305,35);
+    rect(215,275,305,35);
     int breadCount=0,porkCount=0,fruitCount=0,crabCount=0;
     fill(0);  rectMode(CORNER);
     stroke(200); strokeWeight(5);
     rect(100,100,width-200,height-200,20);
     
+    for( Item i : items )
+      if( i.value == 10 )
+        breadCount++;
+      else if( i.value == 20 )
+        porkCount++;
+      else if( i.value == 30 )
+        fruitCount++;
+      else if( i.value == 40 )
+        crabCount++;
+    
+    noStroke();
+    if(breadCount>0) { fill(#F2CE69,50); rect(205,185,315,45,20); }
+    if(porkCount>0)  { fill(#B46C31,50); rect(205,265,315,45,20); }
+    if(fruitCount>0) { fill(#00FF28,50); rect(205,345,315,45,20); }
+    if(crabCount>0)  { fill(#FF0032,50); rect(205,425,315,45,20); }
+    
     fill(200); textAlign(CENTER); textSize(40);
     text("Select Meal",width/2,150);
     
+    strokeWeight(5);
     //Fork
     fill(180);
     rect(150,290,20,130,10);
@@ -201,26 +221,16 @@ class Artist
     vertex(530,390);
     bezierVertex(530,390,530,115,560,145);
     endShape();
-    
-    for( Item i : items )
-      if( i.value == 10 )
-        breadCount++;
-      else if( i.value == 20 )
-        porkCount++;
-      else if( i.value == 30 )
-        fruitCount++;
-      else if( i.value == 40 )
-        crabCount++;
         
     fill(200); textAlign(LEFT); textSize(35);
     if(breadCount>0)
-      text("A - Bread: "+breadCount,210,220);
+      text("1 - "+party.nextFoodName(0)+": "+breadCount,210,220);
     if(porkCount>0)
-      text("S - Meat: "+porkCount,210,300);
+      text("2 - "+party.nextFoodName(1)+": "+porkCount,210,300);
     if(fruitCount>0)
-      text("D - Fruit: "+fruitCount,210,380);
+      text("3 - "+party.nextFoodName(2)+": "+fruitCount,210,380);
     if(crabCount>0)
-      text("F - Crab: "+crabCount,210,460);
+      text("4 - "+party.nextFoodName(3)+": "+crabCount,210,460);
       
     fill(200); textAlign(CENTER); textSize(25);
     text("Select by number or",width/2,560);
@@ -1167,7 +1177,7 @@ class Artist
   
   void drawProgressBars()
   {
-    int total = 20*party.averageLevel();
+    int total = 20*party.averageLevel()+100; //adding 100 to normalize speeds
      strokeWeight(1); stroke(150);
     for(int i = 0; i < 3; i++)
     {

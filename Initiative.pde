@@ -24,7 +24,7 @@ class Initiative
   {
     name = n;
     index = i;
-    speed = s;
+    speed = s+10;
     counter = 0;
     active = a;
   }
@@ -33,7 +33,7 @@ class Initiative
   {
     if(active)
       counter += speed;
-    if(counter >= 20*party.averageLevel()) //Wait time adjusts with party level
+    if(counter >= 20*party.averageLevel() + 100) //Wait time adjusts with party level, the +100 normalizes speeds so thief doesn't go too often
       return true;
     return false;
   }

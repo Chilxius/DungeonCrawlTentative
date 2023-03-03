@@ -81,6 +81,22 @@ class Party
     return false;
   }
   
+  public String nextFoodName( int type )
+  {
+    for(int i = 0; i< inventory.length; i++)
+    {
+      if( inventory[i].value == 10 && type == 0 )
+        return inventory[i].name;
+      if( inventory[i].value == 20 && type == 1 )
+        return inventory[i].name;
+      if( inventory[i].value == 30 && type == 2 )
+        return inventory[i].name;
+      if( inventory[i].value == 40 && type == 3 )
+        return inventory[i].name;
+    }
+    return "ERROR";
+  }
+  
   public void addToKeys(Key k)
   {
     for(int i = 0;i<keyInventory.length;i++)

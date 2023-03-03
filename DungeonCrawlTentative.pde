@@ -6,8 +6,6 @@
 //TO DO:
 //Skills: animation system
 //Statues in initiate classroom
-//Fix food menu
-//poison dealt 1 but removed 2
 
 //IMPROVEMENT:
 //Improve hero select widnow (circle sizes)
@@ -28,6 +26,7 @@
 //I edited the log class to remove spaces in text - might cause errors downstream
 //I edited the log class again to not add text from an empty string
 //Poison seems to be killing heroes properly
+//poison dealt 1 but removed 2 (couldn't replicate)
 
 //Turned sound off for the time being. Will include later with Beads
 //import processing.sound.*;
@@ -1182,6 +1181,17 @@ void mouseClicked()
         advanceNextTextLine();
       }
     }
+  }
+  else if( display == Display.FOOD_MENU || display == Display.POTION_MENU )
+  {
+     if( mouseX > 205 && mouseX < 520 && mouseY > 185 && mouseY < 230 )
+     { key = '1'; keyPressed(); }
+     if( mouseX > 205 && mouseX < 520 && mouseY > 265 && mouseY < 310 )
+     { key = '2'; keyPressed(); }
+     if( mouseX > 205 && mouseX < 520 && mouseY > 345 && mouseY < 390 )
+     { key = '3'; keyPressed(); }
+     if( mouseX > 205 && mouseX < 520 && mouseY > 425 && mouseY < 470 )
+     { key = '4'; keyPressed(); }
   }
 }
 
