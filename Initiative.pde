@@ -25,7 +25,7 @@ class Initiative
     name = n;
     index = i;
     speed = s+10;
-    counter = 0;
+    counter = random((20*party.averageLevel() + 100)*0.8);
     active = a;
   }
   

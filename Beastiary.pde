@@ -85,7 +85,7 @@ class Beastiary
       list[dangerZone][2].attacks[2] = new Attack("bites your foot.", 5, false, Debuff.POISON);
       list[dangerZone][2].attacks[3] = new Attack("bites your arm.", 5, false, Debuff.POISON);
       list[dangerZone][2].attacks[4] = new Attack("bites your leg.", 5, false, Debuff.POISON);
-    list[dangerZone][3] = new Monster("Spider",  "BlueSpider.png",  10, 6, 13, 2, 0, 2, 3, 0, AttackType.NONE);
+    list[dangerZone][3] = new Monster("Spider",  "GreenSpider.png",  10, 6, 13, 2, 0, 2, 3, 0, AttackType.NONE);
       list[dangerZone][3].attacks[0] = new Attack("scratches.", 35, false);
       list[dangerZone][3].attacks[1] = new Attack("scratches.", 35, false);
       list[dangerZone][3].attacks[2] = new Attack("bites your foot.", 5, false, Debuff.POISON);
