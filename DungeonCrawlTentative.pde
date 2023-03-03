@@ -6,6 +6,7 @@
 //TO DO:
 //Skills: animation system
 //Statues in initiate classroom
+//Food synergy
 
 //IMPROVEMENT:
 //Improve hero select widnow (circle sizes)

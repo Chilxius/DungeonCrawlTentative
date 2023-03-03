@@ -353,7 +353,7 @@ void setupMaps()
   m[0].tiles[68][44].createEvent(false, "- In the waning days of his life, Father Charis's study went largely unused. You still remember days passed, when the smell of ink and herbs would mix with the sound of water and a scratching quill. How could this place be so empty when he was alive only yesterday?");
   m[0].tiles[75][44].createEvent(false, "- Charis had no more worldly possessions than any other cleric. Why did he have an extra closet?");
   m[0].tiles[34][79].createEvent(false, "- There is a giant web across the path.");
-  m[0].tiles[13][93].createEvent(false, "- Something snaps under your foot. A bone. There are gnawed remains around the bridge.");
+  m[0].tiles[13][93].createEvent(false, "- Something snaps under your foot. A bone. There are gnawed remains all around the trees near the bridge.");
   
   //Save points
   savePoints[savePointIndex++] = new SavePoint(0, 19, 9);
@@ -495,7 +495,7 @@ void setupMaps()
   mapStrings[1] += "           £                 £                                                          ££££££££££££";
   mapStrings[1] += "£££££££££££ £££££££££££££££££                                                                       ";
   mapStrings[1] += "           £                 £   33333333                                                           ";
-  mapStrings[1] += "           £                 £  3>```````333333333                                                  ";
+  mapStrings[1] += "           £                 £  3````````333333333                                                  ";
   mapStrings[1] += "333333|33  £  33###########  £   3333`````````````3333                                              ";
   mapStrings[1] += "3......=3  £  3.....#.....#  £       3333````````                                                   ";
   mapStrings[1] += "3.|333333  £  3.33|.#.###.#  £           3333                                                       ";
@@ -630,6 +630,7 @@ void setupMaps()
   m[1].tiles[46][4].placeOccupant( color(75,100,255), "- I wish Father Charis hadn't taken in so many orphans. You three made so much noise playing games and looking for secret rooms that I could barely focus on my gardening." );
   m[1].tiles[93][5].placeOccupant( color(75,100,255), "- Oh, good morning, children. I've just finished cleaning the dormitory. If you need to rest, there will be fresh sheets waiting for you here." );
   m[1].tiles[70][1].placeOccupant( color(75,100,255), "- Unholy vermin! I've dealt with pests before, but some of the rats down there have been gorged on magical potions and become enormous! You pick enough fights with the initiates. Why don't you fight something that deserves it for once?" );
+  m[1].tiles[49][14].placeOccupant( color(250,0,170), "She's slumped against the wall. Her arm is burned. - Name? How did you avoid the man-wolf? I had to use one of my disguise potions. The rats are getting bigger, and mutating in strange ways. May Am-asma forgive me" );
   
   savePoints[savePointIndex++] = new SavePoint(1, 7, 2);
   
