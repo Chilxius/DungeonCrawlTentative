@@ -189,6 +189,9 @@ void setup()
   tileImage[66] = loadImage("SignInn.png"); tileImage[66].resize(30,0);
   tileImage[67] = loadImage("rubble.png"); tileImage[67].resize(40,0);
   tileImage[68] = loadImage("Sack.png"); tileImage[68].resize(50,0);
+  tileImage[69] = loadImage("caveBrown2.png"); tileImage[69].resize(30,0);
+  tileImage[70] = loadImage("caveGray.png"); tileImage[70].resize(30,0);
+  tileImage[71] = loadImage("treeDead4.png"); tileImage[71].resize(45,40);
   
   //Test sounds
   //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
@@ -337,7 +340,7 @@ public String inputText() //Retrieves the text in the box and switches game stat
     else
     {
       step = HeroCreationStep.JOB;
-      input = Input.HERO_JOB_CHOICE; //<>//
+      input = Input.HERO_JOB_CHOICE; //<>// //<>//
       if(textBuffer.equals(""))
         textBuffer = randomName();
       advanceText("Select "+textBuffer+"'s Job");
@@ -480,7 +483,7 @@ boolean checkForBattle()
   randomBattleCounter++;
   
   if(randomBattleCounter > 0 && randomBattleCounter % 5 == 0)
-    party.tickDownPoisons(); //<>//
+    party.tickDownPoisons(); //<>// //<>//
   
   return false;
 }
@@ -566,7 +569,7 @@ String bonkText( char direction ) //for when the heroes run into obstacles
 
 boolean partyNextToBoss( int index ) //party is orthaganally adjacent to a boss
 {
-  //for( int i = 0; i < bossSwitches.length; i++ ) //<>//
+  //for( int i = 0; i < bossSwitches.length; i++ ) //<>// //<>//
   //{
     if( ( ( party.X == bossSwitches[index].X-1 || party.X == bossSwitches[index].X+1 ) && party.Y == bossSwitches[index].Y ) 
     ||  ( ( party.Y == bossSwitches[index].Y-1 || party.Y == bossSwitches[index].Y+1 ) && party.X == bossSwitches[index].X ) )
@@ -778,7 +781,7 @@ void keyPressed()
     if(display == Display.MAP && key == 'R' && m[party.floor].tiles[party.X][party.Y].obj == Object.TENT ) //rest
     {
       if(party.needsRest())
-      { //<>//
+      { //<>// //<>//
         input = Input.NONE;
         vanGogh.beginRestFadeout();
       }
@@ -795,7 +798,7 @@ void keyPressed()
             party.gold -= m[party.floor].tiles[party.X][party.Y].itemPrice;
         }
         else
-          displayTextLine( "You cannot afford the " + m[party.floor].tiles[party.X][party.Y].itemForSale.name +"." ); //party does not have enough gold //<>//
+          displayTextLine( "You cannot afford the " + m[party.floor].tiles[party.X][party.Y].itemForSale.name +"." ); //party does not have enough gold //<>// //<>//
       }
       else if( m[party.floor].tiles[party.X][party.Y].type == TileType.SELL ) //sell
       {
@@ -845,13 +848,13 @@ void keyPressed()
     if(key == 'd') key = 51; //numbers
     if(key == 'f') key = 52;
     
-    if(key == ' ') //<>//
+    if(key == ' ') //<>// //<>//
     {
       display = Display.MAP;
       input = Input.EXPLORING;
     }
     else if(key > 48 && key < 53)
-    { //<>//
+    { //<>// //<>//
       if(display == Display.FOOD_MENU && party.hasFood(key-48))
       {
         consumableValue = (key-48)*10;
@@ -1112,8 +1115,8 @@ void keyPressed()
   
   if(key == '`') //for placing a break point
   {
-    println("DEBUG"); //<>//
-    println(party.X + " " + party.Y); //<>//
+    println("DEBUG"); //<>// //<>//
+    println(party.X + " " + party.Y); //<>// //<>//
     println(dm[party.floor].dangerValueChar(party.X,party.Y));
   }
   
@@ -1125,7 +1128,7 @@ void keyPressed()
 }
 
 void keyReleased()
-{ //<>//
+{ //<>// //<>//
   if( display == Display.ITEM_LIST && key == 's' )
     party.sortInventory();
   else if( previousDisplay != Display.NONE && (key == 'k' || key == 'i' || key == 'h'|| key == '`' ) )

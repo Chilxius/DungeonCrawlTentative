@@ -58,8 +58,11 @@ class Tile
       case '3':type=TileType.DARK_WALL;break;
       case '¢':type=TileType.SECRET_DARK_WALL;break;
       case '4':type=TileType.SAND_WALL;break;
+      case '6':type=TileType.CAVE; break;
+      case '§':type=TileType.CAVE_BROWN; break; //alt+6
       case '~':type=TileType.GRASS;break;
       case '`':type=TileType.DIRT;break;
+      case ',':type=TileType.DIRT_DARK;break; //alt+d
       case '+':type=TileType.DOOR;break;
       case '∏':type=TileType.DOOR_GATE;break; //shift+alt+p
       case 'π':type=TileType.PORTCULLIS;break;
@@ -68,6 +71,8 @@ class Tile
       case 'T':type=TileType.TREE;break;
       case 't':type=TileType.TREE_PATH;break;
       case 'D':type=TileType.DARK_TREE;break;
+      case 'Y':type=TileType.DEAD_TREE;break;
+      case 'y':type=TileType.DEAD_TREE_PATH;break;
       //case 'g':type=TileType.GRAVE;break;
       case '&':type=TileType.S_GLASS;break;
       case '>':type=TileType.STAIR;break;
@@ -154,6 +159,14 @@ class Tile
         tileColor = color(0);
         pathable = false;
         break;
+      case CAVE:
+        tileColor = color(120);
+        pathable = false;
+        break;
+      case CAVE_BROWN:
+        tileColor = color(100,70,0);
+        pathable = false;
+        break;
       case RUBBLE:
         tileColor = color(200);
         pathable = false;
@@ -186,6 +199,9 @@ class Tile
       case DIRT:
         tileColor = color(170,150,110);
         break;
+      case DIRT_DARK:
+        tileColor = color(100,70,0);
+        break;
       case GRAVE:
         tileColor = color(0,100,0);
         break;
@@ -194,8 +210,15 @@ class Tile
         tileColor = color(0,180,0);
         pathable = false;
         break;
+      case DEAD_TREE:
+        tileColor = color(0,100,0);
+        pathable = false;
+        break;
       case TREE_PATH: 
         tileColor = color(0,180,0);
+        break;
+      case DEAD_TREE_PATH: 
+        tileColor = color(0,100,0);
         break;
       case WALL:
         tileColor = color(120);
@@ -440,11 +463,15 @@ class Tile
     if(type == TileType.WALL || type == TileType.SECRET_WALL)
       image(tileImage[0],xPos,yPos);
     else if(type == TileType.DARK_WALL || type == TileType.SECRET_DARK_WALL)
-      image(tileImage[49],xPos,yPos);
+      image(tileImage[49],xPos,yPos); //49
     else if(type == TileType.SAND_WALL)
       image(tileImage[50],xPos,yPos);
     else if(type == TileType.RUBBLE)
       image(tileImage[67],xPos-5,yPos-5);
+    else if(type == TileType.CAVE_BROWN)
+      image(tileImage[69],xPos,yPos);
+    else if(type == TileType.CAVE)
+      image(tileImage[70],xPos,yPos);
     else if(type == TileType.CAMP)
       image(tileImage[55],xPos,yPos);
     else if(type == TileType.WOOD)
@@ -469,8 +496,12 @@ class Tile
       image(tileImage[2],xPos-10,yPos-10);
     else if(type==TileType.TREE)
       image(tileImage[1],xPos-10,yPos-10);
+    else if(type==TileType.DEAD_TREE)
+      image(tileImage[71],xPos-10,yPos-10);
     else if(type == TileType.TREE_PATH)
       image(tileImage[47],xPos-10,yPos-10);
+    else if(type == TileType.DEAD_TREE_PATH)
+      image(tileImage[71],xPos-10,yPos-10);
     else if(type == TileType.GRAVE)
       image(tileImage[42],xPos,yPos);
     else if(type == TileType.SELL)
@@ -556,10 +587,11 @@ public enum TileType
 {
   EMPTY, EVENT, SAFE, SAFE_BLOCKED,
   FLOOR, FLOOR_RD, FLOOR_BL,
-  GRASS, DIRT, FLOWER, WATER,
-  TREE, DARK_TREE, TREE_PATH,
+  GRASS, DIRT, DIRT_DARK, FLOWER, WATER,
+  TREE, DARK_TREE, TREE_PATH, DEAD_TREE, DEAD_TREE_PATH,
   WOOD, WOOD_DARK, WOOD_LIGHT,
   DARK, BLACK_WALL,
+  CAVE, CAVE_BROWN,
   WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, SAND_WALL, RUBBLE,
   DOOR, DOOR_GATE, PORTCULLIS, DOORSTEP,
   GRAVE, S_GLASS, GARGOYLE, GARGOYLE_DARK, GARGOYLE_JADE, WEREWOLF_WHITE,
