@@ -190,6 +190,8 @@ void setupMaps()
   //Garden/Cloyster
   m[0].tiles[15][16].placeOccupant( color(150, 150, 250), "- All the potions made in the Cathedral use herbs from my garden. When the sweet, minty draught saves your life one day, know that you live by the sweat of my brow and the dirt on my knees." );
   //in method below
+  m[0].tiles[37][17].placeOccupant( color(150, 150, 250), "- About time we cleared the riffraff from this holy place. If only Brother Ken could be next. He was supposed to open the cloister this morning, but I expect he's sampling wine in the cellar again." );
+
   //People at the table
   //in method below
   m[0].tiles[79][8].placeOccupant( color(150, 150, 250), "- My repairs have been delayed. Try to ignore that horrible thing for a few more days." );
@@ -210,9 +212,9 @@ void setupMaps()
   m[0].tiles[1][24].placeOccupant( color(0,200), "- Well done. You'll go far in this world. Look at your feet for a small reward. I will follow your progress, so seek me out in the future." );
   m[0].tiles[67][30].placeOccupant( color(150, 150, 250), "- Imagine my kitchen without the sound of you three sneaking in during the night, and thinking I never heard you. Take as much as you can carry, my children. You may find more skilled chefs out there in the world, but no one else's bread will taste like home." );
   m[0].tiles[71][31].placeOccupant( color(150, 150, 200), "- Sorry, I'm busy." );
-  m[0].tiles[68][33].placeOccupant( color(150, 150, 200), "- Fresh bread is the foundation of a quality meal. Protien is vital, and fills you with energy when properly prepared. Legend tells of magical fruits, infused with virtues. Their juices will renew your body and spirit. They say that crabs harvested from the tranquil southern seas reign over all common foods. Some day, I will taste it." );
+  m[0].tiles[68][33].placeOccupant( color(150, 150, 200), "- Bread fresh from the oven is heavenly, but one cannot subsist solely on grains. Adding a scrap of meat or slice of fruit can make it a meal. With a frugal attitude, you can improve your recovery for every type of food you have." );
   //in method below
-  m[0].tiles[83][29].placeOccupant( color(150, 150, 200), "- Basic health potions restore half of your vitality when consumed and, in my opinion, taste the best. Mana potions restore magical power, and some health as well. Vapor potions are unstable and become a mist when exposed to the air. This will heal everyone who inhales the fumes. The process for brewing these is fascinating. Elixirs are the pinacle of alchemy. I tasted one during my apprenticeship. I felt reborn." );
+  m[0].tiles[83][29].placeOccupant( color(150, 150, 200), "- Basic health potions restore half of your vitality when consumed and, in my opinion, taste the best. Mana potions restore not only magical power, but a little health as well. Vapor potions are unstable and become a mist when exposed to the air. Elixirs are the pinacle of alchemy. I tasted one during my apprenticeship. I felt reborn." );
   m[0].tiles[92][41].placeOccupant( color(190, 170, 130), "A training dummy." );
   m[0].tiles[92][43].placeOccupant( color(190, 170, 130), "A training dummy." );
   //in method below
@@ -229,7 +231,7 @@ void setupMaps()
   //Townspeople
   m[0].tiles[49][60].placeOccupant( color(165,150,50), "- Where is Father Charis? I demand to speak to him!" );
   m[0].tiles[50][61].placeOccupant( color(150,50,165), "- Those abominations rise each night! We cannot live this way!" );
-  m[0].tiles[56][63].placeOccupant( color(250,230,0), "- I just wanted to see the windows. The play of colors in the morning light is magnificent. Standing here, I could forget anything." );
+  m[0].tiles[56][63].placeOccupant( color(250,230,0), "- I just wanted to see the windows. The play of colors in the morning light takes my mind away. I don't have to be afraid of anything." );
   m[0].tiles[48][62].placeOccupant( color(165,150,50), "- One of those things was wearing my grandfather's ring. It can't be..." );
   m[0].tiles[51][63].placeOccupant( color(165,150,50), "- Let me join the garrison! I'll get something done around here." );
   m[0].tiles[52][64].placeOccupant( color(230,150,250), "- Father Charis will protect us. I know he will." );
@@ -258,7 +260,7 @@ void setupMaps()
   m[0].tiles[31][59].placeOccupant( color(250,230,0), "- I don't care how brave you are. The man-wolf will eat you!" );
   m[0].tiles[32][59].placeOccupant( color(230,150,250), "- No, I know his weakness. I'll just hit him with my torch." );
   //Initiate chasing rats
-  m[0].tiles[27][55].placeOccupant( color(150, 150, 200), "- Where is Kat? She was supposed to be in the laboratory an hour ago." );
+  m[0].tiles[27][55].placeOccupant( color(150, 150, 200), "- Have you seen Kat? She was supposed to be in the laboratory an hour ago." );
   //Kat
   //in method below
 
@@ -495,19 +497,73 @@ void setupMaps()
   mapStrings[1] += "           £                 £                                                          ££££££££££££";
   mapStrings[1] += "£££££££££££ £££££££££££££££££                                                                       ";
   mapStrings[1] += "           £                 £   33333333                                                           ";
-  mapStrings[1] += "           £                 £  3````````333333333                                                  ";
-  mapStrings[1] += "333333|33  £  33###########  £   3333`````````````3333                                              ";
-  mapStrings[1] += "3......=3  £  3.....#.....#  £       3333````````                                                   ";
-  mapStrings[1] += "3.|333333  £  3.33|.#.###.#  £           3333                                                       ";
-  mapStrings[1] += "3.......3  £  3.3[[.#..[#.#  £                                                                      ";
-  mapStrings[1] += "333[=[3+3  £  3.333.#.|##.#  £                                                                      ";
-  mapStrings[1] += "3>33333c3  £  3.3[..3.[=#.#  £                                                                      ";
-  mapStrings[1] += "3.......3  £  3.333.3.###.#  £                                                                      ";
-  mapStrings[1] += "333333333  £  3>3=.....[#>#  £                                                                      ";
-  mapStrings[1] += "           £  3333333333###  £                                                                      ";
-  mapStrings[1] += "           £                 £                                                                      ";
-  mapStrings[1] += "££££££££££££                 £                                                                      ";
-  mapStrings[1] += "            £££££££££££££££££                                                                       ";
+  mapStrings[1] += "           £                 £  3````````333 33333                                                  ";
+  mapStrings[1] += "333333|33  £  33###########  £   3333```````3`````333          3333                                 ";
+  mapStrings[1] += "3......=3  £  3.....#.....#  £       3333````````````333      3```=3                                ";
+  mapStrings[1] += "3.|333333  £  3.33|.#.###.#  £           33`3333]]``````3    3``333                                 ";
+  mapStrings[1] += "3.......3  £  3.3[[.#..[#.#  £             3    33333````3   3`3                                    ";
+  mapStrings[1] += "333[=[3+3  £  3.333.#.|##.#  £                     33333`3   3`3                                    ";
+  mapStrings[1] += "3>33333c3  £  3.3[..3.[=#.#  £                  333``````3   3``3                                   ";
+  mapStrings[1] += "3.......3  £  3.333.3.###.#  £                 3````33333     3``3                                  ";
+  mapStrings[1] += "333333333  £  3>3=.....[#>#  £                 3`333           3``3                                 ";
+  mapStrings[1] += "           £  3333333333###  £                33`33      333    3``3                                ";
+  mapStrings[1] += "           £                 £               3`````333333```33333]]3                                ";
+  mapStrings[1] += "££££££££££££                 £              3``333`````````````````333                              ";
+  mapStrings[1] += "            £££££££££££££££££              3``3   3333``````~~````````3                             ";
+  mapStrings[1] += "                                           3`33       3`````~~~``````3                              ";
+  mapStrings[1] += "                                          3````3       3```````````3``3                             ";
+  mapStrings[1] += "                                           333``3       3`````````33``3                             ";
+  mapStrings[1] += "                                              3``3     3```````````33`3                             ";
+  mapStrings[1] += "                                               3``3 33```````33```````3                             ";
+  mapStrings[1] += "                                                3``3````````33``````33                              ";
+  mapStrings[1] += "                                                3``````````````````3                                ";
+  mapStrings[1] += "                                      3333333333````````````````````3  33333333333      33          ";
+  mapStrings[1] += "                                      wwwwwwwwwwwwwww````````````````33```````````333333``3333333333";
+  mapStrings[1] += "                                      wwwwwwwwwwwwwwwwwwwwwwwww```````````wwww```````````````>wwwwww";
+  mapStrings[1] += "                                      wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww````wwwwwwwwwwwww";
+  mapStrings[1] += "                                         `wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[1] += "                                         ``wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[1] += "                                         ``````````````wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww3";
+  mapStrings[1] += "                                         ``````````````````````wwwwwww``````````wwwwwwwwwww```````33";
+  mapStrings[1] += "                                         ````````````````````````````````````````````````````````333";
+  mapStrings[1] += "                                         ````````````````````````````````````````````````````````333";
+  mapStrings[1] += "                                         ````````````````````````````````````````````````````````333";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+    
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
+  mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
@@ -524,62 +580,6 @@ void setupMaps()
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
     
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-    
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-  mapStrings[1] += "                                                                                                    ";
-    
-  mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
   mapStrings[1] += "                                                                                                    ";
@@ -596,7 +596,7 @@ void setupMaps()
   createLoot(lootIndex++, 1, 3, 4, Key.COPPER_KEY);
   createLoot(lootIndex++, 1, 1, 2, new Equipment("Brocade","YellowShirt.png",5,false,5,true));
   createLoot(lootIndex++, 1, 54, 1, new Equipment("Ivory Knife","IceDagger.png",15,true,15,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST,Job.MAGE));
-  createLoot(lootIndex++, 1, 62, 1, new Equipment("Club","OldClub.png",3,true,18,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST));
+  createLoot(lootIndex++, 1, 62, 1, new Equipment("Club","OldClub.png",3,true,18,Job.KNIGHT,Job.BARBARIAN,Job.PRIEST));
   createLoot(lootIndex++, 1, 17, 21, Key.COPPER_KEY);
   createLoot(lootIndex++, 1, 79, 3, new Equipment("Vestment","BlueShirt.png",3,false,7,true));
   createLoot(lootIndex++, 1, 81, 5, new Item("Bread",10) );
@@ -609,6 +609,9 @@ void setupMaps()
   createLoot(lootIndex++, 1, 4, 18, new Equipment("Old Leather","LeatherArmor.png",5,false,10,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST) );
   createLoot(lootIndex++, 1, 5, 18, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 7, 15, Key.BRASS_KEY);
+  createLoot(lootIndex++, 1, 48, 16, new Item("Bread",10) );
+  createLoot(lootIndex++, 1, 49, 16, new Item("Meat",20) );
+  createLoot(lootIndex++, 1, 66, 15, new Equipment("Ratfang","Ratfang.png",15,true,24,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.MAGE) );
   
   m[1].tiles[2][2].createEvent(true, "- The (space) key can be used to open chests like this one. You also use this key to search your current square. See if you can find anything left behind in this room by careless initiates.");
   m[1].tiles[6][2].createEvent(true, "- This is a sacred Legend Gem. Gazing into it, you can feel your acomplishments being told around campfires centuries from now. Step on it and press capital (S) to activate it, and then press ENTER to confirm and save your progress.");
@@ -630,7 +633,8 @@ void setupMaps()
   m[1].tiles[46][4].placeOccupant( color(75,100,255), "- I wish Father Charis hadn't taken in so many orphans. You three made so much noise playing games and looking for secret rooms that I could barely focus on my gardening." );
   m[1].tiles[93][5].placeOccupant( color(75,100,255), "- Oh, good morning, children. I've just finished cleaning the dormitory. If you need to rest, there will be fresh sheets waiting for you here." );
   m[1].tiles[70][1].placeOccupant( color(75,100,255), "- Unholy vermin! I've dealt with pests before, but some of the rats down there have been gorged on magical potions and become enormous! You pick enough fights with the initiates. Why don't you fight something that deserves it for once?" );
-  m[1].tiles[49][14].placeOccupant( color(250,0,170), "She's slumped against the wall. Her arm is burned. - Name? How did you avoid the man-wolf? I had to use one of my disguise potions. The rats are getting bigger, and mutating in strange ways. May Am-asma forgive me" );
+  //Kat
+  //in method below
   
   savePoints[savePointIndex++] = new SavePoint(1, 7, 2);
   
@@ -697,6 +701,14 @@ void setupMaps()
       zoo.boss[bossIndex].attacks[2] = new Attack("bites and scratches.", 40, false);
       zoo.boss[bossIndex].attacks[3] = new Attack("whips her tail.", 35, false);
       zoo.boss[bossIndex].attacks[4] = new Attack("summons her brood!", 30, true);
+  bossIndex++;
+
+  m[1].tiles[62][18].placeBoss( 1, color(150, 80, 40), "Kat was right. They are getting bigger.", new Monster("Burning Rat", "RedRat.png", 45, 9, 10, 3, 9, 5, 7, 0, AttackType.ICE) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("bites.", 35, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 35, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("coughs out fire.", 20, true, AttackStat.MAG, AttackType.FIRE);
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites with its glowing mouth.", 40, false, AttackStat.MAG, AttackType.FIRE);
+      zoo.boss[bossIndex].attacks[4] = new Attack("coughs up black smoke.");
   bossIndex++;
   
   //Danger Map 1
@@ -961,13 +973,13 @@ void setNameDependentText()
   m[0].tiles[40][13].placeOccupant( color(150, 150, 250), "- Oh, h-hello, "+party.hero[2].name.charAt(0)+"-"+party.hero[2].name+". Is it really true that you're leaving? I... I have something that will keep you safe. It's technically contraband, so I had to hide it in a tree. Check the other side of the cloister. Goodbye. I'll m-miss you, "+party.hero[2].name+"." );
   
   //master alchemist
-  m[0].tiles[82][33].placeOccupant( color(150, 150, 250), "- Ah, "+party.hero[1].name+", how badly I wanted you as an apprentice. Your graceful fingers were fashioned by Am-asma himself for alchemy. Alas, fate had other designs. What I have left, it is yours!" );
+  m[0].tiles[82][33].placeOccupant( color(150, 150, 250), "- Ah, "+party.hero[1].name+", how badly I wanted you as an apprentice. You and Sister Kat have such graceful hands, fashioned by Am-asma himself for alchemy. Alas, fate had other designs. What I have left, it is yours!" );
   
   //cleric owed money
   m[0].tiles[44][52].placeOccupant( color(150, 150, 250), "- You have to promise to return some day, "+party.hero[0]+". No matter where the path takes you, find your way home. You still owe me four gold for that ale I sneaked in." );
   
   //player 3's friend
-  m[0].tiles[32][55].placeOccupant( color(165,150,50), "- Oh, hello "+party.hero[2].name+". Sorry I haven't brought you any new books lately. The library is next to Baron's Field, and was one of the first places we abandoned. If your "+heroWeapon[2]+" can clear out the animated dead, I'll get you the next story in that series you like so much." );
+  m[0].tiles[32][55].placeOccupant( color(165,150,50), "- Hello "+party.hero[2].name+". Sorry I haven't brought you any new books lately. The library is next to Baron's Field, and was one of the first places we abandoned. If your "+heroWeapon[2]+" can clear out the animated dead, I'll get you the next story in that series you like so much." );
   
   //Teachers
   m[0].tiles[8][36].placeOccupant( color(200, 150, 200), "- Knights"+knightName+" rely on their armor, and gain two energy when they defend against an attack. Barbarians"+barbName+" gain one anger whenever they are attacked." );
@@ -981,12 +993,14 @@ void setNameDependentText()
   //Rask
   m[0].tiles[48][67].placeOccupant( color(250, 100, 50), "- "+party.hero[0].name+"? "+party.hero[1].name+"? Good, I'm glad to see you. We need help and we won't get it from Mother Sunita. I'm headed to the mayor's office. Meet me there as soon as you can." );
   //Kat
-  m[0].tiles[19][53].placeOccupant( color(250,0,170), "- Ah! "+party.hero[1].name+", where did you come from? Was it you who slew those rats in the cellar? You're strong, "+party.hero[1].name+". Brave, too. If only I could borrow that courage. Some of them escaped the cellar with my prototype potion. I don't know what effect it will have on fauna, but it's my responsibilty to prevent harm. I-if you want to help, I'd appreciate it. My "+heroWeapon[1]+" "+wasOrWere(heroWeapon[1].charAt(heroWeapon[1].length()-1))+" never as strong as yours." );
+  m[0].tiles[19][53].placeOccupant( color(250,0,170), "- Ah! "+party.hero[1].name+", where did you come from? Was it you who slew those rats in the cellar? You're strong, "+party.hero[1].name+". Brave, too. If only I could borrow that courage. Some of them escaped the cellar with my prototype potion. I don't know what effect it will have on fauna, but it is my responsibilty to prevent harm. I-if you want to help, I'd appreciate it. My "+heroWeapon[1]+" "+wasOrWere(heroWeapon[1].charAt(heroWeapon[1].length()-1))+" never as strong as yours." );
+  m[1].tiles[49][14].placeOccupant( color(250,0,170), "She's slumped against the wall. Her arm is burned. - "+party.hero[1].name+"? How did you avoid the man-wolf? I had to use my draught of disguise. The rats are getting larger, and mutating in strange ways. May Am-asma forgive me for my part in this. I was able to trap one up ahead. Could you please fight him? I have food here if you feel hungry. I'll be fine, I just need a rest..." );
+  
 }
 
 //Expected Level
 //Rat queen 1.7
-//man-wolf 3.2
+//man-wolf 3.3
 
 //Deities:
 //Black Vanguard - anubis

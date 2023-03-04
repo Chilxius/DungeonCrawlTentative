@@ -5,18 +5,18 @@
 
 //TO DO:
 //Skills: animation system
-//Statues in initiate classroom
-//Food synergy
+//initiate classroom
+//Fix lineLength error and problem with not printing entire line
 
 //IMPROVEMENT:
 //Improve hero select widnow (circle sizes)
 //Have inns charge money?
 //Delay before "vanquished" line where enemy vanishes
 //Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair
-//Fix lineLength error and problem with not printing entire line
 //Fix objects getting strange tile colors
 
 //IMAGES I NEED:
+//Cave wall
 //Vendor stall
 //Staves
 //Robes
@@ -114,7 +114,7 @@ Beastiary zoo;// = new Beastiary();
 int randomBattleCounter = 0;
 Monster battleMonsters[];
 int potionType = 0; //potion being drunk
-int battleTextSpeed = 1; //speed battle text displays
+float battleTextSpeed = 1.3; //speed battle text displays
 int currentBoss = -1; //index of boss being fought
 boolean multiBoss = false; //is this a multiple enemy boss fight
 int skillSelection = -1; //index of chosen skill (hero)

@@ -484,7 +484,7 @@ class Hero
   //I may have existing poison logic I forgot about
   public void poison( int amount, int x )
   {
-    floatingNumbers.add( new GhostNumber( 150+210*x, 550, color(100,100,0), "POISON") );
+    floatingNumbers.add( new GhostNumber( 150+210*x, 500, color(100,100,0), "POISON") );
     poisoned = true;
     poison += max(1,amount-con);
   }

@@ -151,6 +151,21 @@ class Party
     return false;
   }
   
+  public float foodSynergy()
+  {
+    int foodTypes = 0;
+    for(int i = 1; i <= 4; i++)
+      if( hasFood(i) )
+        foodTypes++;
+    switch(foodTypes)
+    {
+      case 2:  return 1.1;
+      case 3:  return 1.25;
+      case 4:  return 1.5;
+      default: return 1;
+    }
+  }
+  
   public boolean consume( int type, int heroChoice )
   {
     for( Item i : inventory )
@@ -158,7 +173,7 @@ class Party
       {
         if( i.value%10==0) //food
         {
-          hero[heroChoice].heal(type);
+          hero[heroChoice].heal(int(type*foodSynergy()));
         }
         else if( i.value%12==0) //potion
         {

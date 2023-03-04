@@ -15,7 +15,7 @@ class Battle
   
   boolean battleDelayed = false;
   DelayType delayType = DelayType.NONE;
-  int battleDelayCounter = 0; //used for timed events in battle
+  float battleDelayCounter = 0; //used for timed events in battle
   
   String [] startBattleMessage = {
   "Monsters approach!", "Prepare for battle!", "Danger!", "Wild monsters appear!",
@@ -231,7 +231,7 @@ class Battle
     {
       if( party.partyDead() )
       {
-        displayTextLine("Your heroes have fallen in battle.");
+        displayTextLine("The Veil draws near.");
       }
       //displayTextLine(victoryLine(exp));    //NOT WORKING
       else
@@ -302,19 +302,33 @@ class Battle
     
     if(turn<3) //hero attack
     {
-      if( skillSelection == -1 )
+      if( skillSelection == -1 ) //not a skill
         displayTextLine(list[attackerIndex].name + " attacks " + list[defenderIndex].name + "!");
       else
       {
         party.hero[attackerIndex].payForSkill(skillSelection);
         party.hero[attackerIndex].handleSkillEffect(skillSelection);
-        displayTextLine(list[attackerIndex].name + " uses " + party.hero[attackerIndex].skill[skillSelection].description + "!");
+        String outputText = list[attackerIndex].name + " uses "+ party.hero[attackerIndex].skill[skillSelection].description + "!";
+        if(outputText.length() < 40) //+ party.hero[attackerIndex].skill[skillSelection].description + "!"
+          displayTextLine(outputText);
+        else
+        {
+          displayTextLine(list[attackerIndex].name + " attacks with "); //+ party.hero[attackerIndex].skill[skillSelection].description + "!");
+          displayTextLine(party.hero[attackerIndex].skill[skillSelection].description + "!");
+        }
       }
     }
     else
     {
       enemyAttackIndex = int(random(5)); //choose random attack for monster to use
-      displayTextLine(list[attackerIndex].name + " " + battleMonsters[attackerIndex-3].attacks[enemyAttackIndex].description );
+      String outputText = list[attackerIndex].name + " " + battleMonsters[attackerIndex-3].attacks[enemyAttackIndex].description;
+      if(outputText.length() < 40)
+        displayTextLine(list[attackerIndex].name + " " + battleMonsters[attackerIndex-3].attacks[enemyAttackIndex].description );
+      else
+      {
+        displayTextLine(list[attackerIndex].name);
+        displayTextLine(battleMonsters[attackerIndex-3].attacks[enemyAttackIndex].description );
+      }
     }
     setBattleDelay();
     battleDelayed = true;
@@ -328,7 +342,7 @@ class Battle
     setBattleDelay( battleTextSpeed );
   }
   
-  public void setBattleDelay( int delay ) //delays by a number of seconds equal to delay
+  public void setBattleDelay( float delay ) //delays by a number of seconds equal to delay
   {
     battleDelayCounter = millis() + (delay*1000);
     battleDelayed = true;

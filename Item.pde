@@ -91,3 +91,11 @@ Key stringToKey( String s )
     default: return Key.NONE;
   }
 }
+
+//Food synergy:
+/* Food heals more for every other kind of food item in the invenory (+20%, +25%, +50%)
+Bread:  10 / 11 / 12 / 15
+Meat:   20 / 22 / 25 / 30
+Fruit:  30 / 33 / 37 / 45
+Crab:   40 / 44 / 50 / 60
+*/
