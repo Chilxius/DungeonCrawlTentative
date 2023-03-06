@@ -1,4 +1,4 @@
-//Basic Dungeon Crawl Game
+//Dungeon Crawl Game
 //Bennett Ritchie
 
 //PROBLEMS:
@@ -9,11 +9,12 @@
 //Fix lineLength error and problem with not printing entire line
 
 //IMPROVEMENT:
+//Synergy on food menu
 //Improve hero select widnow (circle sizes)
 //Have inns charge money?
 //Delay before "vanquished" line where enemy vanishes
 //Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair
-//Fix objects getting strange tile colors
+//Fix objects getting strange tile colors!!
 
 //IMAGES I NEED:
 //Cave wall
@@ -27,7 +28,7 @@
 //I edited the log class to remove spaces in text - might cause errors downstream
 //I edited the log class again to not add text from an empty string
 //Poison seems to be killing heroes properly
-//poison dealt 1 but removed 2 (couldn't replicate)
+//poison dealt 1 but removed 2 (couldn't reproduce)
 
 //Turned sound off for the time being. Will include later with Beads
 //import processing.sound.*;
@@ -87,7 +88,7 @@ int windowX, windowY;
 PImage tileImage[] = new PImage[100];
 
 //Item data
-Loot [][] lootList = new Loot[2][itemCount];
+Loot [][] lootList = new Loot[3][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
 Loot emptyChest = new Loot(0,0,new Item(),"EMPTY CHEST ERROR");
 int consumableValue = 0;
 Equipment newEquip, oldEquip; //for switching in new equipment
@@ -192,6 +193,11 @@ void setup()
   tileImage[69] = loadImage("caveBrown2.png"); tileImage[69].resize(30,0);
   tileImage[70] = loadImage("caveGray.png"); tileImage[70].resize(30,0);
   tileImage[71] = loadImage("treeDead4.png"); tileImage[71].resize(45,40);
+  tileImage[72] = loadImage("TileRoof3.png"); tileImage[72].resize(30,34);
+  tileImage[73] = loadImage("crops.png"); tileImage[73].resize(30,30);
+  tileImage[74] = loadImage("TileRoofBlue.png"); tileImage[74].resize(30,34);
+  tileImage[75] = loadImage("bookshelf2.png"); tileImage[75].resize(30,30);
+  tileImage[76] = loadImage("bookshelfEmpty.png"); tileImage[76].resize(30,30);
   
   //Test sounds
   //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
@@ -423,6 +429,29 @@ String wasOrWere( char c )
   if( c == 's' )
     return "were";
   return "was";
+}
+
+String hasOrHave( char c )
+{
+  if( c == 's' )
+    return "has";
+  return "have";
+}
+
+String isOrAre( char c )
+{
+  if( c == 's' )
+    return "is";
+  return "are";
+}
+
+String needAnA( String s )
+{
+  if( s == "sword" )
+    return "a ";
+  if( s == "axe" )
+    return "an ";
+  return "";
 }
 
 boolean isVowel( char c )

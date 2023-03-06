@@ -1,4 +1,5 @@
 static color safeColor = #C8C8C8;
+static color previousColor = #000000;
 
 class Tile
 {
@@ -68,6 +69,7 @@ class Tile
       case 'π':type=TileType.PORTCULLIS;break;
       case 'w':type=TileType.WATER;break;
       case '%':type=TileType.FLOWER;break;
+      case '∞':type=TileType.CROP;break;
       case 'T':type=TileType.TREE;break;
       case 't':type=TileType.TREE_PATH;break;
       case 'D':type=TileType.DARK_TREE;break;
@@ -86,6 +88,11 @@ class Tile
       case 'W':type=TileType.WOOD;break;
       case '∑':type=TileType.WOOD_DARK;break;
       case '„':type=TileType.WOOD_LIGHT;break;
+      case 'B':type=TileType.BOOK;break;
+      case 'ß':type=TileType.BOOK_EMPTY;break; //shift+s
+      case 'Í':type=TileType.BOOK_SECRET;break; //shift+alt+s
+      case '(':type=TileType.TILE_ROOF;break;
+      case ')':type=TileType.TILE_BLUE;break;
       case '|':type=TileType.RUBBLE;
       //different key types
       case 'c':
@@ -122,6 +129,11 @@ class Tile
     }
     
     setTraitsByType(t,fl);
+    if( obj != Object.NONE )
+      tileColor = previousColor;
+    previousColor = tileColor;
+    if( obj == Object.SIGN_E)
+      println( "Prev: " + previousColor + "  Current: "+ tileColor );
   }
   
   private void setTraitsByType(int floor){setTraitsByType(' ',floor);}
@@ -171,11 +183,16 @@ class Tile
         tileColor = color(200);
         pathable = false;
         break;
+      case BOOK:
+      case BOOK_EMPTY:
+      case TILE_BLUE:
       case WOOD_DARK:
       case WOOD:
         tileColor = color(90,70,30);
         pathable = false;
         break;
+      case BOOK_SECRET:
+      case TILE_ROOF:
       case WOOD_LIGHT:
         tileColor = color(190,170,130);
         break;
@@ -199,6 +216,7 @@ class Tile
       case DIRT:
         tileColor = color(170,150,110);
         break;
+      case CROP:
       case DIRT_DARK:
         tileColor = color(100,70,0);
         break;
@@ -268,6 +286,8 @@ class Tile
         else if( t == 'k' )
           createInteraction( Key.CHARIS );
         else if( t == '˚' )
+          createInteraction( Key.CHARIS_NOTES );
+        else if( t == 'ç' )
           createInteraction( Key.CHARIS_NOTES );
         addToProgressSwitches(floor);
         break;
@@ -438,8 +458,9 @@ class Tile
       case SKELETON_KEY: return "A door with a skull-shaped emblem.";
       case BRASS_KEY: return "An old door decorated with copper symbols.";
       case CHARIS: return "The door has Father Charis's seal.";
+      case CRYPT_KEY: return "An ancient stone door.";
       case CHARIS_NOTES: return "THIS IS WHERE THE NOTES ARE USED";
-      default: return "A strange door...";
+      default: return "A locked door.";
     }
   }
   
@@ -480,6 +501,10 @@ class Tile
       image(tileImage[58],xPos,yPos);
     else if(type == TileType.WOOD_LIGHT)
       image(tileImage[59],xPos,yPos);
+    else if(type == TileType.TILE_ROOF)
+      image(tileImage[72],xPos,yPos-4);
+    else if(type == TileType.TILE_BLUE)
+      image(tileImage[74],xPos,yPos-4);
     else if(type == TileType.S_GLASS)
       image(tileImage[43],xPos,yPos);
     else if(type == TileType.DOOR)
@@ -490,6 +515,8 @@ class Tile
       image(tileImage[54],xPos,yPos);
     else if(type == TileType.FLOWER)
       image(tileImage[3],xPos,yPos);
+    else if(type == TileType.CROP)
+      image(tileImage[73],xPos,yPos);
     else if(type == TileType.WATER)
       image(tileImage[int(4+vanGogh.stage()/10)],xPos,yPos);
     else if(type==TileType.DARK_TREE)
@@ -505,9 +532,9 @@ class Tile
     else if(type == TileType.GRAVE)
       image(tileImage[42],xPos,yPos);
     else if(type == TileType.SELL)
-      image(tileImage[28],xPos,yPos);
-    else if(type == TileType.MERCHANT)
-      image(tileImage[48],xPos,yPos);
+      image(tileImage[29],xPos,yPos);
+    //else if(type == TileType.MERCHANT)
+    //  image(tileImage[48],xPos,yPos);
     else if(type == TileType.STAIR)
       image(tileImage[56],xPos,yPos);
     else if(type == TileType.STAIR_DOOR)
@@ -520,6 +547,12 @@ class Tile
       image(tileImage[53],xPos,yPos);
     else if(type == TileType.WEREWOLF_WHITE)
       image(tileImage[60],xPos,yPos);
+    else if(type == TileType.BOOK)
+      image(tileImage[75],xPos,yPos);
+    else if(type == TileType.BOOK_EMPTY)
+      image(tileImage[76],xPos,yPos);
+    else if(type == TileType.BOOK_SECRET)
+      image(tileImage[76],xPos,yPos);
     if(occupied)
     {
       fill(occupantColor); noStroke();
@@ -541,6 +574,10 @@ class Tile
       image(tileImage[0],xPos,yPos);
     if(type == TileType.SECRET_DARK_WALL)
       image(tileImage[49],xPos,yPos);
+    if(type == TileType.TILE_ROOF)
+      image(tileImage[72],xPos,yPos-4);
+    if(type == TileType.BOOK_SECRET)
+      image(tileImage[76],xPos,yPos);
   }
   
   public boolean canOpen()
@@ -587,11 +624,12 @@ public enum TileType
 {
   EMPTY, EVENT, SAFE, SAFE_BLOCKED,
   FLOOR, FLOOR_RD, FLOOR_BL,
-  GRASS, DIRT, DIRT_DARK, FLOWER, WATER,
+  GRASS, DIRT, DIRT_DARK, FLOWER, CROP, WATER,
   TREE, DARK_TREE, TREE_PATH, DEAD_TREE, DEAD_TREE_PATH,
-  WOOD, WOOD_DARK, WOOD_LIGHT,
+  WOOD, WOOD_DARK, WOOD_LIGHT, TILE_ROOF, TILE_BLUE,
   DARK, BLACK_WALL,
   CAVE, CAVE_BROWN,
+  BOOK, BOOK_EMPTY, BOOK_SECRET,
   WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, SAND_WALL, RUBBLE,
   DOOR, DOOR_GATE, PORTCULLIS, DOORSTEP,
   GRAVE, S_GLASS, GARGOYLE, GARGOYLE_DARK, GARGOYLE_JADE, WEREWOLF_WHITE,
@@ -602,7 +640,8 @@ public enum TileType
 public enum Key //special items for interactive tiles
 {
   COPPER_KEY, SKELETON_KEY, IRON_KEY, BRASS_KEY, 
-  CHARIS, CHARIS_NOTES, NONE
+  CHARIS, CHARIS_NOTES,
+  CRYPT_KEY, NONE
 }
 
 public enum Object //tile has an object (still pathable)

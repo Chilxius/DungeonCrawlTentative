@@ -290,7 +290,7 @@ class Artist
     skillButton[2] = loadImage("ThiefSkill.png");     skillButton[2].resize(60,0);
     skillIcon[2][0] = loadImage("StoneFist.png");     skillIcon[2][0].resize(60,0);
     //Thief
-    skillButton[3] = loadImage("Fist.png");     skillButton[3].resize(60,0);
+    skillButton[3] = loadImage("MonkSkill.png");     skillButton[3].resize(60,0);
     skillIcon[3][0] = loadImage("Knives.png");        skillIcon[3][0].resize(60,0);
     //Priest
     skillIcon[4][0] = loadImage("HolyLight.png");     skillIcon[4][0].resize(60,0);
