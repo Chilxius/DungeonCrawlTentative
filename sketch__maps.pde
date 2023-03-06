@@ -468,8 +468,8 @@ void setupMaps()
   mapStrings[mapIndex] += "#.#.#.rrrWWWWW#  £  #∫∫∫#  £  W``]W  £         §,,§ §§,,,,,,,§§,,,,,,,§                 ££££££££££££";
   mapStrings[mapIndex] += "#.#.#.rrrrrrr.#  £  ##<##  £  WW<WW  £          §,,§,,,,,,,,§§,,,,,,§§                              ";
   mapStrings[mapIndex] += "#.............#  £    £    £    £    £          §,,,,,,,,,,,,,,,,,,§                                ";
-  mapStrings[mapIndex] += "#######<#######  £         £         £  §§§§§§§§,,,,,,,,,,,,,,,,,,,,§  §§§§§§§§§§§                  ";
-  mapStrings[mapIndex] += "       £         £££££ ££££ ££££ ££££   wwwwwwwwwwwww,,,,,,,,,,,,,,,,§§,,,,,,,,,,,§§§§§§§§§§§§§§§§§§";
+  mapStrings[mapIndex] += "#######<#######  £         £         £         §,,,,,,,,,,,,,,,,,,,,§  §§§§§§§§§§§                  ";
+  mapStrings[mapIndex] += "       £         £££££ ££££ ££££ ££££   §§§§§§§wwwwww,,,,,,,,,,,,,,,,§§,,,,,,,,,,,§§§§§§§§§§§§§§§§§§";
   mapStrings[mapIndex] += "                 £    £         £    £  wwwwwwwwwwwwwwwwwwwwwww,,,,,,,,,,,wwww,,,,,,,,,,,,,,,>wwwwww";
   mapStrings[mapIndex] += "                 £                   £  wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww,,,,wwwwwwwwwwwww";
   mapStrings[mapIndex] += "£££££££££££ £££££                    £   ,wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
@@ -487,14 +487,14 @@ void setupMaps()
   mapStrings[mapIndex] += "£££££££££££        £ £                         £  #∑     W∑#  £  ∑>„„„„„„„„„„>∑  £  #>„„„rrrrrr„„„>#";
   mapStrings[mapIndex] += "                   £ £                         £  #W= WW  W#  £  ∑„„„„„„„„„„„„∑  £  #„„„„r∑∑∑∑r„„„„#";
   mapStrings[mapIndex] += "                   £ £                         £  #∑∑W∑∑W  #  £  ∑„„„∫∫∫∫∫∫„„„∑  £  #„„„„r∑∑∑∑r„„„„#";
-  mapStrings[mapIndex] += "WWWWWWWWWWWWWWWWWWW  £                         £  #W      ∑#  £  ∑„„„∫WWWW∫„„„∑  £  #„„„„rrrrrr„„„„#";
-  mapStrings[mapIndex] += "W              ß  Í  £                         £  #  ∑W∑W∑W#  £  ∑≠≠„∫∫∫∫∫∫„≠≠∑  £  #„„„„„„„„„„„„„„#";
-  mapStrings[mapIndex] += "W  B ßßÍBßBBßß ß  ß|£                          £  # ∑W     #  £  ∑∑∑∑∑∑∑∑∑∑∑∑∑∑  £  #######<<#######";
+  mapStrings[mapIndex] += "WWWWWWWWWWWWWWWWWWWW £                         £  #W      ∑#  £  ∑„„„∫WWWW∫„„„∑  £  #„„„„rrrrrr„„„„#";
+  mapStrings[mapIndex] += "Wß             ß  Í  £                         £  #  ∑W∑W∑W#  £  ∑≠≠„∫∫∫∫∫∫„≠≠∑  £  #„„„„„„„„„„„„„„#";
+  mapStrings[mapIndex] += "W  B ßßÍBßBBßß ßß ß|£                          £  # ∑W     #  £  ∑∑∑∑∑∑∑∑∑∑∑∑∑∑  £  #######<<#######";
   mapStrings[mapIndex] += "W∑ Í        Í  ß  B||                          £  # W  ∑∑  #  £                  £         ££       ";
-  mapStrings[mapIndex] += "WBÍß  ß B ß B  B | ||                          £  #   WW∑  #  £                  £                  ";
-  mapStrings[mapIndex] += "W  B  Í ∑ ∑ ß  ß  Í||                          £  #######<##   £££££££££££££££££££                  ";
-  mapStrings[mapIndex] += "£| ß  ß     B  ß   | |                         £         £    £                   ££££££££££££££££££";
-  mapStrings[mapIndex] += "W= ß  ß  r  B    |ß||                          £              £                                     ";
+  mapStrings[mapIndex] += "WBÍß  ß ß ß B ßB | ||                          £  #   WW∑  #  £                  £                  ";
+  mapStrings[mapIndex] += "W  BB Í B ß ß  ß  Í||                          £  #######<##   £££££££££££££££££££                  ";
+  mapStrings[mapIndex] += "£| ß  ß ß ß B ßß   | |                         £         £    £                   ££££££££££££££££££";
+  mapStrings[mapIndex] += "W= ßB ß  r  B    |ß||                          £              £                                     ";
   mapStrings[mapIndex] += "WWWWWWWWW<WWWWWWW||||| |                        ££££££££££££££                                      ";
   mapStrings[mapIndex] += "         £                                               £                                          ";
   mapStrings[mapIndex] += "                                                                                                    ";
@@ -712,12 +712,10 @@ void setupMaps()
   
   //Library
   exits.add( new Portal(1,9,60,2,80,27) );
-  //Library Secret
-  exits.add( new Portal(1,20,40,1,55,49,"?") );
   //Library Exit
   exits.add( new Portal(1,57,57,2,83,20) );
-  
-  
+  //Library Secret
+  exits.add( new Portal(1,20,40,1,52,49,"?") );
   
   m[1].tiles[22][17].placeBoss( 1, color(150, 80, 40), "A large rat guards the way.", new Monster("Giant Rat", "BrownRat.png", 10, 5, 5, 1, 6, 1, 3, 0, AttackType.FIRE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
@@ -767,9 +765,29 @@ void setupMaps()
       zoo.boss[bossIndex].attacks[4] = new Attack("coughs up black smoke.");
   bossIndex++;
   
-  //1,4,55 - skeleton
-  //1,14,55 - skeleton
-  //1,16,55 - skeleton
+  m[1].tiles[4][55].placeBoss( 1, color(230), "Its empty eyes glow with malice.", new Monster("Skeleton", "Skeleton.png", 50, 8, 1, 2, 1, 3, 4, 0, AttackType.HOLY) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("scratches.", 35, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 35, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("gouges with phalanges.", 45, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("gouges with phalanges.", 45, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("stabs with a rib.", 55, false);
+  bossIndex++;
+  
+  m[1].tiles[14][55].placeBoss( 1, color(230), "It is stained with ink and blood.", new Monster("Skeleton", "Skeleton.png", 50, 8, 1, 2, 1, 3, 5, 0, AttackType.HOLY) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("scratches.", 35, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 35, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("slams with its radius.", 45, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("slams with its radius.", 45, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("hacks with its mandible.", 55, false);
+  bossIndex++;
+  
+  m[1].tiles[16][55].placeBoss( 1, color(230), "They've gathered in the darkness.", new Monster("Skeleton", "Skeleton.png", 40, 8, 1, 2, 1, 3, 6, 0, AttackType.HOLY),true );
+      zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 35, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false);
+  bossIndex++;
   
   //Danger Map 1
   dangerMapIndex = 1; dangerStrs[dangerMapIndex] = "";
@@ -903,8 +921,8 @@ void setupMaps()
   mapStrings[mapIndex] += "TTTTTT~~~~~```````````````````````````````````~~WwW%~``````````````````````````````````~~~~~~~TTTTTT";
   mapStrings[mapIndex] += "TTTTTT~~~~#############~((((((((~~~((((((((~~`~%WWW~~`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTT";
   mapStrings[mapIndex] += "TTTTTT~~~~#(((~(((~(((#~((((((((~~~((((((((~~`~%~`~%~`~~(((~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~~#∑∑∑~∑∑∑~∑∑∑#~∑∑∑∑∑∑∑∑~~~∑∑∑∑∑∑∑∑~~``~~`~~``~~WWW~~W||~~~~~~~~~~~~(((((~~~~~~~~~~~~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~~#∑+∑~∑+∑~∑+∑#~∑∑<∑∑<∑∑~~~∑∑<∑∑<∑∑~~~```````~~~W+W~~#.|~~||~~~~~~~WWWWWWWW||~~~~~~~~~TTTTTT";
+  mapStrings[mapIndex] += "TTTTTT~~~~#∑∑∑~∑∑∑~∑∑∑#~∑∑∑∑∑∑∑∑~~~∑∑∑∑∑∑∑∑~~``~~`~~``~~WWW~~W||~~|~~~~~~~~~(((((~~~~~~~~~~~~~TTTTTT";
+  mapStrings[mapIndex] += "TTTTTT~~~~#∑+∑~∑+∑~∑+∑#~∑∑<∑∑<∑∑~~~∑∑<∑∑<∑∑~~~```````~~~W+W~~#.|~~||~~~|~~~WWWWWWWW||~~~~~~~~~TTTTTT";
   mapStrings[mapIndex] += "TTTTTT~~~~~~`~~~`~~~`~~~~~`~~`~~~~~~~`~~`~~~~~~~~`~~~~~~~`~~~~`~~~~`~~~~~~~|WWWW<WWW|~|~~~~~~~TTTTTT";
   mapStrings[mapIndex] += "TTTTTT~~~~~~`~~~`~~~`~~~~÷`~~`÷~~~~~/`~~`/~~~~~~~`~~~~~~~`~~~~`~~~~`~~~~~~~~~~~```~~~~~~~~~~~~TTTTTT";
   mapStrings[mapIndex] += "TTTTTT~~~~~~`````````````````````````````````````````````````````````````~`````~~````~`~`~~~~~TTTTTT";

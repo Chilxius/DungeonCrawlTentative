@@ -17,9 +17,7 @@
 //Fix objects getting strange tile colors!!
 
 //IMAGES I NEED:
-//Cave wall
 //Vendor stall
-//Staves
 //Robes
 //Fur armor
 //Bed
