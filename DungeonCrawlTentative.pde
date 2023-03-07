@@ -566,6 +566,7 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case WATER: return "You never learned how to swim";
     case TREE: case DARK_TREE: return "A tree";
     case PORTCULLIS:
+    case DOOR_GATE:
     case DOOR: return m[party.floor].tiles[party.X][party.Y].keyMessage();
     case BLACK_WALL: return "An unlit wall";
     case GARGOYLE_JADE: return "A gargoyle carved of jade";
@@ -574,6 +575,8 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case WEREWOLF_WHITE: return "A gargoyle statue...?";
     case S_GLASS: return "A beautiful stained glass window";
     case SAFE_BLOCKED: return "Rubble blocks the way";
+    case BOOK: return "A shelf full of books";
+    case BOOK_EMPTY: return "An empty shelf";
   }
   
   if( m[party.floor].tiles[x][y].isBoss )

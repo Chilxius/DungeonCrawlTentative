@@ -1,5 +1,5 @@
 static color safeColor = #C8C8C8;
-static color previousColor = #000000;
+//static color previousColor = #000000;
 
 class Tile
 {
@@ -62,6 +62,7 @@ class Tile
       case '6':type=TileType.CAVE; break;
       case '§':type=TileType.CAVE_BROWN; break; //alt+6
       case '~':type=TileType.GRASS;break;
+      case '¨':type=TileType.GRASS_DARK;break; //alt+u+?
       case '`':type=TileType.DIRT;break;
       case ',':type=TileType.DIRT_DARK;break; //alt+d
       case '+':type=TileType.DOOR;break;
@@ -99,6 +100,7 @@ class Tile
       case 'i':
       case 's':
       case 'k':
+      case '˝': // shift+alt+g (gatehouse key)
       case '˚': // shift+k (Father Charis's notes)
       case 'b':type=TileType.DOORSTEP;safe=true;break;
       case '.':type=TileType.FLOOR;safe=false;break;
@@ -125,15 +127,16 @@ class Tile
       case 'g':obj=Object.GRAVE;type=TileType.SAFE;break;
       case '|':obj=Object.RUBBLE;type=TileType.SAFE_BLOCKED;break;
       case '@':obj=Object.TENT;type=TileType.SAFE;break;
+      case 'V':obj=Object.VANGUARD;type=TileType.SAFE;break;
       default: obj=Object.NONE;break;
     }
     
     setTraitsByType(t,fl);
-    if( obj != Object.NONE )
-      tileColor = previousColor;
-    previousColor = tileColor;
-    if( obj == Object.SIGN_E)
-      println( "Prev: " + previousColor + "  Current: "+ tileColor );
+    //if( obj != Object.NONE )
+     // tileColor = previousColor;
+    //previousColor = tileColor;
+    //if( obj == Object.SIGN_E)
+    //  println( "Prev: " + previousColor + "  Current: "+ tileColor );
   }
   
   private void setTraitsByType(int floor){setTraitsByType(' ',floor);}
@@ -228,6 +231,9 @@ class Tile
         tileColor = color(0,180,0);
         pathable = false;
         break;
+      case GRASS_DARK:
+        tileColor = color(0,100,0);
+        break;
       case DEAD_TREE:
         tileColor = color(0,100,0);
         pathable = false;
@@ -288,7 +294,12 @@ class Tile
         else if( t == '˚' )
           createInteraction( Key.CHARIS_NOTES );
         else if( t == 'ç' )
-          createInteraction( Key.CHARIS_NOTES );
+          createInteraction( Key.CRYPT_KEY );
+        else if( t == '˝' )
+        {
+          createInteraction( Key.GATE );
+          tileColor = color(100,70,0);
+        }
         addToProgressSwitches(floor);
         break;
       }
@@ -459,6 +470,8 @@ class Tile
       case BRASS_KEY: return "An old door decorated with copper symbols.";
       case CHARIS: return "The door has Father Charis's seal.";
       case CRYPT_KEY: return "An ancient stone door.";
+      case GATE: return "A solid iron gate.";
+      case DRAGON: return "A door embossed with a serpentine dragon.";
       case CHARIS_NOTES: return "THIS IS WHERE THE NOTES ARE USED";
       default: return "A locked door.";
     }
@@ -578,11 +591,13 @@ class Tile
       image(tileImage[72],xPos,yPos-4);
     if(type == TileType.BOOK_SECRET)
       image(tileImage[76],xPos,yPos);
+    if(obj == Object.VANGUARD)
+      image(tileImage[52],xPos,yPos);
   }
   
   public boolean canOpen()
   {
-    if( type == TileType.DOOR || type == TileType.PORTCULLIS )
+    if( type == TileType.DOOR || type == TileType.PORTCULLIS || type == TileType.DOOR_GATE )
       return true;
     return false;
   }
@@ -608,6 +623,8 @@ class Tile
   
   public boolean isSafe()
   {
+    if(event)
+      return true;
     switch( type )
     {
       case SAFE:
@@ -624,7 +641,8 @@ public enum TileType
 {
   EMPTY, EVENT, SAFE, SAFE_BLOCKED,
   FLOOR, FLOOR_RD, FLOOR_BL,
-  GRASS, DIRT, DIRT_DARK, FLOWER, CROP, WATER,
+  GRASS, GRASS_DARK, DIRT, DIRT_DARK,
+  FLOWER, CROP, WATER,
   TREE, DARK_TREE, TREE_PATH, DEAD_TREE, DEAD_TREE_PATH,
   WOOD, WOOD_DARK, WOOD_LIGHT, TILE_ROOF, TILE_BLUE,
   DARK, BLACK_WALL,
@@ -639,9 +657,10 @@ public enum TileType
 
 public enum Key //special items for interactive tiles
 {
-  COPPER_KEY, SKELETON_KEY, IRON_KEY, BRASS_KEY, 
+  COPPER_KEY, SKELETON_KEY, IRON_KEY, BRASS_KEY, GATE,
   CHARIS, CHARIS_NOTES,
-  CRYPT_KEY, NONE
+  CRYPT_KEY,
+  DRAGON, NONE
 }
 
 public enum Object //tile has an object (still pathable)
@@ -652,5 +671,6 @@ public enum Object //tile has an object (still pathable)
   BARREL, BARREL2,
   GRAVE, RUBBLE,
   TENT,
+  VANGUARD,
   NONE
 }

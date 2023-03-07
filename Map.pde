@@ -16,6 +16,7 @@ class Map
   public Map( String m, int f )
   {
     floorNumber = f;
+    println("Tiles in map "+f+": "+m.length());
     //Fills empty map slots - will probably create a bad map if unintentional
     while(m.length()<tiles.length*tiles[0].length)
     {

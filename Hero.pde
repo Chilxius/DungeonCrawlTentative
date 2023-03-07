@@ -180,7 +180,7 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case PRIEST:
-        skill[0] = new Attack("Divine Light", 30, false, false, AttackStat.MAG, AttackType.HOLY ); skill[0].cost = 2; //single-target holy attack
+        skill[0] = new Attack("Divine Light", 50, false, false, AttackStat.MAG, AttackType.HOLY ); skill[0].cost = 2; //single-target holy attack
         //skill[0] = new Attack("Heal", 30, true, true ); //healing move for testing
         skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
