@@ -196,6 +196,7 @@ void setup()
   tileImage[74] = loadImage("TileRoofBlue.png"); tileImage[74].resize(30,34);
   tileImage[75] = loadImage("bookshelf2.png"); tileImage[75].resize(30,30);
   tileImage[76] = loadImage("bookshelfEmpty.png"); tileImage[76].resize(30,30);
+  tileImage[77] = loadImage("bed.png"); tileImage[77].resize(30,30);
   
   //Test sounds
   //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
@@ -808,7 +809,7 @@ void keyPressed()
       advanceText("Save aborted");
       confirmSave = false;
     }
-    if(display == Display.MAP && key == 'R' && m[party.floor].tiles[party.X][party.Y].obj == Object.TENT ) //rest
+    if(display == Display.MAP && key == 'R' && ( m[party.floor].tiles[party.X][party.Y].obj == Object.TENT || m[party.floor].tiles[party.X][party.Y].obj == Object.BED ) ) //rest
     {
       if(party.needsRest())
       { //<>// //<>//

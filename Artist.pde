@@ -769,6 +769,9 @@ class Artist
       case TENT:
         image(tileImage[55],xPos,yPos);
         break;
+      case BED:
+        image(tileImage[77],xPos,yPos);
+        break;
       case VANGUARD:
         image(tileImage[52],xPos,yPos);
         break;

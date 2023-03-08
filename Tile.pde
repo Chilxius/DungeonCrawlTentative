@@ -127,6 +127,7 @@ class Tile
       case 'g':obj=Object.GRAVE;type=TileType.SAFE;break;
       case '|':obj=Object.RUBBLE;type=TileType.SAFE_BLOCKED;break;
       case '@':obj=Object.TENT;type=TileType.SAFE;break;
+      case '€':obj=Object.BED;type=TileType.SAFE;break;
       case 'V':obj=Object.VANGUARD;type=TileType.SAFE;break;
       default: obj=Object.NONE;break;
     }
@@ -670,7 +671,7 @@ public enum Object //tile has an object (still pathable)
   SAVEPOINT, FAKE_SAVE,
   BARREL, BARREL2,
   GRAVE, RUBBLE,
-  TENT,
+  TENT, BED,
   VANGUARD,
   NONE
 }

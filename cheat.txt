@@ -1,12 +1,12 @@
-Raven
-THIEF
-23.0
-19.0
-61.0
+Yoko
+MAGE
+122.0
+0.0
+0.0
 1
 100
 0
-20
+15
 Fist
 Fist.png
 0
@@ -16,11 +16,11 @@ BrownShirt.png
 0
 1
 
-Gunhild
+Tybalt
 KNIGHT
-147.0
-36.0
 0.0
+0.0
+127.0
 1
 100
 0
@@ -34,10 +34,10 @@ BrownShirt.png
 0
 1
 
-Nadya
+Orion
 KARATE
 0.0
-68.0
+74.0
 0.0
 1
 100
@@ -190,7 +190,7 @@ true
 true
 true
 true
-false
+true
 false
 false
 false
