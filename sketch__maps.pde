@@ -1041,6 +1041,17 @@ void setupMaps()
   m[2].tiles[44][65].createEvent(false, "- And he is not alone.");
   //Pavel hut
   m[2].tiles[94][65].createEvent(false, "- You remember Father Pavel from your youth, the gravekeeper of Baron's Field. Back then his skin was healthy, and did not hang from his bones like a wet garment.");
+  //Graves
+  m[2].tiles[94][65].createEvent(false, "- Rest in peace");
+  m[2].tiles[94][65].createEvent(false, "The inscription is worn away.");
+  m[2].tiles[94][65].createEvent(false, "- Our beloved son, who prceeds us through the Veil.");
+  m[2].tiles[94][65].createEvent(false, "- She shined like the sun from birth until the end.");
+  m[2].tiles[94][65].createEvent(false, "- A rest well earned.");
+  m[2].tiles[94][65].createEvent(false, "It is inscribed with Iridian runes.");
+  m[2].tiles[94][65].createEvent(false, "- Life was long, your memory will last forever.");
+  m[2].tiles[94][65].createEvent(false, "- An unknown travler.");
+  m[2].tiles[94][65].createEvent(false, "- ");
+  m[2].tiles[94][65].createEvent(false, "- RIP");
   
   
   //Boy

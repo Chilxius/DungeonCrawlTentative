@@ -3,6 +3,7 @@
 
 //PROBLEMS:
 //Fix lineLength error and problem with not printing entire line
+//Fix objects getting strange tile colors
 
 //TO DO:
 //Danger levels of graveyard(upper)
@@ -18,7 +19,6 @@
 //Have inns charge money?
 //Delay before "vanquished" line where enemy vanishes
 //Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair
-//Fix objects getting strange tile colors!!
 
 //IMAGES I NEED:
 //Vendor stall
