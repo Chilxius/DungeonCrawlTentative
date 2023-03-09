@@ -94,14 +94,18 @@ class Tile
       case 'Í':type=TileType.BOOK_SECRET;break; //shift+alt+s
       case '(':type=TileType.TILE_ROOF;break;
       case ')':type=TileType.TILE_BLUE;break;
-      case '|':type=TileType.RUBBLE;
+      case '|':type=TileType.RUBBLE;break;
+      case 'ı':type=TileType.BK_BOOK;break; //shift+alt+b
+      case '¬':type=TileType.BL_BOOK;break; //alt+l
       //different key types
       case 'c':
+      case 'ç':
       case 'i':
       case 's':
       case 'k':
       case '˝': // shift+alt+g (gatehouse key)
       case '˚': // shift+k (Father Charis's notes)
+      case '': // shift+alt+k (Gravekeeper's notes)
       case 'b':type=TileType.DOORSTEP;safe=true;break;
       case '.':type=TileType.FLOOR;safe=false;break;
       case 'r':type=TileType.FLOOR_RD;safe=false;break;
@@ -115,6 +119,7 @@ class Tile
       case '=':obj=Object.CHEST;type=TileType.SAFE;break;
       case '≠':obj=Object.CHEST_GOLD;type=TileType.SAFE;break; //alt+=
       case '±':obj=Object.CHEST_DARK;type=TileType.SAFE;break; //shift+alt+=
+      case '≥':obj=Object.CHEST_BONE;type=TileType.SAFE;break; //alt+.
       case '?':obj=Object.SIGN;type=TileType.SAFE;break;
       case '/':obj=Object.SIGN_E;type=TileType.SAFE;break;
       case '÷':obj=Object.SIGN_F;type=TileType.SAFE;break; //alt+/
@@ -185,6 +190,11 @@ class Tile
         break;
       case RUBBLE:
         tileColor = color(200);
+        pathable = false;
+        break;
+      case BL_BOOK:
+      case BK_BOOK:
+        tileColor = color(90,70,30);
         pathable = false;
         break;
       case BOOK:
@@ -294,6 +304,8 @@ class Tile
           createInteraction( Key.CHARIS );
         else if( t == '˚' )
           createInteraction( Key.CHARIS_NOTES );
+        else if( t == '' )
+          createInteraction( Key.GRAVE_NOTES );
         else if( t == 'ç' )
           createInteraction( Key.CRYPT_KEY );
         else if( t == '˝' )
@@ -430,7 +442,11 @@ class Tile
         }
         else if( keys[i] == Key.CHARIS_NOTES )
         {
-          advanceText("USED FATHER CHARIS'S NOTES");
+          advanceText("- His notes. His work! Enter, quickly!");
+        }
+        else if( keys[i] == Key.GRAVE_NOTES )
+        {
+          advanceText("- TEXT FOR GRAVE NOTES");
         }
         else
           advanceText("You use your " + keyName(k) + ".");
@@ -470,10 +486,10 @@ class Tile
       case SKELETON_KEY: return "A door with a skull-shaped emblem.";
       case BRASS_KEY: return "An old door decorated with copper symbols.";
       case CHARIS: return "The door has Father Charis's seal.";
-      case CRYPT_KEY: return "An ancient stone door.";
+      case CRYPT_KEY: return "A ancient doorway.";
       case GATE: return "A solid iron gate.";
       case DRAGON: return "A door embossed with a serpentine dragon.";
-      case CHARIS_NOTES: return "THIS IS WHERE THE NOTES ARE USED";
+      case CHARIS_NOTES: return "- Away with you! I will speak only with Brother Charis.";
       default: return "A locked door.";
     }
   }
@@ -503,6 +519,10 @@ class Tile
       image(tileImage[50],xPos,yPos);
     else if(type == TileType.RUBBLE)
       image(tileImage[67],xPos-5,yPos-5);
+    else if(type == TileType.BK_BOOK)
+    { image(tileImage[57],xPos,yPos); image(tileImage[78],xPos+5,yPos+5); }
+    else if(type == TileType.BL_BOOK)
+    { image(tileImage[57],xPos,yPos); image(tileImage[80],xPos+5,yPos+5); }
     else if(type == TileType.CAVE_BROWN)
       image(tileImage[69],xPos,yPos);
     else if(type == TileType.CAVE)
@@ -584,6 +604,8 @@ class Tile
     float yPos = 360;
     if(type == TileType.TREE_PATH)
       image(tileImage[47],xPos-10,yPos-10);
+    if(type == TileType.DEAD_TREE_PATH)
+      image(tileImage[71],xPos-10,yPos-10);
     if(type == TileType.SECRET_WALL)
       image(tileImage[0],xPos,yPos);
     if(type == TileType.SECRET_DARK_WALL)
@@ -648,7 +670,7 @@ public enum TileType
   WOOD, WOOD_DARK, WOOD_LIGHT, TILE_ROOF, TILE_BLUE,
   DARK, BLACK_WALL,
   CAVE, CAVE_BROWN,
-  BOOK, BOOK_EMPTY, BOOK_SECRET,
+  BOOK, BOOK_EMPTY, BOOK_SECRET, BL_BOOK, BK_BOOK, 
   WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, SAND_WALL, RUBBLE,
   DOOR, DOOR_GATE, PORTCULLIS, DOORSTEP,
   GRAVE, S_GLASS, GARGOYLE, GARGOYLE_DARK, GARGOYLE_JADE, WEREWOLF_WHITE,
@@ -659,14 +681,14 @@ public enum TileType
 public enum Key //special items for interactive tiles
 {
   COPPER_KEY, SKELETON_KEY, IRON_KEY, BRASS_KEY, GATE,
-  CHARIS, CHARIS_NOTES,
+  CHARIS, CHARIS_NOTES, GRAVE_NOTES,
   CRYPT_KEY,
   DRAGON, NONE
 }
 
 public enum Object //tile has an object (still pathable)
 {
-  CHEST, CHEST_GOLD, CHEST_DARK,
+  CHEST, CHEST_GOLD, CHEST_DARK, CHEST_BONE,
   SIGN, SIGN_E, SIGN_F, SIGN_D, SIGN_I,
   SAVEPOINT, FAKE_SAVE,
   BARREL, BARREL2,

@@ -77,6 +77,7 @@ public String keyName( Key k )
     case DRAGON: return "Dragon Key";
     case GATE: return "Iron Gate Key";
     case CHARIS_NOTES: return "notebook with Charis's seal";
+    case GRAVE_NOTES: return "Charis and Pavel's notes";
     default: return "";
   }
 }
@@ -91,6 +92,7 @@ Key stringToKey( String s )
     case "CRYPT_KEY": return Key.CRYPT_KEY;
     case "CHARIS": return Key.CHARIS;
     case "CHARIS_NOTES": return Key.CHARIS_NOTES;
+    case "GRAVE_NOTES": return Key.GRAVE_NOTES;
     case "BRASS_KEY": return Key.BRASS_KEY;
     case "GATE": return Key.GATE;
     case "DRAGON": return Key.DRAGON;

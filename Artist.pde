@@ -730,6 +730,9 @@ class Artist
       case CHEST_DARK:
         image(tileImage[62],xPos,yPos);
         break;
+      case CHEST_BONE:
+        image(tileImage[79],xPos,yPos);
+        break;
       case SIGN:
         image(tileImage[36],xPos,yPos);
         break;
