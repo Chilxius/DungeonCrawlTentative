@@ -172,7 +172,7 @@ void setupMaps()
   m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
   
   createLoot(lootIndex++, 0, 47, 8, Key.COPPER_KEY);
-  createLoot(lootIndex++, 0, 59, 14, new Equipment("Admirer's Chain","MetalMail.png",18,false,22,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST) );
+  createLoot(lootIndex++, 0, 59, 14, new Equipment("Admirer's Chain","MetalMail.png",18,false,20,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST) );
   //createLoot(lootIndex++, 0, 21, 29, new Equipment("Vestment","BlueShirt.png",3,false,7,true) );
   //createLoot(lootIndex++, 0, 22, 29, new Equipment("Vestment","BlueShirt.png",3,false,7,true) );
   createLoot(lootIndex++, 0, 1, 25, new Item("Golden Dice",19) );
@@ -482,20 +482,20 @@ void setupMaps()
   mapStrings[mapIndex] += "#.......#  £       £ £               £                                                              ";
   mapStrings[mapIndex] += "####<####  £       £ £                ££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££";
   mapStrings[mapIndex] += "    £      £       £ £                         £              £                  £                  ";
-  mapStrings[mapIndex] += "           £       £ £                         £              £                  £                  ";
-  mapStrings[mapIndex] += "           £       £ £             33&3333&33  £  ##########  £  ∑∑∑∑∑∑∑∑∑∑∑∑∑∑  £  ################";
-  mapStrings[mapIndex] += "£££££££££££        £ £             3.......@3  £  #∑     W∑#  £  ∑>„„„„„„„„„„>∑  £  #>„„„rrrrrr„„„>#";
-  mapStrings[mapIndex] += "                   £ £             3≥.......3  £  #W= WW  W#  £  ∑„„„„„„„„„„„„∑  £  #„„„„r∑∑∑∑r„„„„#";
-  mapStrings[mapIndex] += "                   £ £             3##....##3  £  #∑∑W∑∑W  #  £  ∑„„„∫∫∫∫∫∫„„„∑  £  #„„„„r∑∑∑∑r„„„„#";
-  mapStrings[mapIndex] += "WWWWWWWWWWWWWWWWWWWW £             3........3  £  #W      ∑#  £  ∑„„„∫WWWW∫„„„∑  £  #„„„„rrrrrr„„„„#";
-  mapStrings[mapIndex] += "Wß             ß  Í  £             3##....##3  £  #  ∑W∑W∑W#  £  ∑≠≠„∫∫∫∫∫∫„≠≠∑  £  #„„„„„„„„„„„„„„#";
-  mapStrings[mapIndex] += "W  B ßßÍBßBBßß ßß ß|£              3........3  £  # ∑W     #  £  ∑∑∑∑∑∑∑∑∑∑∑∑∑∑  £  #######<<#######";
-  mapStrings[mapIndex] += "W∑ Í  ß     Í  ß  B||              3##....##3  £  # W  ∑∑  #  £                  £         ££       ";
-  mapStrings[mapIndex] += "WBÍß  ß ß ß B ßB | ||              3........3  £  #   WW∑  #  £                  £                  ";
-  mapStrings[mapIndex] += "W  BB Í B ß ß  ß  Í||              33&3<<3|33  £  #######<##   £££££££££££££££££££                  ";
-  mapStrings[mapIndex] += "£| ß  ß ß ß B ßß   | |                 ££      £         £    £         £         ££££££££££££££££££";
-  mapStrings[mapIndex] += "W= ßB   ßrß B    |ß||                          £              £         £              £            ";
-  mapStrings[mapIndex] += "WWWWWWWWW<WWWWWWW||||| |                        ££££££££££££££          £              £            ";
+  mapStrings[mapIndex] += "           £       £ £      £                  £              £                  £                  ";
+  mapStrings[mapIndex] += "           £       £ £  £  £>£  £  33&3333&33  £  ##########  £  ∑∑∑∑∑∑∑∑∑∑∑∑∑∑  £  ################";
+  mapStrings[mapIndex] += "£££££££££££        £ £  £  £,£  £  3.......@3  £  #∑     W∑#  £  ∑>„„„„„„„„„„>∑  £  #>„„„rrrrrr„„„>#";
+  mapStrings[mapIndex] += "                   £ £  £  £=£  £  3≥.......3  £  #W= WW  W#  £  ∑„„„„„„„„„„„„∑  £  #„„„„r∑∑∑∑r„„„„#";
+  mapStrings[mapIndex] += "                   £ £  £  £=£  £  3##....##3  £  #∑∑W∑∑W  #  £  ∑„„„∫∫∫∫∫∫„„„∑  £  #„„„„r∑∑∑∑r„„„„#";
+  mapStrings[mapIndex] += "WWWWWWWWWWWWWWWWWWWW £  £  £,£  £  3........3  £  #W      ∑#  £  ∑„„„∫WWWW∫„„„∑  £  #„„„„rrrrrr„„„„#";
+  mapStrings[mapIndex] += "Wß             ß  Í  £      £   £  3##....##3  £  #  ∑W∑W∑W#  £  ∑≠≠„∫∫∫∫∫∫„„„∑  £  #„„„„„„„„„„„„„„#";
+  mapStrings[mapIndex] += "W  B ßßÍBßBBßß ßß ß|£           £  3........3  £  # ∑W     #  £  ∑∑∑∑∑∑∑∑∑∑∑∑∑∑  £  #######<<#######";
+  mapStrings[mapIndex] += "W∑ Í  ß     Í  ß  B||           £  3##....##3  £  # W  ∑∑  #  £                  £         ££       ";
+  mapStrings[mapIndex] += "WBÍß  ß ß ß B ßB | ||           £  3........3  £  #   WW∑  #  £                  £                  ";
+  mapStrings[mapIndex] += "W  BB Í B ß ß  ß  Í||           £  33&3<<3|33  £  #######<##   £££££££££££££££££££                  ";
+  mapStrings[mapIndex] += "£| ß  ß ß ß B ßß   | |          £      ££      £         £    £         £         ££££££££££££££££££";
+  mapStrings[mapIndex] += "W= ßB   ßrß B    |ß||           £              £              £         £              £            ";
+  mapStrings[mapIndex] += "WWWWWWWWW<WWWWWWW||||| |         ££££££££££££££ ££££££££££££££          £              £            ";
   mapStrings[mapIndex] += "         £                                               £              £  #########   £   #########";
   mapStrings[mapIndex] += "                                                                        £  #..33.#.#   £   #.#.33..#";
   mapStrings[mapIndex] += "                                                                        £  #≠....πç>£  £  £>çπ....≠#";
@@ -562,14 +562,21 @@ void setupMaps()
   createLoot(lootIndex++, 1, 33, 30, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 66, 53, Key.CRYPT_KEY );
   createLoot(lootIndex++, 1, 67, 53, Key.CRYPT_KEY );
-  createLoot(lootIndex++, 1, 76, 53, Key.CRYPT_KEY );
-  createLoot(lootIndex++, 1, 77, 53, Key.CRYPT_KEY );
   createLoot(lootIndex++, 1, 1, 39, new Item("Mana Potion", 24) );
   createLoot(lootIndex++, 1, 30, 41, Key.DRAGON );
   createLoot(lootIndex++, 1, 29, 41, new Item("Gold-Bound Book", 19) );
   createLoot(lootIndex++, 1, 52, 50, Key.GATE );
   createLoot(lootIndex++, 1, 36, 50, Key.GATE );
-  //1,1,39 - libray loot
+  createLoot(lootIndex++, 1, 28, 50, Key.DRAGON );
+  createLoot(lootIndex++, 1, 28, 51, new Item("Ivory Skull", 23) );
+  //Crypts
+  createLoot(lootIndex++, 1, 76, 63, new Equipment("Alar's Axe","MetalAxe.png",25,true,30,Job.KNIGHT,Job.BARBARIAN) );
+  createLoot(lootIndex++, 1, 76, 73, new Equipment("Lion's Hide","fur.png",25,false,25,Job.BARBARIAN) );
+  createLoot(lootIndex++, 1, 76, 83, new Equipment("Purifier","StoneClub.png",25,true,30,Job.KNIGHT,Job.PRIEST) );
+  createLoot(lootIndex++, 1, 98, 63, new Equipment("Cold Iron Plate","DarkArmor.png",25,false,28,Job.KNIGHT, Job.PRIEST) );
+  createLoot(lootIndex++, 1, 98, 73, new Equipment("Scholar's Robe","aquaRobes.png",25,false,18, Job.KARATE, Job.PRIEST, Job.MAGE) );
+  createLoot(lootIndex++, 1, 98, 83, new Equipment("Heartwood Staff","Staff2.png",25,true,30,Job.MAGE) );
+  
   
   m[1].tiles[2][2].createEvent(true, "- The (space) key can be used to open chests like this one. You also use this key to search your current square. See if you can find anything left behind in this room by careless initiates.");
   m[1].tiles[6][2].createEvent(true, "- This is a sacred Legend Gem. Gazing into it, you can feel your acomplishments being told around campfires centuries from now. Step on it and press capital (S) to activate it, and then press ENTER to confirm and save your progress.");
@@ -652,6 +659,7 @@ void setupMaps()
   
   //Chilxius
   m[1].tiles[30][40].placeOccupant( color(chilxiusColor), "- The loss of a good library is always tragic. Take your prizes and go. You made me lose my place." );
+  m[1].tiles[28][52].placeOccupant( color(chilxiusColor), "- One of our number was from Irohill. Never forget to respect the dead." );
   
   //Ghosts
   m[1].tiles[37][50].placeOccupant( color(255,150), "- Take this and find the tomb of the deGrace family. Beware those who aquire wealth with ease." );
@@ -743,8 +751,8 @@ void setupMaps()
   exits.add( new Portal(1,40,57,2,22,77, "Baron's Field") );
   exits.add( new Portal(1,39,57,2,21,77, "Baron's Field") );
   
-  //Secret Grave
-  exits.add( new Portal(2,69,68,2,21,77, "Baron's Field") );
+  //Dragon Grave
+  exits.add( new Portal(1,28,48,2,40,59, "Baron's Field") );
   
   m[1].tiles[22][17].placeBoss( 1, color(150, 80, 40), "A large rat guards the way.", new Monster("Giant Rat", "BrownRat.png", 10, 5, 5, 1, 6, 1, 3, 0, AttackType.FIRE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
@@ -990,7 +998,7 @@ void setupMaps()
   mapStrings[mapIndex] += "33¨∞¨∞¨¨¨¨¨,¨¨¨¨¨¨¨,¨33¨,¨,¨¨¨,¨¨¨,¨,¨,¨¨¨33Y¨¨¨¨¨¨¨¨¨¨¨,3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨YY33Y#######33";
   mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨,¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨...¨¨¨¨,3333333333∏3333333333¨¨¨¨¨¨¨¨YY33¨#€∑„≥≥#33";
   mapStrings[mapIndex] += "33¨g¨g¨g¨g¨,,,,,,,,,,,,,,,,,,,¨¨,,,,¨,,¨¨¨¨∏......Y.....˝∏¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨YY33¨#„„„„ı#33";
-  mapStrings[mapIndex] += "33¨¨¨,¨¨¨,¨¨¨¨¨¨¨¨¨¨¨|,¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨,¨¨¨¨¨...¨¨¨¨¨3333333333¨|333333333¨¨¨¨¨¨¨¨YY33¨#„„„„„#33";
+  mapStrings[mapIndex] += "33¨¨¨,¨¨¨,¨¨¨¨¨¨¨¨¨¨¨|,¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨,¨¨¨¨¨...¨¨¨¨¨333333333|¨¨|33333333¨¨¨¨¨¨¨¨YY33¨#„„„„„#33";
   mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3|¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨|3¨¨¨¨¨¨.¨¨¨¨¨¨3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨%%%3¨¨¨¨¨¨¨¨YY33¨###<###33";
   mapStrings[mapIndex] += "33¨g¨g¨|¨g¨g¨|¨g¨|¨|¨33¨g¨|¨|¨g¨g¨g¨g¨|¨|¨33¨¨¨¨¨¨.¨¨¨¨¨¨3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨%%3¨¨¨¨¨¨¨¨YY33¨¨¨###¨¨33";
   mapStrings[mapIndex] += "33¨,¨¨¨,¨,¨¨¨∞¨,¨¨¨,¨33¨,¨¨¨,¨¨¨,¨,¨,¨,¨,¨33%%¨¨¨¨.¨¨¨¨¨¨3¨¨¨g¨¨¨|¨¨¨g¨¨¨g¨¨%3¨¨¨¨¨¨¨¨YY333333¨33333";
@@ -1042,16 +1050,23 @@ void setupMaps()
   //Pavel hut
   m[2].tiles[94][65].createEvent(false, "- You remember Father Pavel from your youth, the gravekeeper of Baron's Field. Back then his skin was healthy, and did not hang from his bones like a wet garment.");
   //Graves
-  m[2].tiles[94][65].createEvent(false, "- Rest in peace");
-  m[2].tiles[94][65].createEvent(false, "The inscription is worn away.");
-  m[2].tiles[94][65].createEvent(false, "- Our beloved son, who prceeds us through the Veil.");
-  m[2].tiles[94][65].createEvent(false, "- She shined like the sun from birth until the end.");
-  m[2].tiles[94][65].createEvent(false, "- A rest well earned.");
-  m[2].tiles[94][65].createEvent(false, "It is inscribed with Iridian runes.");
-  m[2].tiles[94][65].createEvent(false, "- Life was long, your memory will last forever.");
-  m[2].tiles[94][65].createEvent(false, "- An unknown travler.");
-  m[2].tiles[94][65].createEvent(false, "- ");
-  m[2].tiles[94][65].createEvent(false, "- RIP");
+  m[2].tiles[13][58].createEvent(false, "- Rest in peace");
+  m[2].tiles[17][61].createEvent(false, "The inscription is worn away.");
+  m[2].tiles[7][58].createEvent(false, "- Our beloved son, who proceeds us through the Veil.");
+  m[2].tiles[3][61].createEvent(false, "- She shined like the sun from birth until the end.");
+  m[2].tiles[5][64].createEvent(false, "- A rest well earned.");
+  m[2].tiles[3][67].createEvent(false, "It is inscribed with Iridian runes.");
+  m[2].tiles[11][67].createEvent(false, "- Your life was long, your memory will last forever.");
+  m[2].tiles[24][67].createEvent(false, "- An unknown travler.");
+  m[2].tiles[28][61].createEvent(false, "- A light to the community for fifty years.");
+  m[2].tiles[26][58].createEvent(false, "The inscription is worn away.");
+  m[2].tiles[30][58].createEvent(false, "- Our joy is buried with you.");
+  m[2].tiles[34][61].createEvent(false, "- Claimed by the diseases he fought all his life.");
+  m[2].tiles[36][67].createEvent(false, "- Born a slave, died a free man.");
+  m[2].tiles[40][58].createEvent(true, "It bears a dragon symbol.");
+  m[2].tiles[61][68].createEvent(true, "- Lord Rowan II.");
+  m[2].tiles[73][68].createEvent(true, "- Lord and Lady Summer.");
+  m[2].tiles[69][68].createEvent(true, "- Lord and Lady deGrace.");
   
   
   //Boy
@@ -1125,16 +1140,22 @@ void setupMaps()
   exits.add( new Portal(2,21,77,1,39,57, "Mausoleum") );
   
   //Crypts
-  exits.add( new Portal(2,16,80,1,83,63, "Crypt") );
-  exits.add( new Portal(2,16,85,1,83,73, "Crypt") );
-  exits.add( new Portal(2,16,90,1,83,83, "Crypt") );
-  exits.add( new Portal(2,27,80,1,91,63, "Crypt") );
-  exits.add( new Portal(2,27,85,1,91,73, "Crypt") );
-  exits.add( new Portal(2,27,90,1,91,83, "Crypt") );
+  exits.add( new Portal(2,16,80,1,83,63, "Tomb of Alar the Champion") );
+  exits.add( new Portal(2,16,85,1,83,73, "Tomb of Corel the Beast") );
+  exits.add( new Portal(2,16,90,1,83,83, "Tomb of Ruath the Pure") );
+  exits.add( new Portal(2,27,80,1,91,63, "Tomb of Zan the Invincible") );
+  exits.add( new Portal(2,27,85,1,91,73, "Tomb of Ivy the Wise") );
+  exits.add( new Portal(2,27,90,1,91,83, "Tomb of Erar Thundercaller") );
   
   //Gravekeeper's hut
   exits.add( new Portal(2,96,92,2,94,66, "Gravekeeper's Hut") );
   exits.add( new Portal(2,94,66,2,96,92, "Baron's Field") );
+  
+  //Dragon Grave
+  exits.add( new Portal(2,40,59,1,28,48, "?") );
+  
+  //Secret Grave
+  exits.add( new Portal(2,69,69,2,21,77, "Baron's Field") );
   
   //savePoints[savePointIndex++] = new SavePoint(2, 7, 7);
   
