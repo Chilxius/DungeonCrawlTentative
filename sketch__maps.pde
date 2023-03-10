@@ -86,7 +86,7 @@ void setupMaps()
   mapStrings[mapIndex] += "TT##+####+######.......####.....~~~~~~T~~~t~~Tww####wwt~~~~~~~~~~~~~.....########...######+#####+##T";
   mapStrings[mapIndex] += "TTT#>#TT#>####...„„„„„„„„##..G..#~~~~~~~~~~~~~~~~##~~~~~~~~~~~t~~~~#..G..##¬.¬.¬#...######>#TTT#>#TT";
   mapStrings[mapIndex] += "TTT###TT###T##[..„%%„%%„%##.....#~T~b~~D~~~~t~~~####~~~~~~T~~~~i~~~#.....##.....#...####T###TTT###TT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTT##..„%%„%%„%###########+############..####.#######+###########.....#...###TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTT##..„%%„%%„%###########+############..############+###########.....#...###TTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTwww%TTTTT##.„%%„%%„%##....................................k.........##¬.¬.¬#...##TTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTwwwwTTTTTT##„%%„%%„%##.G....................rr....................G.##.....#..##TTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTwwwTTTTTT##%%„%%„%##......................rr......................##B......##TTTTTT##########";
@@ -562,7 +562,7 @@ void setupMaps()
   createLoot(lootIndex++, 1, 33, 30, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 66, 53, Key.CRYPT_KEY );
   createLoot(lootIndex++, 1, 67, 53, Key.CRYPT_KEY );
-  createLoot(lootIndex++, 1, 1, 39, new Item("Mana Potion", 24) );
+  createLoot(lootIndex++, 1, 1, 59, new Item("Mana Potion", 24) );
   createLoot(lootIndex++, 1, 30, 41, Key.DRAGON );
   createLoot(lootIndex++, 1, 29, 41, new Item("Gold-Bound Book", 19) );
   createLoot(lootIndex++, 1, 52, 50, Key.GATE );
@@ -819,6 +819,50 @@ void setupMaps()
   bossIndex++;
   
   m[1].tiles[16][55].placeBoss( 1, color(230), "They've gathered in the darkness.", new Monster("Skeleton", "Skeleton.png", 35, 9, 1, 3, 1, 2, 6, 0, AttackType.HOLY),true );
+      zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 35, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false);
+  bossIndex++;
+  
+  //Crypt Guardians
+  m[1].tiles[78][63].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Alar", "Crypt1.png", 50, 13, 10, 7, 1, 2, 9, 0, AttackType.NONE) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("strikes with its knee.", 40, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("kicks.", 40, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("swings wide.", 40, true);
+      zoo.boss[bossIndex].attacks[3] = new Attack("swings its axe!", 60, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("swings its axe!", 60, false);
+  bossIndex++;
+  m[1].tiles[78][73].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Corel", "Crypt6.png", 50, 13, 15, 7, 1, 2, 9, 0, AttackType.NONE) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 35, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false);
+  bossIndex++;
+  m[1].tiles[78][83].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Ruath", "Crypt2.png", 50, 9, 10, 7, 1, 3, 9, 0, AttackType.NONE) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 35, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false);
+  bossIndex++;
+  m[1].tiles[96][63].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Zan", "Crypt3.png", 50, 9, 10, 9, 1, 3, 9, 0, AttackType.NONE) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 35, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false);
+  bossIndex++;
+  m[1].tiles[96][73].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Ivy", "Crypt4.png", 50, 2, 10, 2, 8, 9, 7, 0, AttackType.NONE) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 35, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false);
+  bossIndex++;
+  m[1].tiles[96][83].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Erar", "Crypt5.png", 50, 2, 10, 2, 8, 9, 7, 0, AttackType.NONE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
       zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 35, false);
       zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
