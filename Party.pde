@@ -4,7 +4,7 @@ class Party
   
   //String [] name = {"null","null","null"};
   protected int X, Y, floor; //dungeon level
-  Key [] keyInventory = new Key[10];
+  Key [] keyInventory = new Key[30];
   Item [] inventory = new Item[30];
   int gold;
   

@@ -62,6 +62,11 @@ class Item
      return false;
     return true;
   }
+  
+  public String shopString( int p )
+  {
+    return name+": "+p+" Gold";
+  }
 }
 
 public String keyName( Key k )

@@ -82,6 +82,7 @@ class Hero
         mag =    level; 
         wil =    int((98/50.0)*(level-1)+2);
         spd =    int((98/50.0)*(level-1)+2);
+        maxMp = 0;
         break;
       case BARBARIAN:
         maxHp =  int((325/50.0)*(level-1)+25); //25 -> 350
@@ -91,6 +92,7 @@ class Hero
         mag =    0;
         wil =    int((69/50.0)*(level-1)+1);
         spd =    int((118/50.0)*(level-1)+2);
+        maxMp = 0;
         break;
       case KARATE:
         maxHp =  int((370/50.0)*(level-1)+30); //30 -> 400
@@ -100,6 +102,7 @@ class Hero
         mag =    level;
         wil =    int((116/50.0)*(level-1)+4);
         spd =    int((136/50.0)*(level-1)+3);
+        maxMp = 0;
         break;
       case THIEF:
         maxHp =  int((230/50.0)*(level-1)+20); //20 -> 250
@@ -109,6 +112,7 @@ class Hero
         mag =    0;
         wil =    int((88/50.0)*(level-1)+2);
         spd =    int((147/50.0)*(level-1)+3);
+        maxMp = 0;
         break;
       case PRIEST:
         maxHp =  int((185/50.0)*(level-1)+15); //15 -> 200
@@ -141,7 +145,7 @@ class Hero
     {
       case KNIGHT:
         skill[0] = new Attack("Defensive Strike", con/2, false, true, AttackStat.STR ); skill[0].cost = 2; //Puts knight into defense, adds con/2 to damage
-        skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[1] = new Attack("Armor Pierce", str*2, false, true, AttackStat.STR ); skill[1].cost = 4;
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -151,7 +155,7 @@ class Hero
         break;
       case BARBARIAN:
         skill[0] = new Attack("Blood Strike", str, false, true, AttackStat.STR ); skill[0].cost = 2;    //Loses str/5 hp, add str again
-        skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[1] = new Attack("Cleave", 15, true, true, AttackStat.STR ); skill[1].cost = 4;
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -161,7 +165,7 @@ class Hero
         break;
       case KARATE:
         skill[0] = new Attack("Stone Fist", int(weapon.power*0.6), false, true, AttackStat.STR, AttackType.EARTH );  skill[0].cost = 2; //1.6x fist strength, adds earth element
-        skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[1] = new Attack("Flash Punch", dex, false, true, AttackStat.STR ); skill[1].cost = 4;
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -171,7 +175,7 @@ class Hero
         break;
       case THIEF:
         skill[0] = new Attack("Knives", 5, true, true, AttackStat.STR );  skill[0].cost = 2; //Attacks all enemies
-        skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[1] = new Attack("Toxin", 1, false, true, AttackStat.STR ); skill[1].cost = 4;
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -182,7 +186,7 @@ class Hero
       case PRIEST:
         skill[0] = new Attack("Divine Light", 50, false, false, AttackStat.MAG, AttackType.HOLY ); skill[0].cost = 2; //single-target holy attack
         //skill[0] = new Attack("Heal", 30, true, true ); //healing move for testing
-        skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[1] = new Attack("Divine Comfort", 30, false, true ); skill[1].cost = 3; //single-target heal
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -192,7 +196,7 @@ class Hero
         break;
       default:
         skill[0] = new Attack("Fire", 50, false, false, AttackStat.MAG, AttackType.FIRE ); skill[0].cost = 3; //single-target fire attack
-        skill[1] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[1] = new Attack("Rime", 55, false, false, AttackStat.MAG, AttackType.ICE ); skill[1].cost = 3; //single-target ice attack
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -439,9 +443,9 @@ class Hero
     if( a.stat == AttackStat.DEX || a.stat == AttackStat.STR )
     {
       if( defending )
-        return (con + armor.power)*2;
+        return (con + armor.power/2)*2;
       else
-        return con + armor.power;
+        return con + armor.power/2;
     }
     else
       return wil;

@@ -135,9 +135,9 @@ class Artist
     textSize(20);
     for(int i = 0,j = 0; i < keys.length; i++)
       if(keys[i]!=Key.NONE)
-      {
+      { 
+        text(keyName(keys[i]),120+(250*int(j/15)),(130+30*(j+1))-(450*int(j/15)));
         j++;
-        text(keyName(keys[i]),120,130+30*j);
       }
   }
   

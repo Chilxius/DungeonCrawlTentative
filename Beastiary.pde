@@ -15,7 +15,7 @@ class Beastiary
   public Beastiary()
   {
     boss = new Monster[bossCount]; //TEMPORARY
-    list = new Monster[5][5]; //first array size is temporary
+    list = new Monster[10][5]; //first array size is temporary
     
     //Name, Image, Health, Str, Dex, Con, Mag, Wil, Spd, Gold, Weakness
     list[0][0] = new Monster("Error Rat","019.png",1,1,1,1,0,1,1,0,AttackType.NONE);
@@ -91,6 +91,42 @@ class Beastiary
       list[dangerZone][3].attacks[2] = new Attack("bites your foot.", 5, false, Debuff.POISON);
       list[dangerZone][3].attacks[3] = new Attack("bites your arm.", 5, false, Debuff.POISON);
       list[dangerZone][3].attacks[4] = new Attack("bites your leg.", 5, false, Debuff.POISON);
+    list[dangerZone][4] = new Monster();
+    
+    //4 - Graveyard (first)
+    dangerZone++;
+    list[dangerZone][0] = new Monster("Fragile Skeleton",  "WeakSkeleton2.png",  20, 10, 20, 2, 0, 3, 7, 0, AttackType.HOLY);
+      list[dangerZone][0].attacks[0] = new Attack("crumbles as it moves.");
+      list[dangerZone][0].attacks[1] = new Attack("scratches.", 40, false);
+      list[dangerZone][0].attacks[2] = new Attack("lunges forward.", 45, false);
+      list[dangerZone][0].attacks[3] = new Attack("bites.", 50, false);
+      list[dangerZone][0].attacks[4] = new Attack("flails wildly.", 30, true);
+    list[dangerZone][1] = new Monster("Sturdy Skeleton",  "WeakSkeleton3.png",  30, 15, 10, 3, 0, 2, 5, 0, AttackType.HOLY);
+      list[dangerZone][1].attacks[0] = new Attack("rattles.");
+      list[dangerZone][1].attacks[1] = new Attack("bashes.", 45, false);
+      list[dangerZone][1].attacks[2] = new Attack("bashes with a rock.", 50, false);
+      list[dangerZone][1].attacks[3] = new Attack("slams its body.", 55, false);
+      list[dangerZone][1].attacks[4] = new Attack("strikes with a bone spur.", 50, false);
+    list[dangerZone][2] = new Monster();
+    list[dangerZone][3] = new Monster();
+    list[dangerZone][4] = new Monster();
+    
+    //5 - Graveyard (second)
+    dangerZone++;
+    list[dangerZone][0] = new Monster("Fragile Skeleton",  "WeakSkeleton2.png",  20, 10, 20, 2, 0, 3, 7, 0, AttackType.HOLY);
+      list[dangerZone][0].attacks[0] = new Attack("crumbles as it moves.");
+      list[dangerZone][0].attacks[1] = new Attack("scratches.", 40, false);
+      list[dangerZone][0].attacks[2] = new Attack("lunges forward.", 45, false);
+      list[dangerZone][0].attacks[3] = new Attack("bites.", 50, false);
+      list[dangerZone][0].attacks[4] = new Attack("flails wildly.", 30, true);
+    list[dangerZone][1] = new Monster("Sturdy Skeleton",  "WeakSkeleton3.png",  30, 15, 10, 3, 0, 2, 5, 0, AttackType.HOLY);
+      list[dangerZone][1].attacks[0] = new Attack("rattles.");
+      list[dangerZone][1].attacks[1] = new Attack("bashes.", 45, false);
+      list[dangerZone][1].attacks[2] = new Attack("bashes with a rock.", 50, false);
+      list[dangerZone][1].attacks[3] = new Attack("slams its body.", 55, false);
+      list[dangerZone][1].attacks[4] = new Attack("strikes with a bone spur.", 50, false);
+    list[dangerZone][2] = new Monster();
+    list[dangerZone][3] = new Monster();
     list[dangerZone][4] = new Monster();
   }
   

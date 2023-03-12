@@ -484,7 +484,7 @@ void setupMaps()
   mapStrings[mapIndex] += "    £      £       £ £                         £              £                  £                  ";
   mapStrings[mapIndex] += "           £       £ £      £                  £              £                  £                  ";
   mapStrings[mapIndex] += "           £       £ £  £  £>£  £  33&3333&33  £  ##########  £  ∑∑∑∑∑∑∑∑∑∑∑∑∑∑  £  ################";
-  mapStrings[mapIndex] += "£££££££££££        £ £  £  £,£  £  3.......@3  £  #∑     W∑#  £  ∑>„„„„„„„„„„>∑  £  #>„„„rrrrrr„„„>#";
+  mapStrings[mapIndex] += "£££££££££££        £ £  £  £,£  £  3...*...@3  £  #∑     W∑#  £  ∑>„„„„„„„„„„>∑  £  #>„„„rrrrrr„„„>#";
   mapStrings[mapIndex] += "                   £ £  £  £=£  £  3≥.......3  £  #W= WW  W#  £  ∑„„„„„„„„„„„„∑  £  #„„„„r∑∑∑∑r„„„„#";
   mapStrings[mapIndex] += "                   £ £  £  £=£  £  3##....##3  £  #∑∑W∑∑W  #  £  ∑„„„∫∫∫∫∫∫„„„∑  £  #„„„„r∑∑∑∑r„„„„#";
   mapStrings[mapIndex] += "WWWWWWWWWWWWWWWWWWWW £  £  £,£  £  3........3  £  #W      ∑#  £  ∑„„„∫WWWW∫„„„∑  £  #„„„„rrrrrr„„„„#";
@@ -495,47 +495,46 @@ void setupMaps()
   mapStrings[mapIndex] += "W  BB Í B ß ß  ß  Í||           £  33&3<<3|33  £  #######<##   £££££££££££££££££££                  ";
   mapStrings[mapIndex] += "£| ß  ß ß ß B ßß   | |          £      ££      £         £    £         £         ££££££££££££££££££";
   mapStrings[mapIndex] += "W= ßB   ßrß B    |ß||           £              £              £         £              £            ";
-  mapStrings[mapIndex] += "WWWWWWWWW<WWWWWWW||||| |         ££££££££££££££ ££££££££££££££          £              £            ";
-  mapStrings[mapIndex] += "         £                                               £              £  #########   £   #########";
-  mapStrings[mapIndex] += "                                                                        £  #..33.#.#   £   #.#.33..#";
-  mapStrings[mapIndex] += "                                                                        £  #≠....πç>£  £  £>çπ....≠#";
-  mapStrings[mapIndex] += "                                                                        £  #..33.#.#   £   #.#.33..#";
-  mapStrings[mapIndex] += "                                                                        £  #########   £   #########";
-  mapStrings[mapIndex] += "                                                                        £              £            ";
-  mapStrings[mapIndex] += "                                                                        £              £            ";
-  mapStrings[mapIndex] += "                                                                         £££££££££££££££££££££££££££";
-  mapStrings[mapIndex] += "                                                                        £              £            ";
-  mapStrings[mapIndex] += "                                                                        £              £            ";
-  mapStrings[mapIndex] += "                                                                        £  #########   £   #########";
-  mapStrings[mapIndex] += "                                                                        £  #..33.#.#   £   #.#.33..#";
-  mapStrings[mapIndex] += "                                                                        £  #≠....πç>£  £  £>çπ....≠#";
-  mapStrings[mapIndex] += "                                                                        £  #..33.#.#   £   #.#.33..#";
-  mapStrings[mapIndex] += "                                                                        £  #########   £   #########";
-  mapStrings[mapIndex] += "                                                                        £              £            ";
-  mapStrings[mapIndex] += "                                                                        £              £            ";
-  mapStrings[mapIndex] += "                                                                         £££££££££££££££££££££££££££";
-  mapStrings[mapIndex] += "                                                                        £              £            ";
-  mapStrings[mapIndex] += "                                                                        £              £            ";
-  mapStrings[mapIndex] += "                                                                        £  #########   £   #########";
-  mapStrings[mapIndex] += "                                                                        £  #..33.#.#   £   #.#.33..#";
-  mapStrings[mapIndex] += "                                                                        £  #≠....πç>£  £  £>çπ....≠#";
-  mapStrings[mapIndex] += "                                                                        £  #..33.#.#   £   #.#.33..#";
-  mapStrings[mapIndex] += "                                                                        £  #########   £   #########";
-  mapStrings[mapIndex] += "                                                                        £              £            ";
-  mapStrings[mapIndex] += "                                                                        £              £            ";
-  mapStrings[mapIndex] += "                                                                         £££££££££££££££££££££££££££";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-    
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
+  mapStrings[mapIndex] += "WWWWWWWWW<WWWWWWW||||| |         ££££££££££££££ ££££££££££££££   66666  £              £            ";
+  mapStrings[mapIndex] += "         £                                               £       6,,*6  £  #########   £   #########";
+  mapStrings[mapIndex] += "                                                                 6,,,6  £  #..33.#.#   £   #.#.33..#";
+  mapStrings[mapIndex] += "                                                                 6,,,6  £  #≠....πç>£  £  £>çπ....≠#";
+  mapStrings[mapIndex] += "                                                                 6,,66  £  #..33.#.#   £   #.#.33..#";
+  mapStrings[mapIndex] += "                                                                66,,6   £  #########   £   #########";
+  mapStrings[mapIndex] += "                                                             6666,,66   £              £            ";
+  mapStrings[mapIndex] += "                                                            66,,,,6     £              £            ";
+  mapStrings[mapIndex] += "                                                           66,,6666      £££££££££££££££££££££££££££";
+  mapStrings[mapIndex] += "    ####  ####  ####  ####  ####   ###   ####  ####  ####  6``66 ####   £              £            ";
+  mapStrings[mapIndex] += "   ##..####..####..####..####..#####G#####.w####..####..####..####..##  £              £            ";
+  mapStrings[mapIndex] += "  ##G......................................ww,,......................#  £  #########   £   #########";
+  mapStrings[mapIndex] += "  #>........................................ww,,.....................π  £  #..33.#.#   £   #.#.33..#";
+  mapStrings[mapIndex] += "  ##G........................................w,,,....................#  £  #≠....πç>£  £  £>çπ....≠#";
+  mapStrings[mapIndex] += "   ##..####..####..####..####..#####G#####..####,,####..####..####..##  £  #..33.#.#   £   #.#.33..#";
+  mapStrings[mapIndex] += "    ####  ####  #..#  ####  ####   ###   ##$#  ##,#  #$##  ####  ####   £  #########   £   #########";
+  mapStrings[mapIndex] += "                #..#                      £ £   £ £  £ £                £              £            ";
+  mapStrings[mapIndex] += "    ####  ####  #..#  ####  ####          £ £   £ £  £ £                £              £            ";
+  mapStrings[mapIndex] += "   ##..####..####..####..####..##         £ £   £ £  £ £                 £££££££££££££££££££££££££££";
+  mapStrings[mapIndex] += "   #............................#         £ £   £ £  £ £                £              £            ";
+  mapStrings[mapIndex] += "   #.....|##################G...#         £ £   £ £  £ £                £              £            ";
+  mapStrings[mapIndex] += "   #............................#         6,66666,6666,6                £  #########   £   #########";
+  mapStrings[mapIndex] += "   ##..####..####..####..####..##         6,,,,,,,6%~~,6                £  #..33.#.#   £   #.#.33..#";
+  mapStrings[mapIndex] += "    ####  ####  #..#  ####  ####          66666666666666                £  #≠....πç>£  £  £>çπ....≠#";
+  mapStrings[mapIndex] += "                #..#                                                    £  #..33.#.#   £   #.#.33..#";
+  mapStrings[mapIndex] += "          ####  #..#  ####                                              £  #########   £   #########";
+  mapStrings[mapIndex] += "         ##..####..####..#####                                          £              £            ";
+  mapStrings[mapIndex] += "        ##G.................R##                                         £              £            ";
+  mapStrings[mapIndex] += "        #>...................>#                                          £££££££££££££££££££££££££££";
+  mapStrings[mapIndex] += "        ##G.................R##                                          £             £            ";
+  mapStrings[mapIndex] += "         ##.*####..####..#####                                           £             £            ";
+  mapStrings[mapIndex] += "          ####  ####  ####                                               £  ##&###&##  £  ##&###&## ";
+  mapStrings[mapIndex] += "                                                                         £  #...[[..#  £  #3.....3# ";
+  mapStrings[mapIndex] += "                                                                         £  #[..[].|#  £  #3.∫∫∫.3# ";
+  mapStrings[mapIndex] += "                                                                         £  #][....[#  £  #..∫@∫..# ";
+  mapStrings[mapIndex] += "                                                                         £  #[....[[#  £  #..∫∫∫..# ";
+  mapStrings[mapIndex] += "                                                                         £  #......]#  £  #3.....3# ";
+  mapStrings[mapIndex] += "                                                                         £  #|.[....#  £  #3.....3# ";
+  mapStrings[mapIndex] += "                                                                         £  ##&#<#&##  £  ##&#<#&## ";
+  mapStrings[mapIndex] += "                                                                         £     ###     £     ###    ";
   
   m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
   //m[1].floorNumber=1;
@@ -543,7 +542,7 @@ void setupMaps()
   createLoot(lootIndex++, 1, 3, 4, Key.COPPER_KEY);
   createLoot(lootIndex++, 1, 1, 2, new Equipment("Brocade","YellowShirt.png",5,false,5,true));
   createLoot(lootIndex++, 1, 54, 1, new Equipment("Ivory Knife","IceDagger.png",15,true,15,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST,Job.MAGE));
-  createLoot(lootIndex++, 1, 62, 1, new Equipment("Staff","Staff.png",2,true,10,Job.KNIGHT,Job.PRIEST,Job.MAGE));
+  createLoot(lootIndex++, 1, 62, 1, new Equipment("Staff","Staff.png",2,true,14,Job.KNIGHT,Job.PRIEST,Job.MAGE));
   createLoot(lootIndex++, 1, 17, 21, Key.COPPER_KEY);
   createLoot(lootIndex++, 1, 79, 3, new Equipment("Vestment","BlueShirt.png",3,false,7,true));
   createLoot(lootIndex++, 1, 81, 5, new Item("Bread",10) );
@@ -558,7 +557,7 @@ void setupMaps()
   createLoot(lootIndex++, 1, 7, 15, Key.BRASS_KEY);
   createLoot(lootIndex++, 1, 48, 16, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 49, 16, new Item("Meat",20) );
-  createLoot(lootIndex++, 1, 66, 15, new Equipment("Ratfang","Ratfang.png",15,true,24,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.MAGE) );
+  createLoot(lootIndex++, 1, 66, 15, new Equipment("Ratfang","Ratfang.png",15,true,25,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.MAGE) );
   createLoot(lootIndex++, 1, 33, 30, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 66, 53, Key.CRYPT_KEY );
   createLoot(lootIndex++, 1, 67, 53, Key.CRYPT_KEY );
@@ -569,6 +568,15 @@ void setupMaps()
   createLoot(lootIndex++, 1, 36, 50, Key.GATE );
   createLoot(lootIndex++, 1, 28, 50, Key.DRAGON );
   createLoot(lootIndex++, 1, 28, 51, new Item("Ivory Skull", 23) );
+  createLoot(lootIndex++, 1, 51, 82, new Item("Fruit", 30) );
+  createLoot(lootIndex++, 1, 80, 93, new Item("Bread", 10) );
+  createLoot(lootIndex++, 1, 81, 93, new Item("Bread", 10) );
+  createLoot(lootIndex++, 1, 81, 92, new Item("Bread", 10) );
+  createLoot(lootIndex++, 1, 82, 95, new Item("Meat", 20) );
+  createLoot(lootIndex++, 1, 83, 96, new Item("Bread", 10) );
+  createLoot(lootIndex++, 1, 77, 95, new Item("Bread", 10) );
+  createLoot(lootIndex++, 1, 77, 94, new Item("Health Potion", 12) );
+  
   //Crypts
   createLoot(lootIndex++, 1, 76, 63, new Equipment("Alar's Axe","MetalAxe.png",25,true,30,Job.KNIGHT,Job.BARBARIAN) );
   createLoot(lootIndex++, 1, 76, 73, new Equipment("Lion's Hide","fur.png",25,false,25,Job.BARBARIAN) );
@@ -587,7 +595,8 @@ void setupMaps()
   m[1].tiles[97][5].createEvent(true, "- Press capital (R) on a bed to rest. Resting in a safe place will fully restore health and magic.");
   m[1].tiles[2][15].createEvent(false, "- Whatever that is, it's big. Make sure to (E)at if you feel weak.");
   m[1].tiles[6][15].createEvent(false, "- This hole was made recently.");
-  //Town
+  m[1].tiles[94][97].createEvent(false, "- The disjoined spirits of Irohill stand in a ring around the old campsite.");
+  
   
   m[1].tiles[17][3].placeOccupant( color(75,100,255), "- Good morning, young ones. We made fresh bread this morning. To eat food you are carrying, press capital (E). You need peace and quiet to eat. Don't try to eat during a fight or it will ruin your digestion." );
   m[1].tiles[17][5].placeOccupant( color(75,100,255), "- I think we have some magical potions left in the western cellar. Those are quite useful as they can be consumed during combat. There are only four varieties of potion, though. Thanks, prohhibition. Press capital (D) to drink potions while in the field." );
@@ -609,20 +618,20 @@ void setupMaps()
   
   //Food Shop
   m[1].tiles[83][13].placeOccupant( color(165,150,50), "- My friends and neighbors are cowering in their homes. How can I charge them for food at such a time? Because of my generocity, all I have left is bread." );
-  m[1].tiles[83][14].placeShop( new Item( "Bread",10 ), 15 );
-  m[1].tiles[83][14].createEvent(true, "Finest Bread: 15 Gold");
+  m[1].tiles[83][14].placeShop( new Item( "Bread",10 ), 12 );
+  //m[1].tiles[83][14].createEvent(true, "Finest Bread: 15 Gold");
   m[1].tiles[86][14].placeOccupant( color(150,50,165), "- Don't listen to what he says. It was those giant rats that ate all our stock." );
   
   //Equipment Shop
   m[1].tiles[92][24].placeOccupant( color(165,150,50), "- A solid and heavy club is all it takes to bring down one of them. But there's never just one." );
   m[1].tiles[92][25].placeShop( new Equipment( "Club","OldClub.png", 6, true, 17, Job.KNIGHT, Job.BARBARIAN, Job.THIEF, Job.PRIEST ), 12 );
-  m[1].tiles[92][25].createEvent(true, "Club: 12 Gold  17 Power");
+ // m[1].tiles[92][25].createEvent(true, "Club: 12 Gold  17 Power");
   m[1].tiles[93][24].placeOccupant( color(165,150,50), "- If you don't have a solid dagger at your side, you are not prepared." );
   m[1].tiles[93][25].placeShop( new Equipment( "Dagger","MetalDagger2.png", 5, true, 13, Job.KNIGHT, Job.BARBARIAN, Job.THIEF, Job.MAGE ), 10 );
-  m[1].tiles[93][25].createEvent(true, "Dagger: 10 Gold  13 Power");
+  //m[1].tiles[93][25].createEvent(true, "Dagger: 10 Gold  13 Power");
   m[1].tiles[96][24].placeOccupant( color(150,50,165), "- I have a few sets of iron plate left. They should protect you from those things." );
   m[1].tiles[96][25].placeShop( new Equipment( "Iron Plate","MetalArmor.png", 15, false, 24, Job.KNIGHT, Job.PRIEST ), 30 );
-  m[1].tiles[96][25].createEvent(true, "Iron Plate: 30 Gold  24 Defense");
+  //m[1].tiles[96][25].createEvent(true, "Iron Plate: 30 Gold  24 Defense");
   m[1].tiles[97][24].placeOccupant( color(150,50,165), "- Sorry, but we're all out of leather goods." );
   m[1].tiles[97][25].createEvent(true, "SOLD OUT");
   
@@ -666,11 +675,28 @@ void setupMaps()
   m[1].tiles[42][49].placeOccupant( color(255,150), "- Weariness. I remember it as disagreeable, but not the feel of it. Rest here. You are safe within these walls." );
   m[1].tiles[40][54].placeOccupant( color(255,150), "- I am, or was, Jon Mul. I was the first to be disjoined from flesh in Irohill. The meteor that struck the hill in ages past ended my mortal life, but I did not cross the Veil. I watched over Irohill instead, a silent observer as the cathedral and mausoleum were built and as infants became elders. Never have I cursed my lot more than now as hollow shells rise to trouble my home. Please, save our home. I will do all I can do and have ever done, and watch." );
   m[1].tiles[41][52].placeOccupant( color(255,150), "- Recently a light shone from the cathedral. It was like a spark of Illamar himself. The light swept through the catacombs and I heard a screech as one who denied death was pulled across the Veil. Your foe's spirit has gone. You need only destroy the lingering body." );
-  m[1].tiles[36][54].placeOccupant( color(255,150), "- Why did my darling Sunita not inherit the gift? We will not speak again this side of the Veil." );
+  m[1].tiles[36][54].placeOccupant( color(255,150), "- Why did my darling Sunita not inherit the gift? Shall we not speak again this side of the Veil?" );
+  
+  m[1].tiles[66][61].placeOccupant( color(200,150), "- Beux deGrace, at your service. The use of my family's tomb was his price for wealth and power. To be forever disjoined was not a part of the contract." );
+  m[1].tiles[67][65].placeOccupant( color(200,150), "- Do you desire justice upon us for our role in this? My descendants and friends suffer. I hear their cries, but they are deaf to mine. No criminal court could do more to me." );
+  m[1].tiles[48][74].placeOccupant( color(200,150), "- Could you please tell Mother Sunita that my tomb is leaking? Because I'm worried about the safety of the entire catacomb, of course." );
+  m[1].tiles[12][71].placeOccupant( color(255,150), "- Our enemy stored his supplies in the cenotaph up ahead. It will do him no good now. Take it. Save Irohill." );
+  m[1].tiles[13][89].placeOccupant( color(255,150), "- No one can say where the tears of Ritisu will fall." );
+  
+  //Circle of Ghosts
+  m[1].tiles[93][96].placeOccupant( color(255,150), "- I have watched over Irohill for fifteen generations. I have watched you brave this cursed place. Now we shall watch and protect while you rest and prepare for the coming fight." );
+  m[1].tiles[92][94].placeOccupant( color(255,150), "- He used my family. We may never expunge our sin, but let me do what I can." );
+  m[1].tiles[93][92].placeOccupant( color(255,150), "- Until we can follow Charis through the Veil, you are our only link to the living world. Please stay alive." );
+  //in method below
+  m[1].tiles[96][94].placeOccupant( color(255,150), "- I do not know how his body continues to do evil without its spirit. Try to save his mangled remains for study." );
+  m[1].tiles[95][96].placeOccupant( color(255,150), "- When you see my daughter, tell her that I am proud." );
   
   
   savePoints[savePointIndex++] = new SavePoint(1, 7, 2); //Intro
   savePoints[savePointIndex++] = new SavePoint(1, 96, 14); //Temple
+  savePoints[savePointIndex++] = new SavePoint(1, 39, 49); //Mausoleum
+  savePoints[savePointIndex++] = new SavePoint(1, 68, 61); //Temp save
+  savePoints[savePointIndex++] = new SavePoint(1, 12, 90); //Last save before boss
   
   //Start room - second room
   exits.add( new Portal(1,1,6,1,15,7) );
@@ -751,6 +777,16 @@ void setupMaps()
   exits.add( new Portal(1,40,57,2,22,77, "Baron's Field") );
   exits.add( new Portal(1,39,57,2,21,77, "Baron's Field") );
   
+  //To Cenotaph Field 1
+  exits.add( new Portal(1,3,72,2,67,83, "Baron's Field") );
+  //From Cenotaph 1
+  exits.add( new Portal(1,80,98,2,67,81, "Baron's Field") );
+  
+  //To Cenotaph Field 2
+  exits.add( new Portal(1,9,88,2,79,83, "Baron's Field") );
+  //From Cenotaph 2
+  exits.add( new Portal(1,94,98,2,79,81, "Baron's Field") );
+  
   //Dragon Grave
   exits.add( new Portal(1,28,48,2,40,59, "Baron's Field") );
   
@@ -802,72 +838,72 @@ void setupMaps()
       zoo.boss[bossIndex].attacks[4] = new Attack("coughs up black smoke.");
   bossIndex++;
   
-  m[1].tiles[4][55].placeBoss( 1, color(230), "Its empty eyes glow with malice.", new Monster("Skeleton", "Skeleton.png", 40, 9, 1, 3, 1, 2, 4, 0, AttackType.HOLY) );
-      zoo.boss[bossIndex].attacks[0] = new Attack("scratches.", 35, false);
-      zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 35, false);
+  m[1].tiles[4][55].placeBoss( 1, color(230), "Its empty eyes glow with malice.", new Monster("Skeleton", "Skeleton.png", 40, 9, 1, 2, 1, 3, 4, 0, AttackType.HOLY) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("scratches.", 40, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 40, false);
       zoo.boss[bossIndex].attacks[2] = new Attack("gouges with phalanges.", 45, false);
       zoo.boss[bossIndex].attacks[3] = new Attack("gouges with phalanges.", 45, false);
       zoo.boss[bossIndex].attacks[4] = new Attack("stabs with a rib.", 55, false);
   bossIndex++;
   
-  m[1].tiles[14][55].placeBoss( 1, color(230), "It is stained with ink and blood.", new Monster("Skeleton", "Skeleton.png", 40, 9, 1, 3, 1, 2, 5, 0, AttackType.HOLY) );
-      zoo.boss[bossIndex].attacks[0] = new Attack("scratches.", 35, false);
-      zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 35, false);
+  m[1].tiles[14][55].placeBoss( 1, color(230), "It is stained with ink and blood.", new Monster("Skeleton", "Skeleton.png", 40, 9, 1, 2, 1, 3, 5, 0, AttackType.HOLY) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("scratches.", 40, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 40, false);
       zoo.boss[bossIndex].attacks[2] = new Attack("slams with its radius.", 45, false);
       zoo.boss[bossIndex].attacks[3] = new Attack("slams with its radius.", 45, false);
       zoo.boss[bossIndex].attacks[4] = new Attack("hacks with its mandible.", 55, false);
   bossIndex++;
   
-  m[1].tiles[16][55].placeBoss( 1, color(230), "They've gathered in the darkness.", new Monster("Skeleton", "Skeleton.png", 35, 9, 1, 3, 1, 2, 6, 0, AttackType.HOLY),true );
+  m[1].tiles[16][55].placeBoss( 1, color(230), "They've gathered in the darkness.", new Monster("Skeleton", "Skeleton.png", 35, 9, 1, 2, 1, 3, 6, 0, AttackType.HOLY),true );
       zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
-      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 35, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 40, false);
       zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
       zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false);
       zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false);
   bossIndex++;
   
   //Crypt Guardians
-  m[1].tiles[78][63].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Alar", "Crypt1.png", 50, 13, 10, 7, 1, 2, 9, 0, AttackType.NONE) );
+  m[1].tiles[78][63].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Alar", "Crypt1.png", 50, 13, 10, 7, 1, 2, 9, 0, AttackType.HOLY) );
       zoo.boss[bossIndex].attacks[0] = new Attack("strikes with its knee.", 40, false);
       zoo.boss[bossIndex].attacks[1] = new Attack("kicks.", 40, false);
       zoo.boss[bossIndex].attacks[2] = new Attack("swings wide.", 40, true);
       zoo.boss[bossIndex].attacks[3] = new Attack("swings its axe!", 60, false);
       zoo.boss[bossIndex].attacks[4] = new Attack("swings its axe!", 60, false);
   bossIndex++;
-  m[1].tiles[78][73].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Corel", "Crypt6.png", 50, 13, 15, 7, 1, 2, 9, 0, AttackType.NONE) );
-      zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
-      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 35, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
-      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false);
-      zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false);
+  m[1].tiles[78][73].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Corel", "Crypt6.png", 50, 13, 15, 7, 1, 2, 9, 0, AttackType.HOLY) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("growls.");
+      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 40, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("lunges like a beast!", 60, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its jaw!", 60, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("bashes with its club!!", 60, false);
   bossIndex++;
-  m[1].tiles[78][83].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Ruath", "Crypt2.png", 50, 9, 10, 7, 1, 3, 9, 0, AttackType.NONE) );
-      zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
-      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 35, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
-      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false);
-      zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false);
+  m[1].tiles[78][83].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Ruath", "Crypt2.png", 50, 8, 10, 6, 8, 6, 9, 0, AttackType.HOLY) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("intones muddled words.");
+      zoo.boss[bossIndex].attacks[1] = new Attack("strikes with its hand.", 40, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("smites!", 60, false, AttackStat.STR, AttackType.HOLY);
+      zoo.boss[bossIndex].attacks[3] = new Attack("shines with holy light.", 30, true, AttackStat.MAG, AttackType.HOLY);
+      zoo.boss[bossIndex].attacks[4] = new Attack("swings its mace!", 60, false);
   bossIndex++;
-  m[1].tiles[96][63].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Zan", "Crypt3.png", 50, 9, 10, 9, 1, 3, 9, 0, AttackType.NONE) );
-      zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
-      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 35, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
-      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false);
-      zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false);
+  m[1].tiles[96][63].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Zan", "Crypt3.png", 50, 9, 10, 10, 1, 4, 9, 0, AttackType.HOLY) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("readies for your attack.");
+      zoo.boss[bossIndex].attacks[1] = new Attack("attacks.", 45, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("strikes with the flat of its blade.", 50, false);
+      zoo.boss[bossIndex].attacks[3] = new Attack("stabs at you.", 55, false);
+      zoo.boss[bossIndex].attacks[4] = new Attack("swings its weapon!", 60, false);
   bossIndex++;
-  m[1].tiles[96][73].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Ivy", "Crypt4.png", 50, 2, 10, 2, 8, 9, 7, 0, AttackType.NONE) );
-      zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
-      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 35, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
-      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false);
-      zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false);
+  m[1].tiles[96][73].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Ivy", "Crypt4.png", 50, 2, 10, 2, 8, 9, 7, 0, AttackType.HOLY) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("gazes silently.");
+      zoo.boss[bossIndex].attacks[1] = new Attack("swings its staff.", 45, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("levitates a tomb stone.", 50, false, AttackStat.MAG, AttackType.EARTH );
+      zoo.boss[bossIndex].attacks[3] = new Attack("speaks a secret word.", 55, false, AttackStat.MAG, AttackType.HOLY );
+      zoo.boss[bossIndex].attacks[4] = new Attack("summons a storm of tomb dust!", 50, true, AttackStat.MAG, AttackType.WIND );
   bossIndex++;
-  m[1].tiles[96][83].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Erar", "Crypt5.png", 50, 2, 10, 2, 8, 9, 7, 0, AttackType.NONE) );
-      zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
-      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 35, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
-      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false);
-      zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false);
+  m[1].tiles[96][83].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Erar", "Crypt5.png", 50, 2, 10, 2, 9, 8, 7, 0, AttackType.HOLY) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("makes arcane gestures.");
+      zoo.boss[bossIndex].attacks[1] = new Attack("swings its staff.", 45, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("causes the crypt to shake!", 45, true, AttackStat.MAG, AttackType.EARTH );
+      zoo.boss[bossIndex].attacks[3] = new Attack("delivers an icy touch.", 50, false, AttackStat.MAG, AttackType.ICE );
+      zoo.boss[bossIndex].attacks[4] = new Attack("conjures a ring of fire!", 55, true, AttackStat.MAG, AttackType.FIRE );
   bossIndex++;
   
   //Danger Map 1
@@ -1036,7 +1072,7 @@ void setupMaps()
   mapStrings[mapIndex] += "33333333333∏33333333333333333333333333333333YYYY¨¨YYY¨¨Y3333333333333333333333¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
   mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨,¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3333333333333333¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨YYYYYYYYYYYYYY";
   mapStrings[mapIndex] += "33¨|¨g¨g¨g¨,¨g¨g¨g¨|¨33¨g¨g¨g¨g¨g¨g¨g¨g¨g¨3333¨¨¨¨¨¨,,,333¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨YYYYYYYYYYYYYY";
-  mapStrings[mapIndex] += "33¨,¨¨¨,¨¨¨,¨¨¨,¨,¨¨¨33¨,¨¨¨¨¨¨¨∞¨¨¨¨¨,¨,¨333¨¨Y¨¨V¨¨¨,,33¨¨¨g¨¨¨g¨¨¨g¨¨¨g¨¨¨3¨¨¨¨¨¨¨¨YYYYYYYYYYYYYY";
+  mapStrings[mapIndex] += "33¨,¨¨¨,¨¨¨,¨¨¨,¨,¨¨¨33¨,¨¨¨¨¨¨¨∞¨¨¨,¨¨¨%¨333¨¨Y¨¨V¨¨¨,,33¨¨¨g¨¨¨g¨¨¨g¨¨¨g¨¨¨3¨¨¨¨¨¨¨¨YYYYYYYYYYYYYY";
   mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨,¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨3¨¨¨¨,,3¨¨¨%¨¨¨~¨¨¨%¨¨¨~¨¨¨3¨¨¨¨¨¨¨¨33333333333333";
   mapStrings[mapIndex] += "33¨g¨g¨g¨|¨,¨g¨|¨g¨|¨33¨g¨|¨g¨g¨g¨g¨g¨g¨|¨33¨¨¨¨¨¨¨¨¨¨Y,,3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨33333333333333";
   mapStrings[mapIndex] += "33¨∞¨∞¨¨¨¨¨,¨¨¨¨¨¨¨,¨33¨,¨,¨¨¨,¨¨¨,¨,¨,¨¨¨33Y¨¨¨¨¨¨¨¨¨¨¨,3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨YY33Y#######33";
@@ -1046,24 +1082,24 @@ void setupMaps()
   mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3|¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨|3¨¨¨¨¨¨.¨¨¨¨¨¨3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨%%%3¨¨¨¨¨¨¨¨YY33¨###<###33";
   mapStrings[mapIndex] += "33¨g¨g¨|¨g¨g¨|¨g¨|¨|¨33¨g¨|¨|¨g¨g¨g¨g¨|¨|¨33¨¨¨¨¨¨.¨¨¨¨¨¨3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨%%3¨¨¨¨¨¨¨¨YY33¨¨¨###¨¨33";
   mapStrings[mapIndex] += "33¨,¨¨¨,¨,¨¨¨∞¨,¨¨¨,¨33¨,¨¨¨,¨¨¨,¨,¨,¨,¨,¨33%%¨¨¨¨.¨¨¨¨¨¨3¨¨¨g¨¨¨|¨¨¨g¨¨¨g¨¨%3¨¨¨¨¨¨¨¨YY333333¨33333";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨333%%¨¨¨.¨¨¨Y¨33¨¨¨~¨¨¨¨¨¨¨¨¨¨¨%¨¨¨3¨¨¨¨¨¨¨¨YY333333¨33333";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3333%%%¨.¨¨¨¨333¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨,,∞,,,,,,,∞,33";
-  mapStrings[mapIndex] += "33333333333 33333333333333333333333333333333333333.3333333¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨,,,,∞,,,,,,,33";
-  mapStrings[mapIndex] += "33333333333 333333333333333333333333333333333333¨...¨3333333333333333333333333¨¨¨¨¨¨¨¨,,,,,,,,,∞,,33";
+  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨333%%¨¨¨.¨¨¨Y¨33¨¨¨~¨¨¨¨¨¨,,,¨¨%¨¨¨3¨¨¨¨¨¨¨¨YY333333¨33333";
+  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3333%%%¨.¨¨¨¨333¨¨¨¨¨¨¨¨¨¨¨,¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨,,∞,,,,,,,∞,33";
+  mapStrings[mapIndex] += "33333333333333333333333333 33333333333333333333333.3333333¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨,,,,∞,,,,,,,33";
+  mapStrings[mapIndex] += "33333333333333333333333333 333333333333333333333¨...¨3333333333333333333333333¨¨¨¨¨¨¨¨,,,,,,,,,∞,,33";
   mapStrings[mapIndex] += "33¨Y¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨y¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨33¨¨Y¨¨...¨¨¨¨Y33¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
   mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨YY¨¨¨¢¢¢¢¢¢¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨V¨...¨V¨¨¨33¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨Y3&33 3¨¨¨¨¨¨¨¨Y¨¨¨Y¨¨¨¨33¨¨¨3¨...¨3Y¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨333333¨Y¨¨¨YY¨¨¨¨¨¨¨¨¨Y33Y¨¨¨¨...¨¨¨¨¨33¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨33<<33¨¨Y¨¨¨¨¨¨¨¨¨¨¨Y¨¨33¨¨¨¨¨...¨¨¨Y¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨Y¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨..Y¨¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨33¨¨¨¨Y...Y¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨..¨¨¨.333333333333¨Y¨33¨Y¨¨¨...¨¨¨¨Y33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨33333333333>..........>33333333333¨¨¨33¨¨¨V¨...¨V¨¨¨33¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨333333333333|¨¨¨..¨¨¨|333333333333¨¨Y33¨¨¨3¨...¨3¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33Y¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨..¨¨¨,,,∞,ww,,¨¨¨¨¨¨¨33¨¨¨¨¨...¨¨Y¨¨33Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨¨¨¨¨..¨,,,,,,,,,,¨¨¨¨¨¨¨¨33¨¨¨Y¨...¨¨¨¨¨33¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨..,,,,333333333333Y¨¨33¨¨¨¨¨...Y¨¨¨¨33¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨Y¨33333333333>.....,,,..>33333333333¨¨¨33¨Y¨¨¨...¨¨¨Y¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨,,,¨¨|333333333333¨Y¨33¨¨¨V¨...¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
+  mapStrings[mapIndex] += "33¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨Y3&33 3¨¨¨¨¨¨¨¨Y¨¨¨Y¨¨¨¨33¨¨¨3¨...¨3Y¨¨33¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨";
+  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨333333¨Y¨¨¨YY¨¨¨¨¨¨¨¨¨Y33Y¨¨¨¨...¨¨¨¨¨33¨¨¨Y¨¨¨Y¨¨¨¨¨¨Y¨¨Y¨¨¨¨YY¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
+  mapStrings[mapIndex] += "33¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨33<<33¨¨Y¨¨¨¨¨¨¨¨¨¨¨Y¨¨33¨¨¨¨¨...¨¨¨Y¨33¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨¨Y¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
+  mapStrings[mapIndex] += "33¨¨Y¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨..Y¨¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨33¨¨¨¨Y...Y¨¨¨¨33¨¨Y¨¨3333333¨Y¨¨¨3333333¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨";
+  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨..¨¨¨.333333333333¨Y¨33¨Y¨¨¨...¨¨¨¨Y33¨¨¨¨Y3&333&3Y¨¨¨¨3&333&3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
+  mapStrings[mapIndex] += "33¨¨¨33333333333>..........>33333333333¨¨¨33¨¨¨V¨...¨V¨¨¨33¨Y¨¨¨3333333¨¨Y¨¨3333333¨Y¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨";
+  mapStrings[mapIndex] += "33¨¨¨333333333333|¨¨¨..¨¨¨|333333333333¨¨Y33¨¨¨3¨...¨3¨¨¨33¨¨¨Y¨3¨3<3¨3¨¨¨¨Y3¨3<3¨3¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
+  mapStrings[mapIndex] += "33Y¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨..¨¨¨,,,∞,ww,,¨¨¨¨¨¨¨33¨¨¨¨¨...¨¨Y¨¨33Y¨Y¨¨3¨¨¨¨¨3¨Y¨¨¨3¨¨¨¨¨3¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨";
+  mapStrings[mapIndex] += "33¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨¨¨¨¨..¨,,,,,,,,,,¨¨¨¨¨¨¨¨33¨¨¨Y¨...¨¨¨¨¨33¨¨¨¨Y3¨¨>¨¨3¨¨¨Y¨3¨¨>¨¨3Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
+  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨..,,,,333333333333Y¨¨33¨¨¨¨¨...Y¨¨¨¨33¨Y¨¨¨3333333¨¨¨¨¨3333333¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
+  mapStrings[mapIndex] += "33¨Y¨33333333333>.....,,,..>33333333333¨¨¨33¨Y¨¨¨...¨¨¨Y¨33¨¨¨¨¨¨Y¨¨¨¨¨¨¨Y¨¨Y¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
+  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨,,,¨¨|333333333333¨Y¨33¨¨¨V¨...¨¨¨¨¨33¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
   mapStrings[mapIndex] += "33¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨,,¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨3¨...¨|¨Y¨33¨¨¨¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨Y¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨¨Y¨¨Y¨¨";
   mapStrings[mapIndex] += "33Y¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨,,,¨¨¨¨¨¨¨¨¨¨¨Y¨¨YY¨¨¨33¨¨Y¨¨...¨¨¨¨¨33¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨¨¨YY¨¨¨¨Y¨¨Y¨";
   mapStrings[mapIndex] += "33¨¨¨333333333333G¨,,,.¨¨¨|333333333333¨¨¨33¨¨¨¨¨...Y¨¨¨¨33¨Y¨¨¨Y¨¨Y¨¨Y¨¨¨Y¨¨¨¨¨¨Y¨¨¨¨Y¨¨Y¨¨YYYYYYYY";
@@ -1091,6 +1127,7 @@ void setupMaps()
   m[2].tiles[11][57].createEvent(false, "- An icy wind brushes your faces. It is the only sound within these walls.");
   m[2].tiles[43][65].createEvent(false, "- A figure stands in the courtyard, hazy like smoke and clear like glass.");
   m[2].tiles[44][65].createEvent(false, "- And he is not alone.");
+  m[2].tiles[66][64].createEvent(false, "- Sounds of battle rise above the graveyard walls. The clash of metal, the scrape of bone, and screams.");
   //Pavel hut
   m[2].tiles[94][65].createEvent(false, "- You remember Father Pavel from your youth, the gravekeeper of Baron's Field. Back then his skin was healthy, and did not hang from his bones like a wet garment.");
   //Graves
@@ -1199,10 +1236,73 @@ void setupMaps()
   exits.add( new Portal(2,40,59,1,28,48, "?") );
   
   //Secret Grave
-  exits.add( new Portal(2,69,69,2,21,77, "Baron's Field") );
+  exits.add( new Portal(2,69,69,1,67,62, "Catacombs") );
   
-  //savePoints[savePointIndex++] = new SavePoint(2, 7, 7);
+  //From Cenotaph Field 1
+  exits.add( new Portal(2,67,83,1,3,72, "Mausoleum") );
+  //Cenotaph 1
+  exits.add( new Portal(2,67,81,1,80,98, "Cenotaph") );
   
+  //From Cenotaph Field 2
+  exits.add( new Portal(2,79,83,1,9,88, "Mausoleum") );
+  //Cenotaph 2
+  exits.add( new Portal(2,79,81,1,94,98, "Cenotaph") );
+  
+  //savePoints[savePointIndex++] = new SavePoint(2, 67, 62);
+  
+  //Danger Map 1
+  dangerMapIndex = 2; dangerStrs[dangerMapIndex] = "";
+  for(int i = 0; i < 57; i++)
+    dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+  
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
+
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+
+  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444";
+  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444";
+  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444000044";
+  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444000044";
+  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444";
+  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444";
+  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444";
+  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444";
+  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444";
+  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444";
   
   //------------------------------------------
   //Activate danger maps
@@ -1270,7 +1370,9 @@ void setNameDependentText()
   //player 3's friend
   m[0].tiles[32][55].placeOccupant( color(165,150,50), "- Hello "+party.hero[2].name+". Sorry I haven't brought you any new books lately. The library is next to Baron's Field, and was one of the first places we abandoned. If your "+heroWeapon[2]+" can clear out the animated dead, I'll get you the next story in that series you like so much." );
   m[2].tiles[78][28].placeOccupant( color(male), "- It's a sorry sight, "+party.hero[2].name+". I spent so many days in here, as did you. As I recall, you spent some nights with a book for a pillow when the hours got away from you. I want to salvage what books remain, but some of the abominations were trapped inside. I've opened the door for you. Our reclamation begins here." );
-  
+  //player 3's parent
+  m[1].tiles[95][92].placeOccupant( color(255,150), "- You've grown strong, "+party.hero[2].name+". I... I watched as you studied under Charis. From time to time I read over your shoulder at the library. I was so afraid for you as I lay dying, and at first I disliked the name "+party.hero[2].name+"... I've said too much. Sleep soundly and complete your task. " );
+ 
   //Teachers
   m[0].tiles[8][36].placeOccupant( color(200, 150, 200), "- Knights"+knightName+" rely on their armor, and gain two energy when they defend against an attack. Barbarians"+barbName+" gain one anger whenever they are attacked." );
   m[0].tiles[12][36].placeOccupant( color(200, 150, 200), "- Thieves"+thiefName+" gain five energy on successful critical blows. Martial artists"+monkName+" do not gain bonus energy, but will always start a fight full of spiritual power." );
@@ -1293,9 +1395,10 @@ void setNameDependentText()
   
 }
 
-//Expected Level
+//Expected Level:
 //Rat queen 1.7
 //man-wolf 3.3
+//crypt guards 4.5 before, 5.2 back at courtyard
 
 //Deities:
 //Black Vanguard - anubis

@@ -1,4 +1,4 @@
-//Tables from which random chest loot is derived
+//Tables from which random chest loot is derived (CURRENTLY NOT USED FOR THAT PURPOSE)
 
 class LootTable
 {

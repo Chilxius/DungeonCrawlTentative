@@ -370,6 +370,10 @@ class Tile
     itemPrice = price;
     itemForSale = i;
     type = TileType.SHOP;
+    
+    event = true;
+    repeatable = true;
+    eventText=i.shopString(price);
   }
   
   public void placeSeller()

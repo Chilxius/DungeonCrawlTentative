@@ -12,6 +12,7 @@
 //Grave text
 //Skills: animation system
 //initiate classroom
+//Make battles stop triggering on spaces with events
 
 //IMPROVEMENT:
 //Synergy on food menu
@@ -31,6 +32,7 @@
 //I edited the log class again to not add text from an empty string
 //Poison seems to be killing heroes properly
 //poison dealt 1 but removed 2 (couldn't reproduce)
+//I cut the value of armor in half in the code to normalize damage - might need to re-test earlier levels
 
 //Turned sound off for the time being. Will include later with Beads
 //import processing.sound.*;
@@ -518,7 +520,7 @@ boolean checkForBattle()
   randomBattleCounter++;
   
   if(randomBattleCounter > 0 && randomBattleCounter % 5 == 0)
-    party.tickDownPoisons(); //<>// //<>//
+    party.tickDownPoisons(); //<>//
   
   return false;
 }
@@ -828,7 +830,7 @@ void keyPressed()
     }
     if(display == Display.MAP && key == 'B' ) //buy/sell
     {
-      if( m[party.floor].tiles[party.X][party.Y].type == TileType.SHOP ) //buy
+        if( m[party.floor].tiles[party.X][party.Y].type == TileType.SHOP ) //buy
       {
         if( party.gold >= m[party.floor].tiles[party.X][party.Y].itemPrice ) //party has enough gold
         {
@@ -1358,6 +1360,7 @@ public void saveGame( String fileName )
     saveOutput.println(party.hero[i].nextLevel);
     saveOutput.println(party.hero[i].exp);
     saveOutput.println(party.hero[i].hp);
+    saveOutput.println(party.hero[i].mp);
     saveOutput.println(party.hero[i].weapon.name);
     saveOutput.println(party.hero[i].weapon.imageName);
     saveOutput.println(party.hero[i].weapon.value);
@@ -1441,7 +1444,7 @@ public void loadFile( String fileName )
     //load hero data
     for (int i = 0, offset; i < 3; i++) 
     {
-      offset = i*18;
+      offset = i*19;
       party.hero[i] = new Hero(saveFileText[0+offset],
                                stringToJob(saveFileText[1+offset]),
                                color(int(saveFileText[2+offset]),int(saveFileText[3+offset]),int(saveFileText[4+offset])),
@@ -1450,9 +1453,9 @@ public void loadFile( String fileName )
       party.hero[i].nextLevel = int(saveFileText[6+offset]);
       party.hero[i].exp = int(saveFileText[7+offset]);
       party.hero[i].hp = int(saveFileText[8+offset]);
-      
-      party.hero[i].weapon = new Equipment(saveFileText[9+offset],saveFileText[10+offset],int(saveFileText[11+offset]),true,int(saveFileText[12+offset]));
-      party.hero[i].armor = new Equipment(saveFileText[13+offset],saveFileText[14+offset],int(saveFileText[15+offset]),false,int(saveFileText[16+offset]));
+      party.hero[i].mp = int(saveFileText[9+offset]);
+      party.hero[i].weapon = new Equipment(saveFileText[10+offset],saveFileText[11+offset],int(saveFileText[12+offset]),true,int(saveFileText[13+offset]));
+      party.hero[i].armor = new Equipment(saveFileText[14+offset],saveFileText[15+offset],int(saveFileText[16+offset]),false,int(saveFileText[17+offset]));
       party.hero[i].adjustStats();
       //party.hero[i].assignSkills();
     }
@@ -1462,14 +1465,14 @@ public void loadFile( String fileName )
     setNameDependentText();
     
     //load save point
-    println("Save point # " + int(saveFileText[54]));
-    party.setPosition(savePoints[int(saveFileText[54])]); //line 54, will be based on list
+    println("Save point # " + int(saveFileText[57]));
+    party.setPosition(savePoints[int(saveFileText[57])]); //line 54, will be based on list
     
-    party.gold = int(saveFileText[56]);
+    party.gold = int(saveFileText[59]);
     
     //load inventory items
     createInventories(); //zeros out inventories - may be redundant in final version
-    int fileLine = 57; //first line of inventory data
+    int fileLine = 60; //first line of inventory data
     while(!saveFileText[fileLine].equals("XX"))
     {
       party.addToInventory(new Item(saveFileText[fileLine],int(saveFileText[fileLine+1])),true);

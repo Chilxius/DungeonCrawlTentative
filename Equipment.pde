@@ -78,6 +78,11 @@ class Equipment extends Item
         return true;
     return false;
   }
+  
+  public String shopString( int p )
+  {
+    return name+": "+p+" Gold  "+power+" Power";
+  }
 }
 
 /*
