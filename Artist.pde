@@ -306,13 +306,13 @@ class Artist
     stroke(200); textSize(18); textAlign(CENTER);
     rectMode(CORNER); rect(40,200,620,300,20); rectMode(CENTER);
     /*level 1 skill*/            noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],140,280); rect(140,280,70,70,20); fill(200); text(party.hero[h].skill[0].description,140,240); text("Cost: "+party.hero[h].skill[0].cost,140,335); text("Q",165,305);
-    if(party.hero[h].level>5 ) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],280,280); rect(280,280,70,70,20); fill(200); text(party.hero[h].skill[1].description,280,240); text("Cost: "+party.hero[h].skill[0].cost,280,335); text("W",305,305); }
-    if(party.hero[h].level>10) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],420,280); rect(420,280,70,70,20); fill(200); text(party.hero[h].skill[2].description,420,240); text("Cost: "+party.hero[h].skill[0].cost,420,335); text("E",445,305); }
-    if(party.hero[h].level>15) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],560,280); rect(560,280,70,70,20); fill(200); text(party.hero[h].skill[3].description,560,240); text("Cost: "+party.hero[h].skill[0].cost,560,335); text("R",585,305); }
-    if(party.hero[h].level>20) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],140,430); rect(140,430,70,70,20); fill(200); text(party.hero[h].skill[4].description,140,390); text("Cost: "+party.hero[h].skill[0].cost,140,485); text("A",165,455); }
-    if(party.hero[h].level>25) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],280,430); rect(280,430,70,70,20); fill(200); text(party.hero[h].skill[5].description,280,390); text("Cost: "+party.hero[h].skill[0].cost,280,485); text("S",305,455); }
-    if(party.hero[h].level>30) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],420,430); rect(420,430,70,70,20); fill(200); text(party.hero[h].skill[6].description,420,390); text("Cost: "+party.hero[h].skill[0].cost,420,485); text("D",445,455); }
-    if(party.hero[h].level>35) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],560,430); rect(560,430,70,70,20); fill(200); text(party.hero[h].skill[7].description,560,390); text("Cost: "+party.hero[h].skill[0].cost,560,485); text("F",585,455); }
+    if(party.hero[h].level>=5 ) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],280,280); rect(280,280,70,70,20); fill(200); text(party.hero[h].skill[1].description,280,240); text("Cost: "+party.hero[h].skill[0].cost,280,335); text("W",305,305); }
+    if(party.hero[h].level>=10) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],420,280); rect(420,280,70,70,20); fill(200); text(party.hero[h].skill[2].description,420,240); text("Cost: "+party.hero[h].skill[0].cost,420,335); text("E",445,305); }
+    if(party.hero[h].level>=15) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],560,280); rect(560,280,70,70,20); fill(200); text(party.hero[h].skill[3].description,560,240); text("Cost: "+party.hero[h].skill[0].cost,560,335); text("R",585,305); }
+    if(party.hero[h].level>=20) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],140,430); rect(140,430,70,70,20); fill(200); text(party.hero[h].skill[4].description,140,390); text("Cost: "+party.hero[h].skill[0].cost,140,485); text("A",165,455); }
+    if(party.hero[h].level>=25) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],280,430); rect(280,430,70,70,20); fill(200); text(party.hero[h].skill[5].description,280,390); text("Cost: "+party.hero[h].skill[0].cost,280,485); text("S",305,455); }
+    if(party.hero[h].level>=30) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],420,430); rect(420,430,70,70,20); fill(200); text(party.hero[h].skill[6].description,420,390); text("Cost: "+party.hero[h].skill[0].cost,420,485); text("D",445,455); }
+    if(party.hero[h].level>=35) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],560,430); rect(560,430,70,70,20); fill(200); text(party.hero[h].skill[7].description,560,390); text("Cost: "+party.hero[h].skill[0].cost,560,485); text("F",585,455); }
     
     fill(0); rect(baseX+75,545,70,70,20);drawCancelIcon(baseX+75,545);
   }
