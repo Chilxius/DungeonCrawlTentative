@@ -179,9 +179,6 @@ class Artist
     rect(215,195,305,35);
     rect(215,275,305,35);
     int breadCount=0,porkCount=0,fruitCount=0,crabCount=0;
-    fill(0);  rectMode(CORNER);
-    stroke(200); strokeWeight(5);
-    rect(100,100,width-200,height-200,20);
     
     for( Item i : items )
       if( i.value == 10 )
@@ -192,12 +189,18 @@ class Artist
         fruitCount++;
       else if( i.value == 40 )
         crabCount++;
+        
+    drawFoodSynergyBox(breadCount,porkCount,fruitCount,crabCount);
+        
+    fill(0);  rectMode(CORNER);
+    stroke(200); strokeWeight(5);
+    rect(100,100,width-200,height-200,20);
     
-    noStroke();
-    if(breadCount>0) { fill(#F2CE69,50); rect(205,185,315,45,20); }
-    if(porkCount>0)  { fill(#B46C31,50); rect(205,265,315,45,20); }
-    if(fruitCount>0) { fill(#00FF28,50); rect(205,345,315,45,20); }
-    if(crabCount>0)  { fill(#FF0032,50); rect(205,425,315,45,20); }
+    noStroke(); textAlign(LEFT);
+    if(breadCount>0) { fill(#F2CE69,50); rect(205,185,385,45,20); rect(205,490,40,40,20); fill(255); text(":"+breadCount,250,515); }
+    if(porkCount>0)  { fill(#B46C31,50); rect(205,265,385,45,20); rect(305,490,40,40,20); fill(255); text(":"+porkCount, 350,515); }
+    if(fruitCount>0) { fill(#00FF28,50); rect(205,345,385,45,20); rect(405,490,40,40,20); fill(255); text(":"+fruitCount,450,515); }
+    if(crabCount>0)  { fill(#FF0032,50); rect(205,425,385,45,20); rect(505,490,40,40,20); fill(255); text(":"+crabCount, 550,515); }
     
     fill(200); textAlign(CENTER); textSize(40);
     text("Select Meal",width/2,150);
@@ -205,13 +208,13 @@ class Artist
     strokeWeight(5);
     //Fork
     fill(180);
-    rect(150,290,20,130,10);
-    rect(145,390,30,180,20);
-    rect(180,215,10,80,5);
-    rect(130,215,10,80,5);
-    rect(155,215,10,80,5);
-    rect(130,285,60,10);
-    
+    rect(145,290,20,130,10);
+    rect(140,390,30,180,20);
+    rect(175,215,10,80,5);
+    rect(125,215,10,80,5);
+    rect(150,215,10,80,5);
+    rect(125,285,60,10);
+    /*
     //Knife
     fill(180);
     rect(530,390,30,180,20);
@@ -221,16 +224,16 @@ class Artist
     vertex(530,390);
     bezierVertex(530,390,530,115,560,145);
     endShape();
-        
+    */  
     fill(200); textAlign(LEFT); textSize(35);
     if(breadCount>0)
-      text("1 - "+party.nextFoodName(0)+": "+breadCount,210,220);
+      text("1 - "+party.nextFoodName(0),210,220);
     if(porkCount>0)
-      text("2 - "+party.nextFoodName(1)+": "+porkCount,210,300);
+      text("2 - "+party.nextFoodName(1),210,300);
     if(fruitCount>0)
-      text("3 - "+party.nextFoodName(2)+": "+fruitCount,210,380);
+      text("3 - "+party.nextFoodName(2),210,380);
     if(crabCount>0)
-      text("4 - "+party.nextFoodName(3)+": "+crabCount,210,460);
+      text("4 - "+party.nextFoodName(3),210,460);
       
     fill(200); textAlign(CENTER); textSize(25);
     text("Select by number or",width/2,560);
@@ -473,6 +476,30 @@ class Artist
       text("willpower are.",570,460);
       text("sealed.",570,472);
     }
+  }
+  
+  public void drawFoodSynergyBox( int b, int m, int f, int c )
+  {
+    int types=0, amount;
+    if(b>0)types++;if(m>0)types++;if(f>0)types++;if(c>0)types++;
+    switch(types)
+    {
+      case 1: amount = 0;  break;
+      case 2: amount = 10; break;
+      case 3: amount = 25; break;
+      case 4: amount = 50; break;
+      default: amount = 0; break;
+    }
+    fill(255); textAlign(CENTER);
+    textSize(15); text("SYNERGY",645,220);
+    textSize((amount-1)*10); text(amount+"%",645,265);
+    noStroke();
+
+    stroke(150,150,50); strokeWeight(1);
+
+    noFill(); rectMode(CORNER);
+    stroke(200); strokeWeight(5);
+    rect(580,200,110,103,20); //box
   }
   
   public void drawGoldBox()

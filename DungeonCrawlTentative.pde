@@ -4,6 +4,7 @@
 //PROBLEMS:
 //Fix lineLength error and problem with not printing entire line
 //Fix objects getting strange tile colors
+//Enemy wound reports can go over text limit
 
 //TO DO:
 //Graveyard boss and mini-boss
@@ -20,10 +21,8 @@
 //Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair
 
 //IMAGES I NEED:
-//Vendor stall
-//Robes
-//Fur armor
-//Bed
+//Bread, fruit, meat, crab
+//Potion
 
 //NOTES:
 //I edited the log class to remove spaces in text - might cause errors downstream
