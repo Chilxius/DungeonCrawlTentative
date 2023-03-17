@@ -57,7 +57,8 @@ class Tile
       case '#':type=TileType.WALL;break;
       case '$':type=TileType.SECRET_WALL;break;
       case '3':type=TileType.DARK_WALL;break;
-      case '¢':type=TileType.SECRET_DARK_WALL;break;
+      case '¢':type=TileType.SECRET_DARK_WALL;break; //alt+4
+      case '›':type=TileType.DARK_WALL_CLIMBABLE;break; //shift+alt+4
       case '4':type=TileType.SAND_WALL;break;
       case '6':type=TileType.CAVE; break;
       case '§':type=TileType.CAVE_BROWN; break; //alt+6
@@ -78,6 +79,7 @@ class Tile
       case 'y':type=TileType.DEAD_TREE_PATH;break;
       //case 'g':type=TileType.GRAVE;break;
       case '&':type=TileType.S_GLASS;break;
+      case '‡':type=TileType.SECRET_GLASS;break;
       case '>':type=TileType.STAIR;break;
       case '<':type=TileType.STAIR_DOOR;break;
       case ' ':type=TileType.DARK;break;
@@ -134,6 +136,7 @@ class Tile
       case '@':obj=Object.TENT;type=TileType.SAFE;break;
       case '€':obj=Object.BED;type=TileType.SAFE;break;
       case 'V':obj=Object.VANGUARD;type=TileType.SAFE;break;
+      case '¶':obj=Object.BROKE_GLASS;break; //alt+7
       default: obj=Object.NONE;break;
     }
     
@@ -265,6 +268,9 @@ class Tile
       case S_GLASS:
         tileColor = color(120);
         pathable = false;
+        break;
+      case SECRET_GLASS:
+        tileColor = color(120);
         break;
       case GARGOYLE_JADE:
       case GARGOYLE_DARK:
@@ -410,7 +416,7 @@ class Tile
   
   public void createEvent( boolean r, String s )
   {
-    type = TileType.EVENT;
+    //type = TileType.EVENT;
     event = true;
     repeatable = r;
     eventText=s;
@@ -517,7 +523,7 @@ class Tile
     rect(xPos,yPos,30,30);
     if(type == TileType.WALL || type == TileType.SECRET_WALL)
       image(tileImage[0],xPos,yPos);
-    else if(type == TileType.DARK_WALL || type == TileType.SECRET_DARK_WALL)
+    else if(type == TileType.DARK_WALL || type == TileType.SECRET_DARK_WALL || type == TileType.DARK_WALL_CLIMBABLE)
       image(tileImage[49],xPos,yPos); //49
     else if(type == TileType.SAND_WALL)
       image(tileImage[50],xPos,yPos);
@@ -543,7 +549,7 @@ class Tile
       image(tileImage[72],xPos,yPos-4);
     else if(type == TileType.TILE_BLUE)
       image(tileImage[74],xPos,yPos-4);
-    else if(type == TileType.S_GLASS)
+    else if(type == TileType.S_GLASS||type==TileType.SECRET_GLASS)
       image(tileImage[43],xPos,yPos);
     else if(type == TileType.DOOR)
       image(tileImage[39],xPos,yPos);
@@ -675,9 +681,9 @@ public enum TileType
   DARK, BLACK_WALL,
   CAVE, CAVE_BROWN,
   BOOK, BOOK_EMPTY, BOOK_SECRET, BL_BOOK, BK_BOOK, 
-  WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, SAND_WALL, RUBBLE,
+  WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, DARK_WALL_CLIMBABLE, SAND_WALL, RUBBLE,
   DOOR, DOOR_GATE, PORTCULLIS, DOORSTEP,
-  GRAVE, S_GLASS, GARGOYLE, GARGOYLE_DARK, GARGOYLE_JADE, WEREWOLF_WHITE,
+  GRAVE, S_GLASS, SECRET_GLASS, GARGOYLE, GARGOYLE_DARK, GARGOYLE_JADE, WEREWOLF_WHITE,
   CAMP, MERCHANT, SHOP, SELL,
   STAIR, STAIR_DOOR
 }
@@ -699,5 +705,6 @@ public enum Object //tile has an object (still pathable)
   GRAVE, RUBBLE,
   TENT, BED,
   VANGUARD,
+  BROKE_GLASS,
   NONE
 }

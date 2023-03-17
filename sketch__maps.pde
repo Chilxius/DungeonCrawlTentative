@@ -455,17 +455,17 @@ void setupMaps()
   mapStrings[mapIndex] += "3.......3  £  3.3[[.#..[#.#  £                  §§§§,,,,,§   §,§          £       £ £     £  #######";
   mapStrings[mapIndex] += "333[=[3+3  £  3.333.#.|##.#  £                     §§§§§,§   §,§          £               £         ";
   mapStrings[mapIndex] += "3>33333c3  £  3.3[..3.[=#.#  £                  §§§,,,,,,§   §,,§          £££££££££££££  £         ";
-  mapStrings[mapIndex] += "3.......3  £  3.333.3.###.#  £                 §,,,,§§§§§     §,,§                      ££ £££££££££";
-  mapStrings[mapIndex] += "333333333  £  3>3=.....[#>#  £                 §,§§§           §,,§                    £            ";
-  mapStrings[mapIndex] += "           £  3333333333###  £                §§,§§      §§§    §,,§                   £            ";
-  mapStrings[mapIndex] += "           £                 £               §,,,,,§§§§§§,,,§§§§§]]§                   £  ∑∑∑∑∑∑∑∑∑∑";
-  mapStrings[mapIndex] += "££££££££££££                 £              §,,§§§,,,,,,,,,,,,,,,,,§§                  £  ∑W,,WW,,W∑";
-  mapStrings[mapIndex] += "            £££££££££££££££££££££££££      §,,§   §§§§,,,,,,~~,,,,,,,§                 £  ∑,,,,,,,,∑";
-  mapStrings[mapIndex] += "                 £         £         £     §,§§       §,,,,,~~~,,,,,,§                 £  ∑,,,,,,,,∑";
-  mapStrings[mapIndex] += "                 £         £         £     §,,,§       §,,,,,,,,,,,§,,§                £  ∑∑∑<∑∑<∑∑∑";
-  mapStrings[mapIndex] += "###############  £  #####  £  WWWWW  £      §§,,§       §,,,,,,,,,§§,,§                £     £  £   ";
-  mapStrings[mapIndex] += "#€#€#.......]]#  £  #∫∫∫#  £  WrrrW  £        §,,§    §§,,,,,,,,,,,§§,§                £            ";
-  mapStrings[mapIndex] += "#.#.#.rrrWWWWW#  £  #∫∫∫#  £  Wrr]W  £         §,,§ §§,,,,,,,§§,,,,,,,§                 ££££££££££££";
+  mapStrings[mapIndex] += "3.......3  £  3.333.3.###.#  £                 §,,,,§§§§§     §,,§       £              ££ £££££££££";
+  mapStrings[mapIndex] += "333333333  £  3>3=.....[#>#  £                 §,§§§           §,,§      £             £            ";
+  mapStrings[mapIndex] += "           £  3333333333###  £                §§,§§      §§§    §,,§     £  333333333  £            ";
+  mapStrings[mapIndex] += "           £                 £               §,,,,,§§§§§§,,,§§§§§]]§     £  3       3  £  ∑∑∑∑∑∑∑∑∑∑";
+  mapStrings[mapIndex] += "££££££££££££                 £              §,,§§§,,,,,,,,,,,,,,,,,§§    £  3       3  £  ∑W,,WW,,W∑";
+  mapStrings[mapIndex] += "            £££££££££££££££££££££££££      §,,§   §§§§,,,,,,~~,,,,,,,§   £  3       3  £  ∑,,,,,,,,∑";
+  mapStrings[mapIndex] += "                 £         £         £     §,§§       §,,,,,~~~,,,,,,§   £  3       3  £  ∑,,,,,,,,∑";
+  mapStrings[mapIndex] += "                 £         £         £     §,,,§       §,,,,,,,,,,,§,,§  £  333333333  £  ∑∑∑<∑∑<∑∑∑";
+  mapStrings[mapIndex] += "###############  £  #####  £  WWWWW  £      §§,,§       §,,,,,,,,,§§,,§  £             £     £  £   ";
+  mapStrings[mapIndex] += "#€#€#.......]]#  £  #∫∫∫#  £  WrrrW  £        §,,§    §§,,,,,,,,,,,§§,§  £             £            ";
+  mapStrings[mapIndex] += "#.#.#.rrrWWWWW#  £  #∫∫∫#  £  Wrr]W  £         §,,§ §§,,,,,,,§§,,,,,,,§   £££££££££££££ ££££££££££££";
   mapStrings[mapIndex] += "#.#.#.rrrrrrr.#  £  ##<##  £  WW<WW  £          §,,§,,,,,,,,§§,,,,,,§§                              ";
   mapStrings[mapIndex] += "#.............#  £    £    £    £    £          §,,,,,,,,,,,,,,,,,,§                                ";
   mapStrings[mapIndex] += "#######<#######  £         £         £         §,,,,,,,,,,,,,,,,,,,,§  §§§§§§§§§§§                  ";
@@ -513,28 +513,28 @@ void setupMaps()
   mapStrings[mapIndex] += "    ####  ####  #..#  ####  ####   ###   ##$#  ##,#  #$##  ####  ####   £  #########   £   #########";
   mapStrings[mapIndex] += "                #..#                      £ £   £ £  £ £                £              £            ";
   mapStrings[mapIndex] += "    ####  ####  #..#  ####  ####          £ £   £ £  £ £                £              £            ";
-  mapStrings[mapIndex] += "   ##..####..####..####..####..##         £ £   £ £  £ £                 £££££££££££££££££££££££££££";
-  mapStrings[mapIndex] += "   #............................#         £ £   £ £  £ £                £              £            ";
-  mapStrings[mapIndex] += "   #.....|##################G...#         £ £   £ £  £ £                £              £            ";
-  mapStrings[mapIndex] += "   #............................#         6,66666,6666,6                £  #########   £   #########";
-  mapStrings[mapIndex] += "   ##..####..####..####..####..##         6,,,,,,,6%~~,6                £  #..33.#.#   £   #.#.33..#";
-  mapStrings[mapIndex] += "    ####  ####  #..#  ####  ####          66666666666666                £  #≠....πç>£  £  £>çπ....≠#";
-  mapStrings[mapIndex] += "                #..#                                                    £  #..33.#.#   £   #.#.33..#";
-  mapStrings[mapIndex] += "          ####  #..#  ####                                              £  #########   £   #########";
-  mapStrings[mapIndex] += "         ##..####..####..#####                                          £              £            ";
-  mapStrings[mapIndex] += "        ##G.................R##                                         £              £            ";
-  mapStrings[mapIndex] += "        #>...................>#                                          £££££££££££££££££££££££££££";
-  mapStrings[mapIndex] += "        ##G.................R##                                          £             £            ";
-  mapStrings[mapIndex] += "         ##.*####..####..#####                                           £             £            ";
-  mapStrings[mapIndex] += "          ####  ####  ####                                               £  ##&###&##  £  ##&###&## ";
-  mapStrings[mapIndex] += "                                                                         £  #...[[..#  £  #3.....3# ";
-  mapStrings[mapIndex] += "                                                                         £  #[..[].|#  £  #3.∫∫∫.3# ";
-  mapStrings[mapIndex] += "                                                                         £  #][....[#  £  #..∫@∫..# ";
-  mapStrings[mapIndex] += "                                                                         £  #[....[[#  £  #..∫∫∫..# ";
-  mapStrings[mapIndex] += "                                                                         £  #......]#  £  #3.....3# ";
-  mapStrings[mapIndex] += "                                                                         £  #|.[....#  £  #3.....3# ";
-  mapStrings[mapIndex] += "                                                                         £  ##&#<#&##  £  ##&#<#&## ";
-  mapStrings[mapIndex] += "                                                                         £     ###     £     ###    ";
+  mapStrings[mapIndex] += "   ##..####..####..####..####..##         £ £   £ £  £ £  ££££££££££££££ £££££££££££££££££££££££££££";
+  mapStrings[mapIndex] += "   #............................#         £ £   £ £  £ £  £             £              £            ";
+  mapStrings[mapIndex] += "   #.....|##################G...#         £ £   £ £  £ £  £             £              £            ";
+  mapStrings[mapIndex] += "   #............................#         6,66666,6666,6  £    33π33    £  #########   £   #########";
+  mapStrings[mapIndex] += "   ##..####..####..####..####..##         6,,,,,,,6%~~,6  £   3     3   £  #..33.#.#   £   #.#.33..#";
+  mapStrings[mapIndex] += "    ####  ####  #..#  ####  ####          66666666666666  £  3       3  £  #≠....πç>£  £  £>çπ....≠#";
+  mapStrings[mapIndex] += "                #..#                                      £  3       3  £  #..33.#.#   £   #.#.33..#";
+  mapStrings[mapIndex] += "          ####  #..#  ####                                £  π       π  £  #########   £   #########";
+  mapStrings[mapIndex] += "         ##..####..####..#####    ££££££££££££££££££££££££   3    ¶  3  £              £            ";
+  mapStrings[mapIndex] += "        ##G...............|.|##  £                        £  3       3  £              £            ";
+  mapStrings[mapIndex] += "        #>..............|....>#  £                        £   3     3    £££££££££££££££££££££££££££";
+  mapStrings[mapIndex] += "        ##G...............#.|##  £  3333333333333££££££   £    33<33     £             £            ";
+  mapStrings[mapIndex] += "         ##.*####..####..# ###   £  3BßB rır BBÍ¢     >£  £      £       £             £            ";
+  mapStrings[mapIndex] += "          ####  ####  ####       £  3    rrr    3££££££   £              £  ##&###&##  £  ##&###&## ";
+  mapStrings[mapIndex] += "                                 £  3±≠       ≠≠3          £££££££££££££££  #...[[..#  £  #3.....3# ";
+  mapStrings[mapIndex] += "                                 £  33333   33333                        £  #[..[].|#  £  #3.∫∫∫.3# ";
+  mapStrings[mapIndex] += "          £££££££££££££££££££££££        3 3                             £  #][....[#  £  #..∫@∫..# ";
+  mapStrings[mapIndex] += "                                        33 3333333333333333              £  #[....[[#  £  #..∫∫∫..# ";
+  mapStrings[mapIndex] += "                                        3   3  3  3  3  3 3333333333333  £  #......]#  £  #3.....3# ";
+  mapStrings[mapIndex] += "                                        3                            >3  £  #|.[....#  £  #3.....3# ";
+  mapStrings[mapIndex] += "                                        3   3  3  3  3  3 3333333333333  £  ##&#<#&##  £  ##&#<#&## ";
+  mapStrings[mapIndex] += "                                        3333333333333333333              £     ###     £     ###    ";
   
   m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
   //m[1].floorNumber=1;
@@ -596,6 +596,11 @@ void setupMaps()
   m[1].tiles[2][15].createEvent(false, "- Whatever that is, it's big. Make sure to (E)at if you feel weak.");
   m[1].tiles[6][15].createEvent(false, "- This hole was made recently.");
   m[1].tiles[94][97].createEvent(false, "- The disjoined spirits of Irohill stand in a ring around the old campsite.");
+  
+  //Boss Taunts
+  m[1].tiles[56][97].createEvent(false, "- FEAR NOT THAT WHICH CAN DESTROY THE FLESH...");
+  m[1].tiles[50][97].createEvent(false, "- NOR THAT WHICH CAN LAME THE SPIRIT...");
+  m[1].tiles[44][97].createEvent(false, "- FEAR ME WHO CAN DO BOTH.");
   
   
   m[1].tiles[17][3].placeOccupant( color(75,100,255), "- Good morning, young ones. We made fresh bread this morning. To eat food you are carrying, press capital (E). You need peace and quiet to eat. Don't try to eat during a fight or it will ruin your digestion." );
@@ -681,7 +686,6 @@ void setupMaps()
   m[1].tiles[67][65].placeOccupant( color(200,150), "- Do you desire justice upon us for our role in this? My descendants and friends suffer. I hear their cries, but they are deaf to mine. No criminal court could do more to me." );
   m[1].tiles[48][74].placeOccupant( color(200,150), "- Could you please tell Mother Sunita that my tomb is leaking? Because I'm worried about the safety of the entire catacomb, of course." );
   m[1].tiles[12][71].placeOccupant( color(255,150), "- Our enemy stored his supplies in the cenotaph up ahead. It will do him no good now. Take it. Save Irohill." );
-  m[1].tiles[13][89].placeOccupant( color(255,150), "- No one can say where the tears of Ritisu will fall." );
   
   //Circle of Ghosts
   m[1].tiles[93][96].placeOccupant( color(255,150), "- I have watched over Irohill for fifteen generations. I have watched you brave this cursed place. Now we shall watch and protect while you rest and prepare for the coming fight." );
@@ -696,7 +700,7 @@ void setupMaps()
   savePoints[savePointIndex++] = new SavePoint(1, 96, 14); //Temple
   savePoints[savePointIndex++] = new SavePoint(1, 39, 49); //Mausoleum
   savePoints[savePointIndex++] = new SavePoint(1, 68, 61); //Temp save
-  savePoints[savePointIndex++] = new SavePoint(1, 12, 90); //Last save before boss
+  //savePoints[savePointIndex++] = new SavePoint(1, 12, 90); //Last save before boss
   
   //Start room - second room
   exits.add( new Portal(1,1,6,1,15,7) );
@@ -786,6 +790,12 @@ void setupMaps()
   exits.add( new Portal(1,9,88,2,79,83, "Baron's Field") );
   //From Cenotaph 2
   exits.add( new Portal(1,94,98,2,79,81, "Baron's Field") );
+  
+  //To Final Stretch
+  exits.add( new Portal(1,29,88,2,98,83, "Silent Path") );
+  
+  exits.add( new Portal(1,65,89,1,69,97) );
+  exits.add( new Portal(1,86,91,1,1,98) );
   
   //Dragon Grave
   exits.add( new Portal(1,28,48,2,40,59, "Baron's Field") );
@@ -905,6 +915,13 @@ void setupMaps()
       zoo.boss[bossIndex].attacks[3] = new Attack("delivers an icy touch.", 50, false, AttackStat.MAG, AttackType.ICE );
       zoo.boss[bossIndex].attacks[4] = new Attack("conjures a ring of fire!", 55, true, AttackStat.MAG, AttackType.FIRE );
   bossIndex++;
+  m[1].tiles[42][97].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Erar", "Crypt5.png", 50, 2, 10, 2, 9, 8, 7, 0, AttackType.HOLY) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("makes arcane gestures.");
+      zoo.boss[bossIndex].attacks[1] = new Attack("swings its staff.", 45, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("causes the crypt to shake!", 45, true, AttackStat.MAG, AttackType.EARTH );
+      zoo.boss[bossIndex].attacks[3] = new Attack("delivers an icy touch.", 50, false, AttackStat.MAG, AttackType.ICE );
+      zoo.boss[bossIndex].attacks[4] = new Attack("conjures a ring of fire!", 55, true, AttackStat.MAG, AttackType.FIRE );
+  bossIndex++;
   
   //Danger Map 1
   dangerMapIndex = 1; dangerStrs[dangerMapIndex] = "";
@@ -974,29 +991,29 @@ void setupMaps()
   dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
   dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-  dangerStrs[dangerMapIndex] += "Hxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "H55555555555555555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-  dangerStrs[dangerMapIndex] += "Ixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-  dangerStrs[dangerMapIndex] += "Jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  dangerStrs[dangerMapIndex] += "555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
   dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
   dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
   dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
@@ -1086,21 +1103,21 @@ void setupMaps()
   mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3333%%%¨.¨¨¨¨333¨¨¨¨¨¨¨¨¨¨¨,¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨,,∞,,,,,,,∞,33";
   mapStrings[mapIndex] += "33333333333333333333333333 33333333333333333333333.3333333¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨,,,,∞,,,,,,,33";
   mapStrings[mapIndex] += "33333333333333333333333333 333333333333333333333¨...¨3333333333333333333333333¨¨¨¨¨¨¨¨,,,,,,,,,∞,,33";
-  mapStrings[mapIndex] += "33¨Y¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨y¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨33¨¨Y¨¨...¨¨¨¨Y33¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨YY¨¨¨¢¢¢¢¢¢¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨V¨...¨V¨¨¨33¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨Y3&33 3¨¨¨¨¨¨¨¨Y¨¨¨Y¨¨¨¨33¨¨¨3¨...¨3Y¨¨33¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨333333¨Y¨¨¨YY¨¨¨¨¨¨¨¨¨Y33Y¨¨¨¨...¨¨¨¨¨33¨¨¨Y¨¨¨Y¨¨¨¨¨¨Y¨¨Y¨¨¨¨YY¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨33<<33¨¨Y¨¨¨¨¨¨¨¨¨¨¨Y¨¨33¨¨¨¨¨...¨¨¨Y¨33¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨¨Y¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨Y¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨..Y¨¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨33¨¨¨¨Y...Y¨¨¨¨33¨¨Y¨¨3333333¨Y¨¨¨3333333¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨..¨¨¨.333333333333¨Y¨33¨Y¨¨¨...¨¨¨¨Y33¨¨¨¨Y3&333&3Y¨¨¨¨3&333&3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨33333333333>..........>33333333333¨¨¨33¨¨¨V¨...¨V¨¨¨33¨Y¨¨¨3333333¨¨Y¨¨3333333¨Y¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨333333333333|¨¨¨..¨¨¨|333333333333¨¨Y33¨¨¨3¨...¨3¨¨¨33¨¨¨Y¨3¨3<3¨3¨¨¨¨Y3¨3<3¨3¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33Y¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨..¨¨¨,,,∞,ww,,¨¨¨¨¨¨¨33¨¨¨¨¨...¨¨Y¨¨33Y¨Y¨¨3¨¨¨¨¨3¨Y¨¨¨3¨¨¨¨¨3¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨¨¨¨¨..¨,,,,,,,,,,¨¨¨¨¨¨¨¨33¨¨¨Y¨...¨¨¨¨¨33¨¨¨¨Y3¨¨>¨¨3¨¨¨Y¨3¨¨>¨¨3Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨..,,,,333333333333Y¨¨33¨¨¨¨¨...Y¨¨¨¨33¨Y¨¨¨3333333¨¨¨¨¨3333333¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨Y¨33333333333>.....,,,..>33333333333¨¨¨33¨Y¨¨¨...¨¨¨Y¨33¨¨¨¨¨¨Y¨¨¨¨¨¨¨Y¨¨Y¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨,,,¨¨|333333333333¨Y¨33¨¨¨V¨...¨¨¨¨¨33¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨,,¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨3¨...¨|¨Y¨33¨¨¨¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨Y¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨¨Y¨¨Y¨¨";
+  mapStrings[mapIndex] += "33¨Y¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨y¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨33¨¨Y¨¨...¨¨¨¨Y33¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨YYYYYYYYYYYYYYY";
+  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨YY¨¨¨¢¢¢¢¢¢¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨V¨...¨V¨¨¨33¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨YYYYYYYYYYYYYYY";
+  mapStrings[mapIndex] += "33¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨Y3&33 3¨¨¨¨¨¨¨¨Y¨¨¨Y¨¨¨¨33¨¨¨3¨...¨3Y¨¨33¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨YYYYYYYYYYYYYYY";
+  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨333333¨Y¨¨¨YY¨¨¨¨¨¨¨¨¨Y33Y¨¨¨¨...¨¨¨¨¨33¨¨¨Y¨¨¨Y¨¨¨¨¨¨Y¨¨Y¨¨¨¨YY¨¨Y¨¨Y¨YY¨Y¨¨YY¨¨";
+  mapStrings[mapIndex] += "33¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨33<<33¨¨Y¨¨¨¨¨¨¨¨¨¨¨Y¨¨33¨¨¨¨¨...¨¨¨Y¨33¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨¨Y¨¨¨¨YYY¨Y333YY¨YY¨YY";
+  mapStrings[mapIndex] += "33¨¨Y¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨..Y¨¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨33¨¨¨¨Y...Y¨¨¨¨33¨¨Y¨¨3333333¨Y¨¨¨3333333¨¨YYY33333YYYYYYY";
+  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨..¨¨¨.333333333333¨Y¨33¨Y¨¨¨...¨¨¨¨Y33¨¨¨¨Y3&333&3Y¨¨¨¨3&333&3¨¨YY¨33‡¢¢.....*Y";
+  mapStrings[mapIndex] += "33¨¨¨33333333333>..........>33333333333¨¨¨33¨¨¨V¨...¨V¨¨¨33¨Y¨¨¨3333333¨¨Y¨¨3333333¨YYYY33333YY¨¨.Y¨";
+  mapStrings[mapIndex] += "33¨¨¨333333333333|¨¨¨..¨¨¨|333333333333¨¨Y33¨¨¨3¨...¨3¨¨¨33¨¨¨Y¨3¨3<3¨3¨¨¨¨Y3¨3<3¨3¨YYY¨Y333......¨Y";
+  mapStrings[mapIndex] += "33Y¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨..¨¨¨,,,∞,ww,,¨¨¨¨¨¨¨33¨¨¨¨¨...¨¨Y¨¨33Y¨Y¨¨3¨¨¨¨¨3¨Y¨¨¨3¨¨¨¨¨3¨¨YYY¨YY¨.YY¨Y¨Y¨";
+  mapStrings[mapIndex] += "33¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨¨¨¨¨..¨,,,,,,,,,,¨¨¨¨¨¨¨¨33¨¨¨Y¨...¨¨¨¨¨33¨¨¨¨Y3¨¨>¨¨3¨¨¨Y¨3¨¨>¨¨3Y¨YYY¨Y¨Y......>Y";
+  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨..,,,,333333333333Y¨¨33¨¨¨¨¨...Y¨¨¨¨33¨Y¨¨¨3333333¨¨¨¨¨3333333¨YY¨YYYYYYYYYYYYY";
+  mapStrings[mapIndex] += "33¨Y¨33333333333>.....,,,..>33333333333¨¨¨33¨Y¨¨¨...¨¨¨Y¨33¨¨¨¨¨¨Y¨¨¨¨¨¨¨Y¨¨Y¨¨¨¨Y¨¨¨YY¨¨YYY¨Y¨YYY¨Y";
+  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨,,,¨¨|333333333333¨Y¨33¨¨¨V¨...¨¨¨¨¨33¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨Y¨Y¨Y¨Y¨YY¨¨YY¨";
+  mapStrings[mapIndex] += "33¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨,,¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨3¨...¨|¨Y¨33¨¨¨¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨Y¨¨¨¨Y¨¨YYYYYYYYyYYYYYY";
   mapStrings[mapIndex] += "33Y¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨,,,¨¨¨¨¨¨¨¨¨¨¨Y¨¨YY¨¨¨33¨¨Y¨¨...¨¨¨¨¨33¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨¨¨YY¨¨¨¨Y¨¨Y¨";
   mapStrings[mapIndex] += "33¨¨¨333333333333G¨,,,.¨¨¨|333333333333¨¨¨33¨¨¨¨¨...Y¨¨¨¨33¨Y¨¨¨Y¨¨Y¨¨Y¨¨¨Y¨¨¨¨¨¨Y¨¨¨¨Y¨¨Y¨¨YYYYYYYY";
   mapStrings[mapIndex] += "33¨¨¨33333333333>..,,......>33333333333¨¨¨33¨¨¨¨Y...¨¨¨¨¨3333333333333333333333333333333333333333333";
@@ -1117,6 +1134,7 @@ void setupMaps()
 
   m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
   
+  savePoints[savePointIndex++] = new SavePoint(2, 98, 79); //Last save before boss
   
   createLoot(lootIndex++, 2, 9, 95, new Item("Holy Symbol", 19) );
   //Gravekeeper hut
@@ -1248,9 +1266,22 @@ void setupMaps()
   //Cenotaph 2
   exits.add( new Portal(2,79,81,1,94,98, "Cenotaph") );
   
-  //savePoints[savePointIndex++] = new SavePoint(2, 67, 62);
+  //Final Stretch
+  exits.add( new Portal(2,98,83,1,29,88, "Mausoleum") );
+  //To Boss
+  exits.add( new Portal(2,90,79,1,65,85, "Catacomb") );
+  m[2].tiles[90][79].createEvent(false, "- Moonlight illuminates a path beneath the colored glass.");
   
-  //Danger Map 1
+  m[2].tiles[93][79].placeBoss( 2, color(200,130,100), "They guard a hole in the monument.", new Monster("Body of Erar", "Crypt5.png", 50, 2, 10, 2, 9, 8, 7, 0, AttackType.HOLY) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("makes arcane gestures.");
+      zoo.boss[bossIndex].attacks[1] = new Attack("swings its staff.", 45, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("causes the crypt to shake!", 45, true, AttackStat.MAG, AttackType.EARTH );
+      zoo.boss[bossIndex].attacks[3] = new Attack("delivers an icy touch.", 50, false, AttackStat.MAG, AttackType.ICE );
+      zoo.boss[bossIndex].attacks[4] = new Attack("conjures a ring of fire!", 55, true, AttackStat.MAG, AttackType.FIRE );
+  bossIndex++;
+  
+  
+  //Danger Map 2
   dangerMapIndex = 2; dangerStrs[dangerMapIndex] = "";
   for(int i = 0; i < 57; i++)
     dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";

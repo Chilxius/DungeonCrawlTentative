@@ -55,7 +55,7 @@ BrownShirt.png
 0
 1
 
-5
+8
 
 0
 XX

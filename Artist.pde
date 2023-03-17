@@ -778,6 +778,9 @@ class Artist
       case VANGUARD:
         image(tileImage[52],xPos,yPos);
         break;
+      case BROKE_GLASS:
+        image(tileImage[81],xPos-60,yPos-60);
+        break;
     }
   }
   

@@ -6,10 +6,8 @@
 //Fix objects getting strange tile colors
 
 //TO DO:
-//Danger levels of graveyard(upper)
-//Crypt bosses
-//Crypt treasures
-//Grave text
+//Graveyard boss and mini-boss
+//Balance Graveyard enemies
 //Skills: animation system
 //initiate classroom
 //Make battles stop triggering on spaces with events
@@ -206,6 +204,7 @@ void setup()
   tileImage[78] = loadImage("blackBook.png"); tileImage[78].resize(20,0);
   tileImage[79] = loadImage("chestBone.png"); tileImage[79].resize(30,0);
   tileImage[80] = loadImage("blueBook.png"); tileImage[80].resize(20,0);
+  tileImage[81] = loadImage("brokenGlass.png"); tileImage[81].resize(90,0);
   
   //Test sounds
   //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
