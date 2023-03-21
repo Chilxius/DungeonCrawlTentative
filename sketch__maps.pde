@@ -322,7 +322,7 @@ void setupMaps()
   bossIndex++;
   
   //Giant rat blocking woods
-  m[0].tiles[6][56].placeBoss( 0, color(150, 80, 40), "One of the big ones escaped.", new Monster("Escaped Rat", "BrownRat.png", 20, 11, 15, 2, 0, 2, 4, 0, AttackType.FIRE) );
+  m[0].tiles[7][54].placeBoss( 0, color(150, 80, 40), "One of the big ones escaped.", new Monster("Escaped Rat", "BrownRat.png", 20, 11, 15, 2, 0, 2, 4, 0, AttackType.FIRE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("squeaks angrily.");
       zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 30, false);
       zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false);
@@ -578,13 +578,18 @@ void setupMaps()
   createLoot(lootIndex++, 1, 77, 94, new Item("Health Potion", 12) );
   
   //Crypts
-  createLoot(lootIndex++, 1, 76, 63, new Equipment("Alar's Axe","MetalAxe.png",25,true,30,Job.KNIGHT,Job.BARBARIAN) );
+  createLoot(lootIndex++, 1, 76, 63, new Equipment("Alar's Axe","MetalAxe.png",25,true,27,Job.KNIGHT,Job.BARBARIAN) );
   createLoot(lootIndex++, 1, 76, 73, new Equipment("Lion's Hide","fur.png",25,false,25,Job.BARBARIAN) );
-  createLoot(lootIndex++, 1, 76, 83, new Equipment("Purifier","StoneClub.png",25,true,30,Job.KNIGHT,Job.PRIEST) );
+  createLoot(lootIndex++, 1, 76, 83, new Equipment("Purifier","StoneClub.png",25,true,27,Job.KNIGHT,Job.PRIEST) );
   createLoot(lootIndex++, 1, 98, 63, new Equipment("Cold Iron Plate","DarkArmor.png",25,false,28,Job.KNIGHT, Job.PRIEST) );
   createLoot(lootIndex++, 1, 98, 73, new Equipment("Scholar's Robe","aquaRobes.png",25,false,18, Job.KARATE, Job.PRIEST, Job.MAGE) );
-  createLoot(lootIndex++, 1, 98, 83, new Equipment("Heartwood Staff","Staff2.png",25,true,30,Job.MAGE) );
+  createLoot(lootIndex++, 1, 98, 83, new Equipment("Heartwood Staff","Staff2.png",25,true,27,Job.MAGE) );
   
+  //Boss Chamber
+  createLoot(lootIndex++, 1, 37, 92 , new Equipment("Ritual Knife","curvedDagger.png",35,true,35.4,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.MAGE) );
+  createLoot(lootIndex++, 1, 38, 92 , new Equipment("Ritual Robes","darkRobes.png",30,false,20) );
+  createLoot(lootIndex++, 1, 46, 92 , new Item("Mana Potion",12) );
+  createLoot(lootIndex++, 1, 47, 92 , new Item("Health Potion",24) );
   
   m[1].tiles[2][2].createEvent(true, "- The (space) key can be used to open chests like this one. You also use this key to search your current square. See if you can find anything left behind in this room by careless initiates.");
   m[1].tiles[6][2].createEvent(true, "- This is a sacred Legend Gem. Gazing into it, you can feel your acomplishments being told around campfires centuries from now. Step on it and press capital (S) to activate it, and then press ENTER to confirm and save your progress.");
@@ -601,6 +606,8 @@ void setupMaps()
   m[1].tiles[56][97].createEvent(false, "- FEAR NOT THAT WHICH CAN DESTROY THE FLESH...");
   m[1].tiles[50][97].createEvent(false, "- NOR THAT WHICH CAN LAME THE SPIRIT...");
   m[1].tiles[44][97].createEvent(false, "- FEAR ME WHO CAN DO BOTH.");
+  //Boss's Book
+  m[1].tiles[42][91].createEvent(false, "- The book is written in a language of abstract pictograms. The only thing you recognize is an image of three of the Black Vanguard. You have only ever seen him alone. The illustrations are gilded with iron.");
   
   
   m[1].tiles[17][3].placeOccupant( color(75,100,255), "- Good morning, young ones. We made fresh bread this morning. To eat food you are carrying, press capital (E). You need peace and quiet to eat. Don't try to eat during a fight or it will ruin your digestion." );
@@ -794,8 +801,9 @@ void setupMaps()
   //To Final Stretch
   exits.add( new Portal(1,29,88,2,98,83, "Silent Path") );
   
-  exits.add( new Portal(1,65,89,1,69,97) );
-  exits.add( new Portal(1,86,91,1,1,98) );
+  //To/from boss chamber
+  exits.add( new Portal(1,65,89,1,69,97, "Catacombs") );
+  exits.add( new Portal(1,69,96,1,65,89, "Catacombs") );
   
   //Dragon Grave
   exits.add( new Portal(1,28,48,2,40,59, "Baron's Field") );
@@ -1254,7 +1262,7 @@ void setupMaps()
   exits.add( new Portal(2,40,59,1,28,48, "?") );
   
   //Secret Grave
-  exits.add( new Portal(2,69,69,1,67,62, "Catacombs") );
+  exits.add( new Portal(2,69,69,1,67,62, "Mausoleum") );
   
   //From Cenotaph Field 1
   exits.add( new Portal(2,67,83,1,3,72, "Mausoleum") );
@@ -1269,7 +1277,7 @@ void setupMaps()
   //Final Stretch
   exits.add( new Portal(2,98,83,1,29,88, "Mausoleum") );
   //To Boss
-  exits.add( new Portal(2,90,79,1,65,85, "Catacomb") );
+  exits.add( new Portal(2,90,79,1,65,85, "Catacombs") );
   m[2].tiles[90][79].createEvent(false, "- Moonlight illuminates a path beneath the colored glass.");
   
   m[2].tiles[93][79].placeBoss( 2, color(200,130,100), "They guard a hole in the monument.", new Monster("Body of Erar", "Crypt5.png", 50, 2, 10, 2, 9, 8, 7, 0, AttackType.HOLY) );

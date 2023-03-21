@@ -5,6 +5,7 @@ class Equipment extends Item
   int power;
   PImage pic;
   String imageName;
+  AttackType element;
   
   public Equipment()
   {
@@ -15,7 +16,8 @@ class Equipment extends Item
   {
     super( e.name, e.value );
     isWeapon = e.isWeapon;
-    power = e.power;
+    element = determineElement(e.power);
+    power = int(e.power);
     imageName = e.imageName;
     pic = e.pic;
     
@@ -29,19 +31,20 @@ class Equipment extends Item
   
   //Constructors for assigning a piece of equipment to
   //certain classes. The rest become Job.NONE.
-  public Equipment( String n, String picN, int v, boolean IW, int p, boolean allClasses ){this( n, picN, v, IW, p, Job.KNIGHT, Job.BARBARIAN, Job.KARATE, Job.THIEF, Job.PRIEST, Job.MAGE);}
-  public Equipment( String n, String picN, int v, boolean IW, int p ){this( n, picN, v, IW, p, Job.NONE );}
-  public Equipment( String n, String picN, int v, boolean IW, int p, Job j ){this( n, picN, v, IW, p, j, Job.NONE );}
-  public Equipment( String n, String picN, int v, boolean IW, int p, Job j, Job j2 ){this( n, picN, v, IW, p, j, j2, Job.NONE );}
-  public Equipment( String n, String picN, int v, boolean IW, int p, Job j, Job j2, Job j3 ){this( n, picN, v, IW, p, j, j2, j3, Job.NONE );}
-  public Equipment( String n, String picN, int v, boolean IW, int p, Job j, Job j2, Job j3, Job j4 ){this( n, picN, v, IW, p, j, j2, j3, j4, Job.NONE );}
-  public Equipment( String n, String picN, int v, boolean IW, int p, Job j, Job j2, Job j3, Job j4, Job j5 ){this( n, picN, v, IW, p, j, j2, j3, j4, j5, Job.NONE );}
+  public Equipment( String n, String picN, int v, boolean IW, float p, boolean allClasses ){this( n, picN, v, IW, p, Job.KNIGHT, Job.BARBARIAN, Job.KARATE, Job.THIEF, Job.PRIEST, Job.MAGE);}
+  public Equipment( String n, String picN, int v, boolean IW, float p ){this( n, picN, v, IW, p, Job.NONE );}
+  public Equipment( String n, String picN, int v, boolean IW, float p, Job j ){this( n, picN, v, IW, p, j, Job.NONE );}
+  public Equipment( String n, String picN, int v, boolean IW, float p, Job j, Job j2 ){this( n, picN, v, IW, p, j, j2, Job.NONE );}
+  public Equipment( String n, String picN, int v, boolean IW, float p, Job j, Job j2, Job j3 ){this( n, picN, v, IW, p, j, j2, j3, Job.NONE );}
+  public Equipment( String n, String picN, int v, boolean IW, float p, Job j, Job j2, Job j3, Job j4 ){this( n, picN, v, IW, p, j, j2, j3, j4, Job.NONE );}
+  public Equipment( String n, String picN, int v, boolean IW, float p, Job j, Job j2, Job j3, Job j4, Job j5 ){this( n, picN, v, IW, p, j, j2, j3, j4, j5, Job.NONE );}
   
-  public Equipment( String n, String picN, int v, boolean IW, int p, Job j0, Job j1, Job j2, Job j3, Job j4, Job j5 )
+  public Equipment( String n, String picN, int v, boolean IW, float p, Job j0, Job j1, Job j2, Job j3, Job j4, Job j5 )
   {
     super( n, v );
     isWeapon = IW;
-    power = p;
+    element = determineElement(p);
+    power = int(p);
     
     imageName = picN;
     
@@ -55,6 +58,19 @@ class Equipment extends Item
     allowedJobs[3]=j3;
     allowedJobs[4]=j4;
     allowedJobs[5]=j5;
+  }
+  
+  public AttackType determineElement( float p )
+  {    
+    switch( (int)((power*10)%10) ) //can't switch on floats; I learned something today
+    {
+      case 1:  return AttackType.EARTH;   //Captain Planet
+      case 2:  return AttackType.FIRE;    //ordering to
+      case 3:  return AttackType.WIND;    //help remember
+      case 4:  return AttackType.ICE;
+      case 5:  return AttackType.HOLY;
+      default: return AttackType.NONE;
+    }
   }
   
   public boolean setPic( String fileName )
@@ -95,4 +111,12 @@ Barb weapons strongest
 Knight/Priest
 Thief/Karate
 Mage, except occasionally (magic weapons can deal high damage - won't help mage)
+
+Elemental Weapons:
+Weapons will deal elemental damage if their power value contains a decimal value
+X.1 - Earth
+X.2 - Fire
+X.3 - Wind
+X.4 - ICE
+X.5 - HOLY
 */

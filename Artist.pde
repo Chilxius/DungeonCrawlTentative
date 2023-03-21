@@ -189,31 +189,31 @@ class Artist
         fruitCount++;
       else if( i.value == 40 )
         crabCount++;
-        
+    
     drawFoodSynergyBox(breadCount,porkCount,fruitCount,crabCount);
         
     fill(0);  rectMode(CORNER);
     stroke(200); strokeWeight(5);
     rect(100,100,width-200,height-200,20);
     
-    noStroke(); textAlign(LEFT);
-    if(breadCount>0) { fill(#F2CE69,50); rect(205,185,385,45,20); rect(205,490,40,40,20); fill(255); text(":"+breadCount,250,515); }
-    if(porkCount>0)  { fill(#B46C31,50); rect(205,265,385,45,20); rect(305,490,40,40,20); fill(255); text(":"+porkCount, 350,515); }
-    if(fruitCount>0) { fill(#00FF28,50); rect(205,345,385,45,20); rect(405,490,40,40,20); fill(255); text(":"+fruitCount,450,515); }
-    if(crabCount>0)  { fill(#FF0032,50); rect(205,425,385,45,20); rect(505,490,40,40,20); fill(255); text(":"+crabCount, 550,515); }
+    noStroke(); textAlign(LEFT); textSize(20); imageMode(CENTER);
+    if(breadCount>0) { checkMouseInFoodBox(0); fill(#F2CE69,50); rect(205,185,385,45,20); image(tileImage[82],230,510); fill(255); text(":"+breadCount,250,515); }
+    if(porkCount>0)  { checkMouseInFoodBox(1); fill(#B46C31,50); rect(205,265,385,45,20); image(tileImage[83],330,510); fill(255); text(":"+porkCount, 350,515); }
+    if(fruitCount>0) { checkMouseInFoodBox(2); fill(#00FF28,50); rect(205,345,385,45,20); image(tileImage[84],430,510); fill(255); text(":"+fruitCount,450,515); }
+    if(crabCount>0)  { checkMouseInFoodBox(3); fill(#FF0032,50); rect(205,425,385,45,20); image(tileImage[85],530,510); fill(255); text(":"+crabCount, 550,515); }
     
     fill(200); textAlign(CENTER); textSize(40);
     text("Select Meal",width/2,150);
     
-    strokeWeight(5);
+    noStroke();
     //Fork
     fill(180);
-    rect(145,290,20,130,10);
-    rect(140,390,30,180,20);
-    rect(175,215,10,80,5);
-    rect(125,215,10,80,5);
-    rect(150,215,10,80,5);
-    rect(125,285,60,10);
+    rect(145,250,20,130,10);
+    rect(140,350,30,180,20);
+    rect(175,175,10,80,5);
+    rect(125,175,10,80,5);
+    rect(150,175,10,80,5);
+    rect(125,245,60,10);
     /*
     //Knife
     fill(180);
@@ -238,6 +238,26 @@ class Artist
     fill(200); textAlign(CENTER); textSize(25);
     text("Select by number or",width/2,560);
     text("press space to cancel.",width/2,580);
+  }
+  
+  public void checkMouseInFoodBox( int index ) //highlights food options when moused over
+  {
+    if( mouseX > 210 && mouseX < 590 )
+    {
+      if( mouseY > 190+(index*80) && mouseY < 235+(index*80) )
+      {
+        stroke(200);
+        strokeWeight(2);
+      }
+      else
+      {
+        noStroke();
+      }
+    }
+    else
+    {
+      noStroke();
+    }
   }
   
   public void drawPotionMenu( Item [] items )
@@ -482,6 +502,8 @@ class Artist
   {
     int types=0, amount;
     if(b>0)types++;if(m>0)types++;if(f>0)types++;if(c>0)types++;
+    if(types<2)return;
+    
     switch(types)
     {
       case 1: amount = 0;  break;
@@ -492,7 +514,7 @@ class Artist
     }
     fill(255); textAlign(CENTER);
     textSize(15); text("SYNERGY",645,220);
-    textSize((amount-1)*10); text(amount+"%",645,265);
+    textSize((types-1)*5 + 15); text(amount+"%",645,265);
     noStroke();
 
     stroke(150,150,50); strokeWeight(1);

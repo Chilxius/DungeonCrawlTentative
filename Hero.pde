@@ -337,12 +337,12 @@ class Hero
   {
     int damage = 0;
     int weaponPower = 0;
-    if(skillSelection != -1 && skill[skillSelection].useWeapon)
-      weaponPower = weapon.power;
+    if(skillSelection != -1 && skill[skillSelection].useWeapon) //is a skill that uses weapon's power
+      weaponPower = int(weapon.power);
     battle.waitingForText = false;
     if( skillSelection == -1 ) //normal attack
     {
-      damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weapon.power, str, battleMonsters[targetMonster].con, AttackType.NONE, battleMonsters[targetMonster].weakness);
+      damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), int(weapon.power), str, battleMonsters[targetMonster].con, weapon.element, battleMonsters[targetMonster].weakness);
       battleMonsters[targetMonster].takeDamage(damage);
       floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, color(255), damage) );
     }
@@ -443,9 +443,9 @@ class Hero
     if( a.stat == AttackStat.DEX || a.stat == AttackStat.STR )
     {
       if( defending )
-        return (con + armor.power/2)*2;
+        return (con + int(armor.power)/2)*2;
       else
-        return con + armor.power/2;
+        return con + int(armor.power)/2;
     }
     else
       return wil;

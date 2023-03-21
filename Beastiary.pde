@@ -119,7 +119,7 @@ class Beastiary
       list[dangerZone][0].attacks[2] = new Attack("lunges forward.", 45, false);
       list[dangerZone][0].attacks[3] = new Attack("bites.", 50, false);
       list[dangerZone][0].attacks[4] = new Attack("flails wildly.", 30, true);
-    list[dangerZone][1] = new Monster("Sturdy Skeleton",  "WeakSkeleton3.png",  30, 15, 10, 4, 0, 3, 7, 0, AttackType.HOLY);
+    list[dangerZone][1] = new Monster("Sturdy Skeleton",  "WeakSkeleton4.png",  30, 15, 10, 4, 0, 3, 7, 0, AttackType.HOLY);
       list[dangerZone][1].attacks[0] = new Attack("rattles.");
       list[dangerZone][1].attacks[1] = new Attack("bashes.", 45, false);
       list[dangerZone][1].attacks[2] = new Attack("bashes with a rock.", 50, false);
