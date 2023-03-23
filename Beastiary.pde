@@ -113,19 +113,19 @@ class Beastiary
     
     //5 - Graveyard (second)
     dangerZone++;
-    list[dangerZone][0] = new Monster("Fragile Skeleton",  "WeakSkeleton.png",  20, 12, 20, 3, 0, 4, 8, 0, AttackType.HOLY);
+    list[dangerZone][0] = new Monster("Fragile Skeleton",  "WeakSkeleton.png",  20, 14, 20, 3, 0, 4, 8, 0, AttackType.HOLY);
       list[dangerZone][0].attacks[0] = new Attack("crumbles as it moves.");
-      list[dangerZone][0].attacks[1] = new Attack("scratches.", 40, false);
+      list[dangerZone][0].attacks[1] = new Attack("cuts.", 40, false);
       list[dangerZone][0].attacks[2] = new Attack("lunges forward.", 45, false);
       list[dangerZone][0].attacks[3] = new Attack("bites.", 50, false);
       list[dangerZone][0].attacks[4] = new Attack("flails wildly.", 30, true);
-    list[dangerZone][1] = new Monster("Sturdy Skeleton",  "WeakSkeleton4.png",  30, 15, 10, 4, 0, 3, 7, 0, AttackType.HOLY);
+    list[dangerZone][1] = new Monster("Sturdy Skeleton",  "WeakSkeleton4.png",  35, 17, 10, 4, 0, 3, 7, 0, AttackType.HOLY);
       list[dangerZone][1].attacks[0] = new Attack("rattles.");
       list[dangerZone][1].attacks[1] = new Attack("bashes.", 45, false);
       list[dangerZone][1].attacks[2] = new Attack("bashes with a rock.", 50, false);
       list[dangerZone][1].attacks[3] = new Attack("slams its axe.", 55, false);
       list[dangerZone][1].attacks[4] = new Attack("strikes with a bone spur.", 50, false);
-    list[dangerZone][2] = new Monster("Blackened Skeleton",  "DarkSkeleton.png",  45, 18, 5, 7, 0, 2, 6, 0, AttackType.HOLY);
+    list[dangerZone][2] = new Monster("Blackened Skeleton",  "DarkSkeleton.png",  45, 19, 5, 7, 0, 4, 6, 0, AttackType.HOLY);
       list[dangerZone][2].attacks[0] = new Attack("laughs.");
       list[dangerZone][2].attacks[1] = new Attack("strikes with its knee.", 45, false);
       list[dangerZone][2].attacks[2] = new Attack("strikes your chest.", 55, false);
@@ -144,5 +144,26 @@ class Beastiary
   public Monster monsterByDanger( int d )
   {
     return list[int(d-48)][int(random(0,5))];
+  }
+  
+  public void checkForMooks( String name ) //for adding mooks to boss battles (monsters different from the boss)
+  {
+    switch( name )
+    {
+      case "Body of Necromancer":
+        battleMonsters[0] = new Monster("Skeletal Guard",  "ScimitarSkeleton.png",  40, 24, 5, 6, 0, 4, 6, 0, AttackType.HOLY);
+          battleMonsters[0].attacks[0] = new Attack("protects its master.");
+          battleMonsters[0].attacks[1] = new Attack("slices.", 50, false);
+          battleMonsters[0].attacks[2] = new Attack("cuts upward.", 50, false);
+          battleMonsters[0].attacks[3] = new Attack("strikes downward.", 50, false);
+          battleMonsters[0].attacks[4] = new Attack("delivers a mighty blow!", 60, false );
+        battleMonsters[2] = new Monster("Skeletal Guard",  "ScimitarSkeleton.png",  40, 20, 5, 6, 0, 4, 6, 0, AttackType.HOLY);
+          battleMonsters[2].attacks[0] = new Attack("protects its master.");
+          battleMonsters[2].attacks[1] = new Attack("whirls its sword.", 40, true);
+          battleMonsters[2].attacks[2] = new Attack("whirls its sword.", 40, true);
+          battleMonsters[2].attacks[3] = new Attack("stabs quickly.", 50, false);
+          battleMonsters[2].attacks[4] = new Attack("strikes a weak point!", 60, false);
+      break;
+    }
   }
 }

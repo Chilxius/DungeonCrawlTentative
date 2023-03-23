@@ -12,6 +12,7 @@ class Attack
   boolean useWeapon;
   boolean targetAll;
   boolean healing;
+  boolean pierceArmor = false;
   
   AttackType type;
   AttackStat stat;

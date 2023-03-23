@@ -12,6 +12,7 @@ class Monster
   AttackType weakness = AttackType.NONE;
    
   boolean poisoned, weakened, paralyzed, asleep, cursed;
+  int poison = 0;
   
   int target; //target of attack in battle
   
@@ -133,6 +134,38 @@ class Monster
     battle.resumeInitiative();
   }
   
+  public void poison( int amount, int x )
+  {
+    floatingNumbers.add( new GhostNumber( 150+210*x, 270, color(100,100,0), "POISON") );
+    poisoned = true;
+    poison += amount;
+  }
+  
+  public boolean takePoisonDamage( int pos ) //true if monster dies
+  {
+    println("TAKING POISON DAMAGE"); //<>//
+    if(poison<=0)
+      return false;
+    int poisonDamage = max(poison/2,1); //minimum 1 damage
+    poison -= poisonDamage;
+    hp -= poisonDamage;
+    floatingNumbers.add( new GhostNumber( 150+210*pos, 320, color(255), poisonDamage) );
+    if(hp <= 0)
+    {
+      hp = 0;
+      alive = false;
+      poison = 0;
+      displayTextLine( name + "collapses!" );
+      return true;
+    }
+    if(poison<=0)
+    {
+      poison = 0;
+      poisoned = false;
+    }
+    return false;
+  }
+  
   int appropriateStat( Attack a )
   {
     if( a.stat == AttackStat.DEX )
@@ -146,7 +179,11 @@ class Monster
   int appropriateDefense( Attack a )
   {
     if( a.stat == AttackStat.DEX || a.stat == AttackStat.STR )
+    {
+      if( a.pierceArmor )
+        return con/2;
       return con;
+    }
     else
       return wil;
   }
@@ -188,7 +225,15 @@ class Monster
       battle.gold += gold;
     }
     else
-      displayTextLine( name + " is " + damageMessage() + " wounded.");
+    {
+      if( (name + " is " + damageMessage() + " wounded.").length() < 40 )
+        displayTextLine( name + " is " + damageMessage() + " wounded.");
+      else
+      {
+        displayTextLine( name + " is " );
+        displayTextLine( damageMessage() + " wounded.");
+      }
+    }
     return damage;
   }
   

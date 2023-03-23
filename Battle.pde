@@ -65,6 +65,10 @@ class Battle
         battleMonsters[0] = new Monster( zoo.boss[currentBoss] );
         battleMonsters[2] = new Monster( zoo.boss[currentBoss] );
       }
+      else
+      {
+        zoo.checkForMooks( battleMonsters[1].name );
+      }
     }
       
     list[3] = new Initiative(battleMonsters[0],3);
@@ -146,6 +150,16 @@ class Battle
               displayTextLine( party.hero[turn].name + "'s turn. What will you do?" );
               input = Input.BATTLE_MENU;
               party.hero[turn].defending = false;
+            }
+          }
+          else //I hope this is where monster poison should go - could cause poblems
+          {
+            if(battleMonsters[turn-3].poisoned && battleMonsters[turn-3].takePoisonDamage(turn-3)) //died of poison
+            {
+              list[turn].counter = 0;
+              turn = -1;
+              delayType = DelayType.NONE;
+              //resumeInitiativeTick();
             }
           }
         }
@@ -257,15 +271,16 @@ class Battle
     return returnValue;
   }
   
-  public void resumeInitiative()
+  public void resumeInitiative() //also contains end-of-attack effects
   {
     //This may be redundant now
     if( ( turn < 3 && !party.hero[turn].alive )
      || ( turn > 2 && !battleMonsters[turn-3].alive ) )
       list[turn].active = false;
 
-
     list[turn].counter = 0;
+    if(attackerIndex<3)
+      party.hero[attackerIndex].handleSkillEffect(false,skillSelection);  //handle after-attack effects   
     turn = -1;
     delayType = DelayType.NONE;
   }
@@ -307,7 +322,7 @@ class Battle
       else
       {
         party.hero[attackerIndex].payForSkill(skillSelection);
-        party.hero[attackerIndex].handleSkillEffect(skillSelection);
+        party.hero[attackerIndex].handleSkillEffect(true,skillSelection);
         String outputText = list[attackerIndex].name + " uses "+ party.hero[attackerIndex].skill[skillSelection].description + "!";
         if(outputText.length() < 40) //+ party.hero[attackerIndex].skill[skillSelection].description + "!"
           displayTextLine(outputText);
@@ -386,7 +401,8 @@ class Battle
     if(aType==dType && aType!=AttackType.NONE)
       type = 2;
     int random = (int)random(217,255);
-    return (int)((((((2.0*level*crit)/5.0)+2.0)*wepPower*attackStr/max(0,defense))/50.0)+2.0)*type*random/255;
+    println("ATTACK:\nWeapon: "+wepPower+"\nPower: "+attackStr+"\nDefense: "+defense);
+    return (int)((((((2.0*level*crit)/5.0)+2.0)*wepPower*attackStr/max(1,defense))/50.0)+2.0)*type*random/255;
   }
 }
   

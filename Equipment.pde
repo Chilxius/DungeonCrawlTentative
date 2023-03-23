@@ -2,10 +2,11 @@ class Equipment extends Item
 {
   Job allowedJobs[] = new Job[6];
   boolean isWeapon;
-  int power;
+  float power;
   PImage pic;
   String imageName;
   AttackType element;
+  Debuff status;
   
   public Equipment()
   {
@@ -17,7 +18,8 @@ class Equipment extends Item
     super( e.name, e.value );
     isWeapon = e.isWeapon;
     element = determineElement(e.power);
-    power = int(e.power);
+    status = determineStatus(e.power);
+    power = e.power;
     imageName = e.imageName;
     pic = e.pic;
     
@@ -42,9 +44,10 @@ class Equipment extends Item
   public Equipment( String n, String picN, int v, boolean IW, float p, Job j0, Job j1, Job j2, Job j3, Job j4, Job j5 )
   {
     super( n, v );
-    isWeapon = IW;
+    isWeapon = IW; //<>//
     element = determineElement(p);
-    power = int(p);
+    status = determineStatus(p);
+    power = p;
     
     imageName = picN;
     
@@ -61,8 +64,8 @@ class Equipment extends Item
   }
   
   public AttackType determineElement( float p )
-  {    
-    switch( (int)((power*10)%10) ) //can't switch on floats; I learned something today
+  {
+    switch( (int)((p*10)%10) ) //can't switch on floats; I learned something today
     {
       case 1:  return AttackType.EARTH;   //Captain Planet
       case 2:  return AttackType.FIRE;    //ordering to
@@ -70,6 +73,19 @@ class Equipment extends Item
       case 4:  return AttackType.ICE;
       case 5:  return AttackType.HOLY;
       default: return AttackType.NONE;
+    }
+  }
+  
+  public Debuff determineStatus( float p )
+  {    
+    switch( (int)((p*100)%10) )
+    {
+      case 1:  return Debuff.POISON;
+      case 2:  return Debuff.SLEEP;
+      case 3:  return Debuff.PARA;
+      case 4:  return Debuff.WEAK;
+      case 5:  return Debuff.CURSE;
+      default: return Debuff.NONE;
     }
   }
   
@@ -97,7 +113,12 @@ class Equipment extends Item
   
   public String shopString( int p )
   {
-    return name+": "+p+" Gold  "+power+" Power";
+    return name+": "+p+" Gold  "+(int)power+" Power";
+  }
+  
+  public int getPower()
+  {
+    return (int)power;
   }
 }
 
@@ -119,4 +140,12 @@ X.2 - Fire
 X.3 - Wind
 X.4 - ICE
 X.5 - HOLY
+
+Status-inducing Weapons:
+Weapons will inflict status if their power value has a hundreds-place digit
+X.01 - Poison
+X.02 - Sleep
+X.03 - Paralysis
+X.04 - Weakness
+X.05 - Curse
 */

@@ -304,21 +304,27 @@ class Artist
   public void loadSkillIcons()
   {
     //Knight
-    skillButton[0] = loadImage("KnightSkill.png");     skillButton[0].resize(60,0);
+    skillButton[0] = loadImage("KnightSkill.png");    skillButton[0].resize(60,0);
     skillIcon[0][0] = loadImage("DefenseStrike.png"); skillIcon[0][0].resize(60,0);
+    skillIcon[0][1] = loadImage("ArmorBreak.png");    skillIcon[0][1].resize(60,0);
     //Barbarian
-    skillButton[1] = loadImage("BarbSkill.png");     skillButton[1].resize(60,0);
+    skillButton[1] = loadImage("BarbSkill.png");      skillButton[1].resize(60,0);
     skillIcon[1][0] = loadImage("BloodStrike.png");   skillIcon[1][0].resize(60,0);
+    skillIcon[1][1] = loadImage("Cleave.png");        skillIcon[1][1].resize(60,0);
     //Karate
     skillButton[2] = loadImage("ThiefSkill.png");     skillButton[2].resize(60,0);
     skillIcon[2][0] = loadImage("StoneFist.png");     skillIcon[2][0].resize(60,0);
+    skillIcon[2][1] = loadImage("FlashPunch.png");    skillIcon[2][1].resize(60,0);
     //Thief
-    skillButton[3] = loadImage("MonkSkill.png");     skillButton[3].resize(60,0);
+    skillButton[3] = loadImage("MonkSkill.png");      skillButton[3].resize(60,0);
     skillIcon[3][0] = loadImage("Knives.png");        skillIcon[3][0].resize(60,0);
+    skillIcon[3][1] = loadImage("Toxin.png");         skillIcon[3][1].resize(60,0);
     //Priest
     skillIcon[4][0] = loadImage("HolyLight.png");     skillIcon[4][0].resize(60,0);
+    skillIcon[4][1] = loadImage("DivineComfort.png"); skillIcon[4][1].resize(60,0);
     //Mage    
-    skillIcon[5][0] = loadImage("FireBall.png");          skillIcon[5][0].resize(60,0);
+    skillIcon[5][0] = loadImage("FireBall.png");      skillIcon[5][0].resize(60,0);
+    skillIcon[5][1] = loadImage("Icicle.png");        skillIcon[5][1].resize(60,0);
   }
   
   public void drawHeroSkills( int h )
@@ -328,14 +334,14 @@ class Artist
     strokeWeight(5); fill(0);
     stroke(200); textSize(18); textAlign(CENTER);
     rectMode(CORNER); rect(40,200,620,300,20); rectMode(CENTER);
-    /*level 1 skill*/            noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],140,280); rect(140,280,70,70,20); fill(200); text(party.hero[h].skill[0].description,140,240); text("Cost: "+party.hero[h].skill[0].cost,140,335); text("Q",165,305);
-    if(party.hero[h].level>=5 ) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],280,280); rect(280,280,70,70,20); fill(200); text(party.hero[h].skill[1].description,280,240); text("Cost: "+party.hero[h].skill[0].cost,280,335); text("W",305,305); }
-    if(party.hero[h].level>=10) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],420,280); rect(420,280,70,70,20); fill(200); text(party.hero[h].skill[2].description,420,240); text("Cost: "+party.hero[h].skill[0].cost,420,335); text("E",445,305); }
-    if(party.hero[h].level>=15) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],560,280); rect(560,280,70,70,20); fill(200); text(party.hero[h].skill[3].description,560,240); text("Cost: "+party.hero[h].skill[0].cost,560,335); text("R",585,305); }
-    if(party.hero[h].level>=20) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],140,430); rect(140,430,70,70,20); fill(200); text(party.hero[h].skill[4].description,140,390); text("Cost: "+party.hero[h].skill[0].cost,140,485); text("A",165,455); }
-    if(party.hero[h].level>=25) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],280,430); rect(280,430,70,70,20); fill(200); text(party.hero[h].skill[5].description,280,390); text("Cost: "+party.hero[h].skill[0].cost,280,485); text("S",305,455); }
-    if(party.hero[h].level>=30) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],420,430); rect(420,430,70,70,20); fill(200); text(party.hero[h].skill[6].description,420,390); text("Cost: "+party.hero[h].skill[0].cost,420,485); text("D",445,455); }
-    if(party.hero[h].level>=35) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],560,430); rect(560,430,70,70,20); fill(200); text(party.hero[h].skill[7].description,560,390); text("Cost: "+party.hero[h].skill[0].cost,560,485); text("F",585,455); }
+    /*level 1 skill*/             noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],140,280); rect(140,280,70,70,20); fill(200); text(party.hero[h].skill[0].description,140,240); text("Cost: "+party.hero[h].skill[0].cost,140,335); text("Q",165,305);
+    if(party.hero[h].level>=5 ) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][1],280,280); rect(280,280,70,70,20); fill(200); text(party.hero[h].skill[1].description,280,240); text("Cost: "+party.hero[h].skill[1].cost,280,335); text("W",305,305); }
+    if(party.hero[h].level>=10) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][2],420,280); rect(420,280,70,70,20); fill(200); text(party.hero[h].skill[2].description,420,240); text("Cost: "+party.hero[h].skill[2].cost,420,335); text("E",445,305); }
+    if(party.hero[h].level>=15) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][3],560,280); rect(560,280,70,70,20); fill(200); text(party.hero[h].skill[3].description,560,240); text("Cost: "+party.hero[h].skill[3].cost,560,335); text("R",585,305); }
+    if(party.hero[h].level>=20) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][4],140,430); rect(140,430,70,70,20); fill(200); text(party.hero[h].skill[4].description,140,390); text("Cost: "+party.hero[h].skill[4].cost,140,485); text("A",165,455); }
+    if(party.hero[h].level>=25) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][5],280,430); rect(280,430,70,70,20); fill(200); text(party.hero[h].skill[5].description,280,390); text("Cost: "+party.hero[h].skill[5].cost,280,485); text("S",305,455); }
+    if(party.hero[h].level>=30) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][6],420,430); rect(420,430,70,70,20); fill(200); text(party.hero[h].skill[6].description,420,390); text("Cost: "+party.hero[h].skill[6].cost,420,485); text("D",445,455); }
+    if(party.hero[h].level>=35) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][7],560,430); rect(560,430,70,70,20); fill(200); text(party.hero[h].skill[7].description,560,390); text("Cost: "+party.hero[h].skill[7].cost,560,485); text("F",585,455); }
     
     fill(0); rect(baseX+75,545,70,70,20);drawCancelIcon(baseX+75,545);
   }
@@ -414,9 +420,9 @@ class Artist
     
     textAlign(LEFT,TOP);
     text(party.hero[h].weapon.toString(),95,255);
-    text(party.hero[h].weapon.power,165,245);
+    text(party.hero[h].weapon.getPower(),165,245);
     text(party.hero[h].armor.toString(),95,375);
-    text(party.hero[h].armor.power,165,365);
+    text(party.hero[h].armor.getPower(),165,365);
     
     fill(0);  rectMode(CORNER);
     stroke(200); strokeWeight(5);
@@ -743,9 +749,9 @@ class Artist
     else //hero can use
     {
       //display old power
-      if( thing.isWeapon) text( party.hero[heroIndex].weapon.power, xPos-25, yPos );
-      else                text( party.hero[heroIndex].armor.power, xPos-25, yPos );
-      text( thing.power, xPos+25, yPos ); //display new power
+      if( thing.isWeapon) text( party.hero[heroIndex].weapon.getPower(), xPos-25, yPos );
+      else                text( party.hero[heroIndex].armor.getPower(), xPos-25, yPos );
+      text( thing.getPower(), xPos+25, yPos ); //display new power
       strokeWeight(2);
       line(xPos-5,yPos-12,xPos+5,yPos-12);
       line(xPos+2,yPos-9,xPos+5,yPos-12);
@@ -824,8 +830,8 @@ class Artist
       case BED:
         image(tileImage[77],xPos,yPos);
         break;
-      case VANGUARD:
-        image(tileImage[52],xPos,yPos);
+      case GARGOYLE:
+        image(tileImage[51],xPos,yPos);
         break;
       case BROKE_GLASS:
         image(tileImage[81],xPos-60,yPos-60);
@@ -1173,7 +1179,7 @@ class Artist
   
   void drawBattleWindow()
   {
-    println("1: "+party.hero[0].poison+ "  2: "+party.hero[1].poison+"  3: "+party.hero[2].poison);
+    //println("1: "+party.hero[0].poison+ "  2: "+party.hero[1].poison+"  3: "+party.hero[2].poison);
     strokeWeight(5);
     stroke(200);
     fill(0);

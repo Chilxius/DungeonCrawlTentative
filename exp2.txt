@@ -1,84 +1,99 @@
-Joy
+Björn
 KNIGHT
-232.0
-14.0
-53.0
-5
-400
-244
-41
+97.0
+49.0
+23.0
+2
+200
+44
+30
 0
 Axe
 MetalSpikedAxe.png
 9
-22
-Iron Plate
-MetalArmor.png
-15
-24
+22.0
+Old Plate
+RustyArmor.png
+7
+18.0
 
-Briar
+Ivan
 THIEF
-31.0
-83.0
-27.0
-5
-400
-244
-33
-0
-Ratfang
-Ratfang.png
-15
+56.0
+97.0
+52.0
+2
+200
+44
 24
+0
+Ivory Knife
+IceDagger.png
+15
+15.0
 Admirer's Chain
 MetalMail.png
 18
-20
+20.0
 
-Yoko
+Gunhild
 MAGE
+130.0
 0.0
 0.0
-117.0
-5
-400
-194
-23
-33
-Dagger
-MetalDagger2.png
-5
-13
-Spidersilk
-WhiteShirt.png
-21
-12
-
-6
-
-68
-Mana Potion
+2
+200
+44
+17
 24
-Mana Potion
-24
-Mutton Chop
-20
+Staff
+Staff.png
+2
+14.0
+Vestment
+BlueShirt.png
+3
+7.0
+
+2
+
+0
+Cornbread
+10
+Hardtack
+10
+Brocade
+5
 Health Potion
 12
-Ivory Skull
-23
-Ciabatta
+Health Potion
+12
+Knife
+4
+Biscuits
 10
+Fresh Bread
+10
+Scone
+10
+Brioche
+10
+Turkey Leg
+20
+Golden Dice
+19
+Mana Potion
+24
+Health Potion
+12
+Old Leather
+5
+Rusty Sword
+6
 XX
 
+CHARIS_NOTES
 CHARIS
-GRAVE_NOTES
-CRYPT_KEY
-CRYPT_KEY
-DRAGON
-DRAGON
-CRYPT_KEY
 XX
 
 false
@@ -93,23 +108,10 @@ false
 false
 false
 false
-false
-false
-false
-false
-false
-false
-false
-false
-false
-false
-false
-false
-false
-false
-false
-false
-false
+true
+true
+true
+true
 false
 false
 false
@@ -133,20 +135,33 @@ true
 true
 true
 true
-false
-false
-false
-false
-false
-false
-false
-false
-false
-false
-false
-false
-false
-false
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
+true
 false
 false
 false
@@ -192,7 +207,7 @@ true
 true
 false
 true
-true
+false
 true
 false
 true
@@ -215,9 +230,9 @@ true
 true
 true
 true
-false
-false
-false
+true
+true
+true
 false
 false
 false
@@ -285,16 +300,12 @@ false
 false
 XX
 
+false
+false
+false
 true
-false
-false
-false
-false
-false
-false
-false
-false
-false
+true
+true
 false
 false
 false
@@ -306,8 +317,12 @@ true
 true
 true
 true
-false
-false
+true
+true
+true
+true
+true
+true
 false
 false
 false

@@ -135,7 +135,7 @@ class Tile
       case '|':obj=Object.RUBBLE;type=TileType.SAFE_BLOCKED;break;
       case '@':obj=Object.TENT;type=TileType.SAFE;break;
       case '€':obj=Object.BED;type=TileType.SAFE;break;
-      case 'V':obj=Object.VANGUARD;type=TileType.SAFE;break;
+      case 'V':obj=Object.GARGOYLE;type=TileType.SAFE;break;
       case '¶':obj=Object.BROKE_GLASS;break; //alt+7
       default: obj=Object.NONE;break;
     }
@@ -624,8 +624,8 @@ class Tile
       image(tileImage[72],xPos,yPos-4);
     if(type == TileType.BOOK_SECRET)
       image(tileImage[76],xPos,yPos);
-    if(obj == Object.VANGUARD)
-      image(tileImage[52],xPos,yPos);
+    if(obj == Object.GARGOYLE)
+      image(tileImage[51],xPos,yPos);
   }
   
   public boolean canOpen()
@@ -704,7 +704,7 @@ public enum Object //tile has an object (still pathable)
   BARREL, BARREL2,
   GRAVE, RUBBLE,
   TENT, BED,
-  VANGUARD,
+  GARGOYLE,
   BROKE_GLASS,
   NONE
 }

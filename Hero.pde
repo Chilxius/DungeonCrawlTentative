@@ -65,12 +65,12 @@ class Hero
     level = 1;
     exp = 0;
     nextLevel = level*100;
-    adjustStats();
+    adjustStats(true);
     hp = maxHp; mp = maxMp;
     poisoned=weakened=paralyzed=asleep=cursed=false;
   }
   
-  public void adjustStats()
+  public void adjustStats( boolean first )
   {
     switch(job)
     {
@@ -133,10 +133,16 @@ class Hero
         wil =    int((96/50.0)*(level-1)+4);
         spd =    int((88/50.0)*(level-1)+2);
         maxMp =  int((230/50.0)*(level-1)+20); //20 -> 250
+        if( level >=5 ) //Adjust cost of FIRE spell
+          skill[0].cost = 2;
+        if( level >=10 ) //Adjust cost of RIME spell
+          skill[1].cost = 2;
         break;
       
       default:       hp=maxHp=1;str=1;dex=1;con=1;mag=1;wil=1;spd=1;mp=maxMp=1;break;
     }
+    if(!first)
+      assignSkills(); //reset skill data related to stats/equipment
   }
   
   public void assignSkills()
@@ -145,7 +151,8 @@ class Hero
     {
       case KNIGHT:
         skill[0] = new Attack("Defensive Strike", con/2, false, true, AttackStat.STR ); skill[0].cost = 2; //Puts knight into defense, adds con/2 to damage
-        skill[1] = new Attack("Armor Pierce", str*2, false, true, AttackStat.STR ); skill[1].cost = 4;
+        skill[1] = new Attack("Armor Break", str/2, false, true, AttackStat.STR ); skill[1].cost = 4;     //Cut through armor, add half strength
+          skill[1].pierceArmor = true;
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -155,7 +162,7 @@ class Hero
         break;
       case BARBARIAN:
         skill[0] = new Attack("Blood Strike", str, false, true, AttackStat.STR ); skill[0].cost = 2;    //Loses str/5 hp, add str again
-        skill[1] = new Attack("Cleave", 15, true, true, AttackStat.STR ); skill[1].cost = 4;
+        skill[1] = new Attack("Cleave", 15, true, true, AttackStat.STR ); skill[1].cost = 4;          //Attack all enemies, +15 power
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -165,7 +172,7 @@ class Hero
         break;
       case KARATE:
         skill[0] = new Attack("Stone Fist", int(weapon.power*0.6), false, true, AttackStat.STR, AttackType.EARTH );  skill[0].cost = 2; //1.6x fist strength, adds earth element
-        skill[1] = new Attack("Flash Punch", dex, false, true, AttackStat.STR ); skill[1].cost = 4;
+        skill[1] = new Attack("Flash Punch", dex, false, true, AttackStat.STR ); skill[1].cost = 3;    //add dex, initiative goes to ~80%
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -175,7 +182,7 @@ class Hero
         break;
       case THIEF:
         skill[0] = new Attack("Knives", 5, true, true, AttackStat.STR );  skill[0].cost = 2; //Attacks all enemies
-        skill[1] = new Attack("Toxin", 1, false, true, AttackStat.STR ); skill[1].cost = 4;
+        skill[1] = new Attack("Toxin", dex/2, false, true, AttackStat.STR, AttackType.NONE, Debuff.POISON ); skill[1].cost = 4;  //add half dex, deal LEVEL poison
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -195,8 +202,8 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       default:
-        skill[0] = new Attack("Fire", 50, false, false, AttackStat.MAG, AttackType.FIRE ); skill[0].cost = 3; //single-target fire attack
-        skill[1] = new Attack("Rime", 55, false, false, AttackStat.MAG, AttackType.ICE ); skill[1].cost = 3; //single-target ice attack
+        skill[0] = new Attack("Fire", 50, false, false, AttackStat.MAG, AttackType.FIRE ); skill[0].cost = 3; if(level>4) skill[0].cost=2; //single-target fire attack
+        skill[1] = new Attack("Icicle", 55, false, false, AttackStat.MAG, AttackType.ICE ); skill[1].cost = 3; if(level>9) skill[1].cost=2; //single-target ice attack
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -261,7 +268,7 @@ class Hero
     if( exp > nextLevel )
     {
       level++;
-      adjustStats();
+      adjustStats(false);
       if( job == Job.KARATE )
         adjustFistPower();
       exp = 0;
@@ -342,9 +349,21 @@ class Hero
     battle.waitingForText = false;
     if( skillSelection == -1 ) //normal attack
     {
-      damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), int(weapon.power), str, battleMonsters[targetMonster].con, weapon.element, battleMonsters[targetMonster].weakness);
+      damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weapon.getPower(), str, battleMonsters[targetMonster].con, weapon.element, battleMonsters[targetMonster].weakness);
       battleMonsters[targetMonster].takeDamage(damage);
-      floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, color(255), damage) );
+      floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, appropriateColor(weapon.element), damage) );
+      
+      //Resolve status attack (status weapon)
+      switch(weapon.status)
+      {
+        case NONE:
+          break;
+        case POISON:
+          float largeRandom = random(100);  //25% chance
+          float smallChance = 25;
+          if( largeRandom < max(1,smallChance+damage-battleMonsters[targetMonster].con) )
+            battleMonsters[targetMonster].poison((int)(weapon.power/7.5),targetMonster);
+      }
     }
     else //skill
     {
@@ -366,6 +385,19 @@ class Hero
         battleMonsters[targetMonster].takeDamage(damage);
         floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, skill[skillSelection].appropriateColor(), damage) );
       }
+      
+      //Resolve status skill (need another for normal attacks with status weapons)
+      if(skill[skillSelection].debuff!=Debuff.NONE)
+      {
+        switch(skill[skillSelection].debuff)
+        {
+          case POISON:  //skills always poison successfully
+            //float largeRandom = random(100);
+            //float smallRandom = 25; //this doesn't need to be random
+            //if( largeRandom < max(1,smallRandom+damage-battleMonsters[targetMonster].con) )
+            battleMonsters[targetMonster].poison(level,targetMonster);
+        }
+      }
     }
     
     //calculateDamage( int level, int crit, int wepPower, int attackStr, int defense, AttackType aType, AttackType dType )
@@ -378,19 +410,33 @@ class Hero
     return true;
   }
   
-  void handleSkillEffect( int skillIndex )
+  void handleSkillEffect( boolean beforeAttack, int skillIndex )
   {
-    switch( job )
+    if( beforeAttack )
     {
-      case KNIGHT:
-        if(skillIndex==0) //defensive strike
-          defending = true;
-        break;
-        
-      case BARBARIAN:
-        if(skillIndex==0) //blood strike
-          takeDamage(str/5,false); //take 20% of str as damage
-        break;
+      switch( job )
+      {
+        case KNIGHT:
+          if(skillIndex==0) //defensive strike
+            defending = true;
+          break;
+          
+        case BARBARIAN:
+          if(skillIndex==0) //blood strike
+            takeDamage(str/5,false); //take 20% of str as damage
+          break;
+      }
+    }
+    else
+    {
+      switch( job )
+      {
+        case KARATE:
+          if(skillIndex == 1 ) //flash punch
+            battle.list[battle.turn].counter = 15*party.averageLevel() + 100;
+            println(party.hero[battle.turn]);
+          break;
+      }
     }
   }
   

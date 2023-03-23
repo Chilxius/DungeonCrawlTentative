@@ -340,7 +340,7 @@ void setupMaps()
   bossIndex++;
   
   //Spiders blocking save point
-  m[0].tiles[3][94].placeBoss( 0, color(255, 175), "They're protecting the Legend Gem.", new Monster("Red Spider", "RedSpider.png", 10, 5, 10, 3, 0, 3, 5, 0, AttackType.NONE), true );
+  m[0].tiles[3][94].placeBoss( 0, color(255, 175), "They're attracted to the Legend Gem.", new Monster("Red Spider", "RedSpider.png", 10, 5, 10, 3, 0, 3, 5, 0, AttackType.NONE), true );
       zoo.boss[bossIndex].attacks[0] = new Attack("scurries forward.");
       zoo.boss[bossIndex].attacks[1] = new Attack("bites your arm.", 30, false, Debuff.POISON);
       zoo.boss[bossIndex].attacks[2] = new Attack("bites your leg.", 35, false, Debuff.POISON);
@@ -496,7 +496,7 @@ void setupMaps()
   mapStrings[mapIndex] += "£| ß  ß ß ß B ßß   | |          £      ££      £         £    £         £         ££££££££££££££££££";
   mapStrings[mapIndex] += "W= ßB   ßrß B    |ß||           £              £              £         £              £            ";
   mapStrings[mapIndex] += "WWWWWWWWW<WWWWWWW||||| |         ££££££££££££££ ££££££££££££££   66666  £              £            ";
-  mapStrings[mapIndex] += "         £                                               £       6,,*6  £  #########   £   #########";
+  mapStrings[mapIndex] += "         £                                               £       6,,,6  £  #########   £   #########";
   mapStrings[mapIndex] += "                                                                 6,,,6  £  #..33.#.#   £   #.#.33..#";
   mapStrings[mapIndex] += "                                                                 6,,,6  £  #≠....πç>£  £  £>çπ....≠#";
   mapStrings[mapIndex] += "                                                                 6,,66  £  #..33.#.#   £   #.#.33..#";
@@ -525,14 +525,14 @@ void setupMaps()
   mapStrings[mapIndex] += "        ##G...............|.|##  £                        £  3       3  £              £            ";
   mapStrings[mapIndex] += "        #>..............|....>#  £                        £   3     3    £££££££££££££££££££££££££££";
   mapStrings[mapIndex] += "        ##G...............#.|##  £  3333333333333££££££   £    33<33     £             £            ";
-  mapStrings[mapIndex] += "         ##.*####..####..# ###   £  3BßB rır BBÍ¢     >£  £      £       £             £            ";
+  mapStrings[mapIndex] += "         ##..####..####..# ###   £  3BßB rır BBÍ¢     >£  £      £       £             £            ";
   mapStrings[mapIndex] += "          ####  ####  ####       £  3    rrr    3££££££   £              £  ##&###&##  £  ##&###&## ";
   mapStrings[mapIndex] += "                                 £  3±≠       ≠≠3          £££££££££££££££  #...[[..#  £  #3.....3# ";
   mapStrings[mapIndex] += "                                 £  33333   33333                        £  #[..[].|#  £  #3.∫∫∫.3# ";
   mapStrings[mapIndex] += "          £££££££££££££££££££££££        3 3                             £  #][....[#  £  #..∫@∫..# ";
   mapStrings[mapIndex] += "                                        33 3333333333333333              £  #[....[[#  £  #..∫∫∫..# ";
   mapStrings[mapIndex] += "                                        3   3  3  3  3  3 3333333333333  £  #......]#  £  #3.....3# ";
-  mapStrings[mapIndex] += "                                        3                            >3  £  #|.[....#  £  #3.....3# ";
+  mapStrings[mapIndex] += "                                        3                             3  £  #|.[....#  £  #3.....3# ";
   mapStrings[mapIndex] += "                                        3   3  3  3  3  3 3333333333333  £  ##&#<#&##  £  ##&#<#&## ";
   mapStrings[mapIndex] += "                                        3333333333333333333              £     ###     £     ###    ";
   
@@ -580,14 +580,14 @@ void setupMaps()
   //Crypts
   createLoot(lootIndex++, 1, 76, 63, new Equipment("Alar's Axe","MetalAxe.png",25,true,27,Job.KNIGHT,Job.BARBARIAN) );
   createLoot(lootIndex++, 1, 76, 73, new Equipment("Lion's Hide","fur.png",25,false,25,Job.BARBARIAN) );
-  createLoot(lootIndex++, 1, 76, 83, new Equipment("Purifier","StoneClub.png",25,true,27,Job.KNIGHT,Job.PRIEST) );
+  createLoot(lootIndex++, 1, 76, 83, new Equipment("Purifier","StoneClub.png",25,true,27.5,Job.KNIGHT,Job.PRIEST) );
   createLoot(lootIndex++, 1, 98, 63, new Equipment("Cold Iron Plate","DarkArmor.png",25,false,28,Job.KNIGHT, Job.PRIEST) );
   createLoot(lootIndex++, 1, 98, 73, new Equipment("Scholar's Robe","aquaRobes.png",25,false,18, Job.KARATE, Job.PRIEST, Job.MAGE) );
-  createLoot(lootIndex++, 1, 98, 83, new Equipment("Heartwood Staff","Staff2.png",25,true,27,Job.MAGE) );
+  createLoot(lootIndex++, 1, 98, 83, new Equipment("Flamecaster Staff","Staff2.png",25,true,27.2,Job.MAGE) );
   
   //Boss Chamber
-  createLoot(lootIndex++, 1, 37, 92 , new Equipment("Ritual Knife","curvedDagger.png",35,true,35.4,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.MAGE) );
-  createLoot(lootIndex++, 1, 38, 92 , new Equipment("Ritual Robes","darkRobes.png",30,false,20) );
+  createLoot(lootIndex++, 1, 37, 92 , new Equipment("Ritual Knife","curvedDagger.png",35,true,30.01,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.MAGE) );
+  createLoot(lootIndex++, 1, 38, 92 , new Equipment("Ritual Robes","darkRobes.png",29,false,20,true) );
   createLoot(lootIndex++, 1, 46, 92 , new Item("Mana Potion",12) );
   createLoot(lootIndex++, 1, 47, 92 , new Item("Health Potion",24) );
   
@@ -607,7 +607,7 @@ void setupMaps()
   m[1].tiles[50][97].createEvent(false, "- NOR THAT WHICH CAN LAME THE SPIRIT...");
   m[1].tiles[44][97].createEvent(false, "- FEAR ME WHO CAN DO BOTH.");
   //Boss's Book
-  m[1].tiles[42][91].createEvent(false, "- The book is written in a language of abstract pictograms. The only thing you recognize is an image of three of the Black Vanguard. You have only ever seen him alone. The illustrations are gilded with iron.");
+  m[1].tiles[42][91].createEvent(false, "- The book is written in a language of abstract pictograms. The only image you recognize is the Black Vanguard, but there are three of him. You have only ever seen him depicted alone. The illustrations are gilded with iron.");
   
   
   m[1].tiles[17][3].placeOccupant( color(75,100,255), "- Good morning, young ones. We made fresh bread this morning. To eat food you are carrying, press capital (E). You need peace and quiet to eat. Don't try to eat during a fight or it will ruin your digestion." );
@@ -706,7 +706,7 @@ void setupMaps()
   savePoints[savePointIndex++] = new SavePoint(1, 7, 2); //Intro
   savePoints[savePointIndex++] = new SavePoint(1, 96, 14); //Temple
   savePoints[savePointIndex++] = new SavePoint(1, 39, 49); //Mausoleum
-  savePoints[savePointIndex++] = new SavePoint(1, 68, 61); //Temp save
+  //savePoints[savePointIndex++] = new SavePoint(1, 68, 61); //Temp save
   //savePoints[savePointIndex++] = new SavePoint(1, 12, 90); //Last save before boss
   
   //Start room - second room
@@ -881,14 +881,14 @@ void setupMaps()
   bossIndex++;
   
   //Crypt Guardians
-  m[1].tiles[78][63].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Alar", "Crypt1.png", 50, 13, 10, 7, 1, 2, 9, 0, AttackType.HOLY) );
+  m[1].tiles[78][63].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Alar", "Crypt1.png", 50, 13, 10, 7, 1, 3, 9, 0, AttackType.HOLY) );
       zoo.boss[bossIndex].attacks[0] = new Attack("strikes with its knee.", 40, false);
       zoo.boss[bossIndex].attacks[1] = new Attack("kicks.", 40, false);
       zoo.boss[bossIndex].attacks[2] = new Attack("swings wide.", 40, true);
       zoo.boss[bossIndex].attacks[3] = new Attack("swings its axe!", 60, false);
       zoo.boss[bossIndex].attacks[4] = new Attack("swings its axe!", 60, false);
   bossIndex++;
-  m[1].tiles[78][73].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Corel", "Crypt6.png", 50, 13, 15, 7, 1, 2, 9, 0, AttackType.HOLY) );
+  m[1].tiles[78][73].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Corel", "Crypt6.png", 50, 13, 15, 7, 1, 3, 9, 0, AttackType.HOLY) );
       zoo.boss[bossIndex].attacks[0] = new Attack("growls.");
       zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 40, false);
       zoo.boss[bossIndex].attacks[2] = new Attack("lunges like a beast!", 60, false);
@@ -923,12 +923,12 @@ void setupMaps()
       zoo.boss[bossIndex].attacks[3] = new Attack("delivers an icy touch.", 50, false, AttackStat.MAG, AttackType.ICE );
       zoo.boss[bossIndex].attacks[4] = new Attack("conjures a ring of fire!", 55, true, AttackStat.MAG, AttackType.FIRE );
   bossIndex++;
-  m[1].tiles[42][97].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Erar", "Crypt5.png", 50, 2, 10, 2, 9, 8, 7, 0, AttackType.HOLY) );
-      zoo.boss[bossIndex].attacks[0] = new Attack("makes arcane gestures.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("swings its staff.", 45, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("causes the crypt to shake!", 45, true, AttackStat.MAG, AttackType.EARTH );
-      zoo.boss[bossIndex].attacks[3] = new Attack("delivers an icy touch.", 50, false, AttackStat.MAG, AttackType.ICE );
-      zoo.boss[bossIndex].attacks[4] = new Attack("conjures a ring of fire!", 55, true, AttackStat.MAG, AttackType.FIRE );
+  m[1].tiles[42][96].placeBoss( 1, color(77,20,20), "Malice smolders in its vacant eyes.", new Monster("Body of Necromancer", "Necro.png", 200, 20, 15, 6, 16, 10, 10, 50, AttackType.HOLY) );
+      zoo.boss[bossIndex].attacks[0] = new Attack("stabs with a wicked knife.", 45, false, Debuff.POISON);
+      zoo.boss[bossIndex].attacks[1] = new Attack("exhales chilling air.", 40, true, AttackStat.MAG, AttackType.ICE );
+      zoo.boss[bossIndex].attacks[2] = new Attack("drops stones to bury you!", 55, false, AttackStat.MAG, AttackType.EARTH );
+      zoo.boss[bossIndex].attacks[3] = new Attack("drops stones to bury you!", 55, false, AttackStat.MAG, AttackType.EARTH );
+      zoo.boss[bossIndex].attacks[4] = new Attack("causes your very bones to freeze!", 55, true, AttackStat.MAG, AttackType.ICE );
   bossIndex++;
   
   //Danger Map 1
@@ -1087,7 +1087,7 @@ void setupMaps()
   mapStrings[mapIndex] += "YY¨¨Y¨¨¨¨¨¨¨¨¨¨¨YYYYY¨¨Y¨¨¨¨YY¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨YYwwwwwwwwwwwwwwT,``,```````TTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "Y¨¨¨¨¨¨¨Y¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨,,,,,,,„„„„„„„„„„„„„„„„,,,```,```TTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "Y¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨Y¨¨¨Y¨¨¨¨Y¨¨¨¨YY¨¨¨¨¨,,,,,,,,,„„„„„„„„„„„„„„„„,,,,,``TTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "YY¨¨¨¨Y¨¨Y¨¨¨¨¨,,,,,,,,,,,,,,,,,,,,¨Yww¨¨,,,,,,¨¨¨¨¨,,wwwwwwwwwwwwwwT,TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "YY¨¨¨¨Y¨¨Y¨¨¨¨¨,,,,,,,,,,,,,,,,,,,,¨Yww¨¨,,,,,,¨¨¨¨¨,,wwwwwwwwwwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "Y¨¨Y¨¨¨¨¨¨¨Y¨,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,¨¨¨¨YY¨¨¨¨wwwwwwwwwwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "YY¨¨¨¨Y¨¨¨¨,,,,,¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨Y,,,,,,,,,,¨¨¨¨¨¨YYYYYYwwwwwwwwwwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "¨YY¨¨¨¨¨¨¨,,,,,¨Y¨¨¨¨¨Y¨¨¨¨¨Y¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨¨YY¨¨YY¨YYYYwwwwwwwwwwwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
@@ -1097,10 +1097,10 @@ void setupMaps()
   mapStrings[mapIndex] += "33333333333∏33333333333333333333333333333333YYYY¨¨YYY¨¨Y3333333333333333333333¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
   mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨,¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3333333333333333¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨YYYYYYYYYYYYYY";
   mapStrings[mapIndex] += "33¨|¨g¨g¨g¨,¨g¨g¨g¨|¨33¨g¨g¨g¨g¨g¨g¨g¨g¨g¨3333¨¨¨¨¨¨,,,333¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨YYYYYYYYYYYYYY";
-  mapStrings[mapIndex] += "33¨,¨¨¨,¨¨¨,¨¨¨,¨,¨¨¨33¨,¨¨¨¨¨¨¨∞¨¨¨,¨¨¨%¨333¨¨Y¨¨V¨¨¨,,33¨¨¨g¨¨¨g¨¨¨g¨¨¨g¨¨¨3¨¨¨¨¨¨¨¨YYYYYYYYYYYYYY";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨,¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨3¨¨¨¨,,3¨¨¨%¨¨¨~¨¨¨%¨¨¨~¨¨¨3¨¨¨¨¨¨¨¨33333333333333";
+  mapStrings[mapIndex] += "33¨,¨¨¨,¨¨¨,¨¨¨,¨,¨¨¨33¨,¨¨¨¨¨¨¨∞¨¨¨,¨¨¨%¨333¨¨Y¨¨¨¨¨¨,,33¨¨¨g¨¨¨g¨¨¨g¨¨¨g¨¨¨3¨¨¨¨¨¨¨¨YYYYYYYYYYYYYY";
+  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨,¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨,,3¨¨¨%¨¨¨~¨¨¨%¨¨¨~¨¨¨3¨¨¨¨¨¨¨¨33333333333333";
   mapStrings[mapIndex] += "33¨g¨g¨g¨|¨,¨g¨|¨g¨|¨33¨g¨|¨g¨g¨g¨g¨g¨g¨|¨33¨¨¨¨¨¨¨¨¨¨Y,,3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨33333333333333";
-  mapStrings[mapIndex] += "33¨∞¨∞¨¨¨¨¨,¨¨¨¨¨¨¨,¨33¨,¨,¨¨¨,¨¨¨,¨,¨,¨¨¨33Y¨¨¨¨¨¨¨¨¨¨¨,3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨YY33Y#######33";
+  mapStrings[mapIndex] += "33¨∞¨∞¨¨¨¨¨,¨¨¨¨¨¨¨,¨33¨,¨,¨¨¨,¨¨¨,¨,¨,¨¨¨33Y¨¨¨¨¨R¨¨¨¨¨,3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨YY33Y#######33";
   mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨,¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨...¨¨¨¨,3333333333∏3333333333¨¨¨¨¨¨¨¨YY33¨#€∑„≥≥#33";
   mapStrings[mapIndex] += "33¨g¨g¨g¨g¨,,,,,,,,,,,,,,,,,,,¨¨,,,,¨,,¨¨¨¨∏......Y.....˝∏¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨YY33¨#„„„„ı#33";
   mapStrings[mapIndex] += "33¨¨¨,¨¨¨,¨¨¨¨¨¨¨¨¨¨¨|,¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨,¨¨¨¨¨...¨¨¨¨¨333333333|¨¨|33333333¨¨¨¨¨¨¨¨YY33¨#„„„„„#33";
@@ -1280,12 +1280,12 @@ void setupMaps()
   exits.add( new Portal(2,90,79,1,65,85, "Catacombs") );
   m[2].tiles[90][79].createEvent(false, "- Moonlight illuminates a path beneath the colored glass.");
   
-  m[2].tiles[93][79].placeBoss( 2, color(200,130,100), "They guard a hole in the monument.", new Monster("Body of Erar", "Crypt5.png", 50, 2, 10, 2, 9, 8, 7, 0, AttackType.HOLY) );
-      zoo.boss[bossIndex].attacks[0] = new Attack("makes arcane gestures.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("swings its staff.", 45, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("causes the crypt to shake!", 45, true, AttackStat.MAG, AttackType.EARTH );
-      zoo.boss[bossIndex].attacks[3] = new Attack("delivers an icy touch.", 50, false, AttackStat.MAG, AttackType.ICE );
-      zoo.boss[bossIndex].attacks[4] = new Attack("conjures a ring of fire!", 55, true, AttackStat.MAG, AttackType.FIRE );
+  m[2].tiles[93][79].placeBoss( 2, color(90,90,90), "They guard a hole in the monument.", new Monster("Skeletal Guardian", "DarkScimitarSkeleton.png", 50, 15, 5, 7, 0, 5, 9, 0, AttackType.HOLY), true);
+      zoo.boss[bossIndex].attacks[0] = new Attack("prepares for your attack.");
+      zoo.boss[bossIndex].attacks[1] = new Attack("swings its sword.", 45, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("swings wide!", 45, true );
+      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with the pommel.", 45, false );
+      zoo.boss[bossIndex].attacks[4] = new Attack("lunges!", 55, false );
   bossIndex++;
   
   
@@ -1435,9 +1435,11 @@ void setNameDependentText()
 }
 
 //Expected Level:
+//(old exp system)
 //Rat queen 1.7
 //man-wolf 3.3
 //crypt guards 4.5 before, 5.2 back at courtyard
+//before necro 6.7
 
 //Deities:
 //Black Vanguard - anubis

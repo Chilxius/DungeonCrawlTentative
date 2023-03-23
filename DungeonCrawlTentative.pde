@@ -7,22 +7,21 @@
 //Enemy wound reports can go over text limit
 
 //TO DO:
-//Graveyard boss and mini-boss
 //Balance Graveyard enemies
 //Skills: animation system
 //initiate classroom
 //Make battles stop triggering on spaces with events
+//Fix text in Charis's study
 
 //IMPROVEMENT:
-//Synergy on food menu
 //Improve hero select widnow (circle sizes)
 //Have inns charge money?
 //Delay before "vanquished" line where enemy vanishes
 //Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair
 //Tone fixes for random text
+//More random names
 
 //IMAGES I NEED:
-//Bread, fruit, meat, crab
 //Potion
 
 //NOTES:
@@ -200,7 +199,7 @@ void setup()
   tileImage[74] = loadImage("TileRoofBlue.png"); tileImage[74].resize(30,34);
   tileImage[75] = loadImage("bookshelf2.png"); tileImage[75].resize(30,30);
   tileImage[76] = loadImage("bookshelfEmpty.png"); tileImage[76].resize(30,30);
-  tileImage[77] = loadImage("bed.png"); tileImage[77].resize(30,30);
+  tileImage[77] = loadImage("bed2.png"); tileImage[77].resize(30,30);
   tileImage[78] = loadImage("blackBook.png"); tileImage[78].resize(20,0);
   tileImage[79] = loadImage("chestBone.png"); tileImage[79].resize(30,0);
   tileImage[80] = loadImage("blueBook.png"); tileImage[80].resize(20,0);
@@ -523,7 +522,7 @@ boolean checkForBattle()
   randomBattleCounter++;
   
   if(randomBattleCounter > 0 && randomBattleCounter % 5 == 0)
-    party.tickDownPoisons(); //<>//
+    party.tickDownPoisons();
   
   return false;
 }
@@ -722,7 +721,26 @@ boolean mouseInBox( float boxX, float boxY ) //assumes boxes are 70x70
     return true;
   return false;
 }
-
+  
+public color appropriateColor( AttackType element )
+{
+  switch(element)
+  {
+    case FIRE:
+      return color(200,0,0);
+    case ICE:
+      return color(0,0,200);
+    case WIND:
+      return color(0,200,0);
+    case EARTH:
+      return color(200,150,50);
+    case HOLY:
+      return color(255,255,0);
+    default:
+      return color(255);
+  }
+}
+  
 Input appropriateInputMode()
 {
   if( party.hero[battle.turn].skill[skillSelection].healing )
@@ -1310,6 +1328,7 @@ void mousePressed()
   }
 
   println(mouseX + " " + mouseY);
+  println(randomName());
   //floatingNumbers.add( new GhostNumber( mouseX, mouseY, color(255), 888888888 ) );
 }
 
@@ -1457,9 +1476,9 @@ public void loadFile( String fileName )
       party.hero[i].exp = int(saveFileText[7+offset]);
       party.hero[i].hp = int(saveFileText[8+offset]);
       party.hero[i].mp = int(saveFileText[9+offset]);
-      party.hero[i].weapon = new Equipment(saveFileText[10+offset],saveFileText[11+offset],int(saveFileText[12+offset]),true,int(saveFileText[13+offset]));
+      party.hero[i].weapon = new Equipment(saveFileText[10+offset],saveFileText[11+offset],int(saveFileText[12+offset]),true,float(saveFileText[13+offset]));
       party.hero[i].armor = new Equipment(saveFileText[14+offset],saveFileText[15+offset],int(saveFileText[16+offset]),false,int(saveFileText[17+offset]));
-      party.hero[i].adjustStats();
+      party.hero[i].adjustStats(false);
       //party.hero[i].assignSkills();
     }
     
