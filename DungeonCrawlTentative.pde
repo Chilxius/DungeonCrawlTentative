@@ -4,14 +4,15 @@
 //PROBLEMS:
 //Fix lineLength error and problem with not printing entire line
 //Fix objects getting strange tile colors
-//Enemy wound reports can go over text limit
+//Boss didn't drop money when killed by poison
 
 //TO DO:
-//Balance Graveyard enemies
 //Skills: animation system
 //initiate classroom
 //Make battles stop triggering on spaces with events
 //Fix text in Charis's study
+//Figure out how to load zoneNumber when loading files - maybe save that too?
+//Add a "holding on" mechanic to stay alive after critical damage
 
 //IMPROVEMENT:
 //Improve hero select widnow (circle sizes)
@@ -70,6 +71,7 @@ boolean heroDataDisplayed[] = {false,false,false};
 //Exploration Data
 Party party = new Party( new Hero(false), new Hero(false), new Hero(false));
 ArrayList<Portal> exits = new ArrayList<Portal>();
+int zoneNumber = 1; //type of zone the party is in (mostly for music)
 
 //UI data
 Artist vanGogh;// = new Artist();
@@ -494,6 +496,8 @@ boolean attemptMove( String direction )
       {  party.Y++; checkEvent(); result = true; } break;
   }
   
+  vanGogh.checkLocationForTitleCard( party.floor, party.X, party.Y );
+  
   if( result && checkForBattle() )
     triggerBattle(dm[party.floor].dangerValueChar(party.X,party.Y));
   
@@ -517,7 +521,8 @@ boolean checkForBattle()
     return true;
   }
   
-  println(randomBattleCounter + "  DL:" +dm[party.floor].dangerValueChar(party.X,party.Y));
+  println(zoneNumber);
+  //println(randomBattleCounter + "  DL:" +dm[party.floor].dangerValueChar(party.X,party.Y));
   //println(m[1].tiles[40][4].occupantText);
   randomBattleCounter++;
   
@@ -738,6 +743,58 @@ public color appropriateColor( AttackType element )
       return color(255,255,0);
     default:
       return color(255);
+  }
+}
+
+public int getZone( String title )
+{
+  switch( title )
+  {
+    case "": return zoneNumber;
+    
+    //Main Cathedral areas
+    case "Dormitory":
+    case "Initiates' Classroom":
+    case "Father Charis's Study":
+    case "Irohill Cathedral":
+      return 1;
+      
+    //First rat dungeon
+    case "The West Cellar":
+      return 2;
+      
+    //Irohill forest and well cave
+    case "Irohill Forest":
+      return 3;
+      
+    //Irohill city
+    case "Irohill":
+    case "Irohill Inn":
+    case "Irohill Garrison":
+    case "Irohill Town Hall":
+    case "Hideout":
+      return 4;
+      
+    //Baron's Field
+    case "Baron's Field":
+    case "Irohill Library":
+    case "Tomb of Alar the Champion":
+    case "Tomb of Corel the Beast":
+    case "Tomb of Ruath the Pure":
+    case "Tomb of Zan the Invincible":
+    case "Tomb of Ivy the Wise":
+    case "Tomb of Erar Thundercaller":
+    case "Gravekeeper's Hut":
+    case "Mausoleum":
+    case "Cenotaph":
+    case "Catacombs":
+      return 5;
+      
+    //Temples of Ritisu
+    case "Temple of Ritisu":
+      return 6;
+    //Silent Zones
+    default: return 0;
   }
 }
   

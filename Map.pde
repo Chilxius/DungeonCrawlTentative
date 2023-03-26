@@ -64,7 +64,7 @@ class Map
     
     //For Testing
     textSize(10);
-    fill(0);
+    fill(255);
     textAlign(LEFT);
     text(party.X + ", " + party.Y,width/2-10,height/2+45);
   }

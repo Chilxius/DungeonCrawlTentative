@@ -89,6 +89,23 @@ class Artist
   {
     locationTitleCard = title;
     titleCardDuration = 255;
+    if(zoneNumber != getZone(title))
+    {
+      zoneNumber = getZone(title);
+      //Start new music track                  <- NEW MUSIC TRACKS START HERE
+    }
+  }
+  
+  public void checkLocationForTitleCard( int f, int x, int y )
+  {
+    if( f == 2 )
+    {
+      if( x == 53 && ( y == 47 || y == 48 ) && zoneNumber != 5 )
+        startLocationTitleCard( "Baron's Field" );
+        
+      if( x == 68 && ( y == 47 || y == 48 ) && zoneNumber != 4 )
+        startLocationTitleCard( "Irohill" );
+    }
   }
   
   public void drawMainMenu()
@@ -1572,6 +1589,26 @@ class Artist
     fill(200); textSize(10);
     textAlign(CENTER);
     text("X",x+25,y+27);
+  }
+    
+  //Redundant with method in Attack class, needed for coloring skills changed by weapon type
+  public color appropriateColor( AttackType type )
+  {
+    switch(type)
+    {
+      case FIRE:
+        return color(200,0,0);
+      case ICE:
+        return color(0,0,200);
+      case WIND:
+        return color(0,200,0);
+      case EARTH:
+        return color(200,150,50);
+      case HOLY:
+        return color(255,255,0);
+      default:
+        return color(255);
+    }
   }
   
   void drawHero(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial, Job j)

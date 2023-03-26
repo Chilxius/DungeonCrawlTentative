@@ -151,13 +151,13 @@ class Beastiary
     switch( name )
     {
       case "Body of Necromancer":
-        battleMonsters[0] = new Monster("Skeletal Guard",  "ScimitarSkeleton.png",  40, 24, 5, 6, 0, 4, 6, 0, AttackType.HOLY);
+        battleMonsters[0] = new Monster("Skeletal Guard",  "ScimitarSkeleton.png",  30, 20, 5, 6, 0, 4, 6, 0, AttackType.HOLY);
           battleMonsters[0].attacks[0] = new Attack("protects its master.");
           battleMonsters[0].attacks[1] = new Attack("slices.", 50, false);
           battleMonsters[0].attacks[2] = new Attack("cuts upward.", 50, false);
           battleMonsters[0].attacks[3] = new Attack("strikes downward.", 50, false);
           battleMonsters[0].attacks[4] = new Attack("delivers a mighty blow!", 60, false );
-        battleMonsters[2] = new Monster("Skeletal Guard",  "ScimitarSkeleton.png",  40, 20, 5, 6, 0, 4, 6, 0, AttackType.HOLY);
+        battleMonsters[2] = new Monster("Skeletal Guard",  "ScimitarSkeleton.png",  30, 18, 5, 6, 0, 4, 6, 0, AttackType.HOLY);
           battleMonsters[2].attacks[0] = new Attack("protects its master.");
           battleMonsters[2].attacks[1] = new Attack("whirls its sword.", 40, true);
           battleMonsters[2].attacks[2] = new Attack("whirls its sword.", 40, true);

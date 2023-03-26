@@ -172,7 +172,7 @@ class Hero
         break;
       case KARATE:
         skill[0] = new Attack("Stone Fist", int(weapon.power*0.6), false, true, AttackStat.STR, AttackType.EARTH );  skill[0].cost = 2; //1.6x fist strength, adds earth element
-        skill[1] = new Attack("Flash Punch", dex, false, true, AttackStat.STR ); skill[1].cost = 3;    //add dex, initiative goes to ~80%
+        skill[1] = new Attack("Flash Punch", max(20,dex), false, true, AttackStat.STR ); skill[1].cost = 3;    //add dex, initiative goes to ~80%
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -367,23 +367,28 @@ class Hero
     }
     else //skill
     {
+      //converting non-elemental attacks to weapon's type
+      AttackType skillType = skill[skillSelection].type; 
+      if( skillType == AttackType.NONE && !skill[skillSelection].healing && skill[skillSelection].useWeapon )
+        skillType = weapon.element;
+      
       if( skill[skillSelection].targetAll )
       {
         for(int i = 0; i < 3; i++)
           if(battleMonsters[i].alive)
           {
-            damage = battle.calculateDamage( level, 1, weaponPower+skill[skillSelection].power, appropriateStat( skill[skillSelection] ), battleMonsters[i].appropriateDefense( skill[skillSelection] ), skill[skillSelection].type, battleMonsters[i].weakness );
+            damage = battle.calculateDamage( level, 1, weaponPower+skill[skillSelection].power, appropriateStat( skill[skillSelection] ), battleMonsters[i].appropriateDefense( skill[skillSelection] ), skillType, battleMonsters[i].weakness );
             battleMonsters[i].takeDamage(damage);
-            floatingNumbers.add( new GhostNumber( 150+210*i, 320, skill[skillSelection].appropriateColor(), damage) );
+            floatingNumbers.add( new GhostNumber( 150+210*i, 320, appropriateColor(skillType), damage) );
             if( !battleMonsters[i].alive )
               battle.list[i+3].active = false;
           }
       }
       else
       {
-        damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weaponPower+skill[skillSelection].power, appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skill[skillSelection].type, battleMonsters[targetMonster].weakness );
+        damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weaponPower+skill[skillSelection].power, appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skillType, battleMonsters[targetMonster].weakness );
         battleMonsters[targetMonster].takeDamage(damage);
-        floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, skill[skillSelection].appropriateColor(), damage) );
+        floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, appropriateColor(skillType), damage) );
       }
       
       //Resolve status skill (need another for normal attacks with status weapons)

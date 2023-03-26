@@ -155,7 +155,7 @@ class Monster
       hp = 0;
       alive = false;
       poison = 0;
-      displayTextLine( name + "collapses!" );
+      displayTextLine( name + " collapses!" );
       return true;
     }
     if(poison<=0)
