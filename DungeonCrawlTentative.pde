@@ -206,10 +206,10 @@ void setup()
   tileImage[79] = loadImage("chestBone.png"); tileImage[79].resize(30,0);
   tileImage[80] = loadImage("blueBook.png"); tileImage[80].resize(20,0);
   tileImage[81] = loadImage("brokenGlass.png"); tileImage[81].resize(90,0);
-  tileImage[82] = loadImage("Bread.png"); tileImage[82].resize(30,0);
-  tileImage[83] = loadImage("Meat.png"); tileImage[83].resize(30,0);
-  tileImage[84] = loadImage("Fruit.png"); tileImage[84].resize(30,0);
-  tileImage[85] = loadImage("Crab.png"); tileImage[85].resize(30,0);
+  tileImage[82] = loadImage("bread.png"); tileImage[82].resize(30,0);
+  tileImage[83] = loadImage("meat.png"); tileImage[83].resize(30,0);
+  tileImage[84] = loadImage("fruit.png"); tileImage[84].resize(30,0);
+  tileImage[85] = loadImage("crab.png"); tileImage[85].resize(30,0);
   
   //Test sounds
   //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
