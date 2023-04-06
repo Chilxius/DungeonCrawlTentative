@@ -97,13 +97,13 @@ void setupMaps()
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTWWW<WWW";
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G..?.rr.?..G..#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#################TTTTT#>.∫∫∫∫∫rr∫∫∫∫∫.>#TTTTT#########TTTTT#########TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#=≠±#...#.J.#.©.#TTTTT#..G....rr....G..#TTTTT#[[...∑]#TTTTT#==...3w#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT&...#...#...#...&TTTTT#######.rr.#######TTTTT#...W.∑.&TTTTT#.....33#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#########TTTT&.∫∫∫∫∫∫∫∫∫∫∫∫∫.&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#>....∑.&TTTTT#>......#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#∫∫∫#rrr#TTTT#.∫∫∫∫∫∫>∫∫∫∫∫∫.#TTTTTTTTTTT#.rr.#TTTTTTTTTTT#...W.∑.&TTTTT#..„„„..#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#.∫.#.r.#TTTT&.∫∫∫∫∫∫∫∫∫∫∫∫∫.&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#[[...∑]#TTTTT#„„„„„„„#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#.......#TTTT&...#...#...#...&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#########TTTTT#########TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#.r.#.∫.$tttt$¢¢¢#*••#.G.#.R.#TTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#∫∫BB•..∫..•BB∫∫#TTTTT#..G....rr....G..#TTTTT#[[...∑]#TTTTT#==...3w#TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT&∫.....∫∫∫.....∫&TTTTT#######.rr.#######TTTTT#...W.∑.&TTTTT#.....33#TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTT#########TTTT&.....∫∫∫∫∫.....&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#>....∑.&TTTTT#>......#TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTT#∫∫∫#rrr#TTTT#....∫∫∫>∫∫∫....#TTTTTTTTTTT#.rr.#TTTTTTTTTTT#...W.∑.&TTTTT#..„„„..#TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTT#.∫.#.r.#TTTT&3....∫∫∫∫∫.....&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#[[...∑]#TTTTT#„„„„„„„#TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTT#.......#TTTT&3¢....∫∫∫.....∫&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#########TTTTT#########TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTT#.r.#.∫.$tttt$¢¢3.•..∫..*..∫∫#TTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTT#rrr#∫∫∫#TTTT#################TTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTT##$$#####TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TttttttttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
@@ -208,19 +208,20 @@ void setupMaps()
   m[0].tiles[37][17].placeOccupant( color(150, 150, 250), "- About time we cleared the riffraff from this holy place. If only Brother Ken could be next. He was supposed to open the cloister this morning, but I expect he's sampling wine in the cellar again." );
 
   //People at the table
+  m[0].tiles[79][8].placeOccupant( initiateColor, "- My repairs have been delayed. Try to ignore that horrible thing for a few more days." );
   //in method below
-  m[0].tiles[79][8].placeOccupant( color(150, 150, 250), "- My repairs have been delayed. Try to ignore that horrible thing for a few more days." );
-  //Help room initiates
-  m[0].tiles[21][30].placeOccupant( color(150, 150, 200), "- Chests come in many styles. These are mostly for show. Out in the world, there will always be SOMETHING inside of them." );
-  m[0].tiles[25][30].placeOccupant( color(150, 150, 200), "- Some monsters are especially vulnurable to elemental skills and magic. Fire opposes ice, wind opposes earth. The divine light of Illamar is effective against anything unholy. Even natural creatures may have elemental weaknesses. You may have noticed that fire is effective against rats." );
-  m[0].tiles[29][30].placeOccupant( color(150, 150, 200), "- There are many bodily ills in this world. Poison will sap your health until you perish or recover. Some monsters attack the senses so that you fall asleep while standing. Worse are those that induce paralysis. Some ailments are magical in nature, such as atrophy. It causes your muscles to weaken. If a curse is put upon you, your ability cast magic is reduced, as is your power to resist it." );
-  m[0].tiles[33][30].placeOccupant( color(150, 150, 200), "- Let's review your lessons. Strength, combined with the power of your weapon, will determine the damage you deal in combat. Dexterity is a more subtle skill, but you will find it valuable when it allows you to land critical blows. A strong Constitution will prevent harm from physical blows. Magical power, obviously, powers magic spells and techniques. Willpower serves as your defense against the magic of others. Speed will determine how quickly you can act in combat." );
-  m[0].tiles[21][34].placeOccupant( color(150, 150, 200), "- There are often many ways forward, and not all of them are obvious." );
-  m[0].tiles[25][34].placeOccupant( color(150, 150, 200), "- Only one of these Legend Gems is genuine. Human artifice has been unable to re-create the Tears of Ritisu, though many have tried. Always tell your tales to the Gems. You will learn from your past and your possible futures reflected in its clear facets." );
-  m[0].tiles[29][34].placeOccupant( color(150, 150, 200), "- Energy is used by martial fighters to fuel their combat techniques. You start with some energy and gain one every time you attack. Your maximum energy is dictated by your level of experience." );
+  //Help room initiates    (do status conditions in Waraka)
+  m[0].tiles[27][29].placeOccupant( ritisuColor, "- We are honored to be given space in this house of Illamar. May our knowledge serve you." );
+  //m[0].tiles[32][32].placeOccupant( lesserRitisuColor, "- Don't get excited. There's no treasure in these." );
+  m[0].tiles[25][30].placeOccupant( lesserRitisuColor, "- There is balance to the elements. Fire opposes ice. Earth opposes wind. But common monsters fear the elements as well. Have you seen how rats flee from fire?" );
+  m[0].tiles[29][30].placeOccupant( lesserRitisuColor, "- Combat is taxing. If you are knocked out, potions and healing magic will revive you, but not with full strength." );
+  m[0].tiles[33][30].placeOccupant( lesserRitisuColor, "- Martial fighters gain power as they fight, power that manifests as fearsome techniques. More experienced fighters learn more skills and can utilize more energy." );
+  m[0].tiles[21][33].placeOccupant( lesserRitisuColor, "- There are often many ways forward, and not all of them are obvious." );
+  m[0].tiles[25][34].placeOccupant( lesserRitisuColor, "- Only one of these Legend Gems is genuine. Human artifice has been unable to re-create the Tears of Ritisu, though many have tried." );
+  m[0].tiles[29][34].placeOccupant( lesserRitisuColor, "- Always tell your tales to the gems. You will learn from your past and your possible futures reflected in their clear facets." );
   //in method below
-  m[0].tiles[8][32].placeOccupant( color(200, 150, 200), "- There are other ways to move. Try the number pad, if you have one. The 7 key will open doors, and the 9 will interact with stairs." );
-  m[0].tiles[12][32].placeOccupant( color(200, 150, 200), "- When choosing a hero for the use of items, the target of skills, or equipment, (a)(s)(d) and (1)(2)(3) work the same. This is also true when targeting monsters." );
+  m[0].tiles[8][36].placeOccupant( lesserRitisuColor, "- There are other ways to move. Try the number pad, if you have one. The 7 key will open doors, and the 9 will interact with stairs." );
+  m[0].tiles[8][32].placeOccupant( lesserRitisuColor, "- When choosing a hero for the use of items, the target of skills, or equipment, (a)(s)(d) and (1)(2)(3) work the same. This is also true when targeting monsters." );
   //in method below
   //in method below
   //Chilxius
@@ -324,16 +325,16 @@ void setupMaps()
   //To west cellar
   exits.add( new Portal(0,4,10,1,81,1, "The West Cellar") );
   //To/from help room
-  exits.add( new Portal(0,42,28,0,27,32, "Initiates' Classroom") );
+  exits.add( new Portal(0,42,28,0,27,32, "Shrine of Ritisu") );
   exits.add( new Portal(0,27,32,0,42,28) );
   //To/from kitchen
-  exits.add( new Portal(0,57,28,0,65,31) );
+  exits.add( new Portal(0,57,28,0,65,31, "Kitchen") );
   exits.add( new Portal(0,65,31,0,57,28) );
   //To/from lab
-  exits.add( new Portal(0,57,40,0,79,31) );
+  exits.add( new Portal(0,57,40,0,79,31, "Laboratory") );
   exits.add( new Portal(0,79,31,0,57,40) );
   //To/from armory
-  exits.add( new Portal(0,42,40,0,98,43) );
+  exits.add( new Portal(0,42,40,0,98,43, "Armory") );
   exits.add( new Portal(0,98,43,0,42,40) );
   //Father Charis's study
   exits.add( new Portal(0,57,49,0,68,45, "Father Charis's Study") );
@@ -350,14 +351,16 @@ void setupMaps()
   //Board Ship
   exits.add( new Portal(0,49,89,0,49,89, "End of Current Build") );
   
+  /*
   //Chest goblin
-  m[0].tiles[20][29].placeBoss( 0, color(255,5), "Something pops out of the chest!", new Monster("Box Goblin", "RedBoxBoy.png", 1, 1, 1, 1, 1, 1, 1, 0, AttackType.NONE) );
+  m[0].tiles[34][32].placeBoss( 0, color(255,5), "Something pops out of the chest!", new Monster("Box Goblin", "RedBoxBoy.png", 1, 1, 1, 1, 1, 1, 1, 0, AttackType.NONE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("looks around.");
       zoo.boss[bossIndex].attacks[1] = new Attack("pretends to be a box.");
       zoo.boss[bossIndex].attacks[2] = new Attack("speaks in a strange language.");
       zoo.boss[bossIndex].attacks[3] = new Attack("does nothing.");
       zoo.boss[bossIndex].attacks[4] = new Attack("does a little dance.");
   bossIndex++;
+  */
   
   //Giant rat blocking camp
   m[0].tiles[3][54].placeBoss( 0, color(150, 80, 40), "It's guarding that campsite.", new Monster("Escaped Rat", "BrownRat.png", 20, 9, 15, 2, 0, 2, 4, 0, AttackType.FIRE) );
@@ -410,7 +413,7 @@ void setupMaps()
   " This is an ill omen, and coupled with the reports from Baron's Field, changes must be made. Lay persons will no longer be housed in the Cathedral."+
   " Loath as I am to undo one of Charis's beloved projects, the safety of the eparchy is our duty, and we must ration our resources. Children, you will find a key on the table before you."+
   " Take as much food as you need from the kitchens on your way out. The people of Irohill will surely receive you.\"");
-  m[0].tiles[47][27].createEvent(true, "- Initiate's Classrooms");
+  m[0].tiles[47][27].createEvent(true, "- Shrine of Ritisu");
   m[0].tiles[52][27].createEvent(true, "- Kitchen");
   m[0].tiles[47][39].createEvent(true, "- Armory");
   m[0].tiles[52][39].createEvent(true, "- Laboratory");
@@ -421,7 +424,7 @@ void setupMaps()
   
   //Save points
   savePoints[savePointIndex++] = new SavePoint(0, 19, 9);
-  savePoints[savePointIndex++] = new SavePoint(0, 24, 35);
+  savePoints[savePointIndex++] = new SavePoint(0, 30, 35);
   savePoints[savePointIndex++] = new SavePoint(0, 3, 46);
   savePoints[savePointIndex++] = new SavePoint(0, 1, 94);
   savePoints[savePointIndex++] = new SavePoint(0, 54, 98);
@@ -663,7 +666,7 @@ void setupMaps()
   m[1].tiles[17][3].placeOccupant( color(75,100,255), "- Good morning, young ones. We made fresh bread this morning. To eat food you are carrying, press capital (E). You need peace and quiet to eat. Don't try to eat during a fight or it will ruin your digestion." );
   m[1].tiles[17][5].placeOccupant( color(75,100,255), "- I think we have some magical potions left in the western cellar. Those are quite useful as they can be consumed during combat. There are only four varieties of potion, though. Thanks, prohhibition. Press capital (D) to drink potions while in the field." );
   m[1].tiles[17][7].placeOccupant( color(75,100,255), "- When you are weary, seek out an inn or campsite. The people of Irid left many tents of sturdy and long-lasting leather across the land. Press capital (R) to rest at such a site." );
-  m[1].tiles[23][3].placeOccupant( color(75,100,255), "- We have all we need here at the Irohill Cathedral. However, if you some day leave, you may need to trade with vendors. Press capital (B) to bargain with them, but be wary of those who would cheat you." );
+  m[1].tiles[23][3].placeOccupant( color(75,100,255), "- We have all we need here. However, if you some day leave, you may need to trade with vendors. Press capital (B) to bargain with them, but be wary of those who would cheat you." );
   m[1].tiles[23][5].placeOccupant( color(75,100,255), "- The Vendor's Guild is strict, and prohibits vedors from buying from you. Some will flaunt these rules and will give you gold for your unneeded treasures. Seek them out if you need coin." );
   m[1].tiles[23][7].placeOccupant( color(75,100,255), "- You were given a map of the Cathedral, yes? There is a helpful list of tips on the back of it. Hold the (h) key to view these tips whenever you need." );
   m[1].tiles[46][2].placeOccupant( color(75,100,255), "- Good morning, children. I'm sorry to tell you, but Father Charis crossed the Veil last night. He was a man of towering benevolence, though you know that better than anyone. Mother Sunita will be speaking on his behaf during morning meal." );
@@ -1497,9 +1500,9 @@ void setNameDependentText()
   m[0].tiles[84][58].placeOccupant( color(200,150), "- I'm so proud of you, "+party.hero[2].name+"." );
  
   //Teachers
-  m[0].tiles[8][36].placeOccupant( color(200, 150, 200), "- Knights"+knightName+" rely on their armor, and gain two energy when they defend against an attack. Barbarians"+barbName+" gain one anger whenever they are attacked." );
-  m[0].tiles[12][36].placeOccupant( color(200, 150, 200), "- Thieves"+thiefName+" gain five energy on successful critical blows. Martial artists"+monkName+" do not gain bonus energy, but will always start a fight full of spiritual power." );
-  m[0].tiles[33][34].placeOccupant( color(150, 150, 200), "- Magical Power is used by mages"+mageName+" and priests"+priestName+" to fuel their magic. The lure of magic is strong, but once their power is spent a mage can do little." );
+  m[0].tiles[12][32].placeOccupant( lesserRitisuColor, "- Knights"+knightName+" rely on their armor, and gain two energy when they defend against an attack. Barbarians"+barbName+" gain one anger whenever they are attacked." );
+  m[0].tiles[12][36].placeOccupant( lesserRitisuColor, "- Thieves"+thiefName+" gain five energy on successful critical blows. Martial artists"+monkName+" do not gain bonus energy, but will always start a fight full of spiritual power." );
+  m[0].tiles[33][34].placeOccupant( lesserRitisuColor, "- Magical Power is used by mages"+mageName+" and priests"+priestName+" to fuel their magic. The lure of magic is strong, but once their power is spent a mage can do little." );
   //Garrison
   m[0].tiles[98][41].placeOccupant( color(160, 160, 160), "- Knights"+knightName+" can wear heavy armor, which provides the best protection. Priests of Illamar"+priestName+" have been blessed with the strength to wear plate as well. Simpler armors like chain and leather can be worn by wild warriors"+barbName+" and rogues"+thiefName+". Martial artists"+monkName+" are trained to fight wearing common garb, and the magic of magi is disrupted by heavy material"+magePhrase+"." );
   m[0].tiles[98][45].placeOccupant( color(160, 160, 160), "- Swords and axes are the weapons of warriors. Knights"+knightName+" and barbaric fighters"+barbName+" should see no difficulty wielding them. Simpler arms like the club or knife are suitable for those without formal training, though mages"+mageName+" can only manage simple knives and staves. Martial artists"+monkName+" need naught but the hands Am-asma gave them." );

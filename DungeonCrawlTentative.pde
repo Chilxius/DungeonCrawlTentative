@@ -754,9 +754,13 @@ public int getZone( String title )
     
     //Main Cathedral areas
     case "Dormitory":
+    case "Shrine of Ritisu":
     case "Initiates' Classroom":
     case "Father Charis's Study":
     case "Irohill Cathedral":
+    case "Kitchen":
+    case "Laboratory":
+    case "Armory":
       return 1;
       
     //First rat dungeon

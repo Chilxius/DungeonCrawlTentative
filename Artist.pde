@@ -623,11 +623,12 @@ class Artist
     text("(S) - Save at a Legend Gem",110,285);
     text("(R) - Rest at an inn or camp",110,310);
     text("(B) - Bargain with a vendor",110,335);
-    text("(o) - Open door",110,360); text("(>) - Use a staircase",350,360);
-    text("(space) - Open chest / Search current space",110,385);
-    text("Hold (i) - View inventory",110,410);
-    text("Hold (k) - View keys",110,435);
-    text("Hold (h) - View help menu",110,460);
+    text("(o) - Open door",110,360);
+    text("(>) - Use a staircase or entrance",110,385);
+    text("(space) - Open chest / Search current space",110,410);
+    text("Hold (i) - View inventory",110,435);
+    text("Hold (k) - View keys",110,460);
+    text("Hold (h) - View help menu",110,485);
     textSize(15);
     text(" Battle inputs are shown. The (space) key can usually be used to",110,515);
     text(" cancel. (1)(2)(3) are interchangable with (a)(s)(d) when selecting",110,535);
