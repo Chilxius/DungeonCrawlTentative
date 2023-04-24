@@ -5,6 +5,7 @@
 //Fix lineLength error and problem with not printing entire line
 //Fix objects getting strange tile colors
 //Boss didn't drop money when killed by poison
+//Skills casting even after being cancelled
 
 //TO DO:
 //Skills: animation system

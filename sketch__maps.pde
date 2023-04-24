@@ -86,7 +86,7 @@ void setupMaps()
   mapStrings[mapIndex] += "TT##+####+######.......####.....~~~~~~T~~~t~~Tww####wwt~~~~~~~~~~~~~.....########...######+#####+##T";
   mapStrings[mapIndex] += "TTT#>#TT#>####...„„„„„„„„##..G..#~~~~~~~~~~~~~~~~##~~~~~~~~~~~t~~~~#..G..##¬.¬.¬#...######>#TTT#>#TT";
   mapStrings[mapIndex] += "TTT###TT###T##[..„%%„%%„%##.....#~T~b~~D~~~~t~~~####~~~~~~T~~~~i~~~#.....##.....#...####T###TTT###TT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTT##..„%%„%%„%###########+############..############+#### ######.....#...###TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTT##..„%%„%%„%###########+############..############+###########.....#...###TTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTwww%TTTTT##.„%%„%%„%##....................................k.........##¬.¬.¬#...##TTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTwwwwTTTTTT##„%%„%%„%##.G....................rr....................G.##.....#..##TTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTwwwTTTTTT##%%„%%„%##......................rr......................##B......##TTTTTTTTTTTTTTTT";
@@ -994,7 +994,7 @@ void setupMaps()
       zoo.boss[bossIndex].attacks[3] = new Attack("delivers an icy touch.", 50, false, AttackStat.MAG, AttackType.ICE );
       zoo.boss[bossIndex].attacks[4] = new Attack("conjures a ring of fire!", 55, true, AttackStat.MAG, AttackType.FIRE );
   bossIndex++;
-  m[1].tiles[42][97].placeBoss( 1, color(77,20,20), "Malice smolders in its vacant eyes.", new Monster("Body of Necromancer", "Necro.png", 150, 20, 15, 6, 15, 10, 10, 50, AttackType.HOLY) );
+  m[1].tiles[42][96].placeBoss( 1, color(77,20,20), "Malice smolders in its vacant eyes.", new Monster("Body of Necromancer", "Necro.png", 150, 20, 15, 6, 15, 10, 10, 50, AttackType.HOLY) );
       zoo.boss[bossIndex].attacks[0] = new Attack("stabs with a wicked knife.", 45, false, Debuff.POISON);
       zoo.boss[bossIndex].attacks[1] = new Attack("exhales chilling air.", 40, true, AttackStat.MAG, AttackType.ICE );
       zoo.boss[bossIndex].attacks[2] = new Attack("drops stones to bury you!", 55, false, AttackStat.MAG, AttackType.EARTH );
