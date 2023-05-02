@@ -26,19 +26,19 @@ class Beastiary
     
     //1 - Rat cellar
     dangerZone++;
-    list[dangerZone][0] = new Monster("Rat", "SlimyRat.png",  4, 3, 2, 1, 0, 1, 2, 0, AttackType.FIRE);
+    list[dangerZone][0] = new Monster("Rat", "SlimyRat.png",  4, 3, 2, 1, 6, 1, 2, 0, AttackType.FIRE);
       list[dangerZone][0].attacks[0] = new Attack("squeaks.");
       list[dangerZone][0].attacks[1] = new Attack("scurries.");
       list[dangerZone][0].attacks[2] = new Attack("bites.", 30, false);
       list[dangerZone][0].attacks[3] = new Attack("bites.", 30, false);
       list[dangerZone][0].attacks[4] = new Attack("bites.", 30, false);
-    list[dangerZone][1] = new Monster("Tiny Rat", "GreyRat.png",  1, 1, 1, 1, 0, 1, 4, 0, AttackType.FIRE);
+    list[dangerZone][1] = new Monster("Tiny Rat", "GreyRat.png",  1, 1, 1, 1, 6, 1, 4, 0, AttackType.FIRE);
       list[dangerZone][1].attacks[0] = new Attack("squeaks.");
       list[dangerZone][1].attacks[1] = new Attack("scurries.");
       list[dangerZone][1].attacks[2] = new Attack("bites.", 20, false);
       list[dangerZone][1].attacks[3] = new Attack("bites.", 20, false);
       list[dangerZone][1].attacks[4] = new Attack("bites.", 20, false);
-    list[dangerZone][2] = new Monster("Large Rat", "DarkRat.png",  7, 4, 2, 1, 0, 1, 2, 0, AttackType.FIRE);
+    list[dangerZone][2] = new Monster("Large Rat", "DarkRat.png",  7, 4, 2, 1, 6, 1, 2, 0, AttackType.FIRE);
       list[dangerZone][2].attacks[0] = new Attack("squeaks.");
       list[dangerZone][2].attacks[1] = new Attack("scurries.");
       list[dangerZone][2].attacks[2] = new Attack("bites.", 35, false);
