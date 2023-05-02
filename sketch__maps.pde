@@ -120,13 +120,13 @@ void setupMaps()
   mapStrings[mapIndex] += "TTT~TTTTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTtTTTTTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTT#+##+##.rr.##+##+#TTTTDTTTTDTTTTTTTDTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTT~TTTTTTTT%TTTTTTTTT~TTTTT##π##TTTTTT###i..i...rr...i..k###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "```~TT%TTTTTTTT~TTTTTTTTTT~TG.i.GTTTTTT#>+i......rr......i+>#TTDTTTTTTTYYYYYYYYYYYYYYYYYYYYYYYYYYYYY";
+  mapStrings[mapIndex] += "```~TT%TTTTTTTT~TTTTTTTTTT~TG.i.GTTTTTT#>+i......rr......i+>#TTDTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "`@`TTTTTT~~~TTT~~t%~~~~t%~~~D...~TTTTTT###i..i...rr...i..i###TTTTTTTTTTYYY¨YYYYYYYYYYYYYYYYYYYYYYYYY";
   mapStrings[mapIndex] += "````~~~~~~T~~~~~~~~~%T~t~~T~~`.`~TTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTYYYYYYYY,YYYYYY,YYYYYYY,YYYYY";
   mapStrings[mapIndex] += "T``TT~~TTTTT~TTT~TTTTTTTTTT~~```~TTTTTTTT#>##>##.rr.##>##>#TTTTDTTTTTTTYYY,YY,YYYY,YYYYYYYYYYYYY,YYY";
   mapStrings[mapIndex] += "TTTTTT~TT~TTTTTTTTTTTTT~TTTTT~```TTTTTTTT#######.rr.#######TTTTTTTTTTTTYYY¨YYY,YTYYY,YY¨YY¨Y¨YYYYYYY";
   mapStrings[mapIndex] += "TTTTT~tTT|TTT%TTTTTTTT%TTTTTT~```TTTTTTTTTTTTT##.rr.##TTTTTTTTTDTTTTTTTYYYY,YYYYY,YYYY¨Y¨YY¨YY¨¨YY,Y";
-  mapStrings[mapIndex] += "DTTT~~TTTTT~~~~~~~TTTTT%T~TT~```~TTTTTTTTTTTT##..rr..##TTTTTTTTTTTTTTTTY,YYY`TTYYYYYyYYYY¨¨Y¨¨YYYYYY";
+  mapStrings[mapIndex] += "DTTT~~TTTTT~~~~~~~TTTTT%T~TT~```~TTTTTTTTTTTT##..rr..##TTTTTTTTTTTTTTTTY,YYY`TTYYYYYyYYYYY¨Y¨YYYYYYY";
   mapStrings[mapIndex] += "TTTT~~~TT~~~~T%TT~~TTDTTTTTT~```~TTTTTTTTTTT##...rr...##TTTTTTTTTTTTTTTYYYYYTT∑∑∑YYY,yy¨¨¨,¨|¨Y¨Y,YY";
   mapStrings[mapIndex] += "TTTTT~~~~~%TTTTTT~~%TTTTTTTTT~```~TTTTTTTTT##..#.rr.#..##TTTTTTDTTTTTTTYYYYY~TW<WYYY¨YYYY¨Y¨¨,¨YYYYY";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTT~~~tTTTTTTTTT~```~TTTTTTTT##.....rr.....##TTTTTTTTTTTTTYY,YY~Y,,,¨yy,YY¨YY¨Y¨YYYYY¨Y";
@@ -151,9 +151,9 @@ void setupMaps()
   mapStrings[mapIndex] += "TTTtttTTTTTTTTTTTTTTTwwwTTTTT`tTTTTTDT|TTTTTTTTTTTTTTTTTTTTTTTTTTTTT...TTTTTTTTTTTTTTTTTTTtTTTTTTTTT";
   mapStrings[mapIndex] += "T%tttTTTTTTTTTTTTTTTwwwwTTTTT``TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT...TTTTTTTTTTTTTTTTTTTtTTTTTTTTT";
   mapStrings[mapIndex] += "tttT%TTTTTTTTTTTTTwwwwwwwTTTTT`TTTTTTTTTTTTwTTTTTTTTTTwwwwTTTTTTTTTT...TTTTTTTTTTTTTTTTTTT`tTTTTTTTT";
-  mapStrings[mapIndex] += "TttTTTTTTTTTTTTTTwwwwwwwTTTTTT`TT|TTTTTTTTTwwwwwwwwwwWTTTwwwwTTTTTTT...TTTTwwwTTTTTTTTTTTTTt`TTTTTww";
-  mapStrings[mapIndex] += "|tT|TTTTTTTTTTTTwww`t`www~TTTT`TTTTTTTTTTTTwwwwwwwwwwWWWTTTTwwwwTTTTT...TTwwwwwwT%TTTTTDDTTT~~TTwwwT";
-  mapStrings[mapIndex] += "T@|TTTTTTTTTTT``„„„```„„„``TT``TTTTTTTTTTTTwwwwwwwwww`WWWWTTTTTwwwwww„„„wwwT~~%wwwwwTT%%%wwww„wwwTTT";
+  mapStrings[mapIndex] += "TttTTTTTTTTTTTTTTwwwwwwwTTTTTT`TT|TTTTTTTT%wwwwwwwwwwWTTTwwwwTTTTTTT...TTTTwwwTTTTTTTTTTTTTt`TTTTTww";
+  mapStrings[mapIndex] += "|tT|TTTTTTTTTTTTwww`y`www~TTTT`TTTTTTTTTTTwwwwwwwwwwwWWWTTTTwwwwTTTTT...TTwwwwwwT%TTTTTDDTTT~~TTwwwT";
+  mapStrings[mapIndex] += "T@|TTTTTTTTTTT``„„„```„„„``TT``TTTTTTTTTT%wwwwwwwwwww`WWWWTTTTTwwwwww„„„wwwT~~%wwwwwTT%%%wwww„wwwTTT";
   mapStrings[mapIndex] += "|TTT|TTTTTTTTT`~wwwwwwwwwT````TTTTTTTTTTTTTww∑WWWWWww((((((WT#TTTTTTT...TTTTTTTTTTTwwwwwwwwTT~TTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTT``TTwwwwwwwTTTTTTTTTTTTTTTTTTTwww∑∑∑∑∑ww∑∑∑∑∑∑WTT#TT#T##..|##TT#TTTTTTTTTTTTTTT~~TTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTT``TTTTTwwwwTTTTTTTTTTTTTTTTTTTTwwwwwwwwww##+###WWTTT~~~~~...~~~~~~~~~~~~~t~tt~tt~TTTTTTT";
@@ -903,7 +903,7 @@ void setupMaps()
       zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 39, false);
   bossIndex++;
 
-  m[1].tiles[1][16].placeBoss( 1, color(150, 80, 40), "A swarm comes for you!", new Monster("Giant Rat", "BrownRat.png", 18, 5, 5, 1, 9, 1, 3, 0, AttackType.FIRE), true );
+  m[1].tiles[1][16].placeBoss( 1, color(150, 80, 40), "A swarm comes for you!", new Monster("Giant Rat", "BrownRat.png", 18, 5, 5, 1, 12, 1, 3, 0, AttackType.FIRE), true );
       zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
       zoo.boss[bossIndex].attacks[1] = new Attack("squeaks.");
       zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 29, false);
@@ -911,7 +911,7 @@ void setupMaps()
       zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 39, false);
   bossIndex++;
 
-  m[1].tiles[5][15].placeBoss( 1, color(200, 80, 40), "This must be their matriarch.", new Monster("Rat Queen", "RedRat.png", 35, 12, 5, 2, 21, 3, 5, 0, AttackType.NONE) );
+  m[1].tiles[5][15].placeBoss( 1, color(200, 80, 40), "This must be their matriarch.", new Monster("Rat Queen", "RedRat.png", 35, 12, 5, 2, 24, 3, 5, 0, AttackType.NONE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("eyes you hungrily.");
       zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 35, false);
       zoo.boss[bossIndex].attacks[2] = new Attack("bites and scratches.", 40, false);
@@ -1128,20 +1128,20 @@ void setupMaps()
   mapStrings[mapIndex] += "TTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~```~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTT";
   mapStrings[mapIndex] += "TTTTTT~~~~(((~~(((~~(((~~(((~~(((~~(((~~(((~~~~~```~~~~~#&#&#~~~(((((((((((((~~((((((~~~~~~~~TTTTTTT";
   mapStrings[mapIndex] += "TTTTTT~~~~WWW~~∑∑∑~~∑∑∑~~∑∑∑~~∑∑∑~~WWW~~∑∑∑~~~```````~~~#####~~~(((((((((((((~~((((((~~~~~~~~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~~W+W~~#<#~~∑+∑~~#+#~~∑+∑~~W<W~~∑+∑~~``~~~~~``~~##>##~~~∑∑∑∑∑∑∑∑∑∑∑∑∑~~######~~~~~~~TTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~~~~`~~~~`~~~%`%~~~`~~~~`~~~~`~~~~`~~~`~~%~%%~`~~~G.G~~~~######<######~~####+#~~~~~~~~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~~~`~~~~`~~~~`~~~~`~~~~`~~~~`~~~~`~~~`~%WWW~~`~~~~.~~~~ˆ~~~~~~`~~~~~~~~~~~~~~~~~~~~~~TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~~~```````````````````````````````````~~WwW%~``````````````````````````````````~~~~~~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~~~#############~((((((((~~~((((((((~~`~%WWW~~`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTT~~#(((~(((~(((#~((((((((~~~((((((((~~`~%~`~%~`~~(((~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~~~#∑∑∑~∑∑∑~∑∑∑#~∑∑∑∑∑∑∑∑~~~∑∑∑∑∑∑∑∑~~``~~`~~``~~WWW~~W||~~|~~~~~~~~~(((((~~~~~~~~~~~TTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTT~~~~W+W~~#<#~~∑+∑~~#+#~~∑+∑~~W<W~~∑+∑~~``TTTTT``~~##>##~~~∑∑∑∑∑∑∑∑∑∑∑∑∑~~######~~~~~~~TTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTT~~~~`~~~~`~~~%`%~~~`~~~~`~~~~`~~~~`~~~`T%%%%%T`~~~G.G~~~~######<######~~####+#~~~~~~~~~TTTTTT";
+  mapStrings[mapIndex] += "TTTTTT~~~~~`~~~~`~~~~`~~~~`~~~~`~~~~`~~~~`~~~`T%WWW%T`~~~~.~~~~ˆ~~~~~~`~~~~~~~~~~~~~~~~~~~~~~TTTTTTT";
+  mapStrings[mapIndex] += "TTTTTT~~~~~```````````````````````````````````T%WwW%T``````````````````````````````````~~~~~~~TTTTTT";
+  mapStrings[mapIndex] += "TTTTTTT~~~#############~((((((((~~~((((((((~~`T%WWW%T`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTT~~#(((~(((~(((#~((((((((~~~((((((((~~`T%~`~%T`~~(((~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTT~~~#∑∑∑~∑∑∑~∑∑∑#~∑∑∑∑∑∑∑∑~~~∑∑∑∑∑∑∑∑~~``T~`~T``~~WWW~~W||~~|~~~~~~~~~(((((~~~~~~~~~~~TTTTTTTT";
   mapStrings[mapIndex] += "TTTTTT~~~~#∑+∑~∑+∑~∑+∑#~∑∑<∑∑<∑∑~~~∑∑<∑∑<∑∑~~~```````~~~W+W~~#.|~~||~~~|~~~WWWWWWWW||~~~~~~~~TTTTTTT";
   mapStrings[mapIndex] += "TTTTTT~~~~~~`~~~`~~~`~~~~~`~~`~~~~~~~`~~`~~~~~~~~`~~~~~~~`~~~~`~~~~`~~~~~~~|WWWW<WWW|~|~~~~TTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTT~~~~~~`~~~`~~~`~~~~÷`~~`÷~~~~~/`~~`/~~~~~~~`~~~~~~~`~~~~`~~~~`~~~~~~~~~~~```~~~~~~~~~~TTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTT~~~~~`````````````````````````````````````````````````````````````~`````~~````~`~`~~~~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`~~~~~~~TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``~~~~~``~~~~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``~~~~~`~~``|~~TTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`~~~~~~~TTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTT~~~~T~~~~~~~~T~~~~~~~~~~T~~~~~~~~~~~~~~~~TT~~~~~~~~~~~~~~~~~~~T~~~~~~~~~``~~~~~``~~~~~TTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTT~TTT~~~T~TTT~T~~T~~~~TTT~~~~~TTTTTT~~~TTTT~~~TT~~~~T~~~~~T~TT~~~~~~~``~~~~~`~~``|~~TTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~|~~`~~~~`~~~TTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~`~~~`~`~TTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~`~`~~`~~TTTTTTTTTTT";
