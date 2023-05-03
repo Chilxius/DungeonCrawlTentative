@@ -83,6 +83,7 @@ class Tile
       case '‡':type=TileType.SECRET_GLASS;break;
       case '>':type=TileType.STAIR;break;
       case '<':type=TileType.STAIR_DOOR;break;
+      case 'M':type=TileType.STAIR_WOOD;break;
       case ' ':type=TileType.DARK;break;
       case '£':type=TileType.BLACK_WALL;break;
       case 'G':type=TileType.GARGOYLE;break;
@@ -328,6 +329,9 @@ class Tile
       case STAIR_DOOR:
         tileColor = safeColor;
         break;
+      case STAIR_WOOD:
+        tileColor = color(90,70,30);
+        break;
       default:
         tileColor = color(200,0,0);
         pathable = true;
@@ -384,7 +388,7 @@ class Tile
     eventText=i.shopString(price);
   }
   
-  public void placeSeller()
+  public void placeBuyer()
   {
     occupied = false;
     pathable = true;
@@ -587,6 +591,8 @@ class Tile
       image(tileImage[56],xPos,yPos);
     else if(type == TileType.STAIR_DOOR)
       image(tileImage[38],xPos,yPos);
+    else if(type == TileType.STAIR_WOOD)
+      image(tileImage[87],xPos,yPos);
     else if(type == TileType.GARGOYLE)
       image(tileImage[51],xPos,yPos);
     else if(type == TileType.GARGOYLE_DARK)
@@ -691,7 +697,7 @@ public enum TileType
   DOOR, DOOR_GATE, PORTCULLIS, DOORSTEP,
   GRAVE, S_GLASS, SECRET_GLASS, GARGOYLE, GARGOYLE_DARK, GARGOYLE_JADE, WEREWOLF_WHITE,
   CAMP, MERCHANT, SHOP, SELL,
-  STAIR, STAIR_DOOR
+  STAIR, STAIR_DOOR, STAIR_WOOD
 }
 
 public enum Key //special items for interactive tiles

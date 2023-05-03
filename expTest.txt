@@ -55,7 +55,7 @@ RustyArmor.png
 7
 18.0
 
-6
+4
 
 107
 Peach of Peace
