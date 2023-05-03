@@ -1589,30 +1589,30 @@ void setupMaps()
   //m[mapIndex].tiles[0][0].placeBuyer();
   
   //Deck to Fo'c'sle Deck
-  exits.add( new Portal(3,64,4,3,66,24, "Forecastle Deck") );
-  exits.add( new Portal(3,64,14,3,66,34, "Forecastle Deck") );
+  exits.add( new Portal(3,64,2,3,66,22, "Forecastle Deck") );
+  exits.add( new Portal(3,64,12,3,66,32, "Forecastle Deck") );
   //Fo'c'sle to Deck
-  exits.add( new Portal(3,66,24,3,64,4, "Main Deck") );
-  exits.add( new Portal(3,66,34,3,64,14, "Main Deck") );
+  exits.add( new Portal(3,66,22,3,64,2, "Main Deck") );
+  exits.add( new Portal(3,66,32,3,64,12, "Main Deck") );
   
   //Deck to Quarterdeck
-  exits.add( new Portal(3,29,4,3,27,24, "Quarterdeck") );
-  exits.add( new Portal(3,29,14,3,27,34, "Quarterdeck") );
+  exits.add( new Portal(3,29,2,3,27,22, "Quarterdeck") );
+  exits.add( new Portal(3,29,12,3,27,32, "Quarterdeck") );
   //Quarterdeck to Deck
-  exits.add( new Portal(3,27,24,3,29,4, "Main Deck") );
-  exits.add( new Portal(3,27,34,3,29,14, "Main Deck") );
+  exits.add( new Portal(3,27,22,3,29,2, "Main Deck") );
+  exits.add( new Portal(3,27,32,3,29,12, "Main Deck") );
   
   //Deck to Captain's Cabin
-  exits.add( new Portal(3,28,6,3,26,46, "Captain's Cabin") );
-  exits.add( new Portal(3,26,46,3,28,6, "Main Deck") );
+  exits.add( new Portal(3,28,4,3,26,44, "Captain's Cabin") );
+  exits.add( new Portal(3,26,44,3,28,4, "Main Deck") );
   
   //Deck to Wardroom
-  exits.add( new Portal(3,28,12,3,26,52, "Wardroom") );
-  exits.add( new Portal(3,26,52,3,28,12, "Main Deck") );
+  exits.add( new Portal(3,28,10,3,26,50, "Wardroom") );
+  exits.add( new Portal(3,26,50,3,28,10, "Main Deck") );
   
   //Deck to Bunks (forecastle)
-  exits.add( new Portal(3,65,9,3,66,49, "Forecastle") );
-  exits.add( new Portal(3,66,49,3,65,9, "Main Deck") );
+  exits.add( new Portal(3,65,7,3,66,47, "Forecastle") );
+  exits.add( new Portal(3,66,47,3,65,7, "Main Deck") );
   
   /*
   m[mapIndex].tiles[0][0].placeBoss( mapIndex, color(0), "TEXT.", new Monster("Skeletal Guardian", "DarkScimitarSkeleton.png", 50, 15, 5, 7, 0, 5, 9, 0, AttackType.HOLY), true);
