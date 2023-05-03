@@ -211,6 +211,7 @@ void setup()
   tileImage[83] = loadImage("Meat.png"); tileImage[83].resize(30,0);
   tileImage[84] = loadImage("Fruit.png"); tileImage[84].resize(30,0);
   tileImage[85] = loadImage("Crab.png"); tileImage[85].resize(30,0);
+  tileImage[86] = loadImage("wallDarkCracked.png"); tileImage[86].resize(30,0);
   
   //Test sounds
   //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high

@@ -57,6 +57,7 @@ class Tile
       case '#':type=TileType.WALL;break;
       case '$':type=TileType.SECRET_WALL;break;
       case '3':type=TileType.DARK_WALL;break;
+      case '‹':type=TileType.DARK_CRACK;break; //alt+shift+3
       case '¢':type=TileType.SECRET_DARK_WALL;break; //alt+4
       case '›':type=TileType.DARK_WALL_CLIMBABLE;break; //shift+alt+4
       case '4':type=TileType.SAND_WALL;break;
@@ -177,6 +178,7 @@ class Tile
         pathable = false;
         break;
       case SECRET_DARK_WALL: 
+      case DARK_CRACK:
         tileColor = color(200);
         break;
       case BLACK_WALL:
@@ -525,6 +527,8 @@ class Tile
       image(tileImage[0],xPos,yPos);
     else if(type == TileType.DARK_WALL || type == TileType.SECRET_DARK_WALL || type == TileType.DARK_WALL_CLIMBABLE)
       image(tileImage[49],xPos,yPos); //49
+    else if(type == TileType.DARK_CRACK)
+      image(tileImage[86],xPos,yPos);
     else if(type == TileType.SAND_WALL)
       image(tileImage[50],xPos,yPos);
     else if(type == TileType.RUBBLE)
@@ -620,6 +624,8 @@ class Tile
       image(tileImage[0],xPos,yPos);
     if(type == TileType.SECRET_DARK_WALL)
       image(tileImage[49],xPos,yPos);
+    if(type == TileType.DARK_CRACK)
+      image(tileImage[86],xPos,yPos);
     if(type == TileType.TILE_ROOF)
       image(tileImage[72],xPos,yPos-4);
     if(type == TileType.BOOK_SECRET)
@@ -681,7 +687,7 @@ public enum TileType
   DARK, BLACK_WALL,
   CAVE, CAVE_BROWN,
   BOOK, BOOK_EMPTY, BOOK_SECRET, BL_BOOK, BK_BOOK, 
-  WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, DARK_WALL_CLIMBABLE, SAND_WALL, RUBBLE,
+  WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, DARK_WALL_CLIMBABLE, DARK_CRACK, SAND_WALL, RUBBLE,
   DOOR, DOOR_GATE, PORTCULLIS, DOORSTEP,
   GRAVE, S_GLASS, SECRET_GLASS, GARGOYLE, GARGOYLE_DARK, GARGOYLE_JADE, WEREWOLF_WHITE,
   CAMP, MERCHANT, SHOP, SELL,
