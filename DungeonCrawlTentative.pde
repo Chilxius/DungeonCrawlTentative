@@ -92,7 +92,7 @@ int windowX, windowY;
 PImage tileImage[] = new PImage[100];
 
 //Item data
-Loot [][] lootList = new Loot[3][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
+Loot [][] lootList = new Loot[4][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
 Loot emptyChest = new Loot(0,0,new Item(),"EMPTY CHEST ERROR");
 int consumableValue = 0;
 Equipment newEquip, oldEquip; //for switching in new equipment
@@ -213,6 +213,7 @@ void setup()
   tileImage[85] = loadImage("Crab.png"); tileImage[85].resize(30,0);
   tileImage[86] = loadImage("wallDarkCracked.png"); tileImage[86].resize(30,0);
   tileImage[87] = loadImage("stairsWood.png"); tileImage[87].resize(30,0);
+  tileImage[88] = loadImage("crate2.png"); tileImage[88].resize(30,0);
   
   //Test sounds
   //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high

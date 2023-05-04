@@ -93,6 +93,7 @@ class Tile
       case 'W':type=TileType.WOOD;break;
       case '∑':type=TileType.WOOD_DARK;break;
       case '„':type=TileType.WOOD_LIGHT;break;
+      case 'Ç':type=TileType.CRATE;break; //alt+shift+c
       case 'B':type=TileType.BOOK;break;
       case 'ß':type=TileType.BOOK_EMPTY;break; //shift+s
       case 'Í':type=TileType.BOOK_SECRET;break; //shift+alt+s
@@ -208,6 +209,7 @@ class Tile
       case TILE_BLUE:
       case WOOD_DARK:
       case WOOD:
+      case CRATE:
         tileColor = color(90,70,30);
         pathable = false;
         break;
@@ -553,6 +555,8 @@ class Tile
       image(tileImage[58],xPos,yPos);
     else if(type == TileType.WOOD_LIGHT)
       image(tileImage[59],xPos,yPos);
+    else if(type == TileType.CRATE)
+      image(tileImage[88],xPos,yPos);
     else if(type == TileType.TILE_ROOF)
       image(tileImage[72],xPos,yPos-4);
     else if(type == TileType.TILE_BLUE)
@@ -689,7 +693,7 @@ public enum TileType
   GRASS, GRASS_DARK, DIRT, DIRT_DARK,
   FLOWER, CROP, WATER,
   TREE, DARK_TREE, TREE_PATH, DEAD_TREE, DEAD_TREE_PATH,
-  WOOD, WOOD_DARK, WOOD_LIGHT, TILE_ROOF, TILE_BLUE,
+  WOOD, WOOD_DARK, WOOD_LIGHT, CRATE, TILE_ROOF, TILE_BLUE,
   DARK, BLACK_WALL,
   CAVE, CAVE_BROWN,
   BOOK, BOOK_EMPTY, BOOK_SECRET, BL_BOOK, BK_BOOK, 
