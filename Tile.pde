@@ -99,7 +99,7 @@ class Tile
       case 'Í':type=TileType.BOOK_SECRET;break; //shift+alt+s
       case '(':type=TileType.TILE_ROOF;break;
       case ')':type=TileType.TILE_BLUE;break;
-      case '|':type=TileType.RUBBLE;break;
+      //case '|':type=TileType.RUBBLE;break;
       case 'ı':type=TileType.BK_BOOK;break; //shift+alt+b
       case '¬':type=TileType.BL_BOOK;break; //alt+l
       //different key types
@@ -135,11 +135,12 @@ class Tile
       case '[':obj=Object.BARREL;type=TileType.SAFE;break;
       case ']':obj=Object.BARREL2;type=TileType.SAFE;break;
       case 'g':obj=Object.GRAVE;type=TileType.SAFE;break;
-      case '|':obj=Object.RUBBLE;type=TileType.SAFE_BLOCKED;break;
+      case '|':obj=Object.RUBBLE;type=TileType.RUBBLE_OBJ;break;
       case '@':obj=Object.TENT;type=TileType.SAFE;break;
       case '€':obj=Object.BED;type=TileType.SAFE;break;
       case 'V':obj=Object.GARGOYLE;type=TileType.SAFE;break;
       case '¶':obj=Object.BROKE_GLASS;break; //alt+7
+      case '}':obj=Object.CRATE_OBJ;type=TileType.CRATE_OBJ;break;
       default: obj=Object.NONE;break;
     }
     
@@ -195,10 +196,10 @@ class Tile
         tileColor = color(100,70,0);
         pathable = false;
         break;
-      case RUBBLE:
-        tileColor = color(200);
-        pathable = false;
-        break;
+      //case RUBBLE:
+      //  tileColor = color(200);
+      //  pathable = false;
+      //  break;
       case BL_BOOK:
       case BK_BOOK:
         tileColor = color(90,70,30);
@@ -222,7 +223,8 @@ class Tile
         tileColor = safeColor;
         //tileColor = color((x+y)*5%50+150,(x+y)*5%50+150,(x+y)*5%50+150);
         safe = true; break;
-      case SAFE_BLOCKED: 
+      case RUBBLE_OBJ:
+      case CRATE_OBJ:
         tileColor = safeColor;
         pathable = false;
         //tileColor = color((x+y)*5%50+150,(x+y)*5%50+150,(x+y)*5%50+150);
@@ -537,8 +539,8 @@ class Tile
       image(tileImage[86],xPos,yPos);
     else if(type == TileType.SAND_WALL)
       image(tileImage[50],xPos,yPos);
-    else if(type == TileType.RUBBLE)
-      image(tileImage[67],xPos-5,yPos-5);
+    //else if(type == TileType.RUBBLE)
+    //  image(tileImage[67],xPos-5,yPos-5);
     else if(type == TileType.BK_BOOK)
     { image(tileImage[57],xPos,yPos); image(tileImage[78],xPos+5,yPos+5); }
     else if(type == TileType.BL_BOOK)
@@ -688,7 +690,7 @@ class Tile
 
 public enum TileType
 {
-  EMPTY, EVENT, SAFE, SAFE_BLOCKED,
+  EMPTY, EVENT, SAFE,
   FLOOR, FLOOR_RD, FLOOR_BL,
   GRASS, GRASS_DARK, DIRT, DIRT_DARK,
   FLOWER, CROP, WATER,
@@ -697,7 +699,7 @@ public enum TileType
   DARK, BLACK_WALL,
   CAVE, CAVE_BROWN,
   BOOK, BOOK_EMPTY, BOOK_SECRET, BL_BOOK, BK_BOOK, 
-  WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, DARK_WALL_CLIMBABLE, DARK_CRACK, SAND_WALL, RUBBLE,
+  WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, DARK_WALL_CLIMBABLE, DARK_CRACK, SAND_WALL, RUBBLE_OBJ, CRATE_OBJ,
   DOOR, DOOR_GATE, PORTCULLIS, DOORSTEP,
   GRAVE, S_GLASS, SECRET_GLASS, GARGOYLE, GARGOYLE_DARK, GARGOYLE_JADE, WEREWOLF_WHITE,
   CAMP, MERCHANT, SHOP, SELL,
@@ -712,12 +714,12 @@ public enum Key //special items for interactive tiles
   DRAGON, NONE
 }
 
-public enum Object //tile has an object (still pathable)
+public enum Object //tile has an object (still usually pathable)
 {
   CHEST, CHEST_GOLD, CHEST_DARK, CHEST_BONE,
   SIGN, SIGN_E, SIGN_F, SIGN_D, SIGN_I,
   SAVEPOINT, FAKE_SAVE,
-  BARREL, BARREL2,
+  BARREL, BARREL2, CRATE_OBJ,
   GRAVE, RUBBLE,
   TENT, BED,
   GARGOYLE,

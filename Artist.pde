@@ -836,6 +836,9 @@ class Artist
       case BARREL2:
         image(tileImage[29],xPos,yPos);
         break;
+      case CRATE_OBJ:
+        image(tileImage[89],xPos,yPos);
+        break;
       case GRAVE:
         image(tileImage[42],xPos,yPos);
         break;

@@ -150,9 +150,9 @@ void setup()
   tileImage[2] = loadImage("darkTree.png"); tileImage[2].resize(40,40);
   tileImage[3] = loadImage("flower.png"); tileImage[3].resize(30,0);
   for(int i = 1; i <= 16; i++)
-  {  tileImage[3+i] = loadImage("water"+i+".png"); tileImage[3+i].resize(30,0);}
+  { tileImage[3+i] = loadImage("water"+i+".png"); tileImage[3+i].resize(30,0); }
   for(int i = 1; i <= 8; i++)
-  {  tileImage[19+i] = loadImage("save"+i+".png"); tileImage[19+i].resize(40,0);}
+  { tileImage[19+i] = loadImage("save"+i+".png"); tileImage[19+i].resize(40,0); }
   tileImage[28] = loadImage("barrel.png"); tileImage[28].resize(30,0);
   tileImage[29] = loadImage("barrelEmpty.png"); tileImage[29].resize(30,0);
   tileImage[30] = loadImage("chest.png"); tileImage[30].resize(30,0);
@@ -214,6 +214,7 @@ void setup()
   tileImage[86] = loadImage("wallDarkCracked.png"); tileImage[86].resize(30,0);
   tileImage[87] = loadImage("stairsWood.png"); tileImage[87].resize(30,0);
   tileImage[88] = loadImage("crate2.png"); tileImage[88].resize(30,0);
+  tileImage[89] = loadImage("crate.png"); tileImage[89].resize(30,0);
   
   //Test sounds
   //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
@@ -595,7 +596,8 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case GARGOYLE: return "A beautiful gargoyle statue";
     case WEREWOLF_WHITE: return "A gargoyle statue...?";
     case S_GLASS: return "A beautiful stained glass window";
-    case SAFE_BLOCKED: return "Rubble blocks the way";
+    case RUBBLE_OBJ: return "Rubble blocks the way";
+    case CRATE_OBJ: return "A heavy crate";
     case BOOK: return "A shelf full of books";
     case BOOK_EMPTY: return "An empty shelf";
   }

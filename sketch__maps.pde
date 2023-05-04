@@ -164,10 +164,10 @@ void setupMaps()
   mapStrings[mapIndex] += "TTTT~T|TTTT~`TTTTwwwwwwwTTTTTT~TTTTT|TTTTTTwwwwwwwww`````````WTT~....~~~~~~~~~``~~~~~~~~~tTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTT|T~`~~~~````„„„„„„„„„~~TTTTTTTTTTTTTTTTwwwwww„„„````````.WTT....~~~~T~~~~~~~~~~)))~~TTTTTTTTTTTT";
   mapStrings[mapIndex] += "T*t~``~TT|TTTTTwwwwwwTTwww~~t~~~t~tt>TTTTTTwwwwwwww````````........~~~~~~~~)~~~~~~~W+W~~TTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTT~TTTwwwwwwwwTTTTTTTTTTTTTTT|TTTwwwwwwww∑```````.......~~~~~~~~~W`|~~~~~~`````,∞,∞∞,TTTTT";
-  mapStrings[mapIndex] += "TTT|TT|TTTTTTTTTTTwwwwwTTTTTTT|TTTTTT~TTTTTwwwwwww``````[[``.W~~~~~~~~~~~~~~~~~~~~~TTTT~```````TTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~TTTTTTTTTTTwwTTTTTTTTTTTTT~TTTTTTTTwwwwwww∑∑````````WWTTTTTTTTTTTTTTTTTTTTTTTTTTT∞,∞,∞∞TTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTwwTTTTTTTTTTTTTTTTTTTTTwwwwww∑∑∑∑`*```[WWTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTT~TTTwwwwwwwwTTTTTTTTTTTTTTT|TTTwwwwwwww`}``````.......~~~~~~~~~W`|~~~~~~`````,∞,∞∞,TTTTT";
+  mapStrings[mapIndex] += "TTT|TT|TTTTTTTTTTTwwwwwTTTTTTT|TTTTTT~TTTTTwwwwwww`````}````.W~~~~~~~~~~~~~~~~~~~~~TTTT~```````TTTTT";
+  mapStrings[mapIndex] += "TTTTTTT~TTTTTTTTTTTwwTTTTTTTTTTTTT~TTTTTTTTwwwwwww}}````````WWTTTTTTTTTTTTTTTTTTTTTTTTTTT∞,∞,∞∞TTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTwwTTTTTTTTTTTTTTTTTTTTTwwwwww}}}}`*`}}[WWTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTwwTTTTTTTTTTTTTTTTTTTTTTWWWWWWWWWWWWWWWWWTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
 
   m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
@@ -319,7 +319,7 @@ void setupMaps()
   m[0].tiles[55][98].placeOccupant( color(lesserRitisuColor), "- A new one! None know where the Tears of Ritisu will fall." );
   m[0].tiles[57][92].placeOccupant( color(male), "- Aren't there pirates on the sea?" );
   m[0].tiles[56][92].placeOccupant( color(female), "- Don't be afraid. Sea monsters ate all the pirates years ago." );
-  m[0].tiles[51][94].placeOccupant( color(male), "He's busy moving cargo." );
+  m[0].tiles[51][95].placeOccupant( color(male), "He's busy moving cargo." );
   //Boat
   m[0].tiles[50][85].placeOccupant( color(sailor), "NO TEXT." );
   m[0].tiles[46][85].placeOccupant( color(sailor), "NO TEXT." );
@@ -541,14 +541,14 @@ void setupMaps()
   mapStrings[mapIndex] += "    £      £       £ £                         £              £                  £                  ";
   mapStrings[mapIndex] += "           £       £ £      £                  £              £                  £                  ";
   mapStrings[mapIndex] += "           £       £ £  £  £>£  £  33&3333&33  £  ##########  £  ∑∑∑∑∑∑∑∑∑∑∑∑∑∑  £  ################";
-  mapStrings[mapIndex] += "£££££££££££        £ £  £  £,£  £  3...*...@3  £  #∑     W∑#  £  ∑>„„BBßBBß„„>∑  £  #>„„„rrrrrr„„„>#";
-  mapStrings[mapIndex] += "                   £ £  £  £=£  £  3≥.......3  £  #W= WW  W#  £  ∑„„„„„„„„„„„„∑  £  #„„„„r∑∑∑∑r„„„„#";
-  mapStrings[mapIndex] += "                   £ £  £  £=£  £  3##....##3  £  #∑∑W∑∑W  #  £  ∑„„„∫∫∫∫∫∫„„„∑  £  #„„„„r∑∑∑∑r„„„„#";
-  mapStrings[mapIndex] += "WWWWWWWWWWWWWWWWWWWW £  £  £,£  £  3........3  £  #W      ∑#  £  ∑„„„∫WWWW∫„„B∑  £  #B„„„rrrrrr„„„B#";
-  mapStrings[mapIndex] += "Wß             ß  Í  £      £   £  3##....##3  £  #  ∑W∑W∑W#  £  ∑≠≠„∫∫∫∫∫∫„ıB∑  £  #B„„„„„„„„„„„„B#";
-  mapStrings[mapIndex] += "W  B ßßÍBßBBßß ßß ß|£           £  3........3  £  # ∑W     #  £  ∑∑∑∑∑∑∑∑∑∑∑∑∑∑  £  #######<<#######";
-  mapStrings[mapIndex] += "W∑ Í  ß     Í  ß  B||           £  3##....##3  £  # W  ∑∑  #  £                  £         ££       ";
-  mapStrings[mapIndex] += "WBÍß  ß ß ß B ßB | ||           £  3........3  £  #   WW∑  #  £                  £                  ";
+  mapStrings[mapIndex] += "£££££££££££        £ £  £  £,£  £  3...*...@3  £  #      WW#  £  ∑>„„BBßBBß„„>∑  £  #>„„„rrrrrr„„„>#";
+  mapStrings[mapIndex] += "                   £ £  £  £=£  £  3≥.......3  £  #}= }}  W#  £  ∑„„„„„„„„„„„„∑  £  #„„„„r∑∑∑∑r„„„„#";
+  mapStrings[mapIndex] += "                   £ £  £  £=£  £  3##....##3  £  #} }}}}  #  £  ∑„„„∫∫∫∫∫∫„„„∑  £  #„„„„r∑∑∑∑r„„„„#";
+  mapStrings[mapIndex] += "WWWWWWWWWWWWWWWWWWWW £  £  £,£  £  3........3  £  #}}     }#  £  ∑„„„∫WWWW∫„„B∑  £  #B„„„rrrrrr„„„B#";
+  mapStrings[mapIndex] += "Wß             ß  Í  £      £   £  3##....##3  £  #   }}}}}#  £  ∑≠≠„∫∫∫∫∫∫„ıB∑  £  #B„„„„„„„„„„„„B#";
+  mapStrings[mapIndex] += "W  B ßßÍBßBBßß ßß ß|£           £  3........3  £  # }}     #  £  ∑∑∑∑∑∑∑∑∑∑∑∑∑∑  £  #######<<#######";
+  mapStrings[mapIndex] += "W∑ Í  ß     Í  ß  B||           £  3##....##3  £  # }  }} }#  £                  £         ££       ";
+  mapStrings[mapIndex] += "WBÍß  ß ß ß B ßB | ||           £  3........3  £  #   }}}  #  £                  £                  ";
   mapStrings[mapIndex] += "W  BB Í B ß ß  ß  Í||           £  33&3<<3|33  £  #######<##   £££££££££££££££££££                  ";
   mapStrings[mapIndex] += "£| ß  ß ß ß B ßß   | |          £      ££      £         £    £         £         ££££££££££££££££££";
   mapStrings[mapIndex] += "W= ßB   ßrß B    |ß||           £              £              £         £              £            ";
@@ -1826,7 +1826,7 @@ void setNameDependentText()
   //Kat
   m[0].tiles[19][53].placeOccupant( color(250,0,170), "- AH! "+party.hero[1].name+", where did you come from? Was it you who slew those rats in the cellar? You're strong, "+party.hero[1].name+". Brave, too. If only I could borrow that courage. Some of them escaped the cellar with my prototype potion. I don't know what effect it will have on fauna, but it is my responsibilty to prevent harm. I-if you want to help, I'd appreciate it. My "+heroWeapon[1]+" "+wasOrWere(heroWeapon[1].charAt(heroWeapon[1].length()-1))+" never as strong as yours." );
   m[1].tiles[49][14].placeOccupant( color(250,0,170), "She's slumped against the wall. Her arm is burned. - "+party.hero[1].name+"? How did you avoid the man-wolf? I had to use my draught of disguise. The rats are getting larger, and mutating in strange ways. May Am-asma forgive me for my part in this. I was able to trap one up ahead. Could you please fight him? I have food here if you feel hungry. I'll be fine, I just need a rest..." );
-  m[3].tiles[8][24].placeOccupant( color(katColor), "Her face is pale and dripping with cold sweat. - Uh... oh, it's you. You're bound for Waraka as well? Why? Books with strange symbols? Investigating Charis's death? You certainly find trouble, "+party.hero[1].name+". I was following the rats, but I think they followed me. They're in the ship. I locked them below deck. I was going to tell the captain, but the ship started shaking and... uh, my stomach..." );
+  m[3].tiles[8][24].placeOccupant( color(katColor), "Her face is pale and dripping with cold sweat. - Uh... oh, "+party.hero[1].name+". Why are you here? Books with strange symbols? Investigating Father Charis's death? You have been busy since leaving the cathedral. I was following the rats, but I think they followed me. They're in the ship. I locked them below deck. I was going to tell the captain, but the ship started shaking and... uh, my stomach..." );
   
   //Garrison
   m[1].tiles[4][42].placeOccupant( color(garrisonColor), "- " + party.hero[0].name + "! Finally come to your senses and decided to join the garrison? We need " + needAnA(heroWeapon[0]) + heroWeapon[0] + " like yours to help train these milksops to soldier!" );
