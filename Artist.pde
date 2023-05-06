@@ -906,17 +906,21 @@ class Artist
   public void drawJobChoices( int hero )
   {
     noStroke(); fill(150); //will be icons later
-    drawKnight(150,200,2,200,50,hero,true);drawBarbarian(350,200,2,200,50,hero,true);drawKarate(550,200,2,200,50,hero,true);
-    drawThief(150,400,2,200,50,hero,true);drawPriest(350,400,2,200,50,hero,true);drawMage(550,400,2,200,50,hero,true);
+    drawKnight(210,160,1.7,200,50,hero,true);    drawBarbarian(350,160,1.7,200,50,hero,true); drawIncomplete(490,160,1.7,200,50,hero,true);
+    drawKarate(210,300,1.7,200,50,hero,true);    drawIncomplete(350,300,1.7,200,50,hero,true);drawThief(490,300,1.7,200,50,hero,true);
+    drawIncomplete(210,440,1.7,200,50,hero,true);drawPriest(350,440,1.7,200,50,hero,true);      drawMage(490,440,1.7,200,50,hero,true);
   
     //Class descriptions
     fill(200); textAlign(CENTER); textSize(30);
-    if( dist(mouseX,mouseY,150,200)<75 ){ text("KNIGHT",width/2,45);         textSize(20); text("A stalwart combatant that can use most equipment.",width/2,75);             text("Gains energy when blocking attacks.",width/2,100);        drawStatBars(1); }
-    if( dist(mouseX,mouseY,350,200)<75 ){ text("BARBARIAN",width/2,45);      textSize(20); text("A powerful warrior that relishes battle.",width/2,75);                      text("Gains energy when taking damage.",width/2,100);           drawStatBars(2); }
-    if( dist(mouseX,mouseY,550,200)<75 ){ text("MARTIAL ARTIST",width/2,45); textSize(20); text("A practitioner of martial arts who cannot use most equipment.",width/2,75); text("Always begins combat with extra energy.",width/2,100);    drawStatBars(3); }
-    if( dist(mouseX,mouseY,150,400)<75 ){ text("THIEF",width/2,45);          textSize(20); text("An agile trickster that uses light equipment.",width/2,75);                 text("Gains energy when scoring critical hits.",width/2,100);   drawStatBars(4); }
-    if( dist(mouseX,mouseY,350,400)<75 ){ text("PRIEST",width/2,45);         textSize(20); text("A pious caster who can use some heavy armor.",width/2,75);                  text("Casts holy magic that can smite or heal.",width/2,100);   drawStatBars(5); }
-    if( dist(mouseX,mouseY,550,400)<75 ){ text("MAGE",width/2,45);           textSize(20); text("An arcane caster unsuited to physical combat.",width/2,75);                 text("Casts elemental magic of tremendous power.",width/2,100); drawStatBars(6); }
+    if( dist(mouseX,mouseY,210,160)<62 ){ text("KNIGHT",width/2,35);         textSize(20); text("A stalwart combatant that can use most equipment.",width/2,60);             text("Gains energy when blocking attacks.",width/2,85);        drawStatBars(1); }
+    if( dist(mouseX,mouseY,350,160)<62 ){ text("BARBARIAN",width/2,35);      textSize(20); text("A powerful warrior that relishes battle.",width/2,60);                      text("Gains energy when taking damage.",width/2,85);           drawStatBars(2); }
+    if( dist(mouseX,mouseY,490,160)<62 ){ text("SAURIAN",width/2,35);        textSize(20); text("A mighty creature that prefers simple strength.",width/2,60);               text("Gains more energy when attacking.",width/2,85);          drawStatBars(7); }
+    if( dist(mouseX,mouseY,210,300)<62 ){ text("MARTIAL ARTIST",width/2,35); textSize(20); text("A practitioner of martial arts who cannot use most equipment.",width/2,60); text("Always begins combat with extra energy.",width/2,85);    drawStatBars(3); }
+    if( dist(mouseX,mouseY,350,300)<62 ){ text("BARD",width/2,35);           textSize(20); text("A versitile performer that inspires allies to greatness.",width/2,60);      text("Gains energy with the rhythm of combat.",width/2,85);    drawStatBars(8); }
+    if( dist(mouseX,mouseY,490,300)<62 ){ text("THIEF",width/2,35);          textSize(20); text("An agile trickster that uses light equipment.",width/2,60);                 text("Gains energy when scoring critical hits.",width/2,85);   drawStatBars(4); }
+    if( dist(mouseX,mouseY,210,440)<62 ){ text("DRUID",width/2,35);          textSize(20); text("A mystic caster who calls upon the power of nature.",width/2,60);           text("Casts spells and commands creatures.",width/2,85);       drawStatBars(9); }
+    if( dist(mouseX,mouseY,350,440)<62 ){ text("PRIEST",width/2,35);         textSize(20); text("A pious caster who can use some heavy armor.",width/2,60);                  text("Casts holy magic that can smite or heal.",width/2,85);   drawStatBars(5); }
+    if( dist(mouseX,mouseY,490,440)<62 ){ text("MAGE",width/2,35);           textSize(20); text("An arcane caster unsuited to physical combat.",width/2,60);                 text("Casts elemental magic of tremendous power.",width/2,85); drawStatBars(6); }
     
     textAlign(CENTER);
     textSize(12);
@@ -946,7 +950,8 @@ class Artist
       case 3:  h = 40; s = 12; d = 12; c = 12; m = 5;  w = 12; q = 14; break;
       case 4:  h = 25; s = 9;  d = 14; c = 9;  m = 0;  w = 9;  q = 15; break;
       case 5:  h = 20; s = 6;  d = 8;  c = 8;  m = 10; w = 15; q = 8;  break;
-      default: h = 15; s = 5;  d = 7;  c = 5;  m = 15; w = 10; q = 9;  break;
+      case 6:  h = 15; s = 5;  d = 7;  c = 5;  m = 15; w = 10; q = 9;  break;
+      default: h = 1; s = 1;  d = 1;  c = 1;  m = 1; w = 1; q = 1;  break;
     }
     rectMode(CORNER);
     noStroke();

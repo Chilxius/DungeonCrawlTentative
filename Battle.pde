@@ -142,7 +142,7 @@ class Battle
             {
               list[turn].counter = 0;
               turn = -1;
-              delayType = DelayType.NONE; //<>//
+              delayType = DelayType.NONE; //<>// //<>//
               //resumeInitiativeTick();
             }
             else

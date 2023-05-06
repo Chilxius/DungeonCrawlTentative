@@ -361,9 +361,9 @@ public String inputText() //Retrieves the text in the box and switches game stat
       //key = ' ';
     }
     else
-    { //<>//
+    { //<>// //<>//
       step = HeroCreationStep.JOB;
-      input = Input.HERO_JOB_CHOICE; //<>// //<>//
+      input = Input.HERO_JOB_CHOICE; //<>// //<>// //<>//
       if(textBuffer.equals(""))
         textBuffer = randomName();
       advanceText("Select "+textBuffer+"'s Job");
@@ -620,9 +620,9 @@ String bonkText( char direction ) //for when the heroes run into obstacles
   return "Bonk";
 }
 
-boolean partyNextToBoss( int index ) //party is orthaganally adjacent to a boss //<>//
+boolean partyNextToBoss( int index ) //party is orthaganally adjacent to a boss //<>// //<>//
 {
-  //for( int i = 0; i < bossSwitches.length; i++ ) //<>// //<>//
+  //for( int i = 0; i < bossSwitches.length; i++ ) //<>// //<>// //<>//
   //{
     if( ( ( party.X == bossSwitches[index].X-1 || party.X == bossSwitches[index].X+1 ) && party.Y == bossSwitches[index].Y ) 
     ||  ( ( party.Y == bossSwitches[index].Y-1 || party.Y == bossSwitches[index].Y+1 ) && party.X == bossSwitches[index].X ) )
@@ -907,9 +907,9 @@ void keyPressed()
       confirmSave = false;
     }
     if(display == Display.MAP && key == 'R' && ( m[party.floor].tiles[party.X][party.Y].obj == Object.TENT || m[party.floor].tiles[party.X][party.Y].obj == Object.BED ) ) //rest
-    { //<>//
+    { //<>// //<>//
       if(party.needsRest())
-      { //<>// //<>//
+      { //<>// //<>// //<>//
         input = Input.NONE;
         vanGogh.beginRestFadeout();
       }
@@ -924,9 +924,9 @@ void keyPressed()
         {
           if( party.addToInventory(m[party.floor].tiles[party.X][party.Y].itemForSale) ) //should take care of full inventory
             party.gold -= m[party.floor].tiles[party.X][party.Y].itemPrice;
-        } //<>//
+        } //<>// //<>//
         else
-          displayTextLine( "You cannot afford the " + m[party.floor].tiles[party.X][party.Y].itemForSale.name +"." ); //party does not have enough gold //<>// //<>//
+          displayTextLine( "You cannot afford the " + m[party.floor].tiles[party.X][party.Y].itemForSale.name +"." ); //party does not have enough gold //<>// //<>// //<>//
       }
       else if( m[party.floor].tiles[party.X][party.Y].type == TileType.SELL ) //sell
       {
@@ -974,15 +974,15 @@ void keyPressed()
     if(key == 'a') key = 49; //convert
     if(key == 's') key = 50; //to
     if(key == 'd') key = 51; //numbers
-    if(key == 'f') key = 52; //<>//
+    if(key == 'f') key = 52; //<>// //<>//
     
-    if(key == ' ') //<>// //<>//
+    if(key == ' ') //<>// //<>// //<>//
     {
       display = Display.MAP;
       input = Input.EXPLORING;
-    } //<>//
+    } //<>// //<>//
     else if(key > 48 && key < 53)
-    { //<>// //<>//
+    { //<>// //<>// //<>//
       if(display == Display.FOOD_MENU && party.hasFood(key-48))
       {
         consumableValue = (key-48)*10;
@@ -1241,10 +1241,10 @@ void keyPressed()
       advanceNextTextLine();
   }
   
-  if(key == '`') //for placing a break point //<>//
-  { //<>//
-    println("DEBUG"); //<>// //<>//
-    println(party.X + " " + party.Y); //<>// //<>//
+  if(key == '`') //for placing a break point //<>// //<>//
+  { //<>// //<>//
+    println("DEBUG"); //<>// //<>// //<>//
+    println(party.X + " " + party.Y); //<>// //<>// //<>//
     println(dm[party.floor].dangerValueChar(party.X,party.Y));
   }
   
@@ -1254,9 +1254,9 @@ void keyPressed()
     //vanGogh.startScreenShake(40,false);
     //floatingNumbers.add( new GhostNumber(140,320,color(255),12345678) );
 }
- //<>//
+ //<>// //<>//
 void keyReleased()
-{ //<>// //<>//
+{ //<>// //<>// //<>//
   if( display == Display.ITEM_LIST && key == 's' )
     party.sortInventory();
   else if( previousDisplay != Display.NONE && (key == 'k' || key == 'i' || key == 'h'|| key == '`' ) )
@@ -1270,12 +1270,12 @@ void mouseClicked()
 {
   if(step==HeroCreationStep.JOB)
   {
-    if(dist(mouseX,mouseY,150,200)<75) tempJob = Job.KNIGHT;
-    else if(dist(mouseX,mouseY,350,200)<75) tempJob = Job.BARBARIAN;
-    else if(dist(mouseX,mouseY,550,200)<75) tempJob = Job.KARATE;
-    else if(dist(mouseX,mouseY,150,400)<75) tempJob = Job.THIEF;
-    else if(dist(mouseX,mouseY,350,400)<75) tempJob = Job.PRIEST;
-    else if(dist(mouseX,mouseY,550,400)<75) tempJob = Job.MAGE;
+    if     (dist(mouseX,mouseY,210,160)<62) tempJob = Job.KNIGHT;
+    else if(dist(mouseX,mouseY,350,160)<62) tempJob = Job.BARBARIAN;
+    else if(dist(mouseX,mouseY,210,300)<62) tempJob = Job.KARATE;
+    else if(dist(mouseX,mouseY,490,300)<62) tempJob = Job.THIEF;
+    else if(dist(mouseX,mouseY,350,440)<62) tempJob = Job.PRIEST;
+    else if(dist(mouseX,mouseY,490,440)<62) tempJob = Job.MAGE;
     else tempJob = Job.NONE;
 
     if(tempJob!=Job.NONE)

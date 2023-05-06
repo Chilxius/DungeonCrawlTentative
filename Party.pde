@@ -218,7 +218,7 @@ class Party
     
   public boolean hasPotion( int i )
   {
-    for( int j = 0; j < inventory.length; j++ ) //<>//
+    for( int j = 0; j < inventory.length; j++ ) //<>// //<>//
       if( inventory[j].value == i*12 )
         return true;
     return false;

@@ -94,6 +94,16 @@ class Hero
         spd =    int((118/50.0)*(level-1)+2);
         maxMp = 0;
         break;
+      case SAURIAN:
+        maxHp =  int((385/50.0)*(level-1)+35); //35 -> 420
+        str =    int((154/50.0)*(level-1)+6);
+        dex =    int((69/50.0)*(level-1)+1);
+        con =    int((116/50.0)*(level-1)+4);
+        mag =    0;
+        wil =    int((59/50.0)*(level-1)+1);
+        spd =    int((69/50.0)*(level-1)+1);
+        maxMp = 0;
+        break;
       case KARATE:
         maxHp =  int((370/50.0)*(level-1)+30); //30 -> 400
         str =    int((116/50.0)*(level-1)+4);
@@ -104,15 +114,35 @@ class Hero
         spd =    int((136/50.0)*(level-1)+3);
         maxMp = 0;
         break;
+      case BARD:
+        maxHp =  int((205/50.0)*(level-1)+20); //20 -> 225
+        str =    int((77/50.0)*(level-1)+3);
+        dex =    int((135/50.0)*(level-1)+3);
+        con =    int((87/50.0)*(level-1)+2);
+        mag =    int((74/50.0)*(level-1)+1);
+        wil =    int((98/50.0)*(level-1)+2);
+        spd =    int((127/50.0)*(level-1)+3);
+        maxMp =  0;
+        break;
       case THIEF:
         maxHp =  int((230/50.0)*(level-1)+20); //20 -> 250
         str =    int((87/50.0)*(level-1)+3);
-        dex =    int((135/50.0)*(level-1)+5); //should be 135; changed for testing purposes
+        dex =    int((135/50.0)*(level-1)+5);
         con =    int((87/50.0)*(level-1)+3);
         mag =    0;
         wil =    int((88/50.0)*(level-1)+2);
         spd =    int((147/50.0)*(level-1)+3);
         maxMp = 0;
+        break;
+      case DRUID:
+        maxHp =  int((232/50.0)*(level-1)+18); //18 -> 225
+        str =    int((78/50.0)*(level-1)+2);
+        dex =    int((88/50.0)*(level-1)+2);
+        con =    int((98/50.0)*(level-1)+2);
+        mag =    int((87/50.0)*(level-1)+3);
+        wil =    int((126/50.0)*(level-1)+4);
+        spd =    int((108/50.0)*(level-1)+2);
+        maxMp =  int((140/50.0)*(level-1)+10); //10 -> 150
         break;
       case PRIEST:
         maxHp =  int((185/50.0)*(level-1)+15); //15 -> 200
@@ -164,6 +194,16 @@ class Hero
         skill[0] = new Attack("Blood Strike", str, false, true, AttackStat.STR ); skill[0].cost = 2;    //Loses str/5 hp, add str again
         skill[1] = new Attack("Cleave", 15, true, true, AttackStat.STR ); skill[1].cost = 4;          //Attack all enemies, +15 power
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[3] = new Attack("Divine Grace", str*2, true, true );                                      //Group heal
+        skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        break;
+      case SAURIAN:
+        skill[0] = new Attack("Rend", str*2, false, false, AttackStat.STR ); skill[0].cost = 2;    //No weapon, add 2x str again
+        skill[1] = new Attack("Prey", int(str*1.5), false, false, AttackStat.STR ); skill[1].cost = 4;          //No weapon, add 1.5 str, heal some of damage dealt
+        skill[2] = new Attack("Bile", dex, true, false, AttackStat.STR );                //Add dex, hit all, poison
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -180,9 +220,30 @@ class Hero
         skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
+      case BARD: //ayre, ballad, bossa nova, fugue, minuet, nocturne, opera, prelude, psalm, requiem, rhapsody, rondo, sonata, samba
+        skill[0] = new Attack("Prelude", 1, true, true );  skill[0].cost = 2; //Minor heal to all, restores one energy or 2mp to allies
+        skill[1] = new Attack("Toxin", dex/2, false, true, AttackStat.STR, AttackType.NONE, Debuff.POISON ); skill[1].cost = 4;  //add half dex, deal LEVEL poison
+        skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[3] = new Attack("Divine Grace", str*2, true, true );
+        skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        break;
       case THIEF:
         skill[0] = new Attack("Knives", 5, true, true, AttackStat.STR );  skill[0].cost = 2; //Attacks all enemies
         skill[1] = new Attack("Toxin", dex/2, false, true, AttackStat.STR, AttackType.NONE, Debuff.POISON ); skill[1].cost = 4;  //add half dex, deal LEVEL poison
+        skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[3] = new Attack("Divine Grace", str*2, true, true );
+        skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        break;
+      case DRUID:
+        skill[0] = new Attack("Divine Light", 50, false, false, AttackStat.MAG, AttackType.HOLY ); skill[0].cost = 2; //single-target holy attack
+        //skill[0] = new Attack("Heal", 30, true, true ); //healing move for testing
+        skill[1] = new Attack("Divine Comfort", 30, false, true ); skill[1].cost = 3; //single-target heal
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -514,7 +575,7 @@ class Hero
     else
     {
       alive = true;
-      hp = level;
+      hp = min(amount,maxHp/10); //revivie with 10% or amount healed, whichever is lower
       if( maxMp == 0 )
         energy = 1 + level/5;
     }
@@ -614,7 +675,7 @@ class Hero
   
 enum Job
 {
-  KNIGHT, BARBARIAN, KARATE, THIEF, PRIEST, MAGE,
+  KNIGHT, BARBARIAN, SAURIAN, KARATE, BARD, THIEF, DRUID, PRIEST, MAGE,
   NONE
 }
 
@@ -624,8 +685,11 @@ Job stringToJob( String s )
   {
     case "KNIGHT":    return Job.KNIGHT;
     case "BARBARIAN": return Job.BARBARIAN;
+    case "SAURIAN":   return Job.SAURIAN;
     case "KARATE":    return Job.KARATE;
+    case "BARD":      return Job.BARD;
     case "THIEF":     return Job.THIEF;
+    case "DRUID":     return Job.DRUID;
     case "PRIEST":    return Job.PRIEST;
     default:          return Job.MAGE;
   }
@@ -637,8 +701,11 @@ Base stats by class:                           At level 50 (MAX) (50 to 150)
 Job    HP  Str  Dex  Con  Mag  Will  Spd       HP    Str  Dex  Con  Mag  Will Spd
 Kni    30  4    3    5    0    2     2         300   120  100  130  50   100  100     25
 Bar    35  5    3    3    0    1     2         350   150  110  100  0    70   120     25
+Sar    35  6    1    4    0    1     1         420   160  70   120  0    60   70      35
 Art    40  4    4    4    0    4     3         400   120  120  120  50   120  140     30
+Brd    20  3    3    2    1    2     3         225   80   120  90   75   100  130     20
 Thf    25  3    5    3    0    2     3         250   90   140  90   0    90   150     20
+Drd    18  2    2    2    3    4     2      250/150  80   90   100  90   130  110     18/10
 Pri  20/20 2    2    2    4    5     2      200/200  60   80   80   100  150  80      15/15
 Mag  15/25 1    2    2    5    4     2      150/250  50   100  70   150  100  90      15/20
 
