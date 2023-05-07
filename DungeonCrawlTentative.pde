@@ -1,11 +1,20 @@
 //Dungeon Crawl Game
 //Bennett Ritchie
 
+//New Class work:
+//slow down bard
+//art for saurian shield
+//art for new class skills
+//hero backs for new classes
+//add glow to progress bar when hasted
+//fix energy boxes to count by fives
+
 //PROBLEMS:
 //Fix lineLength error and problem with not printing entire line
 //Fix objects getting strange tile colors
 //Boss didn't drop money when killed by poison
 //Skills casting even after being cancelled
+//Improve armor pierce abilities
 
 //TO DO:
 //Skills: animation system
@@ -89,7 +98,7 @@ int windowX, windowY;
 //NONE YET
 
 //Image data
-PImage tileImage[] = new PImage[100];
+PImage tileImage[] = new PImage[100]; //I've since used this for more than just tiles
 
 //Item data
 Loot [][] lootList = new Loot[4][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
@@ -215,6 +224,10 @@ void setup()
   tileImage[87] = loadImage("stairsWood.png"); tileImage[87].resize(30,0);
   tileImage[88] = loadImage("crate2.png"); tileImage[88].resize(30,0);
   tileImage[89] = loadImage("crate.png"); tileImage[89].resize(30,0);
+  tileImage[90] = loadImage("potionGreen.png");  tileImage[90].resize(56,0);
+  tileImage[91] = loadImage("potionBlue.png");   tileImage[91].resize(56,0);
+  tileImage[92] = loadImage("potionYellow.png"); tileImage[92].resize(56,0);
+  tileImage[93] = loadImage("potionRed.png");    tileImage[93].resize(56,0);
   
   //Test sounds
   //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
@@ -1241,10 +1254,10 @@ void keyPressed()
       advanceNextTextLine();
   }
   
-  if(key == '`') //for placing a break point //<>// //<>//
-  { //<>// //<>//
+  if(key == '`') //for placing a break point //<>//
+  { //<>//
     println("DEBUG"); //<>// //<>// //<>//
-    println(party.X + " " + party.Y); //<>// //<>// //<>//
+    println(party.X + " " + party.Y); //<>// //<>//
     println(dm[party.floor].dangerValueChar(party.X,party.Y));
   }
   
@@ -1254,9 +1267,9 @@ void keyPressed()
     //vanGogh.startScreenShake(40,false);
     //floatingNumbers.add( new GhostNumber(140,320,color(255),12345678) );
 }
- //<>// //<>//
+ //<>//
 void keyReleased()
-{ //<>// //<>// //<>//
+{ //<>// //<>//
   if( display == Display.ITEM_LIST && key == 's' )
     party.sortInventory();
   else if( previousDisplay != Display.NONE && (key == 'k' || key == 'i' || key == 'h'|| key == '`' ) )
@@ -1272,10 +1285,16 @@ void mouseClicked()
   {
     if     (dist(mouseX,mouseY,210,160)<62) tempJob = Job.KNIGHT;
     else if(dist(mouseX,mouseY,350,160)<62) tempJob = Job.BARBARIAN;
+    else if(dist(mouseX,mouseY,490,160)<62) tempJob = Job.SAURIAN;
+    
     else if(dist(mouseX,mouseY,210,300)<62) tempJob = Job.KARATE;
+    else if(dist(mouseX,mouseY,350,300)<62) tempJob = Job.BARD;
     else if(dist(mouseX,mouseY,490,300)<62) tempJob = Job.THIEF;
+    
+    else if(dist(mouseX,mouseY,210,440)<62) tempJob = Job.DRUID;
     else if(dist(mouseX,mouseY,350,440)<62) tempJob = Job.PRIEST;
     else if(dist(mouseX,mouseY,490,440)<62) tempJob = Job.MAGE;
+    
     else tempJob = Job.NONE;
 
     if(tempJob!=Job.NONE)

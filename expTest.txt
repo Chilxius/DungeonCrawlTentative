@@ -55,7 +55,7 @@ RustyArmor.png
 7
 18.0
 
-4
+8
 
 107
 Peach of Peace
@@ -75,9 +75,9 @@ Roast Lamb
 Health Potion
 12
 Health Potion
-12
+36
 Health Potion
-12
+48
 Health Potion
 12
 Honey Bread

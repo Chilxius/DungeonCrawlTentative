@@ -15,13 +15,19 @@ class Hero
   
   //lose health,  strength reduced,  can't act,  can't act,  mag/will reduced
   boolean poisoned, weakened, paralyzed, asleep, cursed;
-  int poison=0; //Damage left. Will dole out based on level.
+  int poison=0; //Damage left.
   
   boolean created;
   
   //In-battle data
   boolean defending;
   int energy;
+  
+  //buff data
+  Buff extraStr = new Buff();
+  Buff extraDex = new Buff();
+  Buff extraCon = new Buff();
+  Buff extraSpd = new Buff();
   
   Attack skill[] = new Attack[8];
   
@@ -40,6 +46,7 @@ class Hero
     name = n;
     //if(name.equals(""))
     //  name = randomName();
+    println( j );
     job = j;
     favColor = c;
     inverseColor = ic;
@@ -56,6 +63,11 @@ class Hero
       adjustFistPower();
     }
     armor = new Equipment("Shirt","BrownShirt.png",0,false,1);
+    if(j==Job.SAURIAN)
+    {
+      armor = new Equipment("Scales","Scales.png",0,false,20);
+      adjustScalePower();
+    }
     
     assignSkills();
   }
@@ -181,29 +193,29 @@ class Hero
     {
       case KNIGHT:
         skill[0] = new Attack("Defensive Strike", con/2, false, true, AttackStat.STR ); skill[0].cost = 2; //Puts knight into defense, adds con/2 to damage
-        skill[1] = new Attack("Armor Break", str/2, false, true, AttackStat.STR ); skill[1].cost = 4;     //Cut through armor, add half strength
+        skill[1] = new Attack("Armor Break", str/2, false, true, AttackStat.STR ); skill[1].cost = 4;      //Cut through armor, add half strength
           skill[1].pierceArmor = true;
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
-        skill[3] = new Attack("Divine Grace", str*2, true, true );
+        skill[3] = new Attack("Divine Grace", mag*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case BARBARIAN:
-        skill[0] = new Attack("Blood Strike", str, false, true, AttackStat.STR ); skill[0].cost = 2;    //Loses str/5 hp, add str again
+        skill[0] = new Attack("Blood Strike", str, false, true, AttackStat.STR ); skill[0].cost = 2;  //Loses str/5 hp, add str again
         skill[1] = new Attack("Cleave", 15, true, true, AttackStat.STR ); skill[1].cost = 4;          //Attack all enemies, +15 power
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
-        skill[3] = new Attack("Divine Grace", str*2, true, true );                                      //Group heal
+        skill[3] = new Attack("Divine Grace", str*2, true, true );                                    //Group heal
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case SAURIAN:
-        skill[0] = new Attack("Rend", str*2, false, false, AttackStat.STR ); skill[0].cost = 2;    //No weapon, add 2x str again
-        skill[1] = new Attack("Prey", int(str*1.5), false, false, AttackStat.STR ); skill[1].cost = 4;          //No weapon, add 1.5 str, heal some of damage dealt
-        skill[2] = new Attack("Bile", dex, true, false, AttackStat.STR );                //Add dex, hit all, poison
+        skill[0] = new Attack("Rend", str*2, false, false, AttackStat.STR ); skill[0].cost = 2;         //No weapon, add 2x str again
+        skill[1] = new Attack("Prey", int(str*1.5), false, false, AttackStat.STR ); skill[1].cost = 4;  //No weapon, add 1.5 str, heal some of damage dealt
+        skill[2] = new Attack("Bile", dex, true, false, AttackStat.STR );                               //Add dex, hit all, poison
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -221,8 +233,8 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case BARD: //ayre, ballad, bossa nova, fugue, minuet, nocturne, opera, prelude, psalm, requiem, rhapsody, rondo, sonata, samba
-        skill[0] = new Attack("Prelude", 1, true, true );  skill[0].cost = 2; //Minor heal to all, restores one energy or 2mp to allies
-        skill[1] = new Attack("Toxin", dex/2, false, true, AttackStat.STR, AttackType.NONE, Debuff.POISON ); skill[1].cost = 4;  //add half dex, deal LEVEL poison
+        skill[0] = new Attack("Prelude", level/3, true, true );  skill[0].cost = 2; //Minor heal to all, restores one energy or 2mp to allies
+        skill[1] = new Attack("Psalm", mag, true, false, AttackStat.MAG, AttackType.HOLY ); skill[1].cost = 4;  //add half dex, deal LEVEL poison
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -316,6 +328,11 @@ class Hero
     weapon.power = int((70/50.0)*(level-1)+20);
   }
   
+  public void adjustScalePower()
+  {
+    armor.power = int((70/50.0)*(level-1)+20);
+  }
+  
   public void energize( int amount )
   {
     energy += amount;
@@ -332,6 +349,8 @@ class Hero
       adjustStats(false);
       if( job == Job.KARATE )
         adjustFistPower();
+      if( job == Job.SAURIAN )
+        adjustScalePower();
       exp = 0;
       nextLevel = level*100;
       return true;
@@ -393,8 +412,11 @@ class Hero
     {
       case KNIGHT:    return "Knight";
       case BARBARIAN: return "Barbarian";
+      case SAURIAN:   return "Saurian";
       case KARATE:    return "Martial Artist";
+      case BARD:      return "Bard";
       case THIEF:     return "Thief";
+      case DRUID:     return "Druid";
       case PRIEST:    return "Priest";
       case MAGE:      return "Mage";
       default: return "Unemployed";
@@ -410,7 +432,7 @@ class Hero
     battle.waitingForText = false;
     if( skillSelection == -1 ) //normal attack
     {
-      damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weapon.getPower(), str, battleMonsters[targetMonster].con, weapon.element, battleMonsters[targetMonster].weakness);
+      damage = battle.calculateDamage( level, battle.isCrit(dex+extraDex.amount,battleMonsters[targetMonster].dex,true), weapon.getPower(), str, battleMonsters[targetMonster].con, weapon.element, battleMonsters[targetMonster].weakness);
       battleMonsters[targetMonster].takeDamage(damage);
       floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, appropriateColor(weapon.element), damage) );
       
@@ -447,7 +469,7 @@ class Hero
       }
       else
       {
-        damage = battle.calculateDamage( level, battle.isCrit(dex,battleMonsters[targetMonster].dex,true), weaponPower+skill[skillSelection].power, appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skillType, battleMonsters[targetMonster].weakness );
+        damage = battle.calculateDamage( level, battle.isCrit(dex+extraDex.amount,battleMonsters[targetMonster].dex,true), weaponPower+skill[skillSelection].power, appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skillType, battleMonsters[targetMonster].weakness );
         battleMonsters[targetMonster].takeDamage(damage);
         floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, appropriateColor(skillType), damage) );
       }
@@ -478,6 +500,9 @@ class Hero
   
   void handleSkillEffect( boolean beforeAttack, int skillIndex )
   {
+    println("Turn: " + battle.turn);
+    //println("Attacker: " + battle.attackerIndex );
+    //println("Defender: " + battle.defenderIndex );
     if( beforeAttack )
     {
       switch( job )
@@ -491,17 +516,37 @@ class Hero
           if(skillIndex==0) //blood strike
             takeDamage(str/5,false); //take 20% of str as damage
           break;
+         
       }
     }
     else
     {
       switch( job )
       {
+        case SAURIAN:
+          if(skillIndex==1) //prey
+          {
+            heal( battleMonsters[battle.defenderIndex-3].con );
+            floatingNumbers.add( new GhostNumber( 150+210*battle.attackerIndex, 550, color(0,200,0), battleMonsters[battle.defenderIndex-3].con ) );
+          }
+          break;
+        
+        case BARD:
+          if(skillIndex == 0 ) //Prelude
+          {
+            for(int i = 0; i < 3; i++)
+              if( battle.turn != i )
+              {
+                party.hero[i].energize(1);
+                party.hero[i].healMana(1);
+              }
+          }
+          break;
+        
         case KARATE:
           if(skillIndex == 1 ) //flash punch
             battle.list[battle.turn].counter = 15*party.averageLevel() + 100;
-            println(party.hero[battle.turn]);
-          break;
+          break; 
       }
     }
   }
@@ -543,7 +588,7 @@ class Hero
   int appropriateStat( Attack a )
   {
     if( a.stat == AttackStat.DEX )
-      return dex;
+      return dex+extraDex.amount;
     if( a.stat == AttackStat.MAG )
       return mag;
     else
@@ -675,7 +720,7 @@ class Hero
   
 enum Job
 {
-  KNIGHT, BARBARIAN, SAURIAN, KARATE, BARD, THIEF, DRUID, PRIEST, MAGE,
+  KNIGHT, BARBARIAN, SAURIAN,  KARATE, BARD, THIEF,  DRUID, PRIEST, MAGE,
   NONE
 }
 
@@ -720,36 +765,63 @@ Abilities:
 Priest and Mage use MP to power abilities
 Others use Power, which charges by one per turn (max of lvl, caps out at 48)
 Start with 1 + level/10 power?
-Martial Artists starts with twice as much as others
+Martial Artists starts with twice as much as others (more)
 Knight gets +2 when hit while defending
 Barbarian gains +1 when damaged
 Thief gains +5 on crits instead of +1
+Saurian gains +1 when attacking
+Bard gains +1 when allies use abilities/spells
 
-Abilties cost 2*level energy to use. (2,4,6,8,10,12,14,16)
+Abilties cost 2*level energy to use. (2,4,6,8,10,12,14,16) (with exceptions)
 Spells have various costs
 
 Knight
   Defensive Strike (turn on defense)
-  
+  Armor Break (attack that ignores part of enemy CON)
   
   Divine Grace (heal all)
 Barbarian
   Blood Strike (spend str/5 HP to increase damage)
   Cleave       (attack all)
+Saurian
+  Rend
+  Prey
+  Bile
 Artist
   Stone Fist   (earth element attack)
+  Flash Punch (adds dex, initiative bar goes to 80% full)
+Bard
+  Prelude (minor heal plus one energy)
   
 Thief
   Knives       (attack all)
-  Backstab     (high-crit)
+  Toxin        (poisons target)
+Druid
+  Wolf Form    (physical damage to single target)
+  Healing Wind (light heal to all)
+  
 Priest
   Smite        (holy element attack)
-  Heal
+  Heal         (single-target heal
 
 Mage
   Fire         (fire element attack)
+  Icicle       (ice element attack)
   
-  
+*/
+
+/* Druid Transformations
+Druid's odd numbered spells will transform it into an animal
+When transformed, cannot use items and spell list is replaced with REVERT option
+Forms will increase stats or add element/status to attacks
+
+NO, DECIDED AGAINST THIS. Too complicated to integrate to existing system
+Transformations will deliver a single attack
+
+Turtle - adds con
+Viper - adds poison
+Bear - adds strength
+Tiger/Lion  Wolf  Panther
 */
 
 /* Poison
@@ -777,3 +849,31 @@ Chance to recover each turn, longer than sleep/para, improved by STR
 /* Cursed (reduce mag and wil by half)
 Cannot be cured except by sleeping/powerful magic?
 */
+
+
+//------------//
+class Buff //for improving abilties during battle
+{
+  int amount;
+  int duration;
+  boolean active;
+  
+  public Buff()
+  {
+    amount = 0;
+    duration = 0;
+    active = false;
+  }
+  
+  public boolean tick() //one round is removed from duration, return true if finished
+  {
+    duration --;
+    if(duration <= 0)
+    {
+      duration = 0;
+      amount = 0;
+      return true;
+    }
+    return false;
+  }
+}

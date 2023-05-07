@@ -181,10 +181,15 @@ class Battle
             }
             //add energy
             if( turn < 3 && party.hero[turn].maxMp == 0 )
+            {
               party.hero[turn].energize(1);
+              if( party.hero[turn].job == Job.SAURIAN )
+                party.hero[turn].energize(1);
+            }
           }
           else  //skill
           {
+            addEnergyToBard(turn);
             if(party.hero[turn].skill[skillSelection].healing) //is a healing skill
             {
               if( party.hero[turn].skill[skillSelection].targetAll )
@@ -258,6 +263,16 @@ class Battle
       }
     }
     return true;
+  }
+  
+  private void addEnergyToBard( int index )
+  {
+    if( index != 0 && party.hero[0].job == Job.BARD )
+      party.hero[0].energize(1);
+    if( index != 1 && party.hero[1].job == Job.BARD )
+      party.hero[1].energize(1);
+    if( index != 2 && party.hero[2].job == Job.BARD )
+      party.hero[2].energize(1);
   }
   
   private String victoryLine( int xp )

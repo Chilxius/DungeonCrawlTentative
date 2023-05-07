@@ -107,7 +107,7 @@ class Monster
       }
       else
       {
-        damage = battle.calculateDamage( party.averageLevel(), battle.isCrit(dex,party.hero[targetHero].dex,false), attacks[battle.enemyAttackIndex].power, appropriateStat(attacks[battle.enemyAttackIndex]), party.hero[targetHero].appropriateDefense(attacks[battle.enemyAttackIndex]));
+        damage = battle.calculateDamage( party.averageLevel(), battle.isCrit(dex,party.hero[targetHero].dex+party.hero[targetHero].extraDex.amount,false), attacks[battle.enemyAttackIndex].power, appropriateStat(attacks[battle.enemyAttackIndex]), party.hero[targetHero].appropriateDefense(attacks[battle.enemyAttackIndex]));
         party.hero[targetHero].takeDamage(damage,true);
         floatingNumbers.add( new GhostNumber( 150+210*targetHero, 550, attacks[battle.enemyAttackIndex].appropriateColor(), damage) );
       }

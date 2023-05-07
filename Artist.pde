@@ -397,10 +397,10 @@ class Artist
     if(elixirs>0)   {text("Elixir: "+elixirs,560,357);    text("F",585,407);}
     
     drawCancelIcon(baseX+75,545);
-    if(healthPots>0)drawPotion( 135,360,.5,#00FF0A);
-    if(manaPots>0)  drawPotion( 275,360,.5,#0063FF);
-    if(vapors>0)    drawPotion( 415,360,.5,#FF6FF1);
-    if(elixirs>0)   drawPotion( 555,360,.5,#FFD500);
+    if(healthPots>0) image(tileImage[90], 140,386); //drawPotion( 135,360,.5,#00FF0A);
+    if(manaPots>0)   image(tileImage[91], 280,386); // drawPotion( 275,360,.5,#0063FF);
+    if(vapors>0)     image(tileImage[92], 420,386); // drawPotion( 415,360,.5,#FF6FF1);
+    if(elixirs>0)    image(tileImage[93], 560,386); // drawPotion( 555,360,.5,#FFD500);
   }
   
   public void drawHeroData( int h )
@@ -516,7 +516,7 @@ class Artist
       text("CURSED",570,435);
       textSize(12);
       text("Your magic and",570,448);
-      text("willpower are.",570,460);
+      text("willpower are",570,460);
       text("sealed.",570,472);
     }
   }
@@ -951,6 +951,9 @@ class Artist
       case 4:  h = 25; s = 9;  d = 14; c = 9;  m = 0;  w = 9;  q = 15; break;
       case 5:  h = 20; s = 6;  d = 8;  c = 8;  m = 10; w = 15; q = 8;  break;
       case 6:  h = 15; s = 5;  d = 7;  c = 5;  m = 15; w = 10; q = 9;  break;
+      case 7:  h = 42; s = 16; d = 7;  c = 12; m = 0;  w = 6;  q = 7;  break;
+      case 8:  h = 22; s = 8;  d = 12; c = 9;  m = 7;  w = 10; q = 13; break;
+      case 9:  h = 25; s = 8;  d = 9;  c = 10; m = 9;  w = 13; q = 11; break;
       default: h = 1; s = 1;  d = 1;  c = 1;  m = 1; w = 1; q = 1;  break;
     }
     rectMode(CORNER);
@@ -2411,10 +2414,16 @@ class Artist
       drawKnight(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.BARBARIAN )
       drawBarbarian(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+    if( h.getJob() == Job.SAURIAN )
+      drawIncomplete(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.KARATE )
       drawKarate(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+    if( h.getJob() == Job.BARD )
+      drawIncomplete(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.THIEF )
       drawThief(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+    if( h.getJob() == Job.DRUID )
+      drawIncomplete(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.PRIEST )
       drawPriest(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.MAGE )

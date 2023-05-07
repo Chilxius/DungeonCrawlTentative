@@ -1791,8 +1791,11 @@ void setNameDependentText()
 {
   String knightName="";
   String barbName="";
+  String saurName="";
   String thiefName="";
+  String bardName="";
   String monkName="";
+  String druidName="";
   String priestName="";
   String mageName="";
   String magePhrase = "";
@@ -1802,15 +1805,21 @@ void setNameDependentText()
   {
     if(party.hero[i].job==Job.KNIGHT)knightName= " like "+party.hero[i].name;
     if(party.hero[i].job==Job.BARBARIAN)barbName= " like "+party.hero[i].name;
+    if(party.hero[i].job==Job.SAURIAN)saurName= " like "+party.hero[i].name;
     if(party.hero[i].job==Job.THIEF)thiefName= " like "+party.hero[i].name;
+    if(party.hero[i].job==Job.BARD)bardName= " like "+party.hero[i].name;
     if(party.hero[i].job==Job.KARATE)monkName= " like "+party.hero[i].name;
+    if(party.hero[i].job==Job.DRUID)druidName= " like "+party.hero[i].name;
     if(party.hero[i].job==Job.PRIEST)priestName= " such as "+party.hero[i].name;
     if(party.hero[i].job==Job.MAGE){mageName= " such as "+party.hero[i].name;magePhrase=", as "+party.hero[i].name+" can attest";}  
 
     if(party.hero[i].job==Job.KNIGHT)    heroWeapon[i] = "sword";
     if(party.hero[i].job==Job.BARBARIAN) heroWeapon[i] = "axe";
+    if(party.hero[i].job==Job.SAURIAN)   heroWeapon[i] = "claws";
     if(party.hero[i].job==Job.KARATE)    heroWeapon[i] = "fists";
+    if(party.hero[i].job==Job.BARD)      heroWeapon[i] = "wit";
     if(party.hero[i].job==Job.THIEF)     heroWeapon[i] = "knives";
+    if(party.hero[i].job==Job.DRUID)     heroWeapon[i] = "power";
     if(party.hero[i].job==Job.PRIEST)    heroWeapon[i] = "faith";
     if(party.hero[i].job==Job.MAGE)      heroWeapon[i] = "magic";
   }
