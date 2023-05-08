@@ -173,7 +173,7 @@ void setupMaps()
   m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
   
   createLoot(lootIndex++, 0, 47, 8, Key.COPPER_KEY);
-  createLoot(lootIndex++, 0, 59, 14, new Equipment("Admirer's Chain","MetalMail.png",18,false,20,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST) );
+  createLoot(lootIndex++, 0, 59, 14, new Equipment("Admirer's Chain","MetalMail.png",18,false,20,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST,Job.BARD) );
   //createLoot(lootIndex++, 0, 21, 29, new Equipment("Vestment","BlueShirt.png",3,false,7,true) );
   //createLoot(lootIndex++, 0, 22, 29, new Equipment("Vestment","BlueShirt.png",3,false,7,true) );
   createLoot(lootIndex++, 0, 1, 25, new Item("Golden Dice",19) );
@@ -185,9 +185,9 @@ void setupMaps()
   createLoot(lootIndex++, 0, 80, 29, new Item("Mana Potion",24) );
   //createLoot(lootIndex++, 0, 94, 41, new Equipment("Chainmail","MetalMail.png",9,false,14,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST) );
   createLoot(lootIndex++, 0, 95, 41, new Equipment("Old Plate","RustyArmor.png",7,false,18,Job.KNIGHT,Job.PRIEST) );
-  createLoot(lootIndex++, 0, 96, 41, new Equipment("Axe","MetalSpikedAxe.png",9,true,22,Job.KNIGHT,Job.BARBARIAN,Job.THIEF) );
+  createLoot(lootIndex++, 0, 96, 41, new Equipment("Axe","MetalSpikedAxe.png",9,true,22,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.DRUID) );
   createLoot(lootIndex++, 0, 79, 45, Key.CHARIS_NOTES);
-  createLoot(lootIndex++, 0, 20, 63, new Equipment("Hunter's Garb","GreenLeatherArmor.png",4,false,14,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST) );
+  createLoot(lootIndex++, 0, 20, 63, new Equipment("Hunter's Garb","GreenLeatherArmor.png",4,false,14,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.BARD,Job.PRIEST,Job.DRUID) );
   createLoot(lootIndex++, 0, 18, 70, new Item("Antique Coin",19) );
   createLoot(lootIndex++, 0, 37, 79, new Item("Mana Potion",24) );
   createLoot(lootIndex++, 0, 20, 84, new Equipment("Spidersilk","WhiteShirt.png",21,false,12,true) );
@@ -598,23 +598,23 @@ void setupMaps()
   
   createLoot(lootIndex++, 1, 3, 4, Key.COPPER_KEY);
   createLoot(lootIndex++, 1, 1, 2, new Equipment("Brocade","YellowShirt.png",5,false,5,true));
-  createLoot(lootIndex++, 1, 54, 1, new Equipment("Ivory Knife","IceDagger.png",15,true,15,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST,Job.MAGE));
-  createLoot(lootIndex++, 1, 62, 1, new Equipment("Staff","Staff.png",2,true,14,Job.KNIGHT,Job.PRIEST,Job.MAGE));
+  createLoot(lootIndex++, 1, 54, 1, new Equipment("Ivory Knife","IceDagger.png",15,true,15,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.THIEF,Job.DRUID,Job.PRIEST,Job.MAGE));
+  createLoot(lootIndex++, 1, 62, 1, new Equipment("Staff","Staff.png",2,true,14,Job.KNIGHT,Job.PRIEST,Job.DRUID,Job.MAGE));
   createLoot(lootIndex++, 1, 17, 21, Key.COPPER_KEY);
   createLoot(lootIndex++, 1, 79, 3, new Equipment("Vestment","BlueShirt.png",3,false,7,true));
   createLoot(lootIndex++, 1, 81, 5, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 83, 5, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 23, 17, new Item("Health Potion",12) );
-  createLoot(lootIndex++, 1, 23, 19, new Equipment("Knife","MetalDagger.png",4,true,12,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST,Job.MAGE) );
+  createLoot(lootIndex++, 1, 23, 19, new Equipment("Knife","MetalDagger.png",4,true,12,true) );
   createLoot(lootIndex++, 1, 23, 21, new Item("Health Potion",12) );
-  createLoot(lootIndex++, 1, 17, 17, new Equipment("Rusty Sword","CrimsonSword.png",6,true,20,Job.KNIGHT,Job.BARBARIAN) );
+  createLoot(lootIndex++, 1, 17, 17, new Equipment("Rusty Sword","CrimsonSword.png",6,true,20,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.BARD) );
   createLoot(lootIndex++, 1, 3, 18, new Item("Bread",10) );
-  createLoot(lootIndex++, 1, 4, 18, new Equipment("Old Leather","LeatherArmor.png",5,false,10,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST) );
+  createLoot(lootIndex++, 1, 4, 18, new Equipment("Old Leather","LeatherArmor.png",5,false,10,Job.KNIGHT,Job.BARBARIAN,Job.BARD,Job.THIEF,Job.DRUID,Job.PRIEST) );
   createLoot(lootIndex++, 1, 5, 18, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 7, 15, Key.BRASS_KEY);
   createLoot(lootIndex++, 1, 48, 16, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 49, 16, new Item("Meat",20) );
-  createLoot(lootIndex++, 1, 66, 15, new Equipment("Ratfang","Ratfang.png",15,true,25,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.MAGE) );
+  createLoot(lootIndex++, 1, 66, 15, new Equipment("Ratfang","Ratfang.png",15,true,25,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.BARD,Job.THIEF,Job.DRUID,Job.MAGE) );
   createLoot(lootIndex++, 1, 33, 30, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 66, 53, Key.CRYPT_KEY );
   createLoot(lootIndex++, 1, 67, 53, Key.CRYPT_KEY );
@@ -636,15 +636,15 @@ void setupMaps()
   createLoot(lootIndex++, 1, 77, 94, new Item("Health Potion", 12) );
   
   //Crypts
-  createLoot(lootIndex++, 1, 76, 63, new Equipment("Alar's Axe","MetalAxe.png",25,true,27,Job.KNIGHT,Job.BARBARIAN) );
-  createLoot(lootIndex++, 1, 76, 73, new Equipment("Lion's Hide","fur.png",25,false,25,Job.BARBARIAN) );
+  createLoot(lootIndex++, 1, 76, 63, new Equipment("Alar's Axe","MetalAxe.png",25,true,27,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN) );
+  createLoot(lootIndex++, 1, 76, 73, new Equipment("Lion's Hide","fur.png",25,false,25,Job.BARBARIAN,Job.DRUID) );
   createLoot(lootIndex++, 1, 76, 83, new Equipment("Purifier","StoneClub.png",25,true,27.5,Job.KNIGHT,Job.PRIEST) );
   createLoot(lootIndex++, 1, 98, 63, new Equipment("Cold Iron Plate","DarkArmor.png",25,false,28,Job.KNIGHT, Job.PRIEST) );
   createLoot(lootIndex++, 1, 98, 73, new Equipment("Scholar's Robe","aquaRobes.png",25,false,18, Job.KARATE, Job.PRIEST, Job.MAGE) );
-  createLoot(lootIndex++, 1, 98, 83, new Equipment("Flamecaster Staff","Staff2.png",25,true,27.2,Job.MAGE) );
+  createLoot(lootIndex++, 1, 98, 83, new Equipment("Flamecaster Staff","Staff2.png",25,true,27.2,Job.DRUID,Job.MAGE) );
   
   //Boss Chamber
-  createLoot(lootIndex++, 1, 37, 92 , new Equipment("Ritual Knife","curvedDagger.png",35,true,30.01,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.MAGE) );
+  createLoot(lootIndex++, 1, 37, 92 , new Equipment("Ritual Knife","curvedDagger.png",35,true,30.01,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.BARD,Job.THIEF,Job.DRUID,Job.MAGE) );
   createLoot(lootIndex++, 1, 38, 92 , new Equipment("Ritual Robes","darkRobes.png",29,false,20,true) );
   createLoot(lootIndex++, 1, 46, 92 , new Item("Mana Potion",12) );
   createLoot(lootIndex++, 1, 47, 92 , new Item("Health Potion",24) );
@@ -695,10 +695,10 @@ void setupMaps()
   
   //Equipment Shop
   m[1].tiles[92][24].placeOccupant( color(165,150,50), "- A solid and heavy club is all it takes to bring down one of them. But there's never just one." );
-  m[1].tiles[92][25].placeShop( new Equipment( "Club","OldClub.png", 6, true, 17, Job.KNIGHT, Job.BARBARIAN, Job.THIEF, Job.PRIEST ), 12 );
+  m[1].tiles[92][25].placeShop( new Equipment( "Club","OldClub.png", 6, true, 17, Job.KNIGHT, Job.BARBARIAN, Job.SAURIAN, Job.THIEF, Job.DRUID, Job.PRIEST ), 12 );
  // m[1].tiles[92][25].createEvent(true, "Club: 12 Gold  17 Power");
   m[1].tiles[93][24].placeOccupant( color(165,150,50), "- If you don't have a solid dagger at your side, you are not prepared." );
-  m[1].tiles[93][25].placeShop( new Equipment( "Dagger","MetalDagger2.png", 5, true, 13, Job.KNIGHT, Job.BARBARIAN, Job.THIEF, Job.MAGE ), 10 );
+  m[1].tiles[93][25].placeShop( new Equipment( "Dagger","MetalDagger2.png", 5, true, 13, true ), 10 );
   //m[1].tiles[93][25].createEvent(true, "Dagger: 10 Gold  13 Power");
   m[1].tiles[96][24].placeOccupant( color(150,50,165), "- I have a few sets of iron plate left. They should protect you from those things." );
   m[1].tiles[96][25].placeShop( new Equipment( "Iron Plate","MetalArmor.png", 15, false, 24, Job.KNIGHT, Job.PRIEST ), 30 );
@@ -1033,7 +1033,7 @@ void setupMaps()
   //Danger Map 1
   dangerMapIndex = 1; dangerStrs[dangerMapIndex] = "";
   for(int i = 0; i < 12; i++)
-    dangerStrs[dangerMapIndex] += "A000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "A000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "1111111111111111111111111111110000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "111111111111111111111111111111xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
   dangerStrs[dangerMapIndex] += "111111111111111111111111111111xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";

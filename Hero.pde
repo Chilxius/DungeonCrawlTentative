@@ -65,7 +65,7 @@ class Hero
     armor = new Equipment("Shirt","BrownShirt.png",0,false,1);
     if(j==Job.SAURIAN)
     {
-      armor = new Equipment("Scales","Scales.png",0,false,20);
+      armor = new Equipment("Scales","Scales2.png",0,false,20);
       adjustScalePower();
     }
     

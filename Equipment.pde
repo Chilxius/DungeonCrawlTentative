@@ -1,6 +1,6 @@
 class Equipment extends Item
 {
-  Job allowedJobs[] = new Job[6];
+  Job allowedJobs[] = new Job[9];
   boolean isWeapon;
   float power;
   PImage pic;
@@ -29,19 +29,53 @@ class Equipment extends Item
     allowedJobs[3]=e.allowedJobs[3];
     allowedJobs[4]=e.allowedJobs[4];
     allowedJobs[5]=e.allowedJobs[5];
+    allowedJobs[3]=e.allowedJobs[6];
+    allowedJobs[4]=e.allowedJobs[7];
+    allowedJobs[5]=e.allowedJobs[8];
+  }
+  
+  //For all class use, excepting weapons for monks and armor for saurians
+  public Equipment( String n, String picN, int v, boolean IW, float p, boolean allClasses )
+  {
+    super( n, v );
+    isWeapon = IW;
+    element = determineElement(p);
+    status = determineStatus(p);
+    power = p;
+    
+    imageName = picN;
+    
+    try{pic = loadImage(picN);}
+    catch(Exception e){pic=loadImage("error.png");}
+    pic.resize(56,0);
+    
+    allowedJobs[0]=Job.KNIGHT;
+    allowedJobs[1]=Job.BARBARIAN;
+    allowedJobs[2]=Job.BARD;
+    allowedJobs[3]=Job.THIEF;
+    allowedJobs[4]=Job.DRUID;
+    allowedJobs[5]=Job.PRIEST;
+    allowedJobs[6]=Job.MAGE;
+    allowedJobs[7]=Job.NONE;
+    if(IW)
+      allowedJobs[8]=Job.SAURIAN;
+    else
+      allowedJobs[8]=Job.KARATE;
   }
   
   //Constructors for assigning a piece of equipment to
   //certain classes. The rest become Job.NONE.
-  public Equipment( String n, String picN, int v, boolean IW, float p, boolean allClasses ){this( n, picN, v, IW, p, Job.KNIGHT, Job.BARBARIAN, Job.KARATE, Job.THIEF, Job.PRIEST, Job.MAGE);}
   public Equipment( String n, String picN, int v, boolean IW, float p ){this( n, picN, v, IW, p, Job.NONE );}
   public Equipment( String n, String picN, int v, boolean IW, float p, Job j ){this( n, picN, v, IW, p, j, Job.NONE );}
   public Equipment( String n, String picN, int v, boolean IW, float p, Job j, Job j2 ){this( n, picN, v, IW, p, j, j2, Job.NONE );}
   public Equipment( String n, String picN, int v, boolean IW, float p, Job j, Job j2, Job j3 ){this( n, picN, v, IW, p, j, j2, j3, Job.NONE );}
   public Equipment( String n, String picN, int v, boolean IW, float p, Job j, Job j2, Job j3, Job j4 ){this( n, picN, v, IW, p, j, j2, j3, j4, Job.NONE );}
   public Equipment( String n, String picN, int v, boolean IW, float p, Job j, Job j2, Job j3, Job j4, Job j5 ){this( n, picN, v, IW, p, j, j2, j3, j4, j5, Job.NONE );}
+  public Equipment( String n, String picN, int v, boolean IW, float p, Job j, Job j2, Job j3, Job j4, Job j5, Job j6 ){this( n, picN, v, IW, p, j, j2, j3, j4, j5, j6, Job.NONE );}
+  public Equipment( String n, String picN, int v, boolean IW, float p, Job j, Job j2, Job j3, Job j4, Job j5, Job j6, Job j7 ){this( n, picN, v, IW, p, j, j2, j3, j4, j5, j6, j7, Job.NONE );}
+  public Equipment( String n, String picN, int v, boolean IW, float p, Job j, Job j2, Job j3, Job j4, Job j5, Job j6, Job j7, Job j8 ){this( n, picN, v, IW, p, j, j2, j3, j4, j5, j6, j7, j8, Job.NONE );}
   
-  public Equipment( String n, String picN, int v, boolean IW, float p, Job j0, Job j1, Job j2, Job j3, Job j4, Job j5 )
+  public Equipment( String n, String picN, int v, boolean IW, float p, Job j0, Job j1, Job j2, Job j3, Job j4, Job j5, Job j6, Job j7, Job j8 )
   {
     super( n, v );
     isWeapon = IW; //<>//
@@ -61,6 +95,9 @@ class Equipment extends Item
     allowedJobs[3]=j3;
     allowedJobs[4]=j4;
     allowedJobs[5]=j5;
+    allowedJobs[6]=j6;
+    allowedJobs[7]=j7;
+    allowedJobs[8]=j8;
   }
   
   public AttackType determineElement( float p )
