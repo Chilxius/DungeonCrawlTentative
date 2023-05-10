@@ -1225,6 +1225,7 @@ class Artist
       rectMode(CORNER);
       rect(3,159,width-7,height-266,20);
       
+      drawBattleBack();
       drawMonsters();
       drawProgressBars();
       drawHeroesInBattle();
@@ -1247,6 +1248,14 @@ class Artist
       }
         //drawBattleItems(0,party.inventory); //for testing
     }
+  }
+  
+  void drawBattleBack()
+  {
+    push();
+    imageMode(CENTER);
+    image(battleBack[0],width/2,height/2);
+    pop();
   }
   
   void drawDefenseIcons()

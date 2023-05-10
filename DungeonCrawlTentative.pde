@@ -23,6 +23,7 @@
 //Fix text in Charis's study
 //Figure out how to load zoneNumber when loading files - maybe save that too?
 //Add a "holding on" mechanic to stay alive after critical damage
+//Battlebacks for battles
 
 //IMPROVEMENT:
 //Improve hero select widnow (circle sizes)
@@ -99,6 +100,7 @@ int windowX, windowY;
 
 //Image data
 PImage tileImage[] = new PImage[100]; //I've since used this for more than just tiles
+PImage battleBack[] = new PImage[10]; //Backgrounds for battles
 
 //Item data
 Loot [][] lootList = new Loot[4][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
@@ -228,6 +230,8 @@ void setup()
   tileImage[91] = loadImage("potionBlue.png");   tileImage[91].resize(56,0);
   tileImage[92] = loadImage("potionYellow.png"); tileImage[92].resize(56,0);
   tileImage[93] = loadImage("potionRed.png");    tileImage[93].resize(56,0);
+  
+  battleBack[0] = loadImage("forest.png"); //resize?
   
   //Test sounds
   //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
