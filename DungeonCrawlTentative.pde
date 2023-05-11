@@ -231,7 +231,8 @@ void setup()
   tileImage[92] = loadImage("potionYellow.png"); tileImage[92].resize(56,0);
   tileImage[93] = loadImage("potionRed.png");    tileImage[93].resize(56,0);
   
-  battleBack[0] = loadImage("forest.png"); //resize?
+  battleBack[0] = loadImage("forest5.png"); //resize?esize(56,0);
+  battleBack[1] = loadImage("stoneWall.png"); //resize?
   
   //Test sounds
   //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high

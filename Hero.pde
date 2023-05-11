@@ -22,6 +22,7 @@ class Hero
   //In-battle data
   boolean defending;
   int energy;
+  int bardBonus = 0;
   
   //buff data
   Buff extraStr = new Buff();
@@ -233,8 +234,8 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case BARD: //ayre, ballad, bossa nova, fugue, minuet, nocturne, opera, prelude, psalm, requiem, rhapsody, rondo, sonata, samba
-        skill[0] = new Attack("Prelude", level/3, true, true );  skill[0].cost = 2; //Minor heal to all, restores one energy or 2mp to allies
-        skill[1] = new Attack("Psalm", mag, true, false, AttackStat.MAG, AttackType.HOLY ); skill[1].cost = 4;  //add half dex, deal LEVEL poison
+        skill[0] = new Attack("Ostinato", level/3, true, true );  skill[0].cost = 2; //Minor heal to all, restores one energy or 2mp to allies
+        skill[1] = new Attack("Rhapsody", level/3, true, true ); skill[1].cost = 4;  //add half dex, deal LEVEL poison
         skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -501,8 +502,7 @@ class Hero
   void handleSkillEffect( boolean beforeAttack, int skillIndex )
   {
     println("Turn: " + battle.turn);
-    //println("Attacker: " + battle.attackerIndex );
-    //println("Defender: " + battle.defenderIndex );
+    
     if( beforeAttack )
     {
       switch( job )
@@ -532,7 +532,11 @@ class Hero
           break;
         
         case BARD:
-          if(skillIndex == 0 ) //Prelude
+          if(skillIndex == 0 ) //Ostinato
+          {
+            bardBonus++;
+          }
+          if(skillIndex == 1 ) //Rhapsody
           {
             for(int i = 0; i < 3; i++)
               if( battle.turn != i )

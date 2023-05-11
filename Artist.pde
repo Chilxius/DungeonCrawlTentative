@@ -1254,7 +1254,12 @@ class Artist
   {
     push();
     imageMode(CENTER);
-    image(battleBack[0],width/2,height/2);
+    if(zoneNumber == 2)
+      image(battleBack[1],width/2,250); //west cellar
+    if(zoneNumber == 3)
+      image(battleBack[0],width/2,250); //Irohill forest
+    if(zoneNumber == 5)
+      image(battleBack[1],width/2,250); //baron's field
     pop();
   }
   
