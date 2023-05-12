@@ -7,7 +7,6 @@
 //art for new class skills
 //hero backs for new classes
 //add glow to progress bar when hasted
-//fix energy boxes to count by fives
 
 //PROBLEMS:
 //Fix lineLength error and problem with not printing entire line
@@ -18,11 +17,9 @@
 
 //TO DO:
 //Skills: animation system
-//initiate classroom
 //Make battles stop triggering on spaces with events
 //Fix text in Charis's study
 //Add a "holding on" mechanic to stay alive after critical damage
-//Battlebacks for battles
 //animate bard bonus
 
 //IMPROVEMENT:
@@ -233,7 +230,7 @@ void setup()
   
   battleBack[0] = loadImage("forest5.png"); //resize?esize(56,0);
   battleBack[1] = loadImage("stoneWall.png"); //resize?
-  battleBack[2] = loadImage("graveyard.png"); //resize?
+  battleBack[2] = loadImage("graveyard4.png"); //resize?
   battleBack[3] = loadImage("cave.png"); //resize?
   
   //Test sounds

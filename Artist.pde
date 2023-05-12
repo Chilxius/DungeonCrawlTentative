@@ -936,7 +936,7 @@ class Artist
     if( dist(mouseX,mouseY,210,300)<62 ){ text("MARTIAL ARTIST",width/2,35); textSize(20); text("A practitioner of martial arts who cannot use most equipment.",width/2,60); text("Always begins combat with extra energy.",width/2,85);    drawStatBars(3); }
     if( dist(mouseX,mouseY,350,300)<62 ){ text("BARD",width/2,35);           textSize(20); text("A versitile performer that inspires allies to greatness.",width/2,60);      text("Gains energy with the rhythm of combat.",width/2,85);    drawStatBars(8); }
     if( dist(mouseX,mouseY,490,300)<62 ){ text("THIEF",width/2,35);          textSize(20); text("An agile trickster that uses light equipment.",width/2,60);                 text("Gains energy when scoring critical hits.",width/2,85);   drawStatBars(4); }
-    if( dist(mouseX,mouseY,210,440)<62 ){ text("DRUID",width/2,35);          textSize(20); text("A mystic caster who calls upon the power of nature.",width/2,60);           text("Casts spells and commands creatures.",width/2,85);       drawStatBars(9); }
+    if( dist(mouseX,mouseY,210,440)<62 ){ text("DRUID",width/2,35);          textSize(20); text("A mystic caster who calls upon the power of nature.",width/2,60);           text("Casts spells and transforms into beasts.",width/2,85);       drawStatBars(9); }
     if( dist(mouseX,mouseY,350,440)<62 ){ text("PRIEST",width/2,35);         textSize(20); text("A pious caster who can use some heavy armor.",width/2,60);                  text("Casts holy magic that can smite or heal.",width/2,85);   drawStatBars(5); }
     if( dist(mouseX,mouseY,490,440)<62 ){ text("MAGE",width/2,35);           textSize(20); text("An arcane caster unsuited to physical combat.",width/2,60);                 text("Casts elemental magic of tremendous power.",width/2,85); drawStatBars(6); }
     
@@ -1070,14 +1070,32 @@ class Artist
         else
           text("POWER:",12+i*248,115);
         strokeWeight(1);
+        stroke(party.hero[i].favColor);
+        fill(party.hero[i].inverseColor);
+        int e = party.hero[i].energy;
+        int k = 0;
+        while(e >= 5)
+        {
+          rect(95+i*248+8*k,95,7,24);
+          k++;
+          e-=5;
+        }
         stroke(party.hero[i].inverseColor);
         fill(party.hero[i].favColor);
+        while( e > 0 )
+        {
+          rect(95+i*248+8*k,97,7,19);
+          k++;
+          e--;
+        }
+        /*
         for(int k = 0; k < min(13,party.hero[i].energy); k++ )
           rect(100+i*248+7*k,95,7,13);
         for(int k = 0; k < min(13,party.hero[i].energy-13); k++ )
           rect(100+i*248+7*k,110,7,13);
         for(int k = 0; k < min(24,party.hero[i].energy-26); k++ )
           rect(16+i*248+7*k,125,7,13);
+        */
       }
     }
   }
@@ -1281,7 +1299,7 @@ class Artist
         image(battleBack[0],width/2,250); //Trees
         break;
       case 5:
-        image(battleBack[2],width/2,250);
+        image(battleBack[2],width/2,252);
         break;
       case 10:
         image(battleBack[3],width/2,252);

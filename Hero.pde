@@ -88,23 +88,23 @@ class Hero
     switch(job)
     {
       case KNIGHT:
-        maxHp =  int((275/50.0)*(level-1)+25);  //25 -> 300
-        str =    int((116/50.0)*(level-1)+4);
-        dex =    int((97/50.0)*(level-1)+3);
-        con =    int((125/50.0)*(level-1)+5);
+        maxHp =  int((275/49.0)*(level-1)+25);  //25 -> 300
+        str =    int((116/49.0)*(level-1)+4);
+        dex =    int((97/49.0)*(level-1)+3);
+        con =    int((125/49.0)*(level-1)+5);
         mag =    level; 
-        wil =    int((98/50.0)*(level-1)+2);
-        spd =    int((98/50.0)*(level-1)+2);
+        wil =    int((98/49.0)*(level-1)+2);
+        spd =    int((98/49.0)*(level-1)+2);
         maxMp = 0;
         break;
       case BARBARIAN:
-        maxHp =  int((325/50.0)*(level-1)+25); //25 -> 350
-        str =    int((145/50.0)*(level-1)+5);
-        dex =    int((107/50.0)*(level-1)+3);
-        con =    int((97/50.0)*(level-1)+3);
+        maxHp =  int((325/49.0)*(level-1)+25); //25 -> 350
+        str =    int((145/49.0)*(level-1)+5);
+        dex =    int((107/49.0)*(level-1)+3);
+        con =    int((97/49.0)*(level-1)+3);
         mag =    0;
-        wil =    int((69/50.0)*(level-1)+1);
-        spd =    int((118/50.0)*(level-1)+2);
+        wil =    int((69/49.0)*(level-1)+1);
+        spd =    int((118/49.0)*(level-1)+2);
         maxMp = 0;
         break;
       case SAURIAN:
