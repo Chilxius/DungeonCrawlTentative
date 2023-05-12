@@ -234,10 +234,10 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case BARD: //ayre, ballad, bossa nova, fugue, minuet, nocturne, opera, prelude, psalm, requiem, rhapsody, rondo, sonata, samba
-        skill[0] = new Attack("Ostinato", level/3, true, true );  skill[0].cost = 2; //Minor heal to all, restores one energy or 2mp to allies
-        skill[1] = new Attack("Rhapsody", level/3, true, true ); skill[1].cost = 4;  //add half dex, deal LEVEL poison
-        skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
-        skill[3] = new Attack("Divine Grace", str*2, true, true );
+        skill[0] = new Attack("Ostinato", mag, true, true, AttackStat.STR );  skill[0].cost = 2; //Increase damage with each casting
+        skill[1] = new Attack("Rhapsody", level/3, true, true ); skill[1].cost = 4;  //Minor heal to all, restores one energy or 2mp to allies
+        skill[2] = new Attack("Rondo", str*2, false, true, AttackStat.STR );
+        skill[3] = new Attack("Psalm", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -254,10 +254,9 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case DRUID:
-        skill[0] = new Attack("Divine Light", 50, false, false, AttackStat.MAG, AttackType.HOLY ); skill[0].cost = 2; //single-target holy attack
-        //skill[0] = new Attack("Heal", 30, true, true ); //healing move for testing
-        skill[1] = new Attack("Divine Comfort", 30, false, true ); skill[1].cost = 3; //single-target heal
-        skill[2] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
+        skill[0] = new Attack("Wolf Form", ((2*int((70/50.0)*(level-1)+20))+int(mag*2.5)), false, false, AttackStat.STR ); skill[0].cost = 3; //single-target physical attack
+        skill[1] = new Attack("Gale", 30, true, false, AttackStat.MAG, AttackType.WIND ); skill[1].cost = 2; //multi-target wind
+        skill[2] = new Attack("Brood of Vipers", 25, true, false, AttackStat.DEX, AttackType.NONE, Debuff.POISON ); skill[2].cost = 4;//multi-target physical with poison
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -302,7 +301,7 @@ class Hero
     }
     else  //not a caster
     {
-      if( skill[index].cost > energy )
+      if( skill[index].cost > energy || (job==Job.BARD && (index == 0 || index == 7) && skill[index].cost+bardBonus > energy) )
       {
         displayTextLine("Not enough energy.");
         return false;
@@ -451,17 +450,22 @@ class Hero
     }
     else //skill
     {
-      //converting non-elemental attacks to weapon's type
+      //Converting non-elemental attacks to weapon's type
       AttackType skillType = skill[skillSelection].type; 
       if( skillType == AttackType.NONE && !skill[skillSelection].healing && skill[skillSelection].useWeapon )
         skillType = weapon.element;
-      
+
+      //Bard bonus
+      int bonus = 0;
+      if( job == Job.BARD && ( skillSelection == 0 || skillSelection == 7 ) ) //bard using ostinato or finale
+        bonus = bardBonus;
+        
       if( skill[skillSelection].targetAll )
       {
         for(int i = 0; i < 3; i++)
           if(battleMonsters[i].alive)
           {
-            damage = battle.calculateDamage( level, 1, weaponPower+skill[skillSelection].power, appropriateStat( skill[skillSelection] ), battleMonsters[i].appropriateDefense( skill[skillSelection] ), skillType, battleMonsters[i].weakness );
+            damage = battle.calculateDamage( level, 1, weaponPower+skill[skillSelection].power+(15*bonus), appropriateStat( skill[skillSelection] ), battleMonsters[i].appropriateDefense( skill[skillSelection] ), skillType, battleMonsters[i].weakness );
             battleMonsters[i].takeDamage(damage);
             floatingNumbers.add( new GhostNumber( 150+210*i, 320, appropriateColor(skillType), damage) );
             if( !battleMonsters[i].alive )
@@ -470,7 +474,7 @@ class Hero
       }
       else
       {
-        damage = battle.calculateDamage( level, battle.isCrit(dex+extraDex.amount,battleMonsters[targetMonster].dex,true), weaponPower+skill[skillSelection].power, appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skillType, battleMonsters[targetMonster].weakness );
+        damage = battle.calculateDamage( level, battle.isCrit(dex+extraDex.amount,battleMonsters[targetMonster].dex,true), weaponPower+skill[skillSelection].power+(15*bonus), appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skillType, battleMonsters[targetMonster].weakness );
         battleMonsters[targetMonster].takeDamage(damage);
         floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, appropriateColor(skillType), damage) );
       }
@@ -534,7 +538,7 @@ class Hero
         case BARD:
           if(skillIndex == 0 ) //Ostinato
           {
-            bardBonus++;
+            bardBonus+=2;
           }
           if(skillIndex == 1 ) //Rhapsody
           {
@@ -782,35 +786,62 @@ Spells have various costs
 Knight
   Defensive Strike (turn on defense)
   Armor Break (attack that ignores part of enemy CON)
-  
   Divine Grace (heal all)
+  Smite        (holy magic damage)
+  
 Barbarian
   Blood Strike (spend str/5 HP to increase damage)
   Cleave       (attack all)
+  Blood Rage   (boost strength)
+  
 Saurian
   Rend
   Prey
   Bile
-Artist
+  
+Martial Artist
   Stone Fist   (earth element attack)
   Flash Punch (adds dex, initiative bar goes to 80% full)
+  Hurricane Kick (wind damage to all)
+  
 Bard
-  Prelude (minor heal plus one energy)
+  Ostinato (more power with repeat casting)
+  Rhapsody (minor heal plus one energy)
+  Rondo    (speed boost all)
+  Psalm    (holy damage)
+  
+  
+  
+  Finale   (uses Ostinato bonus for massive damage)
   
 Thief
   Knives       (attack all)
   Toxin        (poisons target)
+  Stiletto     (ignore armor)
+  Snake Elixir (boost Dex)
+  
 Druid
   Wolf Form    (physical damage to single target)
-  Healing Wind (light heal to all)
+  Gale         (wind damgage to all)
+  Viper Brood  (damage and poison all)
+  Healing Wind (heal all)
+  Bear Form    (heavy physical damage)
+  Flame Strike (fire damage to all)
   
 Priest
   Smite        (holy element attack)
-  Heal         (single-target heal
+  Heal         (single-target heal)
+  Blessing
 
 Mage
   Fire         (fire element attack)
   Icicle       (ice element attack)
+  Quake        (earth damage to all)
+  Tornado      
+  Blizzard
+  Hurricane
+  Comet
+  Eruption
   
 */
 

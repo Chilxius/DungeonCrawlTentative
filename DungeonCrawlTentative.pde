@@ -21,9 +21,9 @@
 //initiate classroom
 //Make battles stop triggering on spaces with events
 //Fix text in Charis's study
-//Figure out how to load zoneNumber when loading files - maybe save that too?
 //Add a "holding on" mechanic to stay alive after critical damage
 //Battlebacks for battles
+//animate bard bonus
 
 //IMPROVEMENT:
 //Improve hero select widnow (circle sizes)

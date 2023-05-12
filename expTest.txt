@@ -18,7 +18,7 @@ fur.png
 25.0
 
 Faith
-KARATE
+BARD
 127.0
 67.0
 100.0
@@ -37,7 +37,7 @@ WhiteShirt.png
 12.0
 
 Kai
-PRIEST
+DRUID
 202.0
 211.0
 249.0
@@ -55,7 +55,7 @@ RustyArmor.png
 7
 18.0
 
-6
+8
 
 107
 Peach of Peace

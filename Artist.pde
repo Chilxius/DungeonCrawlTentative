@@ -30,8 +30,8 @@ class Artist
   
   String locationTitleCard = "";
   float titleCardDuration = 0;
-  PImage skillIcon[][] = new PImage[6][8];
-  PImage skillButton[] = new PImage[4];
+  PImage skillIcon[][] = new PImage[9][8];
+  PImage skillButton[] = new PImage[9];
   PImage blackVanguard;
   
   public Artist()
@@ -342,6 +342,21 @@ class Artist
     //Mage    
     skillIcon[5][0] = loadImage("FireBall.png");      skillIcon[5][0].resize(60,0);
     skillIcon[5][1] = loadImage("Icicle.png");        skillIcon[5][1].resize(60,0);
+    //Bard
+    skillButton[6] = loadImage("lute.png");           skillButton[6].resize(60,0);
+    skillIcon[6][0] = loadImage("note1.png");         skillIcon[6][0].resize(60,0);
+    skillIcon[6][1] = loadImage("note2.png");         skillIcon[6][1].resize(60,0);
+    skillIcon[6][2] = loadImage("note3.png");         skillIcon[6][2].resize(60,0);
+    //Bard
+    skillButton[7] = loadImage("lute.png");           skillButton[7].resize(60,0);
+    skillIcon[7][0] = loadImage("note1.png");         skillIcon[7][0].resize(60,0);
+    skillIcon[7][1] = loadImage("note2.png");         skillIcon[7][1].resize(60,0);
+    skillIcon[7][2] = loadImage("note3.png");         skillIcon[7][2].resize(60,0);
+    //Bard
+    skillButton[8] = loadImage("lute.png");           skillButton[8].resize(60,0);
+    skillIcon[8][0] = loadImage("note1.png");         skillIcon[8][0].resize(60,0);
+    skillIcon[8][1] = loadImage("note2.png");         skillIcon[8][1].resize(60,0);
+    skillIcon[8][2] = loadImage("note3.png");         skillIcon[8][2].resize(60,0);
   }
   
   public void drawHeroSkills( int h )
@@ -351,7 +366,7 @@ class Artist
     strokeWeight(5); fill(0);
     stroke(200); textSize(18); textAlign(CENTER);
     rectMode(CORNER); rect(40,200,620,300,20); rectMode(CENTER);
-    /*level 1 skill*/             noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],140,280); rect(140,280,70,70,20); fill(200); text(party.hero[h].skill[0].description,140,240); text("Cost: "+party.hero[h].skill[0].cost,140,335); text("Q",165,305);
+    /*level 1 skill*/             noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],140,280); rect(140,280,70,70,20); fill(200); text(party.hero[h].skill[0].description,140,240); text("Cost: "+(party.hero[h].skill[0].cost+party.hero[h].bardBonus),140,335); text("Q",165,305);
     if(party.hero[h].level>=5 ) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][1],280,280); rect(280,280,70,70,20); fill(200); text(party.hero[h].skill[1].description,280,240); text("Cost: "+party.hero[h].skill[1].cost,280,335); text("W",305,305); }
     if(party.hero[h].level>=10) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][2],420,280); rect(420,280,70,70,20); fill(200); text(party.hero[h].skill[2].description,420,240); text("Cost: "+party.hero[h].skill[2].cost,420,335); text("E",445,305); }
     if(party.hero[h].level>=15) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][3],560,280); rect(560,280,70,70,20); fill(200); text(party.hero[h].skill[3].description,560,240); text("Cost: "+party.hero[h].skill[3].cost,560,335); text("R",585,305); }
@@ -372,7 +387,10 @@ class Artist
       case KARATE: return 2;
       case THIEF: return 3;
       case PRIEST: return 4;
-      default: return 5;
+      case MAGE: return 5;
+      case SAURIAN: return 6;
+      case BARD: return 7;
+      default: return 8;
     }
   }
   
@@ -1526,6 +1544,18 @@ class Artist
     else if( j == Job.KARATE )
     {
       image(skillButton[3],x,y);
+    }
+    else if( j == Job.SAURIAN )
+    {
+      image(skillButton[0],x,y);
+    }
+    else if( j == Job.BARD )
+    {
+      image(skillButton[7],x,y);
+    }
+    else if( j == Job.DRUID )
+    {
+      image(skillButton[0],x,y);
     }
     else if( j == Job.PRIEST ) //cross
     {

@@ -82,7 +82,7 @@ class Battle
   {
     turn = -1;
   }
-      //FIX PROBLEM: battle not ending when monsters all dead
+
   public boolean runBattle() //true if battle still running
   {
     if(!battleDelayed) //these commands will run once the battle delay timer ends
@@ -257,7 +257,8 @@ class Battle
       {
         displayTextLine("Victory!          EXP: " + exp);
         setBattleDelay(2);
-        party.hero[0].energy = party.hero[1].energy = party.hero[2].energy = 0;
+        party.hero[0].energy    = party.hero[1].energy    = party.hero[2].energy = 0;
+        party.hero[0].bardBonus = party.hero[1].bardBonus = party.hero[2].bardBonus = 0;
         end = EndStage.EXP;
         battleOver = true;
       }
