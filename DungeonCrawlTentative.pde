@@ -805,7 +805,9 @@ public int getZone( String title )
       
     //Baron's Field
     case "Baron's Field":
-    case "Irohill Library":
+      return 5;
+      
+    //Baron's Field (inside)
     case "Tomb of Alar the Champion":
     case "Tomb of Corel the Beast":
     case "Tomb of Ruath the Pure":
@@ -816,11 +818,30 @@ public int getZone( String title )
     case "Mausoleum":
     case "Cenotaph":
     case "Catacombs":
-      return 5;
+      return 7;
+      
+    //Library
+    case "Irohill Library":
+      return 8;
+      
+    //Barracuda Queen
+    case "The Barracuda Queen":
+    case "Forecastle Deck":
+    case "Main Deck":
+    case "Quartereck":
+    case "Captain's Cabin":
+    case "Wardroom":
+    case "Forecastle":
+      return 9;
+      
+    //Caves
+    case "Cenote":
+      return 10;
       
     //Temples of Ritisu
     case "Temple of Ritisu":
       return 6;
+      
     //Silent Zones
     default: return 0;
   }
@@ -1580,6 +1601,7 @@ public void loadFile( String fileName )
     //load save point
     println("Save point # " + int(saveFileText[57]));
     party.setPosition(savePoints[int(saveFileText[57])]); //line 54, will be based on list
+    zoneNumber = savePoints[int(saveFileText[57])].zone;
     
     party.gold = int(saveFileText[59]);
     

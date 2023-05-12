@@ -230,6 +230,7 @@ void setupMaps()
   m[0].tiles[67][30].placeOccupant( color(150, 150, 250), "- Imagine my kitchen without the sound of you three sneaking in during the night, and thinking I never heard you. Take as much as you can carry, my children. You may find more skilled chefs out there in the world, but no one else's bread will taste like home." );
   m[0].tiles[71][31].placeOccupant( color(150, 150, 200), "- Sorry, I'm busy." );
   m[0].tiles[68][33].placeOccupant( color(150, 150, 200), "- Bread fresh from the oven is heavenly, but one cannot subsist solely on grains. Adding a scrap of meat or slice of fruit can make it a meal. With a frugal attitude, you can improve your recovery for every type of food you have." );
+  //m[0].tiles[68][29].placeOccupant( color(150, 150, 200), "- Explain synergy better." );
   //in method below
   m[0].tiles[83][29].placeOccupant( color(150, 150, 200), "- Basic health potions restore half of your vitality when consumed and, in my opinion, taste the best. Mana potions restore not only magical power, but a little health as well. Vapor potions are unstable and become a mist when exposed to the air. Elixirs are the pinacle of alchemy. I tasted one during my apprenticeship. I felt reborn." );
   m[0].tiles[92][41].placeOccupant( color(190, 170, 130), "A training dummy." );
@@ -346,7 +347,7 @@ void setupMaps()
   //Exit the cathedral
   exits.add( new Portal(0,63,73,0,30,52, "Irohill Forest") );
   //To well tunnel
-  exits.add( new Portal(0,36,94,1,33,13) );
+  exits.add( new Portal(0,36,94,1,33,13, "Cenote") );
   
   //Cabin
   //exits.add( new Portal(0,79,60,0,96,26) );
@@ -429,11 +430,11 @@ void setupMaps()
   m[0].tiles[13][93].createEvent(false, "- Something snaps under your foot. A bone. There are gnawed remains all around the trees near the bridge.");
   
   //Save points
-  savePoints[savePointIndex++] = new SavePoint(0, 19, 9);
-  savePoints[savePointIndex++] = new SavePoint(0, 30, 35);
-  savePoints[savePointIndex++] = new SavePoint(0, 3, 46);
-  savePoints[savePointIndex++] = new SavePoint(0, 1, 94);
-  savePoints[savePointIndex++] = new SavePoint(0, 54, 98);
+  savePoints[savePointIndex++] = new SavePoint(0, 19, 9, 1); //near west cellar
+  savePoints[savePointIndex++] = new SavePoint(0, 30, 35, 6); //shrine of Ritisu
+  savePoints[savePointIndex++] = new SavePoint(0, 3, 46, 3); //forest north
+  savePoints[savePointIndex++] = new SavePoint(0, 1, 94, 3); //forest south
+  savePoints[savePointIndex++] = new SavePoint(0, 54, 98, 4); //Irohill dock
 
   //Danger map 0
   dangerMapIndex = 0; dangerStrs[dangerMapIndex] = "";
@@ -497,7 +498,7 @@ void setupMaps()
   mapStrings[mapIndex] += "3=?...?*3  £  3.33#.w.###.#  £  ###.###.#####..#     £ £  £  £ £     #..#####.###.###  £  #€.€.€.€# ";
   mapStrings[mapIndex] += "3.......3  £  3.3...w...#.#  £  ##...##....>#..#     £ £  £  £ £     #[.#>....$[....#  £  #.......# ";
   mapStrings[mapIndex] += "3[.[[.?.3  £  3.333.w.###.#  £  #.....#######..#££££££ £  £  £ ££££££#..#######....[#  £  #.......# ";
-  mapStrings[mapIndex] += "3333333c3  £  3.3...w...#.#  £  #..............¢       £  £  £       $...........[[[#  £  #......?# ";
+  mapStrings[mapIndex] += "3333333c3  £  3.3...w...#.#  £  #..............‹       £  £  £       $...........[[[#  £  #......?# ";
   mapStrings[mapIndex] += "3>33333+3  £  3.333.w.###.#  £  ################£££££££   £   £££££££################  £  ####>#### ";
   mapStrings[mapIndex] += "3.......3  £  3>3...w...#>#  £                            £                            £     ###    ";
   mapStrings[mapIndex] += "333333333  £  3333333333###  £                            £                            £            ";
@@ -743,14 +744,14 @@ void setupMaps()
   m[1].tiles[86][53].placeOccupant( color(female), " - UNUSED TEXT." );
   m[1].tiles[87][53].placeOccupant( color(male), " - I'll fight. They can't conscript my son." );
   //Others
-  m[1].tiles[96][52].placeOccupant( color(mYoung), " - Czar will keep me safe" );
+  m[1].tiles[96][52].placeOccupant( color(mYoung), " - Czar will keep me safe." );
   m[1].tiles[95][52].placeOccupant( color(125), " - *Woof*" );
   
   //Town Hall 2
   //Mayor
   m[1].tiles[71][53].placeOccupant( color(governor), " - Rask has faith in you. I will have faith in you as well. These keys have been gathering rust in the treasury for countless years. They will open the tombs of the honored dead. It is an indignity, but this evil magic is a far greater insult. Use what you find to save the living, but beware what may be within the tombs. Illamar guide you." );
   //Rask
-  m[1].tiles[70][51].placeOccupant( color(raskColor), "- Good, you've arrived. We have the makings of a plan. Make your way into Baron's Field. Captain Rook will take the garrison to draw their attention. Your job will be to find the source of the curse, whether it be man or monster, and end it. Talk to the mayor for his contribution to your mission." );
+  m[1].tiles[72][51].placeOccupant( color(raskColor), "- Good, you've arrived. We have the makings of a plan. Make your way into Baron's Field. Captain Rook will take the garrison to draw their attention. Your job will be to find the source of the curse, whether it be man or monster, and end it. Talk to the mayor for his contribution to your mission." );
   //Rook
   m[1].tiles[71][51].placeOccupant( color(garrisonColor), "- My soldiers will be dying to open the way for you. Do not let us down." );
   //Secretary
@@ -788,9 +789,10 @@ void setupMaps()
   m[1].tiles[95][96].placeOccupant( color(255,150), "- When you see my daughter, tell her that I am proud." );
   
   
-  savePoints[savePointIndex++] = new SavePoint(1, 7, 2); //Intro
-  savePoints[savePointIndex++] = new SavePoint(1, 96, 14); //Temple
-  savePoints[savePointIndex++] = new SavePoint(1, 39, 49); //Mausoleum
+  savePoints[savePointIndex++] = new SavePoint(1, 7, 2, 1); //Intro
+  savePoints[savePointIndex++] = new SavePoint(1, 96, 14, 6); //Temple
+  savePoints[savePointIndex++] = new SavePoint(1, 39, 49, 7); //Mausoleum
+  
   //savePoints[savePointIndex++] = new SavePoint(1, 68, 61); //Temp save
   //savePoints[savePointIndex++] = new SavePoint(1, 12, 90); //Last save before boss
   
@@ -1241,7 +1243,7 @@ void setupMaps()
 
   m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
   
-  savePoints[savePointIndex++] = new SavePoint(2, 98, 79); //Last save before boss
+  savePoints[savePointIndex++] = new SavePoint(2, 98, 79, 5); //Last save before boss
   
   createLoot(lootIndex++, 2, 9, 95, new Item("Holy Symbol", 19) );
   //Gravekeeper hut
@@ -1578,7 +1580,7 @@ void setupMaps()
 
   m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
   
-  savePoints[savePointIndex++] = new SavePoint(3,45,47);
+  savePoints[savePointIndex++] = new SavePoint(3,45,47,8);
   
   createLoot(lootIndex++, 3, 14, 32, Key.IRON_KEY );
   createLoot(lootIndex++, 3, 10, 24, new Item("Doubloon", 9) );

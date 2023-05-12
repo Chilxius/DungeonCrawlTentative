@@ -1251,15 +1251,18 @@ class Artist
   }
   
   void drawBattleBack()
-  {
-    push();
+  {                      //1-Cathedral  2-Cellar  3-Forest  4-City  5-Graveyard  6-TEMPLE OF RITISU
+    push();              //7-Inside(scary,stone)  8-Inside(scary,wood)  9-Boat  10-Cave
     imageMode(CENTER);
-    if(zoneNumber == 2)
-      image(battleBack[1],width/2,250); //west cellar
-    if(zoneNumber == 3)
-      image(battleBack[0],width/2,250); //Irohill forest
-    if(zoneNumber == 5)
-      image(battleBack[1],width/2,250); //baron's field
+    switch(zoneNumber)
+    {
+      case 1: case 2: case 7:
+        image(battleBack[1],width/2,250); //Stone wall
+        break;
+      case 3:
+        image(battleBack[0],width/2,250); //Trees
+        break;
+    }
     pop();
   }
   
