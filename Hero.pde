@@ -538,6 +538,7 @@ class Hero
         case BARD:
           if(skillIndex == 0 ) //Ostinato
           {
+            if( bardBonus+4 < level )
             bardBonus+=2;
           }
           if(skillIndex == 1 ) //Rhapsody

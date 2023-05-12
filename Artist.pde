@@ -1280,6 +1280,12 @@ class Artist
       case 3:
         image(battleBack[0],width/2,250); //Trees
         break;
+      case 5:
+        image(battleBack[2],width/2,250);
+        break;
+      case 10:
+        image(battleBack[3],width/2,252);
+        break;
     }
     pop();
   }

@@ -34,7 +34,7 @@
 //More random names
 
 //IMAGES I NEED:
-//Potion
+
 
 //NOTES:
 //I edited the log class to remove spaces in text - might cause errors downstream
@@ -233,6 +233,8 @@ void setup()
   
   battleBack[0] = loadImage("forest5.png"); //resize?esize(56,0);
   battleBack[1] = loadImage("stoneWall.png"); //resize?
+  battleBack[2] = loadImage("graveyard.png"); //resize?
+  battleBack[3] = loadImage("cave.png"); //resize?
   
   //Test sounds
   //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
