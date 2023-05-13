@@ -471,7 +471,7 @@ class Hero
         for(int i = 0; i < 3; i++)
           if(battleMonsters[i].alive)
           {
-            damage = battle.calculateDamage( level, 1, weaponPower+skill[skillSelection].power+(15*bonus), appropriateStat( skill[skillSelection] ), battleMonsters[i].appropriateDefense( skill[skillSelection] ), skillType, battleMonsters[i].weakness );
+            damage = battle.calculateDamage( level, 1, weaponPower+skill[skillSelection].power+(level*2*bonus), appropriateStat( skill[skillSelection] ), battleMonsters[i].appropriateDefense( skill[skillSelection] ), skillType, battleMonsters[i].weakness );
             battleMonsters[i].takeDamage(damage);
             floatingNumbers.add( new GhostNumber( 150+210*i, 320, appropriateColor(skillType), damage) );
             if( !battleMonsters[i].alive )
@@ -480,7 +480,7 @@ class Hero
       }
       else
       {
-        damage = battle.calculateDamage( level, battle.isCrit(dex+extraDex.amount,battleMonsters[targetMonster].dex,true), weaponPower+skill[skillSelection].power+(15*bonus), appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skillType, battleMonsters[targetMonster].weakness );
+        damage = battle.calculateDamage( level, battle.isCrit(dex+extraDex.amount,battleMonsters[targetMonster].dex,true), weaponPower+skill[skillSelection].power+(level*2*bonus), appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skillType, battleMonsters[targetMonster].weakness );
         battleMonsters[targetMonster].takeDamage(damage);
         floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, appropriateColor(skillType), damage) );
       }

@@ -23,7 +23,7 @@
 //IMPROVEMENT:
 //Have inns charge money?
 //Delay before "vanquished" line where enemy vanishes
-//Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair
+//Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair, saurian head
 //Tone fixes for random text
 //More random names
 
@@ -228,7 +228,7 @@ void setup()
   
   iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
   iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
-  iconImage[2] = loadImage("heater_main2.png");      iconImage[2].resize(56,0);
+  iconImage[2] = loadImage("heater_main2.png");     iconImage[2].resize(56,0);
   iconImage[3] = loadImage("heater_primary.png");   iconImage[3].resize(58,0);
   iconImage[4] = loadImage("heater_secondary.png"); iconImage[4].resize(58,0);
   iconImage[5] = loadImage("scale_primary.png");    iconImage[5].resize(56,0);

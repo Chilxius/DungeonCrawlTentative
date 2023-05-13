@@ -599,7 +599,7 @@ void setupMaps()
   
   createLoot(lootIndex++, 1, 3, 4, Key.COPPER_KEY);
   createLoot(lootIndex++, 1, 1, 2, new Equipment("Brocade","YellowShirt.png",5,false,5,true));
-  createLoot(lootIndex++, 1, 54, 1, new Equipment("Ivory Knife","IceDagger.png",15,true,15,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.THIEF,Job.DRUID,Job.PRIEST,Job.MAGE));
+  createLoot(lootIndex++, 1, 54, 1, new Equipment("Ivory Knife","IceDagger.png",15,true,15,true));
   createLoot(lootIndex++, 1, 62, 1, new Equipment("Staff","Staff.png",2,true,14,Job.KNIGHT,Job.PRIEST,Job.DRUID,Job.MAGE));
   createLoot(lootIndex++, 1, 17, 21, Key.COPPER_KEY);
   createLoot(lootIndex++, 1, 79, 3, new Equipment("Vestment","BlueShirt.png",3,false,7,true));
@@ -641,7 +641,7 @@ void setupMaps()
   createLoot(lootIndex++, 1, 76, 73, new Equipment("Lion's Hide","fur.png",25,false,25,Job.BARBARIAN,Job.DRUID) );
   createLoot(lootIndex++, 1, 76, 83, new Equipment("Purifier","StoneClub.png",25,true,27.5,Job.KNIGHT,Job.PRIEST) );
   createLoot(lootIndex++, 1, 98, 63, new Equipment("Cold Iron Plate","DarkArmor.png",25,false,28,Job.KNIGHT, Job.PRIEST) );
-  createLoot(lootIndex++, 1, 98, 73, new Equipment("Scholar's Robe","aquaRobes.png",25,false,18, Job.KARATE, Job.PRIEST, Job.MAGE) );
+  createLoot(lootIndex++, 1, 98, 73, new Equipment("Scholar's Robe","aquaRobes.png",25,false,18, Job.KARATE, Job.BARD, Job.DRUID, Job.PRIEST, Job.MAGE) );
   createLoot(lootIndex++, 1, 98, 83, new Equipment("Flamecaster Staff","Staff2.png",25,true,27.2,Job.DRUID,Job.MAGE) );
   
   //Boss Chamber
