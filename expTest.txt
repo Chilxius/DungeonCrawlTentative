@@ -1,5 +1,5 @@
 Spike
-SAURIAN
+KNIGHT
 58.0
 69.0
 83.0
@@ -37,7 +37,7 @@ WhiteShirt.png
 12.0
 
 Kai
-DRUID
+THIEF
 202.0
 211.0
 249.0

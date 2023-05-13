@@ -925,7 +925,7 @@ class Artist
   {
     noStroke(); fill(150); //will be icons later
     drawKnight(210,160,1.7,200,50,hero,true);    drawBarbarian(350,160,1.7,200,50,hero,true); drawIncomplete(490,160,1.7,200,50,hero,true);
-    drawKarate(210,300,1.7,200,50,hero,true);    drawIncomplete(350,300,1.7,200,50,hero,true);drawThief(490,300,1.7,200,50,hero,true);
+    drawKarate(210,300,1.7,200,50,hero,true);    drawBard(350,300,1.7,200,50,hero,true);drawThief(490,300,1.7,200,50,hero,true);
     drawIncomplete(210,440,1.7,200,50,hero,true);drawPriest(350,440,1.7,200,50,hero,true);      drawMage(490,440,1.7,200,50,hero,true);
   
     //Class descriptions
@@ -1741,6 +1741,9 @@ class Artist
       case KARATE:
         drawKarate( x,  y,  scale,  c1,  c2,  heroNumber,  initial);
         break;
+      case BARD:
+        drawBard( x,  y,  scale,  c1,  c2,  heroNumber,  initial);
+        break;
       case THIEF:
         drawThief( x,  y,  scale,  c1,  c2,  heroNumber,  initial);
         break;
@@ -2197,6 +2200,114 @@ class Artist
     endShape();
   }
   
+  void drawBard(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+  {
+    color skin;
+    if (heroNumber==0)
+      skin = color(#C68642);
+    else if (heroNumber==1)
+      skin = color(#F1C27D);
+    else
+      skin = color(#FFDBAC);
+  
+    //Circle
+    noFill();
+    stroke(255);
+    strokeWeight(0.5);
+    if (initial)
+      ellipse(x, y, 75*scale, 75*scale);
+  
+    //Lute
+    fill(190,170,130);
+    beginShape();
+    vertex(x+11*scale, y+11*scale);
+    vertex(x+25*scale, y-3*scale);
+    vertex(x+29*scale, y+1*scale);
+    vertex(x+28*scale, y+2.5*scale);
+    vertex(x+25.5*scale, y+0.5*scale);
+    vertex(x+13*scale, y+14.5*scale);
+    endShape();
+  
+    //Hand
+    fill(skin);
+    ellipse(x+15*scale, y+9.5*scale, 5*scale, 5*scale);
+  
+    //Cape
+    fill(c1);
+    //stroke(0);
+    beginShape();
+    vertex(x-13.5*scale, y+1*scale);
+    bezierVertex(x-14*scale, y+1*scale, x-14*scale, y-3*scale, x-10*scale, y-5*scale);
+    bezierVertex(x-10*scale, y-2*scale, x+10*scale, y-2*scale, x+10*scale, y-5*scale);
+    bezierVertex(x+10*scale, y-3*scale, x+14*scale, y-3*scale, x+14*scale, y+1*scale);
+    vertex(x+14*scale, y+1*scale);
+    bezierVertex(x+13*scale, y+1*scale, x+20*scale, y+30*scale, x+21*scale, y+30*scale);
+    bezierVertex(x+15*scale, y+37*scale, x-15*scale, y+37*scale, x-21*scale, y+30*scale);
+    bezierVertex(x-20*scale, y+30*scale, x-12*scale, y+1*scale, x-14*scale, y+1*scale);
+    endShape();
+    //Flap
+    beginShape();
+    vertex(x-9*scale, y+6.5*scale);
+    vertex(x-13.5*scale, y+34.75*scale);
+    bezierVertex(x-13.5*scale, y+36*scale, x+-4.75*scale, y+37.25*scale, x-4.75*scale, y+35.25*scale);
+    vertex(x-3.5*scale, y+5*scale);
+    endShape();
+    beginShape();
+    vertex(x+9*scale, y+6.5*scale);
+    vertex(x+13.5*scale, y+34.75*scale);
+    bezierVertex(x+13.5*scale, y+36*scale, x+4.75*scale, y+37.25*scale, x+4.75*scale, y+35.25*scale);
+    vertex(x+3.5*scale, y+5*scale);
+    endShape();
+      
+    //Hair - color based on which hero (brown, blonde, black)
+    if(heroNumber==0)
+      fill(90,70,30);
+    else if(heroNumber==1)
+      fill(210,190,70);
+    else
+      fill(10,10,5);
+    stroke(255);
+    strokeWeight(0.5);
+    
+    //Hair
+    ellipse(x,y-12*scale,scale*25,scale*25);
+    beginShape();
+    vertex(x-11*scale,y-8*scale);
+    vertex(x-13*scale,y+6*scale);
+    bezierVertex(x-16*scale,y+13*scale, x+13*scale,y+4*scale, x+13*scale,y+6*scale);
+    vertex(x+11*scale,y-8*scale);
+    endShape();
+    
+    //Hat Band
+    fill(c2);
+    beginShape();
+    vertex(x+14*scale,y-15*scale);
+    vertex(x+13*scale,y-9*scale);
+    bezierVertex(x+13*scale,y-6*scale, x-13*scale,y-6*scale, x-13*scale,y-9*scale);
+    vertex(x-14*scale,y-15*scale);
+    endShape();
+    
+    //Feather
+    stroke(c2);
+    strokeWeight(scale/2);
+    curve(x+16*scale,y-20*scale, x+16*scale,y-20*scale, x+27*scale,y-20*scale, x+27*scale,y-14*scale);
+    strokeWeight(scale/4);
+    for(float i = 17, j = 2; i < 27.5; i+=0.5, j+=0.1)
+      line(x+i*scale, y-(21.2+j/5)*scale, x+(i+0.5)*scale, y-(20-j)*scale);
+    
+    //Hat
+    fill(c1);
+    stroke(255);
+    strokeWeight(0.5);
+    beginShape();
+    vertex(x+0*scale,y-9*scale);
+    bezierVertex(x+0*scale,y-5*scale, x-22*scale,y-5*scale, x-22*scale,y-10*scale);
+    bezierVertex(x-22*scale,y-15*scale, x-1*scale,y-30*scale, x-1*scale,y-25*scale);
+    bezierVertex(x-1*scale,y-30*scale, x+16*scale,y-25*scale, x+17*scale,y-21*scale);
+    bezierVertex(x+17*scale,y-10*scale, x+0*scale,y-4*scale, x+0*scale,y-9*scale);
+    endShape();
+  }
+
   void drawThief(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
   {
     color skin;
@@ -2524,7 +2635,7 @@ class Artist
     if( h.getJob() == Job.KARATE )
       drawKarate(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.BARD )
-      drawIncomplete(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+      drawBard(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.THIEF )
       drawThief(x,y,scale,h.favColor,h.inverseColor,hair,circle);
     if( h.getJob() == Job.DRUID )

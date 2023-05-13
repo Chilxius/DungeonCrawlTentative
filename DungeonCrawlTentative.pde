@@ -1449,8 +1449,8 @@ void mousePressed()
 
   //Testing
   //println(mouseX + " " + mouseY);
-  println("Bard:" + party.hero[1].bardBonus);
-  party.hero[1].energize(1);
+  //println("Bard:" + party.hero[1].bardBonus);
+  //party.hero[1].energize(1);
   //floatingNumbers.add( new GhostNumber( mouseX, mouseY, color(255), 888888888 ) );
 }
 
