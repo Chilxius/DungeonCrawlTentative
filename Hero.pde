@@ -56,8 +56,10 @@ class Hero
     alive = true;
     defending = false;
     
-    //for testing
+    //Default starting equipment
     weapon = new Equipment("Fist","Fist.png",0,true,3);
+    if(j==Job.SAURIAN)
+      weapon = new Equipment("Fist","fist_green.png",0,true,10);
     if(j==Job.KARATE)
     {
       weapon = new Equipment("Fist","Fist.png",0,true,20);
@@ -66,7 +68,7 @@ class Hero
     armor = new Equipment("Shirt","BrownShirt.png",0,false,1);
     if(j==Job.SAURIAN)
     {
-      armor = new Equipment("Scales","Scales2.png",0,false,20);
+      armor = new Equipment("Scales","scales3.png",0,false,20);
       adjustScalePower();
     }
     
@@ -320,7 +322,11 @@ class Hero
     if( maxMp > 0 )
       mp -= skill[skillIndex].cost;
     else
+    {
       energy -= skill[skillIndex].cost;
+      if( job == Job.BARD && ( skillIndex==0 || skillIndex == 7 ) )
+        energy -= bardBonus;
+    }
   }
   
   public void adjustFistPower()

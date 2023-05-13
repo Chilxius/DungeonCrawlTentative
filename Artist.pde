@@ -342,20 +342,20 @@ class Artist
     //Mage    
     skillIcon[5][0] = loadImage("FireBall.png");      skillIcon[5][0].resize(60,0);
     skillIcon[5][1] = loadImage("Icicle.png");        skillIcon[5][1].resize(60,0);
-    //Bard
-    skillButton[6] = loadImage("lute.png");           skillButton[6].resize(60,0);
-    skillIcon[6][0] = loadImage("note1.png");         skillIcon[6][0].resize(60,0);
-    skillIcon[6][1] = loadImage("note2.png");         skillIcon[6][1].resize(60,0);
+    //Saurian
+    skillButton[6] = loadImage("lizEye2.png");         skillButton[6].resize(60,0);
+    skillIcon[6][0] = loadImage("rend.png");          skillIcon[6][0].resize(60,0);
+    skillIcon[6][1] = loadImage("prey.png");          skillIcon[6][1].resize(60,0);
     skillIcon[6][2] = loadImage("note3.png");         skillIcon[6][2].resize(60,0);
     //Bard
-    skillButton[7] = loadImage("lute.png");           skillButton[7].resize(60,0);
+    skillButton[7] = loadImage("lute3.png");           skillButton[7].resize(60,0);
     skillIcon[7][0] = loadImage("note1.png");         skillIcon[7][0].resize(60,0);
     skillIcon[7][1] = loadImage("note2.png");         skillIcon[7][1].resize(60,0);
     skillIcon[7][2] = loadImage("note3.png");         skillIcon[7][2].resize(60,0);
     //Bard
-    skillButton[8] = loadImage("lute.png");           skillButton[8].resize(60,0);
-    skillIcon[8][0] = loadImage("note1.png");         skillIcon[8][0].resize(60,0);
-    skillIcon[8][1] = loadImage("note2.png");         skillIcon[8][1].resize(60,0);
+    skillButton[8] = loadImage("acorns2.png");           skillButton[8].resize(60,0);
+    skillIcon[8][0] = loadImage("wolf.png");         skillIcon[8][0].resize(60,0);
+    skillIcon[8][1] = loadImage("gale.png");         skillIcon[8][1].resize(60,0);
     skillIcon[8][2] = loadImage("note3.png");         skillIcon[8][2].resize(60,0);
   }
   
@@ -1312,11 +1312,20 @@ class Artist
   {
     for(int i = 0; i < 3; i++)
       if(party.hero[i].defending)
-        drawDefendIcon(100+250*i,155,party.hero[i].favColor,1,party.hero[i].job);
+        drawDefendIcon(100+250*i,155,party.hero[i].favColor,party.hero[i].inverseColor,party.hero[i].job,false);
   }
   
   void drawShield( float x, float y, int heroIndex )
   {
+    push();
+    tint(party.hero[heroIndex].favColor);
+    image(iconImage[3],x,y);
+    tint(party.hero[heroIndex].inverseColor);
+    image(iconImage[4],x,y);
+    noTint();
+    image(iconImage[2],x,y);
+    pop();
+    /*
     stroke(200);
     strokeWeight(3);
     fill(party.hero[heroIndex].favColor);
@@ -1327,7 +1336,7 @@ class Artist
     vertex(x,y+15);
     vertex(x-15,y+10);
     vertex(x-15,y-15);
-    endShape();
+    endShape();*/
   }
   
   void drawProgressBars()
@@ -1422,7 +1431,7 @@ class Artist
     rect(baseX-75,545,70,70,20);rect(baseX+75,545,70,70,20);
     
     drawAttackIcon(baseX-75,455,party.hero[h].favColor,party.hero[h].inverseColor,party.hero[h].weapon.pic);
-    drawDefendIcon(baseX+75,455,party.hero[h].favColor,party.hero[h].inverseColor,party.hero[h].job);
+    drawDefendIcon(baseX+75,455,party.hero[h].favColor,party.hero[h].inverseColor,party.hero[h].job,true);
     drawSkillIcon(baseX-75,545,party.hero[h].favColor,party.hero[h].inverseColor,party.hero[h].job);
     drawItemIcon(baseX+75,545,party.hero[h].favColor);
 
@@ -1478,10 +1487,20 @@ class Artist
     text("A",x+25,y+27);
   }
   
-  void drawDefendIcon( float x, float y, color c, color i, Job j )
+  void drawDefendIcon( float x, float y, color c, color i, Job j, boolean drawD )
   {
+    push();
+    imageMode(CENTER);
+    
     if( j == Job.KNIGHT || j == Job.PRIEST ) //heater
     {
+      tint(c);
+      image(iconImage[3],x,y);
+      tint(i);
+      image(iconImage[4],x,y);
+      noTint();
+      image(iconImage[2],x,y);
+      /*
       //top right color
       noStroke(); fill(i);
       beginShape();
@@ -1528,9 +1547,21 @@ class Artist
       vertex(x+20,y-7);
       bezierVertex(x+20,y+8,x,y+27,x,y+27);
       endShape();
+      */
+    }
+    else if( j == Job.SAURIAN )
+    {
+      tint(c);
+      image(iconImage[5],x,y);
+      tint(i);
+      image(iconImage[6],x,y);
     }
     else  //targe with cross
     {
+      image(iconImage[0],x,y);
+      tint(c);
+      image(iconImage[1],x,y);
+      /*
       noStroke(); fill(90,70,30);
       circle(x,y,50);
       rectMode(CENTER); fill(c,150);
@@ -1539,13 +1570,16 @@ class Artist
       fill(180);  circle(x,y,15);
       stroke(190); strokeWeight(3);
       noFill(); circle(x,y,51);
+      */
     }
     
-    if( i != 1 )
+    if( drawD )
     {
       fill(c); textSize(10);
       text("D",x+25,y+27);
     }
+    
+    pop();
   }
   
   void drawSkillIcon( float x, float y, color c, color i, Job j)
@@ -1571,7 +1605,7 @@ class Artist
     }
     else if( j == Job.SAURIAN )
     {
-      image(skillButton[0],x,y);
+      image(skillButton[6],x,y);
     }
     else if( j == Job.BARD )
     {
@@ -1579,7 +1613,7 @@ class Artist
     }
     else if( j == Job.DRUID )
     {
-      image(skillButton[0],x,y);
+      image(skillButton[8],x,y);
     }
     else if( j == Job.PRIEST ) //cross
     {

@@ -3,8 +3,6 @@
 
 //New Class work:
 //slow down bard
-//art for saurian shield
-//art for new class skills
 //hero backs for new classes
 //add glow to progress bar when hasted
 
@@ -12,7 +10,6 @@
 //Fix lineLength error and problem with not printing entire line
 //Fix objects getting strange tile colors
 //Boss didn't drop money when killed by poison
-//Skills casting even after being cancelled
 //Improve armor pierce abilities
 
 //TO DO:
@@ -21,9 +18,9 @@
 //Fix text in Charis's study
 //Add a "holding on" mechanic to stay alive after critical damage
 //animate bard bonus
+//make ostinato bonus adjust well at higher levels
 
 //IMPROVEMENT:
-//Improve hero select widnow (circle sizes)
 //Have inns charge money?
 //Delay before "vanquished" line where enemy vanishes
 //Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair
@@ -98,6 +95,7 @@ int windowX, windowY;
 //Image data
 PImage tileImage[] = new PImage[100]; //I've since used this for more than just tiles
 PImage battleBack[] = new PImage[10]; //Backgrounds for battles
+PImage iconImage[] = new PImage[50];  //Icons for buttons, need to move some items from tileImage
 
 //Item data
 Loot [][] lootList = new Loot[4][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
@@ -227,6 +225,14 @@ void setup()
   tileImage[91] = loadImage("potionBlue.png");   tileImage[91].resize(56,0);
   tileImage[92] = loadImage("potionYellow.png"); tileImage[92].resize(56,0);
   tileImage[93] = loadImage("potionRed.png");    tileImage[93].resize(56,0);
+  
+  iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
+  iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
+  iconImage[2] = loadImage("heater_main2.png");      iconImage[2].resize(56,0);
+  iconImage[3] = loadImage("heater_primary.png");   iconImage[3].resize(58,0);
+  iconImage[4] = loadImage("heater_secondary.png"); iconImage[4].resize(58,0);
+  iconImage[5] = loadImage("scale_primary.png");    iconImage[5].resize(56,0);
+  iconImage[6] = loadImage("scale_secondary.png");  iconImage[6].resize(56,0);
   
   battleBack[0] = loadImage("forest5.png"); //resize?esize(56,0);
   battleBack[1] = loadImage("stoneWall.png"); //resize?
@@ -1103,7 +1109,10 @@ void keyPressed()
         battle.beginAttack( battle.turn, 5);
         
       else if( key == 'x' || key == ' ' ) //cancel and return to skill menu
+      {
         input = Input.BATTLE_SKILL;
+        skillSelection = -1;
+      }
     }
     else if(input == Input.BATTLE_HEAL_TARGET ) //Choose target of heal
     {
@@ -1438,8 +1447,10 @@ void mousePressed()
       heroDataDisplayed[2]=true;
   }
 
-  println(mouseX + " " + mouseY);
-  println(randomName());
+  //Testing
+  //println(mouseX + " " + mouseY);
+  println("Bard:" + party.hero[1].bardBonus);
+  party.hero[1].energize(1);
   //floatingNumbers.add( new GhostNumber( mouseX, mouseY, color(255), 888888888 ) );
 }
 
