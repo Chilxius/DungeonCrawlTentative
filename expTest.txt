@@ -1,13 +1,13 @@
 Spike
-SAURIAN
+DRUID
 58.0
 69.0
 83.0
-7
+11
 700
 136
 54
-0
+10
 Alar's Axe
 MetalAxe.png
 25
@@ -18,15 +18,15 @@ fur.png
 25.0
 
 Faith
-BARD
+THIEF
 127.0
 67.0
 100.0
-7
+11
 700
 136
 50
-0
+10
 Fist
 Fist.png
 0
@@ -37,11 +37,11 @@ WhiteShirt.png
 12.0
 
 Kai
-DRUID
+THIEF
 202.0
 211.0
 249.0
-7
+11
 700
 136
 50
@@ -49,7 +49,7 @@ DRUID
 Purifier
 StoneClub.png
 25
-27.5
+27.0
 Old Plate
 RustyArmor.png
 7

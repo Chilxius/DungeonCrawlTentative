@@ -3,7 +3,6 @@
 
 //New Class work:
 //slow down bard
-//hero backs for new classes
 //add glow to progress bar when hasted
 
 //PROBLEMS:
@@ -1288,10 +1287,10 @@ void keyPressed()
       advanceNextTextLine();
   }
   
-  if(key == '`') //for placing a break point //<>//
-  { //<>//
+  if(key == '`') //for placing a break point
+  {
     println("DEBUG"); //<>// //<>// //<>//
-    println(party.X + " " + party.Y); //<>// //<>//
+    println(party.X + " " + party.Y); //<>//
     println(dm[party.floor].dangerValueChar(party.X,party.Y));
   }
   
@@ -1450,7 +1449,7 @@ void mousePressed()
   //Testing
   //println(mouseX + " " + mouseY);
   //println("Bard:" + party.hero[1].bardBonus);
-  //party.hero[1].energize(1);
+  //party.hero[2].energize(1);
   //floatingNumbers.add( new GhostNumber( mouseX, mouseY, color(255), 888888888 ) );
 }
 

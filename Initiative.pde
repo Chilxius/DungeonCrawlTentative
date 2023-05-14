@@ -34,8 +34,8 @@ class Initiative
     if(active)
     {
       counter += speed;
-      if( index < 3 && party.hero[index].extraSpd.active ) //if is a hero with speed boost
-        counter += party.hero[index].extraSpd.amount;
+      if( index < 3 && party.hero[index].buff[4].active ) //if is a hero with speed boost
+        counter += party.hero[index].buff[4].amount;
     }
     if(counter >= 20*party.averageLevel() + 100) //Wait time adjusts with party level, the +100 normalizes speeds so thief doesn't go too often
       return true;

@@ -18,6 +18,7 @@ class Attack
   AttackStat stat;
   
   String description;
+  String secondLine;
   
   Debuff debuff;
   
@@ -42,6 +43,18 @@ class Attack
     healing = false;
     stat = AttackStat.STR;
     type = AttackType.WASTE;
+  }
+  
+  public Attack( String d, String s ) //for buffing moves
+  {
+    description = d;
+    secondLine = s;
+    power = 0;
+    useWeapon = false;
+    targetAll = true;    //avoids the confirmation keypress
+    healing = false;
+    stat = AttackStat.NONE;
+    type = AttackType.BUFF;
   }
   
   public Attack( String d, int p, boolean all, boolean heal ) //healing move
@@ -126,12 +139,12 @@ class Attack
 
 public enum AttackStat
 {
-  STR, DEX, MAG
+  NONE, STR, DEX, MAG
 }
 
 public enum AttackType
 {
-  NONE, FIRE, ICE, WIND, EARTH, HOLY, WASTE
+  NONE, FIRE, ICE, WIND, EARTH, HOLY, WASTE, BUFF
 }
 
 public enum Debuff

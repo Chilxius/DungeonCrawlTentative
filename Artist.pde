@@ -324,91 +324,90 @@ class Artist
     skillButton[0] = loadImage("KnightSkill.png");    skillButton[0].resize(60,0);
     skillIcon[0][0] = loadImage("DefenseStrike.png"); skillIcon[0][0].resize(60,0);
     skillIcon[0][1] = loadImage("ArmorBreak.png");    skillIcon[0][1].resize(60,0);
-    skillIcon[0][2] = loadImage("YellowSlime.png");   skillIcon[0][1].resize(60,0);
-    skillIcon[0][3] = loadImage("YellowSlime.png");   skillIcon[0][1].resize(60,0);
-    skillIcon[0][4] = loadImage("YellowSlime.png");   skillIcon[0][1].resize(60,0);
-    skillIcon[0][5] = loadImage("YellowSlime.png");   skillIcon[0][1].resize(60,0);
-    skillIcon[0][6] = loadImage("YellowSlime.png");   skillIcon[0][1].resize(60,0);
-    skillIcon[0][7] = loadImage("YellowSlime.png");   skillIcon[0][1].resize(60,0);
+    skillIcon[0][2] = loadImage("divineGrace.png");   skillIcon[0][2].resize(60,0);
+    skillIcon[0][3] = loadImage("YellowSlime.png");   skillIcon[0][3].resize(60,0);
+    skillIcon[0][4] = loadImage("YellowSlime.png");   skillIcon[0][4].resize(60,0);
+    skillIcon[0][5] = loadImage("YellowSlime.png");   skillIcon[0][5].resize(60,0);
+    skillIcon[0][6] = loadImage("YellowSlime.png");   skillIcon[0][6].resize(60,0);
+    skillIcon[0][7] = loadImage("YellowSlime.png");   skillIcon[0][7].resize(60,0);
     //Barbarian
     skillButton[1] = loadImage("BarbSkill.png");      skillButton[1].resize(60,0);
     skillIcon[1][0] = loadImage("BloodStrike.png");   skillIcon[1][0].resize(60,0);
     skillIcon[1][1] = loadImage("Cleave.png");        skillIcon[1][1].resize(60,0);
-    skillIcon[1][2] = loadImage("YellowSlime.png");   skillIcon[1][1].resize(60,0);
-    skillIcon[1][3] = loadImage("YellowSlime.png");   skillIcon[1][1].resize(60,0);
-    skillIcon[1][4] = loadImage("YellowSlime.png");   skillIcon[1][1].resize(60,0);
-    skillIcon[1][5] = loadImage("YellowSlime.png");   skillIcon[1][1].resize(60,0);
-    skillIcon[1][6] = loadImage("YellowSlime.png");   skillIcon[1][1].resize(60,0);
-    skillIcon[1][7] = loadImage("YellowSlime.png");   skillIcon[1][1].resize(60,0);
+    skillIcon[1][2] = loadImage("bloodRage.png");     skillIcon[1][2].resize(60,0);
+    skillIcon[1][3] = loadImage("YellowSlime.png");   skillIcon[1][3].resize(60,0);
+    skillIcon[1][4] = loadImage("YellowSlime.png");   skillIcon[1][4].resize(60,0);
+    skillIcon[1][5] = loadImage("YellowSlime.png");   skillIcon[1][5].resize(60,0);
+    skillIcon[1][6] = loadImage("YellowSlime.png");   skillIcon[1][6].resize(60,0);
+    skillIcon[1][7] = loadImage("YellowSlime.png");   skillIcon[1][7].resize(60,0);
     //Karate
     skillButton[2] = loadImage("ThiefSkill.png");     skillButton[2].resize(60,0);
     skillIcon[2][0] = loadImage("StoneFist.png");     skillIcon[2][0].resize(60,0);
     skillIcon[2][1] = loadImage("FlashPunch.png");    skillIcon[2][1].resize(60,0);
-    skillIcon[2][2] = loadImage("YellowSlime.png");   skillIcon[2][1].resize(60,0);
-    skillIcon[2][3] = loadImage("YellowSlime.png");   skillIcon[2][1].resize(60,0);
-    skillIcon[2][4] = loadImage("YellowSlime.png");   skillIcon[2][1].resize(60,0);
-    skillIcon[2][5] = loadImage("YellowSlime.png");   skillIcon[2][1].resize(60,0);
-    skillIcon[2][6] = loadImage("YellowSlime.png");   skillIcon[2][1].resize(60,0);
-    skillIcon[2][7] = loadImage("YellowSlime.png");   skillIcon[2][1].resize(60,0);
+    skillIcon[2][2] = loadImage("hurricaneKick.png"); skillIcon[2][2].resize(60,0);
+    skillIcon[2][3] = loadImage("YellowSlime.png");   skillIcon[2][3].resize(60,0);
+    skillIcon[2][4] = loadImage("YellowSlime.png");   skillIcon[2][4].resize(60,0);
+    skillIcon[2][5] = loadImage("YellowSlime.png");   skillIcon[2][5].resize(60,0);
+    skillIcon[2][6] = loadImage("YellowSlime.png");   skillIcon[2][6].resize(60,0);
+    skillIcon[2][7] = loadImage("YellowSlime.png");   skillIcon[2][7].resize(60,0);
     //Thief
     skillButton[3] = loadImage("MonkSkill.png");      skillButton[3].resize(60,0);
     skillIcon[3][0] = loadImage("Knives.png");        skillIcon[3][0].resize(60,0);
     skillIcon[3][1] = loadImage("Toxin.png");         skillIcon[3][1].resize(60,0);
-    skillIcon[3][2] = loadImage("YellowSlime.png");   skillIcon[3][1].resize(60,0);
-    skillIcon[3][3] = loadImage("YellowSlime.png");   skillIcon[3][1].resize(60,0);
-    skillIcon[3][4] = loadImage("YellowSlime.png");   skillIcon[3][1].resize(60,0);
-    skillIcon[3][5] = loadImage("YellowSlime.png");   skillIcon[3][1].resize(60,0);
-    skillIcon[3][6] = loadImage("YellowSlime.png");   skillIcon[3][1].resize(60,0);
-    skillIcon[3][7] = loadImage("YellowSlime.png");   skillIcon[3][1].resize(60,0);
+    skillIcon[3][2] = loadImage("razor.png");         skillIcon[3][2].resize(60,0);
+    skillIcon[3][3] = loadImage("YellowSlime.png");   skillIcon[3][3].resize(60,0);
+    skillIcon[3][4] = loadImage("YellowSlime.png");   skillIcon[3][4].resize(60,0);
+    skillIcon[3][5] = loadImage("YellowSlime.png");   skillIcon[3][5].resize(60,0);
+    skillIcon[3][6] = loadImage("YellowSlime.png");   skillIcon[3][6].resize(60,0);
+    skillIcon[3][7] = loadImage("YellowSlime.png");   skillIcon[3][7].resize(60,0);
     //Priest
     skillIcon[4][0] = loadImage("HolyLight.png");     skillIcon[4][0].resize(60,0);
     skillIcon[4][1] = loadImage("DivineComfort.png"); skillIcon[4][1].resize(60,0);
-    skillIcon[4][2] = loadImage("YellowSlime.png");   skillIcon[4][1].resize(60,0);
-    skillIcon[4][3] = loadImage("YellowSlime.png");   skillIcon[4][1].resize(60,0);
-    skillIcon[4][4] = loadImage("YellowSlime.png");   skillIcon[4][1].resize(60,0);
-    skillIcon[4][5] = loadImage("YellowSlime.png");   skillIcon[4][1].resize(60,0);
-    skillIcon[4][6] = loadImage("YellowSlime.png");   skillIcon[4][1].resize(60,0);
-    skillIcon[4][7] = loadImage("YellowSlime.png");   skillIcon[4][1].resize(60,0);
+    skillIcon[4][2] = loadImage("blessing.png");      skillIcon[4][2].resize(60,0);
+    skillIcon[4][3] = loadImage("YellowSlime.png");   skillIcon[4][3].resize(60,0);
+    skillIcon[4][4] = loadImage("YellowSlime.png");   skillIcon[4][4].resize(60,0);
+    skillIcon[4][5] = loadImage("YellowSlime.png");   skillIcon[4][5].resize(60,0);
+    skillIcon[4][6] = loadImage("YellowSlime.png");   skillIcon[4][6].resize(60,0);
+    skillIcon[4][7] = loadImage("YellowSlime.png");   skillIcon[4][7].resize(60,0);
     //Mage    
     skillIcon[5][0] = loadImage("FireBall.png");      skillIcon[5][0].resize(60,0);
     skillIcon[5][1] = loadImage("Icicle.png");        skillIcon[5][1].resize(60,0);
-    skillIcon[5][2] = loadImage("YellowSlime.png");   skillIcon[5][1].resize(60,0);
-    skillIcon[5][3] = loadImage("YellowSlime.png");   skillIcon[5][1].resize(60,0);
-    skillIcon[5][4] = loadImage("YellowSlime.png");   skillIcon[5][1].resize(60,0);
-    skillIcon[5][5] = loadImage("YellowSlime.png");   skillIcon[5][1].resize(60,0);
-    skillIcon[5][6] = loadImage("YellowSlime.png");   skillIcon[5][1].resize(60,0);
-    skillIcon[5][7] = loadImage("YellowSlime.png");   skillIcon[5][1].resize(60,0);
+    skillIcon[5][2] = loadImage("quake.png");         skillIcon[5][2].resize(60,0);
+    skillIcon[5][3] = loadImage("YellowSlime.png");   skillIcon[5][3].resize(60,0);
+    skillIcon[5][4] = loadImage("YellowSlime.png");   skillIcon[5][4].resize(60,0);
+    skillIcon[5][5] = loadImage("YellowSlime.png");   skillIcon[5][5].resize(60,0);
+    skillIcon[5][6] = loadImage("YellowSlime.png");   skillIcon[5][6].resize(60,0);
+    skillIcon[5][7] = loadImage("YellowSlime.png");   skillIcon[5][7].resize(60,0);
     //Saurian
     skillButton[6] = loadImage("eye5.png");           skillButton[6].resize(60,0);
     skillIcon[6][0] = loadImage("rend.png");          skillIcon[6][0].resize(60,0);
     skillIcon[6][1] = loadImage("prey.png");          skillIcon[6][1].resize(60,0);
-    skillIcon[6][2] = loadImage("YellowSlime.png");   skillIcon[6][2].resize(60,0);
-    skillIcon[6][2] = loadImage("YellowSlime.png");   skillIcon[6][1].resize(60,0);
-    skillIcon[6][3] = loadImage("YellowSlime.png");   skillIcon[6][1].resize(60,0);
-    skillIcon[6][4] = loadImage("YellowSlime.png");   skillIcon[6][1].resize(60,0);
-    skillIcon[6][5] = loadImage("YellowSlime.png");   skillIcon[6][1].resize(60,0);
-    skillIcon[6][6] = loadImage("YellowSlime.png");   skillIcon[6][1].resize(60,0);
-    skillIcon[6][7] = loadImage("YellowSlime.png");   skillIcon[6][1].resize(60,0);
+    skillIcon[6][2] = loadImage("acid.png");          skillIcon[6][2].resize(60,0);
+    skillIcon[6][3] = loadImage("YellowSlime.png");   skillIcon[6][3].resize(60,0);
+    skillIcon[6][4] = loadImage("YellowSlime.png");   skillIcon[6][4].resize(60,0);
+    skillIcon[6][5] = loadImage("YellowSlime.png");   skillIcon[6][5].resize(60,0);
+    skillIcon[6][6] = loadImage("YellowSlime.png");   skillIcon[6][6].resize(60,0);
+    skillIcon[6][7] = loadImage("YellowSlime.png");   skillIcon[6][7].resize(60,0);
     //Bard
     skillButton[7] = loadImage("lute3.png");          skillButton[7].resize(60,0);
     skillIcon[7][0] = loadImage("note1.png");         skillIcon[7][0].resize(60,0);
     skillIcon[7][1] = loadImage("note2.png");         skillIcon[7][1].resize(60,0);
     skillIcon[7][2] = loadImage("note3.png");         skillIcon[7][2].resize(60,0);
-    skillIcon[7][3] = loadImage("YellowSlime.png");   skillIcon[7][1].resize(60,0);
-    skillIcon[7][4] = loadImage("YellowSlime.png");   skillIcon[7][1].resize(60,0);
-    skillIcon[7][5] = loadImage("YellowSlime.png");   skillIcon[7][1].resize(60,0);
-    skillIcon[7][6] = loadImage("YellowSlime.png");   skillIcon[7][1].resize(60,0);
-    skillIcon[7][7] = loadImage("YellowSlime.png");   skillIcon[7][1].resize(60,0);
+    skillIcon[7][3] = loadImage("YellowSlime.png");   skillIcon[7][3].resize(60,0);
+    skillIcon[7][4] = loadImage("YellowSlime.png");   skillIcon[7][4].resize(60,0);
+    skillIcon[7][5] = loadImage("YellowSlime.png");   skillIcon[7][5].resize(60,0);
+    skillIcon[7][6] = loadImage("YellowSlime.png");   skillIcon[7][6].resize(60,0);
+    skillIcon[7][7] = loadImage("YellowSlime.png");   skillIcon[7][7].resize(60,0);
     //Bard
     skillButton[8] = loadImage("acorns3.png");        skillButton[8].resize(60,0);
     skillIcon[8][0] = loadImage("wolf.png");          skillIcon[8][0].resize(60,0);
     skillIcon[8][1] = loadImage("gale.png");          skillIcon[8][1].resize(60,0);
-    skillIcon[8][2] = loadImage("YellowSlime.png");   skillIcon[8][1].resize(60,0);
-    skillIcon[8][3] = loadImage("YellowSlime.png");   skillIcon[8][1].resize(60,0);
-    skillIcon[8][4] = loadImage("YellowSlime.png");   skillIcon[8][1].resize(60,0);
-    skillIcon[8][5] = loadImage("YellowSlime.png");   skillIcon[8][1].resize(60,0);
-    skillIcon[8][6] = loadImage("YellowSlime.png");   skillIcon[8][1].resize(60,0);
-    skillIcon[8][7] = loadImage("YellowSlime.png");   skillIcon[8][1].resize(60,0);
+    skillIcon[8][2] = loadImage("broodOfVipers.png"); skillIcon[8][2].resize(60,0);
+    skillIcon[8][3] = loadImage("YellowSlime.png");   skillIcon[8][3].resize(60,0);
+    skillIcon[8][4] = loadImage("YellowSlime.png");   skillIcon[8][4].resize(60,0);
+    skillIcon[8][5] = loadImage("YellowSlime.png");   skillIcon[8][5].resize(60,0);
+    skillIcon[8][6] = loadImage("YellowSlime.png");   skillIcon[8][6].resize(60,0);
+    skillIcon[8][7] = loadImage("YellowSlime.png");   skillIcon[8][7].resize(60,0);
   }
   
   public void drawHeroSkills( int h )
@@ -486,12 +485,25 @@ class Artist
     if(party.hero[h].inDanger())fill(255,0,0); text("Health: " + party.hero[h].hp + "/" + party.hero[h].maxHp,225,260); fill(200);
     if(party.hero[h].maxMp>0)
       text("Magic: " + party.hero[h].mp + "/" + party.hero[h].maxMp,225,290);
-    if(party.hero[h].hasCondition(3)) fill(250,0,0); text("Strength:",225,320); if(party.hero[h].hasCondition(3)) text(party.hero[h].str-party.hero[h].level,400,320); else text(party.hero[h].str,400,320); fill(200);
-    text("Dexterity:",225,350);    text(party.hero[h].dex,400,350);
-    text("Constitution:",225,380); text(party.hero[h].con,400,380);
-    if(party.hero[h].hasCondition(4)) fill(250,0,150); text("Magic Power:",225,410);  if(party.hero[h].hasCondition(3)) text(party.hero[h].mag/2,400,410); else text(party.hero[h].mag,400,410); fill(200);
-    if(party.hero[h].hasCondition(4)) fill(250,0,150); text("Willpower:",225,440);    if(party.hero[h].hasCondition(3)) text(party.hero[h].wil/2,400,440); else text(party.hero[h].wil,400,440); fill(200);
-    text("Speed:",225,470);        text(party.hero[h].spd,400,470);
+      
+    if(party.hero[h].totalStat(0) < party.hero[h].str) fill(250,0,0); else if(party.hero[h].totalStat(0) > party.hero[h].str) fill(0,250,0);
+    text("Strength:",225,320);     text(party.hero[h].totalStat(0),400,320); fill(200);
+    
+    if(party.hero[h].totalStat(1) < party.hero[h].dex) fill(250,0,0); else if(party.hero[h].totalStat(1) > party.hero[h].dex) fill(0,250,0);
+    text("Dexterity:",225,350);    text(party.hero[h].totalStat(1),400,350);
+    
+    if(party.hero[h].totalStat(2) < party.hero[h].con) fill(250,0,0); else if(party.hero[h].totalStat(2) > party.hero[h].con) fill(0,250,0);
+    text("Constitution:",225,380); text(party.hero[h].totalStat(2),400,380);
+    
+    if(party.hero[h].totalStat(3) < party.hero[h].mag) fill(250,0,0); else if(party.hero[h].totalStat(3) > party.hero[h].mag) fill(0,250,0);
+    text("Magic Power:",225,410);  text(party.hero[h].totalStat(3),400,410); fill(200);
+    
+    if(party.hero[h].totalStat(4) < party.hero[h].wil) fill(250,0,0); else if(party.hero[h].totalStat(4) > party.hero[h].wil) fill(0,250,0);
+    text("Willpower:",225,440);    text(party.hero[h].totalStat(4),400,440); fill(200);
+    
+    if(party.hero[h].totalStat(5) < party.hero[h].spd) fill(250,0,0); else if(party.hero[h].totalStat(5) > party.hero[h].spd) fill(0,250,0);
+    text("Speed:",225,470);        text(party.hero[h].totalStat(5),400,470); fill(200);
+    
     text("Experience: " + party.hero[h].exp,225,510);
     text("Next Level: " + party.hero[h].nextLevel,225,540);
     
@@ -988,7 +1000,7 @@ class Artist
     if( dist(mouseX,mouseY,210,300)<62 ){ text("MARTIAL ARTIST",width/2,35); textSize(20); text("A practitioner of martial arts who cannot use most equipment.",width/2,60); text("Always begins combat with extra energy.",width/2,85);    drawStatBars(3); }
     if( dist(mouseX,mouseY,350,300)<62 ){ text("BARD",width/2,35);           textSize(20); text("A versitile performer that inspires allies to greatness.",width/2,60);      text("Gains energy with the rhythm of combat.",width/2,85);    drawStatBars(8); }
     if( dist(mouseX,mouseY,490,300)<62 ){ text("THIEF",width/2,35);          textSize(20); text("An agile trickster that uses light equipment.",width/2,60);                 text("Gains energy when scoring critical hits.",width/2,85);   drawStatBars(4); }
-    if( dist(mouseX,mouseY,210,440)<62 ){ text("DRUID",width/2,35);          textSize(20); text("A mystic caster who calls upon the power of nature.",width/2,60);           text("Casts spells and transforms into beasts.",width/2,85);       drawStatBars(9); }
+    if( dist(mouseX,mouseY,210,440)<62 ){ text("DRUID",width/2,35);          textSize(20); text("A mystic caster who calls upon the power of nature.",width/2,60);           text("Casts spells and transforms into beasts.",width/2,85);   drawStatBars(9); }
     if( dist(mouseX,mouseY,350,440)<62 ){ text("PRIEST",width/2,35);         textSize(20); text("A pious caster who can use some heavy armor.",width/2,60);                  text("Casts holy magic that can smite or heal.",width/2,85);   drawStatBars(5); }
     if( dist(mouseX,mouseY,490,440)<62 ){ text("MAGE",width/2,35);           textSize(20); text("An arcane caster unsuited to physical combat.",width/2,60);                 text("Casts elemental magic of tremendous power.",width/2,85); drawStatBars(6); }
     
@@ -2591,20 +2603,24 @@ class Artist
   {
     color skin;
     color hair;
+    color pelt;
     if(heroNumber==0)
     {
       hair = color(90,70,30);
       skin = color(#C68642);
+      pelt = color(150);
     }
     else if(heroNumber==1)
     {
       hair = color(210,190,70);
       skin = color(#F1C27D);
+      pelt = color(#BEAA82);
     }
     else
     {
       hair = color(10,10,5);
       skin = color(#FFDBAC);
+      pelt = color(250);
     }
       
     stroke(255);
@@ -2678,7 +2694,7 @@ class Artist
     rect(x-8.1*scale,y+16*scale,16.2*scale,2*scale);
     
     //Headdress
-    fill(100);
+    fill(pelt);
     beginShape();
     vertex(x-13*scale,y-13*scale);
     bezierVertex(x-13*scale,y-30*scale, x+13*scale,y-30*scale, x+13*scale,y-13*scale);

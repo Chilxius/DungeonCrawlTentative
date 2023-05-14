@@ -78,7 +78,7 @@ class Equipment extends Item
   public Equipment( String n, String picN, int v, boolean IW, float p, Job j0, Job j1, Job j2, Job j3, Job j4, Job j5, Job j6, Job j7, Job j8 )
   {
     super( n, v );
-    isWeapon = IW; //<>//
+    isWeapon = IW;
     element = determineElement(p);
     status = determineStatus(p);
     power = p;
