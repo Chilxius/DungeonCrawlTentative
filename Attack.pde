@@ -20,6 +20,8 @@ class Attack
   String description;
   String secondLine;
   
+  String fullDescription = "NO DATA";
+  
   Debuff debuff;
   
   public Attack( Attack a ) //for copying attacks

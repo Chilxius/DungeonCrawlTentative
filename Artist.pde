@@ -416,7 +416,7 @@ class Artist
     
     strokeWeight(5); fill(0);
     stroke(200); textSize(18); textAlign(CENTER);
-    rectMode(CORNER); rect(40,200,620,300,20); rectMode(CENTER);
+    rectMode(CORNER); rect(40,160,620,340,20); rectMode(CENTER);
     /*level 1 skill*/             noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],140,280); rect(140,280,70,70,20); fill(200); text(party.hero[h].skill[0].description,140,240); text("Cost: "+(party.hero[h].skill[0].cost+party.hero[h].bardBonus),140,335); text("Q",165,305);
     if(party.hero[h].level>=5 ) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][1],280,280); rect(280,280,70,70,20); fill(200); text(party.hero[h].skill[1].description,280,240); text("Cost: "+party.hero[h].skill[1].cost,280,335); text("W",305,305); }
     if(party.hero[h].level>=10) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][2],420,280); rect(420,280,70,70,20); fill(200); text(party.hero[h].skill[2].description,420,240); text("Cost: "+party.hero[h].skill[2].cost,420,335); text("E",445,305); }
@@ -425,6 +425,15 @@ class Artist
     if(party.hero[h].level>=25) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][5],280,430); rect(280,430,70,70,20); fill(200); text(party.hero[h].skill[5].description,280,390); text("Cost: "+party.hero[h].skill[5].cost,280,485); text("S",305,455); }
     if(party.hero[h].level>=30) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][6],420,430); rect(420,430,70,70,20); fill(200); text(party.hero[h].skill[6].description,420,390); text("Cost: "+party.hero[h].skill[6].cost,420,485); text("D",445,455); }
     if(party.hero[h].level>=35) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][7],560,430); rect(560,430,70,70,20); fill(200); text(party.hero[h].skill[7].description,560,390); text("Cost: "+party.hero[h].skill[7].cost,560,485); text("F",585,455); }
+    
+    textSize(20);
+    for(int i = 0; i < 4; i++) //Display full description
+    {
+      if(mouseInBox(140+i*140,280))
+        text(party.hero[h].skill[i].fullDescription,350,200);
+      if(mouseInBox(140+i*140,430))
+        text(party.hero[h].skill[i+4].fullDescription,350,200);
+    }
     
     fill(0); rect(baseX+75,545,70,70,20);drawCancelIcon(baseX+75,545);
   }
@@ -490,10 +499,10 @@ class Artist
     text("Strength:",225,320);     text(party.hero[h].totalStat(0),400,320); fill(200);
     
     if(party.hero[h].totalStat(1) < party.hero[h].dex) fill(250,0,0); else if(party.hero[h].totalStat(1) > party.hero[h].dex) fill(0,250,0);
-    text("Dexterity:",225,350);    text(party.hero[h].totalStat(1),400,350);
+    text("Dexterity:",225,350);    text(party.hero[h].totalStat(1),400,350); fill(200);
     
     if(party.hero[h].totalStat(2) < party.hero[h].con) fill(250,0,0); else if(party.hero[h].totalStat(2) > party.hero[h].con) fill(0,250,0);
-    text("Constitution:",225,380); text(party.hero[h].totalStat(2),400,380);
+    text("Constitution:",225,380); text(party.hero[h].totalStat(2),400,380); fill(200);
     
     if(party.hero[h].totalStat(3) < party.hero[h].mag) fill(250,0,0); else if(party.hero[h].totalStat(3) > party.hero[h].mag) fill(0,250,0);
     text("Magic Power:",225,410);  text(party.hero[h].totalStat(3),400,410); fill(200);
@@ -1406,10 +1415,12 @@ class Artist
   void drawProgressBars()
   {
     int total = 20*party.averageLevel()+100; //adding 100 to normalize speeds
-     strokeWeight(1); stroke(150);
     for(int i = 0; i < 3; i++)
     {
+      strokeWeight(1); stroke(150);
       if(battle.list[i].active){ fill(party.hero[i].inverseColor); rect(100+210*i,578, min(80,(battle.list[i].counter/total)*80) ,10); }
+      if(party.hero[i].buff[4].active)
+      { strokeWeight(2); stroke(120+textPromptStage*2); }
       noFill(); if(battle.list[i].active) rect(100+210*i,578,80,10);
     }
   }
@@ -3009,6 +3020,17 @@ class Artist
   
   void drawHeroesInBattle()
   {
+    for(int i = 0; i < 3; i++)
+    {
+      int r=0,g=0,b=0;
+      if(party.hero[i].buff[0].active) r = 250; //str
+      if(party.hero[i].buff[1].active) b = 250; //dex
+      if(party.hero[i].buff[2].active) g = 250; //con
+      noStroke();
+      fill(r,g,b,5);
+      for(int j = 0; j < 10; j++) //Circle for str,dex,con boost
+        circle(140+210*i,500,100+10*j);
+    }
     if(party.hero[0].isAlive())
       drawHeroByType(party.hero[0],width/5,500,2,0,false);
     if(party.hero[1].isAlive())

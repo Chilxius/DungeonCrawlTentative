@@ -261,6 +261,7 @@ class Battle
         setBattleDelay(2);
         party.hero[0].energy    = party.hero[1].energy    = party.hero[2].energy = 0;
         party.hero[0].bardBonus = party.hero[1].bardBonus = party.hero[2].bardBonus = 0;
+        for(Hero h: party.hero) for(Buff b: h.buff) b.deactivate();
         end = EndStage.EXP;
         battleOver = true;
       }

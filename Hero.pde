@@ -196,20 +196,20 @@ class Hero
     switch( job )
     {
       case KNIGHT:
-        skill[0] = new Attack("Defensive Strike", con/2, false, true, AttackStat.STR ); skill[0].cost = 2; //Puts knight into defense, adds con/2 to damage
-        skill[1] = new Attack("Armor Break", str/2, false, true, AttackStat.STR ); skill[1].cost = 4;      //Cut through armor, add half strength
+        skill[0] = new Attack("Defensive Strike", con/2, false, true, AttackStat.STR ); skill[0].cost = 2; skill[0].fullDescription = "Deliver a heavy blow while keeping up a strong defense."; //Puts knight into defense, adds con/2 to damage
+        skill[1] = new Attack("Armor Break", str/2, false, true, AttackStat.STR );      skill[1].cost = 4; skill[1].fullDescription = "Strike hard enough to ignore a portion of the enemy's armor.";      //Cut through armor, add half strength
           skill[1].pierceArmor = true;
-        skill[2] = new Attack("Divine Grace", mag*2, true, true );  skill[2].cost = 6;        //light heal all
-        skill[3] = new Attack("Smite", str*2, false, true, AttackStat.MAG );
+        skill[2] = new Attack("Divine Grace", mag*2, true, true );                      skill[2].cost = 6; skill[2].fullDescription = "Call upon Illamar to heal your allies' battle wounds.";       //light heal all
+        skill[3] = new Attack("Smite", str*2, false, true, AttackStat.MAG );            skill[3].cost = 8; skill[3].fullDescription = "Strike with the holy power of the sun."; 
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case BARBARIAN:
-        skill[0] = new Attack("Blood Strike", str, false, true, AttackStat.STR ); skill[0].cost = 2;  //Loses str/5 hp, add str again
-        skill[1] = new Attack("Cleave", 15, true, true, AttackStat.STR ); skill[1].cost = 4;          //Attack all enemies, +15 power
-        skill[2] = new Attack("Blood Rage", name + " is enraged!" ); skill[2].cost = 6;               //Gain +level str for lvl rounds
+        skill[0] = new Attack("Blood Strike", str, false, true, AttackStat.STR );       skill[0].cost = 2; skill[0].fullDescription = "Sacrifice your health to deal a devistating blow."; //Loses str/5 hp, add str again
+        skill[1] = new Attack("Cleave", 15, true, true, AttackStat.STR );               skill[1].cost = 4; skill[1].fullDescription = "Swing with all your might, striking all enemies.";         //Attack all enemies, +15 power
+        skill[2] = new Attack("Blood Rage", name + " is enraged!" );                    skill[2].cost = 6; skill[2].fullDescription = "Sacrifice your health to feel a surge of strength.";              //Gain +level str for lvl rounds
         skill[3] = new Attack("Divine Grace", str*2, true, true );                                    
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -217,9 +217,9 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case SAURIAN:
-        skill[0] = new Attack("Rend", str*2, false, false, AttackStat.STR ); skill[0].cost = 2;         //No weapon, add 2x str again
-        skill[1] = new Attack("Prey", int(str*1.5), false, false, AttackStat.STR ); skill[1].cost = 4;  //No weapon, add 1.5 str, heal some of damage dealt
-        skill[2] = new Attack("Acid", con*2, true, false, AttackStat.STR );  skill[2].cost = 6;         //Add 2xcon, hit all
+        skill[0] = new Attack("Rend", str*2, false, false, AttackStat.STR );            skill[0].cost = 2; skill[0].fullDescription = "Use your bare claws to tear at the enemy's flesh.";        //No weapon, add 2x str again
+        skill[1] = new Attack("Prey", int(str*1.5), false, false, AttackStat.STR );     skill[1].cost = 4; skill[1].fullDescription = "Prey upon your foes to heal your own wounds."; //No weapon, add 1.5 str, heal some of damage dealt
+        skill[2] = new Attack("Acid", con*2, true, false, AttackStat.STR );             skill[2].cost = 6; skill[2].fullDescription = "Spew stomach acid to burn all enemies.";        //Add 2xcon, hit all
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -227,9 +227,9 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case KARATE:
-        skill[0] = new Attack("Stone Fist", int(weapon.power*0.6), false, true, AttackStat.STR, AttackType.EARTH );  skill[0].cost = 2; //1.6x fist strength, adds earth element
-        skill[1] = new Attack("Flash Punch", max(20,dex), false, true, AttackStat.STR ); skill[1].cost = 3;    //add dex, initiative goes to ~80%
-        skill[2] = new Attack("Hurricane Kick", mag*2, true, true, AttackStat.DEX, AttackType.WIND );  skill[2].cost = 5;      //add 2xmag, attack all, wind damage
+        skill[0] = new Attack("Stone Fist", int(weapon.power*0.6), false, true, AttackStat.STR, AttackType.EARTH ); skill[0].cost = 2; skill[0].fullDescription = "Harden your fist like a tumbling boulder.";//1.6x fist strength, adds earth element
+        skill[1] = new Attack("Flash Punch", max(20,dex), false, true, AttackStat.STR );                            skill[1].cost = 3; skill[1].fullDescription = "An instant strike that lets you follow up immediately.";   //add dex, initiative goes to ~80%
+        skill[2] = new Attack("Hurricane Kick", mag*2, true, true, AttackStat.DEX, AttackType.WIND );               skill[2].cost = 5; skill[2].fullDescription = "Crash through all enemies like a raging storm.";     //add 2xmag, attack all, wind damage
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -237,9 +237,9 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case BARD: //ayre, ballad, bossa nova, fugue, minuet, nocturne, opera, prelude, psalm, requiem, rhapsody, rondo, sonata, samba
-        skill[0] = new Attack("Ostinato", mag, true, true, AttackStat.STR );  skill[0].cost = 2; //Increase damage with each casting
-        skill[1] = new Attack("Rhapsody", level/3, true, true ); skill[1].cost = 4;  //Minor heal to all, restores one energy or 2mp to allies
-        skill[2] = new Attack("Rondo", "You feel the rhythm!" ); skill[2].cost = 6;
+        skill[0] = new Attack("Ostinato", mag, true, true, AttackStat.STR );            skill[0].cost = 2; skill[0].fullDescription = "A musical attack that can grow in power with each use.";//Increase damage with each casting
+        skill[1] = new Attack("Rhapsody", level/3, true, true );                        skill[1].cost = 4; skill[1].fullDescription = "A rousing melody that fills your allies with energy."; //Minor heal to all, restores one energy or 2mp to allies
+        skill[2] = new Attack("Rondo", "You feel the rhythm!" );                        skill[2].cost = 6; skill[2].fullDescription = "The upbeat tempo boosts your party's speed.";
         skill[3] = new Attack("Psalm", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -247,9 +247,9 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case THIEF:
-        skill[0] = new Attack("Knives", 5, true, true, AttackStat.STR );  skill[0].cost = 2; //Attacks all enemies
-        skill[1] = new Attack("Toxin", dex/2, false, true, AttackStat.STR, AttackType.NONE, Debuff.POISON ); skill[1].cost = 4;  //add half dex, deal LEVEL poison
-        skill[2] = new Attack("Razor", 20, false, true, AttackStat.DEX ); skill[2].cost = 6;    //piercing
+        skill[0] = new Attack("Knives", 5, true, true, AttackStat.STR );                                     skill[0].cost = 2; skill[0].fullDescription = "Strike your enemies with a barrage of hidden knives.";//Attacks all enemies
+        skill[1] = new Attack("Toxin", dex/2, false, true, AttackStat.STR, AttackType.NONE, Debuff.POISON ); skill[1].cost = 4; skill[1].fullDescription = "Coats your blade with a deadly poison."; //add half dex, deal LEVEL poison
+        skill[2] = new Attack("Pierce", 20, false, true, AttackStat.DEX );                                   skill[2].cost = 6; skill[2].fullDescription = "Find the gap in your target's armor.";   //piercing
                    skill[2].pierceArmor = true;
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -258,9 +258,9 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case DRUID:
-        skill[0] = new Attack("Wolf Form", ((2*int((70/50.0)*(level-1)+20))+int(mag*2.5)), false, false, AttackStat.STR ); skill[0].cost = 3; //single-target physical attack
-        skill[1] = new Attack("Gale", 30, true, false, AttackStat.MAG, AttackType.WIND ); skill[1].cost = 2; //multi-target wind
-        skill[2] = new Attack("Viper Form", str, true, false, AttackStat.DEX, AttackType.NONE, Debuff.POISON ); skill[2].cost = 5;//multi-target physical with poison
+        skill[0] = new Attack("Wolf Form", ((2*int((70/50.0)*(level-1)+20))+int(mag*2.5)), false, false, AttackStat.STR ); skill[0].cost = 3; skill[0].fullDescription = "Take the form of a wolf to maul your enemy.";//single-target physical attack
+        skill[1] = new Attack("Gale", 30, true, false, AttackStat.MAG, AttackType.WIND );                                  skill[1].cost = 2; skill[1].fullDescription = "Whip up a small storm to damage all enemies.";//multi-target wind
+        skill[2] = new Attack("Viper Form", str, true, false, AttackStat.DEX, AttackType.NONE, Debuff.POISON );            skill[2].cost = 5; skill[2].fullDescription = "Take the form of a swift viper to poison all enemies.";//multi-target physical with poison
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -268,10 +268,9 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case PRIEST:
-        skill[0] = new Attack("Divine Light", 50, false, false, AttackStat.MAG, AttackType.HOLY ); skill[0].cost = 2; //single-target holy attack
-        //skill[0] = new Attack("Heal", 30, true, true ); //healing move for testing
-        skill[1] = new Attack("Divine Comfort", 30, false, true ); skill[1].cost = 3; //single-target heal
-        skill[2] = new Attack("Blessing", "Illamar's light shines down." );  skill[2].cost = 4; //bless all (+str/con, lvl turns)
+        skill[0] = new Attack("Divine Light", 50, false, false, AttackStat.MAG, AttackType.HOLY ); skill[0].cost = 2; skill[0].fullDescription = "Sear the target with a ray of Illamar's light.";//single-target holy attack
+        skill[1] = new Attack("Divine Comfort", 30, false, true );                                 skill[1].cost = 3; skill[1].fullDescription = "Call on Am-Asma to knit an ally's wounds.";//single-target heal
+        skill[2] = new Attack("Blessing", "Illamar's light shines down." );                        skill[2].cost = 4; skill[2].fullDescription = "Grant a small increase to your allies' strength and defense.";//bless all (+str/con, lvl turns)
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -279,9 +278,9 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       default:
-        skill[0] = new Attack("Fire", 50, false, false, AttackStat.MAG, AttackType.FIRE ); skill[0].cost = 3; if(level>4) skill[0].cost=2; //single-target fire attack
-        skill[1] = new Attack("Icicle", 55, false, false, AttackStat.MAG, AttackType.ICE ); skill[1].cost = 3; if(level>9) skill[1].cost=2; //single-target ice attack
-        skill[2] = new Attack("Quake", 55, true, false, AttackStat.MAG, AttackType.EARTH ); skill[2].cost = 5; if(level>14) skill[2].cost=3;
+        skill[0] = new Attack("Fire", 50, false, false, AttackStat.MAG, AttackType.FIRE );  skill[0].cost = 3; if(level>4) skill[0].cost=2; skill[0].fullDescription = "Summon a gout of destructive flame.";//single-target fire attack
+        skill[1] = new Attack("Icicle", 55, false, false, AttackStat.MAG, AttackType.ICE ); skill[1].cost = 3; if(level>9) skill[1].cost=2; skill[1].fullDescription = "Strike your enemy with an icy spike.";//single-target ice attack
+        skill[2] = new Attack("Quake", 55, true, false, AttackStat.MAG, AttackType.EARTH ); skill[2].cost = 5; if(level>14)skill[2].cost=3; skill[2].fullDescription = "Break the ground and crush your enemies.";
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -567,14 +566,22 @@ class Hero
     {
       switch( job )
       {
+        //******//
         case KNIGHT:
           if(skillIndex==0) //defensive strike
             defending = true;
           break;
           
+        //******//
         case BARBARIAN:
           if(skillIndex==0 || skillIndex==2) //blood strike    blood rage
             takeDamage(str/5,false); //take 20% of str as damage
+          break;
+          
+        //******//
+        case MAGE:
+          if(skillIndex==2) //quake
+            vanGogh.startScreenShake(60,false);
           break;
          
       }
@@ -583,11 +590,13 @@ class Hero
     {
       switch( job )
       {
+        //******//
         case BARBARIAN:
           if(skillIndex==2) //blood rage
             buff[0].activate( level, level );
           break;
-          
+        
+        //******//
         case SAURIAN:
           if(skillIndex==1) //prey
           {
@@ -596,6 +605,7 @@ class Hero
           }
           break;
         
+        //******//
         case BARD:
           if(skillIndex == 0 ) //Ostinato
           {
@@ -614,15 +624,18 @@ class Hero
           if(skillIndex == 2 ) //Rondo
           {
             for(int i = 0; i < 3; i++)
-              party.hero[i].buff[4].activate(level,level);
+              if(party.hero[i].alive)
+                party.hero[i].buff[4].activate(level,1+level/5);
           }
           break;
         
+        //******//
         case KARATE:
           if(skillIndex == 1 ) //flash punch
             battle.list[battle.turn].counter = 15*party.averageLevel() + 100;
           break; 
         
+        //******//
         case PRIEST:
           if(skillIndex == 2 ) //blessing
             for(int i = 0; i < 3; i++)
@@ -674,6 +687,7 @@ class Hero
       alive = false;
       poison = 0;
       poisoned = asleep = paralyzed = weakened = cursed = false;
+      for(Buff b: buff) b.deactivate();
       defending = false;
       displayTextLine( name + " falls!" );
     }
@@ -762,6 +776,7 @@ class Hero
       alive = false;
       poison = 0;
       poisoned = asleep = paralyzed = weakened = cursed = false;
+      for(Buff b: buff) b.deactivate();
       defending = false;
       displayTextLine( name + "collapses!" );
       return true;
@@ -886,6 +901,7 @@ Saurian
   Prey
   Bile
   
+  
 Martial Artist
   Stone Fist   (earth element attack)
   Flash Punch (adds dex, initiative bar goes to 80% full)
@@ -998,13 +1014,19 @@ class Buff //for improving abilties during battle
     active = true;
   }
   
+  public void deactivate()
+  {
+    amount = 0;
+    duration = 0;
+    active = false;
+  }
+  
   public boolean tick() //one round is removed from duration, return true if finished
   {
     duration --;
     if(duration <= 0)
     {
-      duration = 0;
-      amount = 0;
+      deactivate();
       return true;
     }
     return false;

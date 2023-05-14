@@ -1,15 +1,11 @@
 //Dungeon Crawl Game
 //Bennett Ritchie
 
-//New Class work:
-//slow down bard
-//add glow to progress bar when hasted
-
 //PROBLEMS:
 //Fix lineLength error and problem with not printing entire line
 //Fix objects getting strange tile colors
 //Boss didn't drop money when killed by poison
-//Improve armor pierce abilities
+//Improve armor pierce abilities (wow, razor is crazy)
 
 //TO DO:
 //Skills: animation system
@@ -18,16 +14,17 @@
 //Add a "holding on" mechanic to stay alive after critical damage
 //animate bard bonus
 //make ostinato bonus adjust well at higher levels
+//add glow for regen and magic buff
 
 //IMPROVEMENT:
 //Have inns charge money?
 //Delay before "vanquished" line where enemy vanishes
-//Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair, saurian head
+//Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair, saurian head, druid antler/staff
 //Tone fixes for random text
 //More random names
 
 //IMAGES I NEED:
-
+//skills
 
 //NOTES:
 //I edited the log class to remove spaces in text - might cause errors downstream
@@ -1447,7 +1444,7 @@ void mousePressed()
   }
 
   //Testing
-  //println(mouseX + " " + mouseY);
+  println(mouseX + " " + mouseY);
   //println("Bard:" + party.hero[1].bardBonus);
   //party.hero[2].energize(1);
   //floatingNumbers.add( new GhostNumber( mouseX, mouseY, color(255), 888888888 ) );
