@@ -1,5 +1,5 @@
 Spike
-DRUID
+KARATE
 58.0
 69.0
 83.0
@@ -18,7 +18,7 @@ fur.png
 25.0
 
 Faith
-PRIEST
+BARBARIAN
 127.0
 67.0
 100.0

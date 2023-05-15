@@ -41,6 +41,8 @@ class Battle
         party.hero[i].energy = party.hero[i].level/5 + 1;
       if(party.hero[i].job == Job.KARATE )
         party.hero[i].energize( party.hero[i].level/5 + 1 );
+      if(party.hero[i].job == Job.BARD )
+        party.hero[i].bardBonus += party.hero[i].level/10;
     }
        
     list[0] = new Initiative(h[0].name,0,h[0].spd,h[0].alive);

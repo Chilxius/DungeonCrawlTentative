@@ -237,9 +237,9 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case BARD: //ayre, ballad, bossa nova, fugue, minuet, nocturne, opera, prelude, psalm, requiem, rhapsody, rondo, sonata, samba
-        skill[0] = new Attack("Ostinato", mag, true, true, AttackStat.STR );            skill[0].cost = 2; skill[0].fullDescription = "A musical attack that harms all enemies."; if( level >= 3 ) skill[0].fullDescription = "A musical attack that can grow in power with each use.";
-        skill[1] = new Attack("Rhapsody", level/3, true, true );                        skill[1].cost = 4; skill[1].fullDescription = "A rousing melody that fills your allies with energy."; //Minor heal to all, restores one energy or 2mp to allies
-        skill[2] = new Attack("Rondo", "You feel the rhythm!" );                        skill[2].cost = 6; skill[2].fullDescription = "The upbeat tempo boosts your party's speed.";
+        skill[0] = new Attack("Ostinato", mag, true, true, AttackStat.STR );            skill[0].cost = 2; skill[0].fullDescription = "A musical attack that hits all enemeis."; if( level > 2 ) skill[0].fullDescription = "A musical attack that builds up your rhythm.";
+        skill[1] = new Attack("Rhapsody", level/3, true, true );                        skill[1].cost = 4; skill[1].fullDescription = "A rousing melody that energizes your allies. Uses rhythm."; //Minor heal to all, restores one energy or 2mp to allies
+        skill[2] = new Attack("Rondo", "You feel the rhythm!" );                        skill[2].cost = 6; skill[2].fullDescription = "The upbeat tempo boosts your party's speed. Builds rhythm.";
         skill[3] = new Attack("Psalm", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -620,6 +620,7 @@ class Hero
               {
                 if(party.hero[i].maxMp==0) party.hero[i].energize(bardBonus);
                 else                      party.hero[i].healMana(bardBonus);
+                bardBonus--;
               }
           }
           if(skillIndex == 2 ) //Rondo
@@ -627,6 +628,7 @@ class Hero
             for(int i = 0; i < 3; i++)
               if(party.hero[i].alive)
                 party.hero[i].buff[4].activate(level,1+level/5);
+            bardBonus++;
           }
           break;
         
@@ -867,11 +869,52 @@ Mag  15/25 1    2    2    5    4     2      150/250  50   100  70   150  100  90
 
 Max dex of 150. 150 spd should get 3 turns for every 1 turn of a character with spd 50
 Crit chance = 2% + 1% per dex difference
-
 */
 
 /*
+KNIGHT:
+  Combination of fighter/paladin architype
+  Gains 2 power when hit while defending.
+  Abilities involve defense, holy energy, healing
+  
+BARBARIAN:
+  Combination of barbarian/berserker architype
+  Gains 1 power when hit by any attack
+  Abilities invovle sacrificing health for power/damage
+  
+SAURIAN:
+  Animalistic class
+  Gains 2 power (instead of 1) when attacking
+  Abilities frequently do not utilize weapon and are bestial
+  
+MARTIAL ARTIST:
+  Monk architype
+  Starts battles with twice as much energy as other classes
+  Abilities involve speed/dex, punching/kicking, or meditation
+  
+BARD:
+  Gains 1 power when an ally uses an ability/spell
+  Rhythm mechanic: every time a bard uses certain abilities, they gain rhythm, which is visualized as musical notes orbiting them
+  Rhythm will increase the cost/power of some moves and will be spent to power up other moves
+  Every 10 levels, bards start battles with +1 rhythm
+  
+THIEF
+  Rogue/thief architype
+  Gains +5 power on critical hits (instead of 1)
+  Abilities involve knives, speed, and critical hits
+  
+DRUID
+  Druid architype
+  Has higher HP and physical stats than other casters, but less MP
+  Half of their spells are transformations, which cause them to deal physical damage
+  Other spells are less powerful but cheaper, with nature related effects/healing
+  
+PRIEST
+  Combination of cleric/healer architypes
+  
+*/
 
+/*
 Abilities:
 Priest and Mage use MP to power abilities
 Others use Power, which charges by one per turn (max of lvl, caps out at 48)
@@ -896,6 +939,8 @@ Barbarian
   Blood Strike (spend str/5 HP to increase damage)
   Cleave       (attack all)
   Blood Rage   (boost strength)
+  
+  Regen self-buff?
   
 Saurian
   Rend
@@ -937,17 +982,18 @@ Druid
 Priest
   Smite        (holy element attack)
   Heal         (single-target heal)
-  Blessing
+  Blessing     (buff party's str and con)
+  
 
 Mage
   Fire         (fire element attack)
   Icicle       (ice element attack)
   Quake        (earth damage to all)
   Tornado      (wind attack)
+  Magic Surge  (increase magic power)
   Blizzard     (ice element to all)
   Comet        (earth damage)
   Eruption     (fire damage all)
-  Magic Surge  (increase magic power)
 */
 
 /* Druid Transformations

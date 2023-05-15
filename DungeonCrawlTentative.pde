@@ -4,7 +4,6 @@
 //Make druids stronger?
 //Changed wolf form to be stronger initially
 //Saurians shouldn't be able to equip the best weapons
-//Improve ostinato, have it affect more abilties
 
 //PROBLEMS:
 //Fix lineLength error and problem with not printing entire line
@@ -29,7 +28,7 @@
 //More random names
 
 //IMAGES I NEED:
-//skills
+
 
 //NOTES:
 //I edited the log class to remove spaces in text - might cause errors downstream
