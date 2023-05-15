@@ -208,11 +208,11 @@ class Battle
             else if(party.hero[turn].skill[skillSelection].type == AttackType.BUFF ) //is a buffing skill
             {
               //SKIPPING THE RESOLVEATTACK() PHASE - HOPE THIS WORKS OUT
-              battle.waitingForText = false; //  <- first thing that was handled in resolveAttack() //<>//
+              battle.waitingForText = false; //  <- first thing that was handled in resolveAttack()
             }
             else //is an attack ( multi-attack handled in Hero.resolveAttack() )
             {
-              if( party.hero[turn].resolveAttack(defenderIndex-3) ) //<>//
+              if( party.hero[turn].resolveAttack(defenderIndex-3) )
               {
                 //displayTextLine( list[defenderIndex].name + " is vanquished!"); //was displaying for already dead monsters
                 list[defenderIndex].active = false;

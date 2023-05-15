@@ -130,12 +130,6 @@ public class Portal //for switching maps
   public Portal( int oF, int oX, int oY, int dF, int dX, int dY )
   {
     this( oF, oX, oY, dF, dX, dY, "" );
-    //originX = oX;
-    //originY = oY;
-    //destinationX = dX;
-    //destinationY = dY;
-    //originFloor = oF;
-    //destinationFloor = dF;
   }
   
   public Portal( int oF, int oX, int oY, int dF, int dX, int dY, String t )

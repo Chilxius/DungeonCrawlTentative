@@ -1403,8 +1403,10 @@ void setupMaps()
   
   //Final Stretch
   exits.add( new Portal(2,98,83,1,28,88, "Mausoleum") );
+  
   //To Boss
   exits.add( new Portal(2,90,79,1,65,85, "Catacombs") );
+  
   m[2].tiles[90][79].createEvent(false, "- Moonlight illuminates a path beneath the colored glass.");
   
   m[2].tiles[93][79].placeBoss( 2, color(90,90,90), "They guard a hole in the monument.", new Monster("Skeletal Guardian", "DarkScimitarSkeleton.png", 50, 15, 5, 7, 0, 5, 9, 0, AttackType.HOLY), true);

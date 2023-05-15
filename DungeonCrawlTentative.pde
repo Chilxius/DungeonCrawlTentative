@@ -1,9 +1,17 @@
+//Import files for Minim (sound) //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+/*
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+*/
+
 //Dungeon Crawl Game
 //Bennett Ritchie
 
 //Make druids stronger?
-//Changed wolf form to be stronger initially
-//Saurians shouldn't be able to equip the best weapons
 
 //PROBLEMS:
 //Fix lineLength error and problem with not printing entire line
@@ -16,8 +24,6 @@
 //Make battles stop triggering on spaces with events
 //Fix text in Charis's study
 //Add a "holding on" mechanic to stay alive after critical damage
-//animate bard bonus
-//make ostinato bonus adjust well at higher levels
 //add glow for regen and magic buff
 
 //IMPROVEMENT:
@@ -38,7 +44,7 @@
 //I cut the value of armor in half in the code to normalize damage - might need to re-test earlier levels
 
 //Turned sound off for the time being. Will include later with Beads
-//import processing.sound.*;
+import processing.sound.*;
 
 int mapCount = 10;
 Map [] m = new Map[mapCount];
@@ -83,14 +89,23 @@ Artist vanGogh;// = new Artist();
 ArrayList<GhostNumber> floatingNumbers = new ArrayList<GhostNumber>();
 int windowX, windowY;
 
-//Test files
-//SoundFile beep1,beep2,beep3;
-
 //Sound effects
+Sound s;
 //SoundFile openDoorSound, openChestSound, lockedDoorSound, potionDrinkSound, foodBiteSound;
+SoundFile SFX[] = new SoundFile[7];
 
+/*
 //Music
-//NONE YET
+//SoundFile titleScreenMusic, safeCellarMusic, caveMusic, forestMusic, townMusic, graveyardMusic, cathedralMusic, ritisuMusic;
+SoundFile music[] = new SoundFile[8];
+int currentMusic = 0, nextMusic = 0;
+boolean crossFading = false;
+float volume;
+*/
+
+//Minim audio;
+//AudioPlayer openDoorSound, openChestSound, lockedDoorSound, potionDrinkSound, foodBiteSound;
+//AudioPlayer titleScreenMusic;
 
 //Image data
 PImage tileImage[] = new PImage[100]; //I've since used this for more than just tiles
@@ -137,20 +152,26 @@ boolean gameover = false;
 
 void setup()
 {
+  background(0);
+  
   //fullScreen();
   size(700,700);
   frameRate(60);
   surface.setTitle("THE RIDDLE OF IRON");
+  
   vanGogh = new Artist();
   windowX = displayWidth/2-width/2;
   windowY = displayHeight/2-height/2;
   surface.setLocation(windowX, windowY);
   
+  println("Loading item data...");
   newEquip = new Equipment();
   oldEquip = new Equipment();
   
+  println("Loading monster data...");
   zoo = new Beastiary();
   
+  println("Loading graphics data...");
   //Setting up image files (MOVE THIS TO Artist)
   tileImage[0] = loadImage("wall.png"); tileImage[0].resize(30,0);
   tileImage[1] = loadImage("tree.png"); tileImage[1].resize(40,40);
@@ -242,18 +263,41 @@ void setup()
   
   effectImage[0] = loadImage("bardBonus.png");      effectImage[0].resize(30,0);
   
-  //Test sounds
-  //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
-  //beep2 = new SoundFile(this, "Beep2.mp3"); //Short low
-  //beep3 = new SoundFile(this, "Beep3.mp3"); //Long high
-  //beep3.cue(5.0);
+  Sound s = new Sound(this);
+  s.volume(1);
   
+  println("Loading sound effect data...");
   //Sound effects
-  //openDoorSound = new SoundFile(this, "lock.mp3");
-  //openChestSound = new SoundFile(this, "chest.mp3");
-  //lockedDoorSound = new SoundFile(this, "jiggle.mp3");
-  //foodBiteSound = new SoundFile(this, "bite.mp3");
-  //potionDrinkSound = new SoundFile(this, "gulp.mp3");
+  SFX[0] = new SoundFile(this, "lock.mp3");
+  SFX[1] = new SoundFile(this, "chest.mp3");
+  SFX[2] = new SoundFile(this, "jiggle.mp3");
+  SFX[3] = new SoundFile(this, "gulp.mp3");
+  SFX[4] = new SoundFile(this, "bite.mp3");
+  SFX[5] = new SoundFile(this, "glass.mp3");  SFX[5].amp(0.5);
+  SFX[6] = new SoundFile(this, "save.mp3");
+  
+  /*
+  println("Loading music data...");
+  //Music
+  music[0] = new SoundFile(this, "tryAndSolve.wav");    //titleScreenMusic.volume(0.5);
+  music[1] = new SoundFile(this, "reminiscence.mp3");
+  music[2] = new SoundFile(this, "cave.mp3");
+  music[3] = new SoundFile(this, "mountains.wav");
+  music[4] = new SoundFile(this, "fridayAfternoon.wav");
+  music[5] = new SoundFile(this, "phantomForest.mp3");
+  music[6] = new SoundFile(this, "palace.mp3");
+  music[7] = new SoundFile(this, "corridorsOfTime.mp3");
+  */
+  
+  //audio = new Minim(this);
+  //Sound Effects
+  //openDoorSound = audio.loadFile("lock.mp3",1024);
+  //openChestSound = audio.loadFile("chest.mp3",1024);
+  //lockedDoorSound = audio.loadFile("jiggle.mp3",1024);
+  //foodBiteSound = audio.loadFile("bite.mp3",1024);
+  //potionDrinkSound = audio.loadFile("gulp.mp3",1024);
+  //Musics
+  //titleScreenMusic = audio.loadFile("Try and Solve This Loop.wav",1024);
 
   createInventories();
   //setUpLootList();
@@ -277,7 +321,9 @@ void setup()
 
   setupMaps();
 
-  battleMonsters = new Monster[3];  
+  battleMonsters = new Monster[3];
+  
+  //music[0].play();
 }
 
 
@@ -387,9 +433,9 @@ public String inputText() //Retrieves the text in the box and switches game stat
       //key = ' ';
     }
     else
-    { //<>// //<>//
+    { //<>//
       step = HeroCreationStep.JOB;
-      input = Input.HERO_JOB_CHOICE; //<>// //<>// //<>//
+      input = Input.HERO_JOB_CHOICE; //<>// //<>//
       if(textBuffer.equals(""))
         textBuffer = randomName();
       advanceText("Select "+textBuffer+"'s Job");
@@ -646,9 +692,9 @@ String bonkText( char direction ) //for when the heroes run into obstacles
   return "Bonk";
 }
 
-boolean partyNextToBoss( int index ) //party is orthaganally adjacent to a boss //<>// //<>//
+boolean partyNextToBoss( int index ) //party is orthaganally adjacent to a boss //<>//
 {
-  //for( int i = 0; i < bossSwitches.length; i++ ) //<>// //<>// //<>//
+  //for( int i = 0; i < bossSwitches.length; i++ ) //<>// //<>//
   //{
     if( ( ( party.X == bossSwitches[index].X-1 || party.X == bossSwitches[index].X+1 ) && party.Y == bossSwitches[index].Y ) 
     ||  ( ( party.Y == bossSwitches[index].Y-1 || party.Y == bossSwitches[index].Y+1 ) && party.X == bossSwitches[index].X ) )
@@ -747,9 +793,16 @@ public void changeMap()
       party.Y = exits.get(i).destinationY;
       party.floor = exits.get(i).destinationFloor;
       vanGogh.startLocationTitleCard(exits.get(i).title);
+      checkForStairEvent(exits.get(i));
       return;
     }
   println("ERROR: NO EXIT FOUND");
+}
+
+public void checkForStairEvent( Portal p )
+{
+  if( p.originX == 90 && p.originY == 79 && p.originFloor == 2 ) //stained glass
+    SFX[5].play();
 }
 
 boolean mouseInBox( float boxX, float boxY ) //assumes boxes are 70x70
@@ -783,6 +836,9 @@ public int getZone( String title )
   switch( title )
   {
     case "": return zoneNumber;
+    
+    case "Cathedral Cellar": //start of game zone
+      return -1;
     
     //Main Cathedral areas
     case "Dormitory":
@@ -839,7 +895,6 @@ public int getZone( String title )
     case "Quartereck":
     case "Captain's Cabin":
     case "Wardroom":
-    case "Forecastle":
       return 9;
       
     //Caves
@@ -848,6 +903,7 @@ public int getZone( String title )
       
     //Temples of Ritisu
     case "Temple of Ritisu":
+    case "Forecastle":
       return 6;
       
     //Silent Zones
@@ -915,6 +971,8 @@ void keyPressed()
       if(m[party.floor].tiles[party.X][party.Y].interact(party.keyInventory))
       {
         m[party.floor].openDoorsAround(party.X,party.Y);
+        SFX[0].play();
+        //openDoorSound.rewind();
       }
 
     if(key == 'E') //eat consumable
@@ -946,6 +1004,7 @@ void keyPressed()
     {
       advanceText("GAME SAVED");
       confirmSave = false;
+      SFX[6].play();
       saveGame(saveFileName+".txt");
     }
     else if(confirmSave)
@@ -954,9 +1013,9 @@ void keyPressed()
       confirmSave = false;
     }
     if(display == Display.MAP && key == 'R' && ( m[party.floor].tiles[party.X][party.Y].obj == Object.TENT || m[party.floor].tiles[party.X][party.Y].obj == Object.BED ) ) //rest
-    { //<>// //<>//
+    { //<>//
       if(party.needsRest())
-      { //<>// //<>// //<>//
+      { //<>// //<>//
         input = Input.NONE;
         vanGogh.beginRestFadeout();
       }
@@ -971,9 +1030,9 @@ void keyPressed()
         {
           if( party.addToInventory(m[party.floor].tiles[party.X][party.Y].itemForSale) ) //should take care of full inventory
             party.gold -= m[party.floor].tiles[party.X][party.Y].itemPrice;
-        } //<>// //<>//
+        } //<>//
         else
-          displayTextLine( "You cannot afford the " + m[party.floor].tiles[party.X][party.Y].itemForSale.name +"." ); //party does not have enough gold //<>// //<>// //<>//
+          displayTextLine( "You cannot afford the " + m[party.floor].tiles[party.X][party.Y].itemForSale.name +"." ); //party does not have enough gold //<>// //<>//
       }
       else if( m[party.floor].tiles[party.X][party.Y].type == TileType.SELL ) //sell
       {
@@ -1021,15 +1080,15 @@ void keyPressed()
     if(key == 'a') key = 49; //convert
     if(key == 's') key = 50; //to
     if(key == 'd') key = 51; //numbers
-    if(key == 'f') key = 52; //<>// //<>//
+    if(key == 'f') key = 52; //<>//
     
-    if(key == ' ') //<>// //<>// //<>//
+    if(key == ' ') //<>// //<>//
     {
       display = Display.MAP;
       input = Input.EXPLORING;
-    } //<>// //<>//
+    } //<>//
     else if(key > 48 && key < 53)
-    { //<>// //<>// //<>//
+    { //<>// //<>//
       if(display == Display.FOOD_MENU && party.hasFood(key-48))
       {
         consumableValue = (key-48)*10;
@@ -1139,7 +1198,8 @@ void keyPressed()
       {
         if( key == '3' )
         {
-          //potionDrinkSound.play();
+          SFX[3].play();
+          //potionDrinkSound.rewind();
           if( party.consume(36,0) )
           {
             input = Input.BATTLE_MENU;
@@ -1165,7 +1225,8 @@ void keyPressed()
       if( key == 'a' ) key = '1'; if( key == 's' ) key = '2'; if( key == 'd' ) key = '3';
       if( key == '1' || key == '2' || key == '3' )
       {
-        //potionDrinkSound.play();
+        SFX[3].play();
+        //potionDrinkSound.rewind();
         if( party.consume(potionType*12,key-49) ) //-49 to account for array index offset
         {
           input = Input.BATTLE_MENU;
@@ -1254,11 +1315,11 @@ void keyPressed()
       }
       else if( key > 48 && key < 52 ) //eat/drink and return to map
       {
-        //if(reason == HeroSelectReason.EAT)
-          //foodBiteSound.play();
+        if(reason == HeroSelectReason.EAT)
+         SFX[4].play(); //foodBiteSound.rewind(); }
          
-        //if(reason == HeroSelectReason.DRINK)
-          //potionDrinkSound.play();
+        if(reason == HeroSelectReason.DRINK)
+         SFX[3].play(); //potionDrinkSound.rewind(); }
          
         party.consume(consumableValue,key-49); //-49 to account for array index offset
         consumableValue = 0;
@@ -1293,8 +1354,8 @@ void keyPressed()
   
   if(key == '`') //for placing a break point
   {
-    println("DEBUG"); //<>// //<>// //<>//
-    println(party.X + " " + party.Y); //<>//
+    println("DEBUG"); //<>// //<>//
+    println(party.X + " " + party.Y);
     println(dm[party.floor].dangerValueChar(party.X,party.Y));
   }
   
@@ -1304,9 +1365,9 @@ void keyPressed()
     //vanGogh.startScreenShake(40,false);
     //floatingNumbers.add( new GhostNumber(140,320,color(255),12345678) );
 }
- //<>//
+
 void keyReleased()
-{ //<>// //<>//
+{ //<>//
   if( display == Display.ITEM_LIST && key == 's' )
     party.sortInventory();
   else if( previousDisplay != Display.NONE && (key == 'k' || key == 'i' || key == 'h'|| key == '`' ) )
@@ -1489,7 +1550,65 @@ public enum HeroSelectReason
   NONE
 }
 
+//****************************************************************************//
+//**************************************//
+/*
+public void changeTrack( int zone )
+{
+  music[currentMusic].stop();
+  switch(zone)
+  {
+    case -1:
+      nextMusic = 1;
+      break;
+    case 1:
+      nextMusic = 6;
+      break;
+    case 2:
+    case 8:
+    case 10:
+      nextMusic = 2;
+      break;
+    case 3:
+      nextMusic = 3;
+      break;
+    case 4:
+      nextMusic = 4;
+      break;
+    case 5:
+      nextMusic = 5;
+      break;
+    case 6:
+      nextMusic = 7;
+      break;
+    default:
+      nextMusic = -1;
+  }
+  if(nextMusic>=0)
+    music[nextMusic].loop();
+  currentMusic = nextMusic;
+}
+*/
+/*
+public void beginCrossFade( int zone )
+{
+  crossFading = true;
+  nextMusic = zone;
+}
 
+public void crossFade()
+{
+  if(crossFading)
+  {
+    volume-=.09;
+    if( volume <= 0.01 )
+    {
+      
+    }
+  }
+}
+*/
+//****************************************************************************//
 //**************************************//
 ///Save / Load///
 
@@ -1697,7 +1816,8 @@ public void loadFile( String fileName )
     //After load is finished, resume game
     display = Display.MAP;
     step = HeroCreationStep.DONE;
-    input = Input.EXPLORING;
+    input = Input.EXPLORING; //<>//
+    //changeTrack(zoneNumber);
     println("SAVE FILE LOADED");
     advanceText("SAVE FILE LOADED");
     advanceText("Welcome back " + party.hero[0].name + ", "+party.hero[1].name+", and "+party.hero[2].name);

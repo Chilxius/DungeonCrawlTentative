@@ -103,6 +103,8 @@ class Artist
     {
       zoneNumber = getZone(title);
       //Start new music track                  <- NEW MUSIC TRACKS START HERE
+      //crossFade(zoneNumber);
+      //changeTrack(zoneNumber);
     }
   }
   
@@ -1455,7 +1457,7 @@ class Artist
       strokeWeight(1); stroke(150);
       if(battle.list[i].active){ fill(party.hero[i].inverseColor); rect(100+210*i,578, min(80,(battle.list[i].counter/total)*80) ,10); }
       if(party.hero[i].buff[4].active)
-      { strokeWeight(2); stroke(120+textPromptStage*2); }
+      { strokeWeight(2); stroke(120+textPromptStage*2,100,0); }
       noFill(); if(battle.list[i].active) rect(100+210*i,578,80,10);
     }
   }

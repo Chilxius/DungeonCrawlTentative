@@ -111,74 +111,74 @@ class Hero
         maxMp = 0;
         break;
       case SAURIAN:
-        maxHp =  int((385/50.0)*(level-1)+35); //35 -> 420
-        str =    int((154/50.0)*(level-1)+6);
-        dex =    int((69/50.0)*(level-1)+1);
-        con =    int((116/50.0)*(level-1)+4);
+        maxHp =  int((385/49.0)*(level-1)+35); //35 -> 420
+        str =    int((154/49.0)*(level-1)+6);
+        dex =    int((69/49.0)*(level-1)+1);
+        con =    int((116/49.0)*(level-1)+4);
         mag =    0;
-        wil =    int((59/50.0)*(level-1)+1);
-        spd =    int((69/50.0)*(level-1)+1);
+        wil =    int((59/49.0)*(level-1)+1);
+        spd =    int((69/49.0)*(level-1)+1);
         maxMp = 0;
         break;
       case KARATE:
-        maxHp =  int((370/50.0)*(level-1)+30); //30 -> 400
-        str =    int((116/50.0)*(level-1)+4);
-        dex =    int((116/50.0)*(level-1)+4);
-        con =    int((116/50.0)*(level-1)+4);
+        maxHp =  int((370/49.0)*(level-1)+30); //30 -> 400
+        str =    int((116/49.0)*(level-1)+4);
+        dex =    int((116/49.0)*(level-1)+4);
+        con =    int((116/49.0)*(level-1)+4);
         mag =    level;
-        wil =    int((116/50.0)*(level-1)+4);
-        spd =    int((136/50.0)*(level-1)+3);
+        wil =    int((116/49.0)*(level-1)+4);
+        spd =    int((136/49.0)*(level-1)+3);
         maxMp = 0;
         break;
       case BARD:
-        maxHp =  int((205/50.0)*(level-1)+20); //20 -> 225
-        str =    int((77/50.0)*(level-1)+3);
-        dex =    int((135/50.0)*(level-1)+3);
-        con =    int((87/50.0)*(level-1)+2);
-        mag =    int((74/50.0)*(level-1)+1);
-        wil =    int((98/50.0)*(level-1)+2);
-        spd =    int((127/50.0)*(level-1)+3);
+        maxHp =  int((205/49.0)*(level-1)+20); //20 -> 225
+        str =    int((77/49.0)*(level-1)+3);
+        dex =    int((135/49.0)*(level-1)+3);
+        con =    int((87/49.0)*(level-1)+2);
+        mag =    int((74/49.0)*(level-1)+1);
+        wil =    int((98/49.0)*(level-1)+2);
+        spd =    int((127/49.0)*(level-1)+3);
         maxMp =  0;
         break;
       case THIEF:
-        maxHp =  int((230/50.0)*(level-1)+20); //20 -> 250
-        str =    int((87/50.0)*(level-1)+3);
-        dex =    int((135/50.0)*(level-1)+5);
-        con =    int((87/50.0)*(level-1)+3);
+        maxHp =  int((230/49.0)*(level-1)+20); //20 -> 250
+        str =    int((87/49.0)*(level-1)+3);
+        dex =    int((135/49.0)*(level-1)+5);
+        con =    int((87/49.0)*(level-1)+3);
         mag =    0;
-        wil =    int((88/50.0)*(level-1)+2);
-        spd =    int((147/50.0)*(level-1)+3);
+        wil =    int((88/49.0)*(level-1)+2);
+        spd =    int((147/49.0)*(level-1)+3);
         maxMp = 0;
         break;
       case DRUID:
-        maxHp =  int((232/50.0)*(level-1)+18); //18 -> 225
-        str =    int((78/50.0)*(level-1)+2);
-        dex =    int((88/50.0)*(level-1)+2);
-        con =    int((98/50.0)*(level-1)+2);
-        mag =    int((87/50.0)*(level-1)+3);
-        wil =    int((126/50.0)*(level-1)+4);
-        spd =    int((108/50.0)*(level-1)+2);
-        maxMp =  int((140/50.0)*(level-1)+10); //10 -> 150
+        maxHp =  int((232/49.0)*(level-1)+18); //18 -> 250
+        str =    int((87/49.0)*(level-1)+3);
+        dex =    int((88/49.0)*(level-1)+2);
+        con =    int((98/49.0)*(level-1)+2);
+        mag =    int((87/49.0)*(level-1)+3);
+        wil =    int((126/49.0)*(level-1)+4);
+        spd =    int((108/49.0)*(level-1)+2);
+        maxMp =  int((140/49.0)*(level-1)+10); //10 -> 150
         break;
       case PRIEST:
-        maxHp =  int((185/50.0)*(level-1)+15); //15 -> 200
-        str =    int((58/50.0)*(level-1)+2);
-        dex =    int((78/50.0)*(level-1)+2);
-        con =    int((88/50.0)*(level-1)+2);
-        mag =    int((96/50.0)*(level-1)+4);
-        wil =    int((145/50.0)*(level-1)+5);
-        spd =    int((78/50.0)*(level-1)+2);
-        maxMp =  int((185/50.0)*(level-1)+15); //15 -> 200
+        maxHp =  int((185/49.0)*(level-1)+15); //15 -> 200
+        str =    int((58/49.0)*(level-1)+2);
+        dex =    int((78/49.0)*(level-1)+2);
+        con =    int((88/49.0)*(level-1)+2);
+        mag =    int((96/49.0)*(level-1)+4);
+        wil =    int((145/49.0)*(level-1)+5);
+        spd =    int((78/49.0)*(level-1)+2);
+        maxMp =  int((185/49.0)*(level-1)+15); //15 -> 200
         break;
       case MAGE:
-        maxHp =  int((135/50.0)*(level-1)+15); //15 -> 150
-        str =    int((49/50.0)*(level-1)+1);
-        dex =    int((98/50.0)*(level-1)+2);
-        con =    int((68/50.0)*(level-1)+2);
-        mag =    int((145/50.0)*(level-1)+5);
-        wil =    int((96/50.0)*(level-1)+4);
-        spd =    int((88/50.0)*(level-1)+2);
-        maxMp =  int((230/50.0)*(level-1)+20); //20 -> 250
+        maxHp =  int((135/49.0)*(level-1)+15); //15 -> 150
+        str =    int((49/49.0)*(level-1)+1);
+        dex =    int((98/49.0)*(level-1)+2);
+        con =    int((68/49.0)*(level-1)+2);
+        mag =    int((145/49.0)*(level-1)+5);
+        wil =    int((96/49.0)*(level-1)+4);
+        spd =    int((88/49.0)*(level-1)+2);
+        maxMp =  int((230/49.0)*(level-1)+20); //20 -> 250
         if( level >=5 ) //Adjust cost of FIRE spell
           skill[0].cost = 2;
         if( level >=10 ) //Adjust cost of RIME spell
@@ -238,7 +238,7 @@ class Hero
         break;
       case BARD: //ayre, ballad, bossa nova, fugue, minuet, nocturne, opera, prelude, psalm, requiem, rhapsody, rondo, sonata, samba
         skill[0] = new Attack("Ostinato", mag, true, true, AttackStat.STR );            skill[0].cost = 2; skill[0].fullDescription = "A musical attack that hits all enemeis."; if( level > 2 ) skill[0].fullDescription = "A musical attack that builds up your rhythm.";
-        skill[1] = new Attack("Rhapsody", level/3, true, true );                        skill[1].cost = 4; skill[1].fullDescription = "A rousing melody that energizes your allies. Uses rhythm."; //Minor heal to all, restores one energy or 2mp to allies
+        skill[1] = new Attack("Rhapsody", max(5,level/3), true, true );                 skill[1].cost = 4; skill[1].fullDescription = "A rousing melody that energizes your allies. Uses rhythm."; //Minor heal to all, restores one energy or 2mp to allies
         skill[2] = new Attack("Rondo", "You feel the rhythm!" );                        skill[2].cost = 6; skill[2].fullDescription = "The upbeat tempo boosts your party's speed. Builds rhythm.";
         skill[3] = new Attack("Psalm", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -259,7 +259,8 @@ class Hero
         break;
       case DRUID:
         //skill[0] = new Attack("Wolf Form", ((2*int((70/50.0)*(level-1)+20))+int(mag*2.5)), false, false, AttackStat.STR ); skill[0].cost = 3; skill[0].fullDescription = "Take the form of a wolf to maul your enemy.";//single-target physical attack
-        skill[0] = new Attack("Wolf Form", (40+int(mag*2.5)), false, false, AttackStat.STR );                    skill[0].cost = 3; skill[0].fullDescription = "Take the form of a wolf to maul your enemy.";//single-target physical attack
+        //skill[0] = new Attack("Wolf Form", max(100,int(mag*4)), false, false, AttackStat.STR );                   skill[0].cost = 3; skill[0].fullDescription = "Take the form of a wolf to maul your enemy.";//single-target physical attack
+        skill[0] = new Attack("Wolf Form", 100, false, false, AttackStat.STR );                   skill[0].cost = 3; skill[0].fullDescription = "Take the form of a wolf to maul your enemy.";//single-target physical attack
         skill[1] = new Attack("Gale", 20, true, false, AttackStat.MAG, AttackType.WIND );                        skill[1].cost = 2; skill[1].fullDescription = "Whip up a small storm to damage all enemies.";//multi-target wind
         skill[2] = new Attack("Viper Form", str, true, false, AttackStat.DEX, AttackType.NONE, Debuff.POISON );  skill[2].cost = 5; skill[2].fullDescription = "Take the form of a swift viper to poison all enemies.";//multi-target physical with poison
         skill[3] = new Attack("Divine Grace", str*2, true, true );
@@ -495,7 +496,7 @@ class Hero
     else //skill
     {
       //Converting non-elemental attacks to weapon's type
-      AttackType skillType = skill[skillSelection].type;  //<>//
+      AttackType skillType = skill[skillSelection].type; 
       if( skillType == AttackType.NONE && !skill[skillSelection].healing && skill[skillSelection].useWeapon )
         skillType = weapon.element;
 
@@ -615,13 +616,13 @@ class Hero
           }
           if(skillIndex == 1 ) //Rhapsody
           {
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i < 3; i++) //<>//
               if( battle.turn != i && bardBonus > 0 )
               {
                 if(party.hero[i].maxMp==0) party.hero[i].energize(bardBonus);
                 else                      party.hero[i].healMana(bardBonus);
-                bardBonus--;
               }
+            bardBonus--;
           }
           if(skillIndex == 2 ) //Rondo
           {
@@ -863,7 +864,7 @@ Sar    35  6    1    4    0    1     1         420   160  70   120  0    60   70
 Art    40  4    4    4    0    4     3         400   120  120  120  50   120  140     30
 Brd    20  3    3    2    1    2     3         225   80   120  90   75   100  130     20
 Thf    25  3    5    3    0    2     3         250   90   140  90   0    90   150     20
-Drd    18  2    2    2    3    4     2      250/150  80   90   100  90   130  110     18/10
+Drd    18  2    2    2    3    4     2      250/150  90   90   100  90   130  110     18/10
 Pri  20/20 2    2    2    4    5     2      200/200  60   80   80   100  150  80      15/15
 Mag  15/25 1    2    2    5    4     2      150/250  50   100  70   150  100  90      15/20
 
@@ -875,7 +876,7 @@ Crit chance = 2% + 1% per dex difference
 KNIGHT:
   Combination of fighter/paladin architype
   Gains 2 power when hit while defending.
-  Abilities involve defense, holy energy, healing
+  Abilities involve defense, holy energy, healing, sword skill
   
 BARBARIAN:
   Combination of barbarian/berserker architype
