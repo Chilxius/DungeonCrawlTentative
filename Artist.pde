@@ -16,6 +16,11 @@ class Artist
   float textPromptStep;
   float textPromptStage;
   
+  float noteStage;
+  float noteStep;
+  color noteColor[] = {color(200,100,100),color(200,200,100),color(100,100,200),color(200,100,200),color(200,150,100),
+                        color(100,200,100),color(200,100,150),color(100,200,200),color(200,200,200),color(100,100,100),};
+  
   boolean resting = false;
   boolean restFadeIn = true;
   int restOpacity = 0;
@@ -42,6 +47,8 @@ class Artist
     savePointStep = .05;
     textPromptStage = 0;
     textPromptStep = 1;
+    noteStage = 0;
+    noteStep = .01;
     rand1 = color(random(255),random(255),random(255));
     rand2 = color(random(255),random(255),random(255));
     rand3 = color(random(255),random(255),random(255));
@@ -60,6 +67,9 @@ class Artist
     textPromptStage+=textPromptStep;
     if(textPromptStage <=0 || textPromptStage > 50)
       textPromptStep*=-1;
+    noteStage+=noteStep;
+    if(noteStage >= TWO_PI)
+      noteStage-=TWO_PI;
     
   }
   
@@ -429,9 +439,9 @@ class Artist
     textSize(20);
     for(int i = 0; i < 4; i++) //Display full description
     {
-      if(mouseInBox(140+i*140,280))
+      if(mouseInBox(140+i*140,280) && party.hero[h].level > i*5 )
         text(party.hero[h].skill[i].fullDescription,350,200);
-      if(mouseInBox(140+i*140,430))
+      if(mouseInBox(140+i*140,430) && party.hero[h].level > (i+4)*5 )
         text(party.hero[h].skill[i+4].fullDescription,350,200);
     }
     
@@ -674,6 +684,31 @@ class Artist
     noFill(); rectMode(CORNER);
     stroke(200); strokeWeight(5);
     rect(580,200,110,103,20); //box
+  }
+  
+  public void drawBardNotes()
+  {
+    for( int i = 0; i < 3; i++ )
+    {
+      if(party.hero[i].bardBonus>0)
+      {
+        push();
+        translate(140+210*i,500);
+        for(int j = 0; j < party.hero[i].bardBonus; j++)
+        {
+          push();
+          rotate((TWO_PI/party.hero[i].bardBonus)*j+noteStage);
+          push();
+          translate(0,50);
+          rotate(-((TWO_PI/party.hero[i].bardBonus)*j)-noteStage);
+          tint(noteColor[j]);
+          image(effectImage[0],0,0);
+          pop();
+          pop();
+        }
+        pop();
+      }
+    }
   }
   
   public void drawPotion( int xPos, int yPos, float scale, color c )
@@ -2481,22 +2516,22 @@ class Artist
     bezierVertex(x-14*scale, y+1*scale, x-14*scale, y-3*scale, x-10*scale, y-5*scale);
     bezierVertex(x-10*scale, y-2*scale, x+10*scale, y-2*scale, x+10*scale, y-5*scale);
     bezierVertex(x+10*scale, y-3*scale, x+14*scale, y-3*scale, x+14*scale, y+1*scale);
-    vertex(x+14*scale, y+1*scale);
+    //vertex(x+14*scale, y+1*scale);
     bezierVertex(x+13*scale, y+1*scale, x+20*scale, y+30*scale, x+21*scale, y+30*scale);
-    bezierVertex(x+15*scale, y+38*scale, x-15*scale, y+38*scale, x-21*scale, y+30*scale);
+    bezierVertex(x+15*scale, y+37.5*scale, x-15*scale, y+37.5*scale, x-21*scale, y+30*scale);
     bezierVertex(x-20*scale, y+30*scale, x-12*scale, y+1*scale, x-14*scale, y+1*scale);
     endShape();
     //Flaps
     beginShape();
     vertex(x-9*scale, y+6.5*scale);
     vertex(x-13.5*scale, y+34.75*scale);
-    bezierVertex(x-13.5*scale, y+36*scale, x+-4.75*scale, y+37.25*scale, x-4.75*scale, y+35.75*scale);
+    bezierVertex(x-13.5*scale, y+36*scale, x+-4.75*scale, y+37.5*scale, x-4.75*scale, y+35.75*scale);
     vertex(x-3.5*scale, y+5*scale);
     endShape();
     beginShape();
     vertex(x+9*scale, y+6.5*scale);
     vertex(x+13.5*scale, y+34.75*scale);
-    bezierVertex(x+13.5*scale, y+36*scale, x+4.75*scale, y+37.25*scale, x+4.75*scale, y+35.75*scale);
+    bezierVertex(x+13.5*scale, y+36*scale, x+4.75*scale, y+37.5*scale, x+4.75*scale, y+35.75*scale);
     vertex(x+3.5*scale, y+5*scale);
     endShape();
       
@@ -3037,6 +3072,8 @@ class Artist
       drawHeroByType(party.hero[1],width/2,500,2,1,false);
     if(party.hero[2].isAlive())
       drawHeroByType(party.hero[2],int(width*.8),500,2,2,false);
+    
+    drawBardNotes();
   }
   
   void drawMonsters( )

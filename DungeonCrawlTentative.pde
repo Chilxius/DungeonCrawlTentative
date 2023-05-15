@@ -1,11 +1,16 @@
 //Dungeon Crawl Game
 //Bennett Ritchie
 
+//Make druids stronger?
+//Changed wolf form to be stronger initially
+//Saurians shouldn't be able to equip the best weapons
+//Improve ostinato, have it affect more abilties
+
 //PROBLEMS:
 //Fix lineLength error and problem with not printing entire line
 //Fix objects getting strange tile colors
 //Boss didn't drop money when killed by poison
-//Improve armor pierce abilities (wow, razor is crazy)
+//Balance armor pierce abilities (wow, razor is crazy)
 
 //TO DO:
 //Skills: animation system
@@ -92,6 +97,7 @@ int windowX, windowY;
 PImage tileImage[] = new PImage[100]; //I've since used this for more than just tiles
 PImage battleBack[] = new PImage[10]; //Backgrounds for battles
 PImage iconImage[] = new PImage[50];  //Icons for buttons, need to move some items from tileImage
+PImage effectImage[] = new PImage[10]; //Images for effects. Will eventually include spell effects.
 
 //Item data
 Loot [][] lootList = new Loot[4][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
@@ -234,6 +240,8 @@ void setup()
   battleBack[1] = loadImage("stoneWall.png"); //resize?
   battleBack[2] = loadImage("graveyard4.png"); //resize?
   battleBack[3] = loadImage("cave.png"); //resize?
+  
+  effectImage[0] = loadImage("bardBonus.png");      effectImage[0].resize(30,0);
   
   //Test sounds
   //beep1 = new SoundFile(this, "Beep1.mp3"); //Short high
@@ -1082,14 +1090,14 @@ void keyPressed()
       if( key == 'x' || key == ' ' ) //cancel and return to battle menu
         input = Input.BATTLE_MENU;
         
-      if( ( key == 'q' || key == '1' ) && party.hero[battle.turn].canAffordSkill(0) )                                       { skillSelection = 0; input = appropriateInputMode(); }
-      if( ( key == 'w' || key == '2' ) && party.hero[battle.turn].canAffordSkill(1) && party.hero[battle.turn].level >= 5 ) { skillSelection = 1; input = appropriateInputMode(); }
-      if( ( key == 'e' || key == '3' ) && party.hero[battle.turn].canAffordSkill(2) && party.hero[battle.turn].level >= 10 ){ skillSelection = 2; input = appropriateInputMode(); }
-      if( ( key == 'r' || key == '4' ) && party.hero[battle.turn].canAffordSkill(3) && party.hero[battle.turn].level >= 15 ){ skillSelection = 3; input = appropriateInputMode(); }
-      if( ( key == 'a' || key == '5' ) && party.hero[battle.turn].canAffordSkill(4) && party.hero[battle.turn].level >= 20 ){ skillSelection = 4; input = appropriateInputMode(); }
-      if( ( key == 's' || key == '6' ) && party.hero[battle.turn].canAffordSkill(5) && party.hero[battle.turn].level >= 25 ){ skillSelection = 5; input = appropriateInputMode(); }
-      if( ( key == 'd' || key == '7' ) && party.hero[battle.turn].canAffordSkill(6) && party.hero[battle.turn].level >= 30 ){ skillSelection = 6; input = appropriateInputMode(); }
-      if( ( key == 'f' || key == '8' ) && party.hero[battle.turn].canAffordSkill(7) && party.hero[battle.turn].level >= 35 ){ skillSelection = 7; input = appropriateInputMode(); }
+      if( ( key == 'q' || key == '1' ) && party.hero[battle.turn].canAffordSkill(0) )                                        { skillSelection = 0; input = appropriateInputMode(); }
+      if( ( key == 'w' || key == '2' ) && party.hero[battle.turn].level >= 5  && party.hero[battle.turn].canAffordSkill(1) ) { skillSelection = 1; input = appropriateInputMode(); }
+      if( ( key == 'e' || key == '3' ) && party.hero[battle.turn].level >= 10 && party.hero[battle.turn].canAffordSkill(2) ) { skillSelection = 2; input = appropriateInputMode(); }
+      if( ( key == 'r' || key == '4' ) && party.hero[battle.turn].level >= 15 && party.hero[battle.turn].canAffordSkill(3) ) { skillSelection = 3; input = appropriateInputMode(); }
+      if( ( key == 'a' || key == '5' ) && party.hero[battle.turn].level >= 20 && party.hero[battle.turn].canAffordSkill(4) ) { skillSelection = 4; input = appropriateInputMode(); }
+      if( ( key == 's' || key == '6' ) && party.hero[battle.turn].level >= 25 && party.hero[battle.turn].canAffordSkill(5) ) { skillSelection = 5; input = appropriateInputMode(); }
+      if( ( key == 'd' || key == '7' ) && party.hero[battle.turn].level >= 30 && party.hero[battle.turn].canAffordSkill(6) ) { skillSelection = 6; input = appropriateInputMode(); }
+      if( ( key == 'f' || key == '8' ) && party.hero[battle.turn].level >= 35 && party.hero[battle.turn].canAffordSkill(7) ) { skillSelection = 7; input = appropriateInputMode(); }
       
       //Skips next step for targetAll skills
       if( ( input == Input.BATTLE_SKILL_TARGET || input == Input.BATTLE_HEAL_TARGET ) && party.hero[battle.turn].skill[skillSelection].targetAll )
@@ -1447,6 +1455,7 @@ void mousePressed()
   println(mouseX + " " + mouseY);
   //println("Bard:" + party.hero[1].bardBonus);
   //party.hero[2].energize(1);
+  //party.hero[0].bardBonus++;
   //floatingNumbers.add( new GhostNumber( mouseX, mouseY, color(255), 888888888 ) );
 }
 

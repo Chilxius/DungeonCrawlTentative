@@ -237,7 +237,7 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case BARD: //ayre, ballad, bossa nova, fugue, minuet, nocturne, opera, prelude, psalm, requiem, rhapsody, rondo, sonata, samba
-        skill[0] = new Attack("Ostinato", mag, true, true, AttackStat.STR );            skill[0].cost = 2; skill[0].fullDescription = "A musical attack that can grow in power with each use.";//Increase damage with each casting
+        skill[0] = new Attack("Ostinato", mag, true, true, AttackStat.STR );            skill[0].cost = 2; skill[0].fullDescription = "A musical attack that harms all enemies."; if( level >= 3 ) skill[0].fullDescription = "A musical attack that can grow in power with each use.";
         skill[1] = new Attack("Rhapsody", level/3, true, true );                        skill[1].cost = 4; skill[1].fullDescription = "A rousing melody that fills your allies with energy."; //Minor heal to all, restores one energy or 2mp to allies
         skill[2] = new Attack("Rondo", "You feel the rhythm!" );                        skill[2].cost = 6; skill[2].fullDescription = "The upbeat tempo boosts your party's speed.";
         skill[3] = new Attack("Psalm", str*2, true, true );
@@ -258,9 +258,10 @@ class Hero
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
       case DRUID:
-        skill[0] = new Attack("Wolf Form", ((2*int((70/50.0)*(level-1)+20))+int(mag*2.5)), false, false, AttackStat.STR ); skill[0].cost = 3; skill[0].fullDescription = "Take the form of a wolf to maul your enemy.";//single-target physical attack
-        skill[1] = new Attack("Gale", 30, true, false, AttackStat.MAG, AttackType.WIND );                                  skill[1].cost = 2; skill[1].fullDescription = "Whip up a small storm to damage all enemies.";//multi-target wind
-        skill[2] = new Attack("Viper Form", str, true, false, AttackStat.DEX, AttackType.NONE, Debuff.POISON );            skill[2].cost = 5; skill[2].fullDescription = "Take the form of a swift viper to poison all enemies.";//multi-target physical with poison
+        //skill[0] = new Attack("Wolf Form", ((2*int((70/50.0)*(level-1)+20))+int(mag*2.5)), false, false, AttackStat.STR ); skill[0].cost = 3; skill[0].fullDescription = "Take the form of a wolf to maul your enemy.";//single-target physical attack
+        skill[0] = new Attack("Wolf Form", (40+int(mag*2.5)), false, false, AttackStat.STR );                    skill[0].cost = 3; skill[0].fullDescription = "Take the form of a wolf to maul your enemy.";//single-target physical attack
+        skill[1] = new Attack("Gale", 20, true, false, AttackStat.MAG, AttackType.WIND );                        skill[1].cost = 2; skill[1].fullDescription = "Whip up a small storm to damage all enemies.";//multi-target wind
+        skill[2] = new Attack("Viper Form", str, true, false, AttackStat.DEX, AttackType.NONE, Debuff.POISON );  skill[2].cost = 5; skill[2].fullDescription = "Take the form of a swift viper to poison all enemies.";//multi-target physical with poison
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[5] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -332,12 +333,12 @@ class Hero
   
   public void adjustFistPower()
   {
-    weapon.power = int((70/50.0)*(level-1)+20);
+    weapon.power = int((70/49.0)*(level-1)+20);
   }
   
   public void adjustScalePower()
   {
-    armor.power = int((70/50.0)*(level-1)+20);
+    armor.power = int((65/49.0)*(level-1)+10);
   }
   
   public void energize( int amount )
@@ -488,7 +489,7 @@ class Hero
           float largeRandom = random(100);  //25% chance
           float smallChance = 25;
           if( largeRandom < max(1,smallChance+damage-battleMonsters[targetMonster].con) )
-            battleMonsters[targetMonster].poison((int)(weapon.power/7.5),targetMonster);
+            battleMonsters[targetMonster].poison((int)(weapon.power/5),targetMonster);
       }
     }
     else //skill
@@ -609,16 +610,16 @@ class Hero
         case BARD:
           if(skillIndex == 0 ) //Ostinato
           {
-            if( bardBonus+4 < level )
-            bardBonus+=2;
+            if( bardBonus+3 <= level && bardBonus < 10)
+            bardBonus+=1;
           }
           if(skillIndex == 1 ) //Rhapsody
           {
             for(int i = 0; i < 3; i++)
-              if( battle.turn != i )
+              if( battle.turn != i && bardBonus > 0 )
               {
-                party.hero[i].energize(1);
-                party.hero[i].healMana(1);
+                if(party.hero[i].maxMp==0) party.hero[i].energize(bardBonus);
+                else                      party.hero[i].healMana(bardBonus);
               }
           }
           if(skillIndex == 2 ) //Rondo

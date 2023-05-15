@@ -101,19 +101,19 @@ void setupMaps()
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#∫∫BB•..∫..•BB∫∫#TTTTT#..G....rr....G..#TTTTT#[[...∑]#TTTTT#==...3w#TTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT&∫.....∫∫∫.....∫&TTTTT#######.rr.#######TTTTT#...W.∑.&TTTTT#.....33#TTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTT#########TTTT&.....∫∫∫∫∫.....&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#>....∑.&TTTTT#>......#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#∫∫∫#rrr#TTTT#....∫∫∫>∫∫∫....#TTTTTTTTTTT#.rr.#TTTTTTTTTTT#...W.∑.&TTTTT#..„„„..#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#.∫.#.r.#TTTT&3....∫∫∫∫∫.....&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#[[...∑]#TTTTT#„„„„„„„#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#.......#TTTT&3¢....∫∫∫.....∫&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#########TTTTT#########TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#.r.#.∫.$tttt$¢¢3.•..∫..*..∫∫#TTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTT#∫∫∫#rrr#TTTT#....∫∫∫>∫∫∫...%#TTTTTTTTTTT#.rr.#TTTTTTTTTTT#...W.∑.&TTTTT#..„„„..#TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTT#.∫...r.#TTTT&3....∫∫∫∫∫.....&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#[[...∑]#TTTTT#„„„„„„„#TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTT#...#...#TTTT&3¢....∫∫∫.....∫&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#########TTTTT#########TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTT#.r...∫.$tttt$¢¢3.•..∫..*..∫∫#TTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTT#rrr#∫∫∫#TTTT#################TTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTT##$$#####TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TttttttttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G..?.rr.?..G..#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTDTTTT#>.∫∫∫∫∫rr∫∫∫∫∫.>#TTTTTT################TTTTTTTTTT#########";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G....rr....G..#TTTTTT########B#######TTTTTTTTTT#rr]==..#";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTDTTTT#######.rr.#######TTTTTT##,∞,„.∫∫∫..∑w##TTTTTTTTTT&.......#";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##„„„„.∫∫∫..∑w##TTTTTTTTTT&rr....>#";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##.....i..k.∑∑##TTTTTTTTTT&.......#";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTDTTTT#######.rr.#######TTTTTT##,,∞„.∫∫∫...∑##TTTTTTTTTT&.......#";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##„„„„.∫∫∫...¬##TTTTTTTTTT&rr....>#";
+  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##.....i..k..∑##TTTTTTTTTT&.......#";
   mapStrings[mapIndex] += "TT%%%TTTTTTTTT#.rrrrrrrrrrrrrrr#TTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT###>###+##+###=#TTTTTTTTTT#rr.[]..#";
   mapStrings[mapIndex] += "TT%*%TTTTTTTTT##&###&###&###&#<#TTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##########$$$$$#TTTTTTTTTT#########";
   mapStrings[mapIndex] += "TTT~TT~TTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
@@ -424,7 +424,12 @@ void setupMaps()
   m[0].tiles[52][27].createEvent(true, "- Kitchen");
   m[0].tiles[47][39].createEvent(true, "- Armory");
   m[0].tiles[52][39].createEvent(true, "- Laboratory");
-  m[0].tiles[68][44].createEvent(false, "- In the waning days of his life, Father Charis's study went largely unused. You still remember days passed, when the smell of ink and herbs would mix with the sound of water and a scratching quill. How could this place be so empty when he was alive only yesterday?");
+  m[0].tiles[67][42].createEvent(false, "- Impressions from your and Charis's knees remain in the soil.");
+  m[0].tiles[69][42].createEvent(false, "- The sharp medicinal scent of herbs has already begun to fade.");
+  m[0].tiles[72][44].createEvent(false, "- You would hide among these old robes when playing games as children. Charis always pretended not to see you.");
+  m[0].tiles[73][42].createEvent(false, "- Tucked between his holy scriptures are illustrated fairy tales.");
+  m[0].tiles[77][43].createEvent(false, "- You can almost hear the familiar scratching of his quill.");
+  //m[0].tiles[68][44].createEvent(false, "- In the waning days of his life, Father Charis's study went largely unused. You still remember days passed, when the smell of ink and herbs would mix with the sound of water and a scratching quill. How could this place be so empty when he was alive only yesterday?");
   m[0].tiles[75][44].createEvent(false, "- Charis had no more worldly possessions than any other cleric. Why did he have an extra closet?");
   m[0].tiles[34][79].createEvent(false, "- There is a giant web across the path.");
   m[0].tiles[13][93].createEvent(false, "- Something snaps under your foot. A bone. There are gnawed remains all around the trees near the bridge.");
@@ -599,23 +604,23 @@ void setupMaps()
   
   createLoot(lootIndex++, 1, 3, 4, Key.COPPER_KEY);
   createLoot(lootIndex++, 1, 1, 2, new Equipment("Brocade","YellowShirt.png",5,false,5,true));
-  createLoot(lootIndex++, 1, 54, 1, new Equipment("Ivory Knife","IceDagger.png",15,true,15,true));
+  createLoot(lootIndex++, 1, 54, 1, new Equipment("Ivory Knife","IceDagger2.png",15,true,15,true));
   createLoot(lootIndex++, 1, 62, 1, new Equipment("Staff","Staff.png",2,true,14,Job.KNIGHT,Job.PRIEST,Job.DRUID,Job.MAGE));
   createLoot(lootIndex++, 1, 17, 21, Key.COPPER_KEY);
   createLoot(lootIndex++, 1, 79, 3, new Equipment("Vestment","BlueShirt.png",3,false,7,true));
   createLoot(lootIndex++, 1, 81, 5, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 83, 5, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 23, 17, new Item("Health Potion",12) );
-  createLoot(lootIndex++, 1, 23, 19, new Equipment("Knife","MetalDagger.png",4,true,12,true) );
+  createLoot(lootIndex++, 1, 23, 19, new Equipment("Knife","MetalDagger2.png",4,true,12,true) );
   createLoot(lootIndex++, 1, 23, 21, new Item("Health Potion",12) );
-  createLoot(lootIndex++, 1, 17, 17, new Equipment("Rusty Sword","CrimsonSword.png",6,true,20,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.BARD) );
+  createLoot(lootIndex++, 1, 17, 17, new Equipment("Rusty Sword","CrimsonSword.png",6,true,20,Job.KNIGHT,Job.BARBARIAN,Job.BARD) );
   createLoot(lootIndex++, 1, 3, 18, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 4, 18, new Equipment("Old Leather","LeatherArmor.png",5,false,10,Job.KNIGHT,Job.BARBARIAN,Job.BARD,Job.THIEF,Job.DRUID,Job.PRIEST) );
   createLoot(lootIndex++, 1, 5, 18, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 7, 15, Key.BRASS_KEY);
   createLoot(lootIndex++, 1, 48, 16, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 49, 16, new Item("Meat",20) );
-  createLoot(lootIndex++, 1, 66, 15, new Equipment("Ratfang","Ratfang.png",15,true,25,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.BARD,Job.THIEF,Job.DRUID,Job.MAGE) );
+  createLoot(lootIndex++, 1, 66, 15, new Equipment("Ratfang","Ratfang.png",15,true,20.01,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.BARD,Job.THIEF,Job.DRUID,Job.MAGE) );
   createLoot(lootIndex++, 1, 33, 30, new Item("Bread",10) );
   createLoot(lootIndex++, 1, 66, 53, Key.CRYPT_KEY );
   createLoot(lootIndex++, 1, 67, 53, Key.CRYPT_KEY );
@@ -1857,9 +1862,12 @@ void setNameDependentText()
   m[0].tiles[84][58].placeOccupant( color(200,150), "- I'm so proud of you, "+party.hero[2].name+"." );
  
   //Teachers
-  m[0].tiles[12][32].placeOccupant( lesserRitisuColor, "- Knights"+knightName+" rely on their armor, and gain two energy when they defend against an attack. Barbarians"+barbName+" gain one anger whenever they are attacked." );
-  m[0].tiles[12][36].placeOccupant( lesserRitisuColor, "- Thieves"+thiefName+" gain five energy on successful critical blows. Martial artists"+monkName+" do not gain bonus energy, but will always start a fight full of spiritual power." );
+  m[0].tiles[12][32].placeOccupant( lesserRitisuColor, "- Knights"+knightName+" rely on their armor, and gain two energy when they defend against an attack. Barbarians"+barbName+" gain one anger whenever they are attacked. The reptile people"+saurName+" are natural warriors, and gain energy twice as fast as humans." );
+  m[0].tiles[12][36].placeOccupant( lesserRitisuColor, "- Thieves"+thiefName+" gain five energy on successful critical blows. Martial artists"+monkName+" do not gain bonus energy, but will always start a fight full of spiritual power. Bards"+bardName+" can feel a kind of combat rhythm, and gain energy when their allies use abilities." );
   m[0].tiles[33][34].placeOccupant( lesserRitisuColor, "- Magical Power is used by mages"+mageName+" and priests"+priestName+" to fuel their magic. The lure of magic is strong, but once their power is spent a mage can do little." );
+  m[0].tiles[21][30].placeOccupant( lesserRitisuColor, "- The Saurian people are blessed by Am-asma with strength and with scales like iron. Even without a weapon they can devistate their foes." );
+  m[0].tiles[34][32].placeOccupant( lesserRitisuColor, "- There is great power in the natural world, and Druids"+druidName+" have learned to borrow it. They use magic power to beckon the elements or take the form of beasts." );
+  
   //Garrison
   m[0].tiles[98][41].placeOccupant( color(160, 160, 160), "- Knights"+knightName+" can wear heavy armor, which provides the best protection. Priests of Illamar"+priestName+" have been blessed with the strength to wear plate as well. Simpler armors like chain and leather can be worn by wild warriors"+barbName+" and rogues"+thiefName+". Martial artists"+monkName+" are trained to fight wearing common garb, and the magic of magi is disrupted by heavy material"+magePhrase+"." );
   m[0].tiles[98][45].placeOccupant( color(160, 160, 160), "- Swords and axes are the weapons of warriors. Knights"+knightName+" and barbaric fighters"+barbName+" should see no difficulty wielding them. Simpler arms like the club or knife are suitable for those without formal training, though mages"+mageName+" can only manage simple knives and staves. Martial artists"+monkName+" need naught but the hands Am-asma gave them." );
@@ -1888,8 +1896,8 @@ void setNameDependentText()
 
 //Expected Level:
 //(old exp system)
-//Rat queen 1.7
-//man-wolf 3.3
+//Rat queen 1.7 / 1.9
+//man-wolf 3.3 / 3.2
 //crypt guards 4.5 before, 5.2 back at courtyard
 //before necro 6.7 / 5.7 (died)
 
