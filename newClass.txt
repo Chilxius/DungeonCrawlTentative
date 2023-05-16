@@ -55,7 +55,7 @@ GreenLeatherArmor.png
 4
 14.0
 
-8
+4
 
 0
 Brocade

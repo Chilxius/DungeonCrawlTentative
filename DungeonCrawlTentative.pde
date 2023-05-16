@@ -11,7 +11,8 @@ import ddf.minim.ugens.*;
 //Dungeon Crawl Game
 //Bennett Ritchie
 
-//Make druids stronger?
+//Fix Ratfang image (blurry)
+//Fix vapor potion (in combat)
 
 //PROBLEMS:
 //Fix lineLength error and problem with not printing entire line
