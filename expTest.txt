@@ -5,9 +5,9 @@ BARD
 83.0
 41
 700
-136
-54
-10
+239
+187
+0
 Alar's Axe
 MetalAxe.png
 25
@@ -24,13 +24,13 @@ BARBARIAN
 100.0
 41
 700
-136
-50
-10
-Fist
-Fist.png
+239
+290
 0
-28.0
+Ritual Knife
+curvedDagger.png
+35
+30.01
 Spidersilk
 WhiteShirt.png
 21
@@ -43,21 +43,21 @@ MAGE
 249.0
 41
 700
-136
-50
-35
+239
+125
+207
 Purifier
 StoneClub.png
 25
 27.0
-Old Plate
-RustyArmor.png
-7
-18.0
+Ritual Robes
+darkRobes.png
+29
+20.0
 
-8
+9
 
-107
+157
 Peach of Peace
 30
 Mana Potion
@@ -90,6 +90,10 @@ Honey Bread
 10
 Sourdough
 10
+Old Plate
+7
+Mana Potion
+12
 XX
 
 CHARIS
@@ -158,9 +162,9 @@ true
 true
 true
 true
-true
-true
-true
+false
+false
+false
 false
 false
 false
@@ -322,8 +326,8 @@ false
 false
 true
 true
-true
-true
+false
+false
 false
 false
 false

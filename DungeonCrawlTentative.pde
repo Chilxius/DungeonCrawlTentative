@@ -11,7 +11,7 @@ import ddf.minim.ugens.*;
 //Dungeon Crawl Game
 //Bennett Ritchie
 
-//Fix Ratfang image (blurry)
+//Shrink boat as much as possible
 //Fix vapor potion (in combat)
 
 //PROBLEMS:

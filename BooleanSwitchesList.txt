@@ -1,6 +1,0 @@
-Switches can be CHESTS, DOORS
-
-0 - Chest at 0,5 (Red Crystal)
-1 - Chest at 6,5 (Orange Crystal)
-2 - Chest at 15,12 (Copper Key)
-3 - Door (doorstop at 18,4 / door at 19,4)
