@@ -940,7 +940,7 @@ Barbarian
   Blood Strike (spend str/5 HP to increase damage)
   Cleave       (attack all)
   Blood Rage   (boost strength)
-  
+               (use bonus based on blood abilities used)
   Regen self-buff?
   
 Saurian
