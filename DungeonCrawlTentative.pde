@@ -11,7 +11,7 @@ import ddf.minim.ugens.*;
 //Dungeon Crawl Game
 //Bennett Ritchie
 
-//Shrink boat as much as possible
+//Shrink boat as much as possible (need hold and a copy of lower deck)
 //Fix vapor potion (in combat)
 
 //PROBLEMS:
@@ -93,7 +93,7 @@ int windowX, windowY;
 //Sound effects
 Sound s;
 //SoundFile openDoorSound, openChestSound, lockedDoorSound, potionDrinkSound, foodBiteSound;
-SoundFile SFX[] = new SoundFile[7];
+SoundFile SFX[] = new SoundFile[8];
 
 /*
 //Music
@@ -248,6 +248,8 @@ void setup()
   tileImage[91] = loadImage("potionBlue.png");   tileImage[91].resize(56,0);
   tileImage[92] = loadImage("potionYellow.png"); tileImage[92].resize(56,0);
   tileImage[93] = loadImage("potionRed.png");    tileImage[93].resize(56,0);
+  tileImage[94] = loadImage("chain.png");        tileImage[94].resize(0,30);
+  tileImage[95] = loadImage("fatRat.png");       tileImage[95].resize(0,30);
   
   iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
   iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
@@ -276,6 +278,7 @@ void setup()
   SFX[4] = new SoundFile(this, "bite.mp3");
   SFX[5] = new SoundFile(this, "glass.mp3");  SFX[5].amp(0.5);
   SFX[6] = new SoundFile(this, "save.mp3");
+  SFX[7] = new SoundFile(this, "gate.wav");   SFX[7].amp(0.5);
   
   /*
   println("Loading music data...");
@@ -434,9 +437,9 @@ public String inputText() //Retrieves the text in the box and switches game stat
       //key = ' ';
     }
     else
-    { //<>//
+    {
       step = HeroCreationStep.JOB;
-      input = Input.HERO_JOB_CHOICE; //<>// //<>//
+      input = Input.HERO_JOB_CHOICE; //<>//
       if(textBuffer.equals(""))
         textBuffer = randomName();
       advanceText("Select "+textBuffer+"'s Job");
@@ -660,9 +663,11 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case DARK_WALL: return "Solid stone";
     case WATER: return "You never learned how to swim";
     case TREE: case DARK_TREE: return "A tree";
+    case BIG_RAT:
     case PORTCULLIS:
     case DOOR_GATE:
     case DOOR: return m[party.floor].tiles[party.X][party.Y].keyMessage();
+    case CHAIN: return "A heavy link of anchor chain";
     case BLACK_WALL: return "An unlit wall";
     case GARGOYLE_JADE: return "A gargoyle carved of jade";
     case GARGOYLE_DARK: return "An image of the Black Vanguard";
@@ -972,7 +977,6 @@ void keyPressed()
       if(m[party.floor].tiles[party.X][party.Y].interact(party.keyInventory))
       {
         m[party.floor].openDoorsAround(party.X,party.Y);
-        SFX[0].play();
         //openDoorSound.rewind();
       }
 

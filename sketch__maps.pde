@@ -1540,36 +1540,36 @@ void setupMaps()
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   
-  mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "www∑∑∑∑∑WW∑WWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑WWWWWWWWWWWW∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "w∑∑∑WWWWWW∑WWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„<WWWWWWWWWWWWWWW∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑∑WWWWWWWW∑WWWWWWWW∑„„„„„„„„„„„„„„„„M„„„„„„„„„„„„„„„∑WWWWWWWWWWWWWWWWW∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑WWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑WWWWWWWWWWWWWWWWWW∑∑wwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑WWWWW∑„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„„„„„∑WWWWWW∑∑∑WWWWWWWWWW∑∑wwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„∑„„„„„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„„„„„∑WWWWWW∑∑∑WWWWWWWWWWW∑∑wwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑WWWWW∑„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑∑∑∑∑WWWWWW∑∑wwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑WWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑WWWWWWWWWWWW∑WWWWW∑∑wwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑∑WWWWWWWW∑WWWWWWWW∑„„„„„„„„„„„„„„„„M„„„„„„„„„„„„„„„∑WWWWWWWWWWWW∑WWWW∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "w∑∑∑WWWWWW∑WWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„<WWWWWWWWWWWW∑WW∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "www∑∑∑∑∑WW∑WWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑WWWWWWWWWWWW∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "wwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "ww∑∑∑∑∑WWWWWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑WWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "∑∑∑WWWWWWWWWWWWWWW∑„=„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„<WWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "∑WWWWWWWWWWWWWWWWW∑„„„„„„„„„„„„„„„„M„„„„„„„„„„„„„„„∑WWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "WWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑WWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "WWWWW∑„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„„„„„∑WWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "WWWWW∑„„„∑„„„„„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„„„„„∑WWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "WWWWW∑„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„„„„„∑WWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "WWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑WWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "∑WWWWWWWWWWWWWWWWW∑„„„„„„„„„„„„„„„„M„„„„„„„„„„„„„„„∑WWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "∑∑∑WWWWWWWWWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„<WWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "ww∑∑∑∑∑WWWWWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑WWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "wwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwww";
-  mapStrings[mapIndex] += "www∑∑∑∑∑„„∑„€„€„€„Ç∑WWWWWW∑„„„„„„„„„„„∑∑∑∑wwwwwwwwwwwwww∑∑∑∑∑„„∑„€„€„€„Ç∑WWWWWW∑„„„„„„„„„„„∑∑∑∑wwwww";
-  mapStrings[mapIndex] += "w∑∑∑„„„„„„∑„`````„„∑WWWWWW<„„„„„„„„„„„„„„∑∑∑wwwwwwwwww∑∑∑„„„„„„∑„``````„∑WWWWWW<„„„„„„„„„„„„„„∑∑∑www";
-  mapStrings[mapIndex] += "∑∑„„„„„„„„∑„„„„„„„]∑WWWWWW∑„„„„„„„„„„„„„„„„∑∑wwwwwwww∑∑„„„„„„„„∑„„„„„„„]∑WWWWWW∑„„„„„„„„„„„„„„„„∑∑ww";
-  mapStrings[mapIndex] += "∑Ç„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„„„„„„„„„„„„„∑∑wwwwwww∑„„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„„„„„„„„„„„„„∑∑w";
-  mapStrings[mapIndex] += "∑ÇÇ„€=∑WWWWWWWWWWWWWWWWWWW∑„„„„„„∑∑∑„„„„„„„„„∑∑wwwwww∑„„„„„∑WWWWWWWWWWWWWWWWWWW∑„„„„„„∑∑∑„„„„„„„„„∑∑";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑WWW∑WWWWWWWWWWWWWWW∑„„„„„„∑∑∑„„„„„„„„„∑∑wwwwww∑∑∑∑∑∑∑WWW∑WWWWWWWWWWWWWWW∑„„„„„„∑∑∑„„„„„„„„„∑∑";
-  mapStrings[mapIndex] += "∑≠Ç„BB∑WWWWWWWWWWWWWWWWWWW∑∑∑∑∑∑∑∑∑∑∑∑∑∑„„„„„∑∑wwwwww∑≠Ç„BB∑WWWWWWWWWWWWWWWWWWW∑∑∑∑∑∑∑∑∑∑∑∑∑∑„„„„„∑∑";
-  mapStrings[mapIndex] += "∑Ç„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„„„„„„„„∑„„„„∑∑wwwwwww∑Ç„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„„„„„„„„∑„„„„∑∑w";
-  mapStrings[mapIndex] += "∑∑¬„„„„„„„∑„„„„„„ÇÇ∑WWWWWW∑„„„„„„„„„„„„∑„„„∑∑wwwwwwww∑∑¬„„„„„„„∑„„„„„„„„∑WWWWWW∑„„„„„„„„„„„„∑„„„∑∑ww";
-  mapStrings[mapIndex] += "w∑∑∑WW„„„ß∑„`````„„∑WWWWWW<„„„„„„„„„„„„∑„∑∑∑wwwwwwwwww∑∑∑WW„„„ß∑„„„„„„„„∑WWWWWW<„„„„„„„„„„„„∑„∑∑∑www";
-  mapStrings[mapIndex] += "www∑∑∑∑∑„B∑„€„€„€„Ç∑WWWWWW∑„„„„„„„„„„„∑∑∑∑wwwwwwwwwwwwww∑∑∑∑∑„B∑„„„„„„„„∑WWWWWW∑„„„„„„„„„„„∑∑∑∑wwwww";
+  mapStrings[mapIndex] += "www∑∑∑∑∑„Ç∑„€„€„€„Ç∑WWWWWW∑„„Ç„ÇÇ„„„„„∑∑∑∑wwwwwwwwwwwwww∑∑∑∑∑„Ç∑„€„€„€„Ç∑WWWWWW∑„„Ç„ÇÇ„„„„„∑∑∑∑wwwww";
+  mapStrings[mapIndex] += "w∑∑∑Ç„„„„„∑„`````„„∑WWWWWW<„„„„„„„„„„„„∑]∑∑∑wwwwwwwwww∑∑∑Ç„„„„„∑„``````„∑WWWWWW<„„„„„„„„„„„„∑]∑∑∑www";
+  mapStrings[mapIndex] += "∑∑„„„„„„„„∑„„„„„„„]∑WWWWWW∑„„„„„„„„„„„„∑`WW∑∑wwwwwwww∑∑„„„„„„„„∑„„„„„„„]∑WWWWWW∑„„„„„„„„„„„„∑`WW∑∑ww";
+  mapStrings[mapIndex] += "∑Ç„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„„„„„„„„„````∑∑wwwwwww∑Ç„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„„„„„„„„„````∑∑w";
+  mapStrings[mapIndex] += "∑ÇÇ„€=∑WWWWWWWWWWWWWWWWWWW∑„WWWW„∑∑∑W„„∑````W∑∑wwwwww∑ÇÇ„€„∑WWWWWWWWWWWWWWWWWWW∑„WWWW„∑∑∑W„„∑````W∑∑";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑WWWWWWWWWWWWWWWWWWW∑„„„„„„∑∑∑W„„∑````#∑∑wwwwww∑∑∑∑∑∑∑WWW∑WWWWWWWWWWWWWWW∑„„„„„„∑∑∑W„„∑````#∑∑";
+  mapStrings[mapIndex] += "∑≠Ç„BB∑WWWWWWWWWWWWWWWWWWW∑∑∑∑∑∑∑∑∑∑∑∑∑∑````W∑∑wwwwww∑≠Ç„BB∑WWWWWWWWWWWWWWWWWWW∑∑∑∑∑∑∑∑∑∑∑∑∑∑````W∑∑";
+  mapStrings[mapIndex] += "∑Ç„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„≈≈≈≈„„„„˙∑]]``∑∑wwwwwww∑Ç„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„≈≈≈≈„„„„„∑]]``∑∑w";
+  mapStrings[mapIndex] += "∑∑¬„„„„„„„∑„„„„„„ÇÇ∑WWWWWW∑„Ç„„„≈≈„≈≈≈‰∑]]]∑∑wwwwwwww∑∑¬„„„„„„„∑„„„„„„ÇÇ∑WWWWWW∑„Ç„„„≈≈„≈≈≈≈∑]]]∑∑ww";
+  mapStrings[mapIndex] += "w∑∑∑WW„„„ß∑„`````„„∑WWWWWW<„≈≈≈„≈≈„≈≈≈ ∑]∑∑∑wwwwwwwwww∑∑∑WW„„„ß∑„`````„„∑WWWWWW<„≈≈≈„≈≈„≈≈≈≈∑]∑∑∑www";
+  mapStrings[mapIndex] += "www∑∑∑∑∑„B∑„€„€„€„Ç∑WWWWWW∑„≈≈≈„„„„≈≈≈∑∑∑∑wwwwwwwwwwwwww∑∑∑∑∑„B∑„€„€„€„Ç∑WWWWWW∑„≈≈≈„„„„≈≈≈∑∑∑∑wwwww";
   mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwww";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
@@ -1596,8 +1596,13 @@ void setupMaps()
   createLoot(lootIndex++, 3, 4, 49, new Item("Bread", 10) );
   //Kat's Chest
   createLoot(lootIndex++, 3, 5, 83, new Equipment("Rat's Pelt","darkFur.png",2,false,18,true) );
+  createLoot(lootIndex++, 3, 2, 82, Key.CHEESE );
+  createLoot(lootIndex++, 3, 20, 62, new Equipment("Cutlass","cutlass.png",15,true,24,Job.KNIGHT,Job.BARBARIAN,Job.BARD,Job.THIEF,Job.DRUID) );
+  createLoot(lootIndex++, 3, 41, 87, new Item("Citrus", 30) );
+  
   
   //m[mapIndex].tiles[0][0].createEvent(false, "- TEXT");
+  m[mapIndex].tiles[2][82].createEvent(false, "- Something in Kat's luggage reeks.");
   
   //Captain
   m[mapIndex].tiles[17][27].placeOccupant( color(captain), "- Ahoy! My queen will treat you well, and ferry you safely across the sea. Breathe the salt air! Taste the winds of freedom!" );
@@ -1616,6 +1621,7 @@ void setupMaps()
   m[mapIndex].tiles[40][21].placeOccupant( color(sailor), "- My guess is the pirates have retreated to plan something big." );
   m[mapIndex].tiles[41][21].placeOccupant( color(sailor), "- Nah, them villains got no patience." );
   m[mapIndex].tiles[47][25].placeOccupant( color(sailor), "- Cory is staring off at the horizion again. I think he might sleep there." );
+  m[mapIndex].tiles[35][33].placeOccupant( color(sailor), "- I may be wrong, but are we listing to starboard? Someone must have loaded something heavy into the chain locker." );
   //Cory
   m[mapIndex].tiles[51][27].placeOccupant( color(coryColor), "- My sister turned to piracy. Ever since the monsters emerged around Lost Star Isle, we stopped receiving her letters. That's why I sail. I haven't lost faith." );
   //Sailors in bunks
@@ -1630,9 +1636,12 @@ void setupMaps()
   m[mapIndex].tiles[44][46].placeOccupant( color(ritisuColor), "- Ever since my youth, I have seen naught but images of the wide blue sea in Ritisu's Tear. These shimmering waters are my past and my future." );
   m[mapIndex].tiles[45][49].placeOccupant( color(lesserRitisuColor), "- I see the ocean in the gem as well, though of late I sometimes notice strange and dark shapes in the water. It is not like Ritisu to veil knowledge." );
   //Sailor in your room
-  m[mapIndex].tiles[16][81].placeOccupant( color(sailor), "Oh, excuse me. I don't usually enter a paying passenger's room. I saw a giant rat and unbearable terror took over me. I don't care for rats of any size. Do exterminate them, won't you?" );
-  
-  
+  m[mapIndex].tiles[16][81].placeOccupant( color(sailor), "- Oh, excuse me. I don't usually enter a paying passenger's room. I saw a giant rat and unbearable terror took over me. I don't care for rats of any size. Do exterminate them, won't you?" );
+  //Galley
+  m[mapIndex].tiles[43][84].placeOccupant( color(captain), "- It's been quiet out there. Are they done stowing already? Makes no difference to me. Supper will be ready on time, and it will be fish. Do you like fish? Because fish is what you'll be eating. Welcome to the sea, landlegs." );
+  m[mapIndex].tiles[42][82].placeOccupant( color(mYoung), "- We have a few delicacies, if you ask nicely. That nice girl with the scratched up arms took our supply of esrom." );
+  m[mapIndex].tiles[42][86].placeOccupant( color(fYoung), "- Fruit is vital to combat scurvy. Take some if you need." );
+  m[mapIndex].tiles[37][79].placeOccupant( color(#FFB443), "- *HSSSS*  The poor cat is terrified." );
   
   m[mapIndex].tiles[40][32].placeBuyer();
   m[mapIndex].tiles[41][32].placeOccupant( color(10,10,50), "- I love the open sea. So much easier to hide from the Vendor's Guild. Got anything for me?" );
@@ -1664,36 +1673,36 @@ void setupMaps()
   exits.add( new Portal(3,27,47,3,43,7, "Main Deck") );
   
   //Deck to Lower Deck
-  exits.add( new Portal(3,31,3,3,36,63, "Lower Deck") );
-  exits.add( new Portal(3,36,63,3,31,3, "Main Deck") );
+  exits.add( new Portal(3,31,3,3,35,63, "Lower Deck") );
+  exits.add( new Portal(3,35,63,3,31,3, "Main Deck") );
   
   //Lower Deck to Deck secret barrel
-  exits.add( new Portal(3,31,11,3,36,69, "Lower Deck") );
-  exits.add( new Portal(3,36,69,3,31,11, "Main Deck") );
+  exits.add( new Portal(3,31,11,3,35,69, "Lower Deck") );
+  exits.add( new Portal(3,35,69,3,31,11, "Main Deck") );
   
   //Lower Deck to Galley
-  exits.add( new Portal(3,52,62,3,26,80, "Galley") );
-  exits.add( new Portal(3,26,80,3,52,62, "Lower Deck") );
+  exits.add( new Portal(3,51,62,3,26,80, "Galley") );
+  exits.add( new Portal(3,26,80,3,51,62, "Lower Deck") );
   
   //Lower Deck to Chain Locker
-  exits.add( new Portal(3,52,70,3,26,88, "Chain Locker") );
-  exits.add( new Portal(3,26,88,3,52,70, "Lower Deck") );
+  exits.add( new Portal(3,51,70,3,26,88, "Chain Locker") );
+  exits.add( new Portal(3,26,88,3,51,70, "Lower Deck") );
   
   //Lower Deck to NE Cabin
-  exits.add( new Portal(3,14,64,3,14,82, "Your Cabin") );
-  exits.add( new Portal(3,14,82,3,14,64, "Lower Deck") );
+  exits.add( new Portal(3,13,64,3,14,82, "Your Cabin") );
+  exits.add( new Portal(3,14,82,3,13,64, "Lower Deck") );
   
   //Lower Deck to NW Cabin
-  exits.add( new Portal(3,8,64,3,8,82, "Kat's Cabin") );
-  exits.add( new Portal(3,8,82,3,8,64, "Lower Deck") );
+  exits.add( new Portal(3,7,64,3,8,82, "Kat's Cabin") );
+  exits.add( new Portal(3,8,82,3,7,64, "Lower Deck") );
   
   //Lower Deck to SE Cabin
-  exits.add( new Portal(3,14,68,3,14,86, "Officer's Cabin") );
-  exits.add( new Portal(3,14,86,3,14,68, "Lower Deck") );
+  exits.add( new Portal(3,13,68,3,14,86, "Officer's Cabin") );
+  exits.add( new Portal(3,14,86,3,13,68, "Lower Deck") );
   
   //Lower Deck to Ship's Office
-  exits.add( new Portal(3,8,68,3,8,86, "Ship's Office") );
-  exits.add( new Portal(3,8,86,3,8,68, "Lower Deck") );
+  exits.add( new Portal(3,7,68,3,8,86, "Ship's Office") );
+  exits.add( new Portal(3,8,86,3,7,68, "Lower Deck") );
   
   /*
   m[mapIndex].tiles[0][0].placeBoss( mapIndex, color(0), "TEXT.", new Monster("Skeletal Guardian", "DarkScimitarSkeleton.png", 50, 15, 5, 7, 0, 5, 9, 0, AttackType.HOLY), true);
@@ -1915,7 +1924,7 @@ void setNameDependentText()
   //Kat
   m[0].tiles[19][53].placeOccupant( color(250,0,170), "- AH! "+party.hero[1].name+", where did you come from? Was it you who slew those rats in the cellar? You're strong, "+party.hero[1].name+". Brave, too. If only I could borrow that courage. Some of them escaped the cellar with my prototype potion. I don't know what effect it will have on fauna, but it is my responsibilty to prevent harm. I-if you want to help, I'd appreciate it. My "+heroWeapon[1]+" "+wasOrWere(heroWeapon[1].charAt(heroWeapon[1].length()-1))+" never as strong as yours." );
   m[1].tiles[49][14].placeOccupant( color(250,0,170), "She's slumped against the wall. Her arm is burned. - "+party.hero[1].name+"? How did you avoid the man-wolf? I had to use my draught of disguise. The rats are getting larger, and mutating in strange ways. May Am-asma forgive me for my part in this. I was able to trap one up ahead. Could you please fight him? I have food here if you feel hungry. I'll be fine, I just need a rest..." );
-  m[3].tiles[1][24].placeOccupant( color(katColor), "Her face is pale and dripping with cold sweat. - Uh... oh, "+party.hero[1].name+". Why are you here? Books with strange symbols? Investigating Father Charis's death? Wow, you sure have been busy since leaving the cathedral. I was following the rats, but some of them followed me. They're in the ship. I locked them in the lower deck. I was going to tell the captain, but the ship started swaying and... uh, my poor stomach... I must have dropped the key." );
+  m[3].tiles[1][24].placeOccupant( color(katColor), "Her face is pale and dripping with cold sweat. - Uh... oh, "+party.hero[1].name+". Why are you here? Books with strange symbols? Looking into Father Charis's death? Wow, you sure have been busy since leaving the cathedral. I was following the rats, but some of them followed me. They're in the ship. I locked them in the lower deck. I was going to tell the captain, but the ship started swaying and... uh, my poor stomach... I must have dropped the key." );
   
   //Garrison
   m[1].tiles[4][42].placeOccupant( color(garrisonColor), "- " + party.hero[0].name + "! Finally come to your senses and decided to join the garrison? We need " + needAnA(heroWeapon[0]) + heroWeapon[0] + " like yours to help train these milksops to soldier!" );
