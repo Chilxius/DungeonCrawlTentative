@@ -895,12 +895,23 @@ public int getZone( String title )
       return 8;
       
     //Barracuda Queen
+    case " Ship's Office ":  //coming out of the chest
+      SFX[1].play();
+    case "Ship's Office":
     case "The Barracuda Queen":
     case "Forecastle Deck":
     case "Main Deck":
+    case "Lower Deck":
     case "Quartereck":
     case "Captain's Cabin":
     case "Wardroom":
+    case "Galley":
+    case "Chain Locker":
+    case "Your Cabin":
+    case "Kat's Cabin":
+    case "Officer's Cabin":
+    case "Sail Locker":
+    case "Hold":
       return 9;
       
     //Caves

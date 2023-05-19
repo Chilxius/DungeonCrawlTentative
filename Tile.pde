@@ -479,6 +479,7 @@ class Tile
         else if( keys[i] == Key.CHARIS_NOTES )
         {
           advanceText("- His notes. His work! Enter, quickly!");
+          SFX[7].play();
         }
         else if( keys[i] == Key.CHEESE )
         {

@@ -9,7 +9,7 @@ KNIGHT
 25
 0
 Fist
-Fist.png
+MetalSword.png
 0
 3.0
 Shirt
@@ -28,7 +28,7 @@ BARD
 20
 0
 Fist
-Fist.png
+cutlass.png
 0
 3.0
 Shirt
@@ -47,7 +47,7 @@ SAURIAN
 35
 0
 Fist
-fist_green.png
+rapier.png
 0
 10.0
 Scales
