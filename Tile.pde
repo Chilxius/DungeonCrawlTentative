@@ -104,6 +104,7 @@ class Tile
       case 'ı':type=TileType.BK_BOOK;break; //shift+alt+b
       case '¬':type=TileType.BL_BOOK;break; //alt+l
       case '≈':type=TileType.CHAIN;break; //alt+x
+      case '˛':type=TileType.CHAIN_HOLE;break; //alt+shift+x
       //different key types
       case 'c':
       case 'ç':
@@ -184,6 +185,7 @@ class Tile
         pathable = false;
         break;
       case CHAIN:
+      case CHAIN_HOLE:
         pathable = false;
         break;
       case SECRET_DARK_WALL: 
@@ -641,6 +643,8 @@ class Tile
       image(tileImage[76],xPos,yPos);
     else if(type == TileType.CHAIN)
       image(tileImage[94],xPos,yPos);
+    else if(type == TileType.CHAIN_HOLE)
+      image(tileImage[96],xPos,yPos);
     else if(type == TileType.BIG_RAT)
       image(tileImage[95],xPos,yPos);
     if(occupied)
@@ -734,7 +738,7 @@ public enum TileType
   GRAVE, S_GLASS, SECRET_GLASS, GARGOYLE, GARGOYLE_DARK, GARGOYLE_JADE, WEREWOLF_WHITE,
   CAMP, MERCHANT, SHOP, SELL,
   STAIR, STAIR_DOOR, STAIR_WOOD,
-  CHAIN
+  CHAIN, CHAIN_HOLE
 }
 
 public enum Key //special items for interactive tiles

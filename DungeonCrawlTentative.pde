@@ -250,6 +250,7 @@ void setup()
   tileImage[93] = loadImage("potionRed.png");    tileImage[93].resize(56,0);
   tileImage[94] = loadImage("chain.png");        tileImage[94].resize(0,30);
   tileImage[95] = loadImage("fatRat.png");       tileImage[95].resize(0,30);
+  tileImage[96] = loadImage("chain_hole.png");   tileImage[96].resize(0,30);
   
   iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
   iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
@@ -668,6 +669,7 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case DOOR_GATE:
     case DOOR: return m[party.floor].tiles[party.X][party.Y].keyMessage();
     case CHAIN: return "A heavy link of anchor chain";
+    case CHAIN_HOLE: return "A heavy link of anchor chain";
     case BLACK_WALL: return "An unlit wall";
     case GARGOYLE_JADE: return "A gargoyle carved of jade";
     case GARGOYLE_DARK: return "An image of the Black Vanguard";
