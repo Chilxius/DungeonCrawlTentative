@@ -441,9 +441,9 @@ class Artist
     textSize(20);
     for(int i = 0; i < 4; i++) //Display full description
     {
-      if(mouseInBox(140+i*140,280) && party.hero[h].level > i*5 )
+      if(mouseInBox(140+i*140,280) && party.hero[h].level >= i*5 )
         text(party.hero[h].skill[i].fullDescription,350,200);
-      if(mouseInBox(140+i*140,430) && party.hero[h].level > (i+4)*5 )
+      if(mouseInBox(140+i*140,430) && party.hero[h].level >= (i+4)*5 )
         text(party.hero[h].skill[i+4].fullDescription,350,200);
     }
     
@@ -1413,6 +1413,9 @@ class Artist
         break;
       case 10:
         image(battleBack[3],width/2,252);
+        break;
+      case 8: case 9:
+        image(battleBack[4],width/2,252);
         break;
     }
     pop();

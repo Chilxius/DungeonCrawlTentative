@@ -155,6 +155,8 @@ class Monster
       hp = 0;
       alive = false;
       poison = 0;
+      battle.exp += experiencePoints();
+      battle.gold += gold;
       displayTextLine( name + " collapses!" );
       return true;
     }

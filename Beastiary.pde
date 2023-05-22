@@ -133,6 +133,31 @@ class Beastiary
       list[dangerZone][2].attacks[4] = new Attack("gives an icy stare.", 30, true, AttackStat.MAG, AttackType.ICE);
     list[dangerZone][3] = new Monster();
     list[dangerZone][4] = new Monster();
+    
+    //String n, String image, int health, int s, int d, int c, int m, int w, int sp, int g, AttackType weak
+    
+    //6 - Barracuda Queen
+    dangerZone++;
+    list[dangerZone][0] = new Monster("Bilge Rat",  "blueRat.png",  30, 19, 15, 5, 5, 4, 12, 0, AttackType.FIRE);
+      list[dangerZone][0].attacks[0] = new Attack("coughs up salt water.");
+      list[dangerZone][0].attacks[1] = new Attack("scratches.", 40, false);
+      list[dangerZone][0].attacks[2] = new Attack("bites.", 55, false);
+      list[dangerZone][0].attacks[3] = new Attack("bites.", 55, false);
+      list[dangerZone][0].attacks[4] = new Attack("sprays icy seawater.", 30, true, AttackStat.MAG, AttackType.ICE);
+    list[dangerZone][1] = new Monster("Bilge Rat",  "blueRat.png",  30, 19, 15, 5, 5, 4, 12, 0, AttackType.FIRE);
+      list[dangerZone][1].attacks[0] = new Attack("coughs up salt water.");
+      list[dangerZone][1].attacks[1] = new Attack("scratches.", 40, false);
+      list[dangerZone][1].attacks[2] = new Attack("bites.", 55, false);
+      list[dangerZone][1].attacks[3] = new Attack("bites.", 55, false);
+      list[dangerZone][1].attacks[4] = new Attack("sprays icy seawater.", 30, true, AttackStat.MAG, AttackType.ICE);
+    list[dangerZone][2] = new Monster("Bilge Rat",  "blueRat.png",  30, 19, 15, 5, 5, 4, 12, 0, AttackType.FIRE);
+      list[dangerZone][2].attacks[0] = new Attack("coughs up salt water.");
+      list[dangerZone][2].attacks[1] = new Attack("scratches.", 40, false);
+      list[dangerZone][2].attacks[2] = new Attack("bites.", 55, false);
+      list[dangerZone][2].attacks[3] = new Attack("bites.", 55, false);
+      list[dangerZone][2].attacks[4] = new Attack("sprays icy seawater.", 30, true, AttackStat.MAG, AttackType.ICE);
+    list[dangerZone][3] = new Monster();
+    list[dangerZone][4] = new Monster();
   }
   
   public void addBossToList( Monster m )

@@ -492,6 +492,11 @@ class Tile
         {
           advanceText("- TEXT FOR GRAVE NOTES");
         }
+        else if( keys[i] == Key.GATE )
+        {
+          SFX[7].play();
+          advanceText("The gate creaks open.");
+        }
         else
         {
           advanceText("You use your " + keyName(k) + ".");

@@ -692,6 +692,7 @@ class Hero
       poison = 0;
       poisoned = asleep = paralyzed = weakened = cursed = false;
       for(Buff b: buff) b.deactivate();
+      bardBonus = 0;
       defending = false;
       displayTextLine( name + " falls!" );
     }
@@ -781,6 +782,7 @@ class Hero
       poison = 0;
       poisoned = asleep = paralyzed = weakened = cursed = false;
       for(Buff b: buff) b.deactivate();
+      bardBonus = 0;
       defending = false;
       displayTextLine( name + "collapses!" );
       return true;

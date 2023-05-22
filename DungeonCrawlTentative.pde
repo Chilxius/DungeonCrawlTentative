@@ -17,8 +17,9 @@ import ddf.minim.ugens.*;
 //PROBLEMS:
 //Fix lineLength error and problem with not printing entire line
 //Fix objects getting strange tile colors
-//Boss didn't drop money when killed by poison
+//Boss didn't drop money when killed by poison (might not have given exp either)
 //Balance armor pierce abilities (wow, razor is crazy)
+//Hero gained a level while dead (3rd position, was revived once)
 
 //TO DO:
 //Skills: animation system
@@ -264,6 +265,7 @@ void setup()
   battleBack[1] = loadImage("stoneWall.png"); //resize?
   battleBack[2] = loadImage("graveyard4.png"); //resize?
   battleBack[3] = loadImage("cave.png"); //resize?
+  battleBack[4] = loadImage("woodWall.png");
   
   effectImage[0] = loadImage("bardBonus.png");      effectImage[0].resize(30,0);
   
@@ -1085,12 +1087,14 @@ void keyPressed()
       display = Display.CREDITS;
     }
     
+    /*
     if(display == Display.MAP && key == 'z') //testing
     {
       party.hero[0].takeDamage(5,true);
       party.hero[1].takeDamage(5,true);
       party.hero[2].takeDamage(5,true);
     }
+    */
   }
   //ITEM USE INPUT
   else if(input == Input.ITEM_USE)

@@ -119,20 +119,20 @@ void setupMaps()
   mapStrings[mapIndex] += "TTT~TT~TTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "~TTtTTTTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTT~TTTTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTtTTTTTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTT#+##+##.rr.##+##+#TTTTDTTTTDTTTTTTTDTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TTTtTTTTTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TTT~TTTTTTTT%TTTTTTTTT~TTTTT##π##TTTTTT###i..i...rr...i..k###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "```~TT%TTTTTTTT~TTTTTTTTTT~TG.i.GTTTTTT#>+i......rr......i+>#TTDTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "```~TT%TTTTTTTT~TTTTTTTTTT~TG.i.GTTTTTT#>+i......rr......i+>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "`@`TTTTTT~~~TTT~~t%~~~~t%~~~D...~TTTTTT###i..i...rr...i..i###TTTTTTTTTTYYY¨YYYYYYYYYYYYYYYYYYYYYYYYY";
   mapStrings[mapIndex] += "````~~~~~~T~~~~~~~~~%T~t~~T~~`.`~TTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTYYYYYYYY,YYYYYY,YYYYYYY,YYYYY";
-  mapStrings[mapIndex] += "T``TT~~TTTTT~TTT~TTTTTTTTTT~~```~TTTTTTTT#>##>##.rr.##>##>#TTTTDTTTTTTTYYY,YY,YYYY,YYYYYYYYYYYYY,YYY";
+  mapStrings[mapIndex] += "T``TT~~TTTTT~TTT~TTTTTTTTTT~~```~TTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTYYY,YY,YYYY,YYYYYYYYYYYYY,YYY";
   mapStrings[mapIndex] += "TTTTTT~TT~TTTTTTTTTTTTT~TTTTT~```TTTTTTTT#######.rr.#######TTTTTTTTTTTTYYY¨YYY,YTYYY,YY¨YY¨Y¨YYYYYYY";
-  mapStrings[mapIndex] += "TTTTT~tTT|TTT%TTTTTTTT%TTTTTT~```TTTTTTTTTTTTT##.rr.##TTTTTTTTTDTTTTTTTYYYY,YYYYY,YYYY¨Y¨YY¨YY¨¨YY,Y";
+  mapStrings[mapIndex] += "TTTTT~tTT|TTT%TTTTTTTT%TTTTTT~```TTTTTTTTTTTTT##.rr.##TTTTTTTTTTTTTTTTTYYYY,YYYYY,YYYY¨Y¨YY¨YY¨¨YY,Y";
   mapStrings[mapIndex] += "DTTT~~TTTTT~~~~~~~TTTTT%T~TT~```~TTTTTTTTTTTT##..rr..##TTTTTTTTTTTTTTTTY,YYY`TTYYYYYyYYYYY¨YYYYYYYYY";
   mapStrings[mapIndex] += "TTTT~~~TT~~~~T%TT~~TTDTTTTTT~```~TTTTTTTTTTT##...rr...##TTTTTTTTTTTTTTTYYYYYTT∑∑∑YYY,yy¨¨¨,¨|¨Y¨Y,YY";
-  mapStrings[mapIndex] += "TTTTT~~~~~%TTTTTT~~%TTTTTTTTT~```~TTTTTTTTT##..#.rr.#..##TTTTTTDTTTTTTTYYYYY~TW<WYYY¨YYYY¨Y¨¨,¨YYYYY";
+  mapStrings[mapIndex] += "TTTTT~~~~~%TTTTTT~~%TTTTTTTTT~```~TTTTTTTTT##..#.rr.#..##TTTTTTTTTTTTTTYYYYY~TW<WYYY¨YYYY¨Y¨¨,¨YYYYY";
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTT~~~tTTTTTTTTT~```~TTTTTTTT##.....rr.....##TTTTTTTTTTTTTYY,YY~Y,,,¨yy,YY¨YY¨Y¨YYYYY¨Y";
   mapStrings[mapIndex] += "TTTTTTTTTTTtTTT%~~TttTTTTTTT~```~TTTTTTTTT&..#...rr...#..&TTTTTTTTTTTTTYYYY,YY,¨,YYYYTYY¨YY¨YYYY,YYY";
-  mapStrings[mapIndex] += "TTTTg%%TT~~~~tt~~TTT=TTTTTTT~```~TTTTTTTTT&......rr......&TTDTTTTTTTTTTYY¨YYY¨YYYYYY¨YY¨YYYYY,Y,YYYY";
+  mapStrings[mapIndex] += "TTTTg%%TT~~~~tt~~TTT=TTTTTTT~```~TTTTTTTTT&......rr......&TTTTTTTTTTTTTYY¨YYY¨YYYYYY¨YY¨YYYYY,Y,YYYY";
   mapStrings[mapIndex] += "TTTT%%%T~~TT~~~~TTTTTDTTTTTTT~```~TTTTTTTT&..#...rr...#..&TTTTTTTTTTTTTYYYYYYYY,YYY,YYYYYY,YYYYYYYYY";
   mapStrings[mapIndex] += "TTTT%%~~~TTTT~%TTTTTTTTTTTTTTTTTTTTTTTTTTT##.....rr.....##TTTTTTTTTTTTTYYYY,YYYYYYYYYYYYYYYYYYY,YYYY";
   mapStrings[mapIndex] += "TTTT~~~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##..#.rr.#..##TTTTTTTTTTTTTTYYYYYYYY,YYYYYYYYY,YYYYYYYYYY";
@@ -650,7 +650,7 @@ void setupMaps()
   createLoot(lootIndex++, 1, 98, 83, new Equipment("Flamecaster Staff","Staff2.png",25,true,27.2,Job.DRUID,Job.MAGE) );
   
   //Boss Chamber
-  createLoot(lootIndex++, 1, 37, 92 , new Equipment("Ritual Knife","curvedDagger.png",35,true,30.01,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.BARD,Job.THIEF,Job.DRUID,Job.MAGE) );
+  createLoot(lootIndex++, 1, 37, 92 , new Equipment("Ritual Knife","curvedDagger.png",35,true,25.4,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.BARD,Job.THIEF,Job.DRUID,Job.MAGE) );
   createLoot(lootIndex++, 1, 38, 92 , new Equipment("Ritual Robes","darkRobes.png",29,false,20,true) );
   createLoot(lootIndex++, 1, 46, 92 , new Item("Mana Potion",12) );
   createLoot(lootIndex++, 1, 47, 92 , new Item("Health Potion",24) );
@@ -1478,27 +1478,26 @@ void setupMaps()
   
   mapIndex++; mapStrings[mapIndex] = "";
   mapStrings[mapIndex] += "w∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„ÇÇÇÇ„ÇÇÇ„Ç„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑„„„„„„„„„„„„„ÇÇÇÇ„ÇÇÇ„Ç„„„„„„„„„„„∑∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„ÇÇÇ„„„ÇWWWWW„Ç„„„„„„„M∑∑∑∑∑∑∑∑M„„„„„„„„„„„„„ÇÇÇ„„„ÇWWWWW„Ç„„„„„„„M∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„ÇÇ„„„„i+„MW„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„ÇÇ„„„„„„„MW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„„„„„„„„„„Ç„„„„Ç„„WWWWW„„Ç„„„„„„„∑∑∑∑∑∑∑<„„„„„„„„„„„„„Ç„„„„Ç„„WWWWW„„Ç„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„ÇÇÇÇ„„„„„ÇÇ„Ç„„„„„„„„„„∑∑∑∑∑∑∑∑Ç„„„„„„„„„„„„ÇÇÇÇ„„„„„ÇÇ„Ç„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„„„„„„„„„„„Ç∑∑∑Ç„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑ÇÇ„„„„„„„„„„„„Ç∑∑∑Ç„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇÇ„„„„„„„„„„„„∑∑∑„„ÇÇÇ„„Ç„„„„„„„„„„<∑∑∑∑∑∑∑ÇÇÇ„„„„„„„„„„„„∑∑∑„„ÇÇÇ„„Ç„„„„„„„„„„<∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„Ç„„„„„„„„„„∑∑∑„„„„„„„„Ç„„„„„„„„„∑∑∑∑∑∑∑∑ÇÇ„„Ç„„„„„„„„„„∑∑∑„„„„„„„„Ç„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„„„„Ç„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑Ç„„„„„„„„„„„„„„„Ç„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑<„„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„W]„MW„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„W„„MW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„ÇÇÇÇ„ÇÇÇ„Ç„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„ÇÇÇ„„„ÇWWWWW„Ç„„„„„„„M∑∑∑∑∑∑∑∑M„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„ÇÇ„„„„i+„MW„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„MW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„„„„„„„„„„Ç„„„„Ç„„WWWWW„„Ç„„„„„„„∑∑∑∑∑∑∑+„„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„ÇÇÇÇ„„„„„ÇÇ„Ç„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„„„„„„„„„„„Ç∑∑∑Ç„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇÇ„„„„„„„„„„„„∑∑∑„„ÇÇÇ„„Ç„„„„„„„„„„<∑∑∑∑∑∑∑„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„„„„„„„+∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„Ç„„„„„„„„„„∑∑∑„„„„„„„„Ç„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„„„„Ç„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑+„„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„W]„MW„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„MW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑∑M„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  
-  mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑„„∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+  mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "www∑∑∑∑∑Ç„„„„„„„„„„„„∑∑WWWW∑∑[„„ÇÇ„Ç„„„Ç„„„∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "w∑∑∑ÇÇ„Ç„„„„„„„„„„„„M∑WWWWWW∑M„[[Ç„„„„„Ç„„„„„„∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "∑∑ÇÇÇ„Ç„„Ç„„„„„„„„„„„∑WWWWWW∑„[[Ç„„„„„„„„„„„Ç„„„∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
@@ -1533,11 +1532,11 @@ void setupMaps()
   mapStrings[mapIndex] += "∑∑W¬„∫∫∫„„„„„WW„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "∑„„„„„„„„„„„„„„„„„„<∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwww";
   mapStrings[mapIndex] += "∑„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑,,,,,∑∑∑∑wwww";
-  mapStrings[mapIndex] += "∑≠„„„„„„„„∑∑∑„„„„„„∑∑∑∑∑∑∑∑∑„„„„„„„„∑∑∑„„„„„.∫.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑],}},,,}∑∑∑ww";
+  mapStrings[mapIndex] += "∑≠„„„„„„„„∑∑∑„„„„„„∑∑∑∑∑∑∑∑∑„„„„„„„„∑∑∑„„„„„.∫.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwYOwwwwWWWWWW∑],}},,,}∑∑∑ww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑<„``````„∑∑∑„``„.∫*∫∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑],]∑∑∑,,,=∑∑w";
-  mapStrings[mapIndex] += "∑„„„„„„„„„∑∑∑„„„„„„∑∑∑∑∑∑∑∑∑„„„„„„„„∑∑∑„„„„„.∫.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW<,,,∑∑∑,,,,,∑∑";
+  mapStrings[mapIndex] += "∑„„„„„„„„„∑∑∑„„„„„„∑∑∑∑∑∑∑∑∑„„„„„„„„∑∑∑„„„„„.∫.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwHOwwwwWWWWWW<,,,∑∑∑,,,,,∑∑";
   mapStrings[mapIndex] += "∑„]]]„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑}},∑∑∑},,=∑∑w";
-  mapStrings[mapIndex] += "∑„„„„„„„„rrrrrrrrr„<∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑,,,,,,,,∑∑∑ww";
+  mapStrings[mapIndex] += "∑„„„„„„„„rrrrrrrrr„<∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwHOwwwwWWWWWW∑,,,,,,,,∑∑∑ww";
   mapStrings[mapIndex] += "∑∑„„„Ç„„„rWWWWWWWr„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„˛„∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑},],}∑∑∑∑wwww";
   mapStrings[mapIndex] += "w∑∑∑„ÇÇ„„rrrrrrrrr„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„==≈∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwww";
   mapStrings[mapIndex] += "www∑∑∑∑∑„„„„„„„„„„„∑∑∑∑∑∑∑∑„€„€„€„€„€„€„∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
@@ -1550,15 +1549,15 @@ void setupMaps()
   mapStrings[mapIndex] += "wwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑";
   mapStrings[mapIndex] += "ww∑∑∑∑∑WWWWWWWWWWW∑„ÇÇ„„Ç„„„„„„„„ÇÇ„„„„„ÇÇ„∑WWWWWWww∑∑∑∑∑WWWWWWWWWWW∑ÇÇÇÇÇÇÇÇ„„„„„„„„„„„„„„„„∑WWWWWW";
   mapStrings[mapIndex] += "∑∑∑WWWWWWWWWWWWWWW∑„=„ÇÇ„„W„„ÇÇ„„ÇÇ„„ÇÇ„ÇÇ„<WWWWWW∑∑∑WWWWWWWWWWWWWWW∑ÇÇÇÇÇÇÇ„„„„„„„„„„„„„„„„„<WWWWWW";
-  mapStrings[mapIndex] += "∑WWWWWWWWWWWWWWWWW∑„„„„ÇÇ„„„„ÇÇM„ÇÇ„„Ç„„„„„∑WWWWWW∑WWWWWWWWWWWWWWWWW∑ÇÇÇÇÇÇ„„„„„„M„„„„„„„„„„„∑WWWWWW";
-  mapStrings[mapIndex] += "WWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇ„„„Ç„„ÇÇ„Ç„„„„Ç„ÇÇÇÇ„∑WWWWWWWWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇÇÇ„„„„„„„„„„„„„„„„„„„∑WWWWWW";
-  mapStrings[mapIndex] += "WWWWW∑„„„„„„„„„„„„„ÇÇÇÇ„„ÇÇÇ∑∑∑„ÇÇÇÇÇ„„„„„„∑WWWWWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„∑WWWWWW";
-  mapStrings[mapIndex] += "WWWWW∑„„„∑„„„„„„„„„„ÇÇ„„„„„„∑∑∑„Ç„„Ç„„„ÇÇ„Ç∑WWWWWWWWWWW∑„„„∑„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„∑WWWWWW";
-  mapStrings[mapIndex] += "WWWWW∑„„„„„„„„„„„„„„„ÇÇÇÇÇ„„∑∑∑„„ÇÇÇ„„Ç„Ç„Ç∑WWWWWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„∑WWWWWW";
-  mapStrings[mapIndex] += "WWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑„„„„„„Ç„„„„„„„ÇÇÇ„ÇÇÇÇ„„∑WWWWWWWWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇÇÇ„„„„„„„„„„„„„„„ÇÇÇÇ∑WWWWWW";
-  mapStrings[mapIndex] += "∑WWWWWWWWWWWWWWWWW∑„ÇÇ„Ç„„„ÇÇÇÇM„ÇÇÇ„„„ÇÇÇ„∑WWWWWW∑WWWWWWWWWWWWWWWWW∑ÇÇÇÇÇÇ„„„„„„M„„„„„„ÇÇÇÇÇ∑WWWWWW";
-  mapStrings[mapIndex] += "∑∑∑WWWWWWWWWWWWWWW∑„„ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ„Ç„Ç„<WWWWWW∑∑∑WWWWWWWWWWWWWWW∑ÇÇÇÇÇÇÇ„„„„„„„„„„„ÇÇÇÇÇÇ<WWWWWW";
-  mapStrings[mapIndex] += "ww∑∑∑∑∑WWWWWWWWWWW∑Ç„„„„„„„„„„„„„„„„„„„ÇÇÇÇ∑WWWWWWww∑∑∑∑∑WWWWWWWWWWW∑ÇÇÇÇÇÇÇÇ„„„„„„„„„ÇÇÇÇÇÇÇ∑WWWWWW";
+  mapStrings[mapIndex] += "∑WWWWWWWWWWWWWWWWW∑„„„„ÇÇ„„„„ÇÇM„ÇÇ„„Ç„„„„„∑WWWWWW∑WWWWWWWWWWWWWWWWW∑ÇÇÇÇÇÇ„„Ç„„„M„„„„„„„„„„„∑WWWWWW";
+  mapStrings[mapIndex] += "WWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇ„„„Ç„„ÇÇ„Ç„„„„Ç„ÇÇÇÇ„∑WWWWWWWWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇÇÇ„„„„„„„„„„„„„„„„„ÇÇ∑WWWWWW";
+  mapStrings[mapIndex] += "WWWWW∑„„„„„„„„„„„„„ÇÇÇÇ„„ÇÇÇ∑∑∑„ÇÇÇÇÇ„„„„„„∑WWWWWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„ÇÇ∑WWWWWW";
+  mapStrings[mapIndex] += "WWWWW∑„„„∑„„„„„„„„„„ÇÇ„„„„„„∑∑∑„Ç„„Ç„„„ÇÇ„Ç∑WWWWWWWWWWW∑„„„∑„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„ÇÇÇÇ∑WWWWWW";
+  mapStrings[mapIndex] += "WWWWW∑„„„„„„„„„„„„„„„ÇÇÇÇÇ„„∑∑∑„„ÇÇÇ„„Ç„Ç„Ç∑WWWWWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„ÇÇÇÇ∑WWWWWW";
+  mapStrings[mapIndex] += "WWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑„„„„„„Ç„„„„„„„ÇÇÇ„ÇÇÇÇ„„∑WWWWWWWWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇÇÇ„„„„„„„„„„„„„ÇÇÇÇÇÇ∑WWWWWW";
+  mapStrings[mapIndex] += "∑WWWWWWWWWWWWWWWWW∑„ÇÇ„Ç„„„ÇÇÇÇM„ÇÇÇ„„„ÇÇÇ„∑WWWWWW∑WWWWWWWWWWWWWWWWW∑ÇÇÇÇÇÇ„„„„„„M„„„„„ÇÇÇÇÇÇ∑WWWWWW";
+  mapStrings[mapIndex] += "∑∑∑WWWWWWWWWWWWWWW∑„„ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ„Ç„Ç„<WWWWWW∑∑∑WWWWWWWWWWWWWWW∑ÇÇÇÇÇÇÇ„„„„„„„„„ÇÇÇÇÇÇÇÇ<WWWWWW";
+  mapStrings[mapIndex] += "ww∑∑∑∑∑WWWWWWWWWWW∑Ç„„„„„„„„„„„„„„„„„„„ÇÇÇÇ∑WWWWWWww∑∑∑∑∑WWWWWWWWWWW∑ÇÇÇÇÇÇÇÇ„„„„„„„„ÇÇÇÇÇÇÇÇ∑WWWWWW";
   mapStrings[mapIndex] += "wwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
@@ -1667,7 +1666,11 @@ void setupMaps()
                                                           "♪ Her gold and smile secures a ship "+
                                                           "♪ She raises high the sail "+
                                                           "♪ Across a dark and angry sea "+
-                                                          "♪ We meet beyond the Veil ♪");  
+                                                          "♪ We meet beyond the Veil ♪");
+                                                          
+  //Lower Deck post-boss
+  m[mapIndex].tiles[76][72].placeOccupant( color(sailor), "- A clean ship will sail long." );
+  
   
   m[mapIndex].tiles[40][32].placeBuyer();
   m[mapIndex].tiles[41][32].placeOccupant( color(10,10,50), "- I love the open sea. So much easier to hide from the Vendor's Guild. Got anything for me?" );
@@ -1770,23 +1773,77 @@ void setupMaps()
   
   /*
   29,77
-  31,75
+  19,78
   22,73
   
-  54,43
-  
-  m[mapIndex].tiles[0][0].placeBoss( mapIndex, color(0), "TEXT.", new Monster("Skeletal Guardian", "DarkScimitarSkeleton.png", 50, 15, 5, 7, 0, 5, 9, 0, AttackType.HOLY), true);
-      zoo.boss[bossIndex].attacks[0] = new Attack("prepares for your attack.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("swings its sword.", 45, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("swings wide!", 45, true );
-      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with the pommel.", 45, false );
-      zoo.boss[bossIndex].attacks[4] = new Attack("lunges!", 55, false );
-  bossIndex++;
+  54,43                                                                          String n, String image, int health, int s, int d, int c, int m, int w, int sp, int g, AttackType weak
   */
+  
+  //First big rat
+  m[mapIndex].tiles[19][78].placeBoss( mapIndex, color(#4c585c), "It's bloated like a drowned body.", new Monster("Giant Bilge Rat", "blueRatBig.png", 100, 15, 5, 5, 0, 4, 12, 0, AttackType.FIRE), false);
+      zoo.boss[bossIndex].attacks[0] = new Attack("whips its tail.", 50, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("stomps.", 50, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 65, false );
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites!", 65, false );
+      zoo.boss[bossIndex].attacks[4] = new Attack("throws its body!", 60, true );
+  bossIndex++;
+  
+  //Blocking the chest
+  m[mapIndex].tiles[22][73].placeBoss( mapIndex, color(#4c585c), "Its head touches the deck above.", new Monster("Giant Bilge Rat", "blueRatBig.png", 100, 15, 5, 5, 0, 4, 12, 0, AttackType.FIRE), false);
+      zoo.boss[bossIndex].attacks[0] = new Attack("whips its tail.", 50, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("stomps.", 50, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 65, false );
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites!", 65, false );
+      zoo.boss[bossIndex].attacks[4] = new Attack("throws its body!", 60, true );
+  bossIndex++;
+  
+  //Blocking doubloons
+  m[mapIndex].tiles[29][77].placeBoss( mapIndex, color(#4c585c), "This one is collecting shiny objects.", new Monster("Giant Bilge Rat", "blueRatBig.png", 100, 15, 5, 5, 0, 4, 12, 5, AttackType.FIRE), false);
+      zoo.boss[bossIndex].attacks[0] = new Attack("whips its tail.", 50, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("stomps.", 50, false);
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 65, false );
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites!", 65, false );
+      zoo.boss[bossIndex].attacks[4] = new Attack("throws its body!", 60, true );
+  bossIndex++;
+  
+  //Boat Boss
+  m[mapIndex].tiles[29][77].placeBoss( mapIndex, color(#4c585c), "This one is collecting shiny objects.", new Monster("Blue Ratlord", "blueRatBig.png", 150, 18, 10, 4, 10, 4, 15, 0, AttackType.FIRE), false);
+      zoo.boss[bossIndex].attacks[0] = new Attack("sprays icy seawater.", 40, true, AttackStat.MAG, AttackType.ICE);
+      zoo.boss[bossIndex].attacks[1] = new Attack("bites!", 70, false );
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 70, false );
+      zoo.boss[bossIndex].attacks[3] = new Attack("throws its body!", 60, true );
+      zoo.boss[bossIndex].attacks[4] = new Attack("throws its body!", 60, true );
+  bossIndex++;
+  
   
   //Danger Map 3 (Boat)
   dangerMapIndex = mapIndex; dangerStrs[dangerMapIndex] = "";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+  for(int i = 0; i < 40; i++)
+    dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+  
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
+  
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000066666666666666666666666666666666666666666666666666";
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
@@ -1797,84 +1854,18 @@ void setupMaps()
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
   
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "6666666666666666666666666000000666666666666666666600000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "6666666666666666666666666000066666666666666666666600000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "6666666666666666666666666000066666666666666666666600000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "6666666666666666666666666600066666666666666666666600000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "6666666666666666666666666666666666666666666666666600000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "6666666666666666666666666666666666666666666666666600000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "6666666666666666666666666666666666666666666666666600000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "6666666666666666666666666666666666666666666666666600000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "6666666666666666666666666666666666666666666666666600000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "6666666666666666666666666666666666666666666666666600000000000000000000000000000000000000000000000000";
   
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "6666666666666666666666666666666666666666666666666600000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
@@ -2014,7 +2005,7 @@ void setNameDependentText()
 //Rat queen 1.7 / 1.9
 //man-wolf 3.3 / 3.2
 //crypt guards 4.5 before, 5.2 back at courtyard
-//before necro 6.7 / 5.7 (died)
+//before necro 6.7 / 5.7 (died) / 5.5 (close fight)
 
 //Deities:
 //Black Vanguard - anubis

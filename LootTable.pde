@@ -94,7 +94,7 @@ class LootTable
   
   public String crabName()
   {
-    switch( int(random(6)) )
+    switch( int(random(7)) )
     {
       case 0: return "King Crab";
       case 1: return "Suzerain Shrimp";
@@ -102,6 +102,7 @@ class LootTable
       case 3: return "Queen Crab";
       case 4: return "Lord Lobster";
       case 5: return "Prince Prawn";
+      case 6: return "Overlord Oyster";
       default: return "Meat";
     }
   }
