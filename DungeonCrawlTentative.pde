@@ -13,6 +13,7 @@ import ddf.minim.ugens.*;
 
 //Shrink boat as much as possible (need hold and a copy of lower deck)
 //Fix vapor potion (in combat)
+//Why is ostinato so powerful at higher levels? (maybe cut the level by two in the calculation)
 
 //PROBLEMS:
 //Fix lineLength error and problem with not printing entire line
