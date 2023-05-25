@@ -3,7 +3,7 @@ color sunitaColor   = color(150, 250, 250);
 color clericColor   = color(150, 150, 250);
 color initiateColor = color (150, 150, 200);
 color secretTeacherColor = color(200, 150, 200);
-color ritisuColor   = color(31,153,226), lesserRitisuColor = color(75,180,243);
+color ritisuColor   = color(0,112,175), lesserRitisuColor = color(75,180,243);
 color dummyColor    = color(190, 170, 130);
 color garrisonColor = color(160);
 color governor      = color(125,110,10);
@@ -1481,13 +1481,13 @@ void setupMaps()
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„ÇÇÇÇ„ÇÇÇ„Ç„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„ÇÇÇ„„„ÇWWWWW„Ç„„„„„„„M∑∑∑∑∑∑∑∑M„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„ÇÇ„„„„i+„MW„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„MW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„„„„„„„„„„Ç„„„„Ç„„WWWWW„„Ç„„„„„„„∑∑∑∑∑∑∑+„„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„ÇÇÇÇ„„„„„ÇÇ„Ç„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„„„„„„„„„„„Ç∑∑∑Ç„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇÇ„„„„„„„„„„„„∑∑∑„„ÇÇÇ„„Ç„„„„„„„„„„<∑∑∑∑∑∑∑„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„„„„„„„+∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„Ç„„„„„„„„„„∑∑∑„„„„„„„„Ç„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„„„„Ç„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑+„„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„Ç„„„„„„„„Ç„„„„Ç„„WWWWW„„Ç„„„„„„„∑∑∑∑∑∑∑+„„„[„[„[„[„„„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„ÇÇÇÇ„„„„„ÇÇ„Ç„„„„„„„„„„∑∑∑∑∑∑∑∑„„[„[„[„[„[„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„„„„„Ç„„„„„Ç∑∑∑Ç„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑„[„[„[„[„[„[„„„∑∑∑„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇÇ„„„„„„„„„„„„∑∑∑„„ÇÇÇ„„Ç„„„„„„„„„„<∑∑∑∑∑∑∑*„[„[„[„[„[„„„„∑∑∑„„„„„„„„„„„„„„„„„„+∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„Ç„„„„„„„„„„∑∑∑„„„„„„„„Ç„„„„„„„„„∑∑∑∑∑∑∑∑„[„[„[„[„[„[„„„∑∑∑„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„„„„Ç„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑„„[„[„[„[„[„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„„„Ç„„„„„„„„„„„„„„WWWWW„„„„„Ç„„„„∑∑∑∑∑∑∑+„„„[„[„[„[„„„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„W]„MW„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„MW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑∑M„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑wwwwww";
@@ -1530,13 +1530,13 @@ void setupMaps()
   mapStrings[mapIndex] += "www∑∑∑∑∑„„„BB„„ßB„„∑∑∑∑∑∑∑∑„€„€„€„€„€„€„∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "w∑∑∑„∫€∫„„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„==∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "∑∑W¬„∫∫∫„„„„„WW„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑„„„„„„„„„„„„„„„„„„<∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwww";
-  mapStrings[mapIndex] += "∑„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑,,,,,∑∑∑∑wwww";
-  mapStrings[mapIndex] += "∑≠„„„„„„„„∑∑∑„„„„„„∑∑∑∑∑∑∑∑∑„„„„„„„„∑∑∑„„„„„.∫.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwYOwwwwWWWWWW∑],}},,,}∑∑∑ww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑<„``````„∑∑∑„``„.∫*∫∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑],]∑∑∑,,,=∑∑w";
-  mapStrings[mapIndex] += "∑„„„„„„„„„∑∑∑„„„„„„∑∑∑∑∑∑∑∑∑„„„„„„„„∑∑∑„„„„„.∫.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwHOwwwwWWWWWW<,,,∑∑∑,,,,,∑∑";
-  mapStrings[mapIndex] += "∑„]]]„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑}},∑∑∑},,=∑∑w";
-  mapStrings[mapIndex] += "∑„„„„„„„„rrrrrrrrr„<∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwHOwwwwWWWWWW∑,,,,,,,,∑∑∑ww";
+  mapStrings[mapIndex] += "∑„„„„„„„„„„„„„„„„„„<∑∑∑∑∑∑∑∑∑+∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwww";
+  mapStrings[mapIndex] += "∑„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑„„„∑„„„„„„„„„„„„„.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑,,,,,∑∑∑∑wwww";
+  mapStrings[mapIndex] += "∑≠„„„„„„„„∑∑∑„„„„„„∑∑∑∑∑∑∑∑∑„„„„„„W„∑∑∑„„„„„.∫.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwYOwwwwWWWWWW∑],}},,,}∑∑∑ww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑<„∫∫∫∫„¬„∑∑∑„∫∫„.∫*∫∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑],]∑∑∑,,,=∑∑w";
+  mapStrings[mapIndex] += "∑„„„„„„„„„∑∑∑„„„„„„∑∑∑∑∑∑∑∑∑„„„„„„W„∑∑∑„„„„„.∫.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwHOwwwwWWWWWW<,,,∑∑∑,,,,,∑∑";
+  mapStrings[mapIndex] += "∑„]]]„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑„„„∑„„„„„„„„„„„„„.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑}},∑∑∑},,=∑∑w";
+  mapStrings[mapIndex] += "∑„„„„„„„„rrrrrrrrr„<∑∑∑∑∑∑∑∑∑+∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwHOwwwwWWWWWW∑,,,,,,,,∑∑∑ww";
   mapStrings[mapIndex] += "∑∑„„„Ç„„„rWWWWWWWr„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„˛„∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑},],}∑∑∑∑wwww";
   mapStrings[mapIndex] += "w∑∑∑„ÇÇ„„rrrrrrrrr„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„==≈∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwww";
   mapStrings[mapIndex] += "www∑∑∑∑∑„„„„„„„„„„„∑∑∑∑∑∑∑∑„€„€„€„€„€„€„∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
@@ -1547,14 +1547,14 @@ void setupMaps()
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "wwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑";
-  mapStrings[mapIndex] += "ww∑∑∑∑∑WWWWWWWWWWW∑„ÇÇ„„Ç„„„„„„„„ÇÇ„„„„„ÇÇ„∑WWWWWWww∑∑∑∑∑WWWWWWWWWWW∑ÇÇÇÇÇÇÇÇ„„„„„„„„„„„„„„„„∑WWWWWW";
-  mapStrings[mapIndex] += "∑∑∑WWWWWWWWWWWWWWW∑„=„ÇÇ„„W„„ÇÇ„„ÇÇ„„ÇÇ„ÇÇ„<WWWWWW∑∑∑WWWWWWWWWWWWWWW∑ÇÇÇÇÇÇÇ„„„„„„„„„„„„„„„„„<WWWWWW";
-  mapStrings[mapIndex] += "∑WWWWWWWWWWWWWWWWW∑„„„„ÇÇ„„„„ÇÇM„ÇÇ„„Ç„„„„„∑WWWWWW∑WWWWWWWWWWWWWWWWW∑ÇÇÇÇÇÇ„„Ç„„„M„„„„„„„„„„„∑WWWWWW";
-  mapStrings[mapIndex] += "WWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇ„„„Ç„„ÇÇ„Ç„„„„Ç„ÇÇÇÇ„∑WWWWWWWWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇÇÇ„„„„„„„„„„„„„„„„„ÇÇ∑WWWWWW";
+  mapStrings[mapIndex] += "ww∑∑∑∑∑WWWWWWWWWWW∑„ÇÇ„„Ç„„„„„„„„ÇÇ„„„„„ÇÇ„∑WWWWWWww∑∑∑∑∑WWWWWWWWWWW∑ÇÇÇÇÇÇÇÇ„„„„„„ÇÇÇÇ„„„„„„∑WWWWWW";
+  mapStrings[mapIndex] += "∑∑∑WWWWWWWWWWWWWWW∑„=„ÇÇ„„W„„ÇÇ„„ÇÇ„„ÇÇ„ÇÇ„<WWWWWW∑∑∑WWWWWWWWWWWWWWW∑ÇÇÇÇÇÇÇ„„„„„„„ÇÇÇÇ„„„„„„<WWWWWW";
+  mapStrings[mapIndex] += "∑WWWWWWWWWWWWWWWWW∑„„„„ÇÇ„„„„ÇÇM„ÇÇ„„Ç„„„„„∑WWWWWW∑WWWWWWWWWWWWWWWWW∑ÇÇÇÇÇÇ„„Ç„„„M„ÇÇ„„„„„„„„∑WWWWWW";
+  mapStrings[mapIndex] += "WWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇ„„„Ç„„ÇÇ„Ç„„„„Ç„ÇÇÇÇ„∑WWWWWWWWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇÇÇ„„„„„„„„„ÇÇ„„„„„„ÇÇ∑WWWWWW";
   mapStrings[mapIndex] += "WWWWW∑„„„„„„„„„„„„„ÇÇÇÇ„„ÇÇÇ∑∑∑„ÇÇÇÇÇ„„„„„„∑WWWWWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„ÇÇ∑WWWWWW";
   mapStrings[mapIndex] += "WWWWW∑„„„∑„„„„„„„„„„ÇÇ„„„„„„∑∑∑„Ç„„Ç„„„ÇÇ„Ç∑WWWWWWWWWWW∑„„„∑„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„ÇÇÇÇ∑WWWWWW";
   mapStrings[mapIndex] += "WWWWW∑„„„„„„„„„„„„„„„ÇÇÇÇÇ„„∑∑∑„„ÇÇÇ„„Ç„Ç„Ç∑WWWWWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„ÇÇÇÇ∑WWWWWW";
-  mapStrings[mapIndex] += "WWWWW∑∑+∑∑∑∑∑+∑∑∑∑∑„„„„„„Ç„„„„„„„ÇÇÇ„ÇÇÇÇ„„∑WWWWWWWWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇÇÇ„„„„„„„„„„„„„ÇÇÇÇÇÇ∑WWWWWW";
+  mapStrings[mapIndex] += "WWWWW∑∑+∑∑∑∑∑+∑∑∑∑∑„„„„„„Ç„„„„„„„ÇÇÇ„ÇÇÇÇ„„∑WWWWWWWWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇÇÇ„„„„„„„„„„„„„ÇÇÇÇÇ„∑WWWWWW";
   mapStrings[mapIndex] += "∑WWWWWWWWWWWWWWWWW∑„ÇÇ„Ç„„„ÇÇÇÇM„ÇÇÇ„„„ÇÇÇ„∑WWWWWW∑WWWWWWWWWWWWWWWWW∑ÇÇÇÇÇÇ„„„„„„M„„„„„ÇÇÇÇÇÇ∑WWWWWW";
   mapStrings[mapIndex] += "∑∑∑WWWWWWWWWWWWWWW∑„„ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ„Ç„Ç„<WWWWWW∑∑∑WWWWWWWWWWWWWWW∑ÇÇÇÇÇÇÇ„„„„„„„„„ÇÇÇÇÇÇÇÇ<WWWWWW";
   mapStrings[mapIndex] += "ww∑∑∑∑∑WWWWWWWWWWW∑Ç„„„„„„„„„„„„„„„„„„„ÇÇÇÇ∑WWWWWWww∑∑∑∑∑WWWWWWWWWWW∑ÇÇÇÇÇÇÇÇ„„„„„„„„ÇÇÇÇÇÇÇÇ∑WWWWWW";
@@ -1566,22 +1566,23 @@ void setupMaps()
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwww";
   mapStrings[mapIndex] += "www∑∑∑∑∑„Ç∑„€„€„€„Ç∑WWWWWW∑„„Ç„ÇÇ„„„„„∑∑∑∑wwwwwwwwwwwwww∑∑∑∑∑„Ç∑„€„€„€„Ç∑WWWWWW∑„„Ç„ÇÇ„„„„„∑∑∑∑wwwww";
-  mapStrings[mapIndex] += "w∑∑∑Ç„„„„„∑„`````„„∑WWWWWW<„„„„„„„„„„„„∑]∑∑∑wwwwwwwwww∑∑∑Ç„„„„„∑„``````„∑WWWWWW<„„„„„„„„„„„„∑]∑∑∑www";
-  mapStrings[mapIndex] += "∑∑„„„„„„„„∑„„„„„„„]∑WWWWWW∑„„„„„„„„„„„„∑,WW∑∑wwwwwwww∑∑=„„„„„„„∑„„„„„„„]∑WWWWWW∑„„„„„„„„„„„„∑,WW∑∑ww";
+  mapStrings[mapIndex] += "w∑∑∑Ç„„„„„∑„`````„„∑WWWWWW<„„„„„„„„„„„„∑]∑∑∑wwwwwwwwww∑∑∑Ç„„„„„∑„``````„∑WWWWWW<„„„„„„„„„„„„∑,∑∑∑www";
+  mapStrings[mapIndex] += "∑∑„„„„„„„„∑„„„„„„„]∑WWWWWW∑„„„„„„„„„„„„∑,WW∑∑wwwwwwww∑∑=„„„„„„„∑„„„„„„„„∑WWWWWW∑„„„„„„„„„„„„∑,WW∑∑ww";
   mapStrings[mapIndex] += "∑Ç„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„„„„„„„„,,,,,∑∑wwwwwww∑Ç„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„„„„„„„„,,,,,∑∑w";
   mapStrings[mapIndex] += "∑ÇÇ„€=∑WWWWWWWWWWWWWWWWWWW∑„WWWW„∑∑∑W„W∑,,,,W∑∑wwwwww∑ÇÇ„€„∑WWWWWWWWWWWWWWWWWWW∑„WWWW„∑∑∑W„W∑,,,,W∑∑";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑WWWWWWWWWWWWWWWWWWW∑„„„„„„∑∑∑W„W∑,∑,,#∑∑wwwwww∑∑∑∑∑∑∑WWWWWWWWWWWWWWWWWWW∑„„„„„„∑∑∑W„W∑,∑,,#∑∑";
   mapStrings[mapIndex] += "∑≠„„BB∑WWWWWWWWWWWWWWWWWWW∑∑∑∑∑∑∑∑∑∑∑∑∑∑,,,,W∑∑wwwwww∑≠„„BB∑WWWWWWWWWWWWWWWWWWW∑∑∑∑∑∑∑∑∑∑∑∑∑∑,,,,W∑∑";
-  mapStrings[mapIndex] += "∑„„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„≈≈„„„„„∑]],,∑∑wwwwwww∑„„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„≈≈„„„„„∑]],,∑∑w";
-  mapStrings[mapIndex] += "∑∑¬„„„„„„„∑„„„„„„ÇÇ∑WWWWWW∑„≈≈≈„≈≈„≈≈≈„∑]]]∑∑wwwwwwww∑∑¬„„„„„„„∑„„„„„„ÇÇ∑WWWWWW∑„≈≈≈„≈≈„≈≈≈≈∑]]]∑∑ww";
-  mapStrings[mapIndex] += "w∑∑∑WW„„„ß∑„`````„„∑WWWWWW<„≈≈≈„≈≈„≈≈≈ ∑]∑∑∑wwwwwwwwww∑∑∑WW„„„ß∑„`````„„∑WWWWWW<„≈≈≈„≈≈„≈≈≈≈∑]∑∑∑www";
+  mapStrings[mapIndex] += "∑„„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„≈≈„„„„„∑]],,∑∑wwwwwww∑„„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„≈≈„„„„„∑,,,,∑∑w";
+  mapStrings[mapIndex] += "∑∑¬„„„„„„„∑„„„„„„ÇÇ∑WWWWWW∑„≈≈≈„≈≈„≈≈≈„∑]]]∑∑wwwwwwww∑∑¬„„„„„„„∑„„„„„„ÇÇ∑WWWWWW∑„≈≈≈„≈≈„≈≈≈≈∑,,,∑∑ww";
+  mapStrings[mapIndex] += "w∑∑∑WW„„„ß∑„`````„„∑WWWWWW<„≈≈≈„≈≈„≈≈≈ ∑]∑∑∑wwwwwwwwww∑∑∑WW„„„ß∑„`````„„∑WWWWWW<„≈≈≈„≈≈„≈≈≈≈∑,∑∑∑www";
   mapStrings[mapIndex] += "www∑∑∑∑∑„B∑„€„€„€„Ç∑WWWWWW∑„≈≈≈„˙‰„≈≈≈∑∑∑∑wwwwwwwwwwwwww∑∑∑∑∑„B∑„€„€„€„Ç∑WWWWWW∑„≈≈≈„„„„≈≈≈∑∑∑∑wwwww";
   mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwww";
   
 
   m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
   
-  savePoints[savePointIndex++] = new SavePoint(3,45,56,8);
+  savePoints[savePointIndex++] = new SavePoint(3,45,56,6);
+  savePoints[savePointIndex++] = new SavePoint(3,51,7,9); //for testing
   
   createLoot(lootIndex++, 3, 7, 32, Key.IRON_KEY );
   createLoot(lootIndex++, 3, 3, 24, new Item("Doubloon", 9) );
@@ -1608,7 +1609,9 @@ void setupMaps()
   
   
   //m[mapIndex].tiles[0][0].createEvent(false, "- TEXT");
-  m[mapIndex].tiles[2][91].createEvent(true, "- Something in Kat's luggage reeks.");
+  m[mapIndex].tiles[8][90].createEvent(false, "- The room has the acrid scent of an alchemist's laboratory.");
+  m[mapIndex].tiles[5][90].createEvent(false, "- You smell something else, something moldy and rich.");
+  m[mapIndex].tiles[2][91].createEvent(true, "- The strange odor is coming from here.");
   
   //Captain
   m[mapIndex].tiles[17][27].placeOccupant( color(captain), "- Ahoy! My queen will treat you well, and ferry you safely across the sea. Breathe the salt air! Taste the winds of freedom!" );
@@ -1628,7 +1631,11 @@ void setupMaps()
   m[mapIndex].tiles[41][21].placeOccupant( color(sailor), "- Nah, them villains got no patience." );
   m[mapIndex].tiles[47][25].placeOccupant( color(sailor), "- Cory is staring off at the horizion again. I think he might sleep there." );
   m[mapIndex].tiles[35][33].placeOccupant( color(sailor), "- I may be wrong, but are we listing to starboard? Someone must have loaded something heavy into the chain locker." );
-  m[mapIndex].tiles[12][8].placeOccupant( color(sailor), "- No, I don't need help, please stay out of my way." );
+  m[mapIndex].tiles[12][8].placeOccupant( color(sailor), "- No, I don't need help. Please stay out of my way." );
+  m[mapIndex].tiles[13][11].placeOccupant( color(sailor), "- Thanks for offering, but I can handle this myself." );
+  m[mapIndex].tiles[11][5].placeOccupant( color(sailor), "- Hardy sailors don't need help from the likes of ye. Go rest your soft muscles in your cabin." );
+  m[mapIndex].tiles[8][5].placeOccupant( color(sailor), "- To be frank, I would like you to help me with these crates, but I don't want the others to tease me. Thanks anyway." );
+  m[mapIndex].tiles[42][6].placeOccupant( color(sailor), "- Crew quarters and chapel are through here." );
   //Cleric (in method below)
   //Officers' Cabins
   m[mapIndex].tiles[13][96].placeOccupant( color(sailor), "- NO TEXT." );
@@ -1648,8 +1655,10 @@ void setupMaps()
   m[mapIndex].tiles[32][51].placeOccupant( color(sailor), "NO TEXT." );
   m[mapIndex].tiles[28][52].placeOccupant( color(sailor), "NO TEXT." );
   //Ritisu priests
-  m[mapIndex].tiles[44][55].placeOccupant( color(ritisuColor), "- Ever since my youth, I have seen naught but images of the wide blue sea in Ritisu's Tear. These shimmering waters are my past and my future." );
-  m[mapIndex].tiles[45][58].placeOccupant( color(lesserRitisuColor), "- I see the ocean in the gem as well, though of late I sometimes notice strange and dark shapes in the water. It is not like Ritisu to veil knowledge." );
+  m[mapIndex].tiles[43][56].placeOccupant( color(ritisuColor), "- Ever since my youth, I have seen naught but images of the wide blue sea in Ritisu's Tear. These shimmering waters are my past and my future." );
+  m[mapIndex].tiles[46][57].placeOccupant( color(lesserRitisuColor), "- I see the ocean in the gem as well, though of late I sometimes notice strange and dark shapes in the water. It is not like Ritisu to veil knowledge." );
+  m[mapIndex].tiles[35][56].placeOccupant( color(lesserRitisuColor), "- Oh, I'm not the chaplain. I'm the navigator. Our master directs the vessel during by day, while Illamar's thousand children guide her in the night." );
+  m[mapIndex].tiles[40][57].placeOccupant( color(lesserRitisuColor), "- The Tears cannot be moved from where they land. This one forked a great oak when it fell, and that tree was used to build the forecastle." );
   //Sailor in your room
   m[mapIndex].tiles[16][90].placeOccupant( color(sailor), "- Oh, excuse me. I don't usually enter a paying passenger's room. I saw a giant rat and unbearable terror took over me. I don't care for rats of any size. Do exterminate them, won't you?" );
   //Galley
@@ -1680,9 +1689,31 @@ void setupMaps()
                                                           
   //Lower Deck post-boss
   m[mapIndex].tiles[76][72].placeOccupant( color(sailor), "- A clean ship will sail long." );
+  m[mapIndex].tiles[85][72].placeOccupant( color(sailor), "- Where did all these dead rats come from?" );
+  m[mapIndex].tiles[88][76].placeOccupant( color(sailor), "- Do you hear someone shouting?" );
+  m[mapIndex].tiles[92][77].placeOccupant( color(sailor), "- NO TEXT" );
   //Kat (post-boss)
-  //in method below
-  
+    //in method below
+  //Galley
+  m[mapIndex].tiles[96][93].placeOccupant( color(captain), "- I wonder how rat tastes. The crew is about to find out!" );
+  m[mapIndex].tiles[95][91].placeOccupant( color(mYoung), "- Make sure to keep a balanced supply of rations on hand at all times. Drinking nothing but potions ruins your digestion." );
+  m[mapIndex].tiles[94][95].placeOccupant( color(fYoung), "- Who took all our barrels?" );
+  m[mapIndex].tiles[90][88].placeOccupant( color(#FFB443), "- *Meow*" );
+  //Upper Deck post-boss
+  m[mapIndex].tiles[67][12].placeOccupant( color(captain), "- We've recieved word that Waraka's port is blocked. We'll have to let you off here. The castle is a day's journey to the north. Farewell, and never forget the feel of the wind of freedom!" );
+  m[mapIndex].tiles[67][13].placeOccupant( color(coryColor), "- Look for me once you reach Waraka. I may have a job for you." );
+  m[mapIndex].tiles[57][1].placeOccupant( color(clericColor), "- I'm bound for Mariva in the west. The road passes through Waraka's checkpoints, so I'll have to pass through the castle." );
+  //Singing sailors
+  m[mapIndex].tiles[78][5].placeOccupant( color(sailor), "- SONG" );
+  m[mapIndex].tiles[78][6].placeOccupant( color(sailor), "- SONG" );
+  m[mapIndex].tiles[79][7].placeOccupant( color(sailor), "- SONG" );
+  m[mapIndex].tiles[80][7].placeOccupant( color(sailor), "- SONG" );
+  m[mapIndex].tiles[81][6].placeOccupant( color(sailor), "- SONG" );
+  m[mapIndex].tiles[81][5].placeOccupant( color(sailor), "- SONG" );
+  m[mapIndex].tiles[80][4].placeOccupant( color(sailor), "- SONG" );
+  m[mapIndex].tiles[79][4].placeOccupant( color(sailor), "- SONG" );
+  //Captain's Daughter 2
+  m[mapIndex].tiles[63][7].placeOccupant( color(fYoung), "- All right, landlubbers. Try to find my gold this time!" );
   
   m[mapIndex].tiles[40][32].placeBuyer();
   m[mapIndex].tiles[41][32].placeOccupant( color(10,10,50), "- I love the open sea. So much easier to hide from the Vendor's Guild. Got anything for me?" );
@@ -1783,6 +1814,9 @@ void setupMaps()
   exits.add( new Portal(3,75,3,3,81,72, "Lower Deck") );
   exits.add( new Portal(3,75,11,3,81,78, "Lower Deck") );
   
+  //Gangplank
+  exits.add( new Portal(3,68,14,3,68,14, "END OF CURRENT BUILD") );
+  exits.add( new Portal(3,69,14,3,69,14, "END OF CURRENT BUILD") );
   /*
   29,77
   19,78
@@ -1819,7 +1853,7 @@ void setupMaps()
   bossIndex++;
   
   //Boat Boss
-  m[mapIndex].tiles[54][43].placeBoss( mapIndex, color(#4c585c), "This is the last, and the largest.", new Monster("Deep Ratlord", "abyssBig.png", 150, 18, 10, 4, 10, 4, 15, 0, AttackType.HOLY), false);
+  m[mapIndex].tiles[54][43].placeBoss( mapIndex, color(140,150,150), "This is the last, and the largest.", new Monster("Deep Ratlord", "abyssBig.png", 150, 18, 10, 4, 10, 4, 15, 0, AttackType.HOLY), false);
       zoo.boss[bossIndex].attacks[0] = new Attack("sprays icy seawater.", 40, true, AttackStat.MAG, AttackType.ICE);
       zoo.boss[bossIndex].attacks[1] = new Attack("tosses you aside!", 70, false );
       zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 70, false );
@@ -1981,7 +2015,7 @@ void setNameDependentText()
   m[0].tiles[19][53].placeOccupant( color(250,0,170), "- AH! "+party.hero[1].name+", where did you come from? Was it you who slew those rats in the cellar? You're strong, "+party.hero[1].name+". Brave, too. If only I could borrow that courage. Some of them escaped the cellar with my prototype potion. I don't know what effect it will have on fauna, but it is my responsibilty to prevent harm. I-if you want to help, I'd appreciate it. My "+heroWeapon[1]+" "+wasOrWere(heroWeapon[1].charAt(heroWeapon[1].length()-1))+" never as strong as yours." );
   m[1].tiles[49][14].placeOccupant( color(250,0,170), "She's slumped against the wall. Her arm is burned. - "+party.hero[1].name+"? How did you avoid the man-wolf? I had to use my draught of disguise. The rats are getting larger, and mutating in strange ways. May Am-asma forgive me for my part in this. I was able to trap one up ahead. Could you please fight him? I have food here if you feel hungry. I'll be fine, I just need a rest..." );
   m[3].tiles[1][24].placeOccupant( color(katColor), "Her face is pale and dripping with cold sweat. - Uh... oh, "+party.hero[1].name+". Why are you here? Books with strange symbols? Looking into Father Charis's death? Wow, you sure have been busy since leaving the cathedral. I was following the rats, but some of them followed me. They're in the ship. I locked them in the lower deck. I was going to tell the captain, but the ship started swaying and... uh, my poor stomach... I must have dropped the key." );
-  m[3].tiles[58][89].placeOccupant( color(katColor), "I think I'm past the worst of it now. Thank you again, "+party.hero[1].name+". After I clean the rest of them off the ship I plan to stop in Waraka castle to restock on reagents. I used my last brewing this potion. Take it as a show of thanks. Illamar guide you." );
+  m[3].tiles[58][89].placeOccupant( color(katColor), "- I think I'm past the worst of it now. Thank you again, "+party.hero[1].name+". After I clean the rest of them off the ship I plan to stop in Waraka castle to restock on reagents. I used my last brewing this potion. Take it as a show of thanks. Illamar guide you." );
   
   //Garrison
   m[1].tiles[4][42].placeOccupant( color(garrisonColor), "- " + party.hero[0].name + "! Finally come to your senses and decided to join the garrison? We need " + needAnA(heroWeapon[0]) + heroWeapon[0] + " like yours to help train these milksops to soldier!" );
@@ -2006,6 +2040,7 @@ void setNameDependentText()
 //man-wolf 3.3 / 3.2
 //crypt guards 4.5 before, 5.2 back at courtyard
 //before necro 6.7 / 5.7 (died) / 5.5 (close fight)
+//after deep rat 6.5
 
 //Deities:
 //Black Vanguard - anubis
