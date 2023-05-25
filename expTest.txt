@@ -37,7 +37,7 @@ WhiteShirt.png
 12.0
 
 Kai
-MAGE
+PRIEST
 202.0
 211.0
 249.0

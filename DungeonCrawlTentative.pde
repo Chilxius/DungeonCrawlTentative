@@ -1,4 +1,4 @@
-//Import files for Minim (sound) //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+//Import files for Minim (sound) //<>//
 /*
 import ddf.minim.*;
 import ddf.minim.analysis.*;
@@ -11,8 +11,6 @@ import ddf.minim.ugens.*;
 //Dungeon Crawl Game
 //Bennett Ritchie
 
-//Shrink boat as much as possible (need hold and a copy of lower deck)
-//Fix vapor potion (in combat)
 //Why is ostinato so powerful at higher levels? (maybe cut the level by two in the calculation)
 
 //PROBLEMS:
@@ -1839,7 +1837,7 @@ public void loadFile( String fileName )
     //After load is finished, resume game
     display = Display.MAP;
     step = HeroCreationStep.DONE;
-    input = Input.EXPLORING; //<>//
+    input = Input.EXPLORING;
     //changeTrack(zoneNumber);
     println("SAVE FILE LOADED");
     advanceText("SAVE FILE LOADED");

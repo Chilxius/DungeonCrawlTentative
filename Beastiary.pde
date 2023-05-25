@@ -173,12 +173,12 @@ class Beastiary
       list[dangerZone][1].attacks[2] = new Attack("bites.", 55, false);
       list[dangerZone][1].attacks[3] = new Attack("bites.", 55, false);
       list[dangerZone][1].attacks[4] = new Attack("sprays icy seawater.", 30, true, AttackStat.MAG, AttackType.ICE);
-    list[dangerZone][2] = new Monster("Abyss Rat",  "abyssRat.png",  40, 10, 20, 4, 10, 8, 10, 0, AttackType.HOLY);
+    list[dangerZone][2] = new Monster("Abyss Rat",  "abyssRat.png",  40, 10, 20, 4, 12, 8, 10, 0, AttackType.HOLY);
       list[dangerZone][2].attacks[0] = new Attack("watches you silently.");
-      list[dangerZone][2].attacks[1] = new Attack("sprays icy seawater.", 20, true, AttackStat.MAG, AttackType.ICE);
-      list[dangerZone][2].attacks[2] = new Attack("bites with an icy fang.", 25, false, AttackStat.MAG, AttackType.ICE);
-      list[dangerZone][2].attacks[3] = new Attack("bites with an icy fang.", 25, false, AttackStat.MAG, AttackType.ICE);
-      list[dangerZone][2].attacks[4] = new Attack("sprays icy seawater.", 20, false, AttackStat.MAG, AttackType.ICE);
+      list[dangerZone][2].attacks[1] = new Attack("sprays icy seawater.", 30, true, AttackStat.MAG, AttackType.ICE);
+      list[dangerZone][2].attacks[2] = new Attack("bites with an icy fang.", 35, false, AttackStat.MAG, AttackType.ICE);
+      list[dangerZone][2].attacks[3] = new Attack("bites with an icy fang.", 35, false, AttackStat.MAG, AttackType.ICE);
+      list[dangerZone][2].attacks[4] = new Attack("sprays icy seawater.", 30, false, AttackStat.MAG, AttackType.ICE);
     list[dangerZone][3] = new Monster();
     list[dangerZone][4] = new Monster();
   }
@@ -202,8 +202,8 @@ class Beastiary
         battleMonsters[0] = new Monster("Skeletal Guard",  "ScimitarSkeleton.png",  30, 20, 5, 6, 0, 4, 6, 0, AttackType.HOLY);
           battleMonsters[0].attacks[0] = new Attack("protects its master.");
           battleMonsters[0].attacks[1] = new Attack("slices.", 50, false);
-          battleMonsters[0].attacks[2] = new Attack("cuts upward.", 50, false);
-          battleMonsters[0].attacks[3] = new Attack("strikes downward.", 50, false);
+          battleMonsters[0].attacks[2] = new Attack("bites.", 55, false);
+          battleMonsters[0].attacks[3] = new Attack("bites.", 55, false);
           battleMonsters[0].attacks[4] = new Attack("delivers a mighty blow!", 60, false );
         battleMonsters[2] = new Monster("Skeletal Guard",  "ScimitarSkeleton.png",  30, 18, 5, 6, 0, 4, 6, 0, AttackType.HOLY);
           battleMonsters[2].attacks[0] = new Attack("protects its master.");
@@ -214,18 +214,18 @@ class Beastiary
       break;
       
       case "Deep Ratlord":
-        battleMonsters[0] = new Monster("Abyss Rat", "abyssRat.png",  30, 20, 5, 6, 0, 4, 6, 0, AttackType.HOLY);
-          battleMonsters[0].attacks[0] = new Attack("protects its master.");
-          battleMonsters[0].attacks[1] = new Attack("slices.", 50, false);
+        battleMonsters[0] = new Monster("Bilge Rat", "blueRat.png",  40, 10, 20, 4, 12, 8, 10, 0, AttackType.HOLY);
+          battleMonsters[0].attacks[0] = new Attack("coughs up salt water.");
+          battleMonsters[0].attacks[1] = new Attack("scratches.", 40, false);
           battleMonsters[0].attacks[2] = new Attack("cuts upward.", 50, false);
           battleMonsters[0].attacks[3] = new Attack("strikes downward.", 50, false);
-          battleMonsters[0].attacks[4] = new Attack("delivers a mighty blow!", 60, false );
-        battleMonsters[2] = new Monster("Bilge Rat",  "blueRat.png",  30, 18, 5, 6, 0, 4, 6, 0, AttackType.FIRE);
-          battleMonsters[2].attacks[0] = new Attack("coughs up salt water.");
-          battleMonsters[2].attacks[1] = new Attack("scratches.", 40, false);
-          battleMonsters[2].attacks[2] = new Attack("bites.", 55, false);
-          battleMonsters[2].attacks[3] = new Attack("bites.", 55, false);
-          battleMonsters[2].attacks[4] = new Attack("sprays icy seawater.", 30, true, AttackStat.MAG, AttackType.ICE);
+          battleMonsters[0].attacks[4] = new Attack("sprays icy seawater.", 30, true, AttackStat.MAG, AttackType.ICE);
+        battleMonsters[2] = new Monster("Abyss Rat",  "abyssRat.png",  30, 19, 15, 5, 5, 4, 12, 0, AttackType.FIRE);
+          battleMonsters[2].attacks[0] = new Attack("watches you silently.");
+          battleMonsters[2].attacks[1] = new Attack("sprays icy seawater.", 20, true, AttackStat.MAG, AttackType.ICE);
+          battleMonsters[2].attacks[2] = new Attack("bites with an icy fang.", 25, false, AttackStat.MAG, AttackType.ICE);
+          battleMonsters[2].attacks[3] = new Attack("bites with an icy fang.", 25, false, AttackStat.MAG, AttackType.ICE);
+          battleMonsters[2].attacks[4] = new Attack("sprays icy seawater.", 20, true, AttackStat.MAG, AttackType.ICE);
     }
   }
 }

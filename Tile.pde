@@ -687,7 +687,7 @@ class Tile
   
   public boolean canOpen()
   {
-    if( type == TileType.DOOR || type == TileType.PORTCULLIS || type == TileType.DOOR_GATE || type == TileType.BIG_RAT ) //<>//
+    if( type == TileType.DOOR || type == TileType.PORTCULLIS || type == TileType.DOOR_GATE || type == TileType.BIG_RAT )
       return true;
     return false;
   }

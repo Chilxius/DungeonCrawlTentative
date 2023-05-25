@@ -3068,8 +3068,8 @@ class Artist
       if(party.hero[i].buff[2].active) g = 250; //con
       noStroke();
       fill(r,g,b,5);
-      for(int j = 0; j < 10; j++) //Circle for str,dex,con boost
-        circle(140+210*i,500,100+10*j);
+      for(int j = 0; j < 15; j++) //Circle for str,dex,con boost
+        circle(140+210*i,500,100+7*j);
     }
     if(party.hero[0].isAlive())
       drawHeroByType(party.hero[0],width/5,500,2,0,false);
