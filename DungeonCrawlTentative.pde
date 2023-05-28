@@ -113,6 +113,7 @@ PImage tileImage[] = new PImage[100]; //I've since used this for more than just 
 PImage battleBack[] = new PImage[10]; //Backgrounds for battles
 PImage iconImage[] = new PImage[50];  //Icons for buttons, need to move some items from tileImage
 PImage effectImage[] = new PImage[10]; //Images for effects. Will eventually include spell effects.
+PImage cursor;
 
 //Item data
 Loot [][] lootList = new Loot[4][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
@@ -159,6 +160,9 @@ void setup()
   size(700,700);
   frameRate(60);
   surface.setTitle("THE RIDDLE OF IRON");
+  cursor = loadImage("cursorSword.png");
+  cursor.resize(32,0);
+  cursor(cursor,0,0);
   
   vanGogh = new Artist();
   windowX = displayWidth/2-width/2;
@@ -678,6 +682,7 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case WEREWOLF_WHITE: return "A gargoyle statue...?";
     case S_GLASS: return "A beautiful stained glass window";
     case RUBBLE_OBJ: return "Rubble blocks the way";
+    case CRATE:
     case CRATE_OBJ: return "A heavy crate";
     case BOOK: return "A shelf full of books";
     case BOOK_EMPTY: return "An empty shelf";
@@ -737,8 +742,11 @@ int squareHasKey( int x, int y )
 void clearLoot( int index )
 {
   lootList[party.floor][index] = emptyChest;
-  //if(m[party.floor].tiles[party.X][party.Y].obj == Object.CHEST)
-  //  openChestSound.play();
+  if(m[party.floor].tiles[party.X][party.Y].obj == Object.CHEST
+  || m[party.floor].tiles[party.X][party.Y].obj == Object.CHEST_GOLD
+  || m[party.floor].tiles[party.X][party.Y].obj == Object.CHEST_DARK
+  || m[party.floor].tiles[party.X][party.Y].obj == Object.CHEST_BONE )
+    SFX[1].play();
   m[party.floor].tiles[party.X][party.Y].obj = Object.NONE;
 }
 
@@ -891,6 +899,7 @@ public int getZone( String title )
     case "Mausoleum":
     case "Cenotaph":
     case "Catacombs":
+    case "Silent Path":
       return 7;
       
     //Library

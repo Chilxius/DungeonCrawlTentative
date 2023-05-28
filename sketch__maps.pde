@@ -98,12 +98,12 @@ void setupMaps()
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTWWW<WWW";
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G..?.rr.?..G..#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#################TTTTT#>.∫∫∫∫∫rr∫∫∫∫∫.>#TTTTT#########TTTTT#########TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#∫∫BB•..∫..•BB∫∫#TTTTT#..G....rr....G..#TTTTT#[[...∑]#TTTTT#==...3w#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT&∫.....∫∫∫.....∫&TTTTT#######.rr.#######TTTTT#...W.∑.&TTTTT#.....33#TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#∫∫BB•..∫..•BB∫∫#TTTTT#..G....rr....G..#TTTTT#[[...∑]#TTTTT#==...∑w#TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT&∫.....∫∫∫.....∫&TTTTT#######.rr.#######TTTTT#...W.∑.&TTTTT#.....∑∑#TTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTT#########TTTT&.....∫∫∫∫∫.....&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#>....∑.&TTTTT#>......#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#∫∫∫#rrr#TTTT#....∫∫∫>∫∫∫...%#TTTTTTTTTTT#.rr.#TTTTTTTTTTT#...W.∑.&TTTTT#..„„„..#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#.∫...r.#TTTT&3....∫∫∫∫∫.....&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#[[...∑]#TTTTT#„„„„„„„#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#...#...#TTTT&3¢....∫∫∫.....∫&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#########TTTTT#########TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTT#∫∫∫#rrr#TTTT#....∫∫∫>∫∫∫...%#TTTTTTTTTTT#.rr.#TTTTTTTTTTT#...W.∑.&TTTTT#..„„„..3TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTT#.∫...r.#TTTT&3....∫∫∫∫∫.....&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#[[...∑]#TTTTT#„„„„„„,3TTTTTTTTTTTTT";
+  mapStrings[mapIndex] += "TtTTTT#...#...#TTTT&3¢....∫∫∫.....∫&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#########TTTTT#######33TTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTT#.r...∫.$tttt$¢¢3.•..∫..*..∫∫#TTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTT#rrr#∫∫∫#TTTT#################TTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
   mapStrings[mapIndex] += "TtTTTT##$$#####TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
@@ -370,7 +370,7 @@ void setupMaps()
   */
   
   //Giant rat blocking camp
-  m[0].tiles[3][54].placeBoss( 0, color(150, 80, 40), "It's guarding that campsite.", new Monster("Escaped Rat", "BrownRat.png", 20, 9, 15, 2, 0, 2, 4, 0, AttackType.FIRE) );
+  m[0].tiles[1][53].placeBoss( 0, color(255,0), "There was one in the tent.", new Monster("Escaped Rat", "BrownRat.png", 20, 9, 15, 2, 0, 2, 4, 0, AttackType.FIRE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
       zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 30, false);
       zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false);
@@ -424,6 +424,8 @@ void setupMaps()
   m[0].tiles[52][27].createEvent(true, "- Kitchen");
   m[0].tiles[47][39].createEvent(true, "- Armory");
   m[0].tiles[52][39].createEvent(true, "- Laboratory");
+  m[0].tiles[52][39].createEvent(true, "- Laboratory");
+  m[0].tiles[85][33].createEvent(false, " -The walls are still blackened from Sister Kat's latest experiment.");
   m[0].tiles[67][42].createEvent(false, "- Impressions from your and Charis's knees remain in the soil.");
   m[0].tiles[69][42].createEvent(false, "- The sharp medicinal scent of herbs has already begun to fade.");
   m[0].tiles[72][44].createEvent(false, "- You would hide among these old robes when playing games as children. Charis always pretended not to see you.");
@@ -431,6 +433,7 @@ void setupMaps()
   m[0].tiles[77][43].createEvent(false, "- You can almost hear the familiar scratching of his quill.");
   //m[0].tiles[68][44].createEvent(false, "- In the waning days of his life, Father Charis's study went largely unused. You still remember days passed, when the smell of ink and herbs would mix with the sound of water and a scratching quill. How could this place be so empty when he was alive only yesterday?");
   m[0].tiles[75][44].createEvent(false, "- Charis had no more worldly possessions than any other cleric. Why did he have an extra closet?");
+  m[0].tiles[4][63].createEvent(false, "- Weather and time have effaced the inscription.");
   m[0].tiles[34][79].createEvent(false, "- There is a giant web across the path.");
   m[0].tiles[13][93].createEvent(false, "- Something snaps under your foot. A bone. There are gnawed remains all around the trees near the bridge.");
   
@@ -651,7 +654,8 @@ void setupMaps()
   
   //Boss Chamber
   createLoot(lootIndex++, 1, 37, 92 , new Equipment("Ritual Knife","curvedDagger.png",35,true,25.4,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.BARD,Job.THIEF,Job.DRUID,Job.MAGE) );
-  createLoot(lootIndex++, 1, 38, 92 , new Equipment("Ritual Robes","darkRobes.png",29,false,20,true) );
+  //createLoot(lootIndex++, 1, 38, 92 , new Equipment("Ritual Robes","darkRobes.png",29,false,20,true) );
+  createLoot(lootIndex++, 1, 38, 92 , new Item("Gold Death Mask",32) );
   createLoot(lootIndex++, 1, 46, 92 , new Item("Mana Potion",12) );
   createLoot(lootIndex++, 1, 47, 92 , new Item("Health Potion",24) );
   
@@ -1327,7 +1331,7 @@ void setupMaps()
   
   //Ghosts
   m[2].tiles[47][62].placeOccupant( color(200,150), "- You can see me? Strange. I have appeared before you many times in the past." );
-  m[2].tiles[51][62].placeOccupant( color(200,150), "- Charis used to visit to report on the world of the living. Now he has crossed the Veil without us? I feel anger. And sorrow." );
+  m[2].tiles[51][62].placeOccupant( color(200,150), "- Charis used to visit to report on the world of the living. Now he has crossed the Veil without us? How dare he." );
   m[2].tiles[56][65].placeOccupant( color(200,150), "- These are the tombs of those wealthiest in life." );
   m[2].tiles[52][69].placeOccupant( color(200,150), "- Few have the gift of sight as Charis did. I expected it to pass to that young exarch. Lay children have never been able to see disjoined spirits." );
   
@@ -1480,17 +1484,17 @@ void setupMaps()
   mapStrings[mapIndex] += "w∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„ÇÇÇÇ„ÇÇÇ„Ç„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„ÇÇÇ„„„ÇWWWWW„Ç„„„„„„„M∑∑∑∑∑∑∑∑M„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„ÇÇ„„„„i+„MW„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„MW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„Ç„„„„„„„„Ç„„„„Ç„„WWWWW„„Ç„„„„„„„∑∑∑∑∑∑∑+„„„[„[„[„[„„„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„ÇÇ„„„„i+„MW„„„„„„„„„„∑∑∑∑∑∑∑∑„„[„[„[„[„[„„„„„„„„„„„„„MW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„Ç„„„„„„„„Ç„„„„Ç„„WWWWW„„Ç„„„„„„„∑∑∑∑∑∑∑+„[„[„[„[„[„[„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„ÇÇÇÇ„„„„„ÇÇ„Ç„„„„„„„„„„∑∑∑∑∑∑∑∑„„[„[„[„[„[„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„„„„„Ç„„„„„Ç∑∑∑Ç„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑„[„[„[„[„[„[„„„∑∑∑„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇÇ„„„„„„„„„„„„∑∑∑„„ÇÇÇ„„Ç„„„„„„„„„„<∑∑∑∑∑∑∑*„[„[„[„[„[„„„„∑∑∑„„„„„„„„„„„„„„„„„„+∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇÇ„„„„„„„„„„„„∑∑∑„„ÇÇÇ„„Ç„„„„„„„„„„<∑∑∑∑∑∑∑„„[„[„[„[„[„„„„∑∑∑„„„„„„„„„„„„„„„„„„+∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„Ç„„„„„„„„„„∑∑∑„„„„„„„„Ç„„„„„„„„„∑∑∑∑∑∑∑∑„[„[„[„[„[„[„„„∑∑∑„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„„„„Ç„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑„„[„[„[„[„[„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„„„Ç„„„„„„„„„„„„„„WWWWW„„„„„Ç„„„„∑∑∑∑∑∑∑+„„„[„[„[„[„„„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„W]„MW„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„MW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑∑M„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„„„Ç„„„„„„„„„„„„„„WWWWW„„„„„Ç„„„„∑∑∑∑∑∑∑+„[„[„[„[„[„[„„„„„„„„„WWWWW„„„„„„„„„Ç∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„W]„MW„„„„„„„„„„∑∑∑∑∑∑∑∑„„[„[„[„[„[„„„„„„„„„„„„„MW„„„„„„„„Ç„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑∑M„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„Ç„M∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„Ç„„∑∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑„„∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
@@ -1582,7 +1586,6 @@ void setupMaps()
   m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
   
   savePoints[savePointIndex++] = new SavePoint(3,45,56,6);
-  savePoints[savePointIndex++] = new SavePoint(3,51,7,9); //for testing
   
   createLoot(lootIndex++, 3, 7, 32, Key.IRON_KEY );
   createLoot(lootIndex++, 3, 3, 24, new Item("Doubloon", 9) );
@@ -1590,6 +1593,16 @@ void setupMaps()
   createLoot(lootIndex++, 3, 29, 11, new Item("Doubloon", 9) );
   createLoot(lootIndex++, 3, 31, 74, new Item("Doubloon", 9) );
   createLoot(lootIndex++, 3, 67, 46, new Item("Doubloon", 9) );
+  //Girl's hidden loot
+  {
+    int xRand = int(random(11)+1);
+    int yRand = int(random(9)+1);
+    if( (xRand%2==0 && yRand%2==0) || (xRand%2==1 &&yRand%2==1) ) yRand--;
+    if(yRand==0) yRand = 9;
+    println(xRand + " " + yRand);
+    
+    createLoot(lootIndex++, 3, 51+xRand, 2+yRand, new Item("Doubloon", 9) );
+  }
   //Wardroom
   createLoot(lootIndex++, 3, 2, 58, new Item("Bread", 10) );
   createLoot(lootIndex++, 3, 3, 58, new Item("Bread", 10) );
@@ -1607,8 +1620,7 @@ void setupMaps()
   createLoot(lootIndex++, 3, 53, 42, new Equipment("Uniform","uniform.png",28,false,22,Job.KNIGHT,Job.THIEF,Job.KARATE,Job.BARD,Job.PRIEST) );
   createLoot(lootIndex++, 3, 53, 44, new Equipment("Chain","chainWhip.png",11,true,22,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.DRUID,Job.PRIEST) );
   
-  
-  //m[mapIndex].tiles[0][0].createEvent(false, "- TEXT");
+  //Events
   m[mapIndex].tiles[8][90].createEvent(false, "- The room has the acrid scent of an alchemist's laboratory.");
   m[mapIndex].tiles[5][90].createEvent(false, "- You smell something else, something moldy and rich.");
   m[mapIndex].tiles[2][91].createEvent(true, "- The strange odor is coming from here.");
@@ -1634,7 +1646,7 @@ void setupMaps()
   m[mapIndex].tiles[12][8].placeOccupant( color(sailor), "- No, I don't need help. Please stay out of my way." );
   m[mapIndex].tiles[13][11].placeOccupant( color(sailor), "- Thanks for offering, but I can handle this myself." );
   m[mapIndex].tiles[11][5].placeOccupant( color(sailor), "- Hardy sailors don't need help from the likes of ye. Go rest your soft muscles in your cabin." );
-  m[mapIndex].tiles[8][5].placeOccupant( color(sailor), "- To be frank, I would like you to help me with these crates, but I don't want the others to tease me. Thanks anyway." );
+  m[mapIndex].tiles[8][5].placeOccupant( color(sailor), "- I actually could use some help, but I don't want the others to tease me. Thanks anyway." );
   m[mapIndex].tiles[42][6].placeOccupant( color(sailor), "- Crew quarters and chapel are through here." );
   //Cleric (in method below)
   //Officers' Cabins
@@ -1665,44 +1677,42 @@ void setupMaps()
   m[mapIndex].tiles[43][93].placeOccupant( color(captain), "- It's been quiet out there. Are they done stowing already? Makes no difference to me. Supper will be ready on time, and it will be fish. Do you like fish? Because fish is what you'll be eating. Welcome to the sea, landlegs." );
   m[mapIndex].tiles[42][91].placeOccupant( color(mYoung), "- We have a few delicacies, if you ask nicely. That nice girl with the scratched up arms took our supply of esrom." );
   m[mapIndex].tiles[42][95].placeOccupant( color(fYoung), "- Fruit is vital to combat scurvy. Take some if you need." );
-  m[mapIndex].tiles[37][88].placeOccupant( color(#FFB443), "- *HSSSS*  The poor cat is terrified." );
+  m[mapIndex].tiles[37][88].placeOccupant( color(#FFB443), "- *HSSSS*     The poor cat is terrified." );
   //Card Players
   m[mapIndex].tiles[25][71].placeOccupant( color(sailor), "- NO TEXT." );
-  m[mapIndex].tiles[26][72].placeOccupant( color(sailor), "- Haven't heard from the quartermaster in hours. He probably wants us to take a third break." );
-  m[mapIndex].tiles[27][71].placeOccupant( color(sailor), "♪ Within the cove at Marinstad "+
-                                                          "♪ Me widow scans the sky "+
-                                                          "♪ Scriven missives in her fist "+
-                                                          "♪ Hoarfrost upon her eye "+
-                                                          "♪ Her gold and smile secures a ship "+
+  m[mapIndex].tiles[27][71].placeOccupant( color(sailor), "- Haven't heard from the quartermaster in hours. He probably wants us to take a third break." );
+  m[mapIndex].tiles[26][72].placeOccupant( color(sailor), "♪ Her gold and smile secures a ship "+
                                                           "♪ She raises high the sail "+
                                                           "♪ Across a dark and angry sea "+
-                                                          "♪ We meet beyond the Veil ♪");
-                                                             
+                                                          "♪ We meet beyond the Veil ♪" );
   m[mapIndex].tiles[26][70].placeOccupant( color(sailor), "♪ Within the cove at Marinstad "+
                                                           "♪ Me widow scans the sky "+
                                                           "♪ Scriven missives in her fist "+
-                                                          "♪ Hoarfrost upon her eye "+
-                                                          "♪ Her gold and smile secures a ship "+
-                                                          "♪ She raises high the sail "+
-                                                          "♪ Across a dark and angry sea "+
-                                                          "♪ We meet beyond the Veil ♪");
+                                                          "♪ Hoarfrost upon her eye ♪" );
                                                           
   //Lower Deck post-boss
   m[mapIndex].tiles[76][72].placeOccupant( color(sailor), "- A clean ship will sail long." );
   m[mapIndex].tiles[85][72].placeOccupant( color(sailor), "- Where did all these dead rats come from?" );
   m[mapIndex].tiles[88][76].placeOccupant( color(sailor), "- Do you hear someone shouting?" );
   m[mapIndex].tiles[92][77].placeOccupant( color(sailor), "- NO TEXT" );
+  //Empty Beds
+  m[mapIndex].tiles[57][92].placeOccupant( color(255,0), "- The bedspread is littered with vials and chemical stains." );
+  m[mapIndex].tiles[65][98].placeOccupant( color(255,0), "- The sheet are fastidiously tucked in." );
+  m[mapIndex].tiles[67][98].placeOccupant( color(255,0), "- It's rude to sleep in someone else's bed." );
+  m[mapIndex].tiles[69][98].placeOccupant( color(255,0), "- The sheets are of a strange material from some faraway land." );
+  
   //Kat (post-boss)
     //in method below
   //Galley
   m[mapIndex].tiles[96][93].placeOccupant( color(captain), "- I wonder how rat tastes. The crew is about to find out!" );
-  m[mapIndex].tiles[95][91].placeOccupant( color(mYoung), "- Make sure to keep a balanced supply of rations on hand at all times. Drinking nothing but potions ruins your digestion." );
+  m[mapIndex].tiles[95][91].placeOccupant( color(mYoung), "- Make sure to keep a balanced supply of rations on hand at all times. Drinking nothing but potions is bad for the liver." );
   m[mapIndex].tiles[94][95].placeOccupant( color(fYoung), "- Who took all our barrels?" );
   m[mapIndex].tiles[90][88].placeOccupant( color(#FFB443), "- *Meow*" );
   //Upper Deck post-boss
   m[mapIndex].tiles[67][12].placeOccupant( color(captain), "- We've recieved word that Waraka's port is blocked. We'll have to let you off here. The castle is a day's journey to the north. Farewell, and never forget the feel of the wind of freedom!" );
   m[mapIndex].tiles[67][13].placeOccupant( color(coryColor), "- Look for me once you reach Waraka. I may have a job for you." );
-  m[mapIndex].tiles[57][1].placeOccupant( color(clericColor), "- I'm bound for Mariva in the west. The road passes through Waraka's checkpoints, so I'll have to pass through the castle." );
+  m[mapIndex].tiles[57][13].placeOccupant( color(clericColor), "- What a rugged land. I can see a tower rising from the hills. Is that Mariva?" );
+  m[mapIndex].tiles[56][13].placeOccupant( color(lesserRitisuColor), "- Yes, and that is Ritisu's tower. I am bound there if you wish to go. The road passes through Waraka's checkpoints." );
   //Singing sailors
   m[mapIndex].tiles[78][5].placeOccupant( color(sailor), "- SONG" );
   m[mapIndex].tiles[78][6].placeOccupant( color(sailor), "- SONG" );
@@ -2012,7 +2022,7 @@ void setNameDependentText()
   m[0].tiles[48][67].placeOccupant( color(250, 100, 50), "- "+party.hero[0].name+"? "+party.hero[1].name+"? Good, I'm glad to see you. We need help and we won't get it from Mother Sunita. I'm headed to the mayor's office. Meet me there as soon as you can." );
   
   //Kat
-  m[0].tiles[19][53].placeOccupant( color(250,0,170), "- AH! "+party.hero[1].name+", where did you come from? Was it you who slew those rats in the cellar? You're strong, "+party.hero[1].name+". Brave, too. If only I could borrow that courage. Some of them escaped the cellar with my prototype potion. I don't know what effect it will have on fauna, but it is my responsibilty to prevent harm. I-if you want to help, I'd appreciate it. My "+heroWeapon[1]+" "+wasOrWere(heroWeapon[1].charAt(heroWeapon[1].length()-1))+" never as strong as yours." );
+  m[0].tiles[19][53].placeOccupant( color(250,0,170), "- AH! "+party.hero[1].name+", where did you come from? Was it you who slew those rats in the cellar? You're strong, "+party.hero[1].name+". Brave, too. If only I could borrow that courage. Some of them escaped the cellar with my prototype potions. I don't know what effect they will have on fauna, but it is my responsibilty to prevent harm. I-if you want to help, I'd appreciate it. My "+heroWeapon[1]+" "+wasOrWere(heroWeapon[1].charAt(heroWeapon[1].length()-1))+" never as strong as yours." );
   m[1].tiles[49][14].placeOccupant( color(250,0,170), "She's slumped against the wall. Her arm is burned. - "+party.hero[1].name+"? How did you avoid the man-wolf? I had to use my draught of disguise. The rats are getting larger, and mutating in strange ways. May Am-asma forgive me for my part in this. I was able to trap one up ahead. Could you please fight him? I have food here if you feel hungry. I'll be fine, I just need a rest..." );
   m[3].tiles[1][24].placeOccupant( color(katColor), "Her face is pale and dripping with cold sweat. - Uh... oh, "+party.hero[1].name+". Why are you here? Books with strange symbols? Looking into Father Charis's death? Wow, you sure have been busy since leaving the cathedral. I was following the rats, but some of them followed me. They're in the ship. I locked them in the lower deck. I was going to tell the captain, but the ship started swaying and... uh, my poor stomach... I must have dropped the key." );
   m[3].tiles[58][89].placeOccupant( color(katColor), "- I think I'm past the worst of it now. Thank you again, "+party.hero[1].name+". After I clean the rest of them off the ship I plan to stop in Waraka castle to restock on reagents. I used my last brewing this potion. Take it as a show of thanks. Illamar guide you." );
@@ -2030,16 +2040,16 @@ void setNameDependentText()
   m[0].tiles[69][94].placeOccupant( color(fYoung), "- Yeah! "+party.hero[0].name+" is the best!" );
   
   //Boat
-  m[3].tiles[14][1].placeOccupant( color(clericColor), "- I sowre to stay in Irohill forever, "+party.hero[2].name+", but here I am, watching Illamar's light glisten on the sea. A strange new era is dawning." );
+  m[3].tiles[14][1].placeOccupant( color(clericColor), "- I swore to stay in Irohill forever, "+party.hero[2].name+", but here I am, watching Illamar's light glisten on the sea. A strange new era is dawning." );
   
 }
 
 //Expected Level:
 //(old exp system)
 //Rat queen 1.7 / 1.9
-//man-wolf 3.3 / 3.2
+//man-wolf 3.3 / 3.2 / 3.1
 //crypt guards 4.5 before, 5.2 back at courtyard
-//before necro 6.7 / 5.7 (died) / 5.5 (close fight)
+//before necro 6.7 / 5.7 (died) / 5.5 (close fight) / 5.7
 //after deep rat 6.5
 
 //Deities:

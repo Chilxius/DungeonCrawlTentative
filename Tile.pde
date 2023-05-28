@@ -508,7 +508,8 @@ class Tile
         return true;
       }
     advanceText("You lack the required item.");
-    //lockedDoorSound.play();
+    if( k != Key.CHEESE )
+      SFX[2].play();
     return false;
   }
   

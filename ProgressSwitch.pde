@@ -15,11 +15,6 @@ class ProgressSwitch
     active = false;
   }
   
-  //public ProgressSwitch( SwitchType t, int xInput, int yInput )
-  //{
-  //  this( t, xInput, yInput, 0 );
-  //}
-  
   public ProgressSwitch( SwitchType t, int xInput, int yInput, int floorInput )
   {
     type = t;
@@ -38,4 +33,36 @@ class ProgressSwitch
 public enum SwitchType
 {
   CHEST, DOOR, BOSS, NONE
+}
+
+//************************//
+//************************//
+
+class SavePoint
+{
+  int X;
+  int Y;
+  int floor;
+  int zone;
+  
+  public SavePoint()
+  {
+    this(1,1,0);
+  }
+  
+  public SavePoint( int f, int xPos, int yPos )
+  {
+    X = xPos;
+    Y = yPos;
+    floor = f;
+    zone = -1;
+  }
+  
+  public SavePoint( int f, int xPos, int yPos, int z )
+  {
+    X = xPos;
+    Y = yPos;
+    floor = f;
+    zone = z;
+  }
 }

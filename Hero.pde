@@ -352,7 +352,7 @@ class Hero
   public boolean gainExp( int amount )
   {
     exp += amount;
-    if( exp > nextLevel )
+    if( exp >= nextLevel )
     {
       level++;
       adjustStats(false);

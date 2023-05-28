@@ -935,7 +935,7 @@ class Artist
         image(tileImage[79],xPos,yPos);
         break;
       case SIGN:
-        image(tileImage[36],xPos,yPos);
+        image(tileImage[37],xPos,yPos);
         break;
       case SIGN_E:
         image(tileImage[63],xPos,yPos);
