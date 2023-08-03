@@ -21,11 +21,15 @@ import ddf.minim.ugens.*;
 //Hero gained a level while dead (3rd position, was revived once)
 
 //TO DO:
+//Make bard music abilites not use weapon elements
+//Change start-of-battle messages
+//Change Kat's initial dialogue
+//Make tomb guardians more dangerous
+//Look up String.trim()
 //Skills: animation system
 //Make battles stop triggering on spaces with events
-//Fix text in Charis's study
 //Add a "holding on" mechanic to stay alive after critical damage
-//add glow for regen and magic buff
+//Mechanic for someone following you (tied to a Key)
 
 //IMPROVEMENT:
 //Have inns charge money?
@@ -602,7 +606,7 @@ void checkEvent()
 
 boolean checkForBattle()
 {
-  if(random(100)<randomBattleCounter)
+  if(random(100)<randomBattleCounter)  // <- THIS IS PROBABLY WHERE THE BATTLE STARTING ON EVENT SQUARE WILL BE FIXED
   {
     randomBattleCounter = -10;
     return true;

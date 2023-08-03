@@ -66,13 +66,13 @@ class Map
     fill(b); ellipse(350-7,380,10,10);
     fill(c); ellipse(350+7,380,10,10);
     
-    
+    /*
     //For Testing
     textSize(10);
     fill(255);
     textAlign(LEFT);
     text(party.X + ", " + party.Y,width/2-10,height/2+45);
-    
+    */
   }
   
   public boolean tilePathable(int xPos, int yPos)

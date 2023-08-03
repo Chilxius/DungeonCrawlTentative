@@ -666,6 +666,7 @@ void setupMaps()
   m[1].tiles[18][1].createEvent(false, "- Some of the clerics are busy cleaning the cellar. Walk into their space to speak with them.");
   m[1].tiles[35][3].createEvent(false, "- Sometimes, you can pass only one way across a threshold. This is one of those moments. Once you ascend these stairs, your story will truly begin. Good luck, young heroes.");
   m[1].tiles[97][5].createEvent(true, "- Press capital (R) on a bed to rest. Resting in a safe place will fully restore health and magic.");
+  m[1].tiles[97][5].createEvent(true, "- Press capital (X) on a bed to rest. Resting in a safe place will fully restore health and magic.");
   m[1].tiles[2][15].createEvent(false, "- Whatever that is, it's big. Make sure to (E)at if you feel weak.");
   m[1].tiles[6][15].createEvent(false, "- This hole was made recently.");
   m[1].tiles[94][97].createEvent(false, "- The disjoined spirits of Irohill stand in a ring around the old campsite.");
@@ -1681,15 +1682,15 @@ void setupMaps()
   //Card Players
   m[mapIndex].tiles[25][71].placeOccupant( color(sailor), "- NO TEXT." );
   m[mapIndex].tiles[27][71].placeOccupant( color(sailor), "- Haven't heard from the quartermaster in hours. He probably wants us to take a third break." );
-  m[mapIndex].tiles[26][72].placeOccupant( color(sailor), "♪ Her gold and smile secures a ship "+
-                                                          "♪ She raises high the sail "+
-                                                          "♪ Across a dark and angry sea "+
-                                                          "♪ We meet beyond the Veil ♪" );
   m[mapIndex].tiles[26][70].placeOccupant( color(sailor), "♪ Within the cove at Marinstad "+
                                                           "♪ Me widow scans the sky "+
                                                           "♪ Scriven missives in her fist "+
                                                           "♪ Hoarfrost upon her eye ♪" );
-                                                          
+  m[mapIndex].tiles[26][72].placeOccupant( color(sailor), "♪ Her gold and smile secures a ship "+
+                                                          "♪ She raises high the sail "+
+                                                          "♪ Across a dark and angry sea "+
+                                                          "♪ We meet beyond the Veil ♪" );
+
   //Lower Deck post-boss
   m[mapIndex].tiles[76][72].placeOccupant( color(sailor), "- A clean ship will sail long." );
   m[mapIndex].tiles[85][72].placeOccupant( color(sailor), "- Where did all these dead rats come from?" );
@@ -1714,14 +1715,14 @@ void setupMaps()
   m[mapIndex].tiles[57][13].placeOccupant( color(clericColor), "- What a rugged land. I can see a tower rising from the hills. Is that Mariva?" );
   m[mapIndex].tiles[56][13].placeOccupant( color(lesserRitisuColor), "- Yes, and that is Ritisu's tower. I am bound there if you wish to go. The road passes through Waraka's checkpoints." );
   //Singing sailors
-  m[mapIndex].tiles[78][5].placeOccupant( color(sailor), "- SONG" );
-  m[mapIndex].tiles[78][6].placeOccupant( color(sailor), "- SONG" );
-  m[mapIndex].tiles[79][7].placeOccupant( color(sailor), "- SONG" );
-  m[mapIndex].tiles[80][7].placeOccupant( color(sailor), "- SONG" );
-  m[mapIndex].tiles[81][6].placeOccupant( color(sailor), "- SONG" );
-  m[mapIndex].tiles[81][5].placeOccupant( color(sailor), "- SONG" );
-  m[mapIndex].tiles[80][4].placeOccupant( color(sailor), "- SONG" );
-  m[mapIndex].tiles[79][4].placeOccupant( color(sailor), "- SONG" );
+  m[mapIndex].tiles[83][3].placeOccupant( color(sailor), "They're singing a chantey." );
+  m[mapIndex].tiles[83][4].placeOccupant( color(sailor), "They're singing a chantey." );
+  m[mapIndex].tiles[84][5].placeOccupant( color(sailor), "They're singing a chantey." );
+  m[mapIndex].tiles[85][5].placeOccupant( color(sailor), "They're singing a chantey." );
+  m[mapIndex].tiles[86][4].placeOccupant( color(sailor), "They're singing a chantey." );
+  m[mapIndex].tiles[86][3].placeOccupant( color(sailor), "They're singing a chantey." );
+  m[mapIndex].tiles[85][2].placeOccupant( color(sailor), "They're singing a chantey." );
+  m[mapIndex].tiles[84][2].placeOccupant( color(sailor), "They're singing a chantey." );
   //Captain's Daughter 2
   m[mapIndex].tiles[63][7].placeOccupant( color(fYoung), "- All right, landlubbers. Try to find my gold this time!" );
   
