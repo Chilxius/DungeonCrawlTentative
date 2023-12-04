@@ -125,11 +125,11 @@ class Party
   public float heroX( int h )
   {
     if( h ==0 )
-      return width/5;
+      return frameWidth/5;
     if( h == 1 )
-      return width/2;
+      return frameWidth/2;
     if( h == 2 )
-    return width * 0.8;
+    return frameWidth * 0.8;
 
     println("ERROR IN HERO X METHOD");
     return 0;

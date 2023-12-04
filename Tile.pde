@@ -666,7 +666,7 @@ class Tile
   
   public void drawForegroundObject()
   {
-    float xPos = width/2-15;
+    float xPos = frameWidth/2-15;
     float yPos = 360;
     if(type == TileType.TREE_PATH)
       image(tileImage[47],xPos-10,yPos-10);

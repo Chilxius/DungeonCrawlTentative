@@ -1,4 +1,13 @@
-//Import files for Minim (sound) //<>//
+//CURRENT TASK: //<>//
+//Adjust hitboxes for tooltip and button press to account for border (use frame variables)
+  //equip new equipment
+
+//To change once font is chosen:
+  //cleric owed money
+  //child's comment about mud washing out (spacing)
+
+
+//Import files for Minim (sound)
 /*
 import ddf.minim.*;
 import ddf.minim.analysis.*;
@@ -64,7 +73,7 @@ HeroCreationStep step = HeroCreationStep.NAME;
 HeroSelectReason reason = HeroSelectReason.NONE;
 
 //NEW LOG SYSTEM
-Logbook log = new Logbook(40);
+Logbook log = new Logbook(43);
 
 //The text to be displayed in the box
 String textLine1 = " ";
@@ -81,7 +90,12 @@ int currentHero = 0; //0,1,2
 String tempName;
 Job tempJob = Job.NONE;
 color tempColor, tempInverseColor;
-float tempRed=0,tempGreen=0,tempBlue=0;
+float tempRed=80,tempGreen=80,tempBlue=80;  //for character creation
+float tempRed2=40,tempGreen2=40,tempBlue2=40; //for character creation
+boolean slider[] = {false,false,false,false,false,false,false};
+int tempHair = 1, tempSkin = 150;
+color hairTone[] = {#090806, #463723, #8C7850, #D2BE46, #E16E32, #FFF5F1};
+//color skinTone[] = {#3b2219,#a16e4b,#d4aa78,#e6bc98,#ffe7d1};
 boolean heroDataDisplayed[] = {false,false,false};
 
 //Exploration Data
@@ -92,7 +106,9 @@ int zoneNumber = 1; //type of zone the party is in (mostly for music)
 //UI data
 Artist vanGogh;// = new Artist();
 ArrayList<GhostNumber> floatingNumbers = new ArrayList<GhostNumber>();
-int windowX, windowY;
+int windowX, windowY; //position of program window
+int frameWidth, frameHeight; //dimensions of game window  //These are not implemented
+int frameX, frameY; //position of game window (corner)    //to work for all sizes yet.
 
 //Sound effects
 Sound s;
@@ -118,6 +134,7 @@ PImage battleBack[] = new PImage[10]; //Backgrounds for battles
 PImage iconImage[] = new PImage[50];  //Icons for buttons, need to move some items from tileImage
 PImage effectImage[] = new PImage[10]; //Images for effects. Will eventually include spell effects.
 PImage cursor;
+PImage border;
 
 //Item data
 Loot [][] lootList = new Loot[4][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
@@ -152,6 +169,11 @@ int currentBoss = -1; //index of boss being fought
 boolean multiBoss = false; //is this a multiple enemy boss fight
 int skillSelection = -1; //index of chosen skill (hero)
 
+//Font Data
+PFont font;
+float fontScale = 1.05;
+
+//Save Data
 PrintWriter saveOutput;
 
 boolean gameover = false;
@@ -160,8 +182,17 @@ void setup()
 {
   background(0);
   
+  println("Loading font...");
+  font = createFont("Inconsolata-Bold.ttf", 14);
+  textFont(font);
+  
   //fullScreen();
-  size(700,700);
+  size(750,750);
+  frameWidth = 700;
+  frameHeight = 700;
+  frameX = (width-frameWidth)/2;
+  frameY = (height-frameHeight)/2;
+  
   frameRate(60);
   surface.setTitle("THE RIDDLE OF IRON");
   cursor = loadImage("cursorSword.png");
@@ -276,6 +307,8 @@ void setup()
   
   effectImage[0] = loadImage("bardBonus.png");      effectImage[0].resize(30,0);
   
+  border = loadImage("stoneBorder.png");            border.resize(750,750);
+  
   Sound s = new Sound(this);
   s.volume(1);
   
@@ -347,6 +380,9 @@ void draw()
     vanGogh.shakeScreen();
   
   background(0);
+  
+  translate(25,25); //Shift everything down into the border
+  
   if(display == Display.MAIN_MENU)
     vanGogh.drawMainMenu();
 
@@ -362,7 +398,7 @@ void draw()
   if(step == HeroCreationStep.JOB)
     vanGogh.drawJobChoices(currentHero);
   else if(step == HeroCreationStep.COLOR)
-    vanGogh.drawColorBars(tempRed,tempGreen,tempBlue);
+    vanGogh.drawCustomizeScreen(tempRed,tempGreen,tempBlue,tempRed2,tempGreen2,tempBlue2,tempHair,tempSkin);
     
   if(display == Display.MAP)
     m[party.floor].drawMapOnPosition(party.X,party.Y,party.hero(0).getColor(),party.hero(1).getColor(),party.hero(2).getColor());
@@ -411,12 +447,21 @@ void draw()
 
   if(input==Input.ADVANCE_TEXT)
     vanGogh.drawAdvanceTextPrompt();
+  
+  //Border
+  push();
+  imageMode(CORNER);
+  image(border,-25,-25);
+  pop();
     
   if(vanGogh.resting)
     vanGogh.drawRestFadeout();
   
   //Advance any animations
   vanGogh.animate();
+  
+  //if( dist( mouseX, mouseY, 50+frameX, 50+frameY ) < 25 ) //TESTING    ODD HOW TRANSLATE WORKS
+  //text("X:"+(mouseX-25) + " Y:"+(mouseY-25), width/2, 100);
 }
 
 void drawConditions()
@@ -452,7 +497,7 @@ public String inputText() //Retrieves the text in the box and switches game stat
       input = Input.HERO_JOB_CHOICE; //<>//
       if(textBuffer.equals(""))
         textBuffer = randomName();
-      advanceText("Select "+textBuffer+"'s Job");
+      advanceText("What is "+textBuffer+"'s Job");
     }
   }
   
@@ -625,34 +670,34 @@ boolean checkForBattle()
   
 public String randomName()
 {
-  switch( int(random(52)) )
+  switch( int(random(74)) )
   {
     case 1: return "Angel";    case 26: return "Alex";     case 42: return "Ash";
-    case 2: return "Björn";    case 27: return "Briar";
-    case 3: return "Cadell";   case 28: return "Colette";
-    case 4: return "Darya";    case 29: return "Draco";    case 51: return "Dirk";
-    case 5: return "Enyo";     case 30: return "Elwyn";
-    case 6: return "Fritjof";  case 31: return "Faith";
-    case 7: return "Gunhild";  case 32: return "Gale";
-    case 8: return "Homer";    case 33: return "Hana";
-    case 9: return "Inola";    case 34: return "Ivan";
-    case 10: return "Joy";     case 35: return "Jazz";
-    case 11: return "Kai";     case 36: return "Kim";
-    case 12: return "Leocadia";case 37: return "Law";
-    case 13: return "Marc";    case 38: return "Misty";
-    case 14: return "Nadya";   case 39: return "Neon";
-    case 15: return "Orion";   case 40: return "Olga";
-    case 16: return "Phoenix"; case 41: return "Penelope";
+    case 2: return "Björn";    case 27: return "Briar";    case 52: return "Bella";
+    case 3: return "Cadell";   case 28: return "Colette";  case 53: return "Cyrus";
+    case 4: return "Darya";    case 29: return "Draco";    case 54: return "Dirk";
+    case 5: return "Enyo";     case 30: return "Elwyn";    case 55: return "Europa";
+    case 6: return "Fritjof";  case 31: return "Faith";    case 56: return "Freya";
+    case 7: return "Gunhild";  case 32: return "Gale";     case 57: return "Gabriel";
+    case 8: return "Homer";    case 33: return "Hana";     case 58: return "Hope";
+    case 9: return "Inola";    case 34: return "Ivan";     case 59: return "Ilsa";
+    case 10: return "Joy";     case 35: return "Jazz";     case 60: return "Jude";
+    case 11: return "Kai";     case 36: return "Kim";      case 61: return "Kris";
+    case 12: return "Leocadia";case 37: return "Law";      case 62: return "Luna";
+    case 13: return "Marc";    case 38: return "Misty";    case 63: return "Molly";
+    case 14: return "Nadya";   case 39: return "Neon";     case 64: return "Nail";
+    case 15: return "Orion";   case 40: return "Olga";     case 65: return "Onyx";
+    case 16: return "Phoenix"; case 41: return "Penelope"; case 66: return "Pip";
     case 17: return "Quinn";   
-    case 18: return "Raven";   case 43: return "Rook";
-    case 19: return "Sky";     case 44: return "Spike";
-    case 20: return "Tybalt";  case 45: return "Tabitha";
+    case 18: return "Raven";   case 43: return "Rook";     case 67: return "River";
+    case 19: return "Sky";     case 44: return "Spike";    case 68: return "Sage";
+    case 20: return "Tybalt";  case 45: return "Tabitha";  case 69: return "Tigerlily";
     case 21: return "Ursa";    case 46: return "Ulric";
-    case 22: return "Vela";    case 47: return "Vulcan";
-    case 23: return "Wystan";  case 48: return "Willow";
+    case 22: return "Vela";    case 47: return "Vulcan";   case 70: return "";
+    case 23: return "Wystan";  case 48: return "Willow";   case 71: return "Wren";
     case 24: return "Xena";    case 49: return "Xia";
-    case 25: return "Yoko";    case 50: return "Yin";
-    default: return "Zazi";
+    case 25: return "Yoko";    case 50: return "Yin";      case 72: return "Yang";
+    default: return "Zazi";    case 51: return "Zak";      case 73: return "Zoe";
   }
 }
 
@@ -828,7 +873,7 @@ public void checkForStairEvent( Portal p )
 
 boolean mouseInBox( float boxX, float boxY ) //assumes boxes are 70x70
 {
-  if( mouseX > boxX-35 && mouseX < boxX+35 && mouseY > boxY-35 && mouseY < boxY+35 )
+  if( mouseX-frameX > boxX-35 && mouseX-frameX < boxX+35 && mouseY-frameY > boxY-35 && mouseY-frameY < boxY+35 )
     return true;
   return false;
 }
@@ -943,12 +988,34 @@ public int getZone( String title )
     default: return 0;
   }
 }
+
+public String jobToString( Job j )
+{
+  switch(j)
+  {
+    case KNIGHT:    return "Knight";
+    case BARBARIAN: return "Barbarian";
+    case SAURIAN:   return "Saurian";
+    case KARATE:    return "Martial Artist";
+    case BARD:      return "Bard";
+    case THIEF:     return "Thief";
+    case DRUID:     return "Druid";
+    case PRIEST:    return "Priest";
+    case MAGE:      return "Mage";
+    default: return "Unemployed";
+  }
+}
   
 Input appropriateInputMode()
 {
   if( party.hero[battle.turn].skill[skillSelection].healing )
     return Input.BATTLE_HEAL_TARGET;
   return Input.BATTLE_SKILL_TARGET;
+}
+
+void handleSliders()
+{
+  
 }
 
 void keyPressed()
@@ -1415,17 +1482,17 @@ void mouseClicked()
 {
   if(step==HeroCreationStep.JOB)
   {
-    if     (dist(mouseX,mouseY,210,160)<62) tempJob = Job.KNIGHT;
-    else if(dist(mouseX,mouseY,350,160)<62) tempJob = Job.BARBARIAN;
-    else if(dist(mouseX,mouseY,490,160)<62) tempJob = Job.SAURIAN;
+    if     (dist(mouseX,mouseY,210+frameX,160+frameY)<62) tempJob = Job.KNIGHT;
+    else if(dist(mouseX,mouseY,350+frameX,160+frameY)<62) tempJob = Job.BARBARIAN;
+    else if(dist(mouseX,mouseY,490+frameX,160+frameY)<62) tempJob = Job.SAURIAN;
     
-    else if(dist(mouseX,mouseY,210,300)<62) tempJob = Job.KARATE;
-    else if(dist(mouseX,mouseY,350,300)<62) tempJob = Job.BARD;
-    else if(dist(mouseX,mouseY,490,300)<62) tempJob = Job.THIEF;
+    else if(dist(mouseX,mouseY,210+frameX,300+frameY)<62) tempJob = Job.KARATE;
+    else if(dist(mouseX,mouseY,350+frameX,300+frameY)<62) tempJob = Job.BARD;
+    else if(dist(mouseX,mouseY,490+frameX,300+frameY)<62) tempJob = Job.THIEF;
     
-    else if(dist(mouseX,mouseY,210,440)<62) tempJob = Job.DRUID;
-    else if(dist(mouseX,mouseY,350,440)<62) tempJob = Job.PRIEST;
-    else if(dist(mouseX,mouseY,490,440)<62) tempJob = Job.MAGE;
+    else if(dist(mouseX,mouseY,210+frameX,440+frameY)<62) tempJob = Job.DRUID;
+    else if(dist(mouseX,mouseY,350+frameX,440+frameY)<62) tempJob = Job.PRIEST;
+    else if(dist(mouseX,mouseY,490+frameX,440+frameY)<62) tempJob = Job.MAGE;
     
     else tempJob = Job.NONE;
 
@@ -1438,13 +1505,16 @@ void mouseClicked()
   }
   else if( step == HeroCreationStep.COLOR )
   {
-    if( mouseX > 300 && mouseX < 400 && mouseY > 462.5 && mouseY < 537.5 )
+    if( mouseX > 500 && mouseX < 600 && mouseY > 400 && mouseY < 500 ) //confirm button
     {
       tempColor = color(tempRed,tempGreen,tempBlue);
       tempInverseColor = color((255-tempRed)*.65,(255-tempGreen)*.65,(255-tempBlue)*.65);
-      party.hero[currentHero]=new Hero(tempName,tempJob,tempColor,tempInverseColor);
-      tempRed = tempGreen = tempBlue = 0;
+      party.hero[currentHero]=new Hero(tempName,tempJob,tempColor,tempInverseColor,tempHair,tempSkin);
+      tempRed = tempGreen = tempBlue = 80;
+      tempRed2 = tempGreen2 = tempBlue2 = 40;
+      tempSkin = 150;
       currentHero++; 
+      tempHair = currentHero+1;
       if(currentHero<3) //more heroes to create
       {
         input = Input.TYPING;
@@ -1459,7 +1529,7 @@ void mouseClicked()
         //pushTextLine("Our heroes are assembled!");
         //pushTextLine("Let the adventure begin!");
         //pushTextLine("Use (w)(a)(s)(d) or arrows to move.");
-        displayTextLine("You finish intoning your prayers to the Black Vanguard. His altars are found only in hidden and dark places such as this. It is he who carries souls across the Veil, and so you ask that he treat Father Charis well when his time to depart comes. The Cathedral bells echo from above. It is time for the morning meal. Use the (w)(a)(s)(d) or arrow keys to move.");
+        displayTextLine("You finish intoning your prayers to the Black Vanguard. His altars are found only in dark and hidden places such as this. It is he who carries souls across the Veil, and so you ask that he treat Father Charis well when his time to depart comes. The Cathedral bells echo from above. It is time for the morning meal. Use the (w)(a)(s)(d) or arrow keys to move.");
         display = Display.MAP;
         previous = Input.EXPLORING;
         advanceNextTextLine();
@@ -1468,33 +1538,61 @@ void mouseClicked()
   }
   else if( display == Display.FOOD_MENU || display == Display.POTION_MENU )
   {
-     if( mouseX > 205 && mouseX < 520 && mouseY > 185 && mouseY < 230 )
+     if( mouseX-frameX > 205 && mouseX-frameX < 520 && mouseY-frameY > 185 && mouseY-frameY < 230 )
      { key = '1'; keyPressed(); }
-     if( mouseX > 205 && mouseX < 520 && mouseY > 265 && mouseY < 310 )
+     if( mouseX-frameX > 205 && mouseX-frameX < 520 && mouseY-frameY > 265 && mouseY-frameY < 310 )
      { key = '2'; keyPressed(); }
-     if( mouseX > 205 && mouseX < 520 && mouseY > 345 && mouseY < 390 )
+     if( mouseX-frameX > 205 && mouseX-frameX < 520 && mouseY-frameY > 345 && mouseY-frameY < 390 )
      { key = '3'; keyPressed(); }
-     if( mouseX > 205 && mouseX < 520 && mouseY > 425 && mouseY < 470 )
+     if( mouseX-frameX > 205 && mouseX-frameX < 520 && mouseY-frameY > 425 && mouseY-frameY < 470 )
      { key = '4'; keyPressed(); }
   }
 }
 
 void mousePressed()
 {
-  if( step == HeroCreationStep.COLOR ) //for selecting hero colors
+  if( step == HeroCreationStep.JOB )
   {
-    if( mouseX > 100 && mouseX < 600 && mouseY >290 && mouseY < 310 )
-      tempRed = (mouseX-100)/2;
-    if( mouseX > 100 && mouseX < 600 && mouseY >340 && mouseY < 360 )
-      tempGreen = (mouseX-100)/2;
-    if( mouseX > 100 && mouseX < 600 && mouseY >390 && mouseY < 410 )
-      tempBlue = (mouseX-100)/2;
+    if( dist(mouseX-frameX,mouseY-frameY,40,40) < 27 ) //back button
+    {
+      input = Input.TYPING;
+      step = HeroCreationStep.NAME;
+      advanceText("What is your " + ordinalNumber(currentHero) + " hero's name?");
+    }
+  }
+  else if( step == HeroCreationStep.COLOR ) //for selecting hero colors
+  {
+    if( dist(mouseX-frameX,mouseY-frameY,40,40) < 27 ) //back button
+    {
+      advanceText("What is "+tempName+"'s Job");
+      step = HeroCreationStep.JOB;
+    }
+    if( mouseX > 100 && mouseX < 350 && mouseY > 87.5  && mouseY < 112.5 )
+      slider[0]=true;
+    if( mouseX > 100 && mouseX < 350 && mouseY > 137.5 && mouseY < 162.5 )
+      slider[1]=true;
+    if( mouseX > 100 && mouseX < 350 && mouseY > 187.5 && mouseY < 247.5 )
+      slider[2]=true;
+    if( mouseX > 100 && mouseX < 350 && mouseY > 272.5 && mouseY < 297.5 )
+      slider[3]=true;
+    if( mouseX > 100 && mouseX < 350 && mouseY > 323.5 && mouseY < 347.5 )
+      slider[4]=true;
+    if( mouseX > 100 && mouseX < 350 && mouseY > 372.5 && mouseY < 397.5 )
+      slider[5]=true;
+    if( mouseX > 75  && mouseX < 375 && mouseY > 575   && mouseY < 600 )
+      slider[6]=true;
+    for(int i = 0; i < 6; i++)
+    {
+      if( dist( mouseX, mouseY, 62.5+75*i, 487.5 ) < 13 )
+        tempHair = i;
+    }
+
   }
   if( input == Input.HERO_SELECT || input == Input.BATTLE_ITEM_HERO_CHOICE ) //clicked on hero
   {
-    if(dist( mouseX,mouseY, 150,320)<37.5) { key='1'; keyPressed(); }
-    if(dist( mouseX,mouseY, 350,320)<37.5) { key='2'; keyPressed(); }
-    if(dist( mouseX,mouseY, 550,320)<37.5) { key='3'; keyPressed(); }
+    if(dist( mouseX+frameX,mouseY+frameY, 150,320)<37.5) { key='1'; keyPressed(); }
+    if(dist( mouseX+frameX,mouseY+frameY, 350,320)<37.5) { key='2'; keyPressed(); }
+    if(dist( mouseX+frameX,mouseY+frameY, 550,320)<37.5) { key='3'; keyPressed(); }
   }
   else if( input == Input.BATTLE_SKILL ) //clicked on skill or cancel
   {
@@ -1556,6 +1654,7 @@ void mousePressed()
 void mouseReleased()
 {
   heroDataDisplayed[0]=heroDataDisplayed[1]=heroDataDisplayed[2]=false;
+  slider[0]=slider[1]=slider[2]=slider[3]=slider[4]=slider[5]=slider[6]=false;
 }
 
 public enum Input
@@ -1657,6 +1756,11 @@ public void saveGame( String fileName )
     saveOutput.println(red(party.hero[i].favColor));
     saveOutput.println(green(party.hero[i].favColor));
     saveOutput.println(blue(party.hero[i].favColor));
+    saveOutput.println(red(party.hero[i].inverseColor));
+    saveOutput.println(green(party.hero[i].inverseColor));
+    saveOutput.println(blue(party.hero[i].inverseColor));
+    saveOutput.println(party.hero[i].hairColor);
+    saveOutput.println(party.hero[i].skinColor);
     saveOutput.println(party.hero[i].level);
     saveOutput.println(party.hero[i].nextLevel);
     saveOutput.println(party.hero[i].exp);
@@ -1745,18 +1849,20 @@ public void loadFile( String fileName )
     //load hero data
     for (int i = 0, offset; i < 3; i++) 
     {
-      offset = i*19;
+      offset = i*24;
       party.hero[i] = new Hero(saveFileText[0+offset],
                                stringToJob(saveFileText[1+offset]),
                                color(int(saveFileText[2+offset]),int(saveFileText[3+offset]),int(saveFileText[4+offset])),
-                               color(255-int(saveFileText[2+offset]),255-int(saveFileText[3+offset]),255-int(saveFileText[4+offset])));
-      party.hero[i].level = int(saveFileText[5+offset]);
-      party.hero[i].nextLevel = int(saveFileText[6+offset]);
-      party.hero[i].exp = int(saveFileText[7+offset]);
-      party.hero[i].hp = int(saveFileText[8+offset]);
-      party.hero[i].mp = int(saveFileText[9+offset]);
-      party.hero[i].weapon = new Equipment(saveFileText[10+offset],saveFileText[11+offset],int(saveFileText[12+offset]),true,float(saveFileText[13+offset]));
-      party.hero[i].armor = new Equipment(saveFileText[14+offset],saveFileText[15+offset],int(saveFileText[16+offset]),false,int(saveFileText[17+offset]));
+                               color(int(saveFileText[5+offset]),int(saveFileText[6+offset]),int(saveFileText[7+offset])),
+                               int(saveFileText[8+offset]),
+                               int(saveFileText[9+offset]) );
+      party.hero[i].level = int(saveFileText[10+offset]);
+      party.hero[i].nextLevel = int(saveFileText[11+offset]);
+      party.hero[i].exp = int(saveFileText[12+offset]);
+      party.hero[i].hp = int(saveFileText[13+offset]);
+      party.hero[i].mp = int(saveFileText[14+offset]);
+      party.hero[i].weapon = new Equipment(saveFileText[15+offset],saveFileText[16+offset],int(saveFileText[17+offset]),true,float(saveFileText[18+offset]));
+      party.hero[i].armor = new Equipment(saveFileText[19+offset],saveFileText[20+offset],int(saveFileText[21+offset]),false,int(saveFileText[22+offset]));
       party.hero[i].adjustStats(false);
       //party.hero[i].assignSkills();
     }
@@ -1766,15 +1872,15 @@ public void loadFile( String fileName )
     setNameDependentText();
     
     //load save point
-    println("Save point # " + int(saveFileText[57]));
-    party.setPosition(savePoints[int(saveFileText[57])]); //line 54, will be based on list
-    zoneNumber = savePoints[int(saveFileText[57])].zone;
+    println("Save point # " + int(saveFileText[72]));
+    party.setPosition(savePoints[int(saveFileText[72])]); //line 54, will be based on list
+    zoneNumber = savePoints[int(saveFileText[72])].zone;
     
-    party.gold = int(saveFileText[59]);
+    party.gold = int(saveFileText[74]);
     
     //load inventory items
     createInventories(); //zeros out inventories - may be redundant in final version
-    int fileLine = 60; //first line of inventory data
+    int fileLine = 75; //first line of inventory data
     while(!saveFileText[fileLine].equals("XX"))
     {
       party.addToInventory(new Item(saveFileText[fileLine],int(saveFileText[fileLine+1])),true);

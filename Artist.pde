@@ -89,7 +89,7 @@ class Artist
   public void drawLocationTitleCard()
   {
     titleCardDuration--;
-    textSize(35);
+    textSize(35*fontScale);
     textAlign(CENTER);
     fill(255,255*(titleCardDuration/100.0));
     text(locationTitleCard,350,185);
@@ -126,30 +126,30 @@ class Artist
     stroke(255);
     strokeWeight(6);
     rectMode(CENTER);
-    rect(width/2,height/2,width-width/5,height-height/5,20);
+    rect(frameWidth/2,frameHeight/2,frameWidth-frameWidth/5,frameHeight-frameHeight/5,20);
 
     //Scroll
     noStroke();
     rectMode(CENTER);
     fill(195,175,135);
-    rect(width/2,height/4-20,460,70);
+    rect(frameWidth/2,frameHeight/4-20,460,70);
     fill(90,70,30);
-    rect(width/2,height/4-20-32,480,6);
-    rect(width/2,height/4-20+32,480,6);
+    rect(frameWidth/2,frameHeight/4-20-32,480,6);
+    rect(frameWidth/2,frameHeight/4-20+32,480,6);
     fill(180,160,120);
-    rect(width/2,height/4-20-32,470,14,5);
-    rect(width/2,height/4-20+32,470,14,5);
+    rect(frameWidth/2,frameHeight/4-20-32,470,14,5);
+    rect(frameWidth/2,frameHeight/4-20+32,470,14,5);
     
-    textSize(45);
+    textSize(45*fontScale);
     fill(127);
     textAlign(CENTER);
-    text("The Riddle of Iron",width/2,height/4-5);
+    text("The Riddle of Iron",frameWidth/2,frameHeight/4-5);
     
-    textSize(20);
+    textSize(20*fontScale);
     fill(255);
-    text("Enter the name of your game file.",width/2,height/2-10);
-    text("If no file with that name exists,",width/2,height/2+30);
-    text("a new file will be created.",width/2,height/2+70);
+    text("Enter the name of your game file.",frameWidth/2,frameHeight/2-10);
+    text("If no file with that name exists,",frameWidth/2,frameHeight/2+30);
+    text("a new file will be created.",frameWidth/2,frameHeight/2+70);
   }
   
   public void drawKeys( Key keys[] )
@@ -157,11 +157,11 @@ class Artist
     fill(0);  rectMode(CORNER);
     stroke(200);
     strokeWeight(5);
-    rect(100,100,width-200,height-200,20);
+    rect(100,100,frameWidth-200,frameHeight-200,20);
     
-    fill(200); textAlign(LEFT); textSize(25);
+    fill(200); textAlign(LEFT); textSize(25*fontScale);
     text("Keys you have collected:",120,130);
-    textSize(20);
+    textSize(20*fontScale);
     for(int i = 0,j = 0; i < keys.length; i++)
       if(keys[i]!=Key.NONE)
       { 
@@ -178,13 +178,13 @@ class Artist
     stroke(200);
     strokeWeight(5);
     //rect(10,height-320,110,200,20); //loot box
-    rect(100,100,width-200,height-200,20); //main window
+    rect(100,100,frameWidth-200,frameHeight-200,20); //main window
     
-    fill(200); textAlign(LEFT); textSize(25);
+    fill(200); textAlign(LEFT); textSize(25*fontScale);
     text("Your Inventory:",120,130);
-    textAlign(RIGHT); textSize(10);
+    textAlign(RIGHT); textSize(10*fontScale);
     text("press (s) to sort",580,115);
-    textSize(20); textAlign(LEFT);
+    textSize(20*fontScale); textAlign(LEFT);
     for(int i = 0; i < items.length; i++)
       if(items[i].value!=0)
       {
@@ -223,16 +223,16 @@ class Artist
         
     fill(0);  rectMode(CORNER);
     stroke(200); strokeWeight(5);
-    rect(100,100,width-200,height-200,20);
+    rect(100,100,frameWidth-200,frameHeight-200,20);
     
-    noStroke(); textAlign(LEFT); textSize(20); imageMode(CENTER);
+    noStroke(); textAlign(LEFT); textSize(20*fontScale); imageMode(CENTER);
     if(breadCount>0) { checkMouseInFoodBox(0); fill(#F2CE69,50); rect(205,185,385,45,20); image(tileImage[82],230,510); fill(255); text(":"+breadCount,250,515); }
     if(porkCount>0)  { checkMouseInFoodBox(1); fill(#B46C31,50); rect(205,265,385,45,20); image(tileImage[83],330,510); fill(255); text(":"+porkCount, 350,515); }
     if(fruitCount>0) { checkMouseInFoodBox(2); fill(#00FF28,50); rect(205,345,385,45,20); image(tileImage[84],430,510); fill(255); text(":"+fruitCount,450,515); }
     if(crabCount>0)  { checkMouseInFoodBox(3); fill(#FF0032,50); rect(205,425,385,45,20); image(tileImage[85],530,510); fill(255); text(":"+crabCount, 550,515); }
     
-    fill(200); textAlign(CENTER); textSize(40);
-    text("Select Meal",width/2,150);
+    fill(200); textAlign(CENTER); textSize(40*fontScale);
+    text("Select Meal",frameWidth/2,150);
     
     noStroke();
     //Fork
@@ -254,7 +254,7 @@ class Artist
     bezierVertex(530,390,530,115,560,145);
     endShape();
     */  
-    fill(200); textAlign(LEFT); textSize(35);
+    fill(200); textAlign(LEFT); textSize(35*fontScale);
     if(breadCount>0)
       text("1 - "+party.nextFoodName(0),210,220);
     if(porkCount>0)
@@ -264,16 +264,16 @@ class Artist
     if(crabCount>0)
       text("4 - "+party.nextFoodName(3),210,460);
       
-    fill(200); textAlign(CENTER); textSize(25);
-    text("Select by number or",width/2,560);
-    text("press space to cancel.",width/2,580);
+    fill(200); textAlign(CENTER); textSize(25*fontScale);
+    text("Select by number or",frameWidth/2,560);
+    text("press space to cancel.",frameWidth/2,580);
   }
   
   public void checkMouseInFoodBox( int index ) //highlights food options when moused over
   {
-    if( mouseX > 210 && mouseX < 590 )
+    if( frameWidth > 210 && frameWidth < 590 )
     {
-      if( mouseY > 190+(index*80) && mouseY < 235+(index*80) )
+      if( frameHeight > 190+(index*80) && frameHeight < 235+(index*80) )
       {
         stroke(200);
         strokeWeight(2);
@@ -295,10 +295,10 @@ class Artist
     fill(0);  rectMode(CORNER);
     stroke(200);
     strokeWeight(5);
-    rect(100,100,width-200,height-200,20);
+    rect(100,100,frameWidth-200,frameHeight-200,20);
         
-    fill(200); textAlign(CENTER); textSize(40);
-    text("Select Potion",width/2,150);
+    fill(200); textAlign(CENTER); textSize(40*fontScale);
+    text("Select Potion",frameWidth/2,150);
     
     drawPotion(150,200,1,rand1);
     drawPotion(150,400,1,rand2);
@@ -315,7 +315,7 @@ class Artist
       else if( i.value == 48 )
         elixers++;
     
-    fill(200); textAlign(LEFT); textSize(35);
+    fill(200); textAlign(LEFT); textSize(35*fontScale);
     if(healthPots>0)
       text("1 - Health: "+healthPots,210,220);
     if(manaPots>0)
@@ -325,9 +325,9 @@ class Artist
     if(elixers>0)
       text("4 - Elixer: "+elixers,210,460);
       
-    fill(200); textAlign(CENTER); textSize(25);
-    text("Select by number or",width/2,560);
-    text("press space to cancel.",width/2,580);
+    fill(200); textAlign(CENTER); textSize(25*fontScale);
+    text("Select by number or",frameWidth/2,560);
+    text("press space to cancel.",frameWidth/2,580);
   }
   
   public void loadSkillIcons()
@@ -427,7 +427,7 @@ class Artist
     float baseX = party.heroX(h);
     
     strokeWeight(5); fill(0);
-    stroke(200); textSize(18); textAlign(CENTER);
+    stroke(200); textSize(18*fontScale); textAlign(CENTER);
     rectMode(CORNER); rect(40,160,620,340,20); rectMode(CENTER);
     /*level 1 skill*/             noFill(); image(skillIcon[jobToInt(party.hero[h].job)][0],140,280); rect(140,280,70,70,20); fill(200); text(party.hero[h].skill[0].description,140,240); text("Cost: "+(party.hero[h].skill[0].cost+party.hero[h].bardBonus),140,335); text("Q",165,305);
     if(party.hero[h].level>=5 ) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][1],280,280); rect(280,280,70,70,20); fill(200); text(party.hero[h].skill[1].description,280,240); text("Cost: "+party.hero[h].skill[1].cost,280,335); text("W",305,305); }
@@ -438,7 +438,7 @@ class Artist
     if(party.hero[h].level>=30) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][6],420,430); rect(420,430,70,70,20); fill(200); text(party.hero[h].skill[6].description,420,390); text("Cost: "+party.hero[h].skill[6].cost,420,485); text("D",445,455); }
     if(party.hero[h].level>=35) { noFill(); image(skillIcon[jobToInt(party.hero[h].job)][7],560,430); rect(560,430,70,70,20); fill(200); text(party.hero[h].skill[7].description,560,390); text("Cost: "+party.hero[h].skill[7].cost,560,485); text("F",585,455); }
     
-    textSize(20);
+    textSize(20*fontScale);
     for(int i = 0; i < 4; i++) //Display full description
     {
       if(mouseInBox(140+i*140,280) && party.hero[h].level >= i*5 )
@@ -480,7 +480,7 @@ class Artist
     rect(420,380,70,70,20);rect(560,380,70,70,20);
     rect(baseX+75,545,70,70,20);
     
-    textAlign(CENTER); textSize(10); fill(200);
+    textAlign(CENTER); textSize(10*fontScale); fill(200);
     if(healthPots>0){text("Health: "+healthPots,140,357); text("A",165,407);}
     if(manaPots>0)  {text("Mana: "  +manaPots,280,357);   text("S",305,407);}
     if(vapors>0)    {text("Vapor: " +vapors,420,357);     text("D",445,407);}
@@ -498,10 +498,10 @@ class Artist
     fill(0);  rectMode(CORNER);
     stroke(200); strokeWeight(5);
     rect(210,170,285,410,20);
-    drawHeroByType(party.hero[h],454,212,1,h,false);
-    fill(200); textAlign(LEFT,TOP); textSize(40);
+    drawHeroByType(party.hero[h],454,212,1,false);
+    fill(200); textAlign(LEFT,TOP); textSize(40*fontScale);
     text(party.hero[h].name,225,175);
-    textSize(25);
+    textSize(25*fontScale);
     text("Level " + party.hero[h].level + " " + party.hero[h].jobToString(),225,220);
     if(party.hero[h].inDanger())fill(255,0,0); text("Health: " + party.hero[h].hp + "/" + party.hero[h].maxHp,225,260); fill(200);
     if(party.hero[h].maxMp>0)
@@ -534,7 +534,7 @@ class Artist
     image(party.hero[h].weapon.pic,135,220);
     rect(85,290,100,100,20);
     image(party.hero[h].armor.pic,135,340);
-    textSize(10); fill(200); textAlign(CENTER);
+    textSize(10*fontScale); fill(200); textAlign(CENTER);
     text("WEAPON",135,185);
     text("ARMOR",135,305);
     
@@ -547,7 +547,7 @@ class Artist
     fill(0);  rectMode(CORNER);
     stroke(200); strokeWeight(5);
     rect(520,170,100,310,20);
-    textSize(10); fill(200); textAlign(CENTER);
+    textSize(10*fontScale); fill(200); textAlign(CENTER);
     text("CONDITION",570,185);
     
     //Hero is fine (NOT(!) REMOVED FOR TESTING)
@@ -555,9 +555,9 @@ class Artist
     && !party.hero[h].hasCondition(1) && !party.hero[h].hasCondition(2)
     && !party.hero[h].hasCondition(3) && !party.hero[h].hasCondition(4) )
     {
-      textSize(15); fill(255); textAlign(CENTER);
+      textSize(15*fontScale); fill(255); textAlign(CENTER);
       text("HEALTHY",570,210);
-      textSize(12);
+      textSize(12*fontScale);
       text("Ready for",570,225);
       text("adventure!",570,235);
     }
@@ -565,9 +565,9 @@ class Artist
     //Low health
     if(party.hero[h].inDanger())
     {
-      textSize(15); fill(150,0,0); textAlign(CENTER);
+      textSize(15*fontScale); fill(150,0,0); textAlign(CENTER);
       text("IN DANGER",570,210);
-      textSize(12);
+      textSize(12*fontScale);
       text("Find healing",570,223);
       text("soon!",570,235);
     }
@@ -575,9 +575,9 @@ class Artist
     //Poisoned
     if(party.hero[h].hasCondition(0))
     {
-      textSize(15); fill(0,150,0); textAlign(CENTER);
+      textSize(15*fontScale); fill(0,150,0); textAlign(CENTER);
       text("POISONED",570,255);
-      textSize(12);
+      textSize(12*fontScale);
       text(party.hero[h].name + " is",570,268);
       text(party.hero[h].poisonString(),570,280);
     }
@@ -585,9 +585,9 @@ class Artist
     //Asleep
     if(party.hero[h].hasCondition(1))
     {
-      textSize(15); fill(150,150,150); textAlign(CENTER);
+      textSize(15*fontScale); fill(150,150,150); textAlign(CENTER);
       text("ASLEEP",570,300);
-      textSize(12);
+      textSize(12*fontScale);
       text("This is not",570,312);
       text("the time!",570,325);
     }
@@ -595,9 +595,9 @@ class Artist
     //Paralyzed
     if(party.hero[h].hasCondition(2))
     {
-      textSize(15); fill(150,150,0); textAlign(CENTER);
+      textSize(15*fontScale); fill(150,150,0); textAlign(CENTER);
       text("PARALYZED",570,345);
-      textSize(12);
+      textSize(12*fontScale);
       text("Can't move",570,358);
       text("a muscle.",570,370);
     }
@@ -605,9 +605,9 @@ class Artist
     //Weakened
     if(party.hero[h].hasCondition(3))
     {
-      textSize(15); fill(120); textAlign(CENTER);
+      textSize(15*fontScale); fill(120); textAlign(CENTER);
       text("WEAKENED",570,390);
-      textSize(12);
+      textSize(12*fontScale);
       text("Your muscles",570,403);
       text("have atrophied.",570,415);
     }
@@ -615,9 +615,9 @@ class Artist
     //Cursed
     if(party.hero[h].hasCondition(4))
     {
-      textSize(15); fill(150,0,150); textAlign(CENTER);
+      textSize(15*fontScale); fill(150,0,150); textAlign(CENTER);
       text("CURSED",570,435);
-      textSize(12);
+      textSize(12*fontScale);
       text("Your magic and",570,448);
       text("willpower are",570,460);
       text("sealed.",570,472);
@@ -639,8 +639,8 @@ class Artist
       default: amount = 0; break;
     }
     fill(255); textAlign(CENTER);
-    textSize(15); text("SYNERGY",645,220);
-    textSize((types-1)*5 + 15); text(amount+"%",645,265);
+    textSize(15*fontScale); text("SYNERGY",645,220);
+    textSize(((types-1)*5 + 15)*fontScale); text(amount+"%",645,265);
     noStroke();
 
     stroke(150,150,50); strokeWeight(1);
@@ -653,8 +653,8 @@ class Artist
   public void drawGoldBox()
   {
     fill(200,200,0); textAlign(CENTER);
-    textSize(15); text("GOLD",645,220);
-    textSize(12); text(party.gold,645,235);
+    textSize(15*fontScale); text("GOLD",645,220);
+    textSize(12*fontScale); text(party.gold,645,235);
     noStroke();
     if( party.gold > 100 ) rect(615,260,20,41);
     if( party.gold > 500 ) rect(635,250,20,51);
@@ -731,21 +731,21 @@ class Artist
     noStroke();
     rectMode(CENTER);
     fill(195,175,135);
-    rect(width/2,375,490,400);
+    rect(frameWidth/2,375,490,400);
     fill(90,70,30);
-    rect(width/2,170,510,6);
-    rect(width/2,575,510,6);
+    rect(frameWidth/2,170,510,6);
+    rect(frameWidth/2,575,510,6);
     fill(180,160,120);
-    rect(width/2,170,500,14,5);
-    rect(width/2,575,500,14,5);
+    rect(frameWidth/2,170,500,14,5);
+    rect(frameWidth/2,575,500,14,5);
     
     //fill(0);  rectMode(CORNER);
     //stroke(200);
     //strokeWeight(5);
     //rect(100,175,width-200,400,20);
-    textSize(25); fill(50); textAlign(CORNER);
+    textSize(25*fontScale); fill(50); textAlign(CORNER);
     text("Keyboard Commands:",110,205);
-    textSize(20);
+    textSize(20*fontScale);
     text("(w)(a)(s)(d) - Move party around map",110,235);
     text("(E) - Eat food",110,260); text("(D) - Drink potion",350,260);
     text("(S) - Save at a Legend Gem",110,285);
@@ -757,7 +757,7 @@ class Artist
     text("Hold (i) - View inventory",110,435);
     text("Hold (k) - View keys",110,460);
     text("Hold (h) - View help menu",110,485);
-    textSize(15);
+    textSize(15*fontScale);
     text(" Battle inputs are shown. The (space) key can usually be used to",110,515);
     text(" cancel. (1)(2)(3) are interchangable with (a)(s)(d) when selecting",110,535);
     text(" heroes or targets. Click hero boxes for detailed information.",110,555);
@@ -776,23 +776,23 @@ class Artist
     fill(0);  rectMode(CORNER); imageMode(CENTER);
     stroke(200);
     strokeWeight(5);
-    rect(100,200,width-200,height-400+equipOffset,20);
+    rect(100,200,frameWidth-200,frameHeight-400+equipOffset,20);
     
-    fill(200); textSize(40);
+    fill(200); textSize(40*fontScale);
     if( display == Display.EQUIP ) { textAlign(CORNER); text(newEquip.name,350-(9*newEquip.name.length()),250); image(newEquip.pic,320-(9*newEquip.name.length()),240); }
-    else                           { textAlign(CENTER); text("Select Hero",width/2,250); }
+    else                           { textAlign(CENTER); text("Select Hero",frameWidth/2,250); }
     
     
     
     textAlign(CENTER);
-    fill(party.hero[0].getColor()); drawHeroByType(party.hero[0],150,320,1,0,true); //ellipse(150,320,75,75);
-    textSize(20); fill(200); text(1,150,275);
+    fill(party.hero[0].getColor()); drawHeroByType(party.hero[0],150,320,1,true); //ellipse(150,320,75,75);
+    textSize(20*fontScale); fill(200); text(1,150,275);
     
-    fill(party.hero[1].getColor()); drawHeroByType(party.hero[1],350,320,1,1,true); //ellipse(350,320,75,75);
-    textSize(20); fill(200); text(2,350,275);
+    fill(party.hero[1].getColor()); drawHeroByType(party.hero[1],350,320,1,true); //ellipse(350,320,75,75);
+    textSize(20*fontScale); fill(200); text(2,350,275);
     
-    fill(party.hero[2].getColor()); drawHeroByType(party.hero[2],550,320,1,2,true); //ellipse(550,320,75,75);
-    textSize(20); fill(200); text(3,550,275);
+    fill(party.hero[2].getColor()); drawHeroByType(party.hero[2],550,320,1,true); //ellipse(550,320,75,75);
+    textSize(20*fontScale); fill(200); text(3,550,275);
       
     if( display == Display.EQUIP )
     {
@@ -817,31 +817,31 @@ class Artist
     fill(200); textAlign(CENTER);// textSize(25);
     if( display != Display.EQUIP )
     {
-      textSize(40);
-      if(      dist( mouseX,mouseY, 150,320)<37.5)
-        text(party.hero[0].name,width/2,410);
-      else if( dist( mouseX,mouseY, 350,320)<37.5)
-        text(party.hero[1].name,width/2,410);
-      else if( dist( mouseX,mouseY, 550,320)<37.5)
-        text(party.hero[2].name,width/2,410);
-      textSize(25);
-      text("Select by number or",width/2,460);
-      text("press space to cancel.",width/2,480);
+      textSize(40*fontScale);
+      if(      dist( mouseX,mouseY, 175,345)<37.5)
+        text(party.hero[0].name,frameWidth/2,410);
+      else if( dist( mouseX,mouseY, 375,345)<37.5)
+        text(party.hero[1].name,frameWidth/2,410);
+      else if( dist( mouseX,mouseY, 575,345)<37.5)
+        text(party.hero[2].name,frameWidth/2,410);
+      textSize(25*fontScale);
+      text("Select by number or",frameWidth/2,460);
+      text("press space to cancel.",frameWidth/2,480);
     }
     else
     {
-      textSize(40);
-      if(      dist( mouseX,mouseY, 150,320)<37.5)
-        text(party.hero[0].name,width/2,530);
-      else if( dist( mouseX,mouseY, 350,320)<37.5)
-        text(party.hero[1].name,width/2,530);
-      else if( dist( mouseX,mouseY, 550,320)<37.5)
-        text(party.hero[2].name,width/2,530);
+      textSize(40*fontScale);
+      if(      dist( mouseX,mouseY, 175,345)<37.5)
+        text(party.hero[0].name,frameWidth/2,530);
+      else if( dist( mouseX,mouseY, 375,345)<37.5)
+        text(party.hero[1].name,frameWidth/2,530);
+      else if( dist( mouseX,mouseY, 575,345)<37.5)
+        text(party.hero[2].name,frameWidth/2,530);
       else
       {
-        textSize(25);
-        text("Equip by number or press", width/2,510);
-        text("capital (X) to put aisde for sale.",width/2,540);
+        textSize(25*fontScale);
+        text("Equip by number or press", frameWidth/2,510);
+        text("capital (X) to put aisde for sale.",frameWidth/2,540);
       }
     }
   }
@@ -867,13 +867,13 @@ class Artist
     ellipse(350,542.5,700,315);
     fill(0,0,150,gameoverOpacity);
     textAlign(CENTER);
-    textSize(75);
-    text("GAME OVER",width/2,542.5);
+    textSize(75*fontScale);
+    text("GAME OVER",frameWidth/2,542.5);
   }
   
   public void showStatComparison( int heroIndex, Equipment thing, float xPos, float yPos )
   {
-    textSize(30);
+    textSize(30*fontScale);
     if( !thing.usableBy( party.hero[heroIndex].job ) ) //can't use
       fill(200); //non-flashing gray
     else if( thing.isWeapon && party.hero[heroIndex].weapon.power < thing.power ||
@@ -888,7 +888,7 @@ class Artist
     //Display comparison
     if( !thing.usableBy( party.hero[heroIndex].job ) ) //hero can't use
     {
-      textSize(25);
+      textSize(25*fontScale);
       text("Can't", xPos, yPos-10);
       text("use.", xPos, yPos+10);
     }
@@ -991,67 +991,114 @@ class Artist
   public void drawAdvanceTextPrompt()
   {
     noStroke(); fill(50+textPromptStage*2);  //prompt will flash
-    textSize(10); textAlign(RIGHT);
-    text("push SPACE to continue",width-15,height-6-textPromptStage/8); //prompt will move to get player's attention
+    textSize(10*fontScale); textAlign(RIGHT);
+    text("push SPACE to continue",frameWidth-15,frameHeight-6-textPromptStage/8); //prompt will move to get player's attention
     //triangle(width-130-textPromptStage/8,height-9,  width-140-textPromptStage/8,height-12, width-140-textPromptStage/8,height-6);
-    triangle(width-75,height-115+textPromptStage/8, width-45,height-130+textPromptStage/8, width-105,height-130+textPromptStage/8);
+    triangle(frameWidth-75,frameHeight-115+textPromptStage/8, frameWidth-45,frameHeight-130+textPromptStage/8, frameWidth-105,frameHeight-130+textPromptStage/8);
   }
   
-  public void drawColorBars( float r, float g, float b )
-  {  //Boxes for color selectors
-    stroke(200); noFill(); strokeWeight(3); rectMode(CORNER);
-    rect(99,289,501,21); rect(99,339,501,21); rect(99,389,501,21);
-    noStroke();
-    for(int i = 0; i < 250; i++) //color bars
+  //For entire hero customization screen
+  public void drawCustomizeScreen( float r, float g, float b, float r2, float g2, float b2, int h, float s )
+  {
+    //Words
+    fill(200); textSize(30); textAlign(CENTER);
+    text("Primary", 225, 50);
+    text("Secondary", 225, 235);
+    text("Hair", 225, 425);
+    text("Skin", 225, 525);
+    textSize(50);
+    text(tempName,550,60);
+    textSize(35);
+    text(jobToString(tempJob),550,100);
+    //Color bars
+    for(int i = 0; i < 250; i++)
     {
-      fill(i,0,0);
-      rect(100+i*2,290,2,20);
-      fill(0,i,0);
-      rect(100+i*2,340,2,20);
-      fill(0,0,i);
-      rect(100+i*2,390,2,20);
+      stroke(i,0,0);
+      line(100+i,63,100+i,86);
+      line(100+i,248,100+i,271);
+      stroke(0,i,0);
+      line(100+i,113,100+i,136);
+      line(100+i,298,100+i,321);
+      stroke(0,0,i);
+      line(100+i,163,100+i,186);
+      line(100+i,348,100+i,371);
     }
-    stroke(200); noFill(); strokeWeight(5);
-    rect(100+r*2,289,5,21);
-    rect(100+g*2,339,5,21);
-    rect(100+b*2,389,5,21);
+    //Skin Color Bar
+    for(int i = 0; i < 300; i++)
+    {
+      stroke(55+0.67*i,30+0.67*i,20+0.63*i);
+      line(75+i,551,75+i,574);
+    }
+    
+    //Boxes around color bars
+    stroke(200); noFill(); strokeWeight(3); rectMode(CORNER);
+    rect(99,62.5,252,26);  rect(99,112.5,252,26); rect(99,162.5,252,26);
+    rect(99,247.5,252,26); rect(99,297.5,252,26); rect(99,347.5,252,26);
+    rect(74,550.5,300,26);
+    
+    //Sliders / selection circle
+    stroke(150); noFill(); strokeWeight(5);
+    rect(100+r,64,5,22);    rect(100+g,114,5,22);    rect(100+b,164,5,22);
+    rect(100+r2,249,5,22);  rect(100+g2,299,5,22);   rect(100+b2,349,5,22);
+    rect(75+s,552,5,22);  circle(37.5+75*h,462.5,40);
+    if(slider[0]) { tempRed    = (mouseX-frameX)-100; tempRed    = max( 0, min(250,tempRed));    }
+    if(slider[1]) { tempGreen  = (mouseX-frameX)-100; tempGreen  = max( 0, min(250,tempGreen));  }
+    if(slider[2]) { tempBlue   = (mouseX-frameX)-100; tempBlue   = max( 0, min(250,tempBlue));   }
+    if(slider[3]) { tempRed2   = (mouseX-frameX)-100; tempRed2   = max( 0, min(250,tempRed2));   }
+    if(slider[4]) { tempGreen2 = (mouseX-frameX)-100; tempGreen2 = max( 0, min(250,tempGreen2)); }
+    if(slider[5]) { tempBlue2  = (mouseX-frameX)-100; tempBlue2  = max( 0, min(250,tempBlue2));  }
+    if(slider[6]) { tempSkin   = (mouseX-frameX)-75;  tempSkin   = max( 0, min(300,tempSkin));   }
+    
+    strokeWeight(2); stroke(200);
+    //Hair Buttons
+    for(int i = 0; i < 6; i++)
+    {
+      fill( hairTone[i] );
+      circle(37.5+75*i,462.5,26);
+    }
+    
+    //Confirm Button
     rectMode(CENTER);
     fill(200); noStroke();
-    rect(width/2,500,115,90);
+    rect(550,450,100,100);
     fill(r,g,b);
-    stroke((255-r)*.65,(255-g)*.65,(255-b)*.65);
-    rect(width/2,500,100,75);
-    fill(200); textAlign(CENTER); textSize(20);
-    text("CLICK HERE TO SELECT",width/2,570);
-    drawHero(width/2,170, 3, color(r,g,b), color((255-r)*.65,(255-g)*.65,(255-b)*.65), currentHero, false, tempJob);
-    //drawKnight(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
-    //textSize(30);
-    //text("CHOOSE THE HERO'S PRIMARY COLOR",width/2,50);
-    //textSize(20);
-    //text("THIS COLOR WILL ALSO DETERMINE THE ACCENT COLOR",width/2,75);
+    stroke(r2,g2,b2); strokeWeight(8);
+    rect(550,450,81,81);
+    drawSkillSymbol(550,450,color(r,g,b),color(r2,g2,b2),tempJob);
+    fill(200); textAlign(CENTER); textSize(20*fontScale);
+    text("CLICK HERE\nTO CONFIRM",550,525);
+    drawHero(550,245, 3.5, color(r,g,b), color(r2,g2,b2), tempHair, tempSkin, false, tempJob);
+    
+    //Back Button
+    fill(150); stroke(200); strokeWeight(4);
+    circle(40,40,50);
+    fill(230); strokeWeight(3);
+    triangle(25,40, 50,27, 50,53);
+    if( dist(mouseX-frameX,mouseY-frameY,40,40) < 27 )
+      text("BACK",40,85);
   }
 
   public void drawJobChoices( int hero )
   {
     noStroke(); fill(150); //will be icons later
-    drawKnight(210,160,1.7,200,50,hero,true);  drawBarbarian(350,160,1.7,200,50,hero,true); drawSaurian(490,160,1.7,color(200,200,200),color(50,50,50),hero,true);
-    drawKarate(210,300,1.7,200,50,hero,true);  drawBard(350,300,1.7,200,50,hero,true);      drawThief(490,300,1.7,200,50,hero,true);
-    drawDruid(210,440,1.7,200,50,hero,true);   drawPriest(350,440,1.7,200,50,hero,true);    drawMage(490,440,1.7,200,50,hero,true);
+    drawKnight(210,160,1.7,200,50,tempHair,150,true);  drawBarbarian(350,160,1.7,200,50,tempHair,150,true); drawSaurian(490,160,1.7,color(200,200,200),color(50,50,50),tempHair,150,true);
+    drawKarate(210,300,1.7,200,50,tempHair,150,true);  drawBard(350,300,1.7,200,50,tempHair,150,true);      drawThief(490,300,1.7,200,50,tempHair,150,true);
+    drawDruid(210,440,1.7,200,50,tempHair,150,true);   drawPriest(350,440,1.7,200,50,tempHair,150,true);    drawMage(490,440,1.7,200,50,tempHair,150,true);
   
     //Class descriptions
-    fill(200); textAlign(CENTER); textSize(30);
-    if( dist(mouseX,mouseY,210,160)<62 ){ text("KNIGHT",width/2,35);         textSize(20); text("A stalwart combatant that can use most equipment.",width/2,60);             text("Gains energy when blocking attacks.",width/2,85);        drawStatBars(1); }
-    if( dist(mouseX,mouseY,350,160)<62 ){ text("BARBARIAN",width/2,35);      textSize(20); text("A powerful warrior that relishes battle.",width/2,60);                      text("Gains energy when taking damage.",width/2,85);           drawStatBars(2); }
-    if( dist(mouseX,mouseY,490,160)<62 ){ text("SAURIAN",width/2,35);        textSize(20); text("A mighty creature that prefers simple strength.",width/2,60);               text("Gains more energy when attacking.",width/2,85);          drawStatBars(7); }
-    if( dist(mouseX,mouseY,210,300)<62 ){ text("MARTIAL ARTIST",width/2,35); textSize(20); text("A practitioner of martial arts who cannot use most equipment.",width/2,60); text("Always begins combat with extra energy.",width/2,85);    drawStatBars(3); }
-    if( dist(mouseX,mouseY,350,300)<62 ){ text("BARD",width/2,35);           textSize(20); text("A versitile performer that inspires allies to greatness.",width/2,60);      text("Gains energy with the rhythm of combat.",width/2,85);    drawStatBars(8); }
-    if( dist(mouseX,mouseY,490,300)<62 ){ text("THIEF",width/2,35);          textSize(20); text("An agile trickster that uses light equipment.",width/2,60);                 text("Gains energy when scoring critical hits.",width/2,85);   drawStatBars(4); }
-    if( dist(mouseX,mouseY,210,440)<62 ){ text("DRUID",width/2,35);          textSize(20); text("A mystic caster who calls upon the power of nature.",width/2,60);           text("Casts spells and transforms into beasts.",width/2,85);   drawStatBars(9); }
-    if( dist(mouseX,mouseY,350,440)<62 ){ text("PRIEST",width/2,35);         textSize(20); text("A pious caster who can use some heavy armor.",width/2,60);                  text("Casts holy magic that can smite or heal.",width/2,85);   drawStatBars(5); }
-    if( dist(mouseX,mouseY,490,440)<62 ){ text("MAGE",width/2,35);           textSize(20); text("An arcane caster unsuited to physical combat.",width/2,60);                 text("Casts elemental magic of tremendous power.",width/2,85); drawStatBars(6); }
+    fill(200); textAlign(CENTER); textSize(30*fontScale);
+    if( dist(mouseX,mouseY,235,185)<62 ){ text("KNIGHT",frameWidth/2,35);         textSize(20*fontScale); text("A stalwart combatant that can use most equipment.",frameWidth/2,60);             text("Gains energy when blocking attacks.",frameWidth/2,85);        drawStatBars(1); }
+    if( dist(mouseX,mouseY,375,185)<62 ){ text("BARBARIAN",frameWidth/2,35);      textSize(20*fontScale); text("A powerful warrior that relishes battle.",frameWidth/2,60);                      text("Gains energy when taking damage.",frameWidth/2,85);           drawStatBars(2); }
+    if( dist(mouseX,mouseY,515,185)<62 ){ text("SAURIAN",frameWidth/2,35);        textSize(20*fontScale); text("A mighty creature that prefers simple strength.",frameWidth/2,60);               text("Gains more energy when attacking.",frameWidth/2,85);          drawStatBars(7); }
+    if( dist(mouseX,mouseY,235,325)<62 ){ text("MARTIAL ARTIST",frameWidth/2,35); textSize(20*fontScale); text("A martial artist who cannot use most equipment.",frameWidth/2,60);               text("Always begins combat with extra energy.",frameWidth/2,85);    drawStatBars(3); }
+    if( dist(mouseX,mouseY,375,325)<62 ){ text("BARD",frameWidth/2,35);           textSize(20*fontScale); text("A versitile performer that inspires allies.",frameWidth/2,60);                   text("Gains energy with the rhythm of combat.",frameWidth/2,85);    drawStatBars(8); }
+    if( dist(mouseX,mouseY,515,325)<62 ){ text("THIEF",frameWidth/2,35);          textSize(20*fontScale); text("An agile trickster that uses light equipment.",frameWidth/2,60);                 text("Gains energy when scoring critical hits.",frameWidth/2,85);   drawStatBars(4); }
+    if( dist(mouseX,mouseY,235,465)<62 ){ text("DRUID",frameWidth/2,35);          textSize(20*fontScale); text("A mystic caster who calls upon the power of nature.",frameWidth/2,60);           text("Casts spells and transforms into beasts.",frameWidth/2,85);   drawStatBars(9); }
+    if( dist(mouseX,mouseY,375,465)<62 ){ text("PRIEST",frameWidth/2,35);         textSize(20*fontScale); text("A pious caster who can use some heavy armor.",frameWidth/2,60);                  text("Casts holy magic that can smite or heal.",frameWidth/2,85);   drawStatBars(5); }
+    if( dist(mouseX,mouseY,515,465)<62 ){ text("MAGE",frameWidth/2,35);           textSize(20*fontScale); text("An arcane caster unsuited to physical combat.",frameWidth/2,60);                 text("Casts elemental magic of tremendous power.",frameWidth/2,85); drawStatBars(6); }
     
     textAlign(CENTER);
-    textSize(12);
+    textSize(12*fontScale);
     fill(200);
     text("HEALTH",87.5,590);
     text("STRENGTH",175,590);
@@ -1066,6 +1113,14 @@ class Artist
       strokeWeight(1);
       line(i-30,570,i+30,570);
     }
+    //Back Button
+    fill(150); stroke(200); strokeWeight(4);
+    circle(40,40,50);
+    fill(230); strokeWeight(3);
+    triangle(25,40, 50,27, 50,53);
+    textSize(20*fontScale);
+    if( dist(mouseX-frameX,mouseY-frameY,40,40) < 27 )
+      text("BACK",40,85);
   }
   
   void drawStatBars( int heroType )
@@ -1112,9 +1167,9 @@ class Artist
         ellipse(22+h*248,130,9,9);
         ellipse(34+h*248,125,7,7); break;
       case 1: //asleep
-        fill(120,120,120); textAlign(CENTER); textSize(15);
-        text('Z',40+20+h*248,145); textSize(13);
-        text('Z',40+30+h*248,135); textSize(11);
+        fill(120,120,120); textAlign(CENTER); textSize(15*fontScale);
+        text('Z',40+20+h*248,145); textSize(13*fontScale);
+        text('Z',40+30+h*248,135); textSize(11*fontScale);
         text('Z',40+40+h*248,130); break;
       case 2: //paralyzed
         fill(150,150,0);
@@ -1144,9 +1199,9 @@ class Artist
         rect(4+i*248,4,196,146,20);
         stroke(200);
         rect(2+i*248,2,200,150,20);
-        fill(200); textAlign(LEFT); textSize(30);
+        fill(200); textAlign(LEFT); textSize(30*fontScale);
         text(h[i].toString(),12+i*248,40);
-        textSize(23);
+        textSize(23*fontScale);
         text(h[i].jobToString(),12+i*248,65);
         text("HP:",12+i*248,90);
         if(h[i].getMaxMp()>0)text("MP:",12+i*248,115);
@@ -1217,12 +1272,12 @@ class Artist
       stroke(200);
       fill(0);
       rectMode(CENTER);
-      rect(width/2,height-150,250,50,20);
+      rect(frameWidth/2,frameHeight-150,250,50,20);
       
       fill(255);
-      textSize(30);
+      textSize(30*fontScale);
       textAlign(CENTER);
-      text(tb,width/2,height-140);
+      text(tb,frameWidth/2,frameHeight-140);
       rectMode(CORNER);
     }
     
@@ -1231,13 +1286,13 @@ class Artist
       noFill();  rectMode(CORNER);
       stroke(200);
       strokeWeight(5);
-      rect(2,height-100,width-5,98,20);
+      rect(2,frameHeight-100,frameWidth-5,98,20);
       
       fill(255);
-      textSize(30);
+      textSize(30*fontScale);
       textAlign(LEFT);
-      text(tl1,10,height-60);
-      text(tl2,10,height-20);
+      text(tl1,10,frameHeight-60);
+      text(tl2,10,frameHeight-20);
     }
   }
   
@@ -1361,7 +1416,7 @@ class Artist
     if(battleWindowOpening)
     {
       rectMode(CENTER);
-      rect(width/2,377,14*animationStage,8.7*animationStage,20);
+      rect(frameWidth/2,377+25,14*animationStage,8.7*animationStage,20);
       //println(14*animationStage + " " + 8.7*animationStage );
       if(animationStage==49)
         battleWindowOpening=false;
@@ -1369,7 +1424,7 @@ class Artist
     else
     {
       rectMode(CORNER);
-      rect(3,159,width-7,height-266,20);
+      rect(3,159,frameWidth-7,frameHeight-266,20);
       
       drawBattleBack();
       drawMonsters();
@@ -1403,19 +1458,19 @@ class Artist
     switch(zoneNumber)
     {
       case 1: case 2: case 7:
-        image(battleBack[1],width/2,250); //Stone wall
+        image(battleBack[1],frameWidth/2,250); //Stone wall
         break;
       case 3:
-        image(battleBack[0],width/2,250); //Trees
+        image(battleBack[0],frameWidth/2,250); //Trees
         break;
       case 5:
-        image(battleBack[2],width/2,252);
+        image(battleBack[2],frameWidth/2,252);
         break;
       case 10:
-        image(battleBack[3],width/2,252);
+        image(battleBack[3],frameWidth/2,252);
         break;
       case 8: case 9:
-        image(battleBack[4],width/2,252);
+        image(battleBack[4],frameWidth/2,252);
         break;
     }
     pop();
@@ -1512,20 +1567,20 @@ class Artist
     
     if(attack)
     {
-      fill( party.hero[h].favColor );textSize(24); //Letter Backing
+      fill( party.hero[h].favColor );textSize(24*fontScale); //Letter Backing
       if(battle.list[3].active) text("A",140,420);
       if(battle.list[4].active) text("S",350,420);
       if(battle.list[5].active) text("D",560,420);
-      fill( party.hero[h].inverseColor );textSize(25); //Letter
+      fill( party.hero[h].inverseColor );textSize(25*fontScale); //Letter
       if(battle.list[3].active) text("A",140,420);
       if(battle.list[4].active) text("S",350,420); 
       if(battle.list[5].active) text("D",560,420);
     }
     else
     {
-      fill( party.hero[h].favColor );textSize(24); //Letter Backing
+      fill( party.hero[h].favColor );textSize(24*fontScale); //Letter Backing
       text("A",140,420); text("S",350,420); text("D",560,420);
-      fill( party.hero[h].inverseColor );textSize(25); //Letter
+      fill( party.hero[h].inverseColor );textSize(25*fontScale); //Letter
       text("A",140,420); text("S",350,420); text("D",560,420);
     }
      
@@ -1598,7 +1653,7 @@ class Artist
     }
     */
     
-    fill(c); textSize(10);
+    fill(c); textSize(10*fontScale);
     text("A",x+25,y+27);
   }
   
@@ -1690,7 +1745,7 @@ class Artist
     
     if( drawD )
     {
-      fill(c); textSize(10);
+      fill(c); textSize(10*fontScale);
       text("D",x+25,y+27);
     }
     
@@ -1760,7 +1815,7 @@ class Artist
       strokeWeight(2);
       rect(x-17,y-30,40,50);
       strokeWeight(.7);
-      stroke(127);
+      stroke(200);
       rect(x-19,y-28,40,50);
       rect(x-20,y-27,40,50);
       rect(x-21,y-26,40,50);
@@ -1787,7 +1842,7 @@ class Artist
       circle(x-3,y+12,4);
     }
     
-    fill(c); textSize(10);
+    fill(c); textSize(10*fontScale);
     text("S",x+25,y+27);
   }
   
@@ -1805,7 +1860,7 @@ class Artist
     imageMode(CENTER);
     image(tileImage[68],x,y);
     
-    fill(c); textSize(10);
+    fill(c); textSize(10*fontScale);
     text("X",x+25,y+27);
   }
   
@@ -1818,9 +1873,97 @@ class Artist
     line(x-19,y-19,x+19,y+19);
     line(x-19,y+19,x+19,y-19);
     
-    fill(200); textSize(10);
+    fill(200); textSize(10*fontScale);
     textAlign(CENTER);
     text("X",x+25,y+27);
+  }
+  
+  //Mostly for character customization screen
+  void drawSkillSymbol( float x, float y, color c, color i, Job j )
+  {
+    imageMode(CENTER);
+    if( j == Job.KNIGHT )
+    {
+      image(skillButton[0],x,y);
+    }
+    else if( j == Job.BARBARIAN )
+    {
+      image(skillButton[1],x,y);
+    }
+    else if( j == Job.THIEF )
+    {
+      image(skillButton[2],x,y);
+    }
+    else if( j == Job.KARATE )
+    {
+      image(skillButton[3],x,y);
+    }
+    else if( j == Job.SAURIAN )
+    {
+      image(skillButton[6],x,y);
+    }
+    else if( j == Job.BARD )
+    {
+      image(skillButton[7],x,y);
+    }
+    else if( j == Job.DRUID )
+    {
+      image(skillButton[8],x,y);
+    }
+    else if( j == Job.PRIEST ) //cross
+    {
+      fill(250); stroke(i); strokeWeight(1.5);
+      beginShape(); strokeJoin(BEVEL);
+      vertex(x-26,y-13);
+      bezierVertex(x-26,y,x-4,y-4,x-4,y-4);
+      bezierVertex(x-4,y-4,x,y-26,x-13,y-26);
+      vertex(x+13,y-26);
+      bezierVertex(x,y-26,x+4,y-4,x+4,y-4);
+      bezierVertex(x+4,y-4,x+26,y,x+26,y-13);
+      vertex(x+26,y+13);
+      bezierVertex(x+26,y,x+4,y+4,x+4,y+4);
+      bezierVertex(x+4,y+4,x,y+26,x+13,y+26);
+      vertex(x-13,y+26);
+      bezierVertex(x,y+26,x-4,y+4,x-4,y+4);
+      bezierVertex(x-4,y+4,x-26,y,x-26,y+13);
+      vertex(x-26,y-13);
+      endShape(); strokeJoin(MITER);
+    }
+    else if( j == Job.MAGE ) //spellbook
+    {
+      rectMode(CORNER);
+      fill(0);stroke(0);
+      strokeWeight(3);
+      quad(x-23,y-25,x-19,y-29,x-19,y+20,x-23,y+24);
+      strokeWeight(2);
+      rect(x-17,y-30,40,50);
+      strokeWeight(.7);
+      stroke(200);
+      rect(x-19,y-28,40,50);
+      rect(x-20,y-27,40,50);
+      rect(x-21,y-26,40,50);
+      strokeWeight(2); stroke(0);
+      fill(190,170,130);
+      rect(x-23,y-24,40,50);
+      line(x-23,y-18,x+15,y-18);
+      line(x-23,y+20,x+15,y+20);
+      line(x+11,y-23,x+11,y+26);
+      line(x-18,y-23,x-18,y+26);
+      noStroke(); fill(c);
+      beginShape();
+      vertex(x-3,y-11);
+      vertex(x-11,y+12);  //x:120  y:98
+      vertex(x+9,y-3);
+      vertex(x-15,y-3);
+      vertex(x+5,y+12);
+      endShape();
+      fill(i);
+      circle(x-9,y-8,4);
+      circle(x+3,y-8,4);
+      circle(x+7,y+4,4);
+      circle(x-13,y+4,4);
+      circle(x-3,y+12,4);
+    }
   }
     
   //Redundant with method in Attack class, needed for coloring skills changed by weapon type
@@ -1843,42 +1986,46 @@ class Artist
     }
   }
   
-  void drawHero(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial, Job j)
+  void drawHero(int x, int y, float scale, color c1, color c2, int hair, int skin, boolean initial, Job j)
   {
     switch(j)
     {
       case KNIGHT:
-        drawKnight( x,  y,  scale,  c1,  c2,  heroNumber,  initial);
+        drawKnight( x,  y,  scale,  c1,  c2, hair, skin,  initial);
         break;
       case BARBARIAN:
-        drawBarbarian( x,  y,  scale,  c1,  c2,  heroNumber,  initial);
+        drawBarbarian( x,  y,  scale,  c1,  c2, hair, skin,  initial);
         break;
       case SAURIAN:
-        drawSaurian( x,  y,  scale,  c1,  c2,  heroNumber,  initial);
+        drawSaurian( x,  y,  scale,  c1,  c2, hair, skin,  initial);
         break;
       case KARATE:
-        drawKarate( x,  y,  scale,  c1,  c2,  heroNumber,  initial);
+        drawKarate( x,  y,  scale,  c1,  c2, hair, skin,  initial);
         break;
       case BARD:
-        drawBard( x,  y,  scale,  c1,  c2,  heroNumber,  initial);
+        drawBard( x,  y,  scale,  c1,  c2, hair, skin,  initial);
         break;
       case THIEF:
-        drawThief( x,  y,  scale,  c1,  c2,  heroNumber,  initial);
+        drawThief( x,  y,  scale,  c1,  c2, hair, skin,  initial);
         break;
       case DRUID:
-        drawDruid( x,  y,  scale,  c1,  c2,  heroNumber,  initial);
+        drawDruid( x,  y,  scale,  c1,  c2, hair, skin,  initial);
         break;
       case PRIEST:
-        drawPriest( x,  y,  scale,  c1,  c2,  heroNumber,  initial);
+        drawPriest( x,  y,  scale,  c1,  c2, hair, skin,  initial);
         break;
       default:
-        drawMage( x,  y,  scale,  c1,  c2,  heroNumber,  initial);
+        drawMage( x,  y,  scale,  c1,  c2, hair, skin,  initial);
         break;
     }
   }
   
-  void drawKnight(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+  void drawKnight(int x, int y, float scale, color c1, color c2, int h, int s, boolean initial)
   {
+    color skin;
+    color hair;
+    hair = color(hairTone[h]);
+    skin = color(55+0.67*s,30+0.67*s,20+0.63*s);
     strokeWeight(0.5);
     //Sword
     fill(195,200,205);
@@ -1902,12 +2049,13 @@ class Artist
       ellipse(x,y,75*scale, 75*scale);
     
     //Hair - color based on which hero (brown, blonde, black)
-    if(heroNumber==0)
-      fill(90,70,30);
-    else if(heroNumber==1)
-      fill(210,190,70);
-    else
-      fill(10,10,5);
+    //if(heroNumber==0)
+    //  fill(90,70,30);
+    //else if(heroNumber==1)
+    //  fill(210,190,70);
+    //else
+    //  fill(10,10,5);
+    fill(hairTone[h]);
     stroke(255);
     strokeWeight(0.5);
     ellipse(x,y-12*scale,scale*25,scale*25);
@@ -1934,12 +2082,13 @@ class Artist
     endShape();
   
     //Braid
-    if(heroNumber==0)
-      fill(90,70,30);
-    else if(heroNumber==1)
-      fill(210,190,70);
-    else
-      fill(10,10,5);
+    //if(heroNumber==0)
+    //  fill(90,70,30);
+    //else if(heroNumber==1)
+    //  fill(210,190,70);
+    //else
+    //  fill(10,10,5);
+    fill(hair);
     //Braided section
     noStroke();
     quad(x-3*scale,y-7*scale,  x+3*scale,y-7*scale,  x+1*scale,y+11.25*scale,  x-1*scale,y+11.25*scale);
@@ -2035,7 +2184,7 @@ class Artist
     endShape();
   }
   
-  void drawBarbarian(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+  void drawBarbarian(int x, int y, float scale, color c1, color c2, int h, int s, boolean initial)
   { 
     color skin;
     color hair;
@@ -2046,21 +2195,23 @@ class Artist
     if(initial)
       ellipse(x,y,75*scale, 75*scale);
     
-    if(heroNumber==0)
-    {
-      hair = color(90,70,30);
-      skin = color(#C68642);
-    }
-    else if(heroNumber==1)
-    {
-      hair = color(210,190,70);
-      skin = color(#F1C27D);
-    }
-    else
-    {
-      hair = color(10,10,5);
-      skin = color(#FFDBAC);
-    }
+    //if(heroNumber==0)
+    //{
+    //  hair = color(90,70,30);
+    //  skin = color(#C68642);
+    //}
+    //else if(heroNumber==1)
+    //{
+    //  hair = color(210,190,70);
+    //  skin = color(#F1C27D);
+    //}
+    //else
+    //{
+    //  hair = color(10,10,5);
+    //  skin = color(#FFDBAC);
+    //}
+    hair = color(hairTone[h]);
+    skin = color(55+0.67*s,30+0.67*s,20+0.63*s);
     
     //Upper Body
     fill(skin);
@@ -2166,7 +2317,7 @@ class Artist
     ellipse(x+6.2*scale,y+33.4*scale,6*scale,4.1*scale);
     rect(x+3.2*scale,y+29*scale,6.3*scale,5.0*scale);
     
-    //Hair - color based on which hero (brown, blonde, black)
+    //Hair
     fill(hair);
     stroke(255);
     strokeWeight(0.5);
@@ -2229,7 +2380,7 @@ class Artist
     rect(x-10*scale,y+11*scale,20*scale,2*scale);
   }
   
-  void drawSaurian(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+  void drawSaurian(int x, int y, float scale, color c1, color c2, int h, int s, boolean initial)
   {
     //Circle
     noFill();
@@ -2388,25 +2539,27 @@ class Artist
     pop();
   }
   
-  void drawKarate(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+  void drawKarate(int x, int y, float scale, color c1, color c2, int h, int s, boolean initial)
   {
     color skin;
     color hair;
-    if(heroNumber==0)
-    {
-      hair = color(90,70,30);
-      skin = color(#C68642);
-    }
-    else if(heroNumber==1)
-    {
-      hair = color(210,190,70);
-      skin = color(#F1C27D);
-    }
-    else
-    {
-      hair = color(10,10,5);
-      skin = color(#FFDBAC);
-    }
+    //if(heroNumber==0)
+    //{
+    //  hair = color(90,70,30);
+    //  skin = color(#C68642);
+    //}
+    //else if(heroNumber==1)
+    //{
+    //  hair = color(210,190,70);
+    //  skin = color(#F1C27D);
+    //}
+    //else
+    //{
+    //  hair = color(10,10,5);
+    //  skin = color(#FFDBAC);
+    //}
+    hair = color(hairTone[h]);
+    skin = color(55+0.67*s,30+0.67*s,20+0.63*s);
       
     stroke(255);
     strokeWeight(0.5);
@@ -2481,16 +2634,19 @@ class Artist
     endShape();
   }
   
-  void drawBard(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+  void drawBard(int x, int y, float scale, color c1, color c2, int h, int s, boolean initial)
   {
+    color hair;
     color skin;
-    if (heroNumber==0)
-      skin = color(#C68642);
-    else if (heroNumber==1)
-      skin = color(#F1C27D);
-    else
-      skin = color(#FFDBAC);
-  
+    //if (heroNumber==0)
+    //  skin = color(#C68642);
+    //else if (heroNumber==1)
+    //  skin = color(#F1C27D);
+    //else
+    //  skin = color(#FFDBAC);
+    hair = color(hairTone[h]);
+    skin = color(55+0.67*s,30+0.67*s,20+0.63*s);
+    
     //Circle
     noFill();
     stroke(255);
@@ -2540,13 +2696,14 @@ class Artist
     vertex(x+3.5*scale, y+5*scale);
     endShape();
       
-    //Hair - color based on which hero (brown, blonde, black)
-    if(heroNumber==0)
-      fill(90,70,30);
-    else if(heroNumber==1)
-      fill(210,190,70);
-    else
-      fill(10,10,5);
+    ////Hair - color based on which hero (brown, blonde, black)
+    //if(heroNumber==0)
+    //  fill(90,70,30);
+    //else if(heroNumber==1)
+    //  fill(210,190,70);
+    //else
+    //  fill(10,10,5);
+    fill(hair);
     stroke(255);
     strokeWeight(0.5);
     
@@ -2589,15 +2746,18 @@ class Artist
     endShape();
   }
 
-  void drawThief(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+  void drawThief(int x, int y, float scale, color c1, color c2, int h, int s, boolean initial)
   {
+    //color hair;
     color skin;
-    if(heroNumber==0)
-      skin = color(#C68642);
-    else if(heroNumber==1)
-      skin = color(#F1C27D);
-    else
-      skin = color(#FFDBAC);
+    //if(heroNumber==0)
+    //  skin = color(#C68642);
+    //else if(heroNumber==1)
+    //  skin = color(#F1C27D);
+    //else
+    //  skin = color(#FFDBAC);
+    //hair = color(hairTone[h]);
+    skin = color(55+0.67*s,30+0.67*s,20+0.63*s);
       
     //Circle
     noFill();
@@ -2650,29 +2810,31 @@ class Artist
     curve(x-4.5*scale,y-55.5*scale, x-4.5*scale,y-21.5*scale, x+4.5*scale,y-21.5*scale, x+4.5*scale,y-55.5*scale);
   }
   
-    void drawDruid(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+    void drawDruid(int x, int y, float scale, color c1, color c2, int h, int s, boolean initial)
   {
     color skin;
     color hair;
     color pelt;
-    if(heroNumber==0)
-    {
-      hair = color(90,70,30);
-      skin = color(#C68642);
-      pelt = color(150);
-    }
-    else if(heroNumber==1)
-    {
-      hair = color(210,190,70);
-      skin = color(#F1C27D);
+    //if(heroNumber==0)
+    //{
+    //  hair = color(90,70,30);
+    //  skin = color(#C68642);
+    //  pelt = color(150);
+    //}
+    //else if(heroNumber==1)
+    //{
+    //  hair = color(210,190,70);
+    //  skin = color(#F1C27D);
       pelt = color(#BEAA82);
-    }
-    else
-    {
-      hair = color(10,10,5);
-      skin = color(#FFDBAC);
-      pelt = color(250);
-    }
+    //}
+    //else
+    //{
+    //  hair = color(10,10,5);
+    //  skin = color(#FFDBAC);
+    //  pelt = color(250);
+    //}
+    hair = color(hairTone[h]);
+    skin = color(55+0.67*s,30+0.67*s,20+0.63*s);
       
     stroke(255);
     strokeWeight(0.5);
@@ -2781,7 +2943,7 @@ class Artist
     endShape();
   }
   
-  void drawPriest(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+  void drawPriest(int x, int y, float scale, color c1, color c2, int h, int s, boolean initial)
   {
     //Staff
     noStroke();
@@ -2805,12 +2967,17 @@ class Artist
       ellipse(x,y,75*scale, 75*scale);
     
     //Hair - color based on which hero (brown, blonde, black)
-    if(heroNumber==0)
-      fill(90,70,30);
-    else if(heroNumber==1)
-      fill(210,190,70);
-    else
-      fill(10,10,5);
+    //if(heroNumber==0)
+    //  fill(90,70,30);
+    //else if(heroNumber==1)
+    //  fill(210,190,70);
+    //else
+    //  fill(10,10,5);
+    color hair = color(hairTone[h]);
+    color skin = color(55+0.67*s,30+0.67*s,20+0.63*s);
+    
+    fill(hair);
+      
     stroke(255);
     strokeWeight(0.5);
     ellipse(x,y-12*scale,scale*25,scale*25);
@@ -2880,7 +3047,7 @@ class Artist
     */
   }
   
-  void drawMage(int x, int y, float scale, color c1, color c2, int heroNumber, boolean initial)
+  void drawMage(int x, int y, float scale, color c1, color c2, int h, int s, boolean initial)
   {
     //Staff
     noStroke();
@@ -2921,12 +3088,19 @@ class Artist
     curve(x+30*scale, y-3*scale,x+17*scale, y+31*scale, x-17*scale, y+31*scale, x-30*scale, y-3*scale);
 
     //Hair - color based on which hero (brown, blonde, black)
-    if(heroNumber==0)
-      fill(90,70,30);
-    else if(heroNumber==1)
-      fill(210,190,70);
-    else
-      fill(10,10,5);
+    //if(heroNumber==0)
+    //  fill(90,70,30);
+    //else if(heroNumber==1)
+    //  fill(210,190,70);
+    //else
+    //  fill(10,10,5);
+    color hair;
+    color skin;
+    hair = color(hairTone[h]);
+    skin = color(55+0.67*s,30+0.67*s,20+0.63*s);
+    
+    fill(hair);
+    
     stroke(255);
     strokeWeight(0.5);
     beginShape();
@@ -3036,26 +3210,26 @@ class Artist
     //endShape();
   }
   
-  void drawHeroByType( Hero h, int x, int y, float scale, int hair, boolean circle )
+  void drawHeroByType( Hero h, int x, int y, float scale, boolean circle )
   {
     if( h.getJob() == Job.KNIGHT )
-      drawKnight(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+      drawKnight(x,y,scale,h.favColor,h.inverseColor,h.hairColor,h.skinColor,circle);
     if( h.getJob() == Job.BARBARIAN )
-      drawBarbarian(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+      drawBarbarian(x,y,scale,h.favColor,h.inverseColor,h.hairColor,h.skinColor,circle);
     if( h.getJob() == Job.SAURIAN )
-      drawSaurian(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+      drawSaurian(x,y,scale,h.favColor,h.inverseColor,h.hairColor,h.skinColor,circle);
     if( h.getJob() == Job.KARATE )
-      drawKarate(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+      drawKarate(x,y,scale,h.favColor,h.inverseColor,h.hairColor,h.skinColor,circle);
     if( h.getJob() == Job.BARD )
-      drawBard(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+      drawBard(x,y,scale,h.favColor,h.inverseColor,h.hairColor,h.skinColor,circle);
     if( h.getJob() == Job.THIEF )
-      drawThief(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+      drawThief(x,y,scale,h.favColor,h.inverseColor,h.hairColor,h.skinColor,circle);
     if( h.getJob() == Job.DRUID )
-      drawDruid(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+      drawDruid(x,y,scale,h.favColor,h.inverseColor,h.hairColor,h.skinColor,circle);
     if( h.getJob() == Job.PRIEST )
-      drawPriest(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+      drawPriest(x,y,scale,h.favColor,h.inverseColor,h.hairColor,h.skinColor,circle);
     if( h.getJob() == Job.MAGE )
-      drawMage(x,y,scale,h.favColor,h.inverseColor,hair,circle);
+      drawMage(x,y,scale,h.favColor,h.inverseColor,h.hairColor,h.skinColor,circle);
   }
   
   void drawHeroesInBattle()
@@ -3072,11 +3246,11 @@ class Artist
         circle(140+210*i,500,100+7*j);
     }
     if(party.hero[0].isAlive())
-      drawHeroByType(party.hero[0],width/5,500,2,0,false);
+      drawHeroByType(party.hero[0],frameWidth/5,500,2,false);
     if(party.hero[1].isAlive())
-      drawHeroByType(party.hero[1],width/2,500,2,1,false);
+      drawHeroByType(party.hero[1],frameWidth/2,500,2,false);
     if(party.hero[2].isAlive())
-      drawHeroByType(party.hero[2],int(width*.8),500,2,2,false);
+      drawHeroByType(party.hero[2],int(frameWidth*.8),500,2,false);
     
     drawBardNotes();
   }
@@ -3085,10 +3259,10 @@ class Artist
   {
     imageMode(CENTER);
     if(battleMonsters[0].alive)
-      image(battleMonsters[0].pic,width/5,275);
+      image(battleMonsters[0].pic,frameWidth/5,275);
     if(battleMonsters[1].alive)
-      image(battleMonsters[1].pic,width/2,275);
+      image(battleMonsters[1].pic,frameWidth/2,275);
     if(battleMonsters[2].alive)
-      image(battleMonsters[2].pic,width*.8,275);
+      image(battleMonsters[2].pic,frameWidth*.8,275);
   }
 }

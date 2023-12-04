@@ -3,6 +3,7 @@ class Hero
   String name;
   Job job;
   color favColor, inverseColor;
+  int hairColor, skinColor;
   
   int maxHp, hp;
   int maxMp, mp;
@@ -32,7 +33,7 @@ class Hero
   
   public Hero()
   {
-    this("Unknown", Job.NONE, color(50), color(200) );
+    this("Unknown", Job.NONE, color(50), color(200), 0, 0 );
   }
   
   public Hero( boolean b )
@@ -40,7 +41,7 @@ class Hero
     created = b;
   }
   
-  public Hero( String n, Job j, color c, color ic )
+  public Hero( String n, Job j, color c, color ic, int h, int s )
   {
     name = n;
     //if(name.equals(""))
@@ -49,6 +50,8 @@ class Hero
     job = j;
     favColor = c;
     inverseColor = ic;
+    hairColor = h;
+    skinColor = s;
     created = true;
     assignBaseStats();
     alive = true;

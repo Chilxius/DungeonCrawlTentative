@@ -526,10 +526,10 @@ void setupMaps()
   mapStrings[mapIndex] += "           £  3333333333###  £             £  §§,§§      §§§    §,,§     £             £            ";
   mapStrings[mapIndex] += "           £                 £            £  §,,,,,§§§§§§,,,§§§§§]]§     £   §§§§§§§   £  ∑∑∑∑∑∑∑∑∑∑";
   mapStrings[mapIndex] += "££££££££££££                 £           £  §,,§§§,,,,,,,,,,,,,,,,,§§    £  §„,,``ßB§  £  ∑W,,WW,,W∑";
-  mapStrings[mapIndex] += "            £££££££££££££££££££££££££      §,,§   §§§§,,,,,,~~,,,,,,,§   £  §,,`§`,`§  £  ∑,,,,,,,,∑";
-  mapStrings[mapIndex] += "                 £         £         £     §,§§       §,,,,,~~~,,,,,,§   £  §``,```]§  £  ∑,,,,,,,,∑";
-  mapStrings[mapIndex] += "                 £         £         £     §,,,§       §,,,,,,,,,,,§,,§  £   §§§§§§§   £  ∑∑∑<∑∑<∑∑∑";
-  mapStrings[mapIndex] += "###############  £  #####  £  WWWWW  £      §§,,§       §,,,,,,,,,§§,,§  £             £     £  £   ";
+  mapStrings[mapIndex] += "            £££££££££££££££££££££££££      §,,§   §§§§,,,,~~~~~,,,,,,§   £  §,,`§`,`§  £  ∑,,,,,,,,∑";
+  mapStrings[mapIndex] += "                 £         £         £     §,§§       §,,,,~www~,,,,,§   £  §``,```]§  £  ∑,,,,,,,,∑";
+  mapStrings[mapIndex] += "                 £         £         £     §,,,§       §,,,,~~~~,,,§,,§  £   §§§§§§§   £  ∑∑∑<∑∑<∑∑∑";
+  mapStrings[mapIndex] += "###############  £  #####  £  WWWWW  £      §§,,§       §,,,,,,~,,§§,,§  £             £     £  £   ";
   mapStrings[mapIndex] += "#€#€#.......]]#  £  #∫∫∫#  £  WrrrW  £        §,,§    §§,,,,,,,,,,,§§,§  £             £            ";
   mapStrings[mapIndex] += "#.#.#.rrrWWWWW#  £  #∫∫∫#  £  Wrr]W  £         §,,§ §§,,,,,,,§§,,,,,,,§   £££££££££££££ ££££££££££££";
   mapStrings[mapIndex] += "#.#.#.rrrrrrr.#  £  ##<##  £  WW<WW  £          §,,§,,,,,,,,§§,,,,,,§§                              ";
@@ -650,7 +650,7 @@ void setupMaps()
   createLoot(lootIndex++, 1, 76, 83, new Equipment("Purifier","StoneClub.png",25,true,27.5,Job.KNIGHT,Job.PRIEST) );
   createLoot(lootIndex++, 1, 98, 63, new Equipment("Cold Iron Plate","DarkArmor.png",25,false,28,Job.KNIGHT, Job.PRIEST) );
   createLoot(lootIndex++, 1, 98, 73, new Equipment("Scholar's Robe","aquaRobes.png",25,false,18, Job.KARATE, Job.BARD, Job.DRUID, Job.PRIEST, Job.MAGE) );
-  createLoot(lootIndex++, 1, 98, 83, new Equipment("Flamecaster Staff","Staff2.png",25,true,27.2,Job.DRUID,Job.MAGE) );
+  createLoot(lootIndex++, 1, 98, 83, new Equipment("Flamecaster","Staff2.png",25,true,27.2,Job.DRUID,Job.MAGE) );
   
   //Boss Chamber
   createLoot(lootIndex++, 1, 37, 92 , new Equipment("Ritual Knife","curvedDagger.png",35,true,25.4,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.BARD,Job.THIEF,Job.DRUID,Job.MAGE) );
@@ -660,7 +660,7 @@ void setupMaps()
   createLoot(lootIndex++, 1, 47, 92 , new Item("Health Potion",24) );
   
   m[1].tiles[2][2].createEvent(true, "- The (space) key can be used to open chests like this one. You also use this key to search your current square. See if you can find anything left behind in this room by careless initiates.");
-  m[1].tiles[6][2].createEvent(true, "- This is a sacred Legend Gem. Gazing into it, you can feel your acomplishments being told around campfires centuries from now. Step on it and press capital (S) to activate it, and then press ENTER to confirm and save your progress.");
+  m[1].tiles[6][2].createEvent(true, "- This is a sacred Legend Gem. Gazing into it, you can feel your accomplishments being told around campfires centuries from now. Step on it and press capital (S) to activate it, and then press ENTER to confirm and save your progress.");
   m[1].tiles[6][4].createEvent(true, "- Some doors are locked. You can view your key ring by holding down the (k) key. By examining a door, you can determine what key is required. If you stand next to the door and press the (o) key, you will use the proper key if you possess it. Keys are fragile, and usually break after a single use.");
   m[1].tiles[2][7].createEvent(false, "- This stairwell will lead to a new room. To use it, stand on it and press the (>) key.");
   m[1].tiles[18][1].createEvent(false, "- Some of the clerics are busy cleaning the cellar. Walk into their space to speak with them.");
@@ -695,8 +695,8 @@ void setupMaps()
   
   //Temple of Ritisu
   m[1].tiles[97][14].placeOccupant( color(31,153,226), "- Welcome to the temple of Ritisu. Gaze into the Gem and share your experience and knowledge. In return, we will share our knowledge with you." );
-  m[1].tiles[98][15].placeOccupant( color(75,180,243), "- One needs not a strong body to endure elemental magic, but a strong will. A mage might endure a bolt of lightning that would cow the strongest warrior." );
-  m[1].tiles[94][16].placeOccupant( color(75,180,243), "- Not all elemental skills draw from magical energy. Some are powered by strength or swiftness. Learn how your abilities affect different foes." );
+  m[1].tiles[98][15].placeOccupant( lesserRitisuColor, "- One needs not a strong body to endure elemental magic, but a strong will. A mage might endure a bolt of lightning that would cow the strongest warrior." );
+  m[1].tiles[94][16].placeOccupant( lesserRitisuColor, "- Not all elemental skills draw from magical energy. Some are powered by strength or swiftness. Learn how your abilities affect different foes." );
   
   //Food Shop
   m[1].tiles[83][13].placeOccupant( color(165,150,50), "- My friends and neighbors are cowering in their homes. How can I charge them for food at such a time? Because of my generocity, all I have left is bread." );
@@ -1956,15 +1956,15 @@ void setNameDependentText()
   
   for(int i=0;i<3;i++)
   {
-    if(party.hero[i].job==Job.KNIGHT)knightName= " like "+party.hero[i].name;
-    if(party.hero[i].job==Job.BARBARIAN)barbName= " like "+party.hero[i].name;
-    if(party.hero[i].job==Job.SAURIAN)saurName= " like "+party.hero[i].name;
-    if(party.hero[i].job==Job.THIEF)thiefName= " like "+party.hero[i].name;
-    if(party.hero[i].job==Job.BARD)bardName= " like "+party.hero[i].name;
-    if(party.hero[i].job==Job.KARATE)monkName= " like "+party.hero[i].name;
-    if(party.hero[i].job==Job.DRUID)druidName= " like "+party.hero[i].name;
-    if(party.hero[i].job==Job.PRIEST)priestName= " such as "+party.hero[i].name;
-    if(party.hero[i].job==Job.MAGE){mageName= " such as "+party.hero[i].name;magePhrase=", as "+party.hero[i].name+" can attest";}  
+    if(party.hero[i].job==Job.KNIGHT)    knightName= " like "+party.hero[i].name;
+    if(party.hero[i].job==Job.BARBARIAN) barbName  = " like "+party.hero[i].name;
+    if(party.hero[i].job==Job.SAURIAN)   saurName  = " like "+party.hero[i].name;
+    if(party.hero[i].job==Job.THIEF)     thiefName = " like "+party.hero[i].name;
+    if(party.hero[i].job==Job.BARD)      bardName  = " like "+party.hero[i].name;
+    if(party.hero[i].job==Job.KARATE)    monkName  = " like "+party.hero[i].name;
+    if(party.hero[i].job==Job.DRUID)     druidName = " like "+party.hero[i].name;
+    if(party.hero[i].job==Job.PRIEST)    priestName= " such as "+party.hero[i].name;
+    if(party.hero[i].job==Job.MAGE)    { mageName  = " such as "+party.hero[i].name; magePhrase=", as "+party.hero[i].name+" can attest"; }  
 
     if(party.hero[i].job==Job.KNIGHT)    heroWeapon[i] = "sword";
     if(party.hero[i].job==Job.BARBARIAN) heroWeapon[i] = "axe";
@@ -1986,7 +1986,8 @@ void setNameDependentText()
   //People at the table
   for(int i = 0; i < 12; i++)
   {
-    m[0].tiles[44+i][5].placeOccupant( color(150, 150, 250), "- Have a seat, "+party.hero[i%3].name+"." ); if(i!=3)
+    m[0].tiles[44+i][5].placeOccupant( color(150, 150, 250), "- Have a seat, "+party.hero[i%3].name+"." );
+    if(i!=3)
     m[0].tiles[44+i][8].placeOccupant( color(150, 150, 250), "- Have a seat, "+party.hero[(i+1)%3].name+"." );
   }
   m[0].tiles[46][8].placeOccupant( color(150,150,250), "- I think she put the key by your plate.");
@@ -2004,7 +2005,7 @@ void setNameDependentText()
   m[0].tiles[32][55].placeOccupant( color(165,150,50), "- Hello "+party.hero[2].name+". Sorry I haven't brought you any new books lately. The library is next to Baron's Field, and was one of the first places we abandoned. If your "+heroWeapon[2]+" can clear out the animated dead, I'll get you the next story in that series you like so much." );
   m[2].tiles[78][28].placeOccupant( color(male), "- It's a sorry sight, "+party.hero[2].name+". I spent so many days in here, as did you. As I recall, you spent some nights with a book for a pillow when the hours got away from you. I want to salvage what books remain, but some of the abominations were trapped inside. I've opened the door for you. Our reclamation begins here." );
   //player 3's parent
-  m[1].tiles[95][92].placeOccupant( color(255,150), "- You've grown strong, "+party.hero[2].name+". I... I watched as you studied under Charis. From time to time I read over your shoulder at the library. I was so afraid for you as I lay dying, and at first I disliked the name "+party.hero[2].name+"... I've said too much. Sleep soundly and complete your task. " );
+  m[1].tiles[95][92].placeOccupant( color(255,150), "- You've grown strong, "+party.hero[2].name+". I... I watched as you studied under Charis. From time to time I read over your shoulder at the library. I was so afraid for you as I lay dying, and at first I disliked the name "+party.hero[2].name+"... I've said too much. Sleep soundly and complete your task." );
   m[0].tiles[84][58].placeOccupant( color(200,150), "- I'm so proud of you, "+party.hero[2].name+"." );
  
   //Teachers
@@ -2042,7 +2043,6 @@ void setNameDependentText()
   
   //Boat
   m[3].tiles[14][1].placeOccupant( color(clericColor), "- I swore to stay in Irohill forever, "+party.hero[2].name+", but here I am, watching Illamar's light glisten on the sea. A strange new era is dawning." );
-  
 }
 
 //Expected Level:
@@ -2062,7 +2062,7 @@ void setNameDependentText()
 //Plot notes:
 //Mother Veda is in Mariva across the sea and is high priestess of Ritisu
 //Messages to necromancer came from Waraka
-//Assassin boss Sirak in Waraka
+//Assassin boss Sirak in Waraka - respected Charis
 //Monsters of Lost Star Isle (later dungeon: shipwreck of Barracuda Queen and pirate ship)
 
 //NPC colors:

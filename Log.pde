@@ -14,6 +14,8 @@ length of each line.
 
 Words that exceed the line length can cause
 odd behavior.
+
+Expects a monospaced font.
 **********************************************/
 
 class Logbook
@@ -21,30 +23,31 @@ class Logbook
   ArrayList<String> messages = new ArrayList<String>();
   int lineLength;
   int currentMessage;
-  
+
   public Logbook( int lineLength )
   {
     this.lineLength = lineLength;
   }
   
-  public void addMessage( String newText ) //ISSUE: Text lines exactly lineLength chars long cause errors
+  public void addMessage( String newText )
   {
-    String buffer = " "; //holds the next word
-    String textToAdd = " "; //the string that will be added to the log
+    String buffer = ""; //holds the next word
+    String textToAdd = ""; //the string that will be added to the log
     
     int i = 0; //progress parsing through string
+    int quickFix = 0; //have to increse the condition on all but the first iteration. Hate it but I want this to start working now please.
     
     while( i < newText.length() ) //iterate through the message, cutting it into appropriately sized pieces
     {
       buffer += newText.charAt(i); //add next character to buffer
       i++;
-      if( i == newText.length() || newText.charAt(i) == ' ' ) //reached a space or end of string
+      if( i == newText.length() || newText.charAt(i) == ' ' ) //reached a space or end of string //<>//
       {
         textToAdd += buffer + ""; //add buffer to current message line
         buffer = "";
       }
-      if( i != 0 && i % lineLength == 0 ) //get line to pre-determined size, then add it to the messages
-      {
+      if( textToAdd.length() != 0 && (buffer.length()+textToAdd.length()) == lineLength+quickFix ) //get line to pre-determined size, then add it to the messages
+      {                                                                                             //quickFix used here
         if( textToAdd.equals("") ) //occurs if a large word is in the buffer
         {
           textToAdd = buffer.substring(0,lineLength);
@@ -52,11 +55,14 @@ class Logbook
         }
         while( textToAdd.charAt(0) == ' ' ) //shave off leading spaces
           textToAdd = textToAdd.substring(1);
+        //println( textToAdd.length() + ": "+textToAdd );
         messages.add(textToAdd);
-        textToAdd = "";
+        textToAdd = buffer;
+        buffer = "";
+        if( quickFix < 1 ) quickFix = 1;
       }
     }
-    if( i % 45 != 0 ) //if we didn't just add...
+    if( i % lineLength != 0 ) //if we didn't just add...
     {
       while( textToAdd.length() > 0 && textToAdd.charAt(0) == ' ' ) //shave off leading spaces
         textToAdd = textToAdd.substring(1);
