@@ -195,9 +195,26 @@ class Beastiary
   }
   
   public void checkForMooks( String name ) //for adding mooks to boss battles (monsters different from the boss)
-  {
+{
     switch( name )
     {
+      case "Body of Alar":  case "Body of Zan":
+      case "Body of Corel": case "Body of Ivy":
+      case "Body of Ruath": case "Body of Erar":
+        battleMonsters[0] = new Monster("Spirit Light",  "Spirit.png",  20, 20, 20, 1, 7, 30, 8, 0, AttackType.NONE);
+          battleMonsters[0].attacks[0] = new Attack("flickers in the shadows.");
+          battleMonsters[0].attacks[1] = new Attack("moves through you.", 30, false, AttackStat.MAG, AttackType.HOLY);
+          battleMonsters[0].attacks[2] = new Attack("moves through you.", 30, false, AttackStat.MAG, AttackType.HOLY);
+          battleMonsters[0].attacks[3] = new Attack("whispers: \""+party.hero[0].name+"...\"");
+          battleMonsters[0].attacks[4] = new Attack("flares to life!", 30, true, AttackStat.MAG, AttackType.HOLY );
+        battleMonsters[2] = new Monster("Spirit Light",  "Spirit.png",  20, 20, 20, 1, 7, 30, 8, 0, AttackType.NONE);
+          battleMonsters[2].attacks[0] = new Attack("whispers: \""+party.hero[1].name+"...\"");
+          battleMonsters[2].attacks[1] = new Attack("moves through you.", 30, false, AttackStat.MAG, AttackType.HOLY);
+          battleMonsters[2].attacks[2] = new Attack("moves through you.", 30, false, AttackStat.MAG, AttackType.HOLY);
+          battleMonsters[2].attacks[3] = new Attack("whispers: \""+party.hero[2].name+"...\"");
+          battleMonsters[2].attacks[4] = new Attack("flares to life!", 30, true, AttackStat.MAG, AttackType.HOLY );
+      break;
+      
       case "Body of Necromancer":
         battleMonsters[0] = new Monster("Skeletal Guard",  "ScimitarSkeleton.png",  30, 20, 5, 6, 0, 4, 6, 0, AttackType.HOLY);
           battleMonsters[0].attacks[0] = new Attack("protects its master.");

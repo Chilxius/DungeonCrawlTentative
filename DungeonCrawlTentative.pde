@@ -1,10 +1,10 @@
 //CURRENT TASK: //<>//
-//Adjust hitboxes for tooltip and button press to account for border (use frame variables)
-  //equip new equipment
+  //1-way water
 
 //To change once font is chosen:
   //cleric owed money
   //child's comment about mud washing out (spacing)
+  //fix music notes
 
 
 //Import files for Minim (sound)
@@ -23,11 +23,11 @@ import ddf.minim.ugens.*;
 //Why is ostinato so powerful at higher levels? (maybe cut the level by two in the calculation)
 
 //PROBLEMS:
-//Fix lineLength error and problem with not printing entire line
 //Fix objects getting strange tile colors
 //Boss didn't drop money when killed by poison (might not have given exp either)
 //Balance armor pierce abilities (wow, razor is crazy)
 //Hero gained a level while dead (3rd position, was revived once)
+//Damage seems to be increasing a bit quickly (did ~60 to Big gray rat)
 
 //TO DO:
 //Make bard music abilites not use weapon elements
@@ -81,7 +81,7 @@ String textLine2 = " ";
 String textBuffer = ""; //For when something is being typed in (character limit 10).
 
 //Game data limits
-int itemCount = 100;
+int itemCount = 200;
 int doorCount = 100;
 int bossCount = 100;
 
@@ -137,7 +137,7 @@ PImage cursor;
 PImage border;
 
 //Item data
-Loot [][] lootList = new Loot[4][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
+Loot [][] lootList = new Loot[6][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
 Loot emptyChest = new Loot(0,0,new Item(),"EMPTY CHEST ERROR");
 int consumableValue = 0;
 Equipment newEquip, oldEquip; //for switching in new equipment
@@ -280,9 +280,9 @@ void setup()
   tileImage[84] = loadImage("Fruit.png"); tileImage[84].resize(30,0);
   tileImage[85] = loadImage("Crab.png"); tileImage[85].resize(30,0);
   tileImage[86] = loadImage("wallDarkCracked.png"); tileImage[86].resize(30,0);
-  tileImage[87] = loadImage("stairsWood.png"); tileImage[87].resize(30,0);
-  tileImage[88] = loadImage("crate2.png"); tileImage[88].resize(30,0);
-  tileImage[89] = loadImage("crate.png"); tileImage[89].resize(30,0);
+  tileImage[87] = loadImage("stairsWood.png");   tileImage[87].resize(30,0);
+  tileImage[88] = loadImage("crate2.png");       tileImage[88].resize(30,0);
+  tileImage[89] = loadImage("crate.png");        tileImage[89].resize(30,0);
   tileImage[90] = loadImage("potionGreen.png");  tileImage[90].resize(56,0);
   tileImage[91] = loadImage("potionBlue.png");   tileImage[91].resize(56,0);
   tileImage[92] = loadImage("potionYellow.png"); tileImage[92].resize(56,0);
@@ -646,6 +646,12 @@ void checkEvent()
   {
     println("PLAY EVENT");
     m[party.floor].tiles[party.X][party.Y].playEvent();
+  }
+  //println(m[party.floor].tiles[party.X][party.Y].type);
+  if(party.Y<99 && m[party.floor].tiles[party.X][party.Y].type==TileType.RAPIDS && m[party.floor].tiles[party.X][party.Y+1].type==TileType.RAPIDS)
+  {
+    println("Rapids Movement");
+    party.Y++;
   }
 }
 
@@ -1586,13 +1592,12 @@ void mousePressed()
       if( dist( mouseX, mouseY, 62.5+75*i, 487.5 ) < 13 )
         tempHair = i;
     }
-
   }
   if( input == Input.HERO_SELECT || input == Input.BATTLE_ITEM_HERO_CHOICE ) //clicked on hero
   {
-    if(dist( mouseX+frameX,mouseY+frameY, 150,320)<37.5) { key='1'; keyPressed(); }
-    if(dist( mouseX+frameX,mouseY+frameY, 350,320)<37.5) { key='2'; keyPressed(); }
-    if(dist( mouseX+frameX,mouseY+frameY, 550,320)<37.5) { key='3'; keyPressed(); }
+    if(dist( mouseX,mouseY, 150+frameX,320+frameY)<37.5) { key='1'; keyPressed(); } //<>//
+    if(dist( mouseX,mouseY, 350+frameX,320+frameY)<37.5) { key='2'; keyPressed(); }
+    if(dist( mouseX,mouseY, 550+frameX,320+frameY)<37.5) { key='3'; keyPressed(); }
   }
   else if( input == Input.BATTLE_SKILL ) //clicked on skill or cancel
   {
@@ -1608,9 +1613,9 @@ void mousePressed()
   }
   else if( input == Input.BATTLE_SKILL_TARGET || input == Input.BATTLE_HEAL_TARGET ||input == Input.BATTLE_ATTACK_TARGET ) //attacked or healed or skill used or cancelled
   {
-    if( mouseX > 40 && mouseX < 240 && mouseY > 180 && mouseY < 380 ) { key = 'a'; keyPressed(); }
-    if( mouseX > 250 && mouseX < 450 && mouseY > 180 && mouseY < 380 ) { key = 's'; keyPressed(); }
-    if( mouseX > 460 && mouseX < 660 && mouseY > 180 && mouseY < 380 ) { key = 'd'; keyPressed(); }
+    if( mouseX > 40+frameX  && mouseX < 240+frameX && mouseY > 180+frameY && mouseY < 380+frameY ) { key = 'a'; keyPressed(); }
+    if( mouseX > 250+frameX && mouseX < 450+frameX && mouseY > 180+frameY && mouseY < 380+frameY ) { key = 's'; keyPressed(); }
+    if( mouseX > 460+frameX && mouseX < 660+frameX && mouseY > 180+frameY && mouseY < 380+frameY ) { key = 'd'; keyPressed(); }
     
     if( mouseInBox(party.heroX(battle.turn)+75,545) ) { key = 'x'; keyPressed(); }
   }
@@ -1635,11 +1640,11 @@ void mousePressed()
   if( (display == Display.MAP || display == Display.BATTLE )
    && (input == Input.EXPLORING || input == Input.BATTLE_MENU ) )
   {
-    if(mouseX > 4 && mouseX < 198 && mouseY > 4 && mouseY < 150)
+    if(mouseX > 4+frameX   && mouseX < 198+frameX && mouseY > 4+frameY && mouseY < 150+frameY)
       heroDataDisplayed[0]=true;
-    if(mouseX > 252 && mouseX < 447 && mouseY > 4 && mouseY < 150)
+    if(mouseX > 252+frameX && mouseX < 447+frameX && mouseY > 4+frameY && mouseY < 150+frameY)
       heroDataDisplayed[1]=true;
-    if(mouseX > 500 && mouseX < 694 && mouseY > 4 && mouseY < 150)
+    if(mouseX > 500+frameX && mouseX < 694+frameX && mouseY > 4+frameY && mouseY < 150+frameY)
       heroDataDisplayed[2]=true;
   }
 

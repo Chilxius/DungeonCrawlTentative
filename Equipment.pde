@@ -161,7 +161,7 @@ class Equipment extends Item
 
 /*
 //WEAPONS
-Keep weapon power between 1 and 99
+Keep weapon power between 1 and 99    //NOT LIKELY
 Martial Artist's fist should power up as they level
 Dealing single-digit damage should only happen in the first dungeon, against special high-defense monsters, and by the mage
 
@@ -180,7 +180,7 @@ X.5 - HOLY
 
 Status-inducing Weapons:
 Weapons will inflict status if their power value has a hundreds-place digit
-X.01 - Poison
+X.01 - Poison  <- Implemented
 X.02 - Sleep
 X.03 - Paralysis
 X.04 - Weakness

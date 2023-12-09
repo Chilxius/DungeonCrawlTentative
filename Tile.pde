@@ -72,6 +72,7 @@ class Tile
       case 'π':type=TileType.PORTCULLIS;break;
       case '‰':type=TileType.BIG_RAT;break; //shift+alt+r
       case 'w':type=TileType.WATER;break;
+      case '…':type=TileType.RAPIDS;break;  //alt+;
       case '%':type=TileType.FLOWER;break;
       case '∞':type=TileType.CROP;break;
       case 'T':type=TileType.TREE;break;
@@ -300,6 +301,10 @@ class Tile
       case WATER:
         tileColor = color(0,0,220);
         pathable = false;
+        break;
+      case RAPIDS:
+        tileColor = color(0,0,230);
+        pathable = true;
         break;
       case PORTCULLIS:
       case DOOR_GATE:
@@ -609,7 +614,7 @@ class Tile
       image(tileImage[3],xPos,yPos);
     else if(type == TileType.CROP)
       image(tileImage[73],xPos,yPos);
-    else if(type == TileType.WATER)
+    else if(type == TileType.WATER || type == TileType.RAPIDS)
       image(tileImage[int(4+vanGogh.stage()/10)],xPos,yPos);
     else if(type==TileType.DARK_TREE)
       image(tileImage[2],xPos-10,yPos-10);
@@ -682,6 +687,13 @@ class Tile
       image(tileImage[72],xPos,yPos-4);
     if(type == TileType.BOOK_SECRET)
       image(tileImage[76],xPos,yPos);
+    if(type == TileType.RAPIDS)
+    {
+      push();
+      tint(255,70);
+      image(tileImage[int(4+vanGogh.stage()/10)],xPos,yPos);
+      pop();
+    }
     if(obj == Object.GARGOYLE)
       image(tileImage[51],xPos,yPos);
   }
@@ -733,7 +745,8 @@ public enum TileType
   EMPTY, EVENT, SAFE,
   FLOOR, FLOOR_RD, FLOOR_BL,
   GRASS, GRASS_DARK, DIRT, DIRT_DARK,
-  FLOWER, CROP, WATER,
+  FLOWER, CROP,
+  WATER, RAPIDS,
   TREE, DARK_TREE, TREE_PATH, DEAD_TREE, DEAD_TREE_PATH,
   WOOD, WOOD_DARK, WOOD_LIGHT, CRATE, TILE_ROOF, TILE_BLUE,
   DARK, BLACK_WALL,

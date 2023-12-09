@@ -41,7 +41,7 @@ class Logbook
     {
       buffer += newText.charAt(i); //add next character to buffer
       i++;
-      if( i == newText.length() || newText.charAt(i) == ' ' ) //reached a space or end of string //<>//
+      if( i == newText.length() || newText.charAt(i) == ' ' ) //reached a space or end of string
       {
         textToAdd += buffer + ""; //add buffer to current message line
         buffer = "";
