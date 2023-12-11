@@ -108,7 +108,7 @@ class Artist
     }
   }
   
-  public void checkLocationForTitleCard( int f, int x, int y )
+  public void checkLocationForTitleCard( int f, int x, int y ) //For non-door switches
   {
     if( f == 2 )
     {
@@ -117,6 +117,13 @@ class Artist
         
       if( x == 68 && ( y == 47 || y == 48 ) && zoneNumber != 4 )
         startLocationTitleCard( "Irohill" );
+    }
+    if( f == 4 )
+    {
+      if( x == 66 && ( y == 82 || y == 83 || y == 84 ) && zoneNumber != 4 )
+        startLocationTitleCard( "Gullhaven Village" );
+      if( (x == 72 || x == 73 || x == 74 ) && y == 78 && zoneNumber != 12 )
+        startLocationTitleCard( "Waraka Sea Road" );
     }
   }
   
@@ -967,6 +974,18 @@ class Artist
       case CRATE_OBJ:
         image(tileImage[89],xPos,yPos);
         break;
+      case FENCE_CORNER:
+        image(tileImage[101],xPos,yPos);
+        break;
+      case FENCE_CORNER2:
+        image(tileImage[104],xPos,yPos);
+        break;
+      case FENCE_HORIZONTAL:
+        image(tileImage[102],xPos,yPos);
+        break;
+      case FENCE_VERTICAL:
+        image(tileImage[103],xPos,yPos);
+        break;
       case GRAVE:
         image(tileImage[42],xPos,yPos);
         break;
@@ -1453,8 +1472,8 @@ class Artist
   
   void drawBattleBack()
   {                      //1-Cathedral  2-Cellar  3-Forest  4-City  5-Graveyard  6-TEMPLE OF RITISU
-    push();              //7-Inside(scary,stone)  8-Inside(scary,wood)  9-Boat  10-Cave
-    imageMode(CENTER);
+    push();              //7-Inside(scary,stone)  8-Inside(scary,wood)  9-Boat  10-Cave  11-Hive
+    imageMode(CENTER);   //12-Hilly forest
     switch(zoneNumber)
     {
       case 1: case 2: case 7:
@@ -1464,14 +1483,18 @@ class Artist
         image(battleBack[0],frameWidth/2,250); //Trees
         break;
       case 5:
-        image(battleBack[2],frameWidth/2,252);
+        image(battleBack[2],frameWidth/2,252); //Graveyard
         break;
       case 10:
-        image(battleBack[3],frameWidth/2,252);
+        image(battleBack[3],frameWidth/2,252); //Cave
         break;
       case 8: case 9:
-        image(battleBack[4],frameWidth/2,252);
+        image(battleBack[4],frameWidth/2,252); //Wooden wall 4
         break;
+      case 11:
+        image(battleBack[5],frameWidth/2,252); //Honey cave
+      case 12:
+        image(battleBack[6],frameWidth/2,250);
     }
     pop();
   }

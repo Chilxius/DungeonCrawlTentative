@@ -1,4 +1,4 @@
-//This class represents the attacks monster use and
+//This class represents the attacks monsters use and
 //the special attacks the heroes use. Can be given
 //elemental types, can be flagged to attack all
 //three targets, can be flagged to heal allies (for

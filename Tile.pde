@@ -63,6 +63,7 @@ class Tile
       case '4':type=TileType.SAND_WALL;break;
       case '6':type=TileType.CAVE; break;
       case '§':type=TileType.CAVE_BROWN; break; //alt+6
+      case 'ﬂ':type=TileType.CAVE_HONEY; break; //alt+shift+6
       case '~':type=TileType.GRASS;break;
       case '¨':type=TileType.GRASS_DARK;break; //alt+u+?
       case '`':type=TileType.DIRT;break;
@@ -106,16 +107,19 @@ class Tile
       case '¬':type=TileType.BL_BOOK;break; //alt+l
       case '≈':type=TileType.CHAIN;break; //alt+x
       case '˛':type=TileType.CHAIN_HOLE;break; //alt+shift+x
+      case '^':type=TileType.HILL;break;
+      case 'ø':type=TileType.HILL_CAVE;break; //alt+o
       //different key types
-      case 'c':
+      case 'c': // copper
       case 'ç':
-      case 'i':
+      case 'i': // iron
       case 's':
       case 'k':
       case '˝': // shift+alt+g (gatehouse key)
       case '˚': // shift+k (Father Charis's notes)
       case '': // shift+alt+k (Gravekeeper's notes)
       case '˙': // alt+h (Cheese)
+      case '‘': // alt+] (Passport)
       case 'b':type=TileType.DOORSTEP;safe=true;break;
       case '.':type=TileType.FLOOR;safe=false;break;
       case 'r':type=TileType.FLOOR_RD;safe=false;break;
@@ -146,6 +150,10 @@ class Tile
       case 'V':obj=Object.GARGOYLE;type=TileType.SAFE;break;
       case '¶':obj=Object.BROKE_GLASS;break; //alt+7
       case '}':obj=Object.CRATE_OBJ;type=TileType.CRATE_OBJ;break;
+      case '╚':obj=Object.FENCE_CORNER;type=TileType.FENCE_OBJ;break; //
+      case '╝':obj=Object.FENCE_CORNER2;type=TileType.FENCE_OBJ;break; //
+      case '═':obj=Object.FENCE_HORIZONTAL;type=TileType.FENCE_OBJ;break; //
+      case '║':obj=Object.FENCE_VERTICAL;type=TileType.FENCE_OBJ;break; //
       default: obj=Object.NONE;break;
     }
     
@@ -205,6 +213,18 @@ class Tile
         tileColor = color(100,70,0);
         pathable = false;
         break;
+      case CAVE_HONEY:
+        tileColor = color(200,200,0);
+        pathable = false;
+        break;
+      case HILL:
+        tileColor = color(#6e6d6b);
+        pathable = false;
+        break;
+      case HILL_CAVE:
+        tileColor = color(#555553);
+        pathable = true;
+        break;
       //case RUBBLE:
       //  tileColor = color(200);
       //  pathable = false;
@@ -232,6 +252,7 @@ class Tile
         tileColor = safeColor;
         //tileColor = color((x+y)*5%50+150,(x+y)*5%50+150,(x+y)*5%50+150);
         safe = true; break;
+      case FENCE_OBJ:
       case RUBBLE_OBJ:
       case CRATE_OBJ:
         tileColor = safeColor;
@@ -338,6 +359,8 @@ class Tile
           createInteraction( Key.GRAVE_NOTES );
         else if( t == 'ç' )
           createInteraction( Key.CRYPT_KEY );
+        else if( t == '‘' ) //alt+]
+          createInteraction( Key.PASSPORT );
         else if( t == '˙' ) //alt+h
         {
           createInteraction( Key.CHEESE );
@@ -502,6 +525,11 @@ class Tile
           SFX[7].play();
           advanceText("The gate creaks open.");
         }
+        else if( keys[i] == Key.PASSPORT )
+        {
+          SFX[8].play();
+          advanceText("- Everything is in order. You may proceed.");
+        }
         else
         {
           advanceText("You use your " + keyName(k) + ".");
@@ -549,6 +577,7 @@ class Tile
       case DRAGON: return "A door embossed with a serpentine dragon.";
       case CHARIS_NOTES: return "- Away with you! I will speak only with Brother Charis.";
       case CHEESE: return "The massive rat does not want to fight, but it does look hungry.";
+      case PASSPORT: return "- Please present your documents.";
       default: return "A locked door.";
     }
   }
@@ -570,6 +599,8 @@ class Tile
     }
     noStroke();
     rect(xPos,yPos,30,30);
+    //if(type == TileType.FLOOR )
+    //  image(tileImage[100],xPos,yPos);
     if(type == TileType.WALL || type == TileType.SECRET_WALL)
       image(tileImage[0],xPos,yPos);
     else if(type == TileType.DARK_WALL || type == TileType.SECRET_DARK_WALL || type == TileType.DARK_WALL_CLIMBABLE)
@@ -588,6 +619,12 @@ class Tile
       image(tileImage[69],xPos,yPos);
     else if(type == TileType.CAVE)
       image(tileImage[70],xPos,yPos);
+    else if(type == TileType.CAVE_HONEY)
+      image(tileImage[97],xPos,yPos);
+    else if(type == TileType.HILL)
+      image(tileImage[98],xPos-10,yPos-10);
+    else if(type == TileType.HILL_CAVE)
+      image(tileImage[99],xPos-10,yPos-10);
     else if(type == TileType.CAMP)
       image(tileImage[55],xPos,yPos);
     else if(type == TileType.WOOD)
@@ -745,12 +782,13 @@ public enum TileType
   EMPTY, EVENT, SAFE,
   FLOOR, FLOOR_RD, FLOOR_BL,
   GRASS, GRASS_DARK, DIRT, DIRT_DARK,
-  FLOWER, CROP,
+  FLOWER, CROP, FENCE_OBJ,
   WATER, RAPIDS,
   TREE, DARK_TREE, TREE_PATH, DEAD_TREE, DEAD_TREE_PATH,
   WOOD, WOOD_DARK, WOOD_LIGHT, CRATE, TILE_ROOF, TILE_BLUE,
+  HILL, HILL_CAVE,
   DARK, BLACK_WALL,
-  CAVE, CAVE_BROWN,
+  CAVE, CAVE_BROWN, CAVE_HONEY,
   BOOK, BOOK_EMPTY, BOOK_SECRET, BL_BOOK, BK_BOOK, 
   WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, DARK_WALL_CLIMBABLE, DARK_CRACK, SAND_WALL, RUBBLE_OBJ, CRATE_OBJ,
   DOOR, DOOR_GATE, PORTCULLIS, BIG_RAT, DOORSTEP,
@@ -765,6 +803,7 @@ public enum Key //special items for interactive tiles
   COPPER_KEY, SKELETON_KEY, IRON_KEY, BRASS_KEY, GATE,
   CHARIS, CHARIS_NOTES, GRAVE_NOTES,
   CRYPT_KEY, CHEESE,
+  PASSPORT,
   DRAGON, NONE
 }
 
@@ -774,6 +813,7 @@ public enum Object //tile has an object (still usually pathable)
   SIGN, SIGN_E, SIGN_F, SIGN_D, SIGN_I,
   SAVEPOINT, FAKE_SAVE,
   BARREL, BARREL2, CRATE_OBJ,
+  FENCE_CORNER, FENCE_CORNER2, FENCE_HORIZONTAL, FENCE_VERTICAL,
   GRAVE, RUBBLE,
   TENT, BED,
   GARGOYLE,

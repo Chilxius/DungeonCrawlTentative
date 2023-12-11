@@ -1,5 +1,7 @@
 //CURRENT TASK: //<>//
-  //1-way water
+  //Road to Waraka
+  //Vendor in crypt
+  //Gang in crypt
 
 //To change once font is chosen:
   //cleric owed money
@@ -113,7 +115,7 @@ int frameX, frameY; //position of game window (corner)    //to work for all size
 //Sound effects
 Sound s;
 //SoundFile openDoorSound, openChestSound, lockedDoorSound, potionDrinkSound, foodBiteSound;
-SoundFile SFX[] = new SoundFile[8];
+SoundFile SFX[] = new SoundFile[9];
 
 /*
 //Music
@@ -129,7 +131,7 @@ float volume;
 //AudioPlayer titleScreenMusic;
 
 //Image data
-PImage tileImage[] = new PImage[100]; //I've since used this for more than just tiles
+PImage tileImage[] = new PImage[200]; //I've since used this for more than just tiles
 PImage battleBack[] = new PImage[10]; //Backgrounds for battles
 PImage iconImage[] = new PImage[50];  //Icons for buttons, need to move some items from tileImage
 PImage effectImage[] = new PImage[10]; //Images for effects. Will eventually include spell effects.
@@ -137,7 +139,7 @@ PImage cursor;
 PImage border;
 
 //Item data
-Loot [][] lootList = new Loot[6][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
+Loot [][] lootList = new Loot[7][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
 Loot emptyChest = new Loot(0,0,new Item(),"EMPTY CHEST ERROR");
 int consumableValue = 0;
 Equipment newEquip, oldEquip; //for switching in new equipment
@@ -290,6 +292,14 @@ void setup()
   tileImage[94] = loadImage("chain.png");        tileImage[94].resize(0,30);
   tileImage[95] = loadImage("fatRat.png");       tileImage[95].resize(0,30);
   tileImage[96] = loadImage("chain_hole.png");   tileImage[96].resize(0,30);
+  tileImage[97] = loadImage("caveYellow.png");   tileImage[97].resize(0,30);
+  tileImage[98] = loadImage("mountain2.png");    tileImage[98].resize(40,40);
+  tileImage[99] = loadImage("mountainCave.png"); tileImage[99].resize(40,40);
+  tileImage[100]= loadImage("tile3.png");        tileImage[100].resize(30,0);
+  tileImage[101]= loadImage("fenceC.png");       tileImage[101].resize(30,0);
+  tileImage[102]= loadImage("fenceH.png");       tileImage[102].resize(30,0);
+  tileImage[103]= loadImage("fenceV.png");       tileImage[103].resize(30,0);
+  tileImage[104]= loadImage("fenceC2.png");      tileImage[104].resize(30,0);
   
   iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
   iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
@@ -299,11 +309,14 @@ void setup()
   iconImage[5] = loadImage("scale_primary.png");    iconImage[5].resize(56,0);
   iconImage[6] = loadImage("scale_secondary.png");  iconImage[6].resize(56,0);
   
+  //670x180
   battleBack[0] = loadImage("forest5.png"); //resize?esize(56,0);
   battleBack[1] = loadImage("stoneWall.png"); //resize?
   battleBack[2] = loadImage("graveyard4.png"); //resize?
   battleBack[3] = loadImage("cave.png"); //resize?
   battleBack[4] = loadImage("woodWall.png");
+  battleBack[5] = loadImage("honeyCave2.png"); //battleBack[5].resize(670,0);
+  battleBack[6] = loadImage("testBack2.png");
   
   effectImage[0] = loadImage("bardBonus.png");      effectImage[0].resize(30,0);
   
@@ -322,6 +335,7 @@ void setup()
   SFX[5] = new SoundFile(this, "glass.mp3");  SFX[5].amp(0.5);
   SFX[6] = new SoundFile(this, "save.mp3");
   SFX[7] = new SoundFile(this, "gate.wav");   SFX[7].amp(0.5);
+  SFX[8] = new SoundFile(this, "paper.wav");  SFX[8].amp(1);
   
   /*
   println("Loading music data...");
@@ -647,10 +661,9 @@ void checkEvent()
     println("PLAY EVENT");
     m[party.floor].tiles[party.X][party.Y].playEvent();
   }
-  //println(m[party.floor].tiles[party.X][party.Y].type);
-  if(party.Y<99 && m[party.floor].tiles[party.X][party.Y].type==TileType.RAPIDS && m[party.floor].tiles[party.X][party.Y+1].type==TileType.RAPIDS)
+  //Rapids
+  if(party.Y < 99 && m[party.floor].tiles[party.X][party.Y].type==TileType.RAPIDS && m[party.floor].tiles[party.X][party.Y+1].pathable)
   {
-    println("Rapids Movement");
     party.Y++;
   }
 }
@@ -739,6 +752,7 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case RUBBLE_OBJ: return "Rubble blocks the way";
     case CRATE:
     case CRATE_OBJ: return "A heavy crate";
+    case FENCE_OBJ: return "A sturdy fence";
     case BOOK: return "A shelf full of books";
     case BOOK_EMPTY: return "An empty shelf";
   }
@@ -850,6 +864,7 @@ void triggerBattle( char danger )
     vanGogh.beginBattleAnimation();
     display = Display.BATTLE;
     input = Input.NONE;
+    println("Danger Level: "+danger + "  int: "+int(danger));
     battle = new Battle(party.hero,dm[party.floor].dangerValueChar(party.X,party.Y),-1);
   }
 }
@@ -931,12 +946,14 @@ public int getZone( String title )
     case "Irohill Forest":
       return 3;
       
-    //Irohill city
+    //Irohill city / Gullhaven village
     case "Irohill":
     case "Irohill Inn":
     case "Irohill Garrison":
     case "Irohill Town Hall":
     case "Hideout":
+    case "Gullhaven Village":
+    case "Barn":
       return 4;
       
     //Baron's Field
@@ -984,6 +1001,16 @@ public int getZone( String title )
     //Caves
     case "Cenote":
       return 10;
+      
+    //Bee Cave
+    case "South Hive":
+    case "West Hive":
+    case "North Hive":
+      return 11;
+      
+    //Waraka Outdoors
+    case "Waraka Sea Road":
+      return 12;
       
     //Temples of Ritisu
     case "Temple of Ritisu":
@@ -1511,7 +1538,7 @@ void mouseClicked()
   }
   else if( step == HeroCreationStep.COLOR )
   {
-    if( mouseX > 500 && mouseX < 600 && mouseY > 400 && mouseY < 500 ) //confirm button
+    if( mouseX > 500+frameX && mouseX < 600+frameX && mouseY > 400+frameY && mouseY < 500+frameY ) //confirm button
     {
       tempColor = color(tempRed,tempGreen,tempBlue);
       tempInverseColor = color((255-tempRed)*.65,(255-tempGreen)*.65,(255-tempBlue)*.65);

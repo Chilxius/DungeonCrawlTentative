@@ -887,6 +887,7 @@ BARBARIAN:
   Combination of barbarian/berserker architype
   Gains 1 power when hit by any attack
   Abilities invovle sacrificing health for power/damage
+  May store up "blood points" from self-damaging skills to spend on other skills
   
 SAURIAN:
   Animalistic class
@@ -917,6 +918,13 @@ DRUID
   
 PRIEST
   Combination of cleric/healer architypes
+  Can use a lot of the same equipment as the Knight
+  Spells will often reference the world's deities
+  
+MAGE
+  Wizard/sorcerer architype
+  Will be easy to kill, but spells will always be overpowered
+  Might collect "spell points" to power up certain skills (might assign type based on previous spells)
   
 */
 

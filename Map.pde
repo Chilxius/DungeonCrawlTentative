@@ -167,7 +167,7 @@ class DangerMap
   
   public DangerMap( String input )
   {
-    if( input.length() < 10000 )
+    if( input.length() != 10000 )
       println("Danger Map error");
     while( input.length() < 10000 )
       input += "x";

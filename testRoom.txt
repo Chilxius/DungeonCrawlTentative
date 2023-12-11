@@ -70,12 +70,13 @@ BrownShirt.png
 0
 1.0
 
-10
+11
 
 0
 XX
 
 CHARIS
+PASSPORT
 XX
 
 true

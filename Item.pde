@@ -84,6 +84,7 @@ public String keyName( Key k )
     case GATE: return "Iron Gate Key";
     case CHARIS_NOTES: return "notebook with Charis's seal";
     case GRAVE_NOTES: return "Charis and Pavel's notes";
+    case PASSPORT: return "Passport Documents";
     default: return "";
   }
 }
@@ -103,6 +104,7 @@ Key stringToKey( String s )
     case "BRASS_KEY": return Key.BRASS_KEY;
     case "GATE": return Key.GATE;
     case "DRAGON": return Key.DRAGON;
+    case "PASSPORT": return Key.PASSPORT;
     default: return Key.NONE;
   }
 }
