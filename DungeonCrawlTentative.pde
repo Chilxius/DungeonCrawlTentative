@@ -1,7 +1,7 @@
 //CURRENT TASK: //<>//
   //Road to Waraka
-  //Vendor in crypt
-  //Gang in crypt
+  //People at port
+  //Shop
 
 //To change once font is chosen:
   //cleric owed money
@@ -300,6 +300,13 @@ void setup()
   tileImage[102]= loadImage("fenceH.png");       tileImage[102].resize(30,0);
   tileImage[103]= loadImage("fenceV.png");       tileImage[103].resize(30,0);
   tileImage[104]= loadImage("fenceC2.png");      tileImage[104].resize(30,0);
+  tileImage[105]= loadImage("flowerBlue.png");   tileImage[105].resize(30,0);
+  tileImage[106]= loadImage("curtain.png");      tileImage[106].resize(30,0);
+  tileImage[107]= loadImage("gameBoard.png");    tileImage[107].resize(30,0);
+  tileImage[108]= loadImage("curtainHalf.png");  tileImage[108].resize(30,0);
+  tileImage[109]= loadImage("stoneSlab.png");    tileImage[109].resize(30,0);
+  tileImage[110]= loadImage("curtainRed.png");   tileImage[110].resize(30,0);
+  tileImage[111]= loadImage("curtainHalfRed.png");tileImage[111].resize(30,0);
   
   iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
   iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
@@ -952,8 +959,9 @@ public int getZone( String title )
     case "Irohill Garrison":
     case "Irohill Town Hall":
     case "Hideout":
-    case "Gullhaven Village":
+    case "Gullhaven":
     case "Barn":
+    case "Bathhouse":
       return 4;
       
     //Baron's Field

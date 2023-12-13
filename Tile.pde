@@ -75,6 +75,7 @@ class Tile
       case 'w':type=TileType.WATER;break;
       case '…':type=TileType.RAPIDS;break;  //alt+;
       case '%':type=TileType.FLOWER;break;
+      case 'ﬁ':type=TileType.FLOWER_BLUE;break; //alt+shift+7
       case '∞':type=TileType.CROP;break;
       case 'T':type=TileType.TREE;break;
       case 't':type=TileType.TREE_PATH;break;
@@ -86,6 +87,8 @@ class Tile
       case '‡':type=TileType.SECRET_GLASS;break;
       case '>':type=TileType.STAIR;break;
       case '<':type=TileType.STAIR_DOOR;break;
+      case '≤':type=TileType.CURTAIN;break;
+      case '¯':type=TileType.CURTAIN_RED;break; //alt+shift+,
       case 'M':type=TileType.STAIR_WOOD;break;
       case ' ':type=TileType.DARK;break;
       case '£':type=TileType.BLACK_WALL;break;
@@ -105,6 +108,7 @@ class Tile
       //case '|':type=TileType.RUBBLE;break;
       case 'ı':type=TileType.BK_BOOK;break; //shift+alt+b
       case '¬':type=TileType.BL_BOOK;break; //alt+l
+      case 'Ò':type=TileType.GAME;break; //alt+shift+l
       case '≈':type=TileType.CHAIN;break; //alt+x
       case '˛':type=TileType.CHAIN_HOLE;break; //alt+shift+x
       case '^':type=TileType.HILL;break;
@@ -120,8 +124,11 @@ class Tile
       case '': // shift+alt+k (Gravekeeper's notes)
       case '˙': // alt+h (Cheese)
       case '‘': // alt+] (Passport)
+      case '¥': // (yen) (Graveyard Girl)
+      case '“': // alt+[ (Cave key)
       case 'b':type=TileType.DOORSTEP;safe=true;break;
       case '.':type=TileType.FLOOR;safe=false;break;
+      case '˘':type=TileType.TILE;safe=false;break; //alt+shift+.
       case 'r':type=TileType.FLOOR_RD;safe=false;break;
       case '∫':type=TileType.FLOOR_BL;safe=false;break; //shift+b
       case '_':type=TileType.SAFE;safe=true;break;
@@ -180,6 +187,9 @@ class Tile
       case FLOOR: 
         tileColor = color(200);
         break;
+      case TILE: 
+        tileColor = color(200);
+        break;
       case FLOOR_RD: 
         tileColor = color(200,0,0);
         break;
@@ -191,6 +201,10 @@ class Tile
         break;
       case DARK_WALL: 
         tileColor = color(200);
+        pathable = false;
+        break;
+      case SAND_WALL:
+        tileColor = color(190,170,130);
         pathable = false;
         break;
       case CHAIN:
@@ -231,6 +245,7 @@ class Tile
       //  break;
       case BL_BOOK:
       case BK_BOOK:
+      case GAME:
         tileColor = color(90,70,30);
         pathable = false;
         break;
@@ -264,6 +279,7 @@ class Tile
         tileColor = safeColor;
         safe = true; break;
       case FLOWER:
+      case FLOWER_BLUE:
       case GRASS:
         tileColor = color(0,180,0);
         break;
@@ -361,6 +377,10 @@ class Tile
           createInteraction( Key.CRYPT_KEY );
         else if( t == '‘' ) //alt+]
           createInteraction( Key.PASSPORT );
+        else if( t == '¥' ) //yen
+          createInteraction( Key.GRAVE );
+        else if( t == '“' ) //alt+[
+          createInteraction( Key.CAVE );
         else if( t == '˙' ) //alt+h
         {
           createInteraction( Key.CHEESE );
@@ -376,6 +396,8 @@ class Tile
       }
       case STAIR:
       case STAIR_DOOR:
+      case CURTAIN:
+      case CURTAIN_RED:
         tileColor = safeColor;
         break;
       case STAIR_WOOD:
@@ -530,6 +552,11 @@ class Tile
           SFX[8].play();
           advanceText("- Everything is in order. You may proceed.");
         }
+        else if( keys[i] == Key.GRAVE )
+        {
+          SFX[7].play();
+          advanceText("She nods in approval.");
+        }
         else
         {
           advanceText("You use your " + keyName(k) + ".");
@@ -578,6 +605,8 @@ class Tile
       case CHARIS_NOTES: return "- Away with you! I will speak only with Brother Charis.";
       case CHEESE: return "The massive rat does not want to fight, but it does look hungry.";
       case PASSPORT: return "- Please present your documents.";
+      case GRAVE: return "This gate has motifs of the Black Vanguard.";
+      case CAVE: return "There is an odd hole in this wall.";
       default: return "A locked door.";
     }
   }
@@ -615,6 +644,8 @@ class Tile
     { image(tileImage[57],xPos,yPos); image(tileImage[78],xPos+5,yPos+5); }
     else if(type == TileType.BL_BOOK)
     { image(tileImage[57],xPos,yPos); image(tileImage[80],xPos+5,yPos+5); }
+    else if(type == TileType.GAME)
+      image(tileImage[107],xPos,yPos);
     else if(type == TileType.CAVE_BROWN)
       image(tileImage[69],xPos,yPos);
     else if(type == TileType.CAVE)
@@ -649,6 +680,8 @@ class Tile
       image(tileImage[54],xPos,yPos);
     else if(type == TileType.FLOWER)
       image(tileImage[3],xPos,yPos);
+    else if(type == TileType.FLOWER_BLUE)
+      image(tileImage[105],xPos,yPos);
     else if(type == TileType.CROP)
       image(tileImage[73],xPos,yPos);
     else if(type == TileType.WATER || type == TileType.RAPIDS)
@@ -673,6 +706,10 @@ class Tile
       image(tileImage[56],xPos,yPos);
     else if(type == TileType.STAIR_DOOR)
       image(tileImage[38],xPos,yPos);
+    else if(type == TileType.CURTAIN )
+      image(tileImage[106],xPos,yPos);
+    else if(type == TileType.CURTAIN_RED )
+      image(tileImage[110],xPos,yPos);
     else if(type == TileType.STAIR_WOOD)
       image(tileImage[87],xPos,yPos);
     else if(type == TileType.GARGOYLE)
@@ -695,6 +732,8 @@ class Tile
       image(tileImage[96],xPos,yPos);
     else if(type == TileType.BIG_RAT)
       image(tileImage[95],xPos,yPos);
+    else if(type == TileType.TILE)
+      image(tileImage[109],xPos,yPos);
     if(occupied)
     {
       fill(occupantColor); noStroke();
@@ -724,6 +763,10 @@ class Tile
       image(tileImage[72],xPos,yPos-4);
     if(type == TileType.BOOK_SECRET)
       image(tileImage[76],xPos,yPos);
+    if(type == TileType.CURTAIN)
+      image(tileImage[108],xPos,yPos);
+    if(type == TileType.CURTAIN_RED)
+      image(tileImage[111],xPos,yPos);
     if(type == TileType.RAPIDS)
     {
       push();
@@ -780,21 +823,21 @@ class Tile
 public enum TileType
 {
   EMPTY, EVENT, SAFE,
-  FLOOR, FLOOR_RD, FLOOR_BL,
+  FLOOR, FLOOR_RD, FLOOR_BL, TILE,
   GRASS, GRASS_DARK, DIRT, DIRT_DARK,
-  FLOWER, CROP, FENCE_OBJ,
+  FLOWER, FLOWER_BLUE, CROP, FENCE_OBJ,
   WATER, RAPIDS,
   TREE, DARK_TREE, TREE_PATH, DEAD_TREE, DEAD_TREE_PATH,
   WOOD, WOOD_DARK, WOOD_LIGHT, CRATE, TILE_ROOF, TILE_BLUE,
   HILL, HILL_CAVE,
   DARK, BLACK_WALL,
   CAVE, CAVE_BROWN, CAVE_HONEY,
-  BOOK, BOOK_EMPTY, BOOK_SECRET, BL_BOOK, BK_BOOK, 
+  BOOK, BOOK_EMPTY, BOOK_SECRET, BL_BOOK, BK_BOOK, GAME,
   WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, DARK_WALL_CLIMBABLE, DARK_CRACK, SAND_WALL, RUBBLE_OBJ, CRATE_OBJ,
   DOOR, DOOR_GATE, PORTCULLIS, BIG_RAT, DOORSTEP,
   GRAVE, S_GLASS, SECRET_GLASS, GARGOYLE, GARGOYLE_DARK, GARGOYLE_JADE, WEREWOLF_WHITE,
   CAMP, MERCHANT, SHOP, SELL,
-  STAIR, STAIR_DOOR, STAIR_WOOD,
+  STAIR, STAIR_DOOR, CURTAIN, CURTAIN_RED, STAIR_WOOD,
   CHAIN, CHAIN_HOLE
 }
 
@@ -803,7 +846,7 @@ public enum Key //special items for interactive tiles
   COPPER_KEY, SKELETON_KEY, IRON_KEY, BRASS_KEY, GATE,
   CHARIS, CHARIS_NOTES, GRAVE_NOTES,
   CRYPT_KEY, CHEESE,
-  PASSPORT,
+  PASSPORT, GRAVE, CAVE,
   DRAGON, NONE
 }
 
