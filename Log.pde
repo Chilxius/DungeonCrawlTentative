@@ -62,7 +62,8 @@ class Logbook
         if( quickFix < 1 ) quickFix = 1;
       }
     }
-    if( i % lineLength != 0 ) //if we didn't just add...
+    //if( i % lineLength != 0 ) //if we didn't just add...
+    if( buffer.length() != 0 || textToAdd.length() != 0 ) //Think this fixed error where last word was left off
     {
       while( textToAdd.length() > 0 && textToAdd.charAt(0) == ' ' ) //shave off leading spaces
         textToAdd = textToAdd.substring(1);

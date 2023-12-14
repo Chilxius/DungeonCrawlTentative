@@ -1623,7 +1623,7 @@ class Artist
     rect(baseX-75,455,70,70,20);rect(baseX+75,455,70,70,20);
     rect(baseX-75,545,70,70,20);rect(baseX+75,545,70,70,20);
     
-    drawAttackIcon(baseX-75,455,party.hero[h].favColor,party.hero[h].inverseColor,party.hero[h].weapon.pic);
+    drawAttackIcon(baseX-75,455,party.hero[h].favColor,party.hero[h].inverseColor,party.hero[h].weapon.pic,h);
     drawDefendIcon(baseX+75,455,party.hero[h].favColor,party.hero[h].inverseColor,party.hero[h].job,true);
     drawSkillIcon(baseX-75,545,party.hero[h].favColor,party.hero[h].inverseColor,party.hero[h].job);
     drawItemIcon(baseX+75,545,party.hero[h].favColor);
@@ -1639,9 +1639,18 @@ class Artist
     //drawHeroByType(party.hero[2],int(width*.8),500,2,2,false);
   }
   
-  void drawAttackIcon( float x, float y, color c, color i, PImage p )
+  void drawAttackIcon( float x, float y, color c, color i, PImage p, int h)
   {
-    image(p,x,y);
+    if( party.hero[h].job == Job.KARATE )
+    {
+      int skin = party.hero[h].skinColor;
+      push();
+      tint(color(55+0.67*skin,30+0.67*skin,20+0.63*skin));
+      image(iconImage[7],x,y);
+      pop();
+    }
+    else
+      image(p,x,y);
     /*
     if( j ==Job.KNIGHT || j == Job.THIEF)//sword/dagger
     {

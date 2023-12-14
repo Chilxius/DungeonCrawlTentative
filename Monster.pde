@@ -8,6 +8,7 @@ class Monster
   int str, dex, con, mag, wil, spd;
   boolean alive;
   int gold;
+  int bonusExp;
   
   AttackType weakness = AttackType.NONE;
    
@@ -37,6 +38,11 @@ class Monster
   
   public Monster( String n, String image, int health, int s, int d, int c, int m, int w, int sp, int g, AttackType weak)
   {
+    this(n, image, health, s, d, c, m, w, sp, g, weak, 0);
+  }
+  
+  public Monster( String n, String image, int health, int s, int d, int c, int m, int w, int sp, int g, AttackType weak, int bonus)
+  {
    name = n;
    imageName = image;
    pic = loadImage(imageName);
@@ -53,6 +59,7 @@ class Monster
    weakness = weak;
    
    gold = g;
+   bonusExp = bonus;
    
    alive=true;
    

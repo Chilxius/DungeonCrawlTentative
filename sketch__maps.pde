@@ -541,9 +541,9 @@ void setupMaps()
   mapStrings[mapIndex] += "                 £                   £  wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww,,,,wwwwwwwwwwwww";
   mapStrings[mapIndex] += "£££££££££££ £££££                    £   ,wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "           £                         £   ,,wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "           £       333££££££££££     £   ,,,,,,,,,,,,,,wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww§";
-  mapStrings[mapIndex] += "#########  £       3>‹       ..B£    £   ,,,,,,,,,,,,,,,,,,,,,,wwwwwww,,,,,,,,,,wwwwwwwwwww,,,,,,,§§";
-  mapStrings[mapIndex] += "#.......#  £       £ ££££££££==„£    £   ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,§§§";
+  mapStrings[mapIndex] += "           £       ßBB££££££££££     £   ,,,,,,,,,,,,,,wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww§";
+  mapStrings[mapIndex] += "#########  £       B>Í       ..B£    £   ,,,,,,,,,,,,,,,,,,,,,,wwwwwww,,,,,,,,,,wwwwwwwwwww,,,,,,,§§";
+  mapStrings[mapIndex] += "#.......#  £       W W£££££££==„£    £   ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,§§§";
   mapStrings[mapIndex] += "#WW...WW#  £       £ £       £££     £   ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,§§§";
   mapStrings[mapIndex] += "#.......#  £       £ £               £                                                              ";
   mapStrings[mapIndex] += "#.......#  £       £ £               £                                                              ";
@@ -667,7 +667,7 @@ void setupMaps()
   m[1].tiles[18][1].createEvent(false, "- Some of the clerics are busy cleaning the cellar. Walk into their space to speak with them.");
   m[1].tiles[35][3].createEvent(false, "- Sometimes, you can pass only one way across a threshold. This is one of those moments. Once you ascend these stairs, your story will truly begin. Good luck, young heroes.");
   m[1].tiles[97][5].createEvent(true, "- Press capital (R) on a bed to rest. Resting in a safe place will fully restore health and magic.");
-  m[1].tiles[97][5].createEvent(true, "- Press capital (X) on a bed to rest. Resting in a safe place will fully restore health and magic.");
+  //m[1].tiles[97][5].createEvent(true, "- Press capital (X) on a bed to rest. Resting in a safe place will fully restore health and magic.");
   m[1].tiles[2][15].createEvent(false, "- Whatever that is, it's big. Make sure to (E)at if you feel weak.");
   m[1].tiles[6][15].createEvent(false, "- This hole was made recently.");
   m[1].tiles[94][97].createEvent(false, "- The disjoined spirits of Irohill stand in a ring around the old campsite.");
@@ -1156,15 +1156,15 @@ void setupMaps()
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT``TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
  
   mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTT~TTTTTTTTTTTTTTTTTT``TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTT~~~TT~~~~TTT~~~~~TT~~TTTTT~~~~TT~~~T~```~~~~~~~~~~~T~~~TTTTT~~~T~TTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~TTT~~~~~~~~~~~~```~~~$~~~~~$~~~T~~~TT~T~~~~~,,∞,,,∞,,,,,∞,,~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~~~T~~~~~))))))))~~~~~~~~~~~~~~~~~~~T~~~~```~~T$$$$$$$~~T~~T~~~~~~T~~~```````````````~TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTT~~~~))))∑∑∑∑∑∑∑∑))))~~~T~~~~~~~~~~~~~~~~```~~~#+###+#~T```````T~~~~~~,,,,∞,,,,,∞,,,,~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~~~~))))))))))))))))~~~~~(((~~(((~~(((~~```~~~#.....#~~```````~~T~T~~```````````````~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~~~~~∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑~~~~~WWW~~WWW~~WWW~~```~~~#######T~```````~~~(((~∞,,,,∞,∞,,,,,∞,~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~T~~#######<<#######~~T~~#+#~~W+W~~W+W~~```~~~###<###~~```````T~~∑∑∑~```````````````~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~~~T~~%~%~%~``~%~%~%~~T~~~~`~~~~`~~~~`~T~```~T~##~`~##~T```````~~~∑+∑~,,∞∞,,,,,,∞,,,,~TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTT~~~~~~~~~~~``~~~~~~~~~~~~~`T~~~`~~~~`~~~```~~~~~~`~~~~~~~~~~~~~~~~`~~~~~~~~~~~~~~~~~~~TTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTTTT~~~TT~~~~TTT~~~~~TT~~TTTTT~~~~TT~~~T~```~~~~~~~~~~~T~~~TTTTT~~~TT~TTTTTTTTTTTTTTT~TTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~TTT~~~~~~~~~~~~```~~~$~~~~~$~~~T~~~TT~T~~~~║,,∞,,,∞,,,,,∞,,║~TTTTTT";
+  mapStrings[mapIndex] += "TTTTTTT~~~T~~~~~))))))))~~~~~~~~~~~~~~~~~~~T~~~~```~~T$$$$$$$~~T~~T~~~~~~T~~║```````````````║TTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTT~~~~))))∑∑∑∑∑∑∑∑))))~~~T~~~~~~~~~~~~~~~~```~~~#+###+#~T```````T~~~~~~,,,,∞,,,,,∞,,,,║~TTTTTT";
+  mapStrings[mapIndex] += "TTTTTT~~~~~~))))))))))))))))~~~~~(((~~(((~~(((~~```~~~#.....#~~```````~~T~T~~```````````````║~TTTTTT";
+  mapStrings[mapIndex] += "TTTTTTT~~~~~∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑~~~~~WWW~~WWW~~WWW~~```~~~#######T~```````~~~(((║∞,,,,∞,∞,,,,,∞,║~TTTTTT";
+  mapStrings[mapIndex] += "TTTTTT~~~T~~#######<<#######~~T~~#+#~~W+W~~W+W~~```~~~###<###~~```````T~~∑∑∑║```````````````║~TTTTTT";
+  mapStrings[mapIndex] += "TTTTTTT~~~T~~%~%~%~``~%~%~%~~T~~~~`~~~~`~~~~`~T~```~T~##~`~##~T```````~~~∑+∑║,,∞∞,,,,,,∞,,,,║TTTTTTT";
+  mapStrings[mapIndex] += "TTTTTTTT~~~~~~~~~~~``~~~~~~~~~~~~~`T~~~`~~~~`~~~```~~~~~~`~~~~~~~~~~~~~~~~`~╚══════~~~══════╝~TTTTTT";
   mapStrings[mapIndex] += "TTTTTT~~~~~~~~~~~~~`````````````````````````````````````````````````````````````````````````~~TTTTTT";
   mapStrings[mapIndex] += "TTTTTTT~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~T~~~```~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~TTTTTT";
   mapStrings[mapIndex] += "TTTTTT~~~~(((~~(((~~(((~~(((~~(((~~(((~~(((~~~~~```~~~~~#&#&#~T~(((((((((((((~~((((((~~~T~~~~TTTTTTT";
@@ -1683,14 +1683,14 @@ void setupMaps()
   //Card Players
   m[mapIndex].tiles[25][71].placeOccupant( color(sailor), "- NO TEXT." );
   m[mapIndex].tiles[27][71].placeOccupant( color(sailor), "- Haven't heard from the quartermaster in hours. He probably wants us to take a third break." );
-  m[mapIndex].tiles[26][70].placeOccupant( color(sailor), "♪ Within the cove at Marinstad "+
-                                                          "♪ Me widow scans the sky "+
-                                                          "♪ Scriven missives in her fist "+
-                                                          "♪ Hoarfrost upon her eye ♪" );
-  m[mapIndex].tiles[26][72].placeOccupant( color(sailor), "♪ Her gold and smile secures a ship "+
-                                                          "♪ She raises high the sail "+
-                                                          "♪ Across a dark and angry sea "+
-                                                          "♪ We meet beyond the Veil ♪" );
+  m[mapIndex].tiles[26][70].placeOccupant( color(sailor), "~ Within the cove at Marinstad "+
+                                                          "~ Me widow scans the sky "+
+                                                          "~ Scriven missives in her fist "+
+                                                          "~ Hoarfrost upon her eye" );
+  m[mapIndex].tiles[26][72].placeOccupant( color(sailor), "~ Her gold and smile secures a ship "+
+                                                          "~ She raises high the sail "+
+                                                          "~ Across a dark and angry sea "+
+                                                          "~ We meet beyond the Veil" );
 
   //Lower Deck post-boss
   m[mapIndex].tiles[76][72].placeOccupant( color(sailor), "- A clean ship will sail long." );
@@ -2002,33 +2002,33 @@ void setupMaps()
   mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
   mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
   mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTTTTTTTTTTTTTTTTT═════~~~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTt(((((((((tTTT„ﬁﬁﬁ„TTﬁTTTTTTT~`~TTT~~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTtWWWWWWWWWtT~~„„„„„~TTTﬁTTTTT~`~TTTT~~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTﬁT4444444T~~W<WW<WW<W~~~~~~`~~~~~TTTTTTT?`~TTTTT~~~~~~~~~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTT~444≤444~~¿~`~~`~~`~÷~~~~(((~~~~~~~~~?~~`~~```TTTTTTT#ww~~~~~~~~~~~";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~TTTT~~~~~~~`````````````````````(((````````````````ﬁ`TTTTTT~#wwwwwwwwwwwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~TTﬁT~~t~~~~~~~~~~~~~~~~~~$$$~~~~~(((~~~~~~~~~~~~`~~```TTTTT~T#wwwwwwwwwwwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~TTT~~~~~~~~~~~~~~~~~~~~~~$$$~╚═╝~#`#~TT~TTTTTT~~`~}TTTTTT~TT~#w∑∑wwWww∑wwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~TT~~~(((~~(((~~(((~~(((~~~#&#~║ﬁ║~~`~~~TTTTTTTT~t`t~TTTT~T}~}}#ww∑∑∑∑∑∑∑wwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~TT~~~WWW~~WWW~~WWW~~WWW~~~###~╚═╝~~`~~TT~TT~ﬁTT~~`~~TTT~)))))}#www∑∑∑W∑wwwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~TT„„t~W<W~~W<W~~W<W~~W<W~~~#>#~~~~~~`~~~TTT~TTTT~~`~~TT~#WW<WW######wwWwwwwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~TTﬁ„~~~`~~~~`~~~~`~~~~`~~~~~`~~~~~~~`~~~TT~TﬁTTT~t`t~~TT#.......}..„„„„wwwwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~TTﬁ„`````````````````````````````````~~TTTT~T~TT~~`~t~~T#}..}}.....#wwwwwwwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~TTﬁ„~~~~~~~~`~~~~~~~~~~`T`~~~~~~~~~~`~~)))))))TT~~``````+‘....}...*##wwwwwwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~TTT„„~~~``````~~~~(((~~~```~~~(((~~~~`~~W<WW<WWTT~t~~t~~T#}.....}....„„„„wwwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~TTTT~~~t`~~~~`~~~~W+W~~~T`T~~~W+W~~~~`````║~```TT~~~~~~~~#}}.......}}#wwwwwwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~TTT~~~║~`~║~~`````````````````````````~~~~║~```ttTTTTTTTT##############wwwwwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~TTT~T╚╝~`~╚╝~~~∞,∞∞,∞∞,∞~~~∞,∞∞,∞∞,∞~~~~~~║~~~~TtTTTTTttTTTTTTTTTTTTTT#wwwwwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~TTT~~║g~`~g║T~~∞,∞∞,∞∞,∞~~~∞,∞∞,∞∞,∞~~~~~T╚════TtTTTTTTtTtttttttTTtttT##wwwwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~TTT~~║~~>g~║~~~∞,∞∞,∞∞,∞~~~∞,∞∞,∞∞,∞~~~~~~~~wwTTtTttTtttTtTTtTTtTTTtTTT#wwwwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~TTﬁ~T║~g#g~║T~~∞,∞∞,∞∞,∞~~~∞,∞∞,∞∞,∞~~T~~~~~~~TTtTTtTtTTTtTTTTTtTTTtTtT##wwwww";
-  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~TTTTT╚═════╝TT~~~~~~~~~~~~~T~~~~~~~~~~~~~T~~~TTTtttttttttttttT~[TttttttT#wwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTTTTTTTTTﬁTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTﬁTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT═════~~~~~~~~~~~~~~~~~~~~~~~~";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTTTTTTTTTTTt(((((((((tTTT„ﬁﬁﬁ„TTﬁTTTTTTT~`~TTT~~~~~~~~~~~~~~~~~~~~~~";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTTTTTTTTTTTtWWWWWWWWWtT~~„„„„„~TTTﬁTTTTT?`~TTTT~~~~~~~~~~~~~~~~~~~~~";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~~TTTTTTﬁTTTTTﬁT4444444T~~W<WW<WW<W~~~~~~`~~~~~TTTTTTT~`~TTTTT~~~~~~~~~~~~~~~~~~~~";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTTT~444≤444~~¿~`~~`~~`~÷~~~~(((~~~~~~~~~?~~`~~```TTTTTTT#ww~~~~~~~~~~~";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTTTTTTT~~~~~~~`````````````````````(((````````````````ﬁ`TTTTTT~#wwwwwwwwwwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTﬁTTTﬁT~~t~~~~~~~~~~~~~~~~~~$$$~~~~~(((~~~~~~~~~~~~`~~```TTTTT~T#wwwwwwwwwwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~$$$~╚═╝~#`#~TT~TTTTTT~~`~}TTTTTT~TT~#w∑∑wwWww∑wwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTTT~~~(((~~(((~~(((~~(((~~~#&#~║ﬁ║~~`~~~TTTTTTTT~t`t~TTTT~T}~}}#ww∑∑∑∑∑∑∑wwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTTT~~~WWW~~WWW~~WWW~~WWW~~~###~╚═╝~~`~~TT~TT~ﬁTT~~`~~TTT~)))))}#www∑∑∑W∑wwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTT„„t~W<W~~W<W~~W<W~~W<W~~~#>#~~~~~~`~~~TTT~TTTT~~`~~TT~#WW<WW######wwWwwwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTTﬁ„~~~`~~~~`~~~~`~~~~`~~~~~`~~~~~~~`~~~TT~TﬁTTT~t`t~~TT#.......}..„„„„wwwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTTﬁ„`````````````````````````````````~~TTTT~T~TT~~`~t~~T#}..}}.....#wwwwwwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTTﬁ„~~~~~~~~`~~~~~~~~~~`T`~~~~~~~~~~`~~)))))))TT~~``````+‘....}...*##wwwwwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTT„„~~~``````~~~~(((~~~```~~~(((~~~~`~~W<WW<WWTT~t~~t~~T#}.....}....„„„„wwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTTT~~~t`~~~~`~~~~W+W~~~T`T~~~W+W~~~~`````║~```TT~~~~~~~~#}}.......}}#wwwwwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTT~~~║~`~║~~`````````````````````````~~~~║~```ttTTTTTTTT##############wwwwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTT~T╚╝~`~╚╝~~~∞,∞∞,∞∞,∞~~~∞,∞∞,∞∞,∞~~~~~~║~~~~TtTTTTTttTTTTTTTTTTTTTT#wwwwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTT~~║g~`~g║T~~∞,∞∞,∞∞,∞~~~∞,∞∞,∞∞,∞~~~~~T╚════TtTTTTTTtTtttttttTTtttT##wwwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTT~~║~~>g~║~~~∞,∞∞,∞∞,∞~~~∞,∞∞,∞∞,∞~~~~~~~~wwTTtTttTtttTtTTtTTtTTTtTTT#wwwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTTﬁT║~g#g~║T~~∞,∞∞,∞∞,∞~~~∞,∞∞,∞∞,∞~~T~~~~~~~TTtTTtTtTTTtTTTTTtTTTtTtT##wwwww";
+  mapStrings[mapIndex] += "~~~~~~~~~~~~~~~~~~~TTTTTTTT╚═════╝TT~~~~~~~~~~~~~T~~~~~~~~~~~~~T~~~TTTtttttttttttttT~[TttttttT#wwwww";
 
   m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
   
@@ -2063,7 +2063,7 @@ void setupMaps()
   //Events
   m[mapIndex].tiles[77][91].createEvent(false, "- Hoary peaks cut jagged triangles out of the horizon. The greenery is more vibrant here, and the people are tall and strong. This is Waraka, a land favored by Am-asma.");
   m[mapIndex].tiles[70][82].createEvent(true, "- Gullhaven Village");
-  m[mapIndex].tiles[72][81].createEvent(true, "- To Waraka Castle");
+  m[mapIndex].tiles[72][80].createEvent(true, "- To Waraka Castle");
   
   //Sailor on pier
   m[mapIndex].tiles[94][92].placeOccupant( sailor, "- Shipment was supposed to arrive yesterday. Seas have been unpredictable of late." );
@@ -2075,7 +2075,7 @@ void setupMaps()
   //People outside
   m[mapIndex].tiles[72][92].placeOccupant( mYoung, "- I've got my eye on you." );
   m[mapIndex].tiles[74][84].placeOccupant( male, "- Caves swarming, bridge out, and now we have clueless foreigners wandering around. Yes, I know they're behind me." );
-  m[mapIndex].tiles[74][85].placeOccupant( male, "- Seems the road to the castle unusable." );
+  m[mapIndex].tiles[74][85].placeOccupant( male, "- Seems the road to the castle is unusable." );
   //Buyer
   m[mapIndex].tiles[84][99].placeOccupant( color(10,10,50), "- I saw you arrive. Got any Irohill crafts? They make good metal over there." );
   m[mapIndex].tiles[85][99].placeBuyer();
@@ -2215,13 +2215,13 @@ void setupMaps()
   
   mapIndex++; mapStrings[mapIndex] = "";
   mapStrings[mapIndex] += "   #&#     £  WWWWWWWWWW  £   ‹33   £  WWWWW  £  WWWWW  £  WWWWW  £  WWWWWWWW  £  WWWWW  £      333 ";
-  mapStrings[mapIndex] += "  #...#    £  W````````W  £  3#>#3  £  W€r€W  £  W∫∫wW  £  WrÒrW  £  W...∑..W  £  W∫∫∫W  £      3>3 ";
-  mapStrings[mapIndex] += " #.....#   £  W]``````]W  £  3# #3  £  WrrrW  £  W∫∫∫W  £  WrrrW  £  W=..∑∑=W  £  W∫∫∫W  £   |333 3 ";
+  mapStrings[mapIndex] += "  #...#    £  W````````W  £  3#>#3  £  W€r€W  £  W∫∫∫W  £  WrÒrW  £  W...∑..W  £  W∫∫∫W  £      3>3 ";
+  mapStrings[mapIndex] += " #.....#   £  W]``````]W  £  3# #3  £  WrrrW  £  W∫∫∫W  £  WrrrW  £  W=..∑∑=W  £  W∫∫∫W  £    333 3 ";
   mapStrings[mapIndex] += "#...∫...#  £  WW>WWWW>WW  £  3   3  £  WW<WW  £  WW<WW  £  WW<WW  £  WWW<WWWW  £  WW<WW  £    3    |";
   mapStrings[mapIndex] += "&..∫*∫..&  £    £    £    £  3# #‹  £    £    £    £    £    £    £     £      £    £    £    3‹3 33";
   mapStrings[mapIndex] += "#...∫...#  £              £  3# #3  £         £         £         £            £         £    £ 3|3 ";
   mapStrings[mapIndex] += " #.....#  £               £  3   3  £         £         £         £            £         £    £ 3 3 ";
-  mapStrings[mapIndex] += "  #.>.#  £ £££££££££££££££   ‹# #3  £ ££££££££ £££££££££ £££££££££ £ ££££££££££ £££££££££     £  >3 ";
+  mapStrings[mapIndex] += "  #.>.#  £ £££££££££££££££   ‹# #3  £ ££££££££ £££££££££ £££££££££ £ ££££££££££ £££££££££     £  >3|";
   mapStrings[mapIndex] += "   #&#  £                    3# #3   £                  £           £               £    £     £333 ";
   mapStrings[mapIndex] += "       £                     ‹3¯33   £             £    £           £       £       £    £          ";
   mapStrings[mapIndex] += "      £       ‹3333333‹3333333   3‹  £  44444444444≤4   £  4444444  £  WWWWBÍBWWWW  £    £          ";
@@ -2244,19 +2244,19 @@ void setupMaps()
   mapStrings[mapIndex] += "       £                                                                                            ";
   mapStrings[mapIndex] += "       £                                                                                            ";
   mapStrings[mapIndex] += "£££££££                                                                                             ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
+  mapStrings[mapIndex] += "       £                                                                                            ";
+  mapStrings[mapIndex] += "       £                                                                                            ";
+  mapStrings[mapIndex] += " £££   £                                                                                            ";
+  mapStrings[mapIndex] += "£3>3£  £                                                                                            ";
+  mapStrings[mapIndex] += "£3 3£  £                                                                                            ";
+  mapStrings[mapIndex] += "£   £  £                                                                                            ";
+  mapStrings[mapIndex] += "£3 3£  £                                                                                            ";
+  mapStrings[mapIndex] += "£3 3£  £                                                                                            ";
+  mapStrings[mapIndex] += "£   £  £                                                                                            ";
+  mapStrings[mapIndex] += "£3 3£  £                                                                                            ";
+  mapStrings[mapIndex] += "£3 3£  £                                                                                            ";
+  mapStrings[mapIndex] += "££¯££  £                                                                                            ";
+  mapStrings[mapIndex] += "  £    £                                                                                            ";
   mapStrings[mapIndex] += "                                                                                                    ";
   mapStrings[mapIndex] += "                                                                                                    ";
   mapStrings[mapIndex] += "                                                                                                    ";
@@ -2327,9 +2327,11 @@ void setupMaps()
   //Temple of Ritisu
   exits.add( new Portal(5,4,7, 4,51,88, "Gullhaven") );
   //Tomb
-  exits.add( new Portal(5,97,1, 4,30,97, "Gullhaven") );
-  exits.add( new Portal(5,97,7, 5,31,1) );
-  exits.add( new Portal(5,31,1, 4,30,97, "Gullhaven") );
+  exits.add( new Portal(5,97,1, 4,30,97, "Gullhaven") ); //tomb entrance to surface
+  exits.add( new Portal(5,2,33, 5,97,7) ); //fake to tomb
+  exits.add( new Portal(5,31,1, 4,30,97, "Gullhaven") ); //real to surface
+  exits.add( new Portal(5,97,7, 5,2,33) );  //tomb to fake
+  exits.add( new Portal(5,2,41, 5,31,9 ) ); //fake to real
   //Houses
   exits.add( new Portal(5,41,3, 4,45,88) ); //Graveyard girl
   exits.add( new Portal(5,51,3, 4,40,88) );
@@ -2346,10 +2348,12 @@ void setupMaps()
   exits.add( new Portal(5,76,10, 4,48,79) ); //secret
   
   //Grave
+  m[mapIndex].tiles[97][3].createEvent(false, "- Laughter echos from somewhere below.");
+  m[mapIndex].tiles[2][37].createEvent(false, "- The laughing has stopped, replaced by whispers.");
   m[mapIndex].tiles[31][10].createEvent(false, "- The chamber is lit with candles and lightly scented with purfume.");
   //Bathhouse
-  m[mapIndex].tiles[46][13].createEvent(false, "- A soapy mist fills your nose and tingles your skin.");
-  m[mapIndex].tiles[64][11].createEvent(false, "- The air in thinner here, sweetened with incense.");
+  m[mapIndex].tiles[46][13].createEvent(false, "- A warm and soapy mist surrounds you with its scent.");
+  m[mapIndex].tiles[64][11].createEvent(false, "- The air is thinner here, sweetened with incense.");
   
   //Gatehouse
   m[mapIndex].tiles[72][1].placeOccupant( male, "- Your paperwork has been processed. Welcome to Waraka." );
@@ -2364,11 +2368,11 @@ void setupMaps()
   m[mapIndex].tiles[2][5].placeOccupant( lesserRitisuColor, "- Our clerics work with the royal blacksmiths to infuse weapons with magic. A stronger blade is not always the right tool." );
   m[mapIndex].tiles[1][4].placeOccupant( lesserRitisuColor, "- Oh, I'm just an initiate. Um... do you know about the (h) key if you need help? You did? Sorry, I'm still learning." );
   //Graveyard Girls
-  m[mapIndex].tiles[30][3].placeOccupant( fYoung, "This girl is as tall as you, though probably half your age. - Welcome. Do you fear death?" );
-  m[mapIndex].tiles[30][6].placeOccupant( fYoung, "- We are the Graveyard Girls." );
+  m[mapIndex].tiles[33][11].placeOccupant( fYoung, "- Welcome. Do you fear death?" );
+  m[mapIndex].tiles[30][10].placeOccupant( fYoung, "- We are the Graveyard Girls." );
   m[mapIndex].tiles[32][6].placeOccupant( fYoung, "- We meet here in the house of our departed grandmothers." );
-  m[mapIndex].tiles[30][10].placeOccupant( fYoung, "- We fear not death. Crossing the Veil will be like going home to supper." );
-  m[mapIndex].tiles[33][11].placeOccupant( fYoung, "She watches you in silence." );
+  m[mapIndex].tiles[30][3].placeOccupant( fYoung, "- We fear not death. Crossing the Veil will be like going home to supper." );
+  m[mapIndex].tiles[30][6].placeOccupant( fYoung, "She watches you in silence." );
   m[mapIndex].tiles[28][12].placeOccupant( fYoung, "- This is the path of the dead. Pass our tests to walk here." );
   m[mapIndex].tiles[32][14].placeOccupant( fYoung, "- Is that what they wear in Irohill?" );
   m[mapIndex].tiles[31][13].placeOccupant( fYoung, "- You seek my key? \"What is death, if not forever hidden behind our knowledge?\"" );
@@ -2384,7 +2388,7 @@ void setupMaps()
   //People in houses
   m[mapIndex].tiles[51][1].placeOccupant( male, "- Visit our bathhouse. We are proud of them in Waraka. Oh, that was not a suggestion. You smell like wet rats." );
   m[mapIndex].tiles[60][1].placeOccupant( male, "- Waraka controls trade along the coast. We see many exotic people and crafts." );
-  m[mapIndex].tiles[62][1].placeOccupant( male, "- Quiet, I'm concentrating. With every move sideways, I move down. I think I can barely make it." );
+  m[mapIndex].tiles[62][1].placeOccupant( male, "- Quiet, I'm concentrating. With every move sideways, I am forced to move down. I think I can barely make it." );
   m[mapIndex].tiles[84][2].placeOccupant( female, "- Where are your sisters? Were they sneaking around the village hiding things again?" );
   m[mapIndex].tiles[83][1].placeOccupant( mYoung, "- UNUSED TEXT" );
   m[mapIndex].tiles[84][1].placeOccupant( mYoung, "- UNUSED TEXT" );
@@ -2394,7 +2398,7 @@ void setupMaps()
   m[mapIndex].tiles[41][12].placeOccupant( male, "- We have scented soaps, if you like, imported from Mariva." );
   m[mapIndex].tiles[44][11].placeOccupant( male, "- UNUSED TEXT" );
   m[mapIndex].tiles[50][11].placeOccupant( female, "- *yawn*" );
-  m[mapIndex].tiles[49][12].placeOccupant( female, "- Ah, so warm. The water is heated with red crystal from a spirit cave near the capital. We pay a lot for it. It's worth every coin." );
+  m[mapIndex].tiles[49][12].placeOccupant( female, "- Ah, so warm. The water is heated with red crystal from a spirit cave near the capital. We pay a lot for them." );
   m[mapIndex].tiles[51][13].placeOccupant( female, "- They have beds for massage and rest, if you are weary." );
   m[mapIndex].tiles[61][11].placeOccupant( male, "- Did you enjoy your soak? I keep the baths clean, while my wife has hands that can wrest the ache out of the most intractable muscle." );
   m[mapIndex].tiles[60][11].placeOccupant( female, "She looks down at you while cracking her knuckles. - I think not. It would be dangerous on ones so soft." );
@@ -3102,11 +3106,11 @@ void setNameDependentText()
 
 //Expected Level:
 //(old exp system)
-//Rat queen 1.7 / 1.9
-//man-wolf 3.3 / 3.2 / 3.1
+//Rat queen 1.7 / 1.9                                          2.1
+//man-wolf 3.3 / 3.2 / 3.1                                     3.1
 //crypt guards 4.5 before, 5.2 back at courtyard
-//before necro 6.7 / 5.7 (died) / 5.5 (close fight) / 5.7
-//after deep rat 6.5
+//before necro 6.7 / 5.7 (died) / 5.5 (close fight) / 5.7      5.8
+//after deep rat 6.5                                           6.9
 
 //Deities:
 //Black Vanguard - anubis

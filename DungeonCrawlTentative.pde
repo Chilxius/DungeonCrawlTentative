@@ -1,7 +1,5 @@
 //CURRENT TASK: //<>//
   //Road to Waraka
-  //People at port
-  //Shop
 
 //To change once font is chosen:
   //cleric owed money
@@ -43,6 +41,7 @@ import ddf.minim.ugens.*;
 //Mechanic for someone following you (tied to a Key)
 
 //IMPROVEMENT:
+//Still reaching necromancer at level 5 - add more skeletons or improve their exp  
 //Have inns charge money?
 //Delay before "vanquished" line where enemy vanishes
 //Character Backs: Knight helmet/neck, Barbarian axe/legs, Karate hair, Thief cowl, Priest hair, saurian head, druid antler/staff
@@ -315,6 +314,7 @@ void setup()
   iconImage[4] = loadImage("heater_secondary.png"); iconImage[4].resize(58,0);
   iconImage[5] = loadImage("scale_primary.png");    iconImage[5].resize(56,0);
   iconImage[6] = loadImage("scale_secondary.png");  iconImage[6].resize(56,0);
+  iconImage[7] = loadImage("fist_hue.png");         iconImage[7].resize(56,0);
   
   //670x180
   battleBack[0] = loadImage("forest5.png"); //resize?esize(56,0);
@@ -322,7 +322,7 @@ void setup()
   battleBack[2] = loadImage("graveyard4.png"); //resize?
   battleBack[3] = loadImage("cave.png"); //resize?
   battleBack[4] = loadImage("woodWall.png");
-  battleBack[5] = loadImage("honeyCave2.png"); //battleBack[5].resize(670,0);
+  battleBack[5] = loadImage("beeCave.png"); //battleBack[5].resize(670,0);
   battleBack[6] = loadImage("testBack2.png");
   
   effectImage[0] = loadImage("bardBonus.png");      effectImage[0].resize(30,0);
@@ -1549,7 +1549,7 @@ void mouseClicked()
     if( mouseX > 500+frameX && mouseX < 600+frameX && mouseY > 400+frameY && mouseY < 500+frameY ) //confirm button
     {
       tempColor = color(tempRed,tempGreen,tempBlue);
-      tempInverseColor = color((255-tempRed)*.65,(255-tempGreen)*.65,(255-tempBlue)*.65);
+      tempInverseColor = color(tempRed2,tempGreen2,tempBlue2);
       party.hero[currentHero]=new Hero(tempName,tempJob,tempColor,tempInverseColor,tempHair,tempSkin);
       tempRed = tempGreen = tempBlue = 80;
       tempRed2 = tempGreen2 = tempBlue2 = 40;
