@@ -121,7 +121,7 @@ class Artist
     if( f == 4 )
     {
       if( x == 66 && ( y == 82 || y == 83 || y == 84 ) && zoneNumber != 4 )
-        startLocationTitleCard( "Gullhaven Village" );
+        startLocationTitleCard( "Gullhaven" );
       if( (x == 72 || x == 73 || x == 74 ) && y == 78 && zoneNumber != 12 )
         startLocationTitleCard( "Waraka Sea Road" );
     }

@@ -30,6 +30,7 @@ import ddf.minim.ugens.*;
 //Damage seems to be increasing a bit quickly (did ~60 to Big gray rat)
 
 //TO DO:
+//Finish up boat in Waraka harbor
 //Make bard music abilites not use weapon elements
 //Change start-of-battle messages
 //Change Kat's initial dialogue
@@ -64,6 +65,7 @@ import processing.sound.*;
 int mapCount = 10;
 Map [] m = new Map[mapCount];
 DangerMap [] dm = new DangerMap[mapCount];
+boolean dangerMapOn = false; //DEBUG TOOL
 
 //Game begins waiting for a typed input, which will be stored as the save file name
 Input input = Input.TYPING;
@@ -314,7 +316,7 @@ void setup()
   iconImage[4] = loadImage("heater_secondary.png"); iconImage[4].resize(58,0);
   iconImage[5] = loadImage("scale_primary.png");    iconImage[5].resize(56,0);
   iconImage[6] = loadImage("scale_secondary.png");  iconImage[6].resize(56,0);
-  iconImage[7] = loadImage("fist_hue.png");         iconImage[7].resize(56,0);
+  iconImage[7] = loadImage("fist_hue_light.png");   iconImage[7].resize(56,0);
   
   //670x180
   battleBack[0] = loadImage("forest5.png"); //resize?esize(56,0);
@@ -483,6 +485,8 @@ void draw()
   
   //if( dist( mouseX, mouseY, 50+frameX, 50+frameY ) < 25 ) //TESTING    ODD HOW TRANSLATE WORKS
   //text("X:"+(mouseX-25) + " Y:"+(mouseY-25), width/2, 100);
+  if( dangerMapOn )
+    m[party.floor].drawDangerMap( party.X, party.Y );
 }
 
 void drawConditions()
@@ -1061,6 +1065,8 @@ void handleSliders()
 
 void keyPressed()
 {
+  if( key == 'y' ) //DEBUG
+    dangerMapOn = true;
   //if(key == '1')
   //  beep1.play();
   //if(key =='2')
@@ -1510,6 +1516,9 @@ void keyPressed()
 
 void keyReleased()
 { //<>//
+  if( key == 'y' )
+    dangerMapOn = false;
+  
   if( display == Display.ITEM_LIST && key == 's' )
     party.sortInventory();
   else if( previousDisplay != Display.NONE && (key == 'k' || key == 'i' || key == 'h'|| key == '`' ) )

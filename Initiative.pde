@@ -33,6 +33,50 @@ class Initiative
   {
     if(active)
     {
+      if( index < 3 ) //Handle stopped-initiative conditions for party
+      {
+        if( party.hero[index].asleep ) //try to wake up
+        {
+          println( "Sleep left: " + party.hero[index].sleep );
+          if( party.hero[index].wake() )
+          {
+            battle.setBattleDelay();
+            displayTextLine( party.hero[index].wakeMessage() );
+          }
+          return false;
+        }
+        else if( party.hero[index].paralyzed ) //try to limber up
+        {
+          if( party.hero[index].limber() )
+          {
+            battle.setBattleDelay();
+            displayTextLine( party.hero[index].limberMessage() );
+          }
+          return false;
+        }
+      }
+      else if( index > 2 ) //for monsters
+      {
+        if( battleMonsters[index-3].asleep ) //if asleep
+        {
+          if( battleMonsters[index-3].wake() ) //try to wake up
+          {
+            battle.setBattleDelay();  //pause and anounce waking up
+            displayTextLine( battleMonsters[index-3].wakeMessage() );
+          }
+          return false; //either way, do not advance initiative
+        }
+        if( battleMonsters[index-3].paralyzed  ) //as above
+        {
+          if( battleMonsters[index-3].limber() )
+          {
+            battle.setBattleDelay();
+            displayTextLine( battleMonsters[index-3].limberMessage() );
+          }
+          return false;
+        }
+      }
+      
       counter += speed;
       if( index < 3 && party.hero[index].buff[4].active ) //if is a hero with speed boost
         counter += party.hero[index].buff[4].amount;

@@ -14,6 +14,8 @@ class Monster
    
   boolean poisoned, weakened, paralyzed, asleep, cursed;
   int poison = 0;
+  int sleep = 0;
+  int paralysis = 0;
   
   int target; //target of attack in battle
   
@@ -122,13 +124,28 @@ class Monster
       //Resolve status attacks
       if(attacks[battle.enemyAttackIndex].debuff!=Debuff.NONE)
       {
+        float largeRandom;
+        float smallRandom;
         switch(attacks[battle.enemyAttackIndex].debuff)
         {
-          case POISON:
-            float largeRandom = random(100);
-            float smallRandom = 25; //this doesn't need to be random
+          case POISON:  //25% plus damage minus dex
+            largeRandom = random(100);
+            smallRandom = 25; //this doesn't need to be random
             if( largeRandom < max(1,smallRandom+damage-party.hero[targetHero].totalStat(2)) )
               party.hero[targetHero].poison(max(str,con),targetHero);
+            break;
+          case SLEEP:  //25% plus damage minus con
+            largeRandom = random(100);
+            smallRandom = 25;
+            if( largeRandom < max(1,smallRandom+damage-party.hero[targetHero].totalStat(2)) )
+              party.hero[targetHero].putToSleep(max(wil,mag),targetHero);
+            break;
+          case PARA:  //25% plus damage minus dex
+            largeRandom = random(100);
+            smallRandom = 25;
+            if( largeRandom < max(1,smallRandom+damage-party.hero[targetHero].totalStat(1)) )
+              party.hero[targetHero].paralyze(max(str,mag),targetHero);
+            break;
         }
       }
     }
@@ -146,6 +163,18 @@ class Monster
     floatingNumbers.add( new GhostNumber( 150+210*x, 270, color(100,100,0), "POISON") );
     poisoned = true;
     poison += amount;
+  }
+  public void putToSleep( int amount, int x )
+  {
+    floatingNumbers.add( new GhostNumber( 150+210*x, 270, color(200,250,250), "ASLEEP") );
+    asleep = true;
+    sleep += amount*4;
+  }
+  public void paralyze( int amount, int x )
+  {
+    floatingNumbers.add( new GhostNumber( 150+210*x, 270, color(200,200,100), "PARALYZED") );
+    paralyzed = true;
+    paralysis += max(1,amount-dex)*4; //subtract dex
   }
   
   public boolean takePoisonDamage( int pos ) //true if monster dies
@@ -173,6 +202,40 @@ class Monster
       poisoned = false;
     }
     return false;
+  }
+  
+  public boolean wake()
+  {
+    sleep--;
+    if(sleep<=0)
+    {
+      sleep=0;
+      asleep=false;
+      return true;
+    }
+    return false;
+  }
+  
+  public String wakeMessage()
+  {
+    return name + " wakes up!";
+  }
+  
+  public boolean limber()
+  {
+    paralysis--;
+    if(paralysis<=0)
+    {
+      paralysis=0;
+      paralyzed = false;
+      return true;
+    }
+    return false;
+  }
+  
+  public String limberMessage()
+  {
+    return name + " can move!";
   }
   
   int appropriateStat( Attack a )
@@ -242,6 +305,11 @@ class Monster
         displayTextLine( name + " is " );
         displayTextLine( damageMessage() + " wounded.");
       }
+    }
+    if( asleep )
+    {
+      sleep = 0;
+      asleep = false;
     }
     return damage;
   }

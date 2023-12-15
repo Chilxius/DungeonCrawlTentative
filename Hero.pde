@@ -17,6 +17,8 @@ class Hero
   //lose health,  strength reduced,  can't act,  can't act,  mag/will reduced
   boolean poisoned, weakened, paralyzed, asleep, cursed;
   int poison=0; //Damage left.
+  int sleep=0; //Rounds left
+  int paralysis=0; //Rounds left
   
   boolean created;
   
@@ -428,6 +430,40 @@ class Hero
       return "afflicted.";
     return "recovering.";
   }
+  
+  public boolean wake()
+  {
+    sleep--;
+    if(sleep<=0)
+    {
+      sleep=0;
+      asleep=false;
+      return true;
+    }
+    return false;
+  }
+  
+  public String wakeMessage()
+  {
+    return name + " wakes up!";
+  }
+  
+  public boolean limber()
+  {
+    paralysis--;
+    if(paralysis<=0)
+    {
+      paralysis=0;
+      paralyzed = false;
+      return true;
+    }
+    return false;
+  }
+  
+  public String limberMessage()
+  {
+    return name + " can move!";
+  }
 
   public boolean isCreated()
   {
@@ -484,16 +520,31 @@ class Hero
       battleMonsters[targetMonster].takeDamage(damage);
       floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, appropriateColor(weapon.element), damage) );
       
+      float largeRandom;
+      float smallChance;
       //Resolve status attack (status weapon)
       switch(weapon.status)
       {
         case NONE:
           break;
         case POISON:
-          float largeRandom = random(100);  //25% chance
-          float smallChance = 25;
+          largeRandom = random(100);  //25% chance, plus damage minus con
+          smallChance = 25;
           if( largeRandom < max(1,smallChance+damage-battleMonsters[targetMonster].con) )
             battleMonsters[targetMonster].poison((int)(weapon.power/5),targetMonster);
+          break;
+        case SLEEP:
+          largeRandom = random(100);  //25% chance
+          smallChance = 25;
+          if( largeRandom < max(1,smallChance) )
+            battleMonsters[targetMonster].putToSleep((int)(weapon.power/5),targetMonster);
+          break;
+        case PARA:
+          largeRandom = random(100);  //25% chance, plus damage minus dex
+          smallChance = 25;
+          if( largeRandom < max(1,smallChance+damage-battleMonsters[targetMonster].dex) )
+            battleMonsters[targetMonster].paralyze((int)(weapon.power/5),targetMonster);
+          break;
       }
     }
     else //skill
@@ -539,6 +590,16 @@ class Hero
               battleMonsters[1].poison(level,1);
               battleMonsters[2].poison(level,2);
               break;
+            case SLEEP:
+              battleMonsters[0].putToSleep(level,0);
+              battleMonsters[1].putToSleep(level,1);
+              battleMonsters[2].putToSleep(level,2);
+              break;
+            case PARA:
+              battleMonsters[0].paralyze(level,0);
+              battleMonsters[1].paralyze(level,1);
+              battleMonsters[2].paralyze(level,2);
+              break;
           }
         }
         else
@@ -547,6 +608,12 @@ class Hero
           {
             case POISON: //skills always poison successfully
               battleMonsters[targetMonster].poison(level,targetMonster);
+              break;
+            case SLEEP:
+              battleMonsters[targetMonster].putToSleep(level,targetMonster);
+              break;
+            case PARA:
+              battleMonsters[targetMonster].paralyze(level,targetMonster);
               break;
           }
         }
@@ -699,6 +766,11 @@ class Hero
       defending = false;
       displayTextLine( name + " falls!" );
     }
+    if( asleep ) //wake up
+    {
+      sleep = 0;
+      asleep = false;
+    }
     return damage;
   }
   
@@ -764,7 +836,23 @@ class Hero
   {
     floatingNumbers.add( new GhostNumber( 150+210*x, 500, color(100,100,0), "POISON") );
     poisoned = true;
-    poison += max(1,amount-totalStat(2));
+    poison += max(1,amount-totalStat(2)); //subtract con
+  }
+  public void putToSleep( int amount, int x )
+  {
+    //println( "TO SLEEP: " +amount + " / " + (amount*10) );
+    floatingNumbers.add( new GhostNumber( 150+210*x, 500, color(200,250,250), "ASLEEP") );
+    asleep = true;
+    defending = false;
+    sleep += max(5,amount*4);
+  }
+  public void paralyze( int amount, int x )
+  {
+    println( "Paralysis: " + amount + " / " + ((amount-totalStat(1))*3) );
+    floatingNumbers.add( new GhostNumber( 150+210*x, 500, color(200,200,100), "PARALYZED") );
+    paralyzed = true;
+    defending = false;
+    paralysis += max(5,(amount-totalStat(1))*3); //subtract dex
   }
   
   public boolean takePoisonDamage( int heroPos ) //true if hero dies
@@ -1039,7 +1127,7 @@ Wakes after enough turns/steps, more chance each step
 */
 
 /* Paralyzed
-Chance to recover each turn/step, improved by DEX
+Chance to recover each turn/step, improved by DEX?
 */
 
 /* Weakened (reduce str by level)

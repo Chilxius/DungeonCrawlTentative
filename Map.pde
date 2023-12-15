@@ -58,6 +58,20 @@ class Map
       vanGogh.drawLocationTitleCard();
   }
   
+  //Debug tool
+  public void drawDangerMap( int x, int y )
+  {
+    push();
+    textSize(30);
+    fill(0,127);
+    for(int i = x-6, xDraw = 0; i <= x+6; i++,xDraw+=30)
+      for(int j = y-6, yDraw = 0; j <= y+6; j++,yDraw+=30)
+        if( i >= 0 && j >= 0 && i < 100 && j < 100 )
+          text(dm[party.floor].dangerValueChar(i,j),162+(xDraw),203+(yDraw));
+          //tiles[i][j].drawTile(155+(xDraw),180+(yDraw)); //Draw Tile
+    pop();
+  }
+  
   void drawPartyPosition(color a,color b,color c)
   {
     //fullscreen testing
@@ -168,7 +182,7 @@ class DangerMap
   public DangerMap( String input )
   {
     if( input.length() != 10000 )
-      println("Danger Map error");
+      println("Danger Map error:  length " + input.length() );
     while( input.length() < 10000 )
       input += "x";
       

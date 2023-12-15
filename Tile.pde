@@ -232,7 +232,8 @@ class Tile
         pathable = false;
         break;
       case HILL:
-        tileColor = color(#6e6d6b);
+        //tileColor = color(#6e6d6b);
+        tileColor = color(0,180,0);
         pathable = false;
         break;
       case HILL_CAVE:
@@ -268,6 +269,9 @@ class Tile
         //tileColor = color((x+y)*5%50+150,(x+y)*5%50+150,(x+y)*5%50+150);
         safe = true; break;
       case FENCE_OBJ:
+        tileColor = color(0,180,0);
+        pathable = false;
+        break;
       case RUBBLE_OBJ:
       case CRATE_OBJ:
         tileColor = safeColor;

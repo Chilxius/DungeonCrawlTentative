@@ -137,7 +137,7 @@ class Battle
         if(list[initiativeTicker].tick())
         {
           turn = initiativeTicker;
-          println("TURN: " + list[turn].name);
+          //println("TURN: " + list[turn].name);
           if(turn<3) //Set input to allow battle commands
           {
             if(party.hero[turn].poisoned && party.hero[turn].takePoisonDamage(turn)) //died of poison
@@ -249,7 +249,6 @@ class Battle
         battleDelayed = false;
     }
     
-    
     if( !battleOver && ( party.partyDead() || monstersDead() ) )
     {
       if( party.partyDead() )
@@ -288,7 +287,7 @@ class Battle
     while( returnValue.length() < (39 - 5 - Integer.toString(xp).length()) ) //39 is the size of messages lines
       returnValue+=' ';
     returnValue += "EXP: " + xp;
-    println(returnValue);
+    //println(returnValue);
     return returnValue;
   }
   
@@ -425,7 +424,7 @@ class Battle
     if(aType==dType && aType!=AttackType.NONE)
       type = 2;
     int random = (int)random(217,255);
-    println("ATTACK:\nWeapon: "+wepPower+"\nPower: "+attackStr+"\nDefense: "+defense);
+    //println("ATTACK:\nWeapon: "+wepPower+"\nPower: "+attackStr+"\nDefense: "+defense);
     return (int)((((((2.0*level*crit)/5.0)+2.0)*wepPower*attackStr/max(1,defense))/50.0)+2.0)*type*random/255;
   }
 }

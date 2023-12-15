@@ -181,6 +181,19 @@ class Beastiary
       list[dangerZone][2].attacks[4] = new Attack("sprays icy seawater.", 30, false, AttackStat.MAG, AttackType.ICE);
     list[dangerZone][3] = new Monster();
     list[dangerZone][4] = new Monster();
+    
+    //8 - Bumblewere flowers (outside)
+    dangerZone++;
+    list[dangerZone][0] = new Monster("Honeyhunter", "WaspSmall.png", 50, 20, 30, 4, 1, 5, 15, 0, AttackType.WIND);
+      list[dangerZone][0].attacks[0] = new Attack("buzzes around your heads.");
+      list[dangerZone][0].attacks[1] = new Attack("bites.", 55, false );
+      list[dangerZone][0].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
+      list[dangerZone][0].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
+      list[dangerZone][0].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE );
+    list[dangerZone][1] = new Monster();
+    list[dangerZone][2] = new Monster();
+    list[dangerZone][3] = new Monster();
+    list[dangerZone][4] = new Monster();
   }
   
   public void addBossToList( Monster m )
@@ -203,14 +216,14 @@ class Beastiary
       case "Body of Ruath": case "Body of Erar":
         battleMonsters[0] = new Monster("Spirit Light",  "Spirit.png",  20, 20, 20, 1, 7, 30, 8, 0, AttackType.NONE);
           battleMonsters[0].attacks[0] = new Attack("flickers in the shadows.");
-          battleMonsters[0].attacks[1] = new Attack("moves through you.", 30, false, AttackStat.MAG, AttackType.HOLY);
-          battleMonsters[0].attacks[2] = new Attack("moves through you.", 30, false, AttackStat.MAG, AttackType.HOLY);
+          battleMonsters[0].attacks[1] = new Attack("moves through you.", 30, false, false, AttackStat.MAG, AttackType.HOLY, Debuff.SLEEP);
+          battleMonsters[0].attacks[2] = new Attack("moves through you.", 30, false, false, AttackStat.MAG, AttackType.HOLY, Debuff.SLEEP);
           battleMonsters[0].attacks[3] = new Attack("whispers: \""+party.hero[0].name+"...\"");
           battleMonsters[0].attacks[4] = new Attack("flares to life!", 30, true, AttackStat.MAG, AttackType.HOLY );
         battleMonsters[2] = new Monster("Spirit Light",  "Spirit.png",  20, 20, 20, 1, 7, 30, 8, 0, AttackType.NONE);
           battleMonsters[2].attacks[0] = new Attack("whispers: \""+party.hero[1].name+"...\"");
-          battleMonsters[2].attacks[1] = new Attack("moves through you.", 30, false, AttackStat.MAG, AttackType.HOLY);
-          battleMonsters[2].attacks[2] = new Attack("moves through you.", 30, false, AttackStat.MAG, AttackType.HOLY);
+          battleMonsters[0].attacks[1] = new Attack("moves through you.", 30, false, false, AttackStat.MAG, AttackType.HOLY, Debuff.SLEEP);
+          battleMonsters[0].attacks[2] = new Attack("moves through you.", 30, false, false, AttackStat.MAG, AttackType.HOLY, Debuff.SLEEP);
           battleMonsters[2].attacks[3] = new Attack("whispers: \""+party.hero[2].name+"...\"");
           battleMonsters[2].attacks[4] = new Attack("flares to life!", 30, true, AttackStat.MAG, AttackType.HOLY );
       break;
