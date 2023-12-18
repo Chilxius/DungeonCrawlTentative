@@ -43,6 +43,7 @@ import ddf.minim.ugens.*;
 //Make battles stop triggering on spaces with events
 //Add a "holding on" mechanic to stay alive after critical damage
 //Mechanic for someone following you (tied to a Key)
+//Change game over to zoom out of crystal
 
 //IMPROVEMENT:
 //Still reaching necromancer at level 5 - add more skeletons or improve their exp  
@@ -266,7 +267,7 @@ void setup()
   tileImage[64] = loadImage("SignFood.png"); tileImage[64].resize(30,0);
   tileImage[65] = loadImage("SignPotion.png"); tileImage[65].resize(30,0);
   tileImage[66] = loadImage("SignInn.png"); tileImage[66].resize(30,0);
-  tileImage[67] = loadImage("rubble.png"); tileImage[67].resize(40,0);
+  tileImage[67] = loadImage("rubble.png"); tileImage[67].resize(30,0);
   tileImage[68] = loadImage("Sack.png"); tileImage[68].resize(50,0);
   tileImage[69] = loadImage("caveBrown3.png"); tileImage[69].resize(30,0);
   tileImage[70] = loadImage("cave3.png"); tileImage[70].resize(30,0);
@@ -1682,11 +1683,19 @@ void mousePressed()
     if( mouseInBox(420,430) ) { key = 'd'; keyPressed(); }
     if( mouseInBox(560,430) ) { key = 'f'; keyPressed(); }
   }
-  else if( input == Input.BATTLE_SKILL_TARGET || input == Input.BATTLE_HEAL_TARGET ||input == Input.BATTLE_ATTACK_TARGET ) //attacked or healed or skill used or cancelled
+  else if( input == Input.BATTLE_SKILL_TARGET ||input == Input.BATTLE_ATTACK_TARGET ) //attacked or skill used or cancelled
   {
     if( mouseX > 40+frameX  && mouseX < 240+frameX && mouseY > 180+frameY && mouseY < 380+frameY ) { key = 'a'; keyPressed(); }
     if( mouseX > 250+frameX && mouseX < 450+frameX && mouseY > 180+frameY && mouseY < 380+frameY ) { key = 's'; keyPressed(); }
     if( mouseX > 460+frameX && mouseX < 660+frameX && mouseY > 180+frameY && mouseY < 380+frameY ) { key = 'd'; keyPressed(); }
+    
+    if( mouseInBox(party.heroX(battle.turn)+75,545) ) { key = 'x'; keyPressed(); }
+  }
+  else if( input == Input.BATTLE_HEAL_TARGET ) //heal used or cancelled
+  {
+    if( mouseX > 40+frameX  && mouseX < 240+frameX && mouseY > 450+frameY && mouseY < 600+frameY ) { key = 'a'; keyPressed(); }
+    if( mouseX > 250+frameX && mouseX < 450+frameX && mouseY > 450+frameY && mouseY < 600+frameY ) { key = 's'; keyPressed(); }
+    if( mouseX > 460+frameX && mouseX < 660+frameX && mouseY > 450+frameY && mouseY < 600+frameY ) { key = 'd'; keyPressed(); }
     
     if( mouseInBox(party.heroX(battle.turn)+75,545) ) { key = 'x'; keyPressed(); }
   }

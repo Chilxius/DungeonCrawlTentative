@@ -836,7 +836,7 @@ class Hero
   {
     floatingNumbers.add( new GhostNumber( 150+210*x, 500, color(100,100,0), "POISON") );
     poisoned = true;
-    poison += max(1,amount-totalStat(2)); //subtract con
+    poison += max(level,amount-totalStat(2)); //subtract con
   }
   public void putToSleep( int amount, int x )
   {

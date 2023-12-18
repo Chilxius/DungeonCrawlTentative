@@ -420,12 +420,12 @@ class Battle
   
   public int calculateDamage( int level, int crit, int wepPower, int attackStr, int defense, AttackType aType, AttackType dType )
   {
-    int type =1;
+    float type =1;
     if(aType==dType && aType!=AttackType.NONE)
-      type = 2;
+      type = 1.5;
     int random = (int)random(217,255);
     //println("ATTACK:\nWeapon: "+wepPower+"\nPower: "+attackStr+"\nDefense: "+defense);
-    return (int)((((((2.0*level*crit)/5.0)+2.0)*wepPower*attackStr/max(1,defense))/50.0)+2.0)*type*random/255;
+    return (int)(((((((2.0*level*crit)/5.0)+2.0)*wepPower*attackStr/max(1,defense))/50.0)+2.0)*type*random/255);
   }
 }
   

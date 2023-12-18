@@ -130,13 +130,13 @@ class Monster
         {
           case POISON:  //25% plus damage minus dex
             largeRandom = random(100);
-            smallRandom = 25; //this doesn't need to be random
+            smallRandom = 35; //this doesn't need to be random
             if( largeRandom < max(1,smallRandom+damage-party.hero[targetHero].totalStat(2)) )
               party.hero[targetHero].poison(max(str,con),targetHero);
             break;
           case SLEEP:  //25% plus damage minus con
             largeRandom = random(100);
-            smallRandom = 25;
+            smallRandom = 30;
             if( largeRandom < max(1,smallRandom+damage-party.hero[targetHero].totalStat(2)) )
               party.hero[targetHero].putToSleep(max(wil,mag),targetHero);
             break;
@@ -262,7 +262,7 @@ class Monster
   
   public int experiencePoints()
   {
-    return (maxHp/10 + str + dex + con + mag + wil + spd)/3;
+    return (maxHp/10 + str + dex + con + mag + wil + spd)/3 + bonusExp;
   }
   
   public boolean hasCondition(int x)
