@@ -62,8 +62,12 @@ class Tile
       case '›':type=TileType.DARK_WALL_CLIMBABLE;break; //shift+alt+4
       case '4':type=TileType.SAND_WALL;break;
       case '6':type=TileType.CAVE; break;
+      case '░':type=TileType.CAVE_DOOR; break;
+      case '▒':type=TileType.CAVE_DOOR_OPEN; break;
       case '§':type=TileType.CAVE_BROWN; break; //alt+6
       case 'ﬂ':type=TileType.CAVE_HONEY; break; //alt+shift+6
+      case 'ö':type=TileType.COMB; break;
+      case 'Ö':type=TileType.COMB_FULL; break;
       case '~':type=TileType.GRASS;break;
       case '¨':type=TileType.GRASS_DARK;break; //alt+u+?
       case '`':type=TileType.DIRT;break;
@@ -71,6 +75,7 @@ class Tile
       case '+':type=TileType.DOOR;break;
       case '∏':type=TileType.DOOR_GATE;break; //shift+alt+p
       case 'π':type=TileType.PORTCULLIS;break;
+      //case '░':type=TileType.DOOR_FRAME;break;
       case '‰':type=TileType.BIG_RAT;break; //shift+alt+r
       case 'w':type=TileType.WATER;break;
       case '…':type=TileType.RAPIDS;break;  //alt+;
@@ -113,6 +118,7 @@ class Tile
       case '˛':type=TileType.CHAIN_HOLE;break; //alt+shift+x
       case '^':type=TileType.HILL;break;
       case 'ø':type=TileType.HILL_CAVE;break; //alt+o
+      case '»':type=TileType.AUTO_DOOR;break; 
       //different key types
       case 'c': // copper
       case 'ç':
@@ -150,6 +156,7 @@ class Tile
       case '•':obj=Object.FAKE_SAVE;type=TileType.SAFE;break; //alt+8
       case '[':obj=Object.BARREL;type=TileType.SAFE;break;
       case ']':obj=Object.BARREL2;type=TileType.SAFE;break;
+      case '{':obj=Object.BARREL_H;type=TileType.SAFE;break;
       case 'g':obj=Object.GRAVE;type=TileType.SAFE;break;
       case '|':obj=Object.RUBBLE;type=TileType.RUBBLE_OBJ;break;
       case '@':obj=Object.TENT;type=TileType.SAFE;break;
@@ -199,6 +206,9 @@ class Tile
       case DARK: 
         tileColor = color(0);
         break;
+      case AUTO_DOOR:
+        tileColor = color(0);
+        break;
       case DARK_WALL: 
         tileColor = color(200);
         pathable = false;
@@ -220,12 +230,22 @@ class Tile
         pathable = false;
         break;
       case CAVE:
+      case CAVE_DOOR:
         tileColor = color(120);
         pathable = false;
         break;
+      case CAVE_DOOR_OPEN:
+        tileColor = color(120);
+        pathable = true;
+        break;
       case CAVE_BROWN:
+      case CAVE_BROWN_DOOR:
         tileColor = color(100,70,0);
         pathable = false;
+        break;
+      case CAVE_BROWN_DOOR_OPEN:
+        tileColor = color(100,70,0);
+        pathable = true;
         break;
       case CAVE_HONEY:
         tileColor = color(200,200,0);
@@ -233,7 +253,8 @@ class Tile
         break;
       case HILL:
         //tileColor = color(#6e6d6b);
-        tileColor = color(0,180,0);
+        //tileColor = color(0,180,0);
+        tileColor = color(#555553);
         pathable = false;
         break;
       case HILL_CAVE:
@@ -292,6 +313,8 @@ class Tile
         break;
       case CROP:
       case DIRT_DARK:
+      case COMB:
+      case COMB_FULL:
         tileColor = color(100,70,0);
         break;
       case GRAVE:
@@ -350,8 +373,16 @@ class Tile
       case PORTCULLIS:
       case DOOR_GATE:
       case DOOR:
-        tileColor = color(90,70,30);
+        tileColor = color(100,70,0);
         pathable = false;
+        break;
+      case DOOR_FRAME:
+        tileColor = color(200);
+        pathable = true;
+        break;
+      case GATE_FRAME:
+        tileColor = color(100,70,0);
+        pathable = true;
         break;
       case BIG_RAT:
         tileColor = color(200,150,80);
@@ -382,9 +413,15 @@ class Tile
         else if( t == '‘' ) //alt+]
           createInteraction( Key.PASSPORT );
         else if( t == '¥' ) //yen
+        {
           createInteraction( Key.GRAVE );
+          tileColor = color(0);
+        }
         else if( t == '“' ) //alt+[
+        {
           createInteraction( Key.CAVE );
+          tileColor = color(100,70,0);
+        }
         else if( t == '˙' ) //alt+h
         {
           createInteraction( Key.CHEESE );
@@ -411,7 +448,8 @@ class Tile
         tileColor = color(200,0,0);
         pathable = true;
         interactive = false;
-        event = true; break;
+        //event = true; break;  //WHY WAS EVENT TRUE?
+        event = false; break;
     }
   }
   
@@ -558,7 +596,7 @@ class Tile
         }
         else if( keys[i] == Key.GRAVE )
         {
-          SFX[7].play();
+          SFX[0].play();
           advanceText("She nods in approval.");
         }
         else
@@ -610,7 +648,7 @@ class Tile
       case CHEESE: return "The massive rat does not want to fight, but it does look hungry.";
       case PASSPORT: return "- Please present your documents.";
       case GRAVE: return "This gate has motifs of the Black Vanguard.";
-      case CAVE: return "There is an odd hole in this wall.";
+      case CAVE: return "There is a door here with an odd keyhole.";
       default: return "A locked door.";
     }
   }
@@ -654,8 +692,16 @@ class Tile
       image(tileImage[69],xPos,yPos);
     else if(type == TileType.CAVE)
       image(tileImage[70],xPos,yPos);
+    else if(type == TileType.CAVE_DOOR)
+      image(tileImage[113],xPos,yPos);
+    else if(type == TileType.CAVE_DOOR_OPEN)
+      image(tileImage[114],xPos,yPos);
     else if(type == TileType.CAVE_HONEY)
       image(tileImage[97],xPos,yPos);
+    else if(type == TileType.COMB)
+      image(tileImage[117],xPos,yPos);
+    else if(type == TileType.COMB_FULL)
+      image(tileImage[118],xPos,yPos);
     else if(type == TileType.HILL)
       image(tileImage[98],xPos-10,yPos-10);
     else if(type == TileType.HILL_CAVE)
@@ -682,6 +728,10 @@ class Tile
       image(tileImage[41],xPos,yPos);
     else if(type == TileType.PORTCULLIS)
       image(tileImage[54],xPos,yPos);
+    else if(type == TileType.DOOR_FRAME)
+      image(tileImage[115],xPos,yPos);
+    else if(type == TileType.GATE_FRAME)
+      image(tileImage[116],xPos,yPos);
     else if(type == TileType.FLOWER)
       image(tileImage[3],xPos,yPos);
     else if(type == TileType.FLOWER_BLUE)
@@ -771,6 +821,10 @@ class Tile
       image(tileImage[108],xPos,yPos);
     if(type == TileType.CURTAIN_RED)
       image(tileImage[111],xPos,yPos);
+    if(type == TileType.CAVE_DOOR_OPEN)
+      image(tileImage[119],xPos,yPos);
+    if(type == TileType.CAVE_BROWN_DOOR_OPEN)
+      image(tileImage[120],xPos,yPos);
     if(type == TileType.RAPIDS)
     {
       push();
@@ -784,7 +838,12 @@ class Tile
   
   public boolean canOpen()
   {
-    if( type == TileType.DOOR || type == TileType.PORTCULLIS || type == TileType.DOOR_GATE || type == TileType.BIG_RAT )
+    if( type == TileType.DOOR
+    || type == TileType.PORTCULLIS
+    || type == TileType.DOOR_GATE
+    || type == TileType.BIG_RAT
+    || type == TileType.CAVE_DOOR 
+    || type == TileType.CAVE_BROWN_DOOR )
       return true;
     return false;
   }
@@ -835,14 +894,17 @@ public enum TileType
   WOOD, WOOD_DARK, WOOD_LIGHT, CRATE, TILE_ROOF, TILE_BLUE,
   HILL, HILL_CAVE,
   DARK, BLACK_WALL,
-  CAVE, CAVE_BROWN, CAVE_HONEY,
+  CAVE, CAVE_BROWN, CAVE_DOOR, CAVE_DOOR_OPEN, CAVE_BROWN_DOOR, CAVE_BROWN_DOOR_OPEN, CAVE_HONEY,
+  COMB, COMB_FULL,
   BOOK, BOOK_EMPTY, BOOK_SECRET, BL_BOOK, BK_BOOK, GAME,
   WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, DARK_WALL_CLIMBABLE, DARK_CRACK, SAND_WALL, RUBBLE_OBJ, CRATE_OBJ,
-  DOOR, DOOR_GATE, PORTCULLIS, BIG_RAT, DOORSTEP,
+  DOOR, DOOR_GATE, PORTCULLIS, DOOR_FRAME, GATE_FRAME,
+  BIG_RAT, DOORSTEP,
   GRAVE, S_GLASS, SECRET_GLASS, GARGOYLE, GARGOYLE_DARK, GARGOYLE_JADE, WEREWOLF_WHITE,
   CAMP, MERCHANT, SHOP, SELL,
   STAIR, STAIR_DOOR, CURTAIN, CURTAIN_RED, STAIR_WOOD,
-  CHAIN, CHAIN_HOLE
+  CHAIN, CHAIN_HOLE,
+  AUTO_DOOR
 }
 
 public enum Key //special items for interactive tiles
@@ -859,7 +921,7 @@ public enum Object //tile has an object (still usually pathable)
   CHEST, CHEST_GOLD, CHEST_DARK, CHEST_BONE,
   SIGN, SIGN_E, SIGN_F, SIGN_D, SIGN_I,
   SAVEPOINT, FAKE_SAVE,
-  BARREL, BARREL2, CRATE_OBJ,
+  BARREL, BARREL2, BARREL_H, CRATE_OBJ,
   FENCE_CORNER, FENCE_CORNER2, FENCE_HORIZONTAL, FENCE_VERTICAL,
   GRAVE, RUBBLE,
   TENT, BED,

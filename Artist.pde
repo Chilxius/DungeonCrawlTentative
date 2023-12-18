@@ -971,6 +971,9 @@ class Artist
       case BARREL2:
         image(tileImage[29],xPos,yPos);
         break;
+      case BARREL_H:
+        image(tileImage[112],xPos,yPos);
+        break;
       case CRATE_OBJ:
         image(tileImage[89],xPos,yPos);
         break;
@@ -1493,8 +1496,10 @@ class Artist
         break;
       case 11:
         image(battleBack[5],frameWidth/2,252); //Honey cave
+        break;
       case 12:
         image(battleBack[6],frameWidth/2,250);
+        break;
     }
     pop();
   }

@@ -259,6 +259,30 @@ class Party
           h.poisoned=false;
       }
   }
+  void tickDownSleep()
+  {
+    for(Hero h: hero)
+      if(h.asleep)
+      {
+        h.sleep-=2;
+        println("Sleep ticked down to " + h.sleep);
+        if(h.sleep<=0)
+        {
+          h.sleep=0;
+          h.asleep=false;
+        }
+      }
+  }
+  void tickDownParalysis()
+  {
+    for(Hero h: hero)
+      if(h.paralyzed)
+      {
+        h.paralysis--;
+        if(h.paralysis==0)
+          h.paralyzed=false;
+      }
+  }
   
   int sellItems() //sells all non-consumables and returns the total gold value
   {

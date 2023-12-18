@@ -184,7 +184,7 @@ class Beastiary
     
     //8 - Bumblewere flowers (outside)
     dangerZone++;
-    list[dangerZone][0] = new Monster("Honeyhunter", "WaspSmall.png", 50, 20, 30, 4, 1, 5, 15, 0, AttackType.WIND);
+    list[dangerZone][0] = new Monster("Drone", "WaspSmall.png", 45, 20, 30, 4, 1, 5, 20, 0, AttackType.WIND);
       list[dangerZone][0].attacks[0] = new Attack("buzzes around your heads.");
       list[dangerZone][0].attacks[1] = new Attack("bites.", 55, false );
       list[dangerZone][0].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
@@ -193,6 +193,34 @@ class Beastiary
     list[dangerZone][1] = new Monster();
     list[dangerZone][2] = new Monster();
     list[dangerZone][3] = new Monster();
+    list[dangerZone][4] = new Monster();
+    
+    //9 - Bumblewere caves
+    dangerZone++;
+    list[dangerZone][0] = new Monster("Drone", "WaspSmall.png", 45, 20, 30, 4, 1, 5, 20, 0, AttackType.WIND, 2);
+      list[dangerZone][0].attacks[0] = new Attack("buzzes around your heads.");
+      list[dangerZone][0].attacks[1] = new Attack("bites.", 55, false );
+      list[dangerZone][0].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
+      list[dangerZone][0].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
+      list[dangerZone][0].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE );
+    list[dangerZone][1] = new Monster("Drone", "WaspSmall.png", 45, 20, 30, 4, 1, 5, 20, 0, AttackType.WIND, 2);
+      list[dangerZone][1].attacks[0] = new Attack("buzzes around your heads.");
+      list[dangerZone][1].attacks[1] = new Attack("bites.", 55, false );
+      list[dangerZone][1].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
+      list[dangerZone][1].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
+      list[dangerZone][1].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE );
+    list[dangerZone][2] = new Monster("Swarm", "swarm.png", 60, 10, 10, 2, 1, 5, 25, 0, AttackType.WIND, 2);
+      list[dangerZone][2].attacks[0] = new Attack("surrounds you.");
+      list[dangerZone][2].attacks[1] = new Attack("bites and scratches.", 55, false );
+      list[dangerZone][2].attacks[2] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP );
+      list[dangerZone][2].attacks[3] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP );
+      list[dangerZone][2].attacks[4] = new Attack("mobs you.", 40, true );
+    list[dangerZone][3] = new Monster("Swarm", "swarm.png", 60, 10, 10, 2, 1, 5, 25, 0, AttackType.WIND, 2);
+      list[dangerZone][3].attacks[0] = new Attack("surrounds you.");
+      list[dangerZone][3].attacks[1] = new Attack("bites and scratches.", 55, false );
+      list[dangerZone][3].attacks[2] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP );
+      list[dangerZone][3].attacks[3] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP );
+      list[dangerZone][3].attacks[4] = new Attack("mobs you.", 40, true );
     list[dangerZone][4] = new Monster();
   }
   

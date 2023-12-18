@@ -1,10 +1,13 @@
 //CURRENT TASK: //<>//
   //Road to Waraka
+  //Bee caves, flower beds, bandits
+  //Shortcut through first cave with key, two caves with royal jelly, third cave with big bee
 
 //To change once font is chosen:
   //cleric owed money
   //child's comment about mud washing out (spacing)
   //fix music notes
+  //martial artists class name
 
 
 //Import files for Minim (sound)
@@ -265,8 +268,9 @@ void setup()
   tileImage[66] = loadImage("SignInn.png"); tileImage[66].resize(30,0);
   tileImage[67] = loadImage("rubble.png"); tileImage[67].resize(40,0);
   tileImage[68] = loadImage("Sack.png"); tileImage[68].resize(50,0);
-  tileImage[69] = loadImage("caveBrown2.png"); tileImage[69].resize(30,0);
-  tileImage[70] = loadImage("caveGray.png"); tileImage[70].resize(30,0);
+  tileImage[69] = loadImage("caveBrown3.png"); tileImage[69].resize(30,0);
+  tileImage[70] = loadImage("cave3.png"); tileImage[70].resize(30,0);
+  //tileImage[70] = loadImage("caveYellow.png"); tileImage[70].resize(30,0);
   tileImage[71] = loadImage("treeDead4.png"); tileImage[71].resize(45,40);
   tileImage[72] = loadImage("TileRoof3.png"); tileImage[72].resize(30,34);
   tileImage[73] = loadImage("crops.png"); tileImage[73].resize(30,30);
@@ -308,6 +312,15 @@ void setup()
   tileImage[109]= loadImage("stoneSlab.png");    tileImage[109].resize(30,0);
   tileImage[110]= loadImage("curtainRed.png");   tileImage[110].resize(30,0);
   tileImage[111]= loadImage("curtainHalfRed.png");tileImage[111].resize(30,0);
+  tileImage[112]= loadImage("barrelHoney.png");  tileImage[112].resize(30,0);
+  tileImage[113]= loadImage("caveDoor.png");     tileImage[113].resize(30,0);
+  tileImage[114]= loadImage("caveHole.png");     tileImage[114].resize(30,0);
+  tileImage[115]= loadImage("doorFrame.png");    tileImage[115].resize(30,0);
+  tileImage[116]= loadImage("gateFrame.png");    tileImage[116].resize(30,0);
+  tileImage[117]= loadImage("combHalf.png");     tileImage[117].resize(30,0);
+  tileImage[118]= loadImage("combFull.png");     tileImage[118].resize(30,0);
+  tileImage[119]= loadImage("caveOverlay.png");  tileImage[119].resize(30,0);
+  tileImage[120]= loadImage("caveBrownOverlay.png");tileImage[120].resize(30,0);
   
   iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
   iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
@@ -324,7 +337,7 @@ void setup()
   battleBack[2] = loadImage("graveyard4.png"); //resize?
   battleBack[3] = loadImage("cave.png"); //resize?
   battleBack[4] = loadImage("woodWall.png");
-  battleBack[5] = loadImage("beeCave.png"); //battleBack[5].resize(670,0);
+  battleBack[5] = loadImage("beeCave.png"); battleBack[5].resize(670,0);
   battleBack[6] = loadImage("testBack2.png");
   
   effectImage[0] = loadImage("bardBonus.png");      effectImage[0].resize(30,0);
@@ -657,6 +670,9 @@ boolean attemptMove( String direction )
       {  party.Y++; checkEvent(); result = true; } break;
   }
   
+  if( m[party.floor].tiles[party.X][party.Y].type == TileType.AUTO_DOOR ) //This will probably be a method later
+    changeMap();
+  
   vanGogh.checkLocationForTitleCard( party.floor, party.X, party.Y );
   
   if( result && checkForBattle() )
@@ -692,8 +708,14 @@ boolean checkForBattle()
   //println(m[1].tiles[40][4].occupantText);
   randomBattleCounter++;
   
-  if(randomBattleCounter > 0 && randomBattleCounter % 5 == 0)
+  //if(randomBattleCounter > 0 && randomBattleCounter % 5 == 0)  // <- not sure why the >0 was there
+  if( randomBattleCounter % 5 == 0 )
     party.tickDownPoisons();
+  if(randomBattleCounter % 2 == 0 )
+  {
+    party.tickDownSleep();
+    party.tickDownParalysis();
+  }
   
   return false;
 }
@@ -746,13 +768,15 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case WALL:
     case SAND_WALL:
     case DARK_WALL: return "Solid stone";
-    case WATER: return "You never learned how to swim";
+    case WATER: return "It's too deep to swim";
     case TREE: case DARK_TREE: return "A tree";
     case BIG_RAT:
     case PORTCULLIS:
     case DOOR_GATE:
+    case CAVE_DOOR:
+    case CAVE_BROWN_DOOR:
     case DOOR: return m[party.floor].tiles[party.X][party.Y].keyMessage();
-    case CHAIN: return "A heavy link of anchor chain";
+    case CHAIN:
     case CHAIN_HOLE: return "A heavy link of anchor chain";
     case BLACK_WALL: return "An unlit wall";
     case GARGOYLE_JADE: return "A gargoyle carved of jade";
@@ -761,6 +785,7 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case WEREWOLF_WHITE: return "A gargoyle statue...?";
     case S_GLASS: return "A beautiful stained glass window";
     case RUBBLE_OBJ: return "Rubble blocks the way";
+    case HILL: return "A craggy hill";
     case CRATE:
     case CRATE_OBJ: return "A heavy crate";
     case FENCE_OBJ: return "A sturdy fence";
@@ -1015,7 +1040,7 @@ public int getZone( String title )
       return 10;
       
     //Bee Cave
-    case "South Hive":
+    case "Sea Road Tunnel":
     case "West Hive":
     case "North Hive":
       return 11;

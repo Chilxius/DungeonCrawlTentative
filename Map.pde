@@ -63,7 +63,7 @@ class Map
   {
     push();
     textSize(30);
-    fill(0,127);
+    fill(250,127);
     for(int i = x-6, xDraw = 0; i <= x+6; i++,xDraw+=30)
       for(int j = y-6, yDraw = 0; j <= y+6; j++,yDraw+=30)
         if( i >= 0 && j >= 0 && i < 100 && j < 100 )
@@ -109,16 +109,45 @@ class Map
   
   public void openDoorsAround(int xPos, int yPos)
   {
-    if(tiles[xPos-1][yPos].canOpen())
-    {  tiles[xPos-1][yPos].type = TileType.EMPTY; tiles[xPos-1][yPos].setTraitsByType(floorNumber);}
-    if(tiles[xPos+1][yPos].canOpen())
-    {  tiles[xPos+1][yPos].type = TileType.EMPTY; tiles[xPos+1][yPos].setTraitsByType(floorNumber);}
-    if(tiles[xPos][yPos-1].canOpen())
-    {  tiles[xPos][yPos-1].type = TileType.EMPTY; tiles[xPos][yPos-1].setTraitsByType(floorNumber);}
-    if(tiles[xPos][yPos+1].canOpen())
-    {  tiles[xPos][yPos+1].type = TileType.EMPTY; tiles[xPos][yPos+1].setTraitsByType(floorNumber);}
+    //if(tiles[xPos-1][yPos].canOpen())
+    //{  tiles[xPos-1][yPos].type = TileType.EMPTY; tiles[xPos-1][yPos].setTraitsByType(floorNumber);}
+    //if(tiles[xPos+1][yPos].canOpen())
+    //{  tiles[xPos+1][yPos].type = TileType.EMPTY; tiles[xPos+1][yPos].setTraitsByType(floorNumber);}
+    //if(tiles[xPos][yPos-1].canOpen())
+    //{  tiles[xPos][yPos-1].type = TileType.EMPTY; tiles[xPos][yPos-1].setTraitsByType(floorNumber);}
+    //if(tiles[xPos][yPos+1].canOpen())
+    //{  tiles[xPos][yPos+1].type = TileType.EMPTY; tiles[xPos][yPos+1].setTraitsByType(floorNumber);}
     
+    if(tiles[xPos-1][yPos].canOpen())
+      openDoor( xPos-1, yPos );
+    if(tiles[xPos+1][yPos].canOpen())
+      openDoor( xPos+1, yPos );
+    if(tiles[xPos][yPos-1].canOpen())
+      openDoor( xPos, yPos-1 );
+    if(tiles[xPos][yPos+1].canOpen())
+      openDoor( xPos, yPos+1 );
+      
     flipDoorSwitch(xPos,yPos); 
+  }
+  
+  public void openDoor( int x, int y )
+  {
+    switch( tiles[x][y].type )
+    {
+      case DOOR:
+      case PORTCULLIS:
+        tiles[x][y].type = TileType.DOOR_FRAME;
+        break;
+      case DOOR_GATE:
+        tiles[x][y].type = TileType.GATE_FRAME;
+        break;
+      case CAVE_DOOR:
+        tiles[x][y].type = TileType.CAVE_DOOR_OPEN;
+        break;
+      default:
+        tiles[x][y].type = TileType.EMPTY;
+    }
+    tiles[x][y].setTraitsByType(floorNumber);
   }
   
   public void removeBoss( int xPos, int yPos )
