@@ -1,6 +1,18 @@
 static color safeColor = #C8C8C8;
 //static color previousColor = #000000;
 
+//Key:  D-dark tree    T-tree    t-secret tree    #-wall      =-chest    ?-sign    *-save crystal  •-fake crystal
+//       -darkness     £-darkness wall (alt+3)    3-dark wall 5-sandstone wall     [-barrel        ©-werewolf statue (alt+©)
+//      G-gargoyle     R-dark gargoyle            W-wood      ∑-dark wood (alt+w)     „-light wood (alt+shift+w)
+//      .-stone floor  r-red floor  ∫-blue floor
+
+//      +-locked door  _-safe path  w-water       g-grave   &-stained glass    @-campsite/tavern
+//      c-copper key   i-iron key   s-skel key    b-brass key   ç-crypt key    ˝-gate key (alt+shift+g)  ~-grass    `-dirt    ,-dark dirt
+//      6-cave        §-brown cave
+//      $-secret wall   ¢-secret dark wall (alt+4)
+
+//      >-Stairs    <-Door(stairs)
+
 class Tile
 {
   int x, y;

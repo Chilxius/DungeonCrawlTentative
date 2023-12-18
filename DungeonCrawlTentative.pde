@@ -1092,6 +1092,8 @@ void keyPressed()
 {
   if( key == 'y' ) //DEBUG
     dangerMapOn = true;
+  //if( key == 'Y' ) //DEBUG (change floors)
+  //  party.floor++;
   //if(key == '1')
   //  beep1.play();
   //if(key =='2')

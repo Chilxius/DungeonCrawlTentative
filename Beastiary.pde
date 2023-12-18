@@ -214,13 +214,13 @@ class Beastiary
       list[dangerZone][2].attacks[1] = new Attack("bites and scratches.", 55, false );
       list[dangerZone][2].attacks[2] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP );
       list[dangerZone][2].attacks[3] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP );
-      list[dangerZone][2].attacks[4] = new Attack("mobs you.", 40, true );
+      list[dangerZone][2].attacks[4] = new Attack("descends upon you.", 40, true );
     list[dangerZone][3] = new Monster("Swarm", "swarm.png", 60, 10, 10, 2, 1, 5, 25, 0, AttackType.WIND, 2);
       list[dangerZone][3].attacks[0] = new Attack("surrounds you.");
       list[dangerZone][3].attacks[1] = new Attack("bites and scratches.", 55, false );
       list[dangerZone][3].attacks[2] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP );
       list[dangerZone][3].attacks[3] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP );
-      list[dangerZone][3].attacks[4] = new Attack("mobs you.", 40, true );
+      list[dangerZone][3].attacks[4] = new Attack("descends upon you.", 40, true );
     list[dangerZone][4] = new Monster();
   }
   
@@ -284,6 +284,14 @@ class Beastiary
           battleMonsters[2].attacks[2] = new Attack("bites with an icy fang.", 25, false, AttackStat.MAG, AttackType.ICE);
           battleMonsters[2].attacks[3] = new Attack("bites with an icy fang.", 25, false, AttackStat.MAG, AttackType.ICE);
           battleMonsters[2].attacks[4] = new Attack("sprays icy seawater.", 20, true, AttackStat.MAG, AttackType.ICE);
+          
+      case "Nectarhunter":
+        battleMonsters[0] = new Monster("Swarm", "swarm.png", 60, 10, 10, 2, 1, 5, 25, 0, AttackType.WIND, 2);
+          battleMonsters[0].attacks[0] = new Attack("surrounds you.");
+          battleMonsters[0].attacks[1] = new Attack("bites and scratches.", 55, false );
+          battleMonsters[0].attacks[2] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP );
+          battleMonsters[0].attacks[3] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP );
+          battleMonsters[0].attacks[4] = new Attack("descends upon you.", 40, true );
     }
   }
 }
