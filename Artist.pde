@@ -941,6 +941,9 @@ class Artist
       case CHEST_BONE:
         image(tileImage[79],xPos,yPos);
         break;
+      case CHEST_HONEY:
+        image(tileImage[121],xPos,yPos);
+        break;
       case SIGN:
         image(tileImage[37],xPos,yPos);
         break;
@@ -1488,6 +1491,9 @@ class Artist
       case 5:
         image(battleBack[2],frameWidth/2,252); //Graveyard
         break;
+      case 6:
+        image(battleBack[7],frameWidth/2,250); //Stone wall with window
+        break;
       case 10:
         image(battleBack[3],frameWidth/2,252); //Cave
         break;
@@ -1498,7 +1504,7 @@ class Artist
         image(battleBack[5],frameWidth/2,252); //Honey cave
         break;
       case 12:
-        image(battleBack[6],frameWidth/2,250);
+        image(battleBack[6],frameWidth/2,250); //Trees and mountains
         break;
     }
     pop();

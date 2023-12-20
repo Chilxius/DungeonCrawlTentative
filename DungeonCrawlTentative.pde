@@ -1,7 +1,6 @@
 //CURRENT TASK: //<>//
   //Road to Waraka
-  //Bee caves, flower beds, bandits
-  //Shortcut through first cave with key, two caves with royal jelly, third cave with big bee
+  //Golem, queen, manor
 
 //To change once font is chosen:
   //cleric owed money
@@ -322,6 +321,7 @@ void setup()
   tileImage[118]= loadImage("combFull.png");     tileImage[118].resize(30,0);
   tileImage[119]= loadImage("caveOverlay.png");  tileImage[119].resize(30,0);
   tileImage[120]= loadImage("caveBrownOverlay.png");tileImage[120].resize(30,0);
+  tileImage[121]= loadImage("chestGoopy.png");   tileImage[121].resize(30,0);
   
   iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
   iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
@@ -340,6 +340,7 @@ void setup()
   battleBack[4] = loadImage("woodWall.png");
   battleBack[5] = loadImage("beeCave.png"); battleBack[5].resize(670,0);
   battleBack[6] = loadImage("testBack2.png");
+  battleBack[7] = loadImage("stoneWallWindow.png");battleBack[7].resize(670,0);
   
   effectImage[0] = loadImage("bardBonus.png");      effectImage[0].resize(30,0);
   
@@ -851,7 +852,8 @@ void clearLoot( int index )
   if(m[party.floor].tiles[party.X][party.Y].obj == Object.CHEST
   || m[party.floor].tiles[party.X][party.Y].obj == Object.CHEST_GOLD
   || m[party.floor].tiles[party.X][party.Y].obj == Object.CHEST_DARK
-  || m[party.floor].tiles[party.X][party.Y].obj == Object.CHEST_BONE )
+  || m[party.floor].tiles[party.X][party.Y].obj == Object.CHEST_BONE
+  || m[party.floor].tiles[party.X][party.Y].obj == Object.CHEST_HONEY )
     SFX[1].play();
   m[party.floor].tiles[party.X][party.Y].obj = Object.NONE;
 }
@@ -908,6 +910,7 @@ void triggerBattle( char danger )
 
 public void changeMap()
 {
+  println("FLOOR: " +party.floor + "  X: "+party.X + "  Y: "+party.Y);
   for(int i = 0; i < exits.size(); i++)
     if(exits.get(i).originX == party.X
     && exits.get(i).originY == party.Y 
@@ -975,8 +978,9 @@ public int getZone( String title )
     case "Armory":
       return 1;
       
-    //First rat dungeon
+    //Stone dungeons
     case "The West Cellar":
+    case "Old Well":
       return 2;
       
     //Irohill forest and well cave
@@ -1036,14 +1040,14 @@ public int getZone( String title )
     case "Hold":
       return 9;
       
-    //Caves
+    //Caves (brown)
     case "Cenote":
       return 10;
       
     //Bee Cave
     case "Sea Road Tunnel":
-    case "West Hive":
-    case "North Hive":
+    case "Outer Hive":
+    case "Central Hive":
       return 11;
       
     //Waraka Outdoors

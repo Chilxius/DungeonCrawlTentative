@@ -159,6 +159,7 @@ class Tile
       case '≠':obj=Object.CHEST_GOLD;type=TileType.SAFE;break; //alt+=
       case '±':obj=Object.CHEST_DARK;type=TileType.SAFE;break; //shift+alt+=
       case '≥':obj=Object.CHEST_BONE;type=TileType.SAFE;break; //alt+.
+      case '˘':obj=Object.CHEST_HONEY;type=TileType.SAFE;break; //alt+shift+.
       case '?':obj=Object.SIGN;type=TileType.SAFE;break;
       case '/':obj=Object.SIGN_E;type=TileType.SAFE;break;
       case '÷':obj=Object.SIGN_F;type=TileType.SAFE;break; //alt+/
@@ -930,7 +931,7 @@ public enum Key //special items for interactive tiles
 
 public enum Object //tile has an object (still usually pathable)
 {
-  CHEST, CHEST_GOLD, CHEST_DARK, CHEST_BONE,
+  CHEST, CHEST_GOLD, CHEST_DARK, CHEST_BONE, CHEST_HONEY,
   SIGN, SIGN_E, SIGN_F, SIGN_D, SIGN_I,
   SAVEPOINT, FAKE_SAVE,
   BARREL, BARREL2, BARREL_H, CRATE_OBJ,
