@@ -276,7 +276,7 @@ class Hero
         break;
       case PRIEST:
         skill[0] = new Attack("Divine Light", 50, false, false, AttackStat.MAG, AttackType.HOLY ); skill[0].cost = 2; skill[0].fullDescription = "Sear the target with a ray of Illamar's light.";//single-target holy attack
-        skill[1] = new Attack("Divine Comfort", 30, false, true );                                 skill[1].cost = 3; skill[1].fullDescription = "Call on Am-Asma to knit an ally's wounds.";//single-target heal
+        skill[1] = new Attack("Divine Comfort", 25, false, true );                                 skill[1].cost = 3; skill[1].fullDescription = "Call on Am-Asma to knit an ally's wounds.";//single-target heal
         skill[2] = new Attack("Blessing", "Illamar's light shines down." );                        skill[2].cost = 4; skill[2].fullDescription = "Grant a small increase to your allies' strength and defense.";//bless all (+str/con, lvl turns)
         skill[3] = new Attack("Divine Grace", str*2, true, true );
         skill[4] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
@@ -844,7 +844,7 @@ class Hero
     floatingNumbers.add( new GhostNumber( 150+210*x, 500, color(200,250,250), "ASLEEP") );
     asleep = true;
     defending = false;
-    sleep += max(5,amount*4);
+    sleep += max(5,min(30,amount*4));
   }
   public void paralyze( int amount, int x )
   {

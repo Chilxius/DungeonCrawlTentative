@@ -302,6 +302,7 @@ class Beastiary
           battleMonsters[2].attacks[2] = new Attack("bites with an icy fang.", 25, false, AttackStat.MAG, AttackType.ICE);
           battleMonsters[2].attacks[3] = new Attack("bites with an icy fang.", 25, false, AttackStat.MAG, AttackType.ICE);
           battleMonsters[2].attacks[4] = new Attack("sprays icy seawater.", 20, true, AttackStat.MAG, AttackType.ICE);
+      break;
           
       case "Nectarhunter":
         battleMonsters[0] = new Monster("Swarm", "swarm.png", 60, 10, 10, 2, 1, 5, 25, 0, AttackType.WIND, 2);
@@ -310,6 +311,7 @@ class Beastiary
           battleMonsters[0].attacks[2] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP );
           battleMonsters[0].attacks[3] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP );
           battleMonsters[0].attacks[4] = new Attack("descends upon you.", 40, true );
+      break;
           
       case "Bandit":                      //String n, String image,  health, s,  d,  c, m,  w, sp, g, AttackType weak
         battleMonsters[0] = new Monster("Bandit Mage", "banditMage.png", 90, 7, 20, 4, 15, 7, 18, 8, AttackType.NONE, 6);
@@ -318,6 +320,37 @@ class Beastiary
           battleMonsters[0].attacks[2] = new Attack("conjures a tempest!", 55, true, AttackStat.MAG, AttackType.WIND );
           battleMonsters[0].attacks[3] = new Attack("uses a toxin.", 60, false, Debuff.POISON );
           battleMonsters[0].attacks[4] = new Attack("begins chanting a spell." );
+      break;
+          
+      case "Bandit Boss":
+        battleMonsters[0] = new Monster("Bandit Mage", "banditMage.png", 100, 7, 20, 4, 15, 7, 18, 8, AttackType.NONE);
+          battleMonsters[0].attacks[0] = new Attack("begins chanting a spell.");
+          battleMonsters[0].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP );
+          battleMonsters[0].attacks[2] = new Attack("summons a ball of fire.", 50, false, AttackStat.MAG, AttackType.FIRE );
+          battleMonsters[0].attacks[3] = new Attack("summons shards of ice.", 55, false, AttackStat.MAG, AttackType.ICE );
+          battleMonsters[0].attacks[4] = new Attack("conjures a tempest!", 55, true, AttackStat.MAG, AttackType.WIND );
+        battleMonsters[2] = new Monster("Bandit", "bandit.png", 100, 26, 30, 7, 1, 4, 20, 7, AttackType.NONE);
+          battleMonsters[2].attacks[0] = new Attack("tries to get behind you.");
+          battleMonsters[2].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP );
+          battleMonsters[2].attacks[2] = new Attack("stabs with a dagger.", 50, false, AttackStat.DEX, AttackType.NONE );
+          battleMonsters[2].attacks[3] = new Attack("strikes with her sword.", 70, false );
+          battleMonsters[2].attacks[4] = new Attack("flings knives!", 60, true );
+      break;
+          
+      case "Queen":                       //String n, String image,  health, s,  d,  c, m,  w, sp, g, AttackType weak
+        battleMonsters[0] = new Monster("Royal Golem", "royalGolem.png", 50, 30, 10, 10, 1, 10, 15, 0, AttackType.FIRE);
+          battleMonsters[0].attacks[0] = new Attack("defends its queen.");
+          battleMonsters[0].attacks[1] = new Attack("hurls a block of wax.", 60, false );
+          battleMonsters[0].attacks[2] = new Attack("rushes you.", 70, false );
+          battleMonsters[0].attacks[3] = new Attack("sprays pressurized honey.", 60, true );
+          battleMonsters[0].attacks[4] = new Attack("pounds with both fists!", 80, false );
+        battleMonsters[2] = new Monster("Royal Golem", "royalGolem.png", 50, 30, 10, 10, 1, 10, 15, 0, AttackType.FIRE);
+          battleMonsters[2].attacks[0] = new Attack("defends its queen.");
+          battleMonsters[2].attacks[1] = new Attack("hurls a block of wax.", 60, false );
+          battleMonsters[2].attacks[2] = new Attack("rushes you.", 70, false );
+          battleMonsters[2].attacks[3] = new Attack("sprays pressurized honey.", 60, true );
+          battleMonsters[2].attacks[4] = new Attack("pounds with both fists!", 80, false );
+      break;
     }
   }
 }

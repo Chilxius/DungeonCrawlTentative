@@ -1,6 +1,7 @@
 //CURRENT TASK: //<>//
   //Road to Waraka
-  //Golem, queen, manor
+  //Playtest current build
+  //Sister Kat by the river
 
 //To change once font is chosen:
   //cleric owed money
@@ -322,6 +323,7 @@ void setup()
   tileImage[119]= loadImage("caveOverlay.png");  tileImage[119].resize(30,0);
   tileImage[120]= loadImage("caveBrownOverlay.png");tileImage[120].resize(30,0);
   tileImage[121]= loadImage("chestGoopy.png");   tileImage[121].resize(30,0);
+  tileImage[122]= loadImage("woodCracked.png");  tileImage[122].resize(30,0);
   
   iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
   iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
@@ -338,7 +340,7 @@ void setup()
   battleBack[2] = loadImage("graveyard4.png"); //resize?
   battleBack[3] = loadImage("cave.png"); //resize?
   battleBack[4] = loadImage("woodWall.png");
-  battleBack[5] = loadImage("beeCave.png"); battleBack[5].resize(670,0);
+  battleBack[5] = loadImage("beeCave2.png"); battleBack[5].resize(670,0);
   battleBack[6] = loadImage("testBack2.png");
   battleBack[7] = loadImage("stoneWallWindow.png");battleBack[7].resize(670,0);
   
@@ -780,7 +782,7 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case DOOR: return m[party.floor].tiles[party.X][party.Y].keyMessage();
     case CHAIN:
     case CHAIN_HOLE: return "A heavy link of anchor chain";
-    case BLACK_WALL: return "An unlit wall";
+    case BLACK_WALL: return " ";//"An unlit wall";
     case GARGOYLE_JADE: return "A gargoyle carved of jade";
     case GARGOYLE_DARK: return "An image of the Black Vanguard";
     case GARGOYLE: return "A beautiful gargoyle statue";
@@ -983,8 +985,10 @@ public int getZone( String title )
     case "Old Well":
       return 2;
       
-    //Irohill forest and well cave
+    //Irohill forest & outdoor areas
     case "Irohill Forest":
+    case "Looted Village":
+    case "Honeydell":
       return 3;
       
     //Irohill city / Gullhaven village
@@ -1016,8 +1020,15 @@ public int getZone( String title )
     case "Silent Path":
       return 7;
       
-    //Library
+    //Library / honeydell manor
     case "Irohill Library":
+    case "Honeydell Tunnel":
+    case "Honeydell Bedroom":
+    case "Honeydell Kitchen":
+    case "Honeydell Library":
+    case "Honeydell Dining Hall":
+    case "Honeydell Lardor":
+    case "Attic":
       return 8;
       
     //Barracuda Queen
@@ -1257,10 +1268,10 @@ void keyPressed()
   //ITEM USE INPUT
   else if(input == Input.ITEM_USE)
   {
-    if(key == 'a') key = 49; //convert
-    if(key == 's') key = 50; //to
-    if(key == 'd') key = 51; //numbers
-    if(key == 'f') key = 52; //<>//
+    //if(key == 'a') key = 49; //convert      this causes
+    //if(key == 's') key = 50; //to           issues when trying
+    //if(key == 'd') key = 51; //numbers      to move quickly
+    //if(key == 'f') key = 52;                and using stairs/doors //<>//
     
     if(key == ' ') //<>// //<>//
     {

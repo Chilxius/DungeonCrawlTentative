@@ -41,10 +41,10 @@ Fist
 Fist.png
 0
 28.0
-Uniform
-uniform.png
-28
-22.0
+Grave Gown
+graveShirt.png
+25
+24.0
 
 Enyo
 PRIEST
@@ -70,9 +70,9 @@ MetalArmor.png
 15
 24.0
 
-10
+11
 
-225
+374
 Vapor Potion
 36
 Grapes of Grace
@@ -81,28 +81,24 @@ Ardent Apple
 30
 Mana Potion
 24
+Mana Potion
+24
+Mana Potion
+24
+Mana Potion
+24
+Mana Potion
+24
 Health Potion
 24
-Mana Potion
-24
-Mana Potion
-24
-Mana Potion
-24
-Spidersilk
-21
-Salted Pork
-20
-Salted Pork
-20
 Jerked Beef
 20
 Turkey Leg
 20
-Cutlass
-15
-Health Potion
-12
+Salted Pork
+20
+Salted Pork
+20
 Mana Potion
 12
 Health Potion
@@ -111,10 +107,8 @@ Health Potion
 12
 Health Potion
 12
-Chain
-11
-Doubloon
-9
+Health Potion
+12
 Barley Loaf
 10
 Biscuits
@@ -123,22 +117,13 @@ Cornbread
 10
 Brioche
 10
-Doubloon
-9
-Doubloon
-9
-Doubloon
-9
-Doubloon
-9
-Rat's Pelt
-2
 XX
 
 GRAVE_NOTES
 DRAGON
 DRAGON
 CHARIS
+DRAGON
 XX
 
 false
@@ -228,6 +213,20 @@ false
 false
 false
 false
+false
+true
+true
+true
+true
+true
+true
+false
+false
+false
+true
+true
+true
+false
 true
 true
 true
@@ -237,22 +236,8 @@ true
 true
 true
 true
-true
-true
-true
-true
-true
-true
-true
-true
-true
-true
-true
-true
-true
-true
-true
-true
+false
+false
 true
 true
 true
@@ -381,10 +366,10 @@ false
 false
 false
 false
+false
 true
-true
-true
-true
+false
+false
 false
 false
 false

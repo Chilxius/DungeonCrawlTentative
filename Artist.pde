@@ -124,6 +124,10 @@ class Artist
         startLocationTitleCard( "Gullhaven" );
       if( (x == 72 || x == 73 || x == 74 ) && y == 78 && zoneNumber != 12 )
         startLocationTitleCard( "Waraka Sea Road" );
+      if( (x == 38 || x == 39 ) && y == 66  && zoneNumber != 3 )
+        startLocationTitleCard( "Honeydell" );
+      if( ((x == 9 && y == 48) || ( (x == 8 || x == 9 || x == 10) && y == 72) ) && zoneNumber != 3 )
+        startLocationTitleCard( "Looted Village" );
     }
   }
   

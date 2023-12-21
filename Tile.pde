@@ -116,6 +116,7 @@ class Tile
       case 'W':type=TileType.WOOD;break;
       case '∑':type=TileType.WOOD_DARK;break;
       case '„':type=TileType.WOOD_LIGHT;break;
+      case '⁄':type=TileType.WOOD_CRACK;break; //alt+shift+1
       case 'Ç':type=TileType.CRATE;break; //alt+shift+c
       case 'B':type=TileType.BOOK;break;
       case 'ß':type=TileType.BOOK_EMPTY;break; //shift+s
@@ -146,7 +147,7 @@ class Tile
       case '“': // alt+[ (Cave key)
       case 'b':type=TileType.DOORSTEP;safe=true;break;
       case '.':type=TileType.FLOOR;safe=false;break;
-      case '˘':type=TileType.TILE;safe=false;break; //alt+shift+.
+      case 'ˇ':type=TileType.TILE;safe=false;break; //alt+shift+t
       case 'r':type=TileType.FLOOR_RD;safe=false;break;
       case '∫':type=TileType.FLOOR_BL;safe=false;break; //shift+b
       case '_':type=TileType.SAFE;safe=true;break;
@@ -292,6 +293,10 @@ class Tile
       case CRATE:
         tileColor = color(90,70,30);
         pathable = false;
+        break;
+      case WOOD_CRACK:
+        tileColor = color(90,70,30);
+        pathable = true;
         break;
       case BOOK_SECRET:
       case TILE_ROOF:
@@ -691,6 +696,8 @@ class Tile
       image(tileImage[49],xPos,yPos); //49
     else if(type == TileType.DARK_CRACK)
       image(tileImage[86],xPos,yPos);
+    else if(type == TileType.WOOD_CRACK)
+      image(tileImage[122],xPos,yPos);
     else if(type == TileType.SAND_WALL)
       image(tileImage[50],xPos,yPos);
     //else if(type == TileType.RUBBLE)
@@ -826,6 +833,8 @@ class Tile
       image(tileImage[49],xPos,yPos);
     if(type == TileType.DARK_CRACK)
       image(tileImage[86],xPos,yPos);
+    if(type == TileType.WOOD_CRACK)
+      image(tileImage[122],xPos,yPos);
     if(type == TileType.TILE_ROOF)
       image(tileImage[72],xPos,yPos-4);
     if(type == TileType.BOOK_SECRET)
@@ -904,7 +913,7 @@ public enum TileType
   FLOWER, FLOWER_BLUE, CROP, FENCE_OBJ,
   WATER, RAPIDS,
   TREE, DARK_TREE, TREE_PATH, DEAD_TREE, DEAD_TREE_PATH,
-  WOOD, WOOD_DARK, WOOD_LIGHT, CRATE, TILE_ROOF, TILE_BLUE,
+  WOOD, WOOD_DARK, WOOD_LIGHT, WOOD_CRACK, CRATE, TILE_ROOF, TILE_BLUE,
   HILL, HILL_CAVE,
   DARK, BLACK_WALL,
   CAVE, CAVE_BROWN, CAVE_DOOR, CAVE_DOOR_OPEN, CAVE_BROWN_DOOR, CAVE_BROWN_DOOR_OPEN, CAVE_HONEY,
