@@ -20,7 +20,8 @@ class Map
   public Map( String m, int f )
   {
     floorNumber = f;
-    println("Tiles in map "+f+": "+m.length());
+    if(debugMode)
+      println("Tiles in map "+f+": "+m.length());
     //Fills empty map slots - will probably create a bad map if unintentional
     while(m.length()<tiles.length*tiles[0].length)
     {
@@ -80,12 +81,14 @@ class Map
     fill(b); ellipse(350-7,380,10,10);
     fill(c); ellipse(350+7,380,10,10);
     
-    
-    //For Testing
-    textSize(10);
-    fill(255);
-    textAlign(LEFT);
-    text(party.X + ", " + party.Y,width/2-35,height/2+20);
+    if(debugMode)
+    {
+      //For Testing
+      textSize(10);
+      fill(255);
+      textAlign(LEFT);
+      text(party.X + ", " + party.Y,width/2-35,height/2+20);
+    }
     
   }
   

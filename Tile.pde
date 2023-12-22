@@ -657,7 +657,7 @@ class Tile
       case COPPER_KEY: return "A door with a copper handle.";
       case IRON_KEY: return "A door banded with iron.";
       case SKELETON_KEY: return "A door with a skull-shaped emblem.";
-      case BRASS_KEY: return "An old door decorated with copper symbols.";
+      case BRASS_KEY: return "An old door decorated with brass symbols.";
       case CHARIS: return "The door has Father Charis's seal.";
       case CRYPT_KEY: return "A ancient doorway.";
       case GATE: return "A solid iron gate.";

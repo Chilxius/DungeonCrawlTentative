@@ -10,6 +10,7 @@ class Attack
   int cost = 0;
   
   boolean useWeapon;
+  boolean nonElemental;
   boolean targetAll;
   boolean healing;
   boolean pierceArmor = false;

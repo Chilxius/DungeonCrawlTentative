@@ -1488,19 +1488,19 @@ void createFloor3()
   
   mapIndex++; mapStrings[mapIndex] = "";
   mapStrings[mapIndex] += "w∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„ÇÇÇÇ„ÇÇÇ„Ç„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„ÇÇÇ„„„ÇWWWWW„Ç„„„„„„„M∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„ÇÇ„„„„i+„MW„„„„„„„„„„∑∑∑∑∑∑∑∑„„[„[„[„[„[„„„„„„„„„„„„„MW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„ÇÇÇÇ„ÇÇÇ„Ç„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑ÇÇÇ„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„ÇÇÇ„„„ÇWWWWW„Ç„„„„„„„M∑∑∑∑∑∑∑∑MÇÇ„„„„„„„„„„„Ç„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„ÇÇ„„„„i+„MW„„„„„„„„„„∑∑∑∑∑∑∑∑ÇÇ[„[„[„[„[„„„„„„„„„„„„„MW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„Ç„„„„„„„„Ç„„„„Ç„„WWWWW„„Ç„„„„„„„∑∑∑∑∑∑∑+„[„[„[„[„[„[„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„ÇÇÇÇ„„„„„ÇÇ„Ç„„„„„„„„„„∑∑∑∑∑∑∑∑„„[„[„[„[„[„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„„„„„Ç„„„„„Ç∑∑∑Ç„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑„[„[„[„[„[„[„„„∑∑∑„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„„„„„Ç„„„„„Ç∑∑∑Ç„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑„[„[„[„[„[„[„„„∑∑∑„„„„„„Ç„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇÇ„„„„„„„„„„„„∑∑∑„„ÇÇÇ„„Ç„„„„„„„„„„<∑∑∑∑∑∑∑„„[„[„[„[„[„„„„∑∑∑„„„„„„„„„„„„„„„„„„+∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„Ç„„„„„„„„„„∑∑∑„„„„„„„„Ç„„„„„„„„„∑∑∑∑∑∑∑∑„[„[„[„[„[„[„„„∑∑∑„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„Ç„„„„„„„„„„∑∑∑„„„„„„„„Ç„„„„„„„„„∑∑∑∑∑∑∑∑„[„[„[„[„[„[„„„∑∑∑„„„„Ç„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„„„„Ç„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑„„[„[„[„[„[„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„„„Ç„„„„„„„„„„„„„„WWWWW„„„„„Ç„„„„∑∑∑∑∑∑∑+„[„[„[„[„[„[„„„„„„„„„WWWWW„„„„„„„„„Ç∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„W]„MW„„„„„„„„„„∑∑∑∑∑∑∑∑„„[„[„[„[„[„„„„„„„„„„„„„MW„„„„„„„„Ç„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„Ç„M∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„Ç„„∑∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„W]„MW„„„„„„„„„„∑∑∑∑∑∑∑∑Ç„[„[„[„[„[„„„„„„„„„„„„„MW„„„„„„„„Ç„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑∑MÇ„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„Ç„M∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑ÇÇ„„„„„„„„„„„„„„„„„„„„„„„„„„„„„Ç„„∑∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑„„∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
   mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
@@ -1584,7 +1584,7 @@ void createFloor3()
   mapStrings[mapIndex] += "∑≠„„BB∑WWWWWWWWWWWWWWWWWWW∑∑∑∑∑∑∑∑∑∑∑∑∑∑,,,,W∑∑wwwwww∑≠„„BB∑WWWWWWWWWWWWWWWWWWW∑∑∑∑∑∑∑∑∑∑∑∑∑∑,,,,W∑∑";
   mapStrings[mapIndex] += "∑„„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„≈≈„„„„„∑]],,∑∑wwwwwww∑„„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„≈≈„„„„„∑,,,,∑∑w";
   mapStrings[mapIndex] += "∑∑¬„„„„„„„∑„„„„„„ÇÇ∑WWWWWW∑„≈≈≈„≈≈„≈≈≈„∑]]]∑∑wwwwwwww∑∑¬„„„„„„„∑„„„„„„ÇÇ∑WWWWWW∑„≈≈≈„≈≈„≈≈≈≈∑,,,∑∑ww";
-  mapStrings[mapIndex] += "w∑∑∑WW„„„ß∑„`````„„∑WWWWWW<„≈≈≈„≈≈„≈≈≈ ∑]∑∑∑wwwwwwwwww∑∑∑WW„„„ß∑„`````„„∑WWWWWW<„≈≈≈„≈≈„≈≈≈≈∑,∑∑∑www";
+  mapStrings[mapIndex] += "w∑∑∑WW„„„ß∑„`````„„∑WWWWWW<„≈≈≈„≈≈„≈≈≈»∑]∑∑∑wwwwwwwwww∑∑∑WW„„„ß∑„`````„„∑WWWWWW<„≈≈≈„≈≈„≈≈≈≈∑,∑∑∑www";
   mapStrings[mapIndex] += "www∑∑∑∑∑„B∑„€„€„€„Ç∑WWWWWW∑„≈≈≈„˙‰„≈≈≈∑∑∑∑wwwwwwwwwwwwww∑∑∑∑∑„B∑„€„€„€„Ç∑WWWWWW∑„≈≈≈„„„„≈≈≈∑∑∑∑wwwww";
   mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwww";
   
@@ -1973,7 +1973,7 @@ void createFloor4()
   mapStrings[mapIndex] += "~TTT^^^^TTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTttT~~~~~~~~~~TT~~`~~T";
   mapStrings[mapIndex] += "TT~T^ø^T~TTT^^TTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTT~TTTTT~`~TT";
   mapStrings[mapIndex] += "~~~~T`T~~~TTT^TTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTT^^^T~`~~T";
-  mapStrings[mapIndex] += "T~T~~`~~~~~TTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT^^^øT~~`~*~";
+  mapStrings[mapIndex] += "T~T~~`~~~~~TTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT^^^øT~~`~~~";
   mapStrings[mapIndex] += "TT~T~`````~~TTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT^^^T`````~~T";
   mapStrings[mapIndex] += "T~~~~%%%~`~~~TTT^TTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT^^^^TTT~~~~TT";
   mapStrings[mapIndex] += "T~T~%%%%~`~~~~TTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTT^^^^^TTTTTTTTT";
@@ -2012,7 +2012,7 @@ void createFloor4()
   mapStrings[mapIndex] += "T`@```}~~~`~TTTTT`w~~TTTTTTTTTTTTTTTTTTTTTTt(((((((((tTTT„ﬁﬁﬁ„TTﬁTTTTTTT~``TTTTD^^DDTT%w^^TTT══T~~TT";
   mapStrings[mapIndex] += "@`,,,`ﬁ}~~`T%T^TT`w~~TTTTTTTTTTTTTTTTTTTTTTtWWWWWWWWWtT~~„„„„„~TTTﬁTTTTT~`~TTTT~D^^^D~TTTTTTTTTT|══T";
   mapStrings[mapIndex] += "`,,,,`~~~~`~~TTT``w~TTTTTTﬁTTTTTﬁT4444444T~~W<WW<WW<W~~~~~~`~~~~~TTTTTTT~`~TTTTT~D^^DTT~TTTTTTTTTTTT";
-  mapStrings[mapIndex] += "``,,@`~}*~`~TTTT`wwTTTTTTTTTTTTTT~444≤444~~¿~`~~`~~`~÷~~~~(((~~~~~~~~?~~~`~~```TTTTTTT#wwTTTTTTTTTTT";
+  mapStrings[mapIndex] += "``,,@`~}~~`~TTTT`wwTTTTTTTTTTTTTT~444≤444~~¿~`~~`~~`~÷~~~~(((~~~~~~~~?~~~`~~```TTTTTTT#wwTTTTTTTTTTT";
   mapStrings[mapIndex] += "T@```ﬁ}~~~`~~TTT`wwTTTTTTTTTTT~~~~~~~``````````````V``````(((````````````````ﬁ`TTTTTT~#wwwwwwwwwwwww";
   mapStrings[mapIndex] += "T~ﬁ~}}~~T~`~TTTT`wwTTTTﬁTTTﬁT~~t~~~~~~~~~~~~~~~~~~$$$~~~~~(((~~~~~~~~~~~~`~~}``TTTTT~T#wwwwwwwwwwwww";
   mapStrings[mapIndex] += "TT}}~~~T^T`TTTTT`wwTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~$$$~╚═╝~#`#~TT~TTTTTT~~`~}TTTTTT~TT~#w∑∑wwWww∑wwww";
@@ -2140,8 +2140,8 @@ void createFloor4()
   createLoot(lootIndex++, mapIndex, 99,73, new Item("Bread", 10 ) );
   //Wind knife
   createLoot(lootIndex++, mapIndex, 98,4, new Equipment("Windrazor","windKnife.png", 15, true, 21.3,Job.KNIGHT,Job.BARBARIAN,Job.BARD,Job.THIEF,Job.DRUID,Job.MAGE) );  
-  //Bread in flowers
-  createLoot(lootIndex++, mapIndex, 0,8, new Item("Meat", 20 ) );
+  //Admirer's Food
+  createLoot(lootIndex++, mapIndex, 0,81, new Item("Meat", 20 ) );
   
   //Cows
   m[mapIndex].tiles[72][97].createEvent(true, "- *Mooo?*");
@@ -2186,7 +2186,7 @@ void createFloor4()
   //Bandit ambush                                                                   //String n, String image,  health, s,  d,  c, m,  w, sp, g, AttackType weak
   m[mapIndex].tiles[10][86].placeBoss( mapIndex, color(255,5), "Ambush!", new Monster("Bandit", "bandit.png", 90, 26, 30, 7, 1, 4, 20, 7, AttackType.NONE, 6), false);
     zoo.boss[bossIndex].attacks[0] = new Attack("stabs with a knife.", 50, false, AttackStat.DEX, AttackType.NONE );
-    zoo.boss[bossIndex].attacks[1] = new Attack("flings knives!", 60, true );
+    zoo.boss[bossIndex].attacks[1] = new Attack("flings knives!", 50, true );
     zoo.boss[bossIndex].attacks[2] = new Attack("strikes with his sword.", 70, false );
     zoo.boss[bossIndex].attacks[3] = new Attack("uses a toxin.", 60, false, Debuff.POISON );
     zoo.boss[bossIndex].attacks[4] = new Attack("tries to get behind you." );
@@ -2196,22 +2196,22 @@ void createFloor4()
   //Danger Map 4 (Road)
   dangerMapIndex = mapIndex; dangerStrs[dangerMapIndex] = "";
   
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000xx00xx0000xx000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000xxxx0000x000000x00";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000x000000000000000x0";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000xxx00000000000000x";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000000000000xxx000000000000x";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000xxx00000xxxxxx000x0000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000x888x000x00000xx00xx000000000000";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000x88x0000x000000x00x00000000000x";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000000x00x0000x0xx00000000000";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000xx0000xx000x0xx0000000000";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000x000000x000xxxxx00000000x";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000x0000xx00000000000000000x";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000000000xxxx0000000000000x0";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000x0000000x0xxxx000000000x00";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000x000000x00000xxxxxxxx0x000";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000000xxx00000000000000x0000";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000xx88xx8888xx000";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000xxxx8888x888888x00";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000x888888888888888x0";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000xxx88888888888888x";
+  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000000000000xxx888888888888x";
+  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000xxx00000xxxxxx000x8888888888888";
+  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000x888x000x88888xx00xx888888888888";
+  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000x88x0000x888888x00x88888888888x";
+  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000000x88x8888x0xx88888888888";
+  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000xx8888xx888x0xx8888888888";
+  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000x888888x888xxxxx88888888x";
+  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000x8888xx88888888888888888x";
+  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000088888xxxx8888888888888x0";
+  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000x0888888x0xxxx888888888x00";
+  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000x088888x00000xxxxxxxx8x000";
+  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000088xxx00000000000000x0000";
   dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000xxxx00000000xxxxxxx0000000";
   dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000000000xxxxxxx99999xxxxx000";
   dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000000009999999999999999xx00";
@@ -2245,30 +2245,30 @@ void createFloor4()
   dangerStrs[dangerMapIndex] += "0000888800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000888000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000xxxxxxxxxxx0000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "00xxx000000088xxx00000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0xx0000000008880xx0000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "xx000000000008800x0000000000000000000000000000000000000000000000000000000000000000080000000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000008880x0000000000000000000000000000000000000000000000000000000000000008880000000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000000088x0000000000000000000000000000000000000000000000000000000000000888880000000000000000";
-  dangerStrs[dangerMapIndex] += "000000000000000000x000000000000000000000000000000000000000000000000000000000000088800000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000x00000000000000000000000000000000000000000000000000000000000000000000000000000880";
-  dangerStrs[dangerMapIndex] += "0000000000000000000x0000000xxxxxxxxx0000000000000000000000000000000000000000000000000000000000000888";
-  dangerStrs[dangerMapIndex] += "000000000000000000x00000000x0000000x0000000000000000000000000000000000000000000000000000000000008880";
-  dangerStrs[dangerMapIndex] += "00000000000000000x000000000x0000000x0000000000000000000000000000000000000008800000000000000000008888";
-  dangerStrs[dangerMapIndex] += "0000000000000000xx000000000x000xxxxx0000000000000000000000000000000000000088888000000000000000000888";
-  dangerStrs[dangerMapIndex] += "0000000000000000x0000000000x000x00000000000000000000000000000000000000000088888000000000000000000080";
-  dangerStrs[dangerMapIndex] += "0000000000000000x0000000000x000x00000000000000000000000000000000000000000088880000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000x0000000000xxxxx00xxxxxxxxxx00000000000000000000000000000008800000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000x0000000000x000xxxx00000000xxxxx0000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000x0000000000x0000000000000000000x0000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000x0000000000x0000000000000000000x0000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000x0000000000xxxxxxxxxxxxxxxxxxxxx0000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000x00000000000000000000000000000000000000000000000000000000000000000000000000000000880";
-  dangerStrs[dangerMapIndex] += "0000000000000000x00000000000088000000000000000000000000000000000000000000000000000000000000008808880";
-  dangerStrs[dangerMapIndex] += "x000000000000000x00000000000088800000000000000000000000000000000000000000000000000000000000088808880";
-  dangerStrs[dangerMapIndex] += "x000000000000000x00000000000008880000000000000000000000000000000000000000000000000000000000088808880";
-  dangerStrs[dangerMapIndex] += "xx00000000000000x00000000000000000000000000000000000000000000000000000000000000000000000000088800000";
-  dangerStrs[dangerMapIndex] += "0xxx000000000000x00000000000000000000000000000000000000000000000000000000000000000000000000000088880";
+  dangerStrs[dangerMapIndex] += "00xxx:::::::88xxx00000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "0xx:::::::::8880xx0000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "xx:::::::::::8800x0000000000000000000000000000000000000000000000000000000000000000080000000000000000";
+  dangerStrs[dangerMapIndex] += ":::::::::::::8880x0000000000000000000000000000000000000000000000000000000000000008880000000000000000";
+  dangerStrs[dangerMapIndex] += ":::::::::::::::88x0000000000000000000000000000000000000000000000000000000000000888880000000000000000";
+  dangerStrs[dangerMapIndex] += "::::::::::::::::::x000000000000000000000000000000000000000000000000000000000000088800000000000000000";
+  dangerStrs[dangerMapIndex] += ":::::::::::::::::::x00000000000000000000000000000000000000000000000000000000000000000000000000000880";
+  dangerStrs[dangerMapIndex] += ":::::::::::::::::::x0000000xxxxxxxxx0000000000000000000000000000000000000000000000000000000000000888";
+  dangerStrs[dangerMapIndex] += "::::::::::::::::::x00000000x0000000x0000000000000000000000000000000000000000000000000000000000008880";
+  dangerStrs[dangerMapIndex] += ":::::::::::::::::x000000000x0000000x0000000000000000000000000000000000000008800000000000000000008888";
+  dangerStrs[dangerMapIndex] += "::::::::::::::::xx000000000x000xxxxx0000000000000000000000000000000000000088888000000000000000000888";
+  dangerStrs[dangerMapIndex] += "::::::::::::::::x0000000000x000x00000000000000000000000000000000000000000088888000000000000000000080";
+  dangerStrs[dangerMapIndex] += "::::::::::::::::x0000000000x000x00000000000000000000000000000000000000000088880000000000000000000000";
+  dangerStrs[dangerMapIndex] += "::::::::::::::::x0000000000xxxxx00xxxxxxxxxx00000000000000000000000000000008800000000000000000000000";
+  dangerStrs[dangerMapIndex] += "::::::::::::::::x0000000000x:::xxxx::::::::xxxxx0000000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "::::::::::::::::x0000000000x:::::::::::::::::::x0000000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "::::::::::::::::x0000000000x:::::::::::::::::::x0000000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "::::::::::::::::x0000000000xxxxxxxxxxxxxxxxxxxxx0000000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "::::::::::::::::x00000000000000000000000000000000000000000000000000000000000000000000000000000000880";
+  dangerStrs[dangerMapIndex] += "::::::::::::::::x00000000000088000000000000000000000000000000000000000000000000000000000000008808880";
+  dangerStrs[dangerMapIndex] += "x:::::::::::::::x00000000000088800000000000000000000000000000000000000000000000000000000000088808880";
+  dangerStrs[dangerMapIndex] += "x:::::::::::::::x00000000000008880000000000000000000000000000000000000000000000000000000000088808880";
+  dangerStrs[dangerMapIndex] += "xx::::::::::::::x00000000000000000000000000000000000000000000000000000000000000000000000000088800000";
+  dangerStrs[dangerMapIndex] += "0xxx::::::::::::x00000000000000000000000000000000000000000000000000000000000000000000000000000088880";
   dangerStrs[dangerMapIndex] += "000xxxxx000xxxxxx00000000000000000000000000000000000000000000000000000000000000000000000088888888888";
   dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000xx88888888888";
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000088888888888";
@@ -2363,9 +2363,9 @@ void createFloor5()
   mapStrings[mapIndex] += "66ÖÖ6  £       666ÖÖÖ66 66ööööö6666666  £                £           £      £                66ÖÖÖ▒6";
   mapStrings[mapIndex] += "6öö66  £       6▒ÖÖ˘ÖÖ6  6,6▒6,6Ö6▒6Ö6  £                 £££££££££££       £               66ÖÖ666 ";
   mapStrings[mapIndex] += "6,66   £      6666ööö66  6666666ÖÖÖÖÖ6  £   §§§§§§§§§§                      £   6666666666666ÖÖ66   ";
-  mapStrings[mapIndex] += "6,,66  £      6▒66666666666ÖÖÖ6ÖÖÖÖ666  £  §„,,,§`,,,,§§                    £  6▒6Ö6ÖÖÖ66ÖÖÖÖÖ66    ";
-  mapStrings[mapIndex] += "66,>6  £      6ÖÖ66666ÖÖÖ6öö6ÖÖÖÖÖÖ6    £   §§,,,,,`}```§§§§§§§WWWWWW∑∑∑∑∑  £  6ÖÖÖÖÖ6öööö66ÖÖ66    ";
-  mapStrings[mapIndex] += " 6666  £      66ÖÖ6ÖÖÖÖ6ö6,,66öööö66    £    §,[{{`§``}```````„„„„„„„„„„>∑  £   6666666666666öö6666 ";
+  mapStrings[mapIndex] += "6,,66  £      6▒66666666666ÖÖÖ6ÖÖÖÖ666  £  §„,,,§``,,,§§                    £  6▒6Ö6ÖÖÖ66ÖÖÖÖÖ66    ";
+  mapStrings[mapIndex] += "66,>6  £      6ÖÖ66666ÖÖÖ6öö6ÖÖÖÖÖÖ6    £   §§{,,,,`}```§§§§§§§WWWWWW∑∑∑∑∑  £  6ÖÖÖÖÖ6öööö66ÖÖ66    ";
+  mapStrings[mapIndex] += " 6666  £      66ÖÖ6ÖÖÖÖ6ö6,,66öööö66    £    §,[{@@§``}```````„„„„„„„„„„>∑  £   6666666666666öö6666 ";
   mapStrings[mapIndex] += "       £       6öööö6666,,,66666666     £     §§§§§§§§§§§§§§WWWWWWWWWW∑∑∑∑  £               66,,,,▒6";
   mapStrings[mapIndex] += "       £       666666  66>66            £                                   £                666666 ";
   mapStrings[mapIndex] += "£££££££                 666             £                                    £££££££££££££          ";
@@ -2493,7 +2493,7 @@ void createFloor5()
   exits.add( new Portal( 5,98,60, 5,23,50 ) ); //bottom fork (out)
   exits.add( new Portal( 5,17,51, 5,80,57 ) ); //left fork (in)
   exits.add( new Portal( 5,80,57, 5,17,51 ) ); //left fork (out)
-  exits.add( new Portal( 5,17,42, 4,30,60 ) ); //final exit
+  exits.add( new Portal( 5,17,42, 5,17,42, "END OF CURRENT BUILD" ) ); //final exit
   //Honeydell Manor
   //Manor front door
   exits.add( new Portal( 5,28,83, 4,38,62, "Honeydell" ) );
@@ -2543,7 +2543,7 @@ void createFloor5()
   //Manor
   m[mapIndex].tiles[82][81].createEvent(false, "- They have left behind little apart from the smell of burt bread.");
   m[mapIndex].tiles[19][95].createEvent(false, "- It seems you've interrupted a game. Even when safe in their hideout, these bandits have weapons at the ready.");
-  m[mapIndex].tiles[79][73].createEvent(false, "- The larder has mostly been looted, the cloying smell still lingers.");
+  m[mapIndex].tiles[79][73].createEvent(false, "- The bandits' stores are running low, it seems. They had not planned to be her so long.");
   
   //Gatehouse
   m[mapIndex].tiles[72][1].placeOccupant( male, "- Your paperwork has been processed. Welcome to Waraka." );
@@ -2625,7 +2625,7 @@ void createFloor5()
   //Grave Keys
   createLoot(lootIndex++, mapIndex, 42, 1, Key.GRAVE );
   //Grave Rewards
-  createLoot(lootIndex++, mapIndex, 6, 17, new Item("Mana Potion",24) );
+  createLoot(lootIndex++, mapIndex, 6, 17, new Item("Health Potion",12) );
   createLoot(lootIndex++, mapIndex, 1, 17, new Equipment("Grave Gown","graveShirt.png",25,false,24,Job.THIEF,Job.KARATE,Job.PRIEST,Job.MAGE) );
   //Sea Road Tunnel
   createLoot(lootIndex++, mapIndex, 11, 26, new Item("Bread",10 ) );
@@ -2648,7 +2648,7 @@ void createFloor5()
   createLoot(lootIndex++, mapIndex, 12, 94, new Equipment("Plundered Chain","chainBroken.png",19,false,29,Job.KNIGHT,Job.BARBARIAN,Job.BARD,Job.THIEF,Job.PRIEST) );
   //Queen Treasures
   createLoot(lootIndex++, mapIndex, 15, 43, new Item("Larval Queen", 45 ) );
-  createLoot(lootIndex++, mapIndex, 19, 43, new Equipment("Stinger","stinger.png",15,false,30,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.BARD,Job.THIEF,Job.DRUID) );
+  createLoot(lootIndex++, mapIndex, 19, 43, new Equipment("Stinger","stinger.png",15,true,30.02,Job.KNIGHT,Job.BARBARIAN,Job.SAURIAN,Job.BARD,Job.THIEF,Job.DRUID) );
   
   //Dragon Ninja (graveyard)
   m[mapIndex].tiles[3][25].placeOccupant( chilxius, "- Do the Graveyard Girls really still meet? That brings back memories." );
@@ -2663,8 +2663,8 @@ void createFloor5()
   
   //Bandit                                                                                                  //String n, String image,  health, s,  d,  c, m,  w, sp, g, AttackType weak
   m[mapIndex].tiles[97][24].placeBoss( mapIndex, color(#6d4800), "- You shouldn't have come here.", new Monster("Lone Bandit", "bandit.png", 120, 26, 32, 7, 1, 4, 20, 10, AttackType.NONE, 6), false);
-    zoo.boss[bossIndex].attacks[0] = new Attack("flings knives!", 60, true );
-    zoo.boss[bossIndex].attacks[1] = new Attack("flings knives!", 60, true );
+    zoo.boss[bossIndex].attacks[0] = new Attack("flings knives!", 50, true );
+    zoo.boss[bossIndex].attacks[1] = new Attack("flings knives!", 50, true );
     zoo.boss[bossIndex].attacks[2] = new Attack("uses a toxin.", 65, false, Debuff.SLEEP );
     zoo.boss[bossIndex].attacks[3] = new Attack("uses a toxin.", 65, false, Debuff.POISON );
     zoo.boss[bossIndex].attacks[4] = new Attack("pierces your armor!", 80, false, AttackStat.DEX, AttackType.NONE );
@@ -2702,10 +2702,10 @@ void createFloor5()
     zoo.boss[bossIndex].attacks[4] = new Attack("slices for the neck!", 70, false, Debuff.SLEEP );
   bossIndex++;
   //Queen Bee                                                                                                //String n, String image,  health, s,  d, c, m,  w, sp, g, AttackType weak
-  m[mapIndex].tiles[17][45].placeBoss( mapIndex, #cd7100, "This is the buzzing heart of the swarm.", new Monster("Queen", "queenBee2.png", 150, 25, 35, 8, 20, 7, 25, 0, AttackType.NONE), false);
+  m[mapIndex].tiles[17][45].placeBoss( mapIndex, #cd7100, "This is the buzzing heart of the swarm.", new Monster("Queen", "queenBee2.png", 150, 28, 35, 8, 20, 7, 25, 0, AttackType.NONE), false);
     zoo.boss[bossIndex].attacks[0] = new Attack("delivers a crushing bite.", 80, false, Debuff.POISON );
     zoo.boss[bossIndex].attacks[1] = new Attack("jabs with her barbed stinger.", 70, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[2] = new Attack("commands her hive to crush you!", 50, false, AttackStat.MAG, AttackType.EARTH );
+    zoo.boss[bossIndex].attacks[2] = new Attack("commands her hive to crush you!", 55, false, AttackStat.MAG, AttackType.EARTH );
     zoo.boss[bossIndex].attacks[3] = new Attack("summons a swarm!", 70, true );
     zoo.boss[bossIndex].attacks[4] = new Attack("sprays pollen.", 30, true, Debuff.SLEEP );
   bossIndex++;
@@ -2737,46 +2737,46 @@ void createFloor5()
   
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000xxxxxx0xxxxxxxxxxxx000000xxxxxxxxxxxxxxxxx0000000000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000xx9999xxx9999999999x00000xx0xx000000000000xx000000000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000xxxxxxxxxxx000000xxxxxxxxxxxxx9x9x9x9xxxxxxxx9x00000x000x0000000000000x000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x00000x99999999999x9x9x9x9x99999999x00000x00000000000000000xxxxxxxx00000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x00000xx9xxxxxxxx999x99999xx99xxx99x00000xx0000000000000000x000000xx0000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx000000x9xxxxx9xxxxx999xxxx000000x000xxxxxx000000000000000x0000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx000000xxx999xxx999xxx9x99x00000xx00000000000000000000x000x0000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx00000xx9999999999999x999xx00000x000000000000000000000x00xx0000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx000xxx999xxxxxxxxxx999xxx000000xx000xxxxx00000000000xxx0x00000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx000x9999xx00000000xxxxx000000000xxxxx000xxxxxxxxxxxxx0x0x00000000000";
+  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000xx9999xxx9999999999x00000xx9xx999999999999xx000000000000000000";
+  dangerStrs[dangerMapIndex] += "00000000000xxxxxxxxxxx000000xxxxxxxxxxxxx9x9x9x9xxxxxxxx9x00000x999x9999999999999x000000000000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x99999999999x00000x99999999999x9x9x9x9x99999999x00000x99999999999999999xxxxxxxx00000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x99999999999x00000xx9xxxxxxxx999x99999xx99xxx99x00000xx9999999999999999x999999xx0000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx000000x9xxxxx9xxxxx999xxxx000000x999xxxxxx999999999999999x0000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx000000xxx999xxx999xxx9x99x00000xx99999999999999999999x999x0000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx00000xx9999999999999x999xx00000x999999999999999999999x99xx0000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx000xxx999xxxxxxxxxx999xxx000000xx999xxxxx99999999999xxx9x00000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx000x9999xx00000000xxxxx000000000xxxxx000xxxxxxxxxxxxx0x9x00000000000";
   dangerStrs[dangerMapIndex] += "0000000000x99999999999x00000xx9xx0xx999xx000000000000000000000000000000000000000000000xxx00000000000";
   dangerStrs[dangerMapIndex] += "00000000000xxx99999xxx000000x999xxx999xx000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000000000000xx999xx00000000xx9999999xx0000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "00000000000000xxxxx0000000000xxxxxxxxx00000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000xxxxx00000xxxxxx0000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000x000x00000x0000x0000000000000000xxxxxx000000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000x000x00000x0000x0000000000000000x00000x00000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000xxxxx00000xxxxxx0000000000000000x00000x00000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000x00000x00000000000000";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000xxxxxx00000xxxxxx0000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000x::::x00000x::::x0000000000000000xxxxxx000000000000000";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000x::::x00000x::::x0000000000000000x99999x00000000000000";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000xxxxxx00000xxxxxx0000000000000000x99999x00000000000000";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000x99999x00000000000000";
   dangerStrs[dangerMapIndex] += "0000000000000000xxx0000000000000000000000000000000000000000000000000000000000000xxxxxx00000000000000";
   dangerStrs[dangerMapIndex] += "00000000000000xxx0xxx0000000000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "000000000000xxx00000xxx00000000000000000000000000000000000000000000000000000000000000000000000xxxxxx";
-  dangerStrs[dangerMapIndex] += "00000000000xx0xxxxxxx0xx000xxx000000000000000000000000000000000000000000000000000000000000000x00000x";
-  dangerStrs[dangerMapIndex] += "0000000000xx00000000000xxxxx0xxxx000000000000000000000000000000000000000000000000000000000000x00000x";
-  dangerStrs[dangerMapIndex] += "0000000000xx00000000000000000000xx00000000000000000000000000000000000000000000000000000000000x00000x";
-  dangerStrs[dangerMapIndex] += "00000000000xx00000000000000000000xx000000000xxxxxxxxxxx000000000000000000xxxxxxxxxxxxxxx00000xxxxxx0";
-  dangerStrs[dangerMapIndex] += "000000000000xx00000000000000000000x00000000x0000000000x00000000000000000x00000000000000x000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000xx0000000000000000000x00000000x0000000000x00000000000000000x00000000000000x000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000000xx000000000000000000x00000000xxxxxxxxxxx0000000000000000000xxxxxxxxxxxxxx0000000000000";
-  dangerStrs[dangerMapIndex] += "000000000000000xx0000000000000000xx00000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000xx000000000000000x000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000000000x000000000000000xxxx000000000000000000000000000000000000000000000000000000000xxxxx0";
-  dangerStrs[dangerMapIndex] += "000000000000000xxx000000000000000000xx0000000000000000000000000000000000000000000000000000000xx000xx";
-  dangerStrs[dangerMapIndex] += "000000000000000x000000000000000000000x000000000000000000000000000000000000000000000000000000xx00xxx0";
-  dangerStrs[dangerMapIndex] += "00000000000000xx000000000000000000000x000000000000000000000000000000000000000000xxxxxxxxxxxxx00xx000";
-  dangerStrs[dangerMapIndex] += "00000000000000x00000000000000000000xxx00000000000000000000000000000000000000000x00000000000000xx0000";
-  dangerStrs[dangerMapIndex] += "00000000000000x0000000000000x000000x0000000000000000000000000000000000000000000x0000000000xx00xx0000";
-  dangerStrs[dangerMapIndex] += "00000000000000xx0000000x0000xx0000xx00000000000000000000000000000000000000000000xxxxxxxxxxxxx00xxxx0";
-  dangerStrs[dangerMapIndex] += "000000000000000x0000xxxx000xxxxxxxx000000000000000000000000000000000000000000000000000000000xx0000xx";
-  dangerStrs[dangerMapIndex] += "000000000000000xxxxxx00xx0xx00000000000000000000000000000000000000000000000000000000000000000xxxxxx0";
+  dangerStrs[dangerMapIndex] += "00000000000xx9xxxxxxx9xx000xxx000000000000000000000000000000000000000000000000000000000000000x99999x";
+  dangerStrs[dangerMapIndex] += "0000000000xx99999999999xxxxx0xxxx000000000000000000000000000000000000000000000000000000000000x99999x";
+  dangerStrs[dangerMapIndex] += "0000000000xx99999999999999999999xx00000000000000000000000000000000000000000000000000000000000x99999x";
+  dangerStrs[dangerMapIndex] += "00000000000xx99999999999999999999xx000000000xxxxxxxxxxx000000000000000000xxxxxxxxxxxxxxx00000xxxxxx0";
+  dangerStrs[dangerMapIndex] += "000000000000xx99999999999999999999x00000000x9999999999x00000000000000000x88888888888888x000000000000";
+  dangerStrs[dangerMapIndex] += "0000000000000xx9999999999999999999x00000000x9999999999x00000000000000000x88888888888888x000000000000";
+  dangerStrs[dangerMapIndex] += "00000000000000xx999999999999999999x00000000xxxxxxxxxxx0000000000000000000xxxxxxxxxxxxxx0000000000000";
+  dangerStrs[dangerMapIndex] += "000000000000000xx9999999999999999xx00000000000000000000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "0000000000000000xx999999999999999x000000000000000000000000000000000000000000000000000000000000000000";
+  dangerStrs[dangerMapIndex] += "00000000000000000x999999999999999xxxx000000000000000000000000000000000000000000000000000000000xxxxx0";
+  dangerStrs[dangerMapIndex] += "000000000000000xxx999999999999999999xx0000000000000000000000000000000000000000000000000000000xx999xx";
+  dangerStrs[dangerMapIndex] += "000000000000000x999999999999999999999x000000000000000000000000000000000000000000000000000000xx99xxx0";
+  dangerStrs[dangerMapIndex] += "00000000000000xx999999999999999999999x000000000000000000000000000000000000000000xxxxxxxxxxxxx99xx000";
+  dangerStrs[dangerMapIndex] += "00000000000000x99999999999999999999xxx00000000000000000000000000000000000000000x99999999999999xx0000";
+  dangerStrs[dangerMapIndex] += "00000000000000x9999999999999x999999x0000000000000000000000000000000000000000000x9999999999xx99xx0000";
+  dangerStrs[dangerMapIndex] += "00000000000000xx9999999x9999xx9999xx00000000000000000000000000000000000000000000xxxxxxxxxxxxx99xxxx0";
+  dangerStrs[dangerMapIndex] += "000000000000000x9999xxxx999xxxxxxxx000000000000000000000000000000000000000000000000000000000xx9999xx";
+  dangerStrs[dangerMapIndex] += "000000000000000xxxxxx00xx9xx00000000000000000000000000000000000000000000000000000000000000000xxxxxx0";
   dangerStrs[dangerMapIndex] += "000000000000000000000000xxx0000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
@@ -2784,23 +2784,23 @@ void createFloor5()
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000000000000000000000xxxxxxxxxxxxxx00000000000000000000000000000xxxxxxxxxxxxxx000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000x000000000000x00000000000000000000000000000x000000000000x000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000xxxxxxxxxxxxx000000000000xxxxxxxxxxxxx00000xxxxxxxxxxxxx000000000000xxxxxxxxxxxxx000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x000000000000000000000000000000000000x00000x000000000000000000000000000000000000x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x000000000000000000000000000000000000x00000x000000000000000000000000000000000000x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x000000000000000000000000000000000000x00000x000000000000000000000000000000000000x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x000000000000000000000000000000000000x00000x000000000000000000000000000000000000x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x000000000000000000000000000000000000x00000x000000000000000000000000000000000000x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x000000000000000000000000000000000000x00000x000000000000000000000000000000000000x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x000000000000000000000000000000000000x00000x000000000000000000000000000000000000x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x000000000000000000000000000000000000x00000x000000000000000000000000000000000000x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x000000000000000000000000000000000000x00000x000000000000000000000000000000000000x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x00000000000000000000000000000000000xx00000x00000000000000000000000000000000000xx000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x000000000000000000000000000000000000x00000x00000000000000000000000000000000000xx000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x000000000000000000000000000000000000x00000x000000000000000000000000000000000000x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x00000000000xxxxxxxxxxxxxx00000000000x00000x00000000000xxxxxxxxxxxxxx00000000000x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x00000000000x000000000000x00000000000x00000x00000000000x000000000000x00000000000x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x00000000000x000000000000x00000000000x00000x00000000000x000000000000x00000000000x000000000";
+  dangerStrs[dangerMapIndex] += "0000000000000000000000x::::::::::::x00000000000000000000000000000x::::::::::::x000000000000000000000";
+  dangerStrs[dangerMapIndex] += "0000000000xxxxxxxxxxxxx::::::::::::xxxxxxxxxxxxx00000xxxxxxxxxxxxx::::::::::::xxxxxxxxxxxxx000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x:::::::::::::::::::::::::::::::::::xx00000x:::::::::::::::::::::::::::::::::::xx000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x:::::::::::::::::::::::::::::::::::xx000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x:::::::::::xxxxxxxxxxxxxx:::::::::::x00000x:::::::::::xxxxxxxxxxxxxx:::::::::::x000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x:::::::::::x000000000000x:::::::::::x00000x:::::::::::x000000000000x:::::::::::x000000000";
+  dangerStrs[dangerMapIndex] += "0000000000x:::::::::::x000000000000x:::::::::::x00000x:::::::::::x000000000000x:::::::::::x000000000";
   dangerStrs[dangerMapIndex] += "0000000000xxxxxxxxxxxxx000000000000xxxxxxxxxxxxx00000xxxxxxxxxxxxx000000000000xxxxxxxxxxxxx000000000";
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
   dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
@@ -3378,11 +3378,13 @@ void setNameDependentText()
 
 //Expected Level:
 //(old exp system)
-//Rat queen 1.7 / 1.9                                          2.1
-//man-wolf 3.3 / 3.2 / 3.1                                     3.1
-//crypt guards 4.5 before, 5.2 back at courtyard
-//before necro 6.7 / 5.7 (died) / 5.5 (close fight) / 5.7      5.8
-//after deep rat 6.5                                           6.9
+//Rat queen 1.7 / 1.9                                          2.1    2
+//man-wolf 3.3 / 3.2 / 3.1                                     3.1    3
+//crypt guards 4.5 before, 5.2 back at courtyard                      5
+//before necro 6.7 / 5.7 (died) / 5.5 (close fight) / 5.7      5.8    6/5
+//after deep rat 6.5                                           6.9    7/6
+//bandit boss                                                         9
+//queen                                                               9
 
 //Deities:
 //Black Vanguard - anubis

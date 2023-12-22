@@ -37,7 +37,8 @@ class Initiative
       {
         if( party.hero[index].asleep ) //try to wake up
         {
-          println( "Sleep left: " + party.hero[index].sleep );
+          if(debugMode)
+            println( "Sleep left: " + party.hero[index].sleep );
           if( party.hero[index].wake() )
           {
             battle.setBattleDelay();

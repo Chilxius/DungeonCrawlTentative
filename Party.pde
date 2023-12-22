@@ -265,7 +265,8 @@ class Party
       if(h.asleep)
       {
         h.sleep-=2;
-        println("Sleep ticked down to " + h.sleep);
+        if(debugMode)
+          println("Sleep ticked down to " + h.sleep);
         if(h.sleep<=0)
         {
           h.sleep=0;

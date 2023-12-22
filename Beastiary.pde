@@ -223,15 +223,15 @@ class Beastiary
       list[dangerZone][3].attacks[4] = new Attack("descends upon you.", 40, true );
     list[dangerZone][4] = new Monster();
     
-    //A - Bandits
-    dangerZone++;
-    list[dangerZone][0] = new Monster("Bandit", "bandit.png", 90, 26, 30, 7, 1, 4, 20, 7, AttackType.NONE, 10);
+    //: - Bandits
+      dangerZone++;
+    list[dangerZone][0] = new Monster("Bandit", "bandit.png", 90, 26, 30, 7, 1, 4, 20, 0, AttackType.NONE, 10);
       list[dangerZone][0].attacks[0] = new Attack("tries to get behind you.");
       list[dangerZone][0].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP );
       list[dangerZone][0].attacks[2] = new Attack("stabs with a knife.", 50, false, AttackStat.DEX, AttackType.NONE );
       list[dangerZone][0].attacks[3] = new Attack("strikes with his sword.", 70, false );
-      list[dangerZone][0].attacks[4] = new Attack("flings knives!", 60, true );
-    list[dangerZone][1] = new Monster("Bandit Mage", "banditMage.png", 90, 7, 20, 4, 15, 7, 18, 8, AttackType.NONE, 10);
+      list[dangerZone][0].attacks[4] = new Attack("flings knives!", 50, true );
+    list[dangerZone][1] = new Monster("Bandit Mage", "banditMage.png", 90, 7, 20, 4, 15, 7, 18, 0, AttackType.NONE, 10);
       list[dangerZone][1].attacks[0] = new Attack("begins chanting a spell.");
       list[dangerZone][1].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP );
       list[dangerZone][1].attacks[2] = new Attack("summons a ball of fire.", 50, false, AttackStat.MAG, AttackType.FIRE );
@@ -268,8 +268,8 @@ class Beastiary
           battleMonsters[0].attacks[4] = new Attack("flares to life!", 30, true, AttackStat.MAG, AttackType.HOLY );
         battleMonsters[2] = new Monster("Spirit Light",  "Spirit.png",  20, 20, 20, 1, 7, 30, 8, 0, AttackType.NONE);
           battleMonsters[2].attacks[0] = new Attack("whispers: \""+party.hero[1].name+"...\"");
-          battleMonsters[0].attacks[1] = new Attack("moves through you.", 30, false, false, AttackStat.MAG, AttackType.HOLY, Debuff.SLEEP);
-          battleMonsters[0].attacks[2] = new Attack("moves through you.", 30, false, false, AttackStat.MAG, AttackType.HOLY, Debuff.SLEEP);
+          battleMonsters[2].attacks[1] = new Attack("moves through you.", 30, false, false, AttackStat.MAG, AttackType.HOLY, Debuff.SLEEP);
+          battleMonsters[2].attacks[2] = new Attack("moves through you.", 30, false, false, AttackStat.MAG, AttackType.HOLY, Debuff.SLEEP);
           battleMonsters[2].attacks[3] = new Attack("whispers: \""+party.hero[2].name+"...\"");
           battleMonsters[2].attacks[4] = new Attack("flares to life!", 30, true, AttackStat.MAG, AttackType.HOLY );
       break;
@@ -334,7 +334,7 @@ class Beastiary
           battleMonsters[2].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP );
           battleMonsters[2].attacks[2] = new Attack("stabs with a dagger.", 50, false, AttackStat.DEX, AttackType.NONE );
           battleMonsters[2].attacks[3] = new Attack("strikes with her sword.", 70, false );
-          battleMonsters[2].attacks[4] = new Attack("flings knives!", 60, true );
+          battleMonsters[2].attacks[4] = new Attack("flings knives!", 50, true );
       break;
           
       case "Queen":                       //String n, String image,  health, s,  d,  c, m,  w, sp, g, AttackType weak
@@ -342,13 +342,13 @@ class Beastiary
           battleMonsters[0].attacks[0] = new Attack("defends its queen.");
           battleMonsters[0].attacks[1] = new Attack("hurls a block of wax.", 60, false );
           battleMonsters[0].attacks[2] = new Attack("rushes you.", 70, false );
-          battleMonsters[0].attacks[3] = new Attack("sprays pressurized honey.", 60, true );
+          battleMonsters[0].attacks[3] = new Attack("sprays pressurized honey.", 55, true );
           battleMonsters[0].attacks[4] = new Attack("pounds with both fists!", 80, false );
         battleMonsters[2] = new Monster("Royal Golem", "royalGolem.png", 50, 30, 10, 10, 1, 10, 15, 0, AttackType.FIRE);
           battleMonsters[2].attacks[0] = new Attack("defends its queen.");
           battleMonsters[2].attacks[1] = new Attack("hurls a block of wax.", 60, false );
           battleMonsters[2].attacks[2] = new Attack("rushes you.", 70, false );
-          battleMonsters[2].attacks[3] = new Attack("sprays pressurized honey.", 60, true );
+          battleMonsters[2].attacks[3] = new Attack("sprays pressurized honey.", 55, true );
           battleMonsters[2].attacks[4] = new Attack("pounds with both fists!", 80, false );
       break;
     }

@@ -179,7 +179,7 @@ class Monster
   
   public boolean takePoisonDamage( int pos ) //true if monster dies
   {
-    println("TAKING POISON DAMAGE"); //<>// //<>//
+    //println("TAKING POISON DAMAGE"); //<>// //<>//
     if(poison<=0)
       return false;
     int poisonDamage = max(poison/2,1); //minimum 1 damage
@@ -285,14 +285,15 @@ class Monster
   
   public int takeDamage( int damage )
   {
-    println("HP: " + hp + "    DAM: " + damage); //testing
+    //println("HP: " + hp + "    DAM: " + damage); //testing
     hp -= damage;
-    println("HP: " + hp); //testing
+    //println("HP: " + hp); //testing
     if(hp <= 0)
     {
       hp = 0;
       alive = false;
-      println("EXP: " + experiencePoints() ); //testing
+      if(debugMode)
+        println("EXP: " + experiencePoints() ); //testing
       battle.exp += experiencePoints();
       battle.gold += gold;
     }

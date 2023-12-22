@@ -48,7 +48,8 @@ class Hero
     name = n;
     //if(name.equals(""))
     //  name = randomName();
-    println( j );
+    if(debugMode)
+      println( j );
     job = j;
     favColor = c;
     inverseColor = ic;
@@ -202,7 +203,7 @@ class Hero
     {
       case KNIGHT:
         skill[0] = new Attack("Defensive Strike", con/2, false, true, AttackStat.STR ); skill[0].cost = 2; skill[0].fullDescription = "Deliver a heavy blow while keeping up a strong defense."; //Puts knight into defense, adds con/2 to damage
-        skill[1] = new Attack("Armor Break", str/2, false, true, AttackStat.STR );      skill[1].cost = 4; skill[1].fullDescription = "Strike hard enough to ignore a portion of the enemy's armor.";      //Cut through armor, add half strength
+        skill[1] = new Attack("Armor Break", str/2+15, false, true, AttackStat.STR );   skill[1].cost = 4; skill[1].fullDescription = "Strike hard enough to ignore a portion of the enemy's armor.";      //Cut through armor, add half strength
           skill[1].pierceArmor = true;
         skill[2] = new Attack("Divine Grace", mag*2, true, true );                      skill[2].cost = 6; skill[2].fullDescription = "Call upon Illamar to heal your allies' battle wounds.";       //light heal all
         skill[3] = new Attack("Smite", str*2, false, true, AttackStat.MAG );            skill[3].cost = 8; skill[3].fullDescription = "Strike with the holy power of the sun."; 
@@ -243,6 +244,7 @@ class Hero
         break;
       case BARD: //ayre, ballad, bossa nova, fugue, minuet, nocturne, opera, prelude, psalm, requiem, rhapsody, rondo, sonata, samba
         skill[0] = new Attack("Ostinato", mag, true, true, AttackStat.STR );            skill[0].cost = 2; skill[0].fullDescription = "A musical attack that hits all enemeis."; if( level > 2 ) skill[0].fullDescription = "A musical attack that builds up your rhythm.";
+          skill[0].nonElemental = true;
         skill[1] = new Attack("Rhapsody", max(5,level/3), true, true );                 skill[1].cost = 4; skill[1].fullDescription = "A rousing melody that energizes your allies. Uses rhythm."; //Minor heal to all, restores one energy or 2mp to allies
         skill[2] = new Attack("Rondo", "You feel the rhythm!" );                        skill[2].cost = 6; skill[2].fullDescription = "The upbeat tempo boosts your party's speed. Builds rhythm.";
         skill[3] = new Attack("Psalm", str*2, true, true );
@@ -423,12 +425,18 @@ class Hero
   
   public String poisonString()
   {
-    int turnsLeft = poison / max(((level*2)-totalStat(2)),1);
-    if(turnsLeft > 5)
+    //int turnsLeft = poison / max(((level*2)-totalStat(2)),1);  //THIS WOULD TAKE SOME MATH
+    //if(turnsLeft > 5)
+    //  return "badly afflicted!";
+    //if(turnsLeft > 2)
+    //  return "afflicted.";
+    //return "recovering.";
+    if( poison > hp )
       return "badly afflicted!";
-    if(turnsLeft > 2)
+    else if( poison < 5 )
+      return "recovering.";
+    else
       return "afflicted.";
-    return "recovering.";
   }
   
   public boolean wake()
@@ -530,18 +538,24 @@ class Hero
         case POISON:
           largeRandom = random(100);  //25% chance, plus damage minus con
           smallChance = 25;
+          if(debugMode)
+            println("Poison Chance: " + largeRandom);
           if( largeRandom < max(1,smallChance+damage-battleMonsters[targetMonster].con) )
             battleMonsters[targetMonster].poison((int)(weapon.power/5),targetMonster);
           break;
         case SLEEP:
           largeRandom = random(100);  //25% chance
-          smallChance = 25;
+          smallChance = 20;
+          if(debugMode)
+            println("Sleep Chance: " +largeRandom);
           if( largeRandom < max(1,smallChance) )
             battleMonsters[targetMonster].putToSleep((int)(weapon.power/5),targetMonster);
           break;
         case PARA:
           largeRandom = random(100);  //25% chance, plus damage minus dex
-          smallChance = 25;
+          smallChance = 15;
+          if(debugMode)
+            println("Paralyze Chance: " +largeRandom);
           if( largeRandom < max(1,smallChance+damage-battleMonsters[targetMonster].dex) )
             battleMonsters[targetMonster].paralyze((int)(weapon.power/5),targetMonster);
           break;
@@ -551,7 +565,7 @@ class Hero
     {
       //Converting non-elemental attacks to weapon's type
       AttackType skillType = skill[skillSelection].type; 
-      if( skillType == AttackType.NONE && !skill[skillSelection].healing && skill[skillSelection].useWeapon )
+      if( !skill[skillSelection].nonElemental && skillType == AttackType.NONE && !skill[skillSelection].healing && skill[skillSelection].useWeapon )
         skillType = weapon.element;
 
       //Bard bonus
@@ -632,7 +646,8 @@ class Hero
   
   void handleSkillEffect( boolean beforeAttack, int skillIndex )
   {
-    println("Turn: " + battle.turn);
+    if(debugMode)
+      println("Turn: " + battle.turn);
     
     if( beforeAttack ) //Happens before the attack
     {
@@ -690,7 +705,7 @@ class Hero
               if( battle.turn != i && bardBonus > 0 )
               {
                 if(party.hero[i].maxMp==0) party.hero[i].energize(bardBonus);
-                else                      party.hero[i].healMana(bardBonus);
+                else                       party.hero[i].healMana(bardBonus);
               }
             bardBonus--;
           }
@@ -701,6 +716,9 @@ class Hero
                 party.hero[i].buff[4].activate(level,1+level/5);
             bardBonus++;
           }
+          
+          if(bardBonus < 0)
+            bardBonus = 0;
           break;
         
         //******//
@@ -848,7 +866,8 @@ class Hero
   }
   public void paralyze( int amount, int x )
   {
-    println( "Paralysis: " + amount + " / " + ((amount-totalStat(1))*3) );
+    if(debugMode)
+      println( "Paralysis: " + amount + " / " + ((amount-totalStat(1))*3) );
     floatingNumbers.add( new GhostNumber( 150+210*x, 500, color(200,200,100), "PARALYZED") );
     paralyzed = true;
     defending = false;

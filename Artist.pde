@@ -282,9 +282,9 @@ class Artist
   
   public void checkMouseInFoodBox( int index ) //highlights food options when moused over
   {
-    if( frameWidth > 210 && frameWidth < 590 )
+    if( mouseX > 230 && mouseX < 615 )
     {
-      if( frameHeight > 190+(index*80) && frameHeight < 235+(index*80) )
+      if( mouseY > 210+(index*80) && mouseY < 255+(index*80) )
       {
         stroke(200);
         strokeWeight(2);
@@ -1477,6 +1477,16 @@ class Artist
           drawBattleIcons(battle.turn);
       }
         //drawBattleItems(0,party.inventory); //for testing
+    }
+    
+    if(debugMode)
+    {
+      //TESTING
+      push();
+      textSize(40);
+      textAlign(CENTER);
+      text(party.hero[2].bardBonus,650,650);
+      pop();
     }
   }
   

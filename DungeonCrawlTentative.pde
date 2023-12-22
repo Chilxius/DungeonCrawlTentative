@@ -1,13 +1,15 @@
 //CURRENT TASK: //<>//
-  //Road to Waraka
-  //Playtest current build
   //Sister Kat by the river
+  //Playtest/balance Saurians
+  //Rapids
+  //Make equipment worth less than treasures
 
 //To change once font is chosen:
   //cleric owed money
   //child's comment about mud washing out (spacing)
   //fix music notes
   //martial artists class name
+  //Ability descriptions (armor break)
 
 
 //Import files for Minim (sound)
@@ -31,10 +33,10 @@ import ddf.minim.ugens.*;
 //Balance armor pierce abilities (wow, razor is crazy)
 //Hero gained a level while dead (3rd position, was revived once)
 //Damage seems to be increasing a bit quickly (did ~60 to Big gray rat)
+//Cost of ostinato went to 0 - must have negative rhythm (couldn't replicate)
 
 //TO DO:
 //Finish up boat in Waraka harbor
-//Make bard music abilites not use weapon elements
 //Change start-of-battle messages
 //Change Kat's initial dialogue
 //Make tomb guardians more dangerous
@@ -54,7 +56,7 @@ import ddf.minim.ugens.*;
 //More random names
 
 //IMAGES I NEED:
-
+//heroes
 
 //NOTES:
 //I edited the log class to remove spaces in text - might cause errors downstream
@@ -65,6 +67,9 @@ import ddf.minim.ugens.*;
 
 //Turned sound off for the time being. Will include later with Beads
 import processing.sound.*;
+
+//For Debug Mode
+boolean debugMode = false;
 
 int mapCount = 10;
 Map [] m = new Map[mapCount];
@@ -689,7 +694,7 @@ void checkEvent()
 {
   if(m[party.floor].tileHasEvent(party.X,party.Y))
   {
-    println("PLAY EVENT");
+    //println("PLAY EVENT");
     m[party.floor].tiles[party.X][party.Y].playEvent();
   }
   //Rapids
@@ -707,7 +712,7 @@ boolean checkForBattle()
     return true;
   }
   
-  println(zoneNumber);
+  //println(zoneNumber);
   //println(randomBattleCounter + "  DL:" +dm[party.floor].dangerValueChar(party.X,party.Y));
   //println(m[1].tiles[40][4].occupantText);
   randomBattleCounter++;
@@ -896,23 +901,23 @@ void triggerBattle( char danger )
 {
   if( danger == '0' || danger > 119 || m[0].tiles[party.X][party.Y].isSafe() || currentBoss != -1 )
   {
-    println("BATTLE NOT TRIGGERED");
-    println("Danger Rating: " + danger);
-    println("Tile Type: " + m[party.floor].tiles[party.X][party.Y].type);
+    //println("BATTLE NOT TRIGGERED");
+    //println("Danger Rating: " + danger);
+    //println("Tile Type: " + m[party.floor].tiles[party.X][party.Y].type);
   }
   else
   {
     vanGogh.beginBattleAnimation();
     display = Display.BATTLE;
     input = Input.NONE;
-    println("Danger Level: "+danger + "  int: "+int(danger));
+    //println("Danger Level: "+danger + "  int: "+int(danger));
     battle = new Battle(party.hero,dm[party.floor].dangerValueChar(party.X,party.Y),-1);
   }
 }
 
 public void changeMap()
 {
-  println("FLOOR: " +party.floor + "  X: "+party.X + "  Y: "+party.Y);
+  //println("FLOOR: " +party.floor + "  X: "+party.X + "  Y: "+party.Y);
   for(int i = 0; i < exits.size(); i++)
     if(exits.get(i).originX == party.X
     && exits.get(i).originY == party.Y 
@@ -1027,7 +1032,7 @@ public int getZone( String title )
     case "Honeydell Kitchen":
     case "Honeydell Library":
     case "Honeydell Dining Hall":
-    case "Honeydell Lardor":
+    case "Honeydell Larder":
     case "Attic":
       return 8;
       
@@ -1099,17 +1104,17 @@ Input appropriateInputMode()
   return Input.BATTLE_SKILL_TARGET;
 }
 
-void handleSliders()
-{
+//void handleSliders()  //DEFUNCT?
+//{
   
-}
+//}
 
 void keyPressed()
 {
-  if( key == 'y' ) //DEBUG
+  if( debugMode && key == 'y' ) //DEBUG
     dangerMapOn = true;
-  //if( key == 'Y' ) //DEBUG (change floors)
-  //  party.floor++;
+  if( debugMode && key == 'Y' ) //DEBUG (change floors)
+    party.floor++;
   //if(key == '1')
   //  beep1.play();
   //if(key =='2')
@@ -1744,7 +1749,8 @@ void mousePressed()
   }
 
   //Testing
-  println(mouseX + " " + mouseY);
+  if(debugMode)
+    println(mouseX + " " + mouseY);
   //println("Bard:" + party.hero[1].bardBonus);
   //party.hero[2].energize(1);
   //party.hero[0].bardBonus++;
@@ -1972,7 +1978,8 @@ public void loadFile( String fileName )
     setNameDependentText();
     
     //load save point
-    println("Save point # " + int(saveFileText[72]));
+    if(debugMode)
+      println("Save point # " + int(saveFileText[72]));
     party.setPosition(savePoints[int(saveFileText[72])]); //line 54, will be based on list
     zoneNumber = savePoints[int(saveFileText[72])].zone;
     
@@ -2087,7 +2094,8 @@ void flipSwitches()
     if(itemSwitches[i]!=null && !itemSwitches[i].active) //switch has been deactivated
     {
       clearLoot(itemSwitches[i].floor,itemSwitches[i].X,itemSwitches[i].Y,i);
-      println("Item switched: "+i);
+      if(debugMode)
+        println("Item switched: "+i);
     }
   println("Item switches flipped.");
   for(int i = 0; i < doorSwitches.length; i++)

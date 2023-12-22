@@ -264,6 +264,7 @@ class Battle
         party.hero[0].bardBonus = party.hero[1].bardBonus = party.hero[2].bardBonus = 0;
         for(Hero h: party.hero) for(Buff b: h.buff) b.deactivate();
         end = EndStage.EXP;
+        checkAllForActive(); // <- should keep dead characters from gaining exp, and ensure alive characters get exp
         battleOver = true;
       }
     }
@@ -328,6 +329,12 @@ class Battle
       list[index].active = party.hero[index].alive;
     else
       list[index].active = battleMonsters[index-3].alive;
+  }
+  
+  public void checkAllForActive()
+  {
+    for(int i = 0; i < 3; i++)
+      list[i].active = party.hero[i].alive;
   }
   
   public void beginAttack( int a, int d )
