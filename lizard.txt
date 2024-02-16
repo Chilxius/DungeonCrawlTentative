@@ -8,19 +8,19 @@ SAURIAN
 0.0
 1
 150
-9
-900
-653
-97
+10
+1000
+287
+102
 0
-Chain
-chainWhip.png
-11
-22.0
+Stinger
+stinger.png
+15
+30.02
 Scales
 scales3.png
 0
-20.0
+21.0
 
 Inola
 THIEF
@@ -32,10 +32,10 @@ THIEF
 124.0
 2
 190
-9
-900
-653
-57
+10
+1000
+187
+50
 0
 Windrazor
 windKnife.png
@@ -56,11 +56,11 @@ DRUID
 40.0
 1
 235
-9
-900
-653
-55
-32
+10
+1000
+187
+60
+33
 Flamecaster
 Staff2.png
 25
@@ -70,11 +70,11 @@ fur.png
 25
 25.0
 
-10
+12
 
 372
-Grave Gown
-25
+Larval Queen
+45
 Ritual Knife
 35
 Ardent Apple
@@ -85,14 +85,18 @@ Royal Jelly
 26
 Royal Jelly
 26
+Grave Gown
+25
 Mana Potion
 24
-Roast Lamb
-20
 Back Bacon
+20
+Roast Lamb
 20
 Health Potion
 12
+Chain
+11
 Pita
 10
 XX
@@ -103,7 +107,6 @@ DRAGON
 CHARIS
 DRAGON
 DRAGON
-BRASS_KEY
 XX
 
 false
@@ -216,8 +219,8 @@ false
 false
 false
 false
-true
-true
+false
+false
 false
 false
 false
@@ -353,7 +356,7 @@ false
 false
 true
 false
-true
+false
 false
 false
 false
@@ -449,7 +452,7 @@ false
 false
 false
 false
-true
+false
 true
 true
 true

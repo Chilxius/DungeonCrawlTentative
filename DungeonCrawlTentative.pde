@@ -10,6 +10,7 @@
   //Playtest/balance Saurians
   //Rapids
   //Make equipment worth less than treasures
+  //Viper form poisons empty slots
 
 //To change once font is chosen:
   //cleric owed money
@@ -76,7 +77,7 @@ import ddf.minim.ugens.*;
 import processing.sound.*;
 
 //For Debug Mode
-boolean debugMode = false;
+boolean debugMode = true;
 
 int mapCount = 10;
 Map [] m = new Map[mapCount];

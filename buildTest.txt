@@ -10,8 +10,8 @@ KNIGHT
 150
 9
 900
-596
-64
+858
+43
 0
 Windrazor
 windKnife.png
@@ -34,9 +34,9 @@ MAGE
 150
 9
 900
-384
-28
-52
+646
+32
+48
 Flamecaster
 Staff2.png
 25
@@ -58,8 +58,8 @@ BARD
 234
 9
 900
-500
-47
+762
+30
 0
 Ritual Knife
 curvedDagger.png
@@ -70,7 +70,7 @@ chainBroken.png
 19
 29.0
 
-13
+11
 
 422
 Divine Dates
@@ -93,8 +93,6 @@ Mana Potion
 24
 Mana Potion
 24
-Back Bacon
-20
 Jerked Beef
 20
 Mutton Chop
