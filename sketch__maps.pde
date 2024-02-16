@@ -1490,7 +1490,7 @@ void createFloor3()
   mapStrings[mapIndex] += "w∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„ÇÇÇÇ„ÇÇÇ„Ç„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑ÇÇÇ„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„ÇÇÇ„„„ÇWWWWW„Ç„„„„„„„M∑∑∑∑∑∑∑∑MÇÇ„„„„„„„„„„„Ç„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„ÇÇ„„„„i+„MW„„„„„„„„„„∑∑∑∑∑∑∑∑ÇÇ[„[„[„[„[„„„„„„„„„„„„„MW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
+  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„ÇÇ„„„„i+„MW„„„„„„„„„„∑∑∑∑∑∑∑∑Ç„[„[„[„[„[„„„„„„„„„„„„„MW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„Ç„„„„„„„„Ç„„„„Ç„„WWWWW„„Ç„„„„„„„∑∑∑∑∑∑∑+„[„[„[„[„[„[„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„ÇÇÇÇ„„„„„ÇÇ„Ç„„„„„„„„„„∑∑∑∑∑∑∑∑„„[„[„[„[„[„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
   mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„„„„„Ç„„„„„Ç∑∑∑Ç„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑„[„[„[„[„[„[„„„∑∑∑„„„„„„Ç„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
@@ -2543,7 +2543,7 @@ void createFloor5()
   //Manor
   m[mapIndex].tiles[82][81].createEvent(false, "- They have left behind little apart from the smell of burt bread.");
   m[mapIndex].tiles[19][95].createEvent(false, "- It seems you've interrupted a game. Even when safe in their hideout, these bandits have weapons at the ready.");
-  m[mapIndex].tiles[79][73].createEvent(false, "- The bandits' stores are running low, it seems. They had not planned to be her so long.");
+  m[mapIndex].tiles[79][73].createEvent(false, "- The bandits' stores are running low, it seems. They had not planned to be here so long.");
   
   //Gatehouse
   m[mapIndex].tiles[72][1].placeOccupant( male, "- Your paperwork has been processed. Welcome to Waraka." );

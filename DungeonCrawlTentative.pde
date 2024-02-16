@@ -1,4 +1,11 @@
 //CURRENT TASK: //<>//
+  //Improve Rend damge
+  //Need a little more exp in forest before man-wolf
+  //Increase Prey damage
+  //Fix sekeleton "banana sword"
+  //Windrazor damage?
+  //Bandit knives still too powerful
+  //Viper form poisoned a dead enemy
   //Sister Kat by the river
   //Playtest/balance Saurians
   //Rapids
@@ -1027,6 +1034,7 @@ public int getZone( String title )
       
     //Library / honeydell manor
     case "Irohill Library":
+    case "Honeydell Manor":
     case "Honeydell Tunnel":
     case "Honeydell Bedroom":
     case "Honeydell Kitchen":
