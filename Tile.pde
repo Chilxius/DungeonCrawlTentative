@@ -68,6 +68,7 @@ class Tile
       //case '@':type=TileType.CAMP;break;
       case '#':type=TileType.WALL;break;
       case '$':type=TileType.SECRET_WALL;break;
+      case 'ş':type=TileType.WALL_CRACK;break; //ş
       case '3':type=TileType.DARK_WALL;break;
       case '‹':type=TileType.DARK_CRACK;break; //alt+shift+3
       case '¢':type=TileType.SECRET_DARK_WALL;break; //alt+4
@@ -132,6 +133,7 @@ class Tile
       case '^':type=TileType.HILL;break;
       case 'ø':type=TileType.HILL_CAVE;break; //alt+o
       case '»':type=TileType.AUTO_DOOR;break; 
+      case 'Œ':type=TileType.AUTO_CAVE_DOOR;break; 
       //different key types
       case 'c': // copper
       case 'ç':
@@ -221,6 +223,7 @@ class Tile
         tileColor = color(0);
         break;
       case AUTO_DOOR:
+      case AUTO_CAVE_DOOR:
         tileColor = color(0);
         break;
       case DARK_WALL: 
@@ -698,6 +701,8 @@ class Tile
       image(tileImage[86],xPos,yPos);
     else if(type == TileType.WOOD_CRACK)
       image(tileImage[122],xPos,yPos);
+    else if(type == TileType.WALL_CRACK)
+      image(tileImage[123],xPos,yPos);
     else if(type == TileType.SAND_WALL)
       image(tileImage[50],xPos,yPos);
     //else if(type == TileType.RUBBLE)
@@ -714,7 +719,7 @@ class Tile
       image(tileImage[70],xPos,yPos);
     else if(type == TileType.CAVE_DOOR)
       image(tileImage[113],xPos,yPos);
-    else if(type == TileType.CAVE_DOOR_OPEN)
+    else if(type == TileType.CAVE_DOOR_OPEN || type == TileType.AUTO_CAVE_DOOR)
       image(tileImage[114],xPos,yPos);
     else if(type == TileType.CAVE_HONEY)
       image(tileImage[97],xPos,yPos);
@@ -723,7 +728,7 @@ class Tile
     else if(type == TileType.COMB_FULL)
       image(tileImage[118],xPos,yPos);
     else if(type == TileType.HILL)
-      image(tileImage[98],xPos-10,yPos-10);
+    {  image(tileImage[70],xPos,yPos); image(tileImage[98],xPos-10,yPos-10); }
     else if(type == TileType.HILL_CAVE)
       image(tileImage[99],xPos-10,yPos-10);
     else if(type == TileType.CAMP)
@@ -833,6 +838,8 @@ class Tile
       image(tileImage[49],xPos,yPos);
     if(type == TileType.DARK_CRACK)
       image(tileImage[86],xPos,yPos);
+    if(type == TileType.WALL_CRACK)
+      image(tileImage[123],xPos,yPos);
     if(type == TileType.WOOD_CRACK)
       image(tileImage[122],xPos,yPos);
     if(type == TileType.TILE_ROOF)
@@ -847,6 +854,8 @@ class Tile
       image(tileImage[119],xPos,yPos);
     if(type == TileType.CAVE_BROWN_DOOR_OPEN)
       image(tileImage[120],xPos,yPos);
+    if(obj == Object.TENT)
+      image(tileImage[124],xPos,yPos);
     if(type == TileType.RAPIDS)
     {
       push();
@@ -919,14 +928,14 @@ public enum TileType
   CAVE, CAVE_BROWN, CAVE_DOOR, CAVE_DOOR_OPEN, CAVE_BROWN_DOOR, CAVE_BROWN_DOOR_OPEN, CAVE_HONEY,
   COMB, COMB_FULL,
   BOOK, BOOK_EMPTY, BOOK_SECRET, BL_BOOK, BK_BOOK, GAME,
-  WALL, SECRET_WALL, DARK_WALL, SECRET_DARK_WALL, DARK_WALL_CLIMBABLE, DARK_CRACK, SAND_WALL, RUBBLE_OBJ, CRATE_OBJ,
+  WALL, SECRET_WALL, WALL_CRACK, DARK_WALL, SECRET_DARK_WALL, DARK_WALL_CLIMBABLE, DARK_CRACK, SAND_WALL, RUBBLE_OBJ, CRATE_OBJ,
   DOOR, DOOR_GATE, PORTCULLIS, DOOR_FRAME, GATE_FRAME,
   BIG_RAT, DOORSTEP,
   GRAVE, S_GLASS, SECRET_GLASS, GARGOYLE, GARGOYLE_DARK, GARGOYLE_JADE, WEREWOLF_WHITE,
   CAMP, MERCHANT, SHOP, SELL,
   STAIR, STAIR_DOOR, CURTAIN, CURTAIN_RED, STAIR_WOOD,
   CHAIN, CHAIN_HOLE,
-  AUTO_DOOR
+  AUTO_DOOR, AUTO_CAVE_DOOR
 }
 
 public enum Key //special items for interactive tiles

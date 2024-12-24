@@ -53,6 +53,7 @@ class Map
           tiles[0][0].drawTile(155+(xDraw),180+(yDraw)); //Draw default tile, which is the tile at 0,0
           
     drawPartyPosition(a,b,c);  //Draws the heroes
+    println(tiles[party.X][party.Y].type);
     tiles[party.X][party.Y].drawForegroundObject(); //Re-draws the tile art if the heroes move behind it
     
     if(vanGogh.titleCardDuration > 0) //Location Title Card
@@ -63,6 +64,7 @@ class Map
   public void drawDangerMap( int x, int y )
   {
     push();
+    textAlign(CENTER);
     textSize(30);
     fill(250,127);
     for(int i = x-6, xDraw = 0; i <= x+6; i++,xDraw+=30)
@@ -70,6 +72,22 @@ class Map
         if( i >= 0 && j >= 0 && i < 100 && j < 100 )
           text(dm[party.floor].dangerValueChar(i,j),162+(xDraw),203+(yDraw));
           //tiles[i][j].drawTile(155+(xDraw),180+(yDraw)); //Draw Tile
+    pop();
+  }
+  
+  //Debug tool
+  public void drawLocationMap( int x, int y )
+  {
+    push();
+    textAlign(CENTER);
+    textSize(10);
+    fill(250,127);
+    for(int i = x-6, xDraw = 0; i <= x+6; i++,xDraw+=30)
+      for(int j = y-6, yDraw = 0; j <= y+6; j++,yDraw+=30)
+        if( i >= 0 && j >= 0 && i < 100 && j < 100 )
+        {
+          text( i + "," + j, 170+(xDraw), 195+(yDraw));
+        }
     pop();
   }
   

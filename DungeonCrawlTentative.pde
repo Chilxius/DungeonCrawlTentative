@@ -3,7 +3,7 @@
   //Need a little more exp in forest before man-wolf
   //Increase Prey damage
   //Fix sekeleton "banana sword"
-  //Windrazor damage?
+  //Windrazor damage
   //Bandit knives still too powerful
   //Viper form poisoned a dead enemy
   //Sister Kat by the river
@@ -11,6 +11,9 @@
   //Rapids
   //Make equipment worth less than treasures
   //Viper form poisons empty slots
+  //Stalagmite tile?
+  //Walking up into rapids pushes the player down two
+  //Grass!
 
 //To change once font is chosen:
   //cleric owed money
@@ -83,6 +86,8 @@ int mapCount = 10;
 Map [] m = new Map[mapCount];
 DangerMap [] dm = new DangerMap[mapCount];
 boolean dangerMapOn = false; //DEBUG TOOL
+boolean locationMapOn = false; //DEBUG TOOL
+boolean noClip = false; //DEBUG TOOL
 
 //Game begins waiting for a typed input, which will be stored as the save file name
 Input input = Input.TYPING;
@@ -337,6 +342,8 @@ void setup()
   tileImage[120]= loadImage("caveBrownOverlay.png");tileImage[120].resize(30,0);
   tileImage[121]= loadImage("chestGoopy.png");   tileImage[121].resize(30,0);
   tileImage[122]= loadImage("woodCracked.png");  tileImage[122].resize(30,0);
+  tileImage[123]= loadImage("wallCracked.png");  tileImage[123].resize(30,0);
+  tileImage[124]= loadImage("tent_outer.png");   tileImage[124].resize(30,0);
   
   iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
   iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
@@ -517,6 +524,8 @@ void draw()
   //text("X:"+(mouseX-25) + " Y:"+(mouseY-25), width/2, 100);
   if( dangerMapOn )
     m[party.floor].drawDangerMap( party.X, party.Y );
+  if( locationMapOn )
+    m[party.floor].drawLocationMap( party.X, party.Y );
 }
 
 void drawConditions()
@@ -674,25 +683,28 @@ boolean attemptMove( String direction )
   switch(direction)
   {
     case "left":
-      if(party.X > 0 && m[party.floor].tilePathable(party.X-1,party.Y))
+      if((party.X > 0 && m[party.floor].tilePathable(party.X-1,party.Y)) || noClip)
       {  party.X--; checkEvent(); result = true; } break;
     case "right":
-      if(party.X < 99 && m[party.floor].tilePathable(party.X+1,party.Y))
+      if((party.X < 99 && m[party.floor].tilePathable(party.X+1,party.Y)) || noClip)
       {  party.X++; checkEvent(); result = true; } break;
     case "up":
-      if(party.Y > 0 && m[party.floor].tilePathable(party.X,party.Y-1))
+      if((party.Y > 0 && m[party.floor].tilePathable(party.X,party.Y-1)) || noClip)
       { party.Y--; checkEvent(); result = true; } break;
     case "down":
-      if(party.Y < 99 && m[party.floor].tilePathable(party.X,party.Y+1))
+      if((party.Y < 99 && m[party.floor].tilePathable(party.X,party.Y+1)) || noClip)
       {  party.Y++; checkEvent(); result = true; } break;
   }
   
-  if( m[party.floor].tiles[party.X][party.Y].type == TileType.AUTO_DOOR ) //This will probably be a method later
+  if( checkRapids( direction ) )
+    checkEvent();
+  
+  if( m[party.floor].tiles[party.X][party.Y].type == TileType.AUTO_DOOR || m[party.floor].tiles[party.X][party.Y].type == TileType.AUTO_CAVE_DOOR ) //This will probably be a method later
     changeMap();
   
   vanGogh.checkLocationForTitleCard( party.floor, party.X, party.Y );
   
-  if( result && checkForBattle() )
+  if( result && checkForBattle() && !noClip )
     triggerBattle(dm[party.floor].dangerValueChar(party.X,party.Y));
   
   return result;
@@ -700,16 +712,31 @@ boolean attemptMove( String direction )
 
 void checkEvent()
 {
+  //Event text
   if(m[party.floor].tileHasEvent(party.X,party.Y))
   {
     //println("PLAY EVENT");
     m[party.floor].tiles[party.X][party.Y].playEvent();
   }
-  //Rapids
-  if(party.Y < 99 && m[party.floor].tiles[party.X][party.Y].type==TileType.RAPIDS && m[party.floor].tiles[party.X][party.Y+1].pathable)
+}
+
+boolean checkRapids( String d )
+{
+  boolean result = false;
+  if(party.Y < 99 && m[party.floor].tiles[party.X][party.Y].type==TileType.RAPIDS )//&& m[party.floor].tiles[party.X][party.Y+1].pathable)
   {
-    party.Y++;
+    if( d.equals("up") && m[party.floor].tiles[party.X][party.Y+1].pathable )
+    {
+      party.Y++;
+      result = true;
+    }
+    if( !d.equals("down") && m[party.floor].tiles[party.X][party.Y+1].pathable )
+    {
+      party.Y++;
+      result = true;
+    }
   }
+  return result;
 }
 
 boolean checkForBattle()
@@ -739,34 +766,34 @@ boolean checkForBattle()
   
 public String randomName()
 {
-  switch( int(random(74)) )
+  switch( int(random(97)) )
   {
-    case 1: return "Angel";    case 26: return "Alex";     case 42: return "Ash";
-    case 2: return "Björn";    case 27: return "Briar";    case 52: return "Bella";
-    case 3: return "Cadell";   case 28: return "Colette";  case 53: return "Cyrus";
-    case 4: return "Darya";    case 29: return "Draco";    case 54: return "Dirk";
-    case 5: return "Enyo";     case 30: return "Elwyn";    case 55: return "Europa";
-    case 6: return "Fritjof";  case 31: return "Faith";    case 56: return "Freya";
-    case 7: return "Gunhild";  case 32: return "Gale";     case 57: return "Gabriel";
-    case 8: return "Homer";    case 33: return "Hana";     case 58: return "Hope";
-    case 9: return "Inola";    case 34: return "Ivan";     case 59: return "Ilsa";
-    case 10: return "Joy";     case 35: return "Jazz";     case 60: return "Jude";
-    case 11: return "Kai";     case 36: return "Kim";      case 61: return "Kris";
-    case 12: return "Leocadia";case 37: return "Law";      case 62: return "Luna";
-    case 13: return "Marc";    case 38: return "Misty";    case 63: return "Molly";
-    case 14: return "Nadya";   case 39: return "Neon";     case 64: return "Nail";
-    case 15: return "Orion";   case 40: return "Olga";     case 65: return "Onyx";
-    case 16: return "Phoenix"; case 41: return "Penelope"; case 66: return "Pip";
-    case 17: return "Quinn";   
-    case 18: return "Raven";   case 43: return "Rook";     case 67: return "River";
-    case 19: return "Sky";     case 44: return "Spike";    case 68: return "Sage";
-    case 20: return "Tybalt";  case 45: return "Tabitha";  case 69: return "Tigerlily";
+    case 1: return "Angel";    case 26: return "Alex";     case 42: return "Ash";     case 74: return "Alicia";
+    case 2: return "Björn";    case 27: return "Briar";    case 52: return "Bella";   case 75: return "Basil";
+    case 3: return "Cadell";   case 28: return "Colette";  case 53: return "Cyrus";   case 76: return "Caroline";
+    case 4: return "Darya";    case 29: return "Draco";    case 54: return "Dirk";    case 77: return "Dexter";
+    case 5: return "Enyo";     case 30: return "Elwyn";    case 55: return "Europa";  case 78: return "Ella";
+    case 6: return "Fritjof";  case 31: return "Faith";    case 56: return "Freya";   case 79: return "Ferris";
+    case 7: return "Gunhild";  case 32: return "Gale";     case 57: return "Gabriel"; case 80: return "Godric";
+    case 8: return "Homer";    case 33: return "Hana";     case 58: return "Hope";    case 81: return "Herschel";
+    case 9: return "Inola";    case 34: return "Ivan";     case 59: return "Ilsa";    case 82: return "Inigo";
+    case 10: return "Joy";     case 35: return "Jazz";     case 60: return "Jude";    case 83: return "Jack";
+    case 11: return "Kai";     case 36: return "Kim";      case 61: return "Kris";    case 84: return "Knox";
+    case 12: return "Leocadia";case 37: return "Law";      case 62: return "Luna";    case 85: return "Linus";
+    case 13: return "Marc";    case 38: return "Misty";    case 63: return "Molly";   case 86: return "Michael";
+    case 14: return "Nadya";   case 39: return "Neon";     case 64: return "Nail";    case 87: return "Nick";
+    case 15: return "Orion";   case 40: return "Olga";     case 65: return "Onyx";    case 88: return "Ophelia";
+    case 16: return "Phoenix"; case 41: return "Penelope"; case 66: return "Pip";     case 89: return "Paris";
+    case 17: return "Quinn";                                                          case 90: return "Queenie";
+    case 18: return "Raven";   case 43: return "Rook";     case 67: return "River";   case 91: return "Rafe";
+    case 19: return "Sky";     case 44: return "Spike";    case 68: return "Sage";    case 92: return "Saria";
+    case 20: return "Tybalt";  case 45: return "Tabitha";  case 69: return "Tigerlily"; case 93: return "Taro";
     case 21: return "Ursa";    case 46: return "Ulric";
-    case 22: return "Vela";    case 47: return "Vulcan";   case 70: return "";
-    case 23: return "Wystan";  case 48: return "Willow";   case 71: return "Wren";
+    case 22: return "Vela";    case 47: return "Vulcan";   case 70: return "Vahn";
+    case 23: return "Wystan";  case 48: return "Willow";   case 71: return "Wren";    case 94: return "William";
     case 24: return "Xena";    case 49: return "Xia";
-    case 25: return "Yoko";    case 50: return "Yin";      case 72: return "Yang";
-    default: return "Zazi";    case 51: return "Zak";      case 73: return "Zoe";
+    case 25: return "Yoko";    case 50: return "Yin";      case 72: return "Yang";    case 95: return "York";
+    default: return "Zazi";    case 51: return "Zak";      case 73: return "Zoe";     case 96: return "Mary Sue";
   }
 }
 
@@ -1122,8 +1149,14 @@ void keyPressed()
 {
   if( debugMode && key == 'y' ) //DEBUG
     dangerMapOn = true;
-  if( debugMode && key == 'Y' ) //DEBUG (change floors)
+  if( noClip && key == 'F' ) //DEBUG (change floors)
     party.floor++;
+  if( noClip && key == 'U' ) //DEBUG (change floors)
+    party.floor--;
+  if( debugMode && key == 'u' )
+    locationMapOn = true;
+  if( debugMode && key == 'N' )
+    noClip = !noClip;
   //if(key == '1')
   //  beep1.play();
   //if(key =='2')
@@ -1575,6 +1608,8 @@ void keyReleased()
 { //<>//
   if( key == 'y' )
     dangerMapOn = false;
+  if( key == 'u' )
+    locationMapOn = false;
   
   if( display == Display.ITEM_LIST && key == 's' )
     party.sortInventory();
