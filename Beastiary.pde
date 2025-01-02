@@ -240,6 +240,57 @@ class Beastiary
     list[dangerZone][2] = new Monster();
     list[dangerZone][3] = new Monster();
     list[dangerZone][4] = new Monster();
+    
+    //; - Subterranian Waterway (easy)
+      dangerZone++;
+    list[dangerZone][0] = new Monster("BigSquid", "GreenSquid2.png", 9, 26, 30, 7, 1, 4, 20, 0, AttackType.NONE, 10);
+      list[dangerZone][0].attacks[0] = new Attack("tries to get behind you.");
+      list[dangerZone][0].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP );
+      list[dangerZone][0].attacks[2] = new Attack("stabs with a knife.", 50, false, AttackStat.DEX, AttackType.NONE );
+      list[dangerZone][0].attacks[3] = new Attack("strikes with his sword.", 70, false );
+      list[dangerZone][0].attacks[4] = new Attack("flings knives!", 50, true );
+    list[dangerZone][1] = new Monster("BigSquid", "GreenSquid2.png", 9, 7, 20, 4, 15, 7, 18, 0, AttackType.NONE, 10);
+      list[dangerZone][1].attacks[0] = new Attack("begins chanting a spell.");
+      list[dangerZone][1].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP );
+      list[dangerZone][1].attacks[2] = new Attack("summons a ball of fire.", 50, false, AttackStat.MAG, AttackType.FIRE );
+      list[dangerZone][1].attacks[3] = new Attack("summons shards of ice.", 55, false, AttackStat.MAG, AttackType.ICE );
+      list[dangerZone][1].attacks[4] = new Attack("conjures a tempest!", 55, true, AttackStat.MAG, AttackType.WIND );
+    list[dangerZone][2] = new Monster("BigSquid", "GreenSquid2.png", 9, 7, 20, 4, 15, 7, 18, 0, AttackType.NONE, 10);
+      list[dangerZone][2].attacks[0] = new Attack("begins chanting a spell.");
+      list[dangerZone][2].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP );
+      list[dangerZone][2].attacks[2] = new Attack("summons a ball of fire.", 50, false, AttackStat.MAG, AttackType.FIRE );
+      list[dangerZone][2].attacks[3] = new Attack("summons shards of ice.", 55, false, AttackStat.MAG, AttackType.ICE );
+      list[dangerZone][2].attacks[4] = new Attack("conjures a tempest!", 55, true, AttackStat.MAG, AttackType.WIND );
+    list[dangerZone][3] = new Monster("BigSquid", "GreenSquid2.png", 9, 7, 20, 4, 15, 7, 18, 0, AttackType.NONE, 10);
+      list[dangerZone][3].attacks[0] = new Attack("begins chanting a spell.");
+      list[dangerZone][3].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP );
+      list[dangerZone][3].attacks[2] = new Attack("summons a ball of fire.", 50, false, AttackStat.MAG, AttackType.FIRE );
+      list[dangerZone][3].attacks[3] = new Attack("summons shards of ice.", 55, false, AttackStat.MAG, AttackType.ICE );
+      list[dangerZone][3].attacks[4] = new Attack("conjures a tempest!", 55, true, AttackStat.MAG, AttackType.WIND );
+    list[dangerZone][4] = new Monster("BigSquid", "GreenSquid2.png", 9, 7, 20, 4, 15, 7, 18, 0, AttackType.NONE, 10);
+      list[dangerZone][4].attacks[0] = new Attack("begins chanting a spell.");
+      list[dangerZone][4].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP );
+      list[dangerZone][4].attacks[2] = new Attack("summons a ball of fire.", 50, false, AttackStat.MAG, AttackType.FIRE );
+      list[dangerZone][4].attacks[3] = new Attack("summons shards of ice.", 55, false, AttackStat.MAG, AttackType.ICE );
+      list[dangerZone][4].attacks[4] = new Attack("conjures a tempest!", 55, true, AttackStat.MAG, AttackType.WIND );
+    
+    //< - Subterranian Waterway (hard)
+      dangerZone++;
+    list[dangerZone][0] = new Monster("Bandit", "bandit.png", 90, 26, 30, 7, 1, 4, 20, 0, AttackType.NONE, 10);
+      list[dangerZone][0].attacks[0] = new Attack("tries to get behind you.");
+      list[dangerZone][0].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP );
+      list[dangerZone][0].attacks[2] = new Attack("stabs with a knife.", 50, false, AttackStat.DEX, AttackType.NONE );
+      list[dangerZone][0].attacks[3] = new Attack("strikes with his sword.", 70, false );
+      list[dangerZone][0].attacks[4] = new Attack("flings knives!", 50, true );
+    list[dangerZone][1] = new Monster("Bandit Mage", "banditMage.png", 90, 7, 20, 4, 15, 7, 18, 0, AttackType.NONE, 10);
+      list[dangerZone][1].attacks[0] = new Attack("begins chanting a spell.");
+      list[dangerZone][1].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP );
+      list[dangerZone][1].attacks[2] = new Attack("summons a ball of fire.", 50, false, AttackStat.MAG, AttackType.FIRE );
+      list[dangerZone][1].attacks[3] = new Attack("summons shards of ice.", 55, false, AttackStat.MAG, AttackType.ICE );
+      list[dangerZone][1].attacks[4] = new Attack("conjures a tempest!", 55, true, AttackStat.MAG, AttackType.WIND );
+    list[dangerZone][2] = new Monster();
+    list[dangerZone][3] = new Monster();
+    list[dangerZone][4] = new Monster();
   }
   
   public void addBossToList( Monster m )
@@ -345,6 +396,21 @@ class Beastiary
           battleMonsters[0].attacks[3] = new Attack("sprays pressurized honey.", 55, true );
           battleMonsters[0].attacks[4] = new Attack("pounds with both fists!", 80, false );
         battleMonsters[2] = new Monster("Royal Golem", "royalGolem.png", 50, 30, 10, 10, 1, 10, 15, 0, AttackType.FIRE);
+          battleMonsters[2].attacks[0] = new Attack("defends its queen.");
+          battleMonsters[2].attacks[1] = new Attack("hurls a block of wax.", 60, false );
+          battleMonsters[2].attacks[2] = new Attack("rushes you.", 70, false );
+          battleMonsters[2].attacks[3] = new Attack("sprays pressurized honey.", 55, true );
+          battleMonsters[2].attacks[4] = new Attack("pounds with both fists!", 80, false );
+      break;
+          
+      case "Giant Squid":                       //String n, String image,  health, s,  d,  c, m,  w, sp, g, AttackType weak
+        battleMonsters[0] = new Monster("10tacle", "GreenTentacle.png", 50, 30, 10, 10, 1, 10, 15, 0, AttackType.FIRE);
+          battleMonsters[0].attacks[0] = new Attack("defends its queen.");
+          battleMonsters[0].attacks[1] = new Attack("hurls a block of wax.", 60, false );
+          battleMonsters[0].attacks[2] = new Attack("rushes you.", 70, false );
+          battleMonsters[0].attacks[3] = new Attack("sprays pressurized honey.", 55, true );
+          battleMonsters[0].attacks[4] = new Attack("pounds with both fists!", 80, false );
+        battleMonsters[2] = new Monster("Tentacle", "GreenTentacle.png", 50, 30, 10, 10, 1, 10, 15, 0, AttackType.FIRE);
           battleMonsters[2].attacks[0] = new Attack("defends its queen.");
           battleMonsters[2].attacks[1] = new Attack("hurls a block of wax.", 60, false );
           battleMonsters[2].attacks[2] = new Attack("rushes you.", 70, false );

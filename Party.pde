@@ -7,6 +7,7 @@ class Party
   Key [] keyInventory = new Key[30];
   Item [] inventory = new Item[30];
   int gold;
+  int reagents;
   
   public Party()
   {
@@ -24,6 +25,7 @@ class Party
     floor = 0;
     
     gold = 0;
+    reagents = 0;
   }
   
   public void setPosition( int f, int xPos, int yPos )
@@ -54,6 +56,8 @@ class Party
   {
     if( item.keyType != Key.NONE )
     {
+      if( isBombKit(item.keyType) )
+        item.consolidateBombKit();
       addToKeys(item.keyType);
       return true;
     }

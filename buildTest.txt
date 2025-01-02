@@ -11,7 +11,7 @@ KNIGHT
 9
 900
 858
-43
+69
 0
 Windrazor
 windKnife.png
@@ -35,8 +35,8 @@ MAGE
 9
 900
 646
-32
-48
+37
+57
 Flamecaster
 Staff2.png
 25
@@ -59,7 +59,7 @@ BARD
 9
 900
 762
-30
+53
 0
 Ritual Knife
 curvedDagger.png
@@ -70,9 +70,10 @@ chainBroken.png
 19
 29.0
 
-11
+10
 
 422
+5
 Divine Dates
 30
 Pear of Purity
@@ -110,6 +111,7 @@ CHARIS
 DRAGON
 DRAGON
 BRASS_KEY
+FA
 XX
 
 false

@@ -44,6 +44,75 @@ class Item
     return false;
   }
   
+  //Combine existing bomb kits  (this is getting verbose)
+  public void consolidateBombKit()
+  {
+    //Previous kit
+    int existingKitIndex = -1; //<>//
+    //Find kit's index
+    for(int i = 0; i < party.keyInventory.length; i++)
+    {
+      if( isBombKit( party.keyInventory[i] ) )
+      {
+        existingKitIndex = i;
+        break;
+      }
+    }
+    //No kit - leave method
+    if( existingKitIndex == -1 )
+      return;
+    
+    keyType = fusedKit( party.keyInventory[existingKitIndex] );
+    party.keyInventory[existingKitIndex] = Key.NONE;
+  }
+  
+  public Key fusedKit( Key old )
+  {
+    if( keyType == Key.F )
+    {
+      if( old == Key.I ) return Key.FI;
+      if( old == Key.A ) return Key.FA;
+      if( old == Key.W ) return Key.FW;
+      if( old == Key.IA ) return Key.FIA;
+      if( old == Key.IW ) return Key.FIW;
+      if( old == Key.AW ) return Key.FAW;
+      if( old == Key.IAW ) return Key.FIAW;
+    }
+    else if( keyType == Key.I )
+    {
+      if( old == Key.F ) return Key.FI;
+      if( old == Key.A ) return Key.IA;
+      if( old == Key.W ) return Key.IW;
+      if( old == Key.FA ) return Key.FIA;
+      if( old == Key.FW ) return Key.FIW;
+      if( old == Key.AW ) return Key.IAW;
+      if( old == Key.FAW ) return Key.FIAW;
+    }
+    else if( keyType == Key.A )
+    {
+      if( old == Key.F ) return Key.FA;
+      if( old == Key.I ) return Key.IA;
+      if( old == Key.W ) return Key.AW;
+      if( old == Key.FI ) return Key.FIA;
+      if( old == Key.FW ) return Key.FAW;
+      if( old == Key.IW ) return Key.IAW;
+      if( old == Key.FIW ) return Key.FIAW;
+    }
+    else if( keyType == Key.W )
+    {
+      if( old == Key.F ) return Key.FW;
+      if( old == Key.I ) return Key.IW;
+      if( old == Key.A ) return Key.AW;
+      if( old == Key.FI ) return Key.FIW;
+      if( old == Key.FA ) return Key.FAW;
+      if( old == Key.IA ) return Key.IAW;
+      if( old == Key.FIA ) return Key.FIAW;
+    }
+    
+    println("ISSUE COMBINING BOMB KIT");
+    return old;
+  }
+  
   public String toString()
   {
     return name;
@@ -87,6 +156,23 @@ public String keyName( Key k )
     case PASSPORT: return "Passport Documents";
     case GRAVE: return "Graveyard Girl's Key";
     case CAVE: return "Long Metal Key";
+    
+    case F: return "Fire Bomb Kit";
+    case I: return "Ice Bomb Kit";
+    case A: return "Acid Bomb Kit";
+    case W: return "Wind Bomb Kit";
+    case FI: return "Fire and Ice Bomb Kit";
+    case FA: return "Fire and Acid Bomb Kit";
+    case FW: return "Fire and Wind Bomb Kit";
+    case IA: return "Ice and Acid Bomb Kit";
+    case IW: return "Ice and Wind Bomb Kit";
+    case AW: return "Acid and Wind Bomb Kit";
+    case FIA: return "Fire/Ice/Acid Bomb Kit";
+    case FIW: return "Fire/Ice/Wind Bomb Kit";
+    case FAW: return "Fire/Acid/Wind Bomb Kit";
+    case IAW: return "Ice/Acid/Wind Bomb Kit";
+    case FIAW: return "Complete Bomb Kit";
+    
     default: return "";
   }
 }
@@ -109,6 +195,23 @@ Key stringToKey( String s )
     case "PASSPORT": return Key.PASSPORT;
     case "GRAVE": return Key.GRAVE;
     case "CAVE": return Key.CAVE;
+    
+    case "F":    return Key.F;
+    case "I":    return Key.I;
+    case "A":    return Key.A;
+    case "W":    return Key.W;
+    case "FI":   return Key.FI;
+    case "FA":   return Key.FA;
+    case "FW":   return Key.FW;
+    case "IA":   return Key.IA;
+    case "IW":   return Key.IW;
+    case "AW":   return Key.AW;
+    case "FIA":  return Key.FIA;
+    case "FIW":  return Key.FIW;
+    case "FAW":  return Key.FAW;
+    case "IAW":  return Key.IAW;
+    case "FIAW": return Key.FIAW;
+    
     default: return Key.NONE;
   }
 }

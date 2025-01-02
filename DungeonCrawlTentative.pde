@@ -8,12 +8,15 @@
   //Viper form poisoned a dead enemy
   //Sister Kat by the river
   //Playtest/balance Saurians
-  //Rapids
   //Make equipment worth less than treasures
   //Viper form poisons empty slots
-  //Stalagmite tile?
   //Walking up into rapids pushes the player down two
   //Grass!
+  //No "monster takes damage" message after magic
+  //Get mp back from attacking
+  //Some extra bonus from defending?
+  //Bombs: keep from crit
+  //Still getting into un-endable text loop (debug mode?)
 
 //To change once font is chosen:
   //cleric owed money
@@ -162,7 +165,7 @@ PImage cursor;
 PImage border;
 
 //Item data
-Loot [][] lootList = new Loot[7][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
+Loot [][] lootList = new Loot[8][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
 Loot emptyChest = new Loot(0,0,new Item(),"EMPTY CHEST ERROR");
 int consumableValue = 0;
 Equipment newEquip, oldEquip; //for switching in new equipment
@@ -344,6 +347,13 @@ void setup()
   tileImage[122]= loadImage("woodCracked.png");  tileImage[122].resize(30,0);
   tileImage[123]= loadImage("wallCracked.png");  tileImage[123].resize(30,0);
   tileImage[124]= loadImage("tent_outer.png");   tileImage[124].resize(30,0);
+  tileImage[125]= loadImage("stalagmite.png");   tileImage[125].resize(40,0);
+  tileImage[126]= loadImage("stalagmite2.png");  tileImage[126].resize(40,0);
+  tileImage[127]= loadImage("fireBomb.png");     tileImage[127].resize(56,0);
+  tileImage[128]= loadImage("reagents.png");     tileImage[128].resize(56,0);
+  tileImage[129]= loadImage("iceBomb.png");      tileImage[129].resize(56,0);
+  tileImage[130]= loadImage("acidBomb.png");     tileImage[130].resize(56,0);
+  tileImage[131]= loadImage("thunderBomb3.png");  tileImage[131].resize(56,0);
   
   iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
   iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
@@ -363,6 +373,7 @@ void setup()
   battleBack[5] = loadImage("beeCave2.png"); battleBack[5].resize(670,0);
   battleBack[6] = loadImage("testBack2.png");
   battleBack[7] = loadImage("stoneWallWindow.png");battleBack[7].resize(670,0);
+  battleBack[8] = loadImage("waterCave9.png");     battleBack[8].resize(670,0);
   
   effectImage[0] = loadImage("bardBonus.png");      effectImage[0].resize(30,0);
   
@@ -617,6 +628,35 @@ void createLoot( int serial, int fl, int xP, int yP, Item i )
   lootList[fl][serial] = new Loot(xP,yP,i);
   itemSwitches[itemSwitchCount++] = new ProgressSwitch( SwitchType.CHEST, xP, yP, fl );
 }
+  
+public boolean isBombKit( Key k ) //Is key a bomb kit
+{
+  if( k == Key.F || k == Key.I || k == Key.A || k == Key.W
+   || k == Key.FI || k == Key.FA || k == Key.FW
+   || k == Key.IA || k == Key.IW || k == Key.AW
+   || k == Key.FIA || k == Key.FIW || k == Key.FAW || k == Key.IAW
+   || k == Key.FIAW )
+    return true;
+  return false;
+}
+
+void getActiveBombs( Key kit, boolean [] bomb )
+{
+  if( kit == Key.FIAW )
+  {
+    bomb[0]=bomb[1]=bomb[2]=bomb[3]=true;
+    return;
+  }
+  
+  if( kit == Key.F || kit == Key.FI || kit == Key.FA || kit == Key.FW || kit == Key.FIA || kit == Key.FIW || kit == Key.FAW )
+    bomb[0] = true;
+  if( kit == Key.I || kit == Key.FI || kit == Key.IA || kit == Key.IW || kit == Key.FIA || kit == Key.FIW || kit == Key.IAW )
+    bomb[1] = true;
+  if( kit == Key.A || kit == Key.IA || kit == Key.FA || kit == Key.AW || kit == Key.FIA || kit == Key.IAW || kit == Key.FAW )
+    bomb[2] = true;
+  if( kit == Key.W || kit == Key.IW || kit == Key.AW || kit == Key.FW || kit == Key.IAW || kit == Key.FIW || kit == Key.FAW )
+    bomb[3] = true;
+}
 
 String ordinalNumber( int num ) //for indecies
 {
@@ -696,7 +736,7 @@ boolean attemptMove( String direction )
       {  party.Y++; checkEvent(); result = true; } break;
   }
   
-  if( checkRapids( direction ) )
+  if( checkRapids( direction ) && input != Input.ADVANCE_TEXT ) //Had to add input check to avoid adding bonk text during conversations while on rapids
     checkEvent();
   
   if( m[party.floor].tiles[party.X][party.Y].type == TileType.AUTO_DOOR || m[party.floor].tiles[party.X][party.Y].type == TileType.AUTO_CAVE_DOOR ) //This will probably be a method later
@@ -723,6 +763,7 @@ void checkEvent()
 boolean checkRapids( String d )
 {
   boolean result = false;
+  //Pull Down
   if(party.Y < 99 && m[party.floor].tiles[party.X][party.Y].type==TileType.RAPIDS )//&& m[party.floor].tiles[party.X][party.Y+1].pathable)
   {
     if( d.equals("up") && m[party.floor].tiles[party.X][party.Y+1].pathable )
@@ -733,6 +774,48 @@ boolean checkRapids( String d )
     if( !d.equals("down") && m[party.floor].tiles[party.X][party.Y+1].pathable )
     {
       party.Y++;
+      result = true;
+    }
+  }
+  //Pull Up
+  if(party.Y > 0 && m[party.floor].tiles[party.X][party.Y].type==TileType.RAPIDS_UP )
+  {
+    if( !d.equals("up") && m[party.floor].tiles[party.X][party.Y-1].pathable )
+    {
+      party.Y--;
+      result = true;
+    }
+    if( d.equals("down") && m[party.floor].tiles[party.X][party.Y-1].pathable )
+    {
+      party.Y--;
+      result = true;
+    }
+  }
+  //Pull Left
+  if(party.X > 0 && m[party.floor].tiles[party.X][party.Y].type==TileType.RAPIDS_LEFT )
+  {
+    if( !d.equals("left") && m[party.floor].tiles[party.X-1][party.Y].pathable )
+    {
+      party.X--;
+      result = true;
+    }
+    if( d.equals("right") && m[party.floor].tiles[party.X-1][party.Y].pathable )
+    {
+      party.X--;
+      result = true;
+    }
+  }
+  //Pull Right
+  if(party.X < 99 && m[party.floor].tiles[party.X][party.Y].type==TileType.RAPIDS_RIGHT )
+  {
+    if( d.equals("left") && m[party.floor].tiles[party.X+1][party.Y].pathable )
+    {
+      party.X++;
+      result = true;
+    }
+    if( !d.equals("right") && m[party.floor].tiles[party.X+1][party.Y].pathable )
+    {
+      party.X++;
       result = true;
     }
   }
@@ -833,6 +916,8 @@ String bonkText( char direction ) //for when the heroes run into obstacles
     case CRATE:
     case CRATE_OBJ: return "A heavy crate";
     case FENCE_OBJ: return "A sturdy fence";
+    case STALAGMITE:
+    case STALAGMITE_OBJ: return "A rigid stalagmite";
     case BOOK: return "A shelf full of books";
     case BOOK_EMPTY: return "An empty shelf";
   }
@@ -1111,6 +1196,10 @@ public int getZone( String title )
     case "Forecastle":
       return 6;
       
+    //Underground River
+    case "Subterranean River":
+      return 13;
+      
     //Silent Zones
     default: return 0;
   }
@@ -1130,6 +1219,18 @@ public String jobToString( Job j )
     case PRIEST:    return "Priest";
     case MAGE:      return "Mage";
     default: return "Unemployed";
+  }
+}
+
+public String bombName( int bombType )
+{
+  switch( bombType )
+  {
+    case 5: return " Flame";
+    case 6: return "n Ice";
+    case 7: return "n Acid";
+    case 8: return " Thunder";
+    default: return " UNKNOWN";
   }
 }
   
@@ -1428,10 +1529,10 @@ void keyPressed()
     }
     else if(input == Input.BATTLE_ITEM)
     {
-      if( key == 'a' ) key = '1';
-      if( key == 's' ) key = '2';
-      if( key == 'd' ) key = '3';
-      if( key == 'f' ) key = '4';
+      if( key == 'a' ) key = '1';  if( key == 'h' ) key = '5';
+      if( key == 's' ) key = '2';  if( key == 'j' ) key = '6';
+      if( key == 'd' ) key = '3';  if( key == 'k' ) key = '7';
+      if( key == 'f' ) key = '4';  if( key == 'l' ) key = '8';
       if( ( key == '1' || key == '2' || key == '3' || key == '4' ) && party.hasPotion(key-48) ) //used health potion and has at least one of that potion
       {
         if( key == '3' )
@@ -1450,8 +1551,15 @@ void keyPressed()
         {
           input = Input.BATTLE_ITEM_HERO_CHOICE;
           potionType = key-48;
-          //println("Potion Type: " + potionType);
+          println("Potion Type: " + potionType);
         }
+      }
+      if( ( key == '5' || key == '6' || key == '7' || key == '8' ) && party.reagents > 0 ) //Use Bomb
+      {
+        input = Input.BATTLE_ITEM_TARGET;
+        potionType = key-48;
+        skillSelection = potionType+3; // 8 - flame,  9 - ice, 10 - acid, 11 - thunder
+        println("Potion Type: " + potionType);
       }
       if( key == 'x' || key == ' ' ) //cancel and return to battle menu
         input = Input.BATTLE_MENU;
@@ -1471,6 +1579,21 @@ void keyPressed()
           battle.setBattleDelay();
           battle.resumeInitiative();
         }
+      }
+    }
+    else if(input == Input.BATTLE_ITEM_TARGET) //choosing bomb
+    {
+      if(      ( key == 'a' || key == 'A' || key == '1' ) && battle.list[3].active )
+        battle.throwBomb( battle.turn, 3);
+      else if( ( key == 's' || key == 'S' || key == '2' ) && battle.list[4].active )
+        battle.throwBomb( battle.turn, 4);
+      else if( ( key == 'd' || key == 'D' || key == '3' ) && battle.list[5].active )
+        battle.throwBomb( battle.turn, 5);
+        
+      else if( key == 'x' || key == ' ' ) //cancel and return to skill menu
+      {
+        input = Input.BATTLE_ITEM;
+        potionType = -1;
       }
     }
   }
@@ -1747,7 +1870,7 @@ void mousePressed()
     if( mouseInBox(420,430) ) { key = 'd'; keyPressed(); }
     if( mouseInBox(560,430) ) { key = 'f'; keyPressed(); }
   }
-  else if( input == Input.BATTLE_SKILL_TARGET ||input == Input.BATTLE_ATTACK_TARGET ) //attacked or skill used or cancelled
+  else if( input == Input.BATTLE_SKILL_TARGET || input == Input.BATTLE_ATTACK_TARGET || input == Input.BATTLE_ITEM_TARGET ) //attacked or skill used or cancelled
   {
     if( mouseX > 40+frameX  && mouseX < 240+frameX && mouseY > 180+frameY && mouseY < 380+frameY ) { key = 'a'; keyPressed(); }
     if( mouseX > 250+frameX && mouseX < 450+frameX && mouseY > 180+frameY && mouseY < 380+frameY ) { key = 's'; keyPressed(); }
@@ -1765,10 +1888,14 @@ void mousePressed()
   }
   else if( input == Input.BATTLE_ITEM ) //clicked on potion in battle
   {
-    if( mouseInBox(140,380) ) { key = '1'; keyPressed(); }
-    if( mouseInBox(280,380) ) { key = '2'; keyPressed(); }
-    if( mouseInBox(420,380) ) { key = '3'; keyPressed(); }
-    if( mouseInBox(560,380) ) { key = '4'; keyPressed(); }
+    if( mouseInBox(140,350) ) { key = '1'; keyPressed(); } //health
+    if( mouseInBox(280,350) ) { key = '2'; keyPressed(); } //mana
+    if( mouseInBox(420,350) ) { key = '3'; keyPressed(); } //vapor
+    if( mouseInBox(560,350) ) { key = '4'; keyPressed(); } //elixir
+    if( mouseInBox(210,450) ) { key = '5'; keyPressed(); } //flame
+    if( mouseInBox(350,450) ) { key = '6'; keyPressed(); } //ice
+    if( mouseInBox(490,450) ) { key = '7'; keyPressed(); } //acid
+    if( mouseInBox(630,450) ) { key = '8'; keyPressed(); } //thunder
     if( mouseInBox(party.heroX(battle.turn)+75,545) ) { key = 'x'; keyPressed(); } 
   }
   else if( input == Input.BATTLE_MENU ) //main battle menu
@@ -1811,7 +1938,7 @@ public enum Input
 {
   NONE, ADVANCE_TEXT, TYPING, EXPLORING, ITEM_USE,
   HERO_SELECT,
-  BATTLE_MENU, BATTLE_ATTACK_TARGET, BATTLE_SKILL, BATTLE_SKILL_TARGET, BATTLE_HEAL_TARGET, BATTLE_ITEM, BATTLE_ITEM_HERO_CHOICE,
+  BATTLE_MENU, BATTLE_ATTACK_TARGET, BATTLE_SKILL, BATTLE_SKILL_TARGET, BATTLE_HEAL_TARGET, BATTLE_ITEM, BATTLE_ITEM_HERO_CHOICE, BATTLE_ITEM_TARGET,
   HERO_JOB_CHOICE, HERO_COLOR_CHOICE
 }
 
@@ -2028,10 +2155,11 @@ public void loadFile( String fileName )
     zoneNumber = savePoints[int(saveFileText[72])].zone;
     
     party.gold = int(saveFileText[74]);
+    party.reagents = int(saveFileText[75]);
     
     //load inventory items
     createInventories(); //zeros out inventories - may be redundant in final version
-    int fileLine = 75; //first line of inventory data
+    int fileLine = 76; //first line of inventory data
     while(!saveFileText[fileLine].equals("XX"))
     {
       party.addToInventory(new Item(saveFileText[fileLine],int(saveFileText[fileLine+1])),true);

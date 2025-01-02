@@ -185,6 +185,8 @@ class Artist
   {      
     if(party.gold > 0)
       drawGoldBox();
+    if(party.reagents > 0)
+      drawReagentBox();
     fill(0);  rectMode(CORNER);
     stroke(200);
     strokeWeight(5);
@@ -477,31 +479,48 @@ class Artist
     }
   }
   
-  public void drawBattleItems( int h, Item [] items )
+  public void drawBattleItems( int h, Item [] items, Key [] keys )
   {
     int healthPots=0,manaPots=0,vapors=0,elixirs=0;
+    boolean [] element = {false,false,false,false};
     float baseX = party.heroX(h);
     
     //Get number of potion types
     for( Item i : items )if( i.value == 12 )healthPots++;else if( i.value == 24 )manaPots++;else if( i.value == 36 )vapors++;else if( i.value == 48 )elixirs++;
-    
+    for( Key k : keys )if( isBombKit(k) ){getActiveBombs(k,element);break;}
     rectMode(CENTER); strokeWeight(5);
-    stroke(200); fill(0);
-    rect(140,380,70,70,20);rect(280,380,70,70,20);
-    rect(420,380,70,70,20);rect(560,380,70,70,20);
+    stroke(200); fill(0,200);
+            rect(140,350,70,70,20);rect(280,350,70,70,20);rect(420,350,70,70,20);rect(560,350,70,70,20);
+    rect(70,450,70,70,20);rect(210,450,70,70,20);rect(350,450,70,70,20);rect(490,450,70,70,20);rect(630,450,70,70,20);
     rect(baseX+75,545,70,70,20);
     
     textAlign(CENTER); textSize(10*fontScale); fill(200);
-    if(healthPots>0){text("Health: "+healthPots,140,357); text("A",165,407);}
-    if(manaPots>0)  {text("Mana: "  +manaPots,280,357);   text("S",305,407);}
-    if(vapors>0)    {text("Vapor: " +vapors,420,357);     text("D",445,407);}
-    if(elixirs>0)   {text("Elixir: "+elixirs,560,357);    text("F",585,407);}
+    if(healthPots>0){text("Health: "+healthPots,140,327); text("A",165,377);}
+    if(manaPots>0)  {text("Mana: "  +manaPots,  280,327); text("S",305,377);}
+    if(vapors>0)    {text("Vapor: " +vapors,    420,327); text("D",445,377);}
+    if(elixirs>0)   {text("Elixir: "+elixirs,   560,327); text("F",585,377);}
+                     text("Reagents:",           70,427);
+                     text(party.reagents,        95,437);
+    if(party.reagents>0) {
+    if(element[0])  {text("Flame",              210,427); text("H",235,477);}
+    if(element[1])  {text("Ice",                350,427); text("J",375,477);}
+    if(element[2])  {text("Acid",               490,427); text("K",515,477);}
+    if(element[3])  {text("Thunder",            630,427); text("L",655,477);} }
+    
     
     drawCancelIcon(baseX+75,545);
-    if(healthPots>0) image(tileImage[90], 140,386); //drawPotion( 135,360,.5,#00FF0A);
-    if(manaPots>0)   image(tileImage[91], 280,386); // drawPotion( 275,360,.5,#0063FF);
-    if(vapors>0)     image(tileImage[92], 420,386); // drawPotion( 415,360,.5,#FF6FF1);
-    if(elixirs>0)    image(tileImage[93], 560,386); // drawPotion( 555,360,.5,#FFD500);
+    if(healthPots>0) image(tileImage[90], 140,356); //drawPotion( 135,360,.5,#00FF0A);
+    if(manaPots>0)   image(tileImage[91], 280,356); // drawPotion( 275,360,.5,#0063FF);
+    if(vapors>0)     image(tileImage[92], 420,356); // drawPotion( 415,360,.5,#FF6FF1);
+    if(elixirs>0)    image(tileImage[93], 560,356); // drawPotion( 555,360,.5,#FFD500);
+                     image(tileImage[128],70,453);
+    push();
+    if(party.reagents<=0) tint(50);
+    if(element[0])   image(tileImage[127],212,453);
+    if(element[1])   image(tileImage[129],350,453);
+    if(element[2])   image(tileImage[130],490,453);
+    if(element[3])   image(tileImage[131],630,453);
+    pop();
   }
   
   public void drawHeroData( int h )
@@ -697,6 +716,17 @@ class Artist
     noFill(); rectMode(CORNER);
     stroke(200); strokeWeight(5);
     rect(580,200,110,103,20); //box
+  }
+  
+  public void drawReagentBox()
+  {
+    fill(255); textAlign(CENTER);
+    textSize(15*fontScale); text("REAGENTS",645,420);
+    textSize(12*fontScale); text(party.reagents,645,435);
+    noFill(); rectMode(CORNER);
+    image(tileImage[128],615,440);
+    stroke(200); strokeWeight(5);
+    rect(580,400,110,103,20); //box
   }
   
   public void drawBardNotes()
@@ -931,6 +961,8 @@ class Artist
   
   public void drawObject( Object o, int xPos, int yPos )
   {
+    if( o == Object.STALAGMITE )// && safeColor == color(0) ) //draw water under objects
+      image(tileImage[int(4+vanGogh.stage()/10)],xPos,yPos);
     switch(o)
     {
       case CHEST:
@@ -1013,6 +1045,9 @@ class Artist
         break;
       case BROKE_GLASS:
         image(tileImage[81],xPos-60,yPos-60);
+        break;
+      case STALAGMITE:
+        image(tileImage[125],xPos-10,yPos-10);
         break;
     }
   }
@@ -1428,6 +1463,7 @@ class Artist
     {
       restFadeIn=false;
       party.healAll();
+      party.reagents = party.hero[1].level/2;
     }
     if(restOpacity <= 0)
     {
@@ -1464,12 +1500,12 @@ class Artist
       if(!battle.waitingForText)
       {
         if(input == Input.BATTLE_ITEM)
-          drawBattleItems(battle.turn,party.inventory);
+          drawBattleItems(battle.turn,party.inventory,party.keyInventory);
         else if(input == Input.BATTLE_SKILL)
           drawHeroSkills(battle.turn);
         else if(input == Input.BATTLE_ITEM_HERO_CHOICE) //choosing who to use item on
           drawHeroSelectScreen();
-        else if(input == Input.BATTLE_ATTACK_TARGET || input == Input.BATTLE_SKILL_TARGET)
+        else if(input == Input.BATTLE_ATTACK_TARGET || input == Input.BATTLE_SKILL_TARGET || input == Input.BATTLE_ITEM_TARGET )
           drawAttackTargetArrows( battle.turn, true );
         else if(input == Input.BATTLE_HEAL_TARGET)
           drawAttackTargetArrows( battle.turn, false );
@@ -1519,6 +1555,9 @@ class Artist
         break;
       case 12:
         image(battleBack[6],frameWidth/2,250); //Trees and mountains
+        break;
+      case 13:
+        image(battleBack[8],frameWidth/2,252); //Underground River
         break;
     }
     pop();

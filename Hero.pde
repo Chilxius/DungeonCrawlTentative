@@ -31,7 +31,7 @@ class Hero
   Buff [] buff = new Buff[5];              //0-str, 1-dex, 2-con, 3-mag, 4-spd, 5-regen
   
   //skills data
-  Attack skill[] = new Attack[8];
+  Attack skill[] = new Attack[12];  //0-7 for skills, 8-11 for bombs
   
   public Hero()
   {
@@ -286,7 +286,7 @@ class Hero
         skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
-      default:
+      default: //MAGE
         skill[0] = new Attack("Fire", 50, false, false, AttackStat.MAG, AttackType.FIRE );  skill[0].cost = 3; if(level>4) skill[0].cost=2; skill[0].fullDescription = "Summon a gout of destructive flame.";//single-target fire attack
         skill[1] = new Attack("Icicle", 55, false, false, AttackStat.MAG, AttackType.ICE ); skill[1].cost = 3; if(level>9) skill[1].cost=2; skill[1].fullDescription = "Strike your enemy with an icy spike.";//single-target ice attack
         skill[2] = new Attack("Quake", 55, true, false, AttackStat.MAG, AttackType.EARTH ); skill[2].cost = 5; if(level>14)skill[2].cost=3; skill[2].fullDescription = "Break the ground and crush your enemies.";
@@ -296,9 +296,12 @@ class Hero
         skill[6] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         skill[7] = new Attack("Forceful Strike", str*2, false, true, AttackStat.STR );
         break;
-        
         //String d, int p, boolean all, AttackStat s, AttackType t
     }
+    skill[8]  = new Attack("Fire Bomb", 50+level, false, false, AttackStat.WIL, AttackType.FIRE );
+    skill[9]  = new Attack("Ice Bomb", 50+level, false, false, AttackStat.WIL, AttackType.ICE );
+    skill[10] = new Attack("Acid Bomb", 50+level, false, false, AttackStat.WIL, AttackType.EARTH );
+    skill[11] = new Attack("Thnder Bomb", 50+level, false, false, AttackStat.WIL, AttackType.WIND );
   }
   
   public boolean canAffordSkill( int index )
@@ -561,7 +564,7 @@ class Hero
           break;
       }
     }
-    else //skill
+    else //skill or bomb
     {
       //Converting non-elemental attacks to weapon's type
       AttackType skillType = skill[skillSelection].type; 
@@ -587,6 +590,11 @@ class Hero
       }
       else
       {
+        println("Weapon Power: " + weaponPower);
+        println("Skill Power: " + skill[skillSelection].power);
+        println("Skill Type: " + skillType );
+        println("Stat: " + appropriateStat( skill[skillSelection] ) );
+        println("Monster Defense: " + battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ) );
         damage = battle.calculateDamage( level, battle.isCrit(totalStat(1),battleMonsters[targetMonster].dex,true), weaponPower+skill[skillSelection].power+(level*2*bonus), appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skillType, battleMonsters[targetMonster].weakness );
         battleMonsters[targetMonster].takeDamage(damage);
         floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, appropriateColor(skillType), damage) );
@@ -798,6 +806,8 @@ class Hero
       return totalStat(1);
     if( a.stat == AttackStat.MAG )
       return totalStat(3);
+    if( a.stat == AttackStat.WIL )
+      return totalStat(4);
     else
       return totalStat(0);
   }

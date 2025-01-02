@@ -189,6 +189,21 @@ class Battle
                 party.hero[turn].energize(1);
             }
           }
+          else if( skillSelection > 7 ) //bomb attack
+          {
+            if( party.hero[attackerIndex].resolveAttack(defenderIndex-3) )
+            {
+              displayTextLine( list[defenderIndex].name + " is vanquished!");
+              list[defenderIndex].active = false;
+            }
+          //  //add energy
+          //  if( turn < 3 && party.hero[turn].maxMp == 0 )
+          //  {
+          //    party.hero[turn].energize(1);
+          //    if( party.hero[turn].job == Job.SAURIAN )
+          //      party.hero[turn].energize(1);
+          //  }
+          }
           else  //skill
           {
             addEnergyToBard(turn);
@@ -375,6 +390,25 @@ class Battle
         displayTextLine(battleMonsters[attackerIndex-3].attacks[enemyAttackIndex].description );
       }
     }
+    setBattleDelay();
+    battleDelayed = true;
+    waitingForText = true;
+    delayType = DelayType.ATTACK;
+    input = Input.NONE;
+  }
+  
+  public void throwBomb( int a, int d )
+  {
+    attackerIndex = a;
+    defenderIndex = d;
+    
+    //party.hero[attackerIndex].payForSkill(skillSelection);
+    party.reagents--;
+    
+    //party.hero[attackerIndex].handleSkillEffect(true,skillSelection);
+    String outputText = list[attackerIndex].name + " throws a" + bombName(potionType) + " bomb!";
+    displayTextLine(outputText);
+    
     setBattleDelay();
     battleDelayed = true;
     waitingForText = true;

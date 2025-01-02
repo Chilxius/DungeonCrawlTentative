@@ -29,9 +29,9 @@ class Equipment extends Item
     allowedJobs[3]=e.allowedJobs[3];
     allowedJobs[4]=e.allowedJobs[4];
     allowedJobs[5]=e.allowedJobs[5];
-    allowedJobs[3]=e.allowedJobs[6];
-    allowedJobs[4]=e.allowedJobs[7];
-    allowedJobs[5]=e.allowedJobs[8];
+    allowedJobs[6]=e.allowedJobs[6];
+    allowedJobs[7]=e.allowedJobs[7];
+    allowedJobs[8]=e.allowedJobs[8];
   }
   
   //For all class use, excepting weapons for monks and armor for saurians
@@ -181,7 +181,7 @@ X.5 - HOLY
 Status-inducing Weapons:
 Weapons will inflict status if their power value has a hundreds-place digit
 X.01 - Poison  <- Implemented
-X.02 - Sleep
+X.02 - Sleep   <- Implemented
 X.03 - Paralysis
 X.04 - Weakness
 X.05 - Curse

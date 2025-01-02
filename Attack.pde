@@ -142,7 +142,7 @@ class Attack
 
 public enum AttackStat
 {
-  NONE, STR, DEX, MAG
+  NONE, STR, DEX, MAG, WIL
 }
 
 public enum AttackType

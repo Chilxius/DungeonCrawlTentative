@@ -92,6 +92,9 @@ class Tile
       case '‰':type=TileType.BIG_RAT;break; //shift+alt+r
       case 'w':type=TileType.WATER;break;
       case '…':type=TileType.RAPIDS;break;  //alt+;
+      case 'Ú':type=TileType.RAPIDS_UP;break; //alt+shift+;
+      case 'æ':type=TileType.RAPIDS_LEFT;break; //alt+'
+      case 'Æ':type=TileType.RAPIDS_RIGHT;break; //alt+shift+'
       case '%':type=TileType.FLOWER;break;
       case 'ﬁ':type=TileType.FLOWER_BLUE;break; //alt+shift+7
       case '∞':type=TileType.CROP;break;
@@ -132,8 +135,9 @@ class Tile
       case '˛':type=TileType.CHAIN_HOLE;break; //alt+shift+x
       case '^':type=TileType.HILL;break;
       case 'ø':type=TileType.HILL_CAVE;break; //alt+o
-      case '»':type=TileType.AUTO_DOOR;break; 
+      case '»':type=TileType.AUTO_DOOR;break;
       case 'Œ':type=TileType.AUTO_CAVE_DOOR;break; 
+      case 'Ā':type=TileType.STALAGMITE;break; //U+0100
       //different key types
       case 'c': // copper
       case 'ç':
@@ -184,6 +188,7 @@ class Tile
       case '╝':obj=Object.FENCE_CORNER2;type=TileType.FENCE_OBJ;break; //
       case '═':obj=Object.FENCE_HORIZONTAL;type=TileType.FENCE_OBJ;break; //
       case '║':obj=Object.FENCE_VERTICAL;type=TileType.FENCE_OBJ;break; //
+      case 'ƛ':obj=Object.STALAGMITE;type=TileType.STALAGMITE_OBJ;break; //U+019B
       default: obj=Object.NONE;break;
     }
     
@@ -278,6 +283,10 @@ class Tile
         tileColor = color(#555553);
         pathable = true;
         break;
+      case STALAGMITE:
+        tileColor = color(200);
+        pathable = false;
+        break;
       //case RUBBLE:
       //  tileColor = color(200);
       //  pathable = false;
@@ -312,6 +321,10 @@ class Tile
         safe = true; break;
       case FENCE_OBJ:
         tileColor = color(0,180,0);
+        pathable = false;
+        break;
+      case STALAGMITE_OBJ:
+        tileColor = safeColor;
         pathable = false;
         break;
       case RUBBLE_OBJ:
@@ -384,11 +397,14 @@ class Tile
         pathable = false;
         break;
       case WATER:
-        tileColor = color(0,0,220);
+        tileColor = color(#1c8cbd);
         pathable = false;
         break;
       case RAPIDS:
-        tileColor = color(0,0,230);
+      case RAPIDS_UP:
+      case RAPIDS_LEFT:
+      case RAPIDS_RIGHT:
+        tileColor = color(#1c8cbd);
         pathable = true;
         break;
       case PORTCULLIS:
@@ -682,7 +698,7 @@ class Tile
     else
     {
       fill(tileColor);
-      if(pathable && type!=TileType.DOORSTEP)
+      if(pathable && type!=TileType.DOORSTEP )//&& type!=TileType.DARK)
         safeColor=tileColor;
       else if(type == TileType.WALL)
         safeColor=#C8C8C8;
@@ -731,6 +747,8 @@ class Tile
     {  image(tileImage[70],xPos,yPos); image(tileImage[98],xPos-10,yPos-10); }
     else if(type == TileType.HILL_CAVE)
       image(tileImage[99],xPos-10,yPos-10);
+    else if(type == TileType.STALAGMITE)
+      image(tileImage[126],xPos-5,yPos-10);
     else if(type == TileType.CAMP)
       image(tileImage[55],xPos,yPos);
     else if(type == TileType.WOOD)
@@ -763,7 +781,7 @@ class Tile
       image(tileImage[105],xPos,yPos);
     else if(type == TileType.CROP)
       image(tileImage[73],xPos,yPos);
-    else if(type == TileType.WATER || type == TileType.RAPIDS)
+    else if(type == TileType.WATER || type == TileType.RAPIDS || type == TileType.RAPIDS_UP || type == TileType.RAPIDS_LEFT || type == TileType.RAPIDS_RIGHT )
       image(tileImage[int(4+vanGogh.stage()/10)],xPos,yPos);
     else if(type==TileType.DARK_TREE)
       image(tileImage[2],xPos-10,yPos-10);
@@ -856,7 +874,7 @@ class Tile
       image(tileImage[120],xPos,yPos);
     if(obj == Object.TENT)
       image(tileImage[124],xPos,yPos);
-    if(type == TileType.RAPIDS)
+    if(type == TileType.RAPIDS || type == TileType.RAPIDS_UP || type == TileType.RAPIDS_LEFT || type == TileType.RAPIDS_RIGHT)
     {
       push();
       tint(255,70);
@@ -920,7 +938,7 @@ public enum TileType
   FLOOR, FLOOR_RD, FLOOR_BL, TILE,
   GRASS, GRASS_DARK, DIRT, DIRT_DARK,
   FLOWER, FLOWER_BLUE, CROP, FENCE_OBJ,
-  WATER, RAPIDS,
+  WATER, RAPIDS, RAPIDS_UP, RAPIDS_LEFT, RAPIDS_RIGHT,
   TREE, DARK_TREE, TREE_PATH, DEAD_TREE, DEAD_TREE_PATH,
   WOOD, WOOD_DARK, WOOD_LIGHT, WOOD_CRACK, CRATE, TILE_ROOF, TILE_BLUE,
   HILL, HILL_CAVE,
@@ -929,6 +947,7 @@ public enum TileType
   COMB, COMB_FULL,
   BOOK, BOOK_EMPTY, BOOK_SECRET, BL_BOOK, BK_BOOK, GAME,
   WALL, SECRET_WALL, WALL_CRACK, DARK_WALL, SECRET_DARK_WALL, DARK_WALL_CLIMBABLE, DARK_CRACK, SAND_WALL, RUBBLE_OBJ, CRATE_OBJ,
+  STALAGMITE, STALAGMITE_OBJ,
   DOOR, DOOR_GATE, PORTCULLIS, DOOR_FRAME, GATE_FRAME,
   BIG_RAT, DOORSTEP,
   GRAVE, S_GLASS, SECRET_GLASS, GARGOYLE, GARGOYLE_DARK, GARGOYLE_JADE, WEREWOLF_WHITE,
@@ -944,7 +963,12 @@ public enum Key //special items for interactive tiles
   CHARIS, CHARIS_NOTES, GRAVE_NOTES,
   CRYPT_KEY, CHEESE,
   PASSPORT, GRAVE, CAVE,
-  DRAGON, NONE
+  DRAGON, NONE,
+  
+  F,I,A,W,
+  FI,FA,FW,IA,IW,AW,
+  FIA,FIW,FAW,IAW,
+  FIAW
 }
 
 public enum Object //tile has an object (still usually pathable)
@@ -958,5 +982,6 @@ public enum Object //tile has an object (still usually pathable)
   TENT, BED,
   GARGOYLE,
   BROKE_GLASS,
+  STALAGMITE,
   NONE
 }

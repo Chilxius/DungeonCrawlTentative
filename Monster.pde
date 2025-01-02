@@ -48,7 +48,8 @@ class Monster
    name = n;
    imageName = image;
    pic = loadImage(imageName);
-   pic.resize(200,0);
+   resizeImage();
+   //pic.resize(200,0);
   
    hp = maxHp = health;
    str=s;
@@ -84,6 +85,26 @@ class Monster
     battle.setBattleDelay();
   }
   */
+  
+  //Resize to 200 wide, or to a preset size for that Monster
+  private void resizeImage()
+  {
+    switch(name)
+    {
+      //Small
+      case "Cave Fish":
+        pic.resize(150,0);
+        break;
+        
+      //Big
+      case "Giant Squid":
+        pic.resize(250,0);
+        break;
+      
+      default:
+        pic.resize(200,0);
+    }
+  }
   
   public void resolveAttack( int targetHero )
   {
