@@ -81,109 +81,12 @@ void createFloor0()
   //Floor 0 - Cathedral/Forest/Dockyard
   
   //only floor that won't start with mapIndex++;
-  mapStrings[mapIndex] = "";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##################TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#####&&&&##&&&&##&&&&#####TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT########&#......„„„„„„......#&########TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTT########&#............„„„„............#&########TTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTT####&##&#....................................#&##&####TTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTT#####&#................∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫................#&#####TTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTT#####....................∫∫WWWWWWWWWWWW∫∫....................#####TTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTT#########...................∫∫WWWWWWWWWWWW∫∫...................#########TTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTT####.....##..................∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫..................##G....####TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTT###TT###T####...*...##..................................................##.......####T###TTT###TT";
-  mapStrings[mapIndex] += "TTT#>#TT#>#####.........##....c....##############################.........##.........#####>#TTT#>#TT";
-  mapStrings[mapIndex] += "TT##.####.####..G..G..G..#####+#####~~~~~~~~D#wwwwwwww#~~t~~~~~~#####.#####..©..G..G..####+#####+##T";
-  mapStrings[mapIndex] += "TT#.............................#~~~~~~~T~~~~wwwwwwwwww~~~~~D~~~~~~#......................i.....i.#T";
-  mapStrings[mapIndex] += "TT#.∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫..#~~~t~~~~~~~TwwwwwwwwwwT~~~~~~~~T~~#..∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫∫.#T";
-  mapStrings[mapIndex] += "TT#.i....i.....G...G...G........~~~~~~~~~~~~~wwww##wwww~~~~t~~~~~~~~........G...G...G.....i.....i.#T";
-  mapStrings[mapIndex] += "TT##+####+######.......####.....~~~~~~T~~~t~~Tww####wwt~~~~~~~~~~~~~.....########...######+#####+##T";
-  mapStrings[mapIndex] += "TTT#>#TT#>####...„„„„„„„„##..G..#~~~~~~~~~~~~~~~~##~~~~~~~~~~~t~~~~#..G..##¬.¬.¬#...######>#TTT#>#TT";
-  mapStrings[mapIndex] += "TTT###TT###T##[..„%%„%%„%##.....#~T~b~~D~~~~t~~~####~~~~~~T~~~~i~~~#.....##.....#...####T###TTT###TT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTT##..„%%„%%„%###########+############..############+###########.....#...###TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTwww%TTTTT##.„%%„%%„%##....................................k.........##¬.¬.¬#...##TTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTwwwwTTTTTT##„%%„%%„%##.G....................rr....................G.##.....#..##TTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTwwwTTTTTT##%%„%%„%##......................rr......................##B......##TTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTT###############################.rr.###############################TTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TDTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTWWWWWWW";
-  mapStrings[mapIndex] += "D~DTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTW,,€„,W";
-  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTW,„„,„W";
-  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTWWW<WWW";
-  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G..?.rr.?..G..#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#################TTTTT#>.∫∫∫∫∫rr∫∫∫∫∫.>#TTTTT#########TTTTT#########TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT#∫∫BB•..∫..•BB∫∫#TTTTT#..G....rr....G..#TTTTT#[[...∑]#TTTTT#==...∑w#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTTTTTTTTTTTTTTT&∫.....∫∫∫.....∫&TTTTT#######.rr.#######TTTTT#...W.∑.&TTTTT#.....∑∑#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#########TTTT&.....∫∫∫∫∫.....&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#>....∑.&TTTTT#>......#TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#∫∫∫#rrr#TTTT#....∫∫∫>∫∫∫...%#TTTTTTTTTTT#.rr.#TTTTTTTTTTT#...W.∑.&TTTTT#..„„„..3TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#.∫...r.#TTTT&3....∫∫∫∫∫.....&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#[[...∑]#TTTTT#„„„„„„,3TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#...#...#TTTT&3¢....∫∫∫.....∫&TTTTTTTTTTT#.rr.#TTTTTTTTTTT#########TTTTT#######3‹TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#.r...∫.$tttt$¢¢3.•..∫..*..∫∫#TTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT#rrr#∫∫∫#TTTT#################TTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TtTTTT##$$#####TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TttttttttTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G..?.rr.?..G..#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTDTTTT#>.∫∫∫∫∫rr∫∫∫∫∫.>#TTTTTT################TTTTTTTTTT#########";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#..G....rr....G..#TTTTTT########B#######TTTTTTTTTT#rr]==..#";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTDTTTT#######.rr.#######TTTTTT##,,∞„.∫∫∫...∑##TTTTTTTTTT&.......#";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##„„„„.∫∫∫...¬##TTTTTTTTTT&rr....>#";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##.....i..k..∑##TTTTTTTTTT&.......#";
-  mapStrings[mapIndex] += "TT%%%TTTTTTTTT#.rrrrrrrrrrrrrrr#TTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT###>###+##+###=#TTTTTTTTTT#rr.[]..#";
-  mapStrings[mapIndex] += "TT%*%TTTTTTTTT##&###&###&###&#<#TTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTT##########$$$$$#TTTTTTTTTT#########";
-  mapStrings[mapIndex] += "TTT~TT~TTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTTTTTTTT#.rr.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "~TTtTTTTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTT#######.rr.#######TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTT~TTTTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTtTTTTTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTT~TTTTTTTT%TTTTTTTTT~TTTTT##π##TTTTTT###i..i...rr...i..k###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "```~TT%TTTTTTTT~TTTTTTTTTT~TG.i.GTTTTTT#>+i......rr......i+>#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "`@`TTTTTT~~~TTT~~t%~~~~t%~~~D...~TTTTTT###i..i...rr...i..i###TTTTTTTTTTYYY¨YYYYYYYYYYYYYYYYYYYYYYYYY";
-  mapStrings[mapIndex] += "````~~~~~~T~~~~~~~~~%T~t~~T~~`.`~TTTTTTTT#+##+##.rr.##+##+#TTTTTTTTTTTTYYYYYYYY,YYYYYY,YYYYYYY,YYYYY";
-  mapStrings[mapIndex] += "T``TT~~TTTTT~TTT~TTTTTTTTTT~~```~TTTTTTTT#>##>##.rr.##>##>#TTTTTTTTTTTTYYY,YY,YYYY,YYYYYYYYYYYYY,YYY";
-  mapStrings[mapIndex] += "TTTTTT~TT~TTTTTTTTTTTTT~TTTTT~```TTTTTTTT#######.rr.#######TTTTTTTTTTTTYYY¨YYY,YTYYY,YY¨YY¨Y¨YYYYYYY";
-  mapStrings[mapIndex] += "TTTTT~tTT|TTT%TTTTTTTT%TTTTTT~```TTTTTTTTTTTTT##.rr.##TTTTTTTTTTTTTTTTTYYYY,YYYYY,YYYY¨Y¨YY¨YY¨¨YY,Y";
-  mapStrings[mapIndex] += "DTTT~~TTTTT~~~~~~~TTTTT%T~TT~```~TTTTTTTTTTTT##..rr..##TTTTTTTTTTTTTTTTY,YYY`TTYYYYYyYYYYY¨YYYYYYYYY";
-  mapStrings[mapIndex] += "TTTT~~~TT~~~~T%TT~~TTDTTTTTT~```~TTTTTTTTTTT##...rr...##TTTTTTTTTTTTTTTYYYYYTT∑∑∑YYY,yy¨¨¨,¨|¨Y¨Y,YY";
-  mapStrings[mapIndex] += "TTTTT~~~~~%TTTTTT~~%TTTTTTTTT~```~TTTTTTTTT##..#.rr.#..##TTTTTTTTTTTTTTYYYYY~TW<WYYY¨YYYY¨Y¨¨,¨YYYYY";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTT~~~tTTTTTTTTT~```~TTTTTTTT##.....rr.....##TTTTTTTTTTTTTYY,YY~Y,,,¨yy,YY¨YY¨Y¨YYYYY¨Y";
-  mapStrings[mapIndex] += "TTTTTTTTTTTtTTT%~~TttTTTTTTT~```~TTTTTTTTT&..#...rr...#..&TTTTTTTTTTTTTYYYY,YY,¨,YYYYTYY¨YY¨YYYY,YYY";
-  mapStrings[mapIndex] += "TTTTg%%TT~~~~tt~~TTT=TTTTTTT~```~TTTTTTTTT&......rr......&TTTTTTTTTTTTTYY¨YYY¨YYYYYY¨YY¨YYYYY,Y,YYYY";
-  mapStrings[mapIndex] += "TTTT%%%T~~TT~~~~TTTTTDTTTTTTT~```~TTTTTTTT&..#...rr...#..&TTTTTTTTTTTTTYYYYYYYY,YYY,YYYYYY,YYYYYYYYY";
-  mapStrings[mapIndex] += "TTTT%%~~~TTTT~%TTTTTTTTTTTTTTTTTTTTTTTTTTT##.....rr.....##TTTTTTTTTTTTTYYYY,YYYYYYYYYYYYYYYYYYY,YYYY";
-  mapStrings[mapIndex] += "TTTT~~~TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##..#.rr.#..##TTTTTTTTTTTTTTYYYYYYYY,YYYYYYYYY,YYYYYYYYYY";
-  mapStrings[mapIndex] += "TTTTt~~tTTTTTTTTTTTTwwwwTTTTTTTTTTTTTTTTTTTT##...rr...##TTTTTTTTTTTTTTTYYYYYYYYYYYY¨YYYYYYYY¨YYYYYYY";
-  mapStrings[mapIndex] += "TTTttTTtttTTTTTTTTwwwwwwwwTTTTTTTTTTTTTTTTTTT##..rr..##TTTTTTTTTTTTTTTTYYYYYYYYYYYYYYYYYYYYYYYYYYYYY";
-  mapStrings[mapIndex] += "TTTTtTTtTtTTTTTTTTTwwwwwwwwTTTTTTTTTTTTTTTTTTT##.rr.##TTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TT~tttTtttTTTTTTT``wwwwwwwTTTTTTTTTTTTTTTTTTTTT#.rr.#####&###&#.#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTtTTtTtTttTTTTT``wwwwwwwwwTTTTTTTTTTTTTTTTTTTT#.rrrrrrrrrrrrrrr&TTTTTTTTTTTTTTTTTTTT%TTTTTTT~TT%TTT";
-  mapStrings[mapIndex] += "TTttTTTTTTtTTTTT`wwwwwwwTTTTTTTTTTTTTTTTTTTTTTT#.rrrrrrrrrrrrrrr&TTTTTTTTTTTTTTT~TTTTTT~T%~~TTTTTTTT";
-  mapStrings[mapIndex] += "TTTtTTTTtt~TTTTT```„„„„````TTTTTTTTTTTTTTTTTTTT##&###&###&###&#<#TTTTTTTTTTTTTTTTTTT%TTTT∑∑∑TTTTTTTT";
-  mapStrings[mapIndex] += "TTTttTTttTTTTTT```wwwwww`T```TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTTTTTTTTTTTTTTTTTW+WTT%TT~TT";
-  mapStrings[mapIndex] += "TTTTttttTTTTTT~~`wwwwwwwwwwT``TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTTTTTTTTTTT~TTT%%~`~%%TTTTTT";
-  mapStrings[mapIndex] += "TTTTT~~TTTTTT~~~`wwwwwwwwTTTT`TTTTTTTT~TTTTTTTTTTTTTTTTTTTTTTDDDDDTTTTTTTTTTTTTTTTTTT%TT%~`~%TTTT%TT";
-  mapStrings[mapIndex] += "TTTTTT~~t~~t~~TTTTTTwwwTTTTT|`TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTD###DTTTTTTTTTTTTTTTT~TT~TTTT`TTT~TTTTT";
-  mapStrings[mapIndex] += "TTTTT~~TTTTTTTTTTTTwwwTTTTTTT`|TTTT|D|TTTTTTTTTTTTTTTTTTTTTTT##π##TTTTTTTTTTTTTTTTTTTTTTTTtTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTttTTTTTTTTTTTTTTwwwwTTTTT`t~~t~t~=|TTTTTTTTTTTTTTTTTTTT~TG.i.GTTTTTTTTTTTTTTTTTTTTTTTT`TTTTTTTTT";
-  mapStrings[mapIndex] += "TTTtttTTTTTTTTTTTTTTTwwwTTTTT`tTTTTTDT|TTTTTTTTTTTTTTTTTTTTTTTTTTTTT...TTTTTTTTTTTTTTTTTTTtTTTTTTTTT";
-  mapStrings[mapIndex] += "T%tttTTTTTTTTTTTTTTTwwwwTTTTT``TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT...TTTTTTTTTTTTTTTTTTTtTTTTTTTTT";
-  mapStrings[mapIndex] += "tttT%TTTTTTTTTTTTTwwwwwwwTTTTT`TTTTTTTTTTTTwTTTTTTTTTTwwwwTTTTTTTTTT...TTTTTTTTTTTTTTTTTTT`tTTTTTTTT";
-  mapStrings[mapIndex] += "TttTTTTTTTTTTTTTTwwwwwwwTTTTTT`TT|TTTTTTTT%wwwwwwwwwwWTTTwwwwTTTTTTT...TTTTwwwTTTTTTTTTTTTTt`TTTTTww";
-  mapStrings[mapIndex] += "|tT|TTTTTTTTTTTTwww`y`www~TTTT`TTTTTTTTTTTwwwwwwWwwwwWWWTTTTwwwwTTTTT...TTwwwwwwT%TTTTTDDTTT~~TTwwwT";
-  mapStrings[mapIndex] += "T@|TTTTTTTTTTT``„„„```„„„``TT``TTTTTTTTTT%ww∑∑„„W„„∑w`WWWWTTTTTwwwwww„„„wwwT~~%wwwwwTT%%%wwww„wwwTTT";
-  mapStrings[mapIndex] += "|TTT|TTTTTTTTT`~wwwwwwwwwT````TTTTTTTTTTTTTww∑∑∑∑∑∑∑w((((((WT#TTTTTTT...TTTTTTTTTTTwwwwwwwwTT~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTT``TTwwwwwwwTTTTTTTTTTTTTTTTTTTwww∑∑∑W∑ww∑∑∑∑∑∑WTT#TT#T##..|##TT#TTTTTTTTTTTTTTT~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTT``TTTTTwwwwTTTTTTTTTTTTTTTTTTTTwwwwwwWwww##+###WWTTT~~~~~...~~~~~~~~~~~~~t~tt~tt~TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTT``TTTTTTwwwTTTTTTTTTTTTTT~TTTTTTwwwwww„„„„````∑``WTTTT~~~....~~~~~~~~~~~~~~t~ttttTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~T~TT``TTTTTwwwwTTTTTTTTTTT~TTTTTTTTTwwwwwwwwww```````WWT~~~~....T~~~~~~~~~T~~~~~~t~t~TTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTT|TTT``TTTTwwwwwTTTTTTTTTTTTTTTTT|TTwwwwwwwwww````````WTT~~....~~~~~~~``~~~~~~~~~t~tTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTT~T|TTTT~`TTTTwwwwwwwTTTTTT~TTTTT|TTTTTTwwwwwwwww`````````WTT~....~~~~~~~~~``~~~~~~~~~tTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTT|T~`~~~~````„„„„„„„„„~~TTTTTTTTTTTTTTTTwwwwww„„„````````.WTT....~~~~T~~~~~~~~~~)))~~TTTTTTTTTTTT";
-  mapStrings[mapIndex] += "T*t~``~TT|TTTTTwwwwwwTTwww~~t~~~t~tt>TTTTTTwwwwwwww````````........~~~~~~~~)~~~~~~~W+W~~TTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTT~TTTwwwwwwwwTTTTTTTTTTTTTTT|TTTwwwwwwww`}``````.......~~~~~~~~~W`|~~~~~~`````,∞,∞∞,TTTTT";
-  mapStrings[mapIndex] += "TTT|TT|TTTTTTTTTTTwwwwwTTTTTTT|TTTTTT~TTTTTwwwwwww`````}````.W~~~~~~~~~~~~~~~~~~~~~TTTT~```````TTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~TTTTTTTTTTTwwTTTTTTTTTTTTT~TTTTTTTTwwwwwww}}````````WWTTTTTTTTTTTTTTTTTTTTTTTTTTT∞,∞,∞∞TTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTwwTTTTTTTTTTTTTTTTTTTTTwwwwww}}}}`*`}}[WWTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTwwTTTTTTTTTTTTTTTTTTTTTTWWWWWWWWWWWWWWWWWTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
 
-  m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
+  String[] inputTest = loadStrings("map"+mapIndex+".txt");
+  String nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  m[mapIndex] = new Map(nextMap,mapIndex);
   
   createLoot(lootIndex++, 0, 47, 8, Key.COPPER_KEY);
   createLoot(lootIndex++, 0, 59, 14, new Equipment("Admirer's Chain","MetalMail.png",18,false,20,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST,Job.BARD) );
@@ -241,7 +144,8 @@ void createFloor0()
   //Chilxius
   m[0].tiles[1][24].placeOccupant( color(0,200), "- Well done. You'll go far in this world. Look at your feet for a small reward. I will follow your progress, so seek me out in the future." );
   m[0].tiles[67][30].placeOccupant( color(150, 150, 250), "- Imagine my kitchen without the sound of you three sneaking in during the night, and thinking I never heard you. Take as much as you can carry, my children. You may find more skilled chefs out there in the world, but no one else's bread will taste like home." );
-  m[0].tiles[71][31].placeOccupant( color(150, 150, 200), "- Sorry, I'm busy." );
+  m[0].tiles[70][31].placeOccupant( color(255,0), "- Sorry, I'm busy." );
+  m[0].tiles[71][31].placeOccupant( color(150, 150, 200), "- Unused text." );
   m[0].tiles[68][33].placeOccupant( color(150, 150, 200), "- Bread fresh from the oven is heavenly, but one cannot subsist solely on grains. Adding a scrap of meat or slice of fruit can make it a meal. With a frugal attitude, you can improve your recovery for every type of food you have." );
   //m[0].tiles[68][29].placeOccupant( color(150, 150, 200), "- Explain synergy better." );
   //in method below
@@ -448,55 +352,12 @@ void createFloor0()
 
   //Danger map 0
   dangerMapIndex = 0; dangerStrs[dangerMapIndex] = "";
-  for(int i = 0; i < 58; i++)
-    dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-  dangerStrs[dangerMapIndex] += "222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
-  dangerStrs[dangerMapIndex] += "222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "22222222222222222222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "22222222222222222222222222222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "22222222222222222222233333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "22222222222222222222233333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "22222222222222222222233333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "22222222222222222222233333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "22222222222222222222233333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "22222222222222222222233333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "22222222222222222222233333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
-  dangerStrs[dangerMapIndex] += "00000022222222222222333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "00000222222222222222333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "00000222222222222222333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "00000333333333333333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "00000333333333333333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "00000333333333333333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "33333333333333333333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "33333333333333333333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "33333333333333333333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "33333333333333333333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
-  dangerStrs[dangerMapIndex] += "333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "333333333333333333333xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  inputTest = loadStrings("danger"+mapIndex+".txt");
+  nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  dangerStrs[dangerMapIndex] = nextMap;
 }
 
 void createFloor1()
@@ -505,109 +366,12 @@ void createFloor1()
   //Floor 1 - Cellars/Houses/Caves/Etc.
 
   mapIndex++; mapStrings[mapIndex] = "";
-  mapStrings[mapIndex] += "£  333     £  33###########  £  ################     ###  £  ###     ################  £  ######### ";
-  mapStrings[mapIndex] += "3333R3333  £  3...........#  £  #&#>#&#........#     #=#  £  #=#     #........#&#>#&#  £  #W.W.W.W# ";
-  mapStrings[mapIndex] += "3=?...?*3  £  3.33#.w.###.#  £  ###.###.#####..#     £ £  £  £ £     #..#####.###.###  £  #€.€.€.€# ";
-  mapStrings[mapIndex] += "3.......3  £  3.3...w...#.#  £  ##...##....>#..#     £ £  £  £ £     #[.#>....$[....#  £  #.......# ";
-  mapStrings[mapIndex] += "3[.[[.?.3  £  3.333.w.###.#  £  #.....#######..#££££££ £  £  £ ££££££#..#######....[#  £  #.......# ";
-  mapStrings[mapIndex] += "3333333c3  £  3.3...w...#.#  £  #..............‹       £  £  £       ş...........[[[#  £  #......?# ";
-  mapStrings[mapIndex] += "3>33333+3  £  3.333.w.###.#  £  ################£££££££   £   £££££££################  £  ####>#### ";
-  mapStrings[mapIndex] += "3.......3  £  3>3...w...#>#  £                            £                            £     ###    ";
-  mapStrings[mapIndex] += "333333333  £  3333333333###  £                            £                            £            ";
-  mapStrings[mapIndex] += "           £                 £££££££££££££££££££££££££££££ £££££££££££££££££££££££££££££            ";
-  mapStrings[mapIndex] += "           £                 £                                            £             ££££££££££££";
-  mapStrings[mapIndex] += "£££££££££££ £££££££££££££££££                                             £               £         ";
-  mapStrings[mapIndex] += "           £                 £   §§§§§§§§                                 £    ∑∑∑∑∑∑∑∑∑  £         ";
-  mapStrings[mapIndex] += "           £                 £  §,,,,,,,,§§§§§§§§§                        £    ∑,,W,W,,∑  £  #&###&#";
-  mapStrings[mapIndex] += "333333|33  £  33###########  £   §§§§,,,,,,,,,,,,,§§§          §§§§       £    ∑,|,,,,,∑  £  #..*..#";
-  mapStrings[mapIndex] += "3......=3  £  3.....#.....#  £       §§§§,,,,,,,,,,,,§§§      §,,,=§      £    ∑,,,,,,|∑  £  #.....#";
-  mapStrings[mapIndex] += "3.|333333  £  3.33|.#.###.#  £           §§§§§§§]],,,,,,§    §,,§§§       £    ∑∑∑<∑<∑∑∑  £  #..>..#";
-  mapStrings[mapIndex] += "3.......3  £  3.3[[.#..[#.#  £   £              §§§§,,,,,§   §,§          £       £ £     £  #######";
-  mapStrings[mapIndex] += "333[=[3+3  £  3.333.#.|##.#  £       £             §§§§§,§   §,§          £               £         ";
-  mapStrings[mapIndex] += "3>33333c3  £  3.3[..3.[=#.#  £           £      §§§,,,,,,§   §,,§         £               £         ";
-  mapStrings[mapIndex] += "3.......3  £  3.333.3.###.#  £                 §,,,,§§§§§     §,,§       ££££££££££££££ ££ £££££££££";
-  mapStrings[mapIndex] += "333333333  £  3>3=.....[#>#  £              £  §,§§§           §,,§      £             £            ";
-  mapStrings[mapIndex] += "           £  3333333333###  £             £  §§,§§      §§§    §,,§     £             £            ";
-  mapStrings[mapIndex] += "           £                 £            £  §,,,,,§§§§§§,,,§§§§§]]§     £   §§§§§§§   £  ∑∑∑∑∑∑∑∑∑∑";
-  mapStrings[mapIndex] += "££££££££££££                 £           £  §,,§§§,,,,,,,,,~~~~~,,,§§    £  §„,,``ßB§  £  ∑W,,WW,,W∑";
-  mapStrings[mapIndex] += "            £££££££££££££££££££££££££      §,,§   §§§§,,,,~~ww~,,,,,,§   £  §,,`§`,`§  £  ∑,,,,,,,,∑";
-  mapStrings[mapIndex] += "                 £         £         £     §,§§       §,,,,~www~,,,,,§   £  §``,```]§  £  ∑,,,,,,,,∑";
-  mapStrings[mapIndex] += "                 £         £         £     §,,,§       §,,,,~ww~,,,§,,§  £   §§§§§§§   £  ∑∑∑<∑∑<∑∑∑";
-  mapStrings[mapIndex] += "###############  £  #####  £  WWWWW  £      §§,,§       §,,,,~~~,,§§,,§  £             £     £  £   ";
-  mapStrings[mapIndex] += "#€#€#.......]]#  £  #∫∫∫#  £  WrrrW  £        §,,§    §§,,,,,,,,,,,§§,§  £             £            ";
-  mapStrings[mapIndex] += "#.#.#.rrrWWWWW#  £  #∫∫∫#  £  Wrr]W  £         §,,§ §§,,,,,,,§§,,,,,,,§   £££££££££££££ ££££££££££££";
-  mapStrings[mapIndex] += "#.#.#.rrrrrrr.#  £  ##<##  £  WW<WW  £          §,,§,,,,,,,,§§,,,,,,§§                              ";
-  mapStrings[mapIndex] += "#.............#  £    £    £    £    £          §,,,,,,,,,,,,,,,,,,§                                ";
-  mapStrings[mapIndex] += "#######<#######  £         £         £         §,,,,,,,,,,,,,,,,,,,,§  §§§§§§§§§§§                  ";
-  mapStrings[mapIndex] += "       £         £££££ ££££ ££££ ££££   §§§§§§§wwwwww,,,,,,,,,,,,,,,,§§,,,,,,,,,,,§§§§§§§§§§§§§§§§§§";
-  mapStrings[mapIndex] += "                 £    £         £    £  wwwwwwwwwwwwwwwwwwwwwww,,,,,,,,,,,wwww,,,,,,,,,,,,,,,>wwwwww";
-  mapStrings[mapIndex] += "                 £                   £  wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww,,,,wwwwwwwwwwwww";
-  mapStrings[mapIndex] += "£££££££££££ £££££                    £   ,wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "           £                         £   ,,wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "           £       ßBB££££££££££     £   ,,,,,,,,,,,,,,wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww§";
-  mapStrings[mapIndex] += "#########  £       B>Í       ..B£    £   ,,,,,,,,,,,,,,,,,,,,,,wwwwwww,,,,,,,,,,wwwwwwwwwww,,,,,,,§§";
-  mapStrings[mapIndex] += "#.......#  £       W W£££££££==„£    £   ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,§§§";
-  mapStrings[mapIndex] += "#WW...WW#  £       £ £       £££     £   ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,§§§";
-  mapStrings[mapIndex] += "#.......#  £       £ £               £                                                              ";
-  mapStrings[mapIndex] += "#.......#  £       £ £               £                                                              ";
-  mapStrings[mapIndex] += "####<####  £       £ £                ££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££";
-  mapStrings[mapIndex] += "    £      £       £ £                         £              £                  £                  ";
-  mapStrings[mapIndex] += "           £       £ £      £                  £              £                  £                  ";
-  mapStrings[mapIndex] += "           £       £ £  £  £>£  £  33&3333&33  £  ##########  £  ∑∑∑∑∑∑∑∑∑∑∑∑∑∑  £  ################";
-  mapStrings[mapIndex] += "£££££££££££        £ £  £  £,£  £  3...*...@3  £  #      WW#  £  ∑>„„BBßBBß„„>∑  £  #>„„„rrrrrr„„„>#";
-  mapStrings[mapIndex] += "                   £ £  £  £=£  £  3≥.......3  £  #}= }}  W#  £  ∑„„„„„„„„„„„„∑  £  #„„„„r∑∑∑∑r„„„„#";
-  mapStrings[mapIndex] += "                   £ £  £  £=£  £  3##....##3  £  #} }}}}  #  £  ∑„„„∫∫∫∫∫∫„„„∑  £  #„„„„r∑∑∑∑r„„„„#";
-  mapStrings[mapIndex] += "WWWWWWWWWWWWWWWWWWWW £  £  £,£  £  3........3  £  #}}     }#  £  ∑„„„∫WWWW∫„„B∑  £  #B„„„rrrrrr„„„B#";
-  mapStrings[mapIndex] += "Wß             ß  Í  £      £   £  3##....##3  £  #   }}}}}#  £  ∑≠≠„∫∫∫∫∫∫„ıB∑  £  #B„„„„„„„„„„„„B#";
-  mapStrings[mapIndex] += "W  B ßßÍBßBBßß ßß ß|£           £  3........3  £  # }}     #  £  ∑∑∑∑∑∑∑∑∑∑∑∑∑∑  £  #######<<#######";
-  mapStrings[mapIndex] += "W∑ Í  ß     Í  ß  B||           £  3##....##3  £  # }  }} }#  £                  £         ££       ";
-  mapStrings[mapIndex] += "WBÍß  ß ß ß B ßB | ||           £  3........3  £  #   }}}  #  £                  £                  ";
-  mapStrings[mapIndex] += "W  BB Í B ß ß  ß  Í||           £  33&3<<3|33  £  #######<##   £££££££££££££££££££                  ";
-  mapStrings[mapIndex] += "£| ß  ß ß ß B ßß   | |          £      ££      £         £    £         £         ££££££££££££££££££";
-  mapStrings[mapIndex] += "W= ßB   ßrß B    |ß||           £              £              £         £              £            ";
-  mapStrings[mapIndex] += "WWWWWWWWW<WWWWWWW||||| |         ££££££££££££££ ££££££££££££££   66666  £              £            ";
-  mapStrings[mapIndex] += "         £                                               £       6,,,6  £  #########   £   #########";
-  mapStrings[mapIndex] += "                                                                 6,,,6  £  #..33.#.#   £   #.#.33..#";
-  mapStrings[mapIndex] += "                                                                 6,,,6  £  #≠....πç>£  £  £>çπ....≠#";
-  mapStrings[mapIndex] += "                                                                 6,,66  £  #..33.#.#   £   #.#.33..#";
-  mapStrings[mapIndex] += "                                                                66,,6   £  #########   £   #########";
-  mapStrings[mapIndex] += "                                £££££££££££££££££££££££££    6666,,66   £              £            ";
-  mapStrings[mapIndex] += "                                                            66,,,,6     £              £            ";
-  mapStrings[mapIndex] += "                                                           66,,6666      £££££££££££££££££££££££££££";
-  mapStrings[mapIndex] += "    ####  ####  ####  ####  ####   ###   ####  ####  ####  6``66 ####   £              £            ";
-  mapStrings[mapIndex] += "   ##..####..####..####..####..#####G#####.w####..####..####..####..##  £              £            ";
-  mapStrings[mapIndex] += "  ##G......................................ww,,......................#  £  #########   £   #########";
-  mapStrings[mapIndex] += "  #>........................................ww,,.....................π  £  #..33.#.#   £   #.#.33..#";
-  mapStrings[mapIndex] += "  ##G........................................w,,,....................#  £  #≠....πç>£  £  £>çπ....≠#";
-  mapStrings[mapIndex] += "   ##..####..####..####..####..#####G#####..####,,####..####..####..##  £  #..33.#.#   £   #.#.33..#";
-  mapStrings[mapIndex] += "    ####  ####  #..#  ####  ####   ###   ##$#  ##,#  #$##  ####  ####   £  #########   £   #########";
-  mapStrings[mapIndex] += "                #..#                      £ £   £ £  £ £                £              £            ";
-  mapStrings[mapIndex] += "    ####  ####  #..#  ####  ####          £ £   £ £  £ £                £              £            ";
-  mapStrings[mapIndex] += "   ##..####..####..####..####..##         £ £   £ £  £ £  ££££££££££££££ £££££££££££££££££££££££££££";
-  mapStrings[mapIndex] += "   #...|........................#         £ £   £ £  £ £  £             £              £            ";
-  mapStrings[mapIndex] += "   ###.....|################G...#         £ £   £ £  £ £  £             £              £            ";
-  mapStrings[mapIndex] += "      ###|......................#         6,66666,6666,6  £    33333    £  #########   £   #########";
-  mapStrings[mapIndex] += "         ##..####..####..####..##         6,,,,,,,6%~~,6  £   3     3   £  #..33.#.#   £   #.#.33..#";
-  mapStrings[mapIndex] += "          ####  #..#  ####  ####          66666666666666  £  3       3  £  #≠....πç>£  £  £>çπ....≠#";
-  mapStrings[mapIndex] += "                #..#                                      £  3       3  £  #..33.#.#   £   #.#.33..#";
-  mapStrings[mapIndex] += "           ###  #..#  ###                                 £  3       3  £  #########   £   #########";
-  mapStrings[mapIndex] += "£££££     ##.####..####.#####     ££££££££££££££££££££££££   3    ¶  3  £              £            ";
-  mapStrings[mapIndex] += "£££  £   ##G.............|.|##   £                        £  3       3  £              £            ";
-  mapStrings[mapIndex] += "„„,£ £   #>............|....>#   £                        £   3     3    £££££££££££££££££££££££££££";
-  mapStrings[mapIndex] += "€„„£ £   ##G.............#.|##   £  3333333333333££££££   £    33<33     £             £            ";
-  mapStrings[mapIndex] += "£<£  £    ##.####..####.####     £  3BßB rır BBÍ¢     >£  £      £       £             £            ";
-  mapStrings[mapIndex] += " £   £     ###  ####  ###        £  3    rrr    3££££££   £              £  ##&###&##  £  ##&###&## ";
-  mapStrings[mapIndex] += "     £                           £  3±≠       ≠≠3          £££££££££££££££  #...[[..#  £  #3.....3# ";
-  mapStrings[mapIndex] += "     £                           £  33333   33333                        £  #[..[].|#  £  #3.....3# ";
-  mapStrings[mapIndex] += "£££££ £££££££££££££££££££££££££££        3 3                             £  #][....[#  £  #...@...# ";
-  mapStrings[mapIndex] += "                                 £      33 3333333333333333              £  #[....[[#  £  #.......# ";
-  mapStrings[mapIndex] += "                                  £££   3   3  3  3  3  3 3333333333333  £  #......]#  £  #3.....3# ";
-  mapStrings[mapIndex] += "333££33£££3£33     ###££#££££££      £  3                             3  £  #|.[....#  £  #3.....3# ";
-  mapStrings[mapIndex] += "£,,`,````,,,>3  £  #>...     >£      £  3   3  3  3  3  3 3333333333333  £  ##&#<#&##  £  ##&#<#&## ";
-  mapStrings[mapIndex] += " 3££££3££3£33      ##£#££££££££      £  3333333333333333333              £     ###     £     ###    ";
-  
-  m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
-  //m[1].floorNumber=1;
+
+  String[] inputTest = loadStrings("map"+mapIndex+".txt");
+  String nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  m[mapIndex] = new Map(nextMap,mapIndex);
   
   createLoot(lootIndex++, 1, 3, 4, Key.COPPER_KEY);
   createLoot(lootIndex++, 1, 1, 2, new Equipment("Brocade","YellowShirt.png",5,false,5,true));
@@ -1048,104 +812,12 @@ void createFloor1()
   
   //Danger Map 1
   dangerMapIndex = 1; dangerStrs[dangerMapIndex] = "";
-  for(int i = 0; i < 12; i++)
-  dangerStrs[dangerMapIndex] += "A000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "1111111111111111111111111111110000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "111111111111111111111111111111xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "111111111111111111111111111111xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "111111111111111111111111111111xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "111111111111111111111111111111xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "111111111111111111111111111111xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "111111111111111111111111111111xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "111111111111111111111111111111xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-  dangerStrs[dangerMapIndex] += "C11111111111111111111111111111xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "111111111111111111111111111111xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "111111111111111111111111111111xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "111111111111111111111111111111xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
-  dangerStrs[dangerMapIndex] += "Dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
-  dangerStrs[dangerMapIndex] += "Exxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
-  dangerStrs[dangerMapIndex] += "Fxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
-  dangerStrs[dangerMapIndex] += "Gxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
-  dangerStrs[dangerMapIndex] += "H55555555555555555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "555555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxx555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxx555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
-  dangerStrs[dangerMapIndex] += "xxx555555555555555555555555555xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "x44444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  inputTest = loadStrings("danger"+mapIndex+".txt");
+  nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  dangerStrs[dangerMapIndex] = nextMap;
 }
 
 void createFloor2()
@@ -1154,110 +826,12 @@ void createFloor2()
   //Floor 2 - Irohill
   
   mapIndex++; mapStrings[mapIndex] = "";
-  mapStrings[mapIndex] += "YTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT```TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT```TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT```TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT```TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT``TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
- 
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTT~TTTTTTTTTTTTTTTTTT``TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTT~~~TT~~~~TTT~~~~~TT~~TTTTT~~~~TT~~~T~```~~~~~~~~~~~T~~~TTTTT~~~TT~TTTTTTTTTTTTTTT~TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~TTT~~~~~~~~~~~~```~~~$~~~~~$~~~T~~~TT~T~~~~║,,∞,,,∞,,,,,∞,,║~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~~~T~~~~~))))))))~~~~~~~~~~~~~~~~~~~T~~~~```~~T$$$$$$$~~T~~T~~~~~~T~~║```````````````║TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTT~~~~))))∑∑∑∑∑∑∑∑))))~~~T~~~~~~~~~~~~~~~~```~~~#+###+#~T```````T~~~~~~,,,,∞,,,,,∞,,,,║~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~~~~))))))))))))))))~~~~~(((~~(((~~(((~~```~~~#.....#~~```````~~T~T~~```````````````║~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~~~~~∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑~~~~~WWW~~WWW~~WWW~~```~~~#######T~```````~~~(((║∞,,,,∞,∞,,,,,∞,║~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~T~~#######<<#######~~T~~#+#~~W+W~~W+W~~```~~~###<###~~```````T~~∑∑∑║```````````````║~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~~~T~~%~%~%~``~%~%~%~~T~~~~`~~~~`~~~~`~T~```~T~##~`~##~T```````~~~∑+∑║,,∞∞,,,,,,∞,,,,║TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTT~~~~~~~~~~~``~~~~~~~~~~~~~`T~~~`~~~~`~~~```~~~~~~`~~~~~~~~~~~~~~~~`~╚══════~~~══════╝~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~~~~~~~~~~~`````````````````````````````````````````````````````````````````````````~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~~T~~~```~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~~(((~~(((~~(((~~(((~~(((~~(((~~(((~~~~~```~~~~~#&#&#~T~(((((((((((((~~((((((~~~T~~~~TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~T~~WWW~~∑∑∑~~∑∑∑~~∑∑∑~~∑∑∑~~WWW~T∑∑∑~~~```````~T~#####~~~(((((((((((((~~((((((~~~~~~~~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~~W+W~~#<#~~∑+∑~~#+#T~∑+∑~~W<W~~∑+∑~~``TTTTT``~~##>##~~~∑∑∑∑∑∑∑∑∑∑∑∑∑~T######~~~~T~~TTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~~~~`~~~~`~~~%`%~~~`~~~~`~~~~`~~~~`~~~`T%%%%%T`~~~G.G~~~~######<######~~####+#T~~~~~~~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~~~`~~T~`~~~~`~~~~`~~~~`~~~~`~~~~`~~~`T%WWW%T`~~~~.~~~~ˆ~~~~~~`~~~~~~~~~~~~~~~~~~~~~~TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~~~```````````````````````````````````T%WwW%T``````````````````````````````````~~~~~~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~~~#############~((((((((~~~((((((((~~`T%WWW%T`~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~T~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTT~~#(((~(((~(((#~((((((((~T~((((((((~~`T%~`~%T`~~(((~~~~~~~~~`~~~~T~~~~~~~~~~~~~~~~~~~TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~~~#∑∑∑~∑∑∑~∑∑∑#~∑∑∑∑∑∑∑∑~~~∑∑∑∑∑∑∑∑~~``T~`~T``~~WWW~~W||`~|~~~``~~~~(((((~~~~~~T~~~~TTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~~#∑+∑~∑+∑~∑+∑#~∑∑<∑∑<∑∑~~~∑∑<∑∑<∑∑~~~```````~~~W+W~~#.|~~||~~~|~`~WWWWWWWW||~~~~~~~~TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~T~~~~`~~~`~~~`~~~~~`~~`~~~~T~~`~~`~~~~~~~~`~~~~~~~`~~~~`~~~~`~`~~~~`|WWWW<WWW|~|~`~~TTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTT~~~~~~`~~~`~~~`~~~~÷`~~`÷~~~~~/`~~`/~~~~%%%`%``~~~~`~~~~`~~~~`~~~~~~~~~~~```~~~~~~~~~~TTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTT~~~~~`````````````````````````````````````````````````````````````~`````~~````~`~`~~~~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTT~~~~~~~T~~~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~~~~~~~~T~~~~~~~~~~~~`~~~~~~~~~~~~~`~~~~~~~TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTT~~~~T~~~~~~~~T~~~~~~~~~~T~~~~~~~~~~~~~~~~TT~~~~~~~~~~~~~~~~~~~T~~~~~`~~~``~~~~~``~~~~~TTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTT~TTT~~~T~TTT~T~~T~~~~TTT~~~~~TTTTTT~~~TTTT~~~TT~~~~T~~~~~T~TT~~~~~~~``~~~~~`~~``|~~TTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~~~~~~~~|~~`~~~~`~~~TTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~`~~~`~`~TTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~`~`~~`~~TTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~```~~`~TTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~TTTT```````TTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT````````TTTTTT~TTTTTTTT";
-  mapStrings[mapIndex] += "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYTTTTTTTTTTTTTTT````T```TTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYTTTTTTTTTTTTT`````TT``TT~TTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "YY¨YYYYYY¨YYYY¨YYYYYY¨YYYYYYYYYYYY¨YYYYYYY¨YYYYY¨YYY¨YwwwwwwwwwwwwwwTTTTT`````TT``TTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "YYYY¨YY¨YYYYYYYYYY¨YYYYYYYYYYY¨YYYYYYYY¨YYYYY¨¨YYY¨YYwwwwwwwwwwwwwwwwTTT``````TT`TTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "Y¨YYYYYY¨YYY¨YYY¨YYY¨YYY¨YY¨YYYY¨YYY¨YYYY¨YYY¨YYY¨YYYwwwwwwwwwwwwwwwwTT```````T``TTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "YYYY¨¨YYYY¨YYY¨YYY¨YY¨YY¨YYYYY¨YYYYYYY¨YYYY¨Y¨YYYYY¨YYwwwwwwwwwwwwwwwT```````````TTTTTTTTTTT`TTTTTTT";
-  mapStrings[mapIndex] += "Y¨YYYYY¨¨YYY¨¨YY¨YY¨YYYYYYYY¨YYY¨¨¨YYYYY¨¨¨YYY¨¨¨YYY¨¨¨wwwwwwwwwwwwwT````````````tt`tttt`tt`,`TTTTTT";
-  mapStrings[mapIndex] += "YY¨¨Y¨¨¨¨¨¨¨¨¨¨¨YYYYY¨¨Y¨¨¨¨YY¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨YYwwwwwwwwwwwwwwT,``,```````TTTTTTTTTTTT`TTTTTTT";
-  mapStrings[mapIndex] += "Y¨¨¨¨¨¨¨Y¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨,,,,,,,„„„„„„„„„„„„„„„„,,,```,```TTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "Y¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨Y¨¨¨Y¨¨¨¨Y¨¨¨¨YY¨¨¨¨¨,,,,,,,,,„„„„„„„„„„„„„„„„,,,,,``TTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "YY¨¨¨¨Y¨¨Y¨¨¨¨¨,,,,,,,,,,,,,,,,,,,,¨Yww¨¨,,,,,,¨¨¨¨¨,,wwwwwwwwwwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "Y¨¨Y¨¨¨¨¨¨¨Y¨,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,¨¨¨¨YY¨¨¨¨wwwwwwwwwwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "YY¨¨¨¨Y¨¨¨¨,,,,,¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨Y,,,,,,,,,,¨¨¨¨¨¨YYYYYYwwwwwwwwwwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "¨YY¨¨¨¨¨¨¨,,,,,¨Y¨¨¨¨¨Y¨¨¨¨¨Y¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨¨YY¨¨YY¨YYYYwwwwwwwwwwwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "YYYY¨¨¨Y¨¨,,,,¨¨¨¨Y¨¨¨¨¨¨Y¨¨¨Y¨¨¨¨Y¨¨¨¨¨¨Y¨¨Y¨¨¨YYYYYYYYYwwwwwwwwwwwwwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTT";
-  mapStrings[mapIndex] += "YYYYYY¨¨¨,V,V,¨Y¨¨¨¨¨Y¨¨¨Y¨¨¨¨¨Y¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨YYYYY¨¨¨¨YYwwwwwwwwwwwwwwwTTTTTTTTTT¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "Y¢¢¢¢¢¢¢¢¢¢˝¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢Y¨YYYYY¨¨¨YY¨¨YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY";
-  mapStrings[mapIndex] += "33333333333∏33333333333333333333333333333333YYYY¨¨YYY¨¨Y3333333333333333333333¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨,¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3333333333333333¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨YYYYYYYYYYYYYY";
-  mapStrings[mapIndex] += "33¨|¨g¨g¨g¨,¨g¨g¨g¨|¨33¨g¨g¨g¨|¨g¨g¨g¨g¨g¨3¢,,¨¨¨¨¨¨,,,333¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨YYYYYYYYYYYYYY";
-  mapStrings[mapIndex] += "33¨,¨¨¨,¨¨¨,¨¨¨,¨,¨¨¨33,,,¨¨¨¨¨¨∞¨¨¨,¨¨¨%¨333¨¨Y¨¨¨¨¨¨,,33¨¨¨g¨¨¨g¨¨¨g¨¨¨g¨¨¨3¨¨¨¨¨¨¨¨YYYYYYYYYYYYYY";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨,¨¨¨¨¨¨¨¨¨33¨,¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨,,3¨¨¨%¨¨¨~¨¨¨%¨¨¨~¨¨¨3¨¨¨¨¨¨¨¨33333333333333";
-  mapStrings[mapIndex] += "33¨g¨g¨g¨|¨,¨g¨|¨g¨|¨33¨¨¨|¨g¨g¨|¨g¨g¨g¨|¨33¨¨¨¨¨¨R¨¨¨Y,,3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨33333333333333";
-  mapStrings[mapIndex] += "33¨∞¨∞¨¨¨¨¨,¨¨¨¨¨¨¨,¨33¨¨¨,¨¨¨,¨¨¨,¨,¨,¨¨¨33Y¨¨¨¨¨.¨¨¨¨¨,3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨YY33Y#######33";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨,¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨...¨¨¨¨,3333333333∏3333333333¨¨¨¨¨¨¨¨YY33¨#€∑„≥≥#33";
-  mapStrings[mapIndex] += "33¨g¨g¨g¨g¨,,,,,,,,,,,,,,,,,,,¨¨,,,,¨,,¨¨¨¨∏k.....Y.....˝∏¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨YY33¨#„„„„ı#33";
-  mapStrings[mapIndex] += "33¨¨¨,¨¨¨,¨¨¨¨¨¨¨¨¨¨¨|,¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨...¨¨¨¨¨333333333|¨¨|33333333¨¨¨¨¨¨¨¨YY33¨#„„„„„#33";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3|¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨|3¨¨¨¨¨¨.¨¨¨¨¨¨3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨%%%3¨¨¨¨¨¨¨¨YY33¨###<###33";
-  mapStrings[mapIndex] += "33¨g¨g¨|¨g¨g¨|¨g¨|¨|¨33¨g¨|¨|¨g¨g¨g¨g¨|¨|¨33¨¨¨¨¨¨.¨¨¨¨¨¨3¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨%%3¨¨¨¨¨¨¨¨YY33¨¨¨###¨¨33";
-  mapStrings[mapIndex] += "33¨,¨¨¨,¨,¨¨¨∞¨,¨¨¨,¨33¨,¨¨¨,¨¨¨,¨,¨,¨,¨,¨33%%¨¨¨¨.¨¨¨¨¨¨3¨¨¨g¨¨¨|¨¨¨g¨¨¨g¨¨%3¨¨¨¨¨¨¨¨YY333333¨33333";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨333%%¨¨¨.¨¨¨Y¨33¨¨¨~¨¨¨¨¨¨,,,¨¨%¨¨¨3¨¨¨¨¨¨¨¨YY333333¨33333";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3333%%%¨.¨¨¨¨333¨¨¨¨¨¨¨¨¨¨¨,¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨,,∞,,,,,,,∞,33";
-  mapStrings[mapIndex] += "33333333333333333333333333333333333333333333333333.3333333¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨3¨¨¨¨¨¨¨¨,,,,∞,,,,,,,33";
-  mapStrings[mapIndex] += "333333333333333333333333333333333333333333333333¨...¨3333333333333333333333333¨¨¨¨¨¨¨¨,,,,,,,,,∞,,33";
-  mapStrings[mapIndex] += "33¨Y¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨y¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨33¨¨Y¨¨...¨¨¨¨Y33¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨YYYYYYYYYYYYYYY";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨YY¨¨¨¢¢¢¢¢¢¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨V¨...¨V¨¨¨33¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨YYYYYYYYYYYYYYY";
-  mapStrings[mapIndex] += "33¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨Y3&33 3¨¨¨¨¨¨¨¨Y¨¨¨Y¨¨¨¨33¨¨¨3¨...¨3Y¨¨33¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨¨¨¨¨YYYYYYYYYYYYYYYY";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨333333¨Y¨¨¨YY¨¨¨¨¨¨¨¨¨Y33Y¨¨¨¨...¨¨¨¨¨33¨¨¨Y¨¨¨Y¨¨¨¨¨¨Y¨¨Y¨¨¨¨YY¨¨Y¨¨Y¨YY¨Y¨¨YY¨¨";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨33<<33¨¨Y¨¨¨¨¨¨¨¨¨¨¨Y¨¨33¨¨¨¨¨...¨¨¨Y¨33¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨¨Y¨¨¨¨YYY¨Y333YY¨YY¨YY";
-  mapStrings[mapIndex] += "33¨¨Y¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨..Y¨¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨33¨¨¨¨Y...Y¨¨¨¨33¨¨Y¨¨3333333¨Y¨¨¨3333333¨¨YYY33333YYYYYYY";
-  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨..¨¨¨.333333333333¨Y¨33¨Y¨¨¨...¨¨¨¨Y33¨¨¨¨Y3&333&3Y¨¨¨¨3&333&3¨¨YY¨33‡¢¢.....*Y";
-  mapStrings[mapIndex] += "33¨¨¨33333333333>..........>33333333333¨¨¨33¨¨¨V¨...¨V¨¨¨33¨Y¨¨¨3333333¨¨Y¨¨3333333¨YYYY33333YY¨¨.Y¨";
-  mapStrings[mapIndex] += "33¨¨¨333333333333|¨¨¨..¨¨¨|333333333333¨¨Y33¨¨¨3¨...¨3¨¨¨33¨¨¨Y¨3¨3<3¨3¨¨¨¨Y3¨3<3¨3¨YYY¨Y333......¨Y";
-  mapStrings[mapIndex] += "33Y¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨..¨¨¨,,,∞,ww,,¨¨¨¨¨¨¨33¨¨¨¨¨...¨¨Y¨¨33Y¨Y¨¨3¨¨¨¨¨3¨Y¨¨¨3¨¨¨¨¨3¨¨YYY¨YY¨.YY¨Y¨Y¨";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨Y¨¨¨¨¨Y¨¨¨¨¨¨..¨,,,,,,,,,,¨¨¨¨¨¨¨¨33¨¨¨Y¨...¨¨¨¨¨33¨¨¨¨Y3¨¨>¨¨3¨¨¨Y¨3¨¨>¨¨3Y¨YYY¨Y¨Y......>Y";
-  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨..,,,,333333333333Y¨¨33¨¨¨¨¨...Y¨¨¨¨33¨Y¨¨¨3333333¨¨¨¨¨3333333¨YY¨YYYYYYYYYYYYY";
-  mapStrings[mapIndex] += "33¨Y¨33333333333>.....,,,..>33333333333¨¨¨33¨Y¨¨¨...¨¨¨Y¨33¨¨¨¨¨¨Y¨¨¨¨¨¨¨Y¨¨Y¨¨¨¨Y¨¨¨YY¨¨YYY¨Y¨YYY¨Y";
-  mapStrings[mapIndex] += "33¨¨¨333333333333G¨¨¨,,,¨¨|333333333333¨Y¨33¨¨¨V¨...¨¨¨¨¨33¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨Y¨Y¨Y¨Y¨YY¨¨YY¨";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨,,¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨3¨...¨|¨Y¨33¨¨¨¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨Y¨¨¨¨Y¨¨YYYYYYYYyYYYYYY";
-  mapStrings[mapIndex] += "33Y¨¨¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨,,,¨¨¨¨¨¨¨¨¨¨¨Y¨¨YY¨¨¨33¨¨Y¨¨...¨¨¨¨¨33¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨¨¨YY¨¨¨¨Y¨¨Y¨";
-  mapStrings[mapIndex] += "33¨¨¨333333333333G¨,,,.¨¨¨|333333333333¨¨¨33¨¨¨¨¨...Y¨¨¨¨33¨Y¨¨¨Y¨¨Y¨¨Y¨¨¨Y¨¨¨¨¨¨Y¨¨¨¨Y¨¨Y¨¨YYYYYYYY";
-  mapStrings[mapIndex] += "33¨¨¨33333333333>..,,......>33333333333¨¨¨33¨¨¨¨Y...¨¨¨¨¨3333333333333333333333333333333333333333333";
-  mapStrings[mapIndex] += "33¨Y¨333333333333|,,¨..¨¨¨G333333333333Y¨¨33Y¨¨¨¨...¨¨Y¨¨33Y¨¨¨¨Y¨Y¨¨¨¨¨¨¨Y¨Y¨¨¨Y¨,,¨Y¨¨¨Y¨¨Y3Y∑∑∑33";
-  mapStrings[mapIndex] += "33¨¨¨¨¨¨¨¨¨¨¨¨¨¨,,,¨¨..¨¨¨¨Y¨¨¨¨¨¨¨¨¨¨¨¨¨Y33¨¨¨¨¨...¨¨¨¨¨33¨¨¨Y¨¨¨¨¨Y,,¨Y¨¨,¨Y¨¨¨¨Y,,¨¨Y¨Y¨¨Y3¨#<#33";
-  mapStrings[mapIndex] += "33¨¨Y¨¨¨YwwwYY∞,,,¨¨¨........................................¨........,,∞∞,,,Y¨Y,,Y,,¨,¨∞,,Y¨3¨¨¨¨33";
-  mapStrings[mapIndex] += "33¨¨¨¨Y¨wwwwwww,,¨Y¨¨..........................V.....V............¨¨....,,¨,∞,,Y,∞,¨¨,,Y,,,,Y333∏333";
-  mapStrings[mapIndex] += "33¨Y¨¨Yww%wwwYw,,¨¨¨¨Y¨¨¨¨¨¨¨Y¨¨¨¨¨¨YY¨¨¨¨33¨¨¨3¨¨¨¨¨3¨¨¨33¨Y¨¨¨¨¨¨¨¨Y¨,,¨,,Y,,,Y¨,,¨Y¨Y¨,∞,,,,∞˚,33";
-  mapStrings[mapIndex] += "33¨¨¨¨¨Ywyy∞,,,∞Y¨¨¨¨¨¨¨Y¨¨¨¨¨¨¨¨Y¨¨¨¨¨¨Y¨33¨¨¨¨¨¨¨¨¨¨¨¨¨33¨¨¨¨¨¨Y¨¨¨¨,,,Y¨¨¨¨,,Y¨¨,Y¨¨¨Y¨,,∞,,,,∞33";
-  mapStrings[mapIndex] += "Y3¢¢YY¢Y¢¢¢YYYY¢¢¢¢¢¢¢YY¢¢YYY¢¢¢¢¢¢YY¢¢¢¢¢Y3¢¢¢¢¢¢¢YY¢¢¢Y33¢¢¢¢YYYYY¢¢¢¢¢¢¢¢¢¢YY¢¢¢YYY¢¢¢¢¢¢¢¢Y¢¢¢¢¢";
-  mapStrings[mapIndex] += "YYY3YYY333YYY333YY333YYYY3YYYY33YY3Y3YYY33YYY333YYYYY33YYYYY3YYYYYYYY3333YYYYYYY33YYYY3333YYYYY3333Y";
-  mapStrings[mapIndex] += "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY";
-  
 
-  m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
+  String[] inputTest = loadStrings("map"+mapIndex+".txt");
+  String nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  m[mapIndex] = new Map(nextMap,mapIndex);
   
   savePoints[savePointIndex++] = new SavePoint(2, 98, 79, 5); //Last save before boss
   
@@ -1431,56 +1005,12 @@ void createFloor2()
   
   //Danger Map 2
   dangerMapIndex = 2; dangerStrs[dangerMapIndex] = "";
-  for(int i = 0; i < 57; i++)
-    dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
-
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444xxxxxxxxxxxxxxxx5555555555555555555xxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  dangerStrs[dangerMapIndex] += "444444444444444444444444444444444444444444444444444444444xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
-  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444000044";
-  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444000044";
-  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444000044";
-  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444000044";
-  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444";
-  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444";
-  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444";
-  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444";
-  dangerStrs[dangerMapIndex] += "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444";
+  inputTest = loadStrings("danger"+mapIndex+".txt");
+  nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  dangerStrs[dangerMapIndex] = nextMap;
 }
 
 void createFloor3()
@@ -1489,109 +1019,12 @@ void createFloor3()
   //Floor 3 - Boat (Irohill to Waraka)
   
   mapIndex++; mapStrings[mapIndex] = "";
-  mapStrings[mapIndex] += "w∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„ÇÇÇÇ„ÇÇÇ„Ç„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑ÇÇÇ„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„ÇÇÇ„„„ÇWWWWW„Ç„„„„„„„M∑∑∑∑∑∑∑∑MÇÇ„„„„„„„„„„„Ç„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„ÇÇ„„„„i+„MW„„„„„„„„„„∑∑∑∑∑∑∑∑Ç„[„[„[„[„[„„„„„„„„„„„„„MW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„Ç„„„„„„„„Ç„„„„Ç„„WWWWW„„Ç„„„„„„„∑∑∑∑∑∑∑+„[„[„[„[„[„[„„„„„„„„„WWWWW„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„ÇÇÇÇ„„„„„ÇÇ„Ç„„„„„„„„„„∑∑∑∑∑∑∑∑„„[„[„[„[„[„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„„„„„Ç„„„„„Ç∑∑∑Ç„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑„[„[„[„[„[„[„„„∑∑∑„„„„„„Ç„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇÇ„„„„„„„„„„„„∑∑∑„„ÇÇÇ„„Ç„„„„„„„„„„<∑∑∑∑∑∑∑„„[„[„[„[„[„„„„∑∑∑„„„„„„„„„„„„„„„„„„+∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑ÇÇ„„Ç„„„„„„„„„„∑∑∑„„„„„„„„Ç„„„„„„„„„∑∑∑∑∑∑∑∑„[„[„[„[„[„[„„„∑∑∑„„„„Ç„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑Ç„„„„„„„„„„„„„„„Ç„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑„„[„[„[„[„[„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑<„„„„„„Ç„„„„„„„„„„„„„„WWWWW„„„„„Ç„„„„∑∑∑∑∑∑∑+„[„[„[„[„[„[„„„„„„„„„WWWWW„„„„„„„„„Ç∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„W]„MW„„„„„„„„„„∑∑∑∑∑∑∑∑Ç„[„[„[„[„[„„„„„„„„„„„„„MW„„„„„„„„Ç„∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑M„„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„„„M∑∑∑∑∑∑∑∑MÇ„„„„„„„„„„„„„„„„„„„WWWWW„„„„„„„Ç„M∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑∑ÇÇ„„„„„„„„„„„„„„„„„„„„„„„„„„„„„Ç„„∑∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑„„∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "www∑∑∑∑∑Ç„„„„„„„„„„„„∑∑WWWW∑∑[„„ÇÇ„Ç„„„Ç„„„∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "w∑∑∑ÇÇ„Ç„„„„„„„„„„„„M∑WWWWWW∑M„[[Ç„„„„„Ç„„„„„„∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑∑ÇÇÇ„Ç„„Ç„„„„„„„„„„„∑WWWWWW∑„[[Ç„„„„„„„„„„„Ç„„„∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑„Ç„Ç„Ç„„„„„Ç„„„„„„„„∑WWWWWW∑Ç„[ÇÇ„„„„„„„„„Ç„„„„„∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑„Ç„Ç„„Ç„„„„„„„„„„„„∑∑WWWWWW∑∑[Ç„„„„„„Ç„„„„„„„„„„„∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑„Ç„„„„„ÇÇ∑∑∑„„„„WW„∑WWWWWWWW∑Ç„„„„„ÇÇ∑∑∑„„„„„„„„„„∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑„Ç„Ç„Ç„ÇÇ∑∑∑„„„„„∑„∑WWWWWWWW∑Ç„„„„„„Ç∑∑∑Ç„„„„Ç„„„„„∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑„„„Ç„„„„Ç∑∑∑„„„„WW„∑WWWWWWWW∑„„„„„„„„∑∑∑„ÇÇ„„„„„„„∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑„Ç„Ç„ÇÇ„„Ç„„„„„„„„„∑∑WWWWWW∑∑„„„„„ÇÇ„Ç„ÇÇ„Ç„„„Ç„„∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑„„Ç„Ç„„„„Ç„„„„„„„„„„∑WWWWWW∑„„„„„„Ç„„Ç„„„„„Ç„„Ç„∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑∑„ÇÇ„„ÇÇ„„Ç„„„„„„„„„∑WWWWWW∑„„„„„„„„ÇÇ„ÇÇÇ„Ç„Ç˛∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "w∑∑∑„Ç„„Ç„„„„„„„„„„„M∑WWWWWW∑M„„„„„Ç„„Ç„„„Ç„„„∑≈∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "www∑∑∑∑∑„„Ç„„„„„„„„„„∑∑WWWW∑∑„„„„ÇÇ„„ÇÇÇÇÇÇ∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑}},,,,,}},,,,,,,,,,,],,]]∑WWWWW∑∑∑∑wwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑,,,,},,,,,}},},,}},,,,,,,]}]],,]∑WWWWWWWW∑∑∑ww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑=},∑∑∑,}},,,,,}},,,,∑∑∑,,}}}}}}}}∑WWWWWWWWWW∑∑w";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑„,,,∑∑∑,,,}}},,,,,,,,∑∑∑},,,,,},,,<WWWWWWWWWWW∑∑";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑=},∑∑∑}},,,},,,,,}},∑∑∑}},,,,,,,,∑WWWWWWWWWW∑∑w";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑},,,,,,,,,,}}},},,,,}}}}},,],},,∑WWWWWWWW∑∑∑ww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑,}},,,,},,],}}}}}}},,,,,,∑WWWWW∑∑∑∑wwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "www∑∑∑∑∑„„„BB„„ßB„„∑∑∑∑∑∑∑∑„€„€„€„€„€„€„∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "w∑∑∑„∫€∫„„„„„„„„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„==∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑∑W¬„∫∫∫„„„„„WW„„„„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„„„∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "∑„„„„„„„„„„„„„„„„„„<∑∑∑∑∑∑∑∑∑+∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwww";
-  mapStrings[mapIndex] += "∑„„„„„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑„„„∑„„„„„„„„„„„„„.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑,,,,,∑∑∑∑wwww";
-  mapStrings[mapIndex] += "∑≠„„„„„„„„∑∑∑„„„„„„∑∑∑∑∑∑∑∑∑„„„„„„W„∑∑∑„„„„„.∫.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwYOwwwwWWWWWW∑],}},,,}∑∑∑ww";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑<„∫∫∫∫„¬„∑∑∑„∫∫„.∫*∫∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑],]∑∑∑,,,=∑∑w";
-  mapStrings[mapIndex] += "∑„„„„„„„„„∑∑∑„„„„„„∑∑∑∑∑∑∑∑∑„„„„„„W„∑∑∑„„„„„.∫.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwHOwwwwWWWWWW<,,,∑∑∑,,,,,∑∑";
-  mapStrings[mapIndex] += "∑„]]]„„„„„„„„„„„„„„∑∑∑∑∑∑∑∑∑„„„∑„„„„„„„„„„„„„.∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑}},∑∑∑},,=∑∑w";
-  mapStrings[mapIndex] += "∑„„„„„„„„rrrrrrrrr„<∑∑∑∑∑∑∑∑∑+∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwHOwwwwWWWWWW∑,,,,,,,,∑∑∑ww";
-  mapStrings[mapIndex] += "∑∑„„„Ç„„„rWWWWWWWr„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„„„˛„∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWW∑},],}∑∑∑∑wwww";
-  mapStrings[mapIndex] += "w∑∑∑„ÇÇ„„rrrrrrrrr„∑∑∑∑∑∑∑∑„„„„„„„„„„„„„„==≈∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwww";
-  mapStrings[mapIndex] += "www∑∑∑∑∑„„„„„„„„„„„∑∑∑∑∑∑∑∑„€„€„€„€„€„€„∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑";
-  mapStrings[mapIndex] += "ww∑∑∑∑∑WWWWWWWWWWW∑„ÇÇ„„Ç„„„„„„„„ÇÇ„„„„„ÇÇ„∑WWWWWWww∑∑∑∑∑WWWWWWWWWWW∑ÇÇÇÇÇÇÇÇ„„„„„„ÇÇÇÇ„„„„„„∑WWWWWW";
-  mapStrings[mapIndex] += "∑∑∑WWWWWWWWWWWWWWW∑„=„ÇÇ„„W„„ÇÇ„„ÇÇ„„ÇÇ„ÇÇ„<WWWWWW∑∑∑WWWWWWWWWWWWWWW∑ÇÇÇÇÇÇÇ„„„„„„„ÇÇÇÇ„„„„„„<WWWWWW";
-  mapStrings[mapIndex] += "∑WWWWWWWWWWWWWWWWW∑„„„„ÇÇ„„„„ÇÇM„ÇÇ„„Ç„„„„„∑WWWWWW∑WWWWWWWWWWWWWWWWW∑ÇÇÇÇÇÇ„„Ç„„„M„ÇÇ„„„„„„„„∑WWWWWW";
-  mapStrings[mapIndex] += "WWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇ„„„Ç„„ÇÇ„Ç„„„„Ç„ÇÇÇÇ„∑WWWWWWWWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇÇÇ„„„„„„„„„ÇÇ„„„„„„ÇÇ∑WWWWWW";
-  mapStrings[mapIndex] += "WWWWW∑„„„„„„„„„„„„„ÇÇÇÇ„„ÇÇÇ∑∑∑„ÇÇÇÇÇ„„„„„„∑WWWWWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„„„ÇÇ∑WWWWWW";
-  mapStrings[mapIndex] += "WWWWW∑„„„∑„„„„„„„„„„ÇÇ„„„„„„∑∑∑„Ç„„Ç„„„ÇÇ„Ç∑WWWWWWWWWWW∑„„„∑„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„ÇÇÇÇ∑WWWWWW";
-  mapStrings[mapIndex] += "WWWWW∑„„„„„„„„„„„„„„„ÇÇÇÇÇ„„∑∑∑„„ÇÇÇ„„Ç„Ç„Ç∑WWWWWWWWWWW∑„„„„„„„„„„„„„„„„„„„„„„∑∑∑„„„„„„„„ÇÇÇÇ∑WWWWWW";
-  mapStrings[mapIndex] += "WWWWW∑∑+∑∑∑∑∑+∑∑∑∑∑„„„„„„Ç„„„„„„„ÇÇÇ„ÇÇÇÇ„„∑WWWWWWWWWWW∑∑<∑∑∑∑∑<∑∑∑∑∑ÇÇÇÇÇ„„„„„„„„„„„„„ÇÇÇÇÇ„∑WWWWWW";
-  mapStrings[mapIndex] += "∑WWWWWWWWWWWWWWWWW∑„ÇÇ„Ç„„„ÇÇÇÇM„ÇÇÇ„„„ÇÇÇ„∑WWWWWW∑WWWWWWWWWWWWWWWWW∑ÇÇÇÇÇÇ„„„„„„M„„„„„ÇÇÇÇÇÇ∑WWWWWW";
-  mapStrings[mapIndex] += "∑∑∑WWWWWWWWWWWWWWW∑„„ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ„Ç„Ç„<WWWWWW∑∑∑WWWWWWWWWWWWWWW∑ÇÇÇÇÇÇÇ„„„„„„„„„ÇÇÇÇÇÇÇÇ<WWWWWW";
-  mapStrings[mapIndex] += "ww∑∑∑∑∑WWWWWWWWWWW∑Ç„„„„„„„„„„„„„„„„„„„ÇÇÇÇ∑WWWWWWww∑∑∑∑∑WWWWWWWWWWW∑ÇÇÇÇÇÇÇÇ„„„„„„„„ÇÇÇÇÇÇÇÇ∑WWWWWW";
-  mapStrings[mapIndex] += "wwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-  mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwww";
-  mapStrings[mapIndex] += "www∑∑∑∑∑„Ç∑„€„€„€„Ç∑WWWWWW∑„„Ç„ÇÇ„„„„„∑∑∑∑wwwwwwwwwwwwww∑∑∑∑∑„Ç∑„€„€„€„Ç∑WWWWWW∑„„Ç„ÇÇ„„„„„∑∑∑∑wwwww";
-  mapStrings[mapIndex] += "w∑∑∑Ç„„„„„∑„`````„„∑WWWWWW<„„„„„„„„„„„„∑]∑∑∑wwwwwwwwww∑∑∑Ç„„„„„∑„``````„∑WWWWWW<„„„„„„„„„„„„∑,∑∑∑www";
-  mapStrings[mapIndex] += "∑∑„„„„„„„„∑„„„„„„„]∑WWWWWW∑„„„„„„„„„„„„∑,WW∑∑wwwwwwww∑∑=„„„„„„„∑„„„„„„„„∑WWWWWW∑„„„„„„„„„„„„∑,WW∑∑ww";
-  mapStrings[mapIndex] += "∑Ç„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„„„„„„„„,,,,,∑∑wwwwwww∑Ç„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„„„„„„„„,,,,,∑∑w";
-  mapStrings[mapIndex] += "∑ÇÇ„€=∑WWWWWWWWWWWWWWWWWWW∑„WWWW„∑∑∑W„W∑,,,,W∑∑wwwwww∑ÇÇ„€„∑WWWWWWWWWWWWWWWWWWW∑„WWWW„∑∑∑W„W∑,,,,W∑∑";
-  mapStrings[mapIndex] += "∑∑∑∑∑∑∑WWWWWWWWWWWWWWWWWWW∑„„„„„„∑∑∑W„W∑,∑,,#∑∑wwwwww∑∑∑∑∑∑∑WWWWWWWWWWWWWWWWWWW∑„„„„„„∑∑∑W„W∑,∑,,#∑∑";
-  mapStrings[mapIndex] += "∑≠„„BB∑WWWWWWWWWWWWWWWWWWW∑∑∑∑∑∑∑∑∑∑∑∑∑∑,,,,W∑∑wwwwww∑≠„„BB∑WWWWWWWWWWWWWWWWWWW∑∑∑∑∑∑∑∑∑∑∑∑∑∑,,,,W∑∑";
-  mapStrings[mapIndex] += "∑„„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„≈≈„„„„„∑]],,∑∑wwwwwww∑„„„„„∑∑<∑∑∑∑∑<∑∑∑∑∑WWWWWW∑„„„„„≈≈„„„„„∑,,,,∑∑w";
-  mapStrings[mapIndex] += "∑∑¬„„„„„„„∑„„„„„„ÇÇ∑WWWWWW∑„≈≈≈„≈≈„≈≈≈„∑]]]∑∑wwwwwwww∑∑¬„„„„„„„∑„„„„„„ÇÇ∑WWWWWW∑„≈≈≈„≈≈„≈≈≈≈∑,,,∑∑ww";
-  mapStrings[mapIndex] += "w∑∑∑WW„„„ß∑„`````„„∑WWWWWW<„≈≈≈„≈≈„≈≈≈»∑]∑∑∑wwwwwwwwww∑∑∑WW„„„ß∑„`````„„∑WWWWWW<„≈≈≈„≈≈„≈≈≈≈∑,∑∑∑www";
-  mapStrings[mapIndex] += "www∑∑∑∑∑„B∑„€„€„€„Ç∑WWWWWW∑„≈≈≈„˙‰„≈≈≈∑∑∑∑wwwwwwwwwwwwww∑∑∑∑∑„B∑„€„€„€„Ç∑WWWWWW∑„≈≈≈„„„„≈≈≈∑∑∑∑wwwww";
-  mapStrings[mapIndex] += "wwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwwwwwwwwwwwwwwww∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑wwwwwwww";
-  
 
-  m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
+  String[] inputTest = loadStrings("map"+mapIndex+".txt");
+  String nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  m[mapIndex] = new Map(nextMap,mapIndex);
   
   savePoints[savePointIndex++] = new SavePoint(3,45,56,6);
   
@@ -1875,52 +1308,12 @@ void createFloor3()
   
   //Danger Map 3 (Boat)
   dangerMapIndex = mapIndex; dangerStrs[dangerMapIndex] = "";
-  for(int i = 0; i < 40; i++)
-    dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000077777777777777777777777777777777777777777777777777";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "6666666666666666666666666000000666666666666666666600000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "6666666666666666666666666000066666666666666666666600000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "6666666666666666666666666000066666666666666666666600000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "6666666666666666666666666600066666666666666666666600000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "6666666666666666666666666666666666666666666666666600000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "6666666666666666666666666666666666666666666666666600000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "6666666666666666666666666666666666666666666666666600000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "6666666666666666666666666666666666666666666666666600000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "6666666666666666666666666666666666666666666666666600000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "6666666666666666666666666666666666666666666666666600000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "6666666666666666666666666666666666666666666666666600000000000000000000000000000000000000000000000000";
-  for(int i = 0; i < 19; i++)
-    dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+
+  inputTest = loadStrings("danger"+mapIndex+".txt");
+  nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  dangerStrs[dangerMapIndex] = nextMap;
 }
 
 void createFloor4()
@@ -1932,108 +1325,12 @@ void createFloor4()
   //Have to go through river - one-way paths
   
   mapIndex++; mapStrings[mapIndex] = "";
-  mapStrings[mapIndex] += "D~TT^………TTTT`TTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~……………………………^^^^^^TTTTT^^^TTTTT~~TT%~%%TTTTT";
-  mapStrings[mapIndex] += "~~~T^………TTTT`TT^TTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~…………………………^^DT^^^^TT^^^^^^ø^T~~%%T~~%%%%TTT";
-  mapStrings[mapIndex] += "~ﬁT~^………TTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~………………………^^DTT^^T^^^^^TTTT``~`~```~~~%%%%TT";
-  mapStrings[mapIndex] += "~~~~T^………TTT`^TTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~………………………^^DT^^TTTT^^^^^^TTT~%%~~~~%~~~#|.T";
-  mapStrings[mapIndex] += "````~^………TTT`TTTTTTTTT^TTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~……………………^^DT^^TTTTTTTT^^^^^TTT%%%~%~~%~..]T";
-  mapStrings[mapIndex] += "T~````………TTT`TTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~……………………^^D^TTT##|TTTTTTTT^^^T%%%~~~~~~|##%";
-  mapStrings[mapIndex] += "~~ﬁ~``…`…``````T@~~TTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~………~…………^^DT%%%#&#TT%%~~~TT^^TT%%~~%%~~%~~%";
-  mapStrings[mapIndex] += "TT~TT^………`````````[[TTT^TTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~…………………………^^DT%%#<#~TT~~`~%%T^^T%~~,∞,`,║%~T";
-  mapStrings[mapIndex] += "TTTT~^………^TT~~~~~``~TTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~…………………………^^DT~~~`~~TT~`T%`~~TTTT~~`,,∞,~~~%";
-  mapStrings[mapIndex] += "TT~TT^^………^TT~~T~~`~T~TTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~…………………………^^DT~#~~~TT%~`TTT~`%T^TT~%~~~%║~~~";
-  mapStrings[mapIndex] += "TTT~^D^……^^^TT~~~T`~TTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~………………………^^DT~~#~`~#%%~~%TT~`~TTTTT)~~══╝%%T";
-  mapStrings[mapIndex] += "TTTT^^^^……^^TT~~T``~~TTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~………………………^^DT~~~~`~#~~`~TTTT~`~%%%~WW|~%%~~T";
-  mapStrings[mapIndex] += "TTT^^T^^^…^TT~~~``*~TTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~………………………^^DT~|~``~~~``~~TTTT~~%~```~`~~%%TT";
-  mapStrings[mapIndex] += "TTTTTTT^^…^^TTT~`~~~~TTT^TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~……………………^^DT~~#~`~#%%~~~%%T^TTTT%%~%%~%%~TTT";
-  mapStrings[mapIndex] += "TTTT^T^^……^^^^^^`~%%%TTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~……………………^^DTTT~~`~#~~~%~~TTT^^TTTTTTTTT%TTTT";
-  mapStrings[mapIndex] += "TTTTTT^……^^T^^^``^%%TTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~……………………^^DTTT~~~`~~~~~TTTTTTT^^^^^^^^^TTTTTT";
-  mapStrings[mapIndex] += "TT^TTT^…^^TTTT^`^^%TTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~……………………^^^TTT#~``~##TTTT^T^^^^TTTTTTT^^^^^TT";
-  mapStrings[mapIndex] += "TTT^^^^Œ^TTTTT^`ø^TTTT^TTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~………………………^^DTT##~`~|#TTTTTTTTTTTT%%%~%TTTTT^^T";
-  mapStrings[mapIndex] += "TTTTT^^^^^TTTT^^^^^TTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~………………………^^DTTT~~`~~~~~~~~%%%%%~%%%%%%%%%%TT^T";
-  mapStrings[mapIndex] += "TT^T^^^^^^^TTT^^^^^^^TTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~……………………^^DTTT~~~``~~```````````````````%%%TTT";
-  mapStrings[mapIndex] += "TTT^ø^^^^^^^T^^T^^^^^^^^TTT~~~~~~~~~~~~~~~~~~~~~~~~~~~……………………^^DTT%~~~~````~~%~~%%~%%%%%%%%%``%%%T^";
-  mapStrings[mapIndex] += "T~^^…^^T^^ø^Tø^TTT^^^^^^^TT~~~~~~~~~~~~~~~~~~~~~~~~~~……………………^^DTT%%║%~~~~)~~TTttTTTTTT%~%%%%%``%%%T";
-  mapStrings[mapIndex] += "TTT^…^TT^^…^T…TTT^^^^^^^^^T~~~~~~~~~~~~~~~~~~~~~~~~~~……………………^^DTTT%%%║~W|W~|TT~ﬁT^^^^TTTT%%T~%`%%%%";
-  mapStrings[mapIndex] += "TTT^…^TTT^…^T…TTTTTT^^^^^^^~~~~~~~~~~~~~~~~~~~~~~~~~……………………^^DTTTTTT%%~~~%~TTTtTTT^^^^^^T%%%%%``~%T";
-  mapStrings[mapIndex] += "~T^T……TTT……^……T^^^^TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTTTTTTTTttT^^TTTTTTT~%%%%`%%%";
-  mapStrings[mapIndex] += "^~TTT…TTT…TT…T^^^^TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTT^^^TTTTTTTTTTTtTTTTTT%%TTTTT%%`%~%";
-  mapStrings[mapIndex] += "^^T~T…T^T…TT…T^^^TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTT^^TTTTTTTTtﬁ~ttT%%````%%TTT%`%%T";
-  mapStrings[mapIndex] += "^^~TT……TT…T……T^^^^^TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTT^^TTTTTTTTtTTTT~%%``~%```%%%%`%%T";
-  mapStrings[mapIndex] += "`````T…TT…T…T^^TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTT^TTTTTTtttT%%%``%%T%%``````%TT";
-  mapStrings[mapIndex] += "^^^T`T…TT………TT^TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTTTTTTttTT%%%`%%T%%%%%%T~%%TT";
-  mapStrings[mapIndex] += "^^T~TT…TT…TTT^^^T~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTtttTT%%%`%%%TTTTTTTTTTTT";
-  mapStrings[mapIndex] += "^^~T~T…T……TT^^TTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTt~TTT%T%``%%%%%TTTTTTTTTT";
-  mapStrings[mapIndex] += "^^^^~T………TT^^TTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTttTT%%%%`%%~%%TTT%%%%%TTT";
-  mapStrings[mapIndex] += "^^^^^TT…TTTT^TTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTttT%%%%%`%%T%%TT~%%%~%%TT";
-  mapStrings[mapIndex] += "^^^^^^^Œ^^^TTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTttT%%~%%`%%%%%T~~~~%%%~~T";
-  mapStrings[mapIndex] += "TTT^^^^^^^TTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTT~TT%%%%`%%%%TT~~~~~~~(~T";
-  mapStrings[mapIndex] += "T^T^^^^TT^TTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTtttTT%%%`%%~TT~~~══~|WW~~";
-  mapStrings[mapIndex] += "TT^^^^^^TTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTttTT%%%`%%%T~~~~~~~~~~~~";
-  mapStrings[mapIndex] += "TT^^^^^^^TTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTt~tT%%~```%~~```````~~T~";
-  mapStrings[mapIndex] += "TTT^^^^TTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTttT~%~%`````~~~~~``~~~";
-  mapStrings[mapIndex] += "~TTT^^^^TTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTttT~~~~~~~~~~TT~~`~~T";
-  mapStrings[mapIndex] += "TT~T^ø^T~TTT^^TTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTT~TTTTT~`~TT";
-  mapStrings[mapIndex] += "~~~~T`T~~~TTT^TTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTT^^^T~`~~T";
-  mapStrings[mapIndex] += "T~T~~`~~~~~TTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT^^^øT~~`~~~";
-  mapStrings[mapIndex] += "TT~T~`````~~TTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT^^^T`````~~T";
-  mapStrings[mapIndex] += "T~~~~%%%~`~~~TTT^TTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT^^^^TTT~~~~TT";
-  mapStrings[mapIndex] += "T~T~%%%%~`~~~~TTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTTT^^^^^TTTTTTTTT";
-  mapStrings[mapIndex] += "TT~~%%%~#.#~~~~TTTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTTT^^^^^^^TTTTTTTT";
-  mapStrings[mapIndex] += "TTT~#####π#####~TTTTT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTTTTTTT^^^^^^^^TTTTTTTT";
-  mapStrings[mapIndex] += "~T###~~~#i#~%%###TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TTTTTDDDDD^^^^^^^^^^TTTTTTT";
-  mapStrings[mapIndex] += "~##T~~~~~`~~%%%T##TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~TTTDDDD^^^^^^^^^^^^^TTTTTTTT";
-  mapStrings[mapIndex] += "T#T~~T~~~`~~~%%TT#T~~TTTTTTTTTTTTTTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~~~ ~~~TTTTD^^^^T^^%^^^^^^^^^TTTTTTT";
-  mapStrings[mapIndex] += "TTT~~~~}~`~~~%%%TTT~T~TTTTTTTTTTTTT~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~  TTTTTD^^TTTT%%TTTT^ø^TTTTTTTTTT";
-  mapStrings[mapIndex] += "TT~~~~~~~~~T~~~%%TTT~TTTTTTTTTTT~~T~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~ TTTTTTD^^TT%%%~%~~TT%TT~~~~T~TTT";
-  mapStrings[mapIndex] += "~~~##|~~~`~~~~~~~~TTT~TTTTTTTT~~~~~~~T~~~~~T~~~~~~~~~~~~~~~~~~~~~~~ TT~T~DD^^TTT%~%~~~%%`%~%TT~~~~TT";
-  mapStrings[mapIndex] += "T~~#»~```~~``||~~~~TTTTTTTTT~~~~T~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~~~~~ TTTTDD^^TTT~~~~~~~~~`~~Tw~~~~%%D";
-  mapStrings[mapIndex] += "~~~###~~~~~~~~~~}~~TTTTTTTTT═══════╝~~~~~~T~~~~~~~~~~~~~~~~~~~~~~~~ TT~DD^^TTT~~~~~~~%~~`~~~~~~~~%%%";
-  mapStrings[mapIndex] += "~~~~~~~[~`~T~%~~~~T~~TTTTTTT`,,∞∞,,║~~))~~~~~~TTTTTT~~~~~~~~~~~~~~~ TTTD^^TTT~~%~~~~T~~~`~~~~~~D%%%D";
-  mapStrings[mapIndex] += "T~~(((~~~~~~~)~~~T~TTTTTTTTT,∞,,`,∞)))∑∑)))T~~~TTTTTT~~~~~~~~~~~~~~ TTTD^TT%%~~~~~~~TT~~`~~~%~~~%%%%";
-  mapStrings[mapIndex] += "~~~W<W~~~`~~~WW|~T|~TTTTTTTT~~`))))))))))))))))TTTT^T~~~~~~~www,TTTTTTTDDT%%%%%~~~~~~~~~`~~~~~~~D%%%";
-  mapStrings[mapIndex] += "~[~~````~~``~``~|~~|~TTTTTTT`~~))))∑∑∑∑∑∑∑∑))))TTTTTT~~~~~~wwww,,TTTT~TDDT%%D%%~~~~WWWW#`#WWWW~~TT%D";
-  mapStrings[mapIndex] += "T~~~~~~~~~~~~~~|~,,~TTTTTTTT~~[∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑∑TTTTT^~~~~~~wwwww,TTTTTTDDT%%%%~~WWWWﬁﬁﬁ~`~ﬁﬁﬁWWWW~TT";
-  mapStrings[mapIndex] += "T~~~))~%~~~|~(((║~~``~TTTTTT═~═∑∑∑∑###<<###∑∑∑∑TTTTT^~~~~~~wwwww,TTTTTD~DTD%%TWWWﬁﬁ~~~~~`~~~~~ﬁﬁWWWT";
-  mapStrings[mapIndex] += "TT~W+W~~~`~~~W<W~`~``TTTTTTT~~~####ﬁﬁﬁ``ﬁﬁﬁ####TTTTTT~~~~~~wwwww,TTTTTTTTTDDTWWﬁ~~~~~~~~`~~~~~~~~ﬁWW";
-  mapStrings[mapIndex] += "T~~~``~````~~``~║,,`,TTTTT^T~~~~~~~~~~``~~~~~~%TTT^TT~~~~##wwwww##TTT~~~~TTTTTTTT)))~~[║`║{~~)))~~~T";
-  mapStrings[mapIndex] += "~~~~~~~~~`~%~~~~║````TTT^TTT~~%~~~~~~~``~~~~~~~TTT^TT~~~``„„ww„„„```~════~~~TTTTT∑+∑ﬁ{{║`║{{ﬁ∑+∑ﬁ~~{";
-  mapStrings[mapIndex] += "~T~((~~~|`~~~)))~,`,,TTTTT^T═════════╝``╚══════TT^TTT~~~``„wwww„„``````````~~T~``````╚═╝`╚═╝````~~~~";
-  mapStrings[mapIndex] += "~~~W+|~~~`~~~#+#╚~══~`TTT^^T~~~~~%T~~~``~~~~~T~TT^TTT~~~~#|wwwww##~`````````~``````````````````~~%%║";
-  mapStrings[mapIndex] += "~~~~``~``````~`~|~~~``TTTTTTT%%~~~~~~~~`~~~~T%~TTTTTT~~~,,wwwwww,TT~~~~~~``````~~~T~~~`````~~%%║%%%║";
-  mapStrings[mapIndex] += "T~%%%~~~~`~~~~~~TTTT`wTTTT^TT%%%T~~~TT~`~~~~~~TTT^TTT~~,wwwwwwww,TTT════~~````~~TTTTT~~)))~║%%%║%%%║";
-  mapStrings[mapIndex] += "T%%%T%~|~~~#~}~~TTTT`wTT^TTTTT%%%TTTTø``TTT~TTTT^^TTTwwwwwwwwww,,TTTTTTT~~```~~TTTDTTTﬁ∑∑∑ﬁ║%%%║%%%T";
-  mapStrings[mapIndex] += "TT%%%%~~~`~~~~~}TTT``wTT^T^TTTTTTTTT^^TTTTTTTTTTTT^TTwwwwwwwww,,TTT^^^TTT````~TTTTTTTTTTTTT║%%%DDDDD";
-  mapStrings[mapIndex] += "TTTT%%~#~`~#~~~~T^T`wwTTT^^T^^TT^T^^^^T^TTT^TTT^TTTTTwwwwwww,,,TTT^^^TTT~```~~TT)))~~t~~TDDDDDDT%%%D";
-  mapStrings[mapIndex] += "TTTTTT~T~`~T~TTTTTT`wwTTTTTTTT^TTT^^^TTT^^TTTTTTTTTTTTTTTTTTTTTTTTT^^TTT~``~TTTﬁ∑<∑ﬁ~~~~~t%DDD~t%%~%";
-  mapStrings[mapIndex] += "TT~TTTTT~`~TTTTT^T``wwTTTTTTTTT^T^^^TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT^^TTTT~````t`~``~~~~~%~t%D%%%%%%%%";
-  mapStrings[mapIndex] += "TTTTT~TT~`~~TTT^TT`wwwTTTTTTTTTTT^^TT^TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT``~TTT~~~t~[{{~TD%%%D%%%%t%";
-  mapStrings[mapIndex] += "~T~TTTT%~``~TTTTT~`wwwTTTTTTTTT^^^TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT^^TTTTT``~TTTTTTTTTTTTTTDDDDD%~%%D";
-  mapStrings[mapIndex] += "~T}}~TT~~~`~TT^^T``www~~TTTTTTTTTTTTTTTTTTTTﬁTTTTTTTTTTTTTTTTTTTTTT^^TTT~``~TTDDD~TTDDDDDDDD%DDDDDDD";
-  mapStrings[mapIndex] += "T~`ﬁ}}~~T~`~~T^T~`wwww~TTTTTTTTﬁTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~``~T~D^^DTTTTww^TTTT~TTT%TT";
-  mapStrings[mapIndex] += "T`@```}~~~`~TTTTT`w~~TTTTTTTTTTTTTTTTTTTTTTt(((((((((tTTT„ﬁﬁﬁ„TTﬁTTTTTTT~``TTTTD^^DDTT%w^^TTT══T~~TT";
-  mapStrings[mapIndex] += "@`,,,`ﬁ}~~`T%T^TT`w~~TTTTTTTTTTTTTTTTTTTTTTtWWWWWWWWWtT~~„„„„„~TTTﬁTTTTT~`~TTTT~D^^^D~TTTTTTTTTT|══T";
-  mapStrings[mapIndex] += "`,,,,`~~~~`~~TTT``w~TTTTTTﬁTTTTTﬁT4444444T~~W<WW<WW<W~~~~~~`~~~~~TTTTTTT~`~TTTTT~D^^DTT~TTTTTTTTTTTT";
-  mapStrings[mapIndex] += "``,,@`~}~~`~TTTT`wwTTTTTTTTTTTTTT~444≤444~~¿~`~~`~~`~÷~~~~(((~~~~~~~~?~~~`~~```TTTTTTT#wwTTTTTTTTTTT";
-  mapStrings[mapIndex] += "T@```ﬁ}~~~`~~TTT`wwTTTTTTTTTTT~~~~~~~``````````````V``````(((````````````````ﬁ`TTTTTT~#wwwwwwwwwwwww";
-  mapStrings[mapIndex] += "T~ﬁ~}}~~T~`~TTTT`wwTTTTﬁTTTﬁT~~t~~~~~~~~~~~~~~~~~~$$$~~~~~(((~~~~~~~~~~~~`~~}``TTTTT~T#wwwwwwwwwwwww";
-  mapStrings[mapIndex] += "TT}}~~~T^T`TTTTT`wwTTTTTTTTT~~~~~~~~~~~~~~~~~~~~~~$$$~╚═╝~#`#~TT~TTTTTT~~`~}TTTTTT~TT~#w∑∑wwWww∑wwww";
-  mapStrings[mapIndex] += "T~TT%%~TTT`TTTT``wwTTTTTTT~~~(((~~(((~~(((~~(((~~~#&#~║ﬁ║~~`~~~TTTTTTTT~t`t~TTTT~T}~}}#ww∑∑∑∑∑∑∑wwww";
-  mapStrings[mapIndex] += "TTT%~%%T^T`TTTT`wwwTTTTTTT~~~WWW~~WWW~~WWW~~WWW~~~###~╚═╝~~`~~TT~TT~ﬁTT~~`~~TTT~)))))}#www∑∑∑W∑wwwww";
-  mapStrings[mapIndex] += "TTTT%%TT^T`~T^T`wwwTTTTTT„„t~W<W~~W<W~~W<W~~W<W~~~#<#~~~~~~`~~~TTT~TTTT~~`~~TT~#WW<WW######wwWwwwwww";
-  mapStrings[mapIndex] += "TTTTTTTTTT``~TT``wwTTTTTTﬁ„~~~`~~~~`~~~~`~~~~`~~~~~`~~~~~~~`~~~TT~TﬁTTT~t`t~~TT#.......}..„„„„wwwwww";
-  mapStrings[mapIndex] += "TTTTTTTT^T~`~T^T`wwTTTTTTﬁ„`````````````````````````````````~~TTTT~T~TT~~`~t~~T#}..}}.....#wwwwwwwww";
-  mapStrings[mapIndex] += "T^^TTTTT^D~`~TTT`wwTTTTTTﬁ„~~~~~~~~`~~~~~~~~~~`T`~~~~~~~~~~`~~)))))))TT~~``````+‘....}....##wwwwwwww";
-  mapStrings[mapIndex] += "TT^TTTTD^^``~T^T``wTTTTTT„„~~~``````~~~~(((~~~```~~~(((~~~~`~~W<WW<WWTT~t~~t~~T#}.....}....„„„„wwwww";
-  mapStrings[mapIndex] += "TTT^TTDD^ø`DD^^TT`wTTTTTTT~~~t`~~~~`~~~~W+W~~~T`T~~~W+W~~~~`````║~```TT~~~~~~~~#}}.......}}#wwwwwwww";
-  mapStrings[mapIndex] += "TTTTTDD^^^^^D^TTT``TTTTTT~~~║~`~║~~`````````````````````````~~~~║~```ttTTTTTTTT##############wwwwwww";
-  mapStrings[mapIndex] += "TTTTDDD^^^^^^DDTTTTTTTTTT~T╚╝g`~╚╝~~~∞,∞∞,∞∞,∞~~~∞,∞∞,∞∞,∞~~~~~~║~~~~TtTTTTTttTTTTTTTTTTTTTT#wwwwwww";
-  mapStrings[mapIndex] += "TTTDDD^^^^^^DDTTTTTTTTTTT~~║g~`~g║T~~∞,∞∞,∞∞,∞~~~∞,∞∞,∞∞,∞~~~~~T╚════TtTTTTTTtTtttttttTTtttT##wwwwww";
-  mapStrings[mapIndex] += "TDDDD^^^^^^DDDTTTTTTTTTTT~~║~~~g~║~~~∞,∞∞,∞∞,∞~~~∞,∞∞,∞∞,∞~~~~~~~~wwTTtTttTtttTtTTtTTtTTTtTTT#wwwwww";
-  mapStrings[mapIndex] += "DDDD^^^^^^DDTTTTTDDTTTTTTﬁT║g#>#g║T~~∞,∞∞,∞∞,∞╚═╝∞,∞∞,∞∞,∞~~T~~~~~~ﬁTTtTTtTtTTTtTTTTTtTTTtTtT##wwwww";
-  mapStrings[mapIndex] += "DD^^^^^^^DTTTTTTTTTTTTTTTTT╚═###═╝ﬁT~~~~~~~~~~║ﬁ║T~~~~~~~~~~~~~T~~~TTTtttttttttttttT~[TttttttT#wwwww";
 
-  m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
+  String[] inputTest = loadStrings("map"+mapIndex+".txt");
+  String nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  m[mapIndex] = new Map(nextMap,mapIndex);
   
   //River
   exits.add( new Portal(4,7,17, 5,34,93, "Subterranean River") ); //Into first cave
@@ -2221,108 +1518,11 @@ void createFloor4()
   //Danger Map 4 (Road)
   dangerMapIndex = mapIndex; dangerStrs[dangerMapIndex] = "";
   
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000xx88xx8888xx000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000xxxx8888x888888x00";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000x888888888888888x0";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000xxx88888888888888x";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000000000000xxx888888888888x";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000xxx00000xxxxxx000x8888888888888";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000x888x000x88888xx00xx888888888888";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000x88x0000x888888x00x88888888888x";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000000x88x8888x0xx88888888888";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000xx8888xx888x0xx8888888888";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000x888888x888xxxxx88888888x";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000x8888xx88888888888888888x";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000088888xxxx8888888888888x0";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000x0888888x0xxxx888888888x00";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000x088888x00000xxxxxxxx8x000";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000088xxx00000000000000x0000";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000xxxx00000000xxxxxxx0000000";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000000000xxxxxxx99999xxxxx000";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000000009999999999999999xx00";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000099999999999999999xx0";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000x8000000000000099999999999999999xx";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000x88x8x000000000xxxxxxx999999999999x";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000x888x000000000000000xxxx9999999999";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000xx88x0000000000000000xx9999999999";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000xxxxx999999999";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000000000000xxxx99xxxxx999999";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000000000xxx99999999xxx9999x";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000000000xx99999999999999999x";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000xx9999999x999999999xx";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000xx999999x9999999999x0";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000xx9999999xxxxxxxxxxx0";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000000xx9999999999x0xxxxx000";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000000xx9999999999x0088888x00";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000000x99999999999x00888888x0";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000000x99999999999x0000888000";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000000000000000000000000000000000000000000xx999999999xx0000000000";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000000xx9999999xx00000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000x9999999x000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000x9999999x000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000999000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000088800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000888800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000888000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000xxxxxxxxxxx0000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "00xxx:::::::88xxx00000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0xx:::::::::8880xx0000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "xx:::::::::::8800x0000000000000000000000000000000000000000000000000000000000000000080000000000000000";
-  dangerStrs[dangerMapIndex] += ":::::::::::::8880x0000000000000000000000000000000000000000000000000000000000000008880000000000000000";
-  dangerStrs[dangerMapIndex] += ":::::::::::::::88x0000000000000000000000000000000000000000000000000000000000000888880000000000000000";
-  dangerStrs[dangerMapIndex] += "::::::::::::::::::x000000000000000000000000000000000000000000000000000000000000088800000000000000000";
-  dangerStrs[dangerMapIndex] += ":::::::::::::::::::x00000000000000000000000000000000000000000000000000000000000000000000000000000880";
-  dangerStrs[dangerMapIndex] += ":::::::::::::::::::x0000000xxxxxxxxx0000000000000000000000000000000000000000000000000000000000000888";
-  dangerStrs[dangerMapIndex] += "::::::::::::::::::x00000000x0000000x0000000000000000000000000000000000000000000000000000000000008880";
-  dangerStrs[dangerMapIndex] += ":::::::::::::::::x000000000x0000000x0000000000000000000000000000000000000008800000000000000000008888";
-  dangerStrs[dangerMapIndex] += "::::::::::::::::xx000000000x000xxxxx0000000000000000000000000000000000000088888000000000000000000888";
-  dangerStrs[dangerMapIndex] += "::::::::::::::::x0000000000x000x00000000000000000000000000000000000000000088888000000000000000000080";
-  dangerStrs[dangerMapIndex] += "::::::::::::::::x0000000000x000x00000000000000000000000000000000000000000088880000000000000000000000";
-  dangerStrs[dangerMapIndex] += "::::::::::::::::x0000000000xxxxx00xxxxxxxxxx00000000000000000000000000000008800000000000000000000000";
-  dangerStrs[dangerMapIndex] += "::::::::::::::::x0000000000x:::xxxx::::::::xxxxx0000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "::::::::::::::::x0000000000x:::::::::::::::::::x0000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "::::::::::::::::x0000000000x:::::::::::::::::::x0000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "::::::::::::::::x0000000000xxxxxxxxxxxxxxxxxxxxx0000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "::::::::::::::::x00000000000000000000000000000000000000000000000000000000000000000000000000000000880";
-  dangerStrs[dangerMapIndex] += "::::::::::::::::x00000000000088000000000000000000000000000000000000000000000000000000000000008808880";
-  dangerStrs[dangerMapIndex] += "x:::::::::::::::x00000000000088800000000000000000000000000000000000000000000000000000000000088808880";
-  dangerStrs[dangerMapIndex] += "x:::::::::::::::x00000000000008880000000000000000000000000000000000000000000000000000000000088808880";
-  dangerStrs[dangerMapIndex] += "xx::::::::::::::x00000000000000000000000000000000000000000000000000000000000000000000000000088800000";
-  dangerStrs[dangerMapIndex] += "0xxx::::::::::::x00000000000000000000000000000000000000000000000000000000000000000000000000000088880";
-  dangerStrs[dangerMapIndex] += "000xxxxx000xxxxxx00000000000000000000000000000000000000000000000000000000000000000000000088888888888";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000xx88888888888";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000088888888888";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000088880";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "000x880000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "00x8888x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "000x88x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000xx0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+  inputTest = loadStrings("danger"+mapIndex+".txt");
+  nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  dangerStrs[dangerMapIndex] = nextMap;
 }
 
 void createFloor5()
@@ -2331,108 +1531,12 @@ void createFloor5()
   //Floor 5 - Caves and Houses (Waraka)
   
   mapIndex++; mapStrings[mapIndex] = "";
-  mapStrings[mapIndex] += "   #&#     £  WWWWWWWWWW  £   ‹33   £  WWWWW  £  WWWWW  £  WWWWW  £  WWWWWWWW  £  WWWWW  £      333 ";
-  mapStrings[mapIndex] += "  #...#    £  W````````W  £  3#>#3  £  W€r€W  £  W∫∫∫W  £  WrÒrW  £  W...∑..W  £  W∫∫∫W  £     |3>3 ";
-  mapStrings[mapIndex] += " #.....#   £  W]``````]W  £  3# #3  £  WrrrW  £  W∫∫∫W  £  WrrrW  £  W=..∑∑=W  £  W∫∫∫W  £    333 3 ";
-  mapStrings[mapIndex] += "#...∫...#  £  WW<WWWW<WW  £  3   3  £  WW<WW  £  WW<WW  £  WW<WW  £  WWW<WWWW  £  WW<WW  £    3    |";
-  mapStrings[mapIndex] += "&..∫*∫..&  £    £    £    £  3# #‹  £    £    £    £    £    £    £     £      £    £    £    3‹3 33";
-  mapStrings[mapIndex] += "#...∫...#  £              £  3# #3  £         £         £         £            £         £    £ 3|3 ";
-  mapStrings[mapIndex] += " #.....#  £               £  3   3  £         £         £         £            £         £    £  >3 ";
-  mapStrings[mapIndex] += "  #.>.#  £ £££££££££££££££   ‹# #3  £ ££££££££ £££££££££ £££££££££ £ ££££££££££ £££££££££      £333|";
-  mapStrings[mapIndex] += "   #&#  £                    3# #3   £                  £           £               £    £          ";
-  mapStrings[mapIndex] += "       £                     ‹3¯33   £             £    £           £       £       £    £          ";
-  mapStrings[mapIndex] += "      £       ‹3333333‹3333333   3‹  £  44444444444≤4   £  4444444  £  WWWWBÍBWWWW  £     ££ £££££££";
-  mapStrings[mapIndex] += "££££££        3 ## ## ## ## 3     3  £  4ˇ…wwwwwww…ˇ4   £  4rrrrr4  £  W∑,∑= }∑,∑W  £       £       ";
-  mapStrings[mapIndex] += "              3                  #‹  £  4ˇˇwwwwww…ˇˇ4   £  4rrr∑≤4  £  W,,} },,,,W  £   £   £       ";
-  mapStrings[mapIndex] += "              3¥## ## ##¥## 3    #3  £  4ˇˇˇˇˇˇˇˇˇˇˇ4   £  4€€€∑ˇ4  £  W},}},,,}}W  £  6▒6  £  ∑∑∑∑∑";
-  mapStrings[mapIndex] += "‹3333333££££££3π3‹333‹33π33‹33¥#$3   £  444444≤444444   £  44444≤4  £  WW<WW<WW<WW  £  6“6  £  ∑...∑";
-  mapStrings[mapIndex] += "3      ¯        £   £    ££ £3π33    £        £         £       £   £    £  £  £    £  6░6  £  ∑∑<∑∑";
-  mapStrings[mapIndex] += "3 rrrr 3££££££££     ££££ £    £     £                                              £  6“6  £    £  ";
-  mapStrings[mapIndex] += "3=    =3                   ££££      £                                              £  6▒6  £       ";
-  mapStrings[mapIndex] += "3‹333333                              ££££££££££££££££££££££ £££££££££££££££££££££££    £   £       ";
-  mapStrings[mapIndex] += "£ £                                  £                      £                       £        £££££££";
-  mapStrings[mapIndex] += "£ £     £££££££££££££££££ £££££££££££                       £                       £       £       ";
-  mapStrings[mapIndex] += "£ £    £                 £             666666 666666666666  £   66666666666666666    £££££££        ";
-  mapStrings[mapIndex] += "£ £    £                 £     £      66ÖÖÖÖ666ÖÖÖÖÖÖÖÖÖÖ6  £  66Ö66ÖÖÖÖÖÖÖÖÖÖÖÖ66          £  ##&|#";
-  mapStrings[mapIndex] += "£ £    £     666666666   £  666>666666666Ö6ö6Ö6ö66666666Ö6  £  6ööö6öööö6ÖÖÖ66ÖÖÖ6          £  # *=#";
-  mapStrings[mapIndex] += "3‹333  £  6666ööööööö66  £  6,,,,,,,,,,,6ö6,6ö6,6ÖÖÖÖÖÖÖÖ6  £  6>,,,,,,,66öö6ÖÖÖÖ66666666   £  &|  |";
-  mapStrings[mapIndex] += "3]]r3  £  6ö6,,6666,,,6  £  66,66666666,,,6,,,,,66ÖÖ666öö6  £  66666666666666Ö6öö6öööööö66  £  #  |#";
-  mapStrings[mapIndex] += "33333  £  6[6,66öö66,,6  £   6▒6      6,66666,66666ööö6666  £   66666    6666ö6,,,,,,,,,,6  £  ##<##";
-  mapStrings[mapIndex] += "       £  6,6,6,,,,,,,6  £   666      666ÖÖÖ666ÖÖÖ666,6öö6  £  66ÖÖÖ666666öö6,,,666666,,,6  £    £  ";
-  mapStrings[mapIndex] += "       £  6,6,6,,,66666  £   666     66ööööööööööööö6,,,66  £  6ÖÖ˘ÖÖ▒6666,,66,,6öööö6,,66  £       ";
-  mapStrings[mapIndex] += "£££££££   6,6▒6,,66ÖÖÖ6  £   666   666,,,6666666666,,,666   £  66ÖÖÖ66666▒,,,,,,,,,,666,6   £       ";
-  mapStrings[mapIndex] += "       £  6,,66,,6öööö6  £   6▒6   6,,,,66        66666     £   66666   6666666666666 6>6   ££££££££";
-  mapStrings[mapIndex] += "       £  66,,,,,,,,,66  £  66,66 66,,,66                   £                         666  £        ";
-  mapStrings[mapIndex] += " £££   £   666%%%,,666   £  6,,,666,,,66                    £                              £        ";
-  mapStrings[mapIndex] += "£3>3£  £     66%%%66     £  66,,,,,,,66     ££££££££££ ££££££ £££ ££££££££££ ££££££££££    £   6666 ";
-  mapStrings[mapIndex] += "£3 3£  £      66>66      £   6666▒6666     £          £          £          £         £££££   66ÖÖ66";
-  mapStrings[mapIndex] += "£   £  £       666       £       £         £          £          £          £              £  66ÖÖ▒6";
-  mapStrings[mapIndex] += "£3 3£  £                 £                 £  WWWWWW  £  WWWWWW  £  WWWWWW  £              £  6▒öö66";
-  mapStrings[mapIndex] += "£3 3£  £                 £                 £  W,`,,W  £  W,,``W  £  W ,=`W  £  666666      £   6666 ";
-  mapStrings[mapIndex] += "£   £   £££££££££££££££££ £££££££££££££££££   W,,,`W  £  W```,W  £  W,,`|W  £  6ÖÖÖ6▒6     £        ";
-  mapStrings[mapIndex] += "£3 3£  £                                   £  WWW<WW  £  WWW<WW  £  WWW<WW  £  6ö6ö6,6     £        ";
-  mapStrings[mapIndex] += "£3 3£  £                                   £     £    £     £    £     £    £  6▒6,,,6  £££ ££££££££";
-  mapStrings[mapIndex] += "££¯££  £        666                        £          £          £          £   666666  £           ";
-  mapStrings[mapIndex] += "  £    £      666▒666                      £          £          £          £           £           ";
-  mapStrings[mapIndex] += "       £    666˘ÖÖÖ˘666                     ££££££££££ ££££££££££ £££ ££££££            £££   666666";
-  mapStrings[mapIndex] += "       £   66Ö666░666Ö66   666          ££££             £           £      ££££££££££££  £  6▒6ÖÖÖ6";
-  mapStrings[mapIndex] += "£££££££   66ÖÖÖÖÖbÖÖÖÖÖ66666▒6666       £                £           £                    £  6,6ö6ö6";
-  mapStrings[mapIndex] += "       £  66ÖÖÖÖÖÖÖÖÖÖÖ6▒ÖÖÖÖÖÖÖ66      £                £  6666666  £                    £  6,,,6▒6";
-  mapStrings[mapIndex] += "       £   66ÖÖÖÖÖÖÖÖÖ666ÖÖÖÖÖÖÖÖ▒6     £   66666666666  £  6ÖÖÖÖÖ6  £   666666666666666  £  666666 ";
-  mapStrings[mapIndex] += "66666  £    66ÖÖÖÖÖÖÖ666▒ÖÖ6ÖÖÖÖ666     £  6▒ÖÖÖÖÖ6ÖÖÖ6  £  6ÖÖ*ÖÖ6  £  666666,,,,,```>6  £         ";
-  mapStrings[mapIndex] += "6ÖÖÖ6  £     66ÖÖÖÖÖ66666ÖÖÖÖÖÖÖ▒66     £  6ööö6ööööö▒6  £  6ööööö6  £  6▒,,,,,,,,666666  £         ";
-  mapStrings[mapIndex] += "6ö6Ö6  £      66ÖÖÖ66 6▒ÖÖÖÖÖÖÖÖ666     £  66666666666   £  6,,,,,6  £   66666666666666    £££££££££";
-  mapStrings[mapIndex] += "6>6Ö6  £       66▒66  666ÖÖÖÖ6ÖÖ666     £                £  666▒666  £                    £         ";
-  mapStrings[mapIndex] += "666Ö6  £        666    66ÖÖÖÖÖÖÖ66      £                £    666    £                    £         ";
-  mapStrings[mapIndex] += " 66Ö6  £         66666  6ÖÖÖÖÖÖÖ66666    ££££££££££££££££             ££££££ £££££££££££££    66666 ";
-  mapStrings[mapIndex] += "66ÖÖ6  £       666ÖÖÖ66 66ööööö6666666  £                £           £      £                66ÖÖÖ▒6";
-  mapStrings[mapIndex] += "6öö66  £       6▒ÖÖ˘ÖÖ6  6,6▒6,6Ö6▒6Ö6  £                 £££££££££££       £               66ÖÖ666 ";
-  mapStrings[mapIndex] += "6,66   £      6666ööö66  6666666ÖÖÖÖÖ6  £   §§§§§§§§§§                      £   6666666666666ÖÖ66   ";
-  mapStrings[mapIndex] += "6,,66  £      6▒66666666666ÖÖÖ6ÖÖÖÖ666  £  §„,,,§``,,,§§                    £  6▒6Ö6ÖÖÖ66ÖÖÖÖÖ66    ";
-  mapStrings[mapIndex] += "66,>6  £      6ÖÖ66666ÖÖÖ6öö6ÖÖÖÖÖÖ6    £   §§{,,,,`}```§§§§§§§WWWWWW∑∑∑∑∑  £  6ÖÖÖÖÖ6öööö66ÖÖ66    ";
-  mapStrings[mapIndex] += " 6666  £      66ÖÖ6ÖÖÖÖ6ö6,,66öööö66    £    §,[{@@§``}```````„„„„„„„„„„>∑  £   6666666666666öö6666 ";
-  mapStrings[mapIndex] += "       £       6öööö6666,,,66666666     £     §§§§§§§§§§§§§§WWWWWWWWWW∑∑∑∑  £               66,,,,▒6";
-  mapStrings[mapIndex] += "       £       666666  66>66            £                                   £                666666 ";
-  mapStrings[mapIndex] += "£££££££                 666             £                                    £££££££££££££          ";
-  mapStrings[mapIndex] += "       £                                £                                   £            £          ";
-  mapStrings[mapIndex] += "       £                                ££££££££££ ££££££££££££££££££££££££££             £££ ££££££";
-  mapStrings[mapIndex] += "66666   ££££££££££££££££££££££££££££££££          £                                          £      ";
-  mapStrings[mapIndex] += "6………6  £                                          £                                          £      ";
-  mapStrings[mapIndex] += "6………6  £                                          £                                          £      ";
-  mapStrings[mapIndex] += "6………6  £              ∑∑∑∑∑∑##∑∑∑∑∑⁄              £              ∑∑∑∑∑∑∑∑∑∑∑∑∑⁄              £      ";
-  mapStrings[mapIndex] += "6……,6  £              ∑M„ÇÇ„..„„„„M∑              £              ∑WWWWWWWWWWWW∑              £    { ";
-  mapStrings[mapIndex] += "6………6  £  ∑∑∑∑∑∑⁄∑∑∑∑∑∑„„„„„„„„rrr„∑∑∑∑∑∑∑∑∑∑∑∑∑  £  ∑∑∑∑∑∑⁄∑∑∑∑∑∑WWWWWWWWWWWW∑∑∑∑∑∑∑∑∑∑∑∑∑  £   {{ ";
-  mapStrings[mapIndex] += "6,……6  £  ∑WWWWWWWWWWW∑„„∑∑∑∑∑∑∑∑r„∑WWWWWWWWWWW∑  £  ∑ßßBBB∑BßÍBB∑WWWWWWWWWWWW∑„„ˇˇˇˇˇˇˇˇˇ∑  £  §§§§";
-  mapStrings[mapIndex] += "6………6  £  ∑WWWWWWWWWWW∑„rrrrrrrrrr„∑WWWWWWWWWWW∑  £  ∑„„∫∫∫∫∫∫∫„„∑WWWWWWWWWWWW∑„Ç.[...[.[{∑  £  §„=§";
-  mapStrings[mapIndex] += "6…,,6  £  ∑WWWWWWWWWWW<„„„„„„„£££„„<WWWWWWWWWWW∑  £  ∑„„∫WWWWW∫„„<WWWWWWWWWWWW<„„...[...{{∑  £  §„=§";
-  mapStrings[mapIndex] += "6,,>6  £  ∑WWWWWWWWWWW∑„„ÇÇ££££„£££∑WWWWWWWWWWW∑  £  ∑„„∫∫∫∫∫∫∫„„∑WWWWWWWWWWWW∑„„[.[...{{{∑  £  £ £ ";
-  mapStrings[mapIndex] += "66666  £  ∑WWWWWWWWWWW∑„∑∑„„„„„„„„£∑WWWWWWWWWWW∑  £  ∑B„„„B∑ßBBßB∑WWWWWWWWWWWW∑Ç„....[{{{{∑  £  £ £ ";
-  mapStrings[mapIndex] += "       £  ⁄∑∑<∑∑∑∑∑∑∑∑∑∑∑„„∑∑∑∑∑„„∑∑∑∑∑<∑∑∑∑∑∑∑∑  £  ⁄∑∑<∑∑∑∑∑∑∑∑∑∑∑<∑∑∑∑∑∑<∑∑∑∑∑∑<∑∑∑∑∑∑∑∑  £  £ £ ";
-  mapStrings[mapIndex] += "       £  ∑„„„„„„„„„„„„„„„„„£„„∑∑„„„„ÇÇ„„„„„„„„∑  £  ∑WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW∑  £  £ £ ";
-  mapStrings[mapIndex] += "£££££££   ∑„„rrrrr„„rrr„„r£££r|„„r„|rrÇÇÇÇ„r„„|∑  £  ∑WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW∑  £  £ £ ";
-  mapStrings[mapIndex] += "       £  ∑„„„„„„„„„„„„„£££„„r„„„„„„„„„„„„Ç„|„„∑  £  ∑WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW∑  £  £ £ ";
-  mapStrings[mapIndex] += "       £  ∑∑∑<∑∑∑∑∑<∑∑∑££„„„rr„„„„„∑∑∑∑<∑∑∑∑∑∑⁄∑  £  ∑∑∑<∑∑∑∑∑<∑∑∑WWWWWWWWWWWW∑∑∑∑<∑∑∑∑∑∑⁄∑£££££§ § ";
-  mapStrings[mapIndex] += " 666   £  ∑WWWWW∑WWWWW∑Ç„„„„r„„„„|„∑WWWWWWWWWWW⁄  £  ∑„„„„ß∑B„„„„∑WWWWWWWWWWWW∑##„„„###33‹⁄       § ";
-  mapStrings[mapIndex] += "66>66  £  ∑WWWWW∑WWWWW∑ÇÇ„„„„„„„„„„∑WWWWWWWWWWW∑  £  ∑€„r„ß∑ß„r„€∑WWWWWWWWWWWW∑ˇˇ„„„ˇˇˇˇˇ3∑£££££§§§ ";
-  mapStrings[mapIndex] += "6,,,6  £  ∑WWWWW∑WWWWW⁄∑∑∑∑∑<<∑∑∑∑∑∑WWWWWWWWWWW∑  £  ∑=„r„„∑„„r„€⁄∑∑∑∑∑<<∑∑∑∑∑∑„„„„„„„„„„„∑  £      ";
-  mapStrings[mapIndex] += "6,,66  £  ∑WWWWW∑WWWWW∑     ££     ∑WWWWWWWWWWW∑  £  ∑€„r„£∑„„r„„∑            ∑]„„„„„„„„££∑  £      ";
-  mapStrings[mapIndex] += "6,,,6  £  ∑WWWWW∑WWWWW∑            ∑WWWWWWWWWWW∑  £  ∑„„„££££„„„€∑            ∑]]„„„££££££∑   ££££££";
-  mapStrings[mapIndex] += "66,,6  £  ∑∑∑∑∑∑⁄∑∑∑∑∑∑            ∑∑∑∑∑∑∑∑∑∑∑∑∑  £  ∑∑∑∑∑∑⁄∑∑∑∑∑∑            ∑∑∑∑∑∑∑∑∑∑∑∑∑  £      ";
-  mapStrings[mapIndex] += "6,,,6  £                                          £                                          £      ";
-  mapStrings[mapIndex] += "6,6,6  £                                          £                                         £    £  ";
-  mapStrings[mapIndex] += "6,,,6   £££££££££££££££££££ £££££££££££££ ££££££££ ££££££££££££££££££££ £££££££££££££ ££££££    6▒6 ";
-  mapStrings[mapIndex] += "66▒66  £                   £             £                             £             £          6…6 ";
-  mapStrings[mapIndex] += " 666   £                   £             £                             £             £        666…66";
-  mapStrings[mapIndex] += "       £   ∑∑∑∑∑∑∑∑∑∑∑∑∑∑  £      £      £     £       6▒6▒6      £    £   £     £   £        6…………6";
-  mapStrings[mapIndex] += "       £   ∑=„„„„„∫Ò∫„ÇÇ∑  £    66▒66    £  666▒66     6…6…6   666▒6   £  6▒6  66▒6  £       66……6…6";
-  mapStrings[mapIndex] += "£££££££    ∑=∑{{„„∫∫∫„„Ç∑  £   66………66   £  6…………6     6………6  6,,……66  £  6…66 6……6  £     666……66…6";
-  mapStrings[mapIndex] += "           ∑∑∑∑∑∑∑∑„∑∑∑∑∑  £  66……………66  £  6…………6666  6………6  6,|………6  £  6……666……6  £  6666………666…6";
-  mapStrings[mapIndex] += "           ∑M„„„„„„„„„„M∑  £  6………6………6  £  66………,,`6  6………6  6,,………6  £  66……6………6  £  6`,,…ƛ…666…6";
-  mapStrings[mapIndex] += "           ∑∑∑∑∑∑∑∑∑∑∑∑∑∑  £  6……666……6  £   6………6`[6  6………6  6[|………6  £   66…………66  £  6[`6………66……6";
-  mapStrings[mapIndex] += "                           £  6…66 66…6  £   6……66666  66…6   6|………66  £    666…66   £  66666…666…66";
-  mapStrings[mapIndex] += "                           £  6Œ6   6Œ6      6Œ66       6Œ6    66Œ6           6Œ6           6Œ6 6Œ6 ";
 
-  m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
+  String[] inputTest = loadStrings("map"+mapIndex+".txt");
+  String nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  m[mapIndex] = new Map(nextMap,mapIndex);
   
   savePoints[savePointIndex++] = new SavePoint(5,4,4,6); //Temple of Ritisu
   savePoints[savePointIndex++] = new SavePoint(5,97,23,6); //Temple of Ritisu (on sea road)
@@ -2746,108 +1850,11 @@ void createFloor5()
   //Danger Map 5
   dangerMapIndex = mapIndex; dangerStrs[dangerMapIndex] = "";
   
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000000000000000000xxxxxx0xxxxxxxxxxxx000000xxxxxxxxxxxxxxxxx0000000000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000000000000000000000000000000xx9999xxx9999999999x00000xx9xx999999999999xx000000000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000xxxxxxxxxxx000000xxxxxxxxxxxxx9x9x9x9xxxxxxxx9x00000x999x9999999999999x000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x00000x99999999999x9x9x9x9x99999999x00000x99999999999999999xxxxxxxx00000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x00000xx9xxxxxxxx999x99999xx99xxx99x00000xx9999999999999999x999999xx0000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx000000x9xxxxx9xxxxx999xxxx000000x999xxxxxx999999999999999x0000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx000000xxx999xxx999xxx9x99x00000xx99999999999999999999x999x0000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx00000xx9999999999999x999xx00000x999999999999999999999x99xx0000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx000xxx999xxxxxxxxxx999xxx000000xx999xxxxx99999999999xxx9x00000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x000000xxx000x9999xx00000000xxxxx000000000xxxxx000xxxxxxxxxxxxx0x9x00000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x99999999999x00000xx9xx0xx999xx000000000000000000000000000000000000000000000xxx00000000000";
-  dangerStrs[dangerMapIndex] += "00000000000xxx99999xxx000000x999xxx999xx000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000xx999xx00000000xx9999999xx0000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000000xxxxx0000000000xxxxxxxxx00000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000xxxxxx00000xxxxxx0000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000x::::x00000x::::x0000000000000000xxxxxx000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000x::::x00000x::::x0000000000000000x99999x00000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000xxxxxx00000xxxxxx0000000000000000x99999x00000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000x99999x00000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000xxx0000000000000000000000000000000000000000000000000000000000000xxxxxx00000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000000xxx0xxx0000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "000000000000xxx00000xxx00000000000000000000000000000000000000000000000000000000000000000000000xxxxxx";
-  dangerStrs[dangerMapIndex] += "00000000000xx9xxxxxxx9xx000xxx000000000000000000000000000000000000000000000000000000000000000x99999x";
-  dangerStrs[dangerMapIndex] += "0000000000xx99999999999xxxxx0xxxx000000000000000000000000000000000000000000000000000000000000x99999x";
-  dangerStrs[dangerMapIndex] += "0000000000xx99999999999999999999xx00000000000000000000000000000000000000000000000000000000000x99999x";
-  dangerStrs[dangerMapIndex] += "00000000000xx99999999999999999999xx000000000xxxxxxxxxxx000000000000000000xxxxxxxxxxxxxxx00000xxxxxx0";
-  dangerStrs[dangerMapIndex] += "000000000000xx99999999999999999999x00000000x9999999999x00000000000000000x88888888888888x000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000xx9999999999999999999x00000000x9999999999x00000000000000000x88888888888888x000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000000xx999999999999999999x00000000xxxxxxxxxxx0000000000000000000xxxxxxxxxxxxxx0000000000000";
-  dangerStrs[dangerMapIndex] += "000000000000000xx9999999999999999xx00000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000xx999999999999999x000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "00000000000000000x999999999999999xxxx000000000000000000000000000000000000000000000000000000000xxxxx0";
-  dangerStrs[dangerMapIndex] += "000000000000000xxx999999999999999999xx0000000000000000000000000000000000000000000000000000000xx999xx";
-  dangerStrs[dangerMapIndex] += "000000000000000x999999999999999999999x000000000000000000000000000000000000000000000000000000xx99xxx0";
-  dangerStrs[dangerMapIndex] += "00000000000000xx999999999999999999999x000000000000000000000000000000000000000000xxxxxxxxxxxxx99xx000";
-  dangerStrs[dangerMapIndex] += "00000000000000x99999999999999999999xxx00000000000000000000000000000000000000000x99999999999999xx0000";
-  dangerStrs[dangerMapIndex] += "00000000000000x9999999999999x999999x0000000000000000000000000000000000000000000x9999999999xx99xx0000";
-  dangerStrs[dangerMapIndex] += "00000000000000xx9999999x9999xx9999xx00000000000000000000000000000000000000000000xxxxxxxxxxxxx99xxxx0";
-  dangerStrs[dangerMapIndex] += "000000000000000x9999xxxx999xxxxxxxx000000000000000000000000000000000000000000000000000000000xx9999xx";
-  dangerStrs[dangerMapIndex] += "000000000000000xxxxxx00xx9xx00000000000000000000000000000000000000000000000000000000000000000xxxxxx0";
-  dangerStrs[dangerMapIndex] += "000000000000000000000000xxx0000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000xxxxxxxxxxxxxx00000000000000000000000000000xxxxxxxxxxxxxx000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000x::::::::::::x00000000000000000000000000000x::::::::::::x000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000xxxxxxxxxxxxx::::::::::::xxxxxxxxxxxxx00000xxxxxxxxxxxxx::::::::::::xxxxxxxxxxxxx000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x:::::::::::::::::::::::::::::::::::xx00000x:::::::::::::::::::::::::::::::::::xx000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x:::::::::::::::::::::::::::::::::::xx000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x::::::::::::::::::::::::::::::::::::x00000x::::::::::::::::::::::::::::::::::::x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x:::::::::::xxxxxxxxxxxxxx:::::::::::x00000x:::::::::::xxxxxxxxxxxxxx:::::::::::x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x:::::::::::x000000000000x:::::::::::x00000x:::::::::::x000000000000x:::::::::::x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000x:::::::::::x000000000000x:::::::::::x00000x:::::::::::x000000000000x:::::::::::x000000000";
-  dangerStrs[dangerMapIndex] += "0000000000xxxxxxxxxxxxx000000000000xxxxxxxxxxxxx00000xxxxxxxxxxxxx000000000000xxxxxxxxxxxxx000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+  inputTest = loadStrings("danger"+mapIndex+".txt");
+  nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  dangerStrs[dangerMapIndex] = nextMap;
 }
 
 void createFloor6()
@@ -2856,123 +1863,42 @@ void createFloor6()
   //Floor 6 - Underground River Rapids
   
   mapIndex++; mapStrings[mapIndex] = "";
-  
-  mapStrings[mapIndex] += " 6▒6  £  6▒6            6▒6 6▒6                                                                     ";
-  mapStrings[mapIndex] += "66…6  £  6…6666      6666…666…66666                                                                 ";
-  mapStrings[mapIndex] += "6……6  £  6ÆÆÆ…6  66666………………………………66666                                                             ";
-  mapStrings[mapIndex] += "6…66  £  6666…6 66……………………………………………………66                                                            ";
-  mapStrings[mapIndex] += "6…6   £     6…666…………………,,,,,…………………ƛ……666                                                          ";
-  mapStrings[mapIndex] += "6…66  £     6ÆÆ…………………,,,Ā..,,,,………………………66                                                         ";
-  mapStrings[mapIndex] += "6……6  £     6666…………,,,...*....,,,……………………66                                                        ";
-  mapStrings[mapIndex] += "6……6  £        6………,,........Ā...,,,…………………666                                                      ";
-  mapStrings[mapIndex] += "66…6  £       66……,,..........Ā....,,,…………………666666                                                 ";
-  mapStrings[mapIndex] += " 6…6  £       6…………,,,..Ā............,,,…………………………6666                                              ";
-  mapStrings[mapIndex] += " 6…6  £    66666……………,,,..........Ā,,,………………………………………66                                             ";
-  mapStrings[mapIndex] += "66…6  £   66…ææææ………………,...Ā...Ā...,……………………„………∑……ƛ……666                                           ";
-  mapStrings[mapIndex] += "6……6  £   Œ……6666………,,,,........Ā..,,,,………„………………„………………6                                           ";
-  mapStrings[mapIndex] += "6……6  £   6666 6……………,.......ĀĀ]Ā.....,,,,,„„…„„…„……………66                                           ";
-  mapStrings[mapIndex] += "6…66  £        6………,,,,Ā.......Ā...........,„…„ƛ…„………………6666                                        ";
-  mapStrings[mapIndex] += "6…6   £        66……………,,,,,..........Ā....,,……∑………………………………6                                        ";
-  mapStrings[mapIndex] += "6…6   £         6………………,……,,,,,..Ā....Ā..,,…………………………66666…66                                       ";
-  mapStrings[mapIndex] += "6…66  £         666……………………………,,,,,..,,,,,………………………………66 6……Œ                                       ";
-  mapStrings[mapIndex] += "6……6  £           666………ƛ………………………,,,,……,,……………………………66  6666     Ú…   æææ                          ";
-  mapStrings[mapIndex] += "6……6  £             66…………………………………………………,………………………666            Ú…   ÆÆÆ                          ";
-  mapStrings[mapIndex] += "66…6   £             666666666………………………………………ƛ………666              Ú…                                ";
-  mapStrings[mapIndex] += " 6…6    £                    6666666666666……………666                                                  ";
-  mapStrings[mapIndex] += " 6…6    £                                666…666                                                    ";
-  mapStrings[mapIndex] += " 6…66   £                                  6Œ6                                                      ";
-  mapStrings[mapIndex] += " 6……6   £                                                                                           ";
-  mapStrings[mapIndex] += " 6……66  £                                                                                           ";
-  mapStrings[mapIndex] += "66………6  £                                                                                           ";
-  mapStrings[mapIndex] += "6…………6  £                                                                                           ";
-  mapStrings[mapIndex] += "66………6  £                                                                                           ";
-  mapStrings[mapIndex] += " 6………6  £                                                                                           ";
-  mapStrings[mapIndex] += " 6…ƛ…6  £                                                                                           ";
-  mapStrings[mapIndex] += " 6………6  £                                                                                           ";
-  mapStrings[mapIndex] += " 6ƛ……6  £                                                                                           ";
-  mapStrings[mapIndex] += " 6………6   £                                                                                          ";
-  mapStrings[mapIndex] += " 6……ƛ6   £                                                                                          ";
-  mapStrings[mapIndex] += " 6………6   £                                                                                          ";
-  mapStrings[mapIndex] += "66………66  £                                                                                          ";
-  mapStrings[mapIndex] += "6……………6  £                                                                                          ";
-  mapStrings[mapIndex] += "6……ƛ……6  £                                                                                          ";
-  mapStrings[mapIndex] += "6…………ƛ6  £                                                                                          ";
-  mapStrings[mapIndex] += "6…ƛ………6  £                                                                                          ";
-  mapStrings[mapIndex] += "6……………6  £                                                                                          ";
-  mapStrings[mapIndex] += "6ƛ……ƛ…6  £                                                                                          ";
-  mapStrings[mapIndex] += "6……………6  £                                                                                          ";
-  mapStrings[mapIndex] += "6…ƛƛƛ…6  £                                                                                          ";
-  mapStrings[mapIndex] += "6……………6  £                                                                                          ";
-  mapStrings[mapIndex] += "6……………6  £                                                                                          ";
-  mapStrings[mapIndex] += "66……ƛ66  £                                                                                          ";
-  mapStrings[mapIndex] += " 6………6   £                                                                                          ";
-  mapStrings[mapIndex] += " 66…66   £                                                                                          ";
-  mapStrings[mapIndex] += "  6…6    £                                                                                          ";
-  mapStrings[mapIndex] += "  6Œ6    £                                                                                          ";
-  mapStrings[mapIndex] += "         £                                                                                          ";
-  mapStrings[mapIndex] += "         £                                                                                          ";
-  mapStrings[mapIndex] += "£££££££££ £                                                                                         ";
-  mapStrings[mapIndex] += "           £                                                                                        ";
-  mapStrings[mapIndex] += "           £                                                                                        ";
-  mapStrings[mapIndex] += "666666666  £                                                                                        ";
-  mapStrings[mapIndex] += "6…6ææææÚ6  £                                                                                        ";
-  mapStrings[mapIndex] += "6…6…666Ú6  £                                                                                        ";
-  mapStrings[mapIndex] += "6…6…Æ»6Ú6  £                                                                                        ";
-  mapStrings[mapIndex] += "6…66666Ú6  £                                                                                        ";
-  mapStrings[mapIndex] += "6…ÆÆÆÆÆÆ6  £                                                                                        ";
-  mapStrings[mapIndex] += "666666666  £                                                                                        ";
-  mapStrings[mapIndex] += "           £                                                                                        ";
-  mapStrings[mapIndex] += "           £                                                                                        ";
-  mapStrings[mapIndex] += "£££££££££££                                                                                         ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
-  mapStrings[mapIndex] += "                                                                                                    ";
 
-  m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
+  String[] inputTest = loadStrings("map"+mapIndex+".txt");
+  String nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  m[mapIndex] = new Map(nextMap,mapIndex);
   
   //First Flume to First Chamber
   exits.add( new Portal(mapIndex,3,51, mapIndex,10,0) );
   //First Chamber recovery chute
   exits.add( new Portal(mapIndex,10,12, mapIndex,1,58) );
   exits.add( new Portal(mapIndex,5,60,  mapIndex,25,0) );
+  //First Chamber treasure chute (chamber - tunnel - swirl - chamber)
+  exits.add( new Portal(mapIndex,60,17, mapIndex,1,98) );
+  exits.add( new Portal(mapIndex,1,81, mapIndex,7,74) );
+  exits.add( new Portal(mapIndex,3,72, mapIndex,29,0) );
+  //First Chamber to first decision fork
+  exits.add( new Portal(mapIndex,44,23, mapIndex,52,0) );
+  //North path
+  exits.add( new Portal(mapIndex,76,1, mapIndex,12,25) );
+  exits.add( new Portal(mapIndex,18,52, mapIndex,52,0) );
+  //South path
+  exits.add( new Portal(mapIndex,73,9, mapIndex,67,16) );
+  exits.add( new Portal(mapIndex,97,25, mapIndex,52,0) );
   
   //Kat's Ice Bob Kit
   createLoot(lootIndex++, mapIndex, 31, 13, Key.I );
+  //First waterway treasure
+  //createLoot(lootIndex++, mapIndex, 5, 91, ITEM );
   
   //Inspect shipwreck
   m[mapIndex].tiles[44][13].createEvent(false, "- The wreckage of a small boat is caught against a stalagmite.");
   //Kat's Ice Bomb Kit
   m[mapIndex].tiles[31][12].createEvent(false, "- The rats were chewing into a leather box. You recognize Sister Kat's monogram on it.");
+  //First decision fork
+  m[mapIndex].tiles[65][3].createEvent(false, "- The current seems calmer in the northern passage. You recognize the noxious scent of Sister Kat's potions to the south.");
   
   ////Squid Test
   //m[mapIndex].tiles[2][2].placeBoss( mapIndex, color(#369c46), "TEST", new Monster("Giant Squid", "GreenSquidBoss.png",  7, 4, 2, 1, 6, 1, 2, 0, AttackType.FIRE), false);
@@ -2986,115 +1912,11 @@ void createFloor6()
    //Danger Map 6
   dangerMapIndex = mapIndex; dangerStrs[dangerMapIndex] = "";
   
-  dangerStrs[dangerMapIndex] += "0xxx00000xxx0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "xx0x00000x0xxxx0000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00x00000x0000x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x0xx00000xxxx0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x0x000000000x0xxx00000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x0xx00000000x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00x00000000xxxx000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "xx0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0x0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0x0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "xx0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x0xx000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x0xx000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "xx0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0x0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0x0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0x0xx00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0x00x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0x00xx0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "xx000x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x0000x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "xx000x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0x000x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0x000x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0x000x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0x000x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0x000x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0x000x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0x000x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "xx000xx000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00000x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00000x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00000x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "x00000x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00000x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00000x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00000x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00000x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00000x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "x00000x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "xx000xx000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0x000x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0xx0xx0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "00x0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "00xxx00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+  inputTest = loadStrings("danger"+mapIndex+".txt");
+  nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  dangerStrs[dangerMapIndex] = nextMap;
 }
 
 void createTestRoom()
@@ -3103,111 +1925,13 @@ void createTestRoom()
   //Floor X - TEST ROOMS
   
   mapIndex++; mapStrings[mapIndex] = "";
-  mapStrings[mapIndex] += "####################################################################################################";
-  mapStrings[mapIndex] += ".............................................]]#.....#..=..=..=..=..=..=..=...TT^^^^TT..............";
-  mapStrings[mapIndex] += "............................?...?...?...?...?.]#..*..#.?..?..?..?..?..?..?....TT^^^^TT..............";
-  mapStrings[mapIndex] += "...............................................................................T^^ø^T...............";
-  mapStrings[mapIndex] += "..............................................|#.....#.?............................................";
-  mapStrings[mapIndex] += ".............................................||#.....#..=...........................................";
-  mapStrings[mapIndex] += "################################################.....###############################################";
-  mapStrings[mapIndex] += ".............................................ww#.....#..=..=..=..=....…………..........................";
-  mapStrings[mapIndex] += "............................?...?...?...?...?.w#.....#.?..?..?..?.....…………....ﬂﬂﬂ...................";
-  mapStrings[mapIndex] += "......................................................................…………....,[ﬂ...................";
-  mapStrings[mapIndex] += "............................................?.T#.....#.?..............…..…....,]ﬂ...................";
-  mapStrings[mapIndex] += ".............................................TT#.....#..=.............…………....ﬂﬂﬂ...................";
-  mapStrings[mapIndex] += "################################################.....###############################################";
-  mapStrings[mapIndex] += ".............................................YY#.....#..=..=..=.....................................";
-  mapStrings[mapIndex] += "................?...?...?...?...?...?...?...?.Y#.....#.?..?..?......................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "........................?...?...?...?...?...?.g#.....#.?..?..?..?..?..?..?..........................";
-  mapStrings[mapIndex] += ".............................................gg#.....#..≠..≠..≠..≠..≠..≠..≠.........................";
-  mapStrings[mapIndex] += "################################################.....###############################################";
-  mapStrings[mapIndex] += ".............................................ÇÇ#.....#..=..=..=..=..................................";
-  mapStrings[mapIndex] += "................................?...?...?...?.Ç#.....#.?..?..?..?...................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "..............................................˛#.....#..............................................";
-  mapStrings[mapIndex] += ".............................................„≈#.....#..............................................";
-  mapStrings[mapIndex] += "################################################.....###############################################";
-  mapStrings[mapIndex] += ".............................................ÖÖ#.....#..=..=..=..˘..................................";
-  mapStrings[mapIndex] += "........................?...?...?...?...?...?.ö#.....#.?..?..?..?...................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................?...?...?.^#.....#..............................................";
-  mapStrings[mapIndex] += ".............................................^ø#.....#..............................................";
-  mapStrings[mapIndex] += "################################################.....###############################################";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "....................................................................................................";
-  mapStrings[mapIndex] += "####################################################################################################";
 
-  m[mapIndex] = new Map(mapStrings[mapIndex],mapIndex);
+  String[] inputTest = loadStrings("mapX.txt");
+  String nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  m[mapIndex] = new Map(nextMap,mapIndex);
 
-  
-  
   savePoints[savePointIndex++] = new SavePoint(mapIndex,50,2);
 
   //Signs
@@ -3634,8 +2358,12 @@ void createTestRoom()
   
   //Danger Map X (TEST ROOM)
   dangerMapIndex = mapIndex; dangerStrs[dangerMapIndex] = "";
-  for(int i = 0; i < 100; i++)
-    dangerStrs[dangerMapIndex] += "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+
+  inputTest = loadStrings("dangerX.txt");
+  nextMap = "";
+  for( int j = 0; j < inputTest.length; j++ )
+    nextMap += inputTest[j];
+  dangerStrs[dangerMapIndex] = nextMap;
 }
 
 void setNameDependentText()

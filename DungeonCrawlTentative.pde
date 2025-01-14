@@ -15,7 +15,7 @@
   //No "monster takes damage" message after magic
   //Get mp back from attacking
   //Some extra bonus from defending?
-  //Bombs: keep from crit
+  //Bombs: keep from crit?
   //Still getting into un-endable text loop (debug mode?)
 
 //To change once font is chosen:
@@ -349,11 +349,11 @@ void setup()
   tileImage[124]= loadImage("tent_outer.png");   tileImage[124].resize(30,0);
   tileImage[125]= loadImage("stalagmite.png");   tileImage[125].resize(40,0);
   tileImage[126]= loadImage("stalagmite2.png");  tileImage[126].resize(40,0);
-  tileImage[127]= loadImage("fireBomb.png");     tileImage[127].resize(56,0);
+  tileImage[127]= loadImage("fireBomb.png");     tileImage[127].resize(45,0);
   tileImage[128]= loadImage("reagents.png");     tileImage[128].resize(56,0);
-  tileImage[129]= loadImage("iceBomb.png");      tileImage[129].resize(56,0);
-  tileImage[130]= loadImage("acidBomb.png");     tileImage[130].resize(56,0);
-  tileImage[131]= loadImage("thunderBomb3.png");  tileImage[131].resize(56,0);
+  tileImage[129]= loadImage("iceBomb.png");      tileImage[129].resize(45,0);
+  tileImage[130]= loadImage("acidBomb.png");     tileImage[130].resize(45,0);
+  tileImage[131]= loadImage("thunderBomb3.png"); tileImage[131].resize(45,0);
   
   iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
   iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
@@ -885,10 +885,10 @@ String bonkText( char direction ) //for when the heroes run into obstacles
   int x = party.X, y = party.Y;
   
   //party tried to move off the map
-  if( direction == 'l'){ x--; if(x<0)return"BONK";}
-  else if( direction == 'r'){ x++; if(x>=m[0].tiles.length)return"BONK";}
-  else if( direction == 'u'){ y--; if(y<0)return"BONK";}
-  else if( direction == 'd'){ y++; if(y>=m[0].tiles[0].length)return"BONK";}
+  if( direction == 'l'){ x--; if(x<0)return" ";}
+  else if( direction == 'r'){ x++; if(x>=m[0].tiles.length)return" ";}
+  else if( direction == 'u'){ y--; if(y<0)return" ";}
+  else if( direction == 'd'){ y++; if(y>=m[0].tiles[0].length)return" ";}
   
   switch( m[party.floor].tiles[x][y].type )
   {
@@ -1233,6 +1233,18 @@ public String bombName( int bombType )
     default: return " UNKNOWN";
   }
 }
+
+public int bombCost( int type )
+{
+  switch(type)
+  {
+    case 5: return 1;
+    case 6: return 2;
+    case 7: return 3;
+    case 8: return 5;
+    default: return 99;
+  }
+}
   
 Input appropriateInputMode()
 {
@@ -1258,6 +1270,8 @@ void keyPressed()
     locationMapOn = true;
   if( debugMode && key == 'N' )
     noClip = !noClip;
+  //if( debugMode && key == 'r' )
+  //  party.reagents--;
   //if(key == '1')
   //  beep1.play();
   //if(key =='2')
@@ -1554,7 +1568,7 @@ void keyPressed()
           println("Potion Type: " + potionType);
         }
       }
-      if( ( key == '5' || key == '6' || key == '7' || key == '8' ) && party.reagents > 0 ) //Use Bomb
+      if( ( key == '5' || key == '6' || key == '7' || key == '8' ) && party.reagents >= bombCost(key-48) ) //Use Bomb
       {
         input = Input.BATTLE_ITEM_TARGET;
         potionType = key-48;

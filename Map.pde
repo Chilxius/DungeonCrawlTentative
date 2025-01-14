@@ -53,7 +53,7 @@ class Map
           tiles[0][0].drawTile(155+(xDraw),180+(yDraw)); //Draw default tile, which is the tile at 0,0
           
     drawPartyPosition(a,b,c);  //Draws the heroes
-    println(tiles[party.X][party.Y].type);
+    //println(tiles[party.X][party.Y].type);
     tiles[party.X][party.Y].drawForegroundObject(); //Re-draws the tile art if the heroes move behind it
     
     if(vanGogh.titleCardDuration > 0) //Location Title Card

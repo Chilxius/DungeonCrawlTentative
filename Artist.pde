@@ -500,13 +500,12 @@ class Artist
     if(vapors>0)    {text("Vapor: " +vapors,    420,327); text("D",445,377);}
     if(elixirs>0)   {text("Elixir: "+elixirs,   560,327); text("F",585,377);}
                      text("Reagents:",           70,427);
-                     text(party.reagents,        95,437);
-    if(party.reagents>0) {
-    if(element[0])  {text("Flame",              210,427); text("H",235,477);}
-    if(element[1])  {text("Ice",                350,427); text("J",375,477);}
-    if(element[2])  {text("Acid",               490,427); text("K",515,477);}
-    if(element[3])  {text("Thunder",            630,427); text("L",655,477);} }
-    
+                     text(party.reagents,        90,437);
+                     
+    if(element[0])  {text("Flame",  210,427); text("H",235,477); if(party.reagents<1) fill(200,0,0); text("Cost: 1",210,435); fill(255); }
+    if(element[1])  {text("Ice",    350,427); text("J",375,477); if(party.reagents<2) fill(200,0,0); text("Cost: 2",350,435); fill(255); }
+    if(element[2])  {text("Acid",   490,427); text("K",515,477); if(party.reagents<3) fill(200,0,0); text("Cost: 3",490,435); fill(255); }
+    if(element[3])  {text("Thunder",630,427); text("L",655,477); if(party.reagents<5) fill(200,0,0); text("Cost: 5",630,435); fill(255); }
     
     drawCancelIcon(baseX+75,545);
     if(healthPots>0) image(tileImage[90], 140,356); //drawPotion( 135,360,.5,#00FF0A);
@@ -515,11 +514,11 @@ class Artist
     if(elixirs>0)    image(tileImage[93], 560,356); // drawPotion( 555,360,.5,#FFD500);
                      image(tileImage[128],70,453);
     push();
-    if(party.reagents<=0) tint(50);
-    if(element[0])   image(tileImage[127],212,453);
-    if(element[1])   image(tileImage[129],350,453);
-    if(element[2])   image(tileImage[130],490,453);
-    if(element[3])   image(tileImage[131],630,453);
+    //if(party.reagents<=0) tint(50);
+    if(element[0]) { if(party.reagents<1) tint(50); image(tileImage[127],210,458);}
+    if(element[1]) { if(party.reagents<2) tint(50); image(tileImage[129],350,459);}
+    if(element[2]) { if(party.reagents<3) tint(50); image(tileImage[130],490,460);}
+    if(element[3]) { if(party.reagents<5) tint(50); image(tileImage[131],630,458);}
     pop();
   }
   

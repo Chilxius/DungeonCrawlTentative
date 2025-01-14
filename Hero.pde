@@ -590,11 +590,11 @@ class Hero
       }
       else
       {
-        println("Weapon Power: " + weaponPower);
-        println("Skill Power: " + skill[skillSelection].power);
-        println("Skill Type: " + skillType );
-        println("Stat: " + appropriateStat( skill[skillSelection] ) );
-        println("Monster Defense: " + battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ) );
+        //println("Weapon Power: " + weaponPower);
+        //println("Skill Power: " + skill[skillSelection].power);
+        //println("Skill Type: " + skillType );
+        //println("Stat: " + appropriateStat( skill[skillSelection] ) );
+        //println("Monster Defense: " + battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ) );
         damage = battle.calculateDamage( level, battle.isCrit(totalStat(1),battleMonsters[targetMonster].dex,true), weaponPower+skill[skillSelection].power+(level*2*bonus), appropriateStat( skill[skillSelection] ), battleMonsters[targetMonster].appropriateDefense( skill[skillSelection] ), skillType, battleMonsters[targetMonster].weakness );
         battleMonsters[targetMonster].takeDamage(damage);
         floatingNumbers.add( new GhostNumber( 150+210*targetMonster, 320, appropriateColor(skillType), damage) );

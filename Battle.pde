@@ -403,7 +403,12 @@ class Battle
     defenderIndex = d;
     
     //party.hero[attackerIndex].payForSkill(skillSelection);
-    party.reagents--;
+    //println( "POTION TYPE: " + potionType );
+    //if( potionType == 8 )
+    //  party.reagents -= 5;
+    //else
+    //  party.reagents -= potionType-4;
+    party.reagents -= bombCost(potionType);
     
     //party.hero[attackerIndex].handleSkillEffect(true,skillSelection);
     String outputText = list[attackerIndex].name + " throws a" + bombName(potionType) + " bomb!";
