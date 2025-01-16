@@ -17,6 +17,7 @@
   //Some extra bonus from defending?
   //Bombs: keep from crit?
   //Still getting into un-endable text loop (debug mode?)
+  //Have a Ritisu priest talk about reagents
 
 //To change once font is chosen:
   //cleric owed money

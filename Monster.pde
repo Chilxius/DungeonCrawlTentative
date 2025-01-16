@@ -93,6 +93,7 @@ class Monster
     {
       //Small
       case "Cave Fish":
+      case "Cave Angler":
         pic.resize(150,0);
         break;
         

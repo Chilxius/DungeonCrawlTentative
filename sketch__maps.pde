@@ -89,6 +89,7 @@ void createFloor0()
   m[mapIndex] = new Map(nextMap,mapIndex);
   
   createLoot(lootIndex++, 0, 47, 8, Key.COPPER_KEY);
+  createLoot(lootIndex++, mapIndex, 18, 53, Key.F);
   createLoot(lootIndex++, 0, 59, 14, new Equipment("Admirer's Chain","MetalMail.png",18,false,20,Job.KNIGHT,Job.BARBARIAN,Job.THIEF,Job.PRIEST,Job.BARD) );
   //createLoot(lootIndex++, 0, 21, 29, new Equipment("Vestment","BlueShirt.png",3,false,7,true) );
   //createLoot(lootIndex++, 0, 22, 29, new Equipment("Vestment","BlueShirt.png",3,false,7,true) );
@@ -2450,7 +2451,7 @@ void setNameDependentText()
   m[0].tiles[48][67].placeOccupant( color(250, 100, 50), "- "+party.hero[0].name+"? "+party.hero[1].name+"? Good, I'm glad to see you. We need help and we won't get it from Mother Sunita. I'm headed to the mayor's office. Meet me there as soon as you can." );
   
   //Kat
-  m[0].tiles[19][53].placeOccupant( katColor, "- AH! "+party.hero[1].name+", where did you come from? Was it you who slew those rats in the cellar? You're strong, "+party.hero[1].name+". Brave, too. If only I could borrow that courage. Some of them escaped the cellar with my prototype potions. I don't know what effect they will have on fauna, but it is my responsibilty to prevent harm. I-if you want to help, I'd appreciate it. My "+heroWeapon[1]+" "+wasOrWere(heroWeapon[1].charAt(heroWeapon[1].length()-1))+" never as strong as yours." );
+  m[0].tiles[19][53].placeOccupant( katColor, "- AH! "+party.hero[1].name+", where did you come from? Was it you who slew those rats in the cellar? You're strong, "+party.hero[1].name+". Brave, too. If only I could borrow that courage. Some of them escaped the cellar with my prototype potions. I don't know what effect they will have on fauna, but it is my responsibilty to prevent harm. I-if you want to help, I'd appreciate it. I'll even lend you my... invention. I-if you promise not to tell Brother Idris about it." );//My "+heroWeapon[1]+" "+wasOrWere(heroWeapon[1].charAt(heroWeapon[1].length()-1))+" never as strong as yours." );
   m[1].tiles[49][14].placeOccupant( katColor, "She's slumped against the wall. Her arm is burned. - "+party.hero[1].name+"? How did you avoid the man-wolf? I had to use my draught of disguise. The rats are getting larger, and mutating in strange ways. May Am-asma forgive me for my part in this. I was able to trap one up ahead. Could you please fight him? I have food here if you feel hungry. I'll be fine, I just need a rest..." );
   m[3].tiles[ 1][24].placeOccupant( katColor, "Her face is pale and dripping with cold sweat. - Uh... oh, "+party.hero[1].name+". Why are you here? Books with strange symbols? Looking into Father Charis's death? Wow, you sure have been busy since leaving the cathedral. I was following the rats, but some of them followed me. They're in the ship. I locked them in the lower deck. I was going to tell the captain, but the ship started swaying and... uh, my poor stomach... I must have dropped the key." );
   m[3].tiles[58][89].placeOccupant( katColor, "- I think I'm past the worst of it now. Thank you again, "+party.hero[1].name+". After I clean the rest of them off the ship I plan to stop in Waraka castle to restock on reagents. I used my last brewing this potion. Take it as a show of thanks. Illamar guide you." );

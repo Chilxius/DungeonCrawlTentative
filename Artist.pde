@@ -491,7 +491,8 @@ class Artist
     rectMode(CENTER); strokeWeight(5);
     stroke(200); fill(0,200);
             rect(140,350,70,70,20);rect(280,350,70,70,20);rect(420,350,70,70,20);rect(560,350,70,70,20);
-    rect(70,450,70,70,20);rect(210,450,70,70,20);rect(350,450,70,70,20);rect(490,450,70,70,20);rect(630,450,70,70,20);
+    if(element[0]||element[1]||element[2]||element[3])
+      {rect(70,450,70,70,20);rect(210,450,70,70,20);rect(350,450,70,70,20);rect(490,450,70,70,20);rect(630,450,70,70,20);}
     rect(baseX+75,545,70,70,20);
     
     textAlign(CENTER); textSize(10*fontScale); fill(200);
@@ -499,8 +500,9 @@ class Artist
     if(manaPots>0)  {text("Mana: "  +manaPots,  280,327); text("S",305,377);}
     if(vapors>0)    {text("Vapor: " +vapors,    420,327); text("D",445,377);}
     if(elixirs>0)   {text("Elixir: "+elixirs,   560,327); text("F",585,377);}
+    if(element[0]||element[1]||element[2]||element[3]){
                      text("Reagents:",           70,427);
-                     text(party.reagents,        90,437);
+                     text(party.reagents,        90,437);}
                      
     if(element[0])  {text("Flame",  210,427); text("H",235,477); if(party.reagents<1) fill(200,0,0); text("Cost: 1",210,435); fill(255); }
     if(element[1])  {text("Ice",    350,427); text("J",375,477); if(party.reagents<2) fill(200,0,0); text("Cost: 2",350,435); fill(255); }
@@ -512,7 +514,7 @@ class Artist
     if(manaPots>0)   image(tileImage[91], 280,356); // drawPotion( 275,360,.5,#0063FF);
     if(vapors>0)     image(tileImage[92], 420,356); // drawPotion( 415,360,.5,#FF6FF1);
     if(elixirs>0)    image(tileImage[93], 560,356); // drawPotion( 555,360,.5,#FFD500);
-                     image(tileImage[128],70,453);
+    if(element[0]||element[1]||element[2]||element[3])image(tileImage[128],70,453);
     push();
     //if(party.reagents<=0) tint(50);
     if(element[0]) { if(party.reagents<1) tint(50); image(tileImage[127],210,458);}
