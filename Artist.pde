@@ -3361,5 +3361,30 @@ class Artist
       image(battleMonsters[1].pic,frameWidth/2,275);
     if(battleMonsters[2].alive)
       image(battleMonsters[2].pic,frameWidth*.8,275);
+    if( input == Input.BATTLE_SKILL_TARGET || input == Input.BATTLE_ATTACK_TARGET || input == Input.BATTLE_ITEM_TARGET )
+    {
+      textAlign(CENTER); fill(255);
+      if( battleMonsters[0].alive && mouseX > 40+frameX  && mouseX < 240+frameX && mouseY > 180+frameY && mouseY < 380+frameY )
+        drawBoxedText( battleMonsters[0].name, frameWidth/5, 200 );
+      if( battleMonsters[1].alive && mouseX > 250+frameX && mouseX < 450+frameX && mouseY > 180+frameY && mouseY < 380+frameY )
+        drawBoxedText( battleMonsters[1].name, frameWidth/2, 200 );     
+      if( battleMonsters[2].alive && mouseX > 460+frameX && mouseX < 660+frameX && mouseY > 180+frameY && mouseY < 380+frameY )
+        drawBoxedText( battleMonsters[2].name, frameWidth*.8, 200 );     
+    }
+  }
+  
+  void drawBoxedText( String text, float x, int y )
+  {
+    push();
+    fill(0);
+    rectMode(CENTER);
+    textAlign(CENTER);
+    textSize(30);
+    stroke(200);
+    strokeWeight(5);
+    rect( x, y-9, text.length()*15+30, 40, 15 );
+    fill(255);
+    text( text, x, y );
+    pop();
   }
 }

@@ -73,11 +73,43 @@ class Battle
       }
     }
       
+    addSubscripts();
+    
     list[3] = new Initiative(battleMonsters[0],3);
     list[4] = new Initiative(battleMonsters[1],4);
     list[5] = new Initiative(battleMonsters[2],5);
     
     party.hero[0].defending = party.hero[1].defending = party.hero[2].defending = false;
+  }
+  
+  //Assign A, B, C to monster names
+  void addSubscripts()
+  {
+    //Monsters that don't get subscripts
+    if( battleMonsters[0].name == "Spirit Light" )
+      return;
+      
+    if( battleMonsters[0].name == battleMonsters[1].name && battleMonsters[1].name == battleMonsters[2].name )
+    {
+      battleMonsters[0].name += " A";
+      battleMonsters[1].name += " B";
+      battleMonsters[2].name += " C";
+    }
+    if( battleMonsters[0].name == battleMonsters[1].name )
+    {
+      battleMonsters[0].name += " A";
+      battleMonsters[1].name += " B";
+    }
+    if( battleMonsters[0].name == battleMonsters[2].name )
+    {
+      battleMonsters[0].name += " A";
+      battleMonsters[2].name += " B";
+    }
+    if( battleMonsters[1].name == battleMonsters[2].name )
+    {
+      battleMonsters[1].name += " A";
+      battleMonsters[2].name += " B";
+    }
   }
   
   public void resumeInitiativeTick()

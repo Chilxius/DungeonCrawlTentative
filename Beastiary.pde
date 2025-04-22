@@ -243,17 +243,17 @@ class Beastiary
     
     //; - Subterranian Waterway (easy)
       dangerZone++;
-    list[dangerZone][0] = new Monster("Cave Fish", "GreenFish.png", 50, 22, 20, 5, 1, 5, 22, 0, AttackType.NONE, 0);
+    list[dangerZone][0] = new Monster("Cave Fish", "GreenFish.png", 50, 20, 20, 5, 1, 5, 22, 0, AttackType.NONE, 0);
       list[dangerZone][0].attacks[0] = new Attack("splashes in the water.");
       list[dangerZone][0].attacks[1] = new Attack("bites.", 50, false );
       list[dangerZone][0].attacks[2] = new Attack("stings with its barb.", 40, false, Debuff.POISON );
       list[dangerZone][0].attacks[3] = new Attack("bites.", 50, false );
       list[dangerZone][0].attacks[4] = new Attack("gnaws at your heel.", 60, false );
-    list[dangerZone][1] = new Monster("Cave Angler", "DarkAngler.png", 32, 28, 40, 4, 1, 6, 28, 0, AttackType.NONE, 0);
+    list[dangerZone][1] = new Monster("Cave Angler", "DarkAngler.png", 32, 25, 40, 4, 1, 6, 28, 0, AttackType.NONE, 0);
       list[dangerZone][1].attacks[0] = new Attack("is strangely still...");
       list[dangerZone][1].attacks[1] = new Attack("flashes its lure.");
       list[dangerZone][1].attacks[2] = new Attack("rips into you!", 50, true );
-      list[dangerZone][1].attacks[3] = new Attack("bites your exposed flesh.", 60, false );
+      list[dangerZone][1].attacks[3] = new Attack("is strangely still...");
       list[dangerZone][1].attacks[4] = new Attack("sinks its teeth in!", 70, false );
     list[dangerZone][2] = new Monster();
     list[dangerZone][3] = new Monster();

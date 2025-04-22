@@ -2078,6 +2078,7 @@ public void saveGame( String fileName )
     }
     
   saveOutput.println(party.gold); //Writes the party's gold
+  saveOutput.println(party.reagents); //Writes the party's reagents
   
   for(int i = 0; i < party.inventory.length; i++) //Writes inventory
   {
