@@ -279,46 +279,46 @@ void createFloor0()
   //Giant rat blocking camp
   m[0].tiles[1][53].placeBoss( 0, color(255,0), "There was one in the tent.", new Monster("Escaped Rat", "BrownRat.png", 20, 9, 15, 2, 0, 2, 4, 0, AttackType.FIRE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 30, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false);
-      zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 30, false);
-      zoo.boss[bossIndex].attacks[4] = new Attack("bites and claws.", 40, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 30, false, "T");
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false, "T");
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 30, false, "T");
+      zoo.boss[bossIndex].attacks[4] = new Attack("bites and claws.", 40, false, "S");
   bossIndex++;
   
   //Giant rat blocking woods
   m[0].tiles[7][54].placeBoss( 0, color(150, 80, 40), "One of the big ones escaped.", new Monster("Escaped Rat", "BrownRat.png", 20, 11, 15, 2, 0, 2, 4, 0, AttackType.FIRE) );
       zoo.boss[bossIndex].attacks[0] = new Attack("squeaks angrily.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 30, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false);
-      zoo.boss[bossIndex].attacks[3] = new Attack("bites and claws.", 40, false);
-      zoo.boss[bossIndex].attacks[4] = new Attack("swipes with its tail.", 30, true);
+      zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 30, false, "T");
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false, "T");
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites and claws.", 40, false, "S");
+      zoo.boss[bossIndex].attacks[4] = new Attack("swipes with its tail.", 30, true, "S");
   bossIndex++;
   
   //Spiders blocking chest
   m[0].tiles[36][79].placeBoss( 0, color(255, 175), "Hungry jaws surround you.", new Monster("Red Spider", "RedSpider.png", 10, 5, 10, 3, 0, 3, 5, 0, AttackType.NONE), true );
       zoo.boss[bossIndex].attacks[0] = new Attack("scurries forward.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("bites your arm.", 30, false, Debuff.POISON);
-      zoo.boss[bossIndex].attacks[2] = new Attack("bites your leg.", 35, false, Debuff.POISON);
-      zoo.boss[bossIndex].attacks[3] = new Attack("bites your neck.", 45, false, Debuff.POISON);
-      zoo.boss[bossIndex].attacks[4] = new Attack("bites your hand.", 25, false, Debuff.POISON);
+      zoo.boss[bossIndex].attacks[1] = new Attack("bites your arm.", 30, false, Debuff.POISON, "T");
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites your leg.", 35, false, Debuff.POISON, "T");
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites your neck.", 45, false, Debuff.POISON, "T");
+      zoo.boss[bossIndex].attacks[4] = new Attack("bites your hand.", 25, false, Debuff.POISON, "T");
   bossIndex++;
   
   //Spiders blocking save point
   m[0].tiles[3][94].placeBoss( 0, color(255, 175), "They're attracted to the Legend Gem.", new Monster("Red Spider", "RedSpider.png", 10, 5, 10, 3, 0, 3, 5, 0, AttackType.NONE), true );
       zoo.boss[bossIndex].attacks[0] = new Attack("scurries forward.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("bites your arm.", 30, false, Debuff.POISON);
-      zoo.boss[bossIndex].attacks[2] = new Attack("bites your leg.", 35, false, Debuff.POISON);
-      zoo.boss[bossIndex].attacks[3] = new Attack("bites your neck.", 45, false, Debuff.POISON);
-      zoo.boss[bossIndex].attacks[4] = new Attack("bites your hand.", 25, false, Debuff.POISON);
+      zoo.boss[bossIndex].attacks[1] = new Attack("bites your arm.", 30, false, Debuff.POISON, "T");
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites your leg.", 35, false, Debuff.POISON, "T");
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites your neck.", 45, false, Debuff.POISON, "T");
+      zoo.boss[bossIndex].attacks[4] = new Attack("bites your hand.", 25, false, Debuff.POISON, "T");
   bossIndex++;
   
   //The man-wolf
   m[0].tiles[20][93].placeBoss( 0, color(58,39,30), "It walks like a man.", new Monster("Man-wolf", "BrownWerewolf.png", 50, 20, 20, 3, 0, 5, 40, 0, AttackType.FIRE), false );
       zoo.boss[bossIndex].attacks[0] = new Attack("howls!");
-      zoo.boss[bossIndex].attacks[1] = new Attack("claws.", 40, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("rends and claws!", 40, true);
-      zoo.boss[bossIndex].attacks[3] = new Attack("rends.", 40, false);
-      zoo.boss[bossIndex].attacks[4] = new Attack("bites!", 50, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("claws.", 40, false, "S");
+      zoo.boss[bossIndex].attacks[2] = new Attack("rends and claws!", 40, true, "S");
+      zoo.boss[bossIndex].attacks[3] = new Attack("rends.", 40, false, "S");
+      zoo.boss[bossIndex].attacks[4] = new Attack("bites!", 50, false, "T");
   bossIndex++;
   
   m[0].tiles[47][8].createEvent(false, "- Mother Sunita clasps her hands and straightens her posture."+
@@ -691,124 +691,124 @@ void createFloor1()
   m[1].tiles[22][17].placeBoss( 1, color(150, 80, 40), "A large rat guards the way.", new Monster("Giant Rat", "BrownRat.png", 10, 5, 5, 1, 6, 1, 3, 0, AttackType.FIRE) );
     zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
     zoo.boss[bossIndex].attacks[1] = new Attack("squeaks.");
-    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 25, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 30, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 35, false);
+    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 25, false, "T");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 30, false, "T");
+    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 35, false, "T");
   bossIndex++;
 
   m[1].tiles[20][21].placeBoss( 1, color(150, 80, 40), "A large rat guards the way.", new Monster("Giant Rat", "BrownRat.png", 18, 6, 5, 1, 9, 1, 3, 0, AttackType.FIRE) );
     zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
     zoo.boss[bossIndex].attacks[1] = new Attack("squeaks.");
-    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 27, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 32, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 37, false);
+    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 27, false, "T");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 32, false, "T");
+    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 37, false, "T");
   bossIndex++;
 
   m[1].tiles[18][19].placeBoss( 1, color(150, 80, 40), "A large rat guards the way.", new Monster("Giant Rat", "BrownRat.png", 26, 7, 5, 1, 9, 1, 4, 0, AttackType.FIRE) );
     zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
     zoo.boss[bossIndex].attacks[1] = new Attack("squeaks.");
-    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 29, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 34, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 39, false);
+    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 29, false, "T");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 34, false, "T");
+    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 39, false, "T");
   bossIndex++;
 
   m[1].tiles[1][16].placeBoss( 1, color(150, 80, 40), "A swarm comes for you!", new Monster("Giant Rat", "BrownRat.png", 18, 5, 5, 1, 12, 1, 3, 0, AttackType.FIRE), true );
     zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
     zoo.boss[bossIndex].attacks[1] = new Attack("squeaks.");
-    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 29, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 34, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 39, false);
+    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 29, false, "T");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 34, false, "T");
+    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 39, false, "T");
   bossIndex++;
 
   m[1].tiles[5][15].placeBoss( 1, color(200, 80, 40), "This must be their matriarch.", new Monster("Rat Queen", "RedRat.png", 35, 12, 5, 2, 24, 3, 5, 0, AttackType.NONE) );
     zoo.boss[bossIndex].attacks[0] = new Attack("eyes you hungrily.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 35, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("bites and scratches.", 40, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("whips her tail.", 35, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("summons her brood!", 30, true);
+    zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 35, false, "T");
+    zoo.boss[bossIndex].attacks[2] = new Attack("bites and scratches.", 40, false, "S");
+    zoo.boss[bossIndex].attacks[3] = new Attack("whips her tail.", 35, false, "S");
+    zoo.boss[bossIndex].attacks[4] = new Attack("summons her brood!", 30, true, "T");
   bossIndex++;
 
   m[1].tiles[62][18].placeBoss( 1, color(150, 80, 40), "Kat was right. They are getting bigger.", new Monster("Burning Rat", "fireRat.png", 45, 9, 10, 3, 9, 5, 7, 0, AttackType.ICE) );
-    zoo.boss[bossIndex].attacks[0] = new Attack("bites.", 35, false);
-    zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 35, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("coughs out fire.", 20, true, AttackStat.MAG, AttackType.FIRE);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites with its glowing mouth.", 40, false, AttackStat.MAG, AttackType.FIRE);
+    zoo.boss[bossIndex].attacks[0] = new Attack("bites.", 35, false, "T");
+    zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 35, false, "T");
+    zoo.boss[bossIndex].attacks[2] = new Attack("coughs out fire.", 20, true, AttackStat.MAG, AttackType.FIRE, "F");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites with its glowing mouth.", 40, false, AttackStat.MAG, AttackType.FIRE, "T");
     zoo.boss[bossIndex].attacks[4] = new Attack("coughs up black smoke.");
   bossIndex++;
   
   m[1].tiles[4][55].placeBoss( 1, color(230), "Its empty eyes glow with malice.", new Monster("Skeleton", "Skeleton.png", 40, 9, 1, 2, 1, 3, 4, 0, AttackType.HOLY) );
-    zoo.boss[bossIndex].attacks[0] = new Attack("scratches.", 40, false);
-    zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 40, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("gouges with phalanges.", 45, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("gouges with phalanges.", 45, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("stabs with a rib.", 55, false);
+    zoo.boss[bossIndex].attacks[0] = new Attack("scratches.", 40, false, "S");
+    zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 40, false, "S");
+    zoo.boss[bossIndex].attacks[2] = new Attack("gouges with phalanges.", 45, false, "P");
+    zoo.boss[bossIndex].attacks[3] = new Attack("gouges with phalanges.", 45, false, "P");
+    zoo.boss[bossIndex].attacks[4] = new Attack("stabs with a rib.", 55, false, "P");
   bossIndex++;
   
   m[1].tiles[14][55].placeBoss( 1, color(230), "It is stained with ink and blood.", new Monster("Skeleton", "Skeleton.png", 40, 9, 1, 2, 1, 3, 5, 0, AttackType.HOLY) );
-    zoo.boss[bossIndex].attacks[0] = new Attack("scratches.", 40, false);
-    zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 40, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("slams with its radius.", 45, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("slams with its radius.", 45, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("hacks with its mandible.", 55, false);
+    zoo.boss[bossIndex].attacks[0] = new Attack("scratches.", 40, false, "S");
+    zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 40, false, "S");
+    zoo.boss[bossIndex].attacks[2] = new Attack("slams with its radius.", 45, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("slams with its radius.", 45, false, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("hacks with its mandible.", 55, false, "B");
   bossIndex++;
   
   m[1].tiles[16][55].placeBoss( 1, color(230), "They've gathered in the darkness.", new Monster("Skeleton", "Skeleton.png", 35, 9, 1, 2, 1, 3, 6, 0, AttackType.HOLY),true );
-    zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
-    zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 40, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false);
+    zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false, "B");
+    zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 40, false, "S");
+    zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false, "B");
   bossIndex++;
   
   //Crypt Guardians
   m[1].tiles[78][63].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Alar", "Crypt1.png", 50, 13, 10, 7, 1, 3, 9, 0, AttackType.HOLY) );
-    zoo.boss[bossIndex].attacks[0] = new Attack("strikes with its knee.", 40, false);
-    zoo.boss[bossIndex].attacks[1] = new Attack("kicks.", 40, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("swings wide.", 40, true);
-    zoo.boss[bossIndex].attacks[3] = new Attack("swings its axe!", 60, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("swings its axe!", 60, false);
+    zoo.boss[bossIndex].attacks[0] = new Attack("strikes with its knee.", 40, false, "B");
+    zoo.boss[bossIndex].attacks[1] = new Attack("kicks.", 40, false, "B");
+    zoo.boss[bossIndex].attacks[2] = new Attack("swings wide.", 40, true, "S");
+    zoo.boss[bossIndex].attacks[3] = new Attack("swings its axe!", 60, false, "S");
+    zoo.boss[bossIndex].attacks[4] = new Attack("swings its axe!", 60, false, "S");
   bossIndex++;
   m[1].tiles[78][73].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Corel", "Crypt6.png", 50, 13, 15, 7, 1, 3, 9, 0, AttackType.HOLY) );
     zoo.boss[bossIndex].attacks[0] = new Attack("growls.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 40, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("lunges like a beast!", 60, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its jaw!", 60, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("bashes with its club!!", 60, false);
+    zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 40, false, "S");
+    zoo.boss[bossIndex].attacks[2] = new Attack("lunges like a beast!", 60, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its jaw!", 60, false, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("bashes with its club!", 60, false, "B");
   bossIndex++;
   m[1].tiles[78][83].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Ruath", "Crypt2.png", 50, 8, 10, 6, 8, 6, 9, 0, AttackType.HOLY) );
     zoo.boss[bossIndex].attacks[0] = new Attack("intones muddled words.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("strikes with its hand.", 40, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("smites!", 60, false, AttackStat.STR, AttackType.HOLY);
-    zoo.boss[bossIndex].attacks[3] = new Attack("shines with holy light.", 30, true, AttackStat.MAG, AttackType.HOLY);
-    zoo.boss[bossIndex].attacks[4] = new Attack("swings its mace!", 60, false);
+    zoo.boss[bossIndex].attacks[1] = new Attack("strikes with its hand.", 40, false, "B");
+    zoo.boss[bossIndex].attacks[2] = new Attack("smites!", 60, false, AttackStat.STR, AttackType.HOLY, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("shines with holy light.", 30, true, AttackStat.MAG, AttackType.HOLY, "H");
+    zoo.boss[bossIndex].attacks[4] = new Attack("swings its mace!", 60, false, "B");
   bossIndex++;
   m[1].tiles[96][63].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Zan", "Crypt3.png", 50, 9, 10, 10, 1, 4, 9, 0, AttackType.HOLY) );
     zoo.boss[bossIndex].attacks[0] = new Attack("readies for your attack.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("attacks.", 45, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("strikes with the flat of its blade.", 50, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("stabs at you.", 55, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("swings its weapon!", 60, false);
+    zoo.boss[bossIndex].attacks[1] = new Attack("attacks.", 45, false, "S");
+    zoo.boss[bossIndex].attacks[2] = new Attack("strikes with the flat of its blade.", 50, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("stabs at you.", 55, false, "P");
+    zoo.boss[bossIndex].attacks[4] = new Attack("swings its weapon!", 60, false, "S");
   bossIndex++;
   m[1].tiles[96][73].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Ivy", "Crypt4.png", 50, 2, 10, 2, 8, 9, 7, 0, AttackType.HOLY) );
     zoo.boss[bossIndex].attacks[0] = new Attack("gazes silently.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("swings its staff.", 45, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("levitates a tomb stone.", 50, false, AttackStat.MAG, AttackType.EARTH );
-    zoo.boss[bossIndex].attacks[3] = new Attack("speaks a secret word.", 55, false, AttackStat.MAG, AttackType.HOLY );
-    zoo.boss[bossIndex].attacks[4] = new Attack("summons a storm of tomb dust!", 50, true, AttackStat.MAG, AttackType.WIND );
+    zoo.boss[bossIndex].attacks[1] = new Attack("swings its staff.", 45, false, "B");
+    zoo.boss[bossIndex].attacks[2] = new Attack("levitates a tomb stone.", 50, false, AttackStat.MAG, AttackType.EARTH, "E" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("speaks a secret word.", 55, false, AttackStat.MAG, AttackType.HOLY, "H" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("summons a storm of tomb dust!", 50, true, AttackStat.MAG, AttackType.WIND, "W" );
   bossIndex++;
   m[1].tiles[96][83].placeBoss( 1, color(200,130,100), "The guardian rises to test you.", new Monster("Body of Erar", "Crypt5.png", 50, 2, 10, 2, 9, 8, 7, 0, AttackType.HOLY) );
     zoo.boss[bossIndex].attacks[0] = new Attack("makes arcane gestures.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("swings its staff.", 45, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("causes the crypt to shake!", 45, true, AttackStat.MAG, AttackType.EARTH );
-    zoo.boss[bossIndex].attacks[3] = new Attack("delivers an icy touch.", 50, false, AttackStat.MAG, AttackType.ICE );
-    zoo.boss[bossIndex].attacks[4] = new Attack("conjures a ring of fire!", 55, true, AttackStat.MAG, AttackType.FIRE );
+    zoo.boss[bossIndex].attacks[1] = new Attack("swings its staff.", 45, false, "B");
+    zoo.boss[bossIndex].attacks[2] = new Attack("causes the crypt to shake!", 45, true, AttackStat.MAG, AttackType.EARTH, "E" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("delivers an icy touch.", 50, false, AttackStat.MAG, AttackType.ICE, "I" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("conjures a ring of fire!", 55, true, AttackStat.MAG, AttackType.FIRE, "F" );
   bossIndex++;
   m[1].tiles[42][96].placeBoss( 1, color(77,20,20), "Malice smolders in its vacant eyes.", new Monster("Body of Necromancer", "Necro.png", 150, 20, 15, 6, 15, 10, 10, 50, AttackType.HOLY) );
-    zoo.boss[bossIndex].attacks[0] = new Attack("stabs with a wicked knife.", 45, false, Debuff.POISON);
-    zoo.boss[bossIndex].attacks[1] = new Attack("exhales chilling air.", 40, true, AttackStat.MAG, AttackType.ICE );
-    zoo.boss[bossIndex].attacks[2] = new Attack("drops stones to bury you!", 55, false, AttackStat.MAG, AttackType.EARTH );
-    zoo.boss[bossIndex].attacks[3] = new Attack("drops stones to bury you!", 55, false, AttackStat.MAG, AttackType.EARTH );
-    zoo.boss[bossIndex].attacks[4] = new Attack("causes your very bones to freeze!", 55, true, AttackStat.MAG, AttackType.ICE );
+    zoo.boss[bossIndex].attacks[0] = new Attack("stabs with a wicked knife.", 45, false, Debuff.POISON, "P");
+    zoo.boss[bossIndex].attacks[1] = new Attack("exhales chilling air.", 40, true, AttackStat.MAG, AttackType.ICE, "I" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("drops stones to bury you!", 55, false, AttackStat.MAG, AttackType.EARTH, "E" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("drops stones to bury you!", 55, false, AttackStat.MAG, AttackType.EARTH, "E" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("causes your very bones to freeze!", 55, true, AttackStat.MAG, AttackType.ICE, "I" );
   bossIndex++;
   
   //Danger Map 1
@@ -997,10 +997,10 @@ void createFloor2()
   
   m[2].tiles[93][79].placeBoss( 2, color(90,90,90), "They guard a hole in the monument.", new Monster("Skeletal Guardian", "DarkScimitarSkeleton.png", 50, 15, 5, 7, 0, 5, 9, 0, AttackType.HOLY), true);
       zoo.boss[bossIndex].attacks[0] = new Attack("prepares for your attack.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("swings its sword.", 45, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("swings wide!", 45, true );
-      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with the pommel.", 45, false );
-      zoo.boss[bossIndex].attacks[4] = new Attack("lunges!", 55, false );
+      zoo.boss[bossIndex].attacks[1] = new Attack("swings its sword.", 45, false, "S");
+      zoo.boss[bossIndex].attacks[2] = new Attack("swings wide!", 45, true, "S" );
+      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with the pommel.", 45, false, "B" );
+      zoo.boss[bossIndex].attacks[4] = new Attack("lunges!", 55, false, "P" );
   bossIndex++;
   
   
@@ -1272,38 +1272,38 @@ void createFloor3()
   
   //First big rat
   m[mapIndex].tiles[19][78].placeBoss( mapIndex, color(#4c585c), "It's bloated like a drowned body.", new Monster("Giant Bilge Rat", "blueRatBig.png", 100, 15, 5, 5, 0, 4, 12, 0, AttackType.FIRE), false);
-      zoo.boss[bossIndex].attacks[0] = new Attack("whips its tail.", 50, false);
-      zoo.boss[bossIndex].attacks[1] = new Attack("stomps.", 50, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 65, false );
-      zoo.boss[bossIndex].attacks[3] = new Attack("bites!", 65, false );
-      zoo.boss[bossIndex].attacks[4] = new Attack("throws its body!", 60, true );
+      zoo.boss[bossIndex].attacks[0] = new Attack("whips its tail.", 50, false, "S");
+      zoo.boss[bossIndex].attacks[1] = new Attack("stomps.", 50, false, "B");
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 65, false, "T" );
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites!", 65, false, "T" );
+      zoo.boss[bossIndex].attacks[4] = new Attack("throws its body!", 60, true, "B" );
   bossIndex++;
   
   //Blocking the chest
   m[mapIndex].tiles[22][73].placeBoss( mapIndex, color(#4c585c), "Its head touches the deck above.", new Monster("Giant Bilge Rat", "blueRatBig.png", 100, 15, 5, 5, 0, 4, 12, 0, AttackType.FIRE), false);
-      zoo.boss[bossIndex].attacks[0] = new Attack("whips its tail.", 50, false);
-      zoo.boss[bossIndex].attacks[1] = new Attack("stomps.", 50, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 65, false );
-      zoo.boss[bossIndex].attacks[3] = new Attack("bites!", 65, false );
-      zoo.boss[bossIndex].attacks[4] = new Attack("throws its body!", 60, true );
+      zoo.boss[bossIndex].attacks[0] = new Attack("whips its tail.", 50, false, "S");
+      zoo.boss[bossIndex].attacks[1] = new Attack("stomps.", 50, false, "B");
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 65, false, "T" );
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites!", 65, false, "T" );
+      zoo.boss[bossIndex].attacks[4] = new Attack("throws its body!", 60, true, "B" );
   bossIndex++;
   
   //Blocking doubloons
   m[mapIndex].tiles[29][77].placeBoss( mapIndex, color(#4c585c), "This one is collecting shiny objects.", new Monster("Giant Bilge Rat", "blueRatBig.png", 100, 15, 5, 5, 0, 4, 12, 5, AttackType.FIRE), false);
-      zoo.boss[bossIndex].attacks[0] = new Attack("whips its tail.", 50, false);
-      zoo.boss[bossIndex].attacks[1] = new Attack("stomps.", 50, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 65, false );
-      zoo.boss[bossIndex].attacks[3] = new Attack("bites!", 65, false );
-      zoo.boss[bossIndex].attacks[4] = new Attack("throws its body!", 60, true );
+      zoo.boss[bossIndex].attacks[0] = new Attack("whips its tail.", 50, false, "S");
+      zoo.boss[bossIndex].attacks[1] = new Attack("stomps.", 50, false, "B");
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 65, false, "T" );
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites!", 65, false, "T" );
+      zoo.boss[bossIndex].attacks[4] = new Attack("throws its body!", 60, true, "B" );
   bossIndex++;
   
   //Boat Boss
   m[mapIndex].tiles[54][43].placeBoss( mapIndex, color(140,150,150), "This is the last, and the largest.", new Monster("Deep Ratlord", "abyssBig.png", 150, 18, 10, 4, 10, 4, 15, 0, AttackType.HOLY), false);
-      zoo.boss[bossIndex].attacks[0] = new Attack("sprays icy seawater.", 40, true, AttackStat.MAG, AttackType.ICE);
-      zoo.boss[bossIndex].attacks[1] = new Attack("tosses you aside!", 70, false );
-      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 70, false );
-      zoo.boss[bossIndex].attacks[3] = new Attack("sweeps its tail!", 55, true );
-      zoo.boss[bossIndex].attacks[4] = new Attack("grips you with icy claws!", 60, false, AttackStat.MAG, AttackType.ICE);
+      zoo.boss[bossIndex].attacks[0] = new Attack("sprays icy seawater.", 40, true, AttackStat.MAG, AttackType.ICE, "I");
+      zoo.boss[bossIndex].attacks[1] = new Attack("tosses you aside!", 70, false, "B" );
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 70, false, "T" );
+      zoo.boss[bossIndex].attacks[3] = new Attack("sweeps its tail!", 55, true, "S" );
+      zoo.boss[bossIndex].attacks[4] = new Attack("grips you with icy claws!", 60, false, AttackStat.MAG, AttackType.ICE, "B");
   bossIndex++;
   
   
@@ -1476,42 +1476,42 @@ void createFloor4()
   
   //Bees                                                                                                                  //String n, String image,  health, s,  d, c, m,  w, sp, g, AttackType weak
   m[mapIndex].tiles[94][74].placeBoss( mapIndex, color(#f5c800), "This creature has an intoxicating smell.", new Monster("Nectarseeker", "Wasp.png", 60, 20, 30, 4, 1, 5, 18, 0, AttackType.WIND), false);
-      zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
-      zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false );
-      zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
-      zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
-      zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE );
+      zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );
+      zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false, "T" );
+      zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );
+      zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );
+      zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE, "?" );
   bossIndex++;
   //In first meadow
   m[mapIndex].tiles[83][35].placeBoss( mapIndex, color(255,0), "Pollen sprays as they emerge.", new Monster("Nectarhunter", "Wasp.png", 60, 20, 30, 4, 1, 5, 18, 0, AttackType.WIND), false);
-      zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false );zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE );
+      zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false, "T" );zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE, "?" );
   bossIndex++;
   m[mapIndex].tiles[89][27].placeBoss( mapIndex, color(255,0), "They fly as if in formation.", new Monster("Nectarhunter", "Wasp.png", 60, 20, 30, 4, 1, 5, 18, 0, AttackType.WIND), false);
-      zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false );zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE );
+      zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false, "T" );zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE, "?" );
   bossIndex++;
   m[mapIndex].tiles[93][20].placeBoss( mapIndex, color(255,0), "The air is alive with their buzzing.", new Monster("Nectarhunter", "Wasp.png", 60, 20, 30, 4, 1, 5, 18, 0, AttackType.WIND), false);
-      zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false );zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE );
+      zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false, "T" );zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE, "?" );
   bossIndex++;
   m[mapIndex].tiles[91][23].placeBoss( mapIndex, color(255,0), "They descend from the trees.", new Monster("Nectarhunter", "Wasp.png", 60, 20, 30, 4, 1, 5, 18, 0, AttackType.WIND), false);
-      zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false );zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE );
+      zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false, "T" );zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE, "?" );
   bossIndex++;
   m[mapIndex].tiles[81][19].placeBoss( mapIndex, color(255,0), "A big one patrols the meadow road.", new Monster("Nectarhunter", "Wasp.png", 60, 20, 30, 4, 1, 5, 18, 0, AttackType.WIND), false);
-      zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false );zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE );
+      zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false, "T" );zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE, "?" );
   bossIndex++;
   //Bees guarding barrel                                                                                                                //String n, String image,  health, s,  d, c, m,  w, sp, g, AttackType weak
   m[mapIndex].tiles[97][4].placeBoss( mapIndex, color(#f5c800), "Something in that barrel has upset them.", new Monster("Nectarseeker", "Wasp.png", 60, 20, 30, 4, 1, 5, 18, 0, AttackType.WIND), true);
-      zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
-      zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false );
-      zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
-      zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
-      zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE );
+      zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );
+      zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false, "T" );
+      zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );
+      zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "P" );
+      zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE, "B" );
   bossIndex++;
   //Bandit ambush                                                                   //String n, String image,  health, s,  d,  c, m,  w, sp, g, AttackType weak
   m[mapIndex].tiles[10][86].placeBoss( mapIndex, color(255,5), "Ambush!", new Monster("Bandit", "bandit.png", 90, 26, 30, 7, 1, 4, 20, 7, AttackType.NONE, 6), false);
-    zoo.boss[bossIndex].attacks[0] = new Attack("stabs with a knife.", 50, false, AttackStat.DEX, AttackType.NONE );
-    zoo.boss[bossIndex].attacks[1] = new Attack("flings knives!", 50, true );
-    zoo.boss[bossIndex].attacks[2] = new Attack("strikes with his sword.", 70, false );
-    zoo.boss[bossIndex].attacks[3] = new Attack("uses a toxin.", 60, false, Debuff.POISON );
+    zoo.boss[bossIndex].attacks[0] = new Attack("stabs with a knife.", 50, false, AttackStat.DEX, AttackType.NONE, "P" );
+    zoo.boss[bossIndex].attacks[1] = new Attack("flings knives!", 50, true, "P" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("strikes with his sword.", 70, false, "S" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("uses a toxin.", 60, false, Debuff.POISON, "S" );
     zoo.boss[bossIndex].attacks[4] = new Attack("tries to get behind you." );
   bossIndex++; 
   
@@ -1801,51 +1801,51 @@ void createFloor5()
   
   //Bandit                                                                                                  //String n, String image,  health, s,  d,  c, m,  w, sp, g, AttackType weak
   m[mapIndex].tiles[97][24].placeBoss( mapIndex, color(#6d4800), "- You shouldn't have come here.", new Monster("Lone Bandit", "bandit.png", 120, 26, 32, 7, 1, 4, 20, 10, AttackType.NONE, 6), false);
-    zoo.boss[bossIndex].attacks[0] = new Attack("flings knives!", 50, true );
-    zoo.boss[bossIndex].attacks[1] = new Attack("flings knives!", 50, true );
-    zoo.boss[bossIndex].attacks[2] = new Attack("uses a toxin.", 65, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[3] = new Attack("uses a toxin.", 65, false, Debuff.POISON );
-    zoo.boss[bossIndex].attacks[4] = new Attack("pierces your armor!", 80, false, AttackStat.DEX, AttackType.NONE );
+    zoo.boss[bossIndex].attacks[0] = new Attack("flings knives!", 50, true, "P" );
+    zoo.boss[bossIndex].attacks[1] = new Attack("flings knives!", 50, true, "P" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("uses a toxin.", 65, false, Debuff.SLEEP, "S" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("uses a toxin.", 65, false, Debuff.POISON, "S" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("pierces your armor!", 80, false, AttackStat.DEX, AttackType.NONE, "P" );
   bossIndex++;  
   //Wax Golem guarding jelly                                                                                     //String n, String image,  health, s,  d,  c, m,  w, sp, g, AttackType weak
   m[mapIndex].tiles[96][36].placeBoss( mapIndex, color(#a18000), "The mass of wax and honey animates.", new Monster("Wax Golem", "honeyGolem.png", 100, 24, 15, 9, 1, 4,  13, 0, AttackType.FIRE, 10), false);
-    zoo.boss[bossIndex].attacks[0] = new Attack("slams its fist.", 60, false );
-    zoo.boss[bossIndex].attacks[1] = new Attack("swings its elbow.", 60, false );
-    zoo.boss[bossIndex].attacks[2] = new Attack("stomps its foot.", 60, false );
-    zoo.boss[bossIndex].attacks[3] = new Attack("flings hot wax!", 70, false, AttackStat.STR, AttackType.FIRE );
+    zoo.boss[bossIndex].attacks[0] = new Attack("slams its fist.", 60, false, "B" );
+    zoo.boss[bossIndex].attacks[1] = new Attack("swings its elbow.", 60, false, "B" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("stomps its foot.", 60, false, "B" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("flings hot wax!", 70, false, AttackStat.STR, AttackType.FIRE, "B" );
     zoo.boss[bossIndex].attacks[4] = new Attack("lumbers forward.");
   bossIndex++;  
   //Wax Golem (Hive exit)                                                                                              //String n, String image,  health, s,  d,  c, m,  w, sp, g, AttackType weak
   m[mapIndex].tiles[2][49].placeBoss( mapIndex, color(#a18000), "Its massive frame blocks the passage.", new Monster("Wax Golem", "honeyGolem.png", 100, 24, 15, 9, 1, 4,  13, 0, AttackType.FIRE, 10), false);
-    zoo.boss[bossIndex].attacks[0] = new Attack("slams its fist.", 60, false );
-    zoo.boss[bossIndex].attacks[1] = new Attack("swings its elbow.", 60, false );
-    zoo.boss[bossIndex].attacks[2] = new Attack("stomps its foot.", 60, false );
-    zoo.boss[bossIndex].attacks[3] = new Attack("sprays hot wax!", 50, false, AttackStat.STR, AttackType.FIRE );
+    zoo.boss[bossIndex].attacks[0] = new Attack("slams its fist.", 60, false, "B" );
+    zoo.boss[bossIndex].attacks[1] = new Attack("swings its elbow.", 60, false, "B" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("stomps its foot.", 60, false, "B" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("sprays hot wax!", 50, false, AttackStat.STR, AttackType.FIRE, "B" );
     zoo.boss[bossIndex].attacks[4] = new Attack("reattaches is broken pieces.");
   bossIndex++;
   //Wax Golem
     m[mapIndex].tiles[82][39].placeBoss( mapIndex, color(#a18000), "This one is larger, and faster.", new Monster("Wax Golem", "honeyGolem.png", 120, 24, 18, 9, 1, 4,  16, 0, AttackType.FIRE, 10), false);
-    zoo.boss[bossIndex].attacks[0] = new Attack("swings its fists!", 65, true );
-    zoo.boss[bossIndex].attacks[1] = new Attack("swings its elbow.", 65, false );
-    zoo.boss[bossIndex].attacks[2] = new Attack("stomps its foot.", 65, false );
-    zoo.boss[bossIndex].attacks[3] = new Attack("flings hot wax!", 70, false, AttackStat.STR, AttackType.FIRE );
+    zoo.boss[bossIndex].attacks[0] = new Attack("swings its fists!", 65, true, "B" );
+    zoo.boss[bossIndex].attacks[1] = new Attack("swings its elbow.", 65, false, "B" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("stomps its foot.", 65, false, "B" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("flings hot wax!", 70, false, AttackStat.STR, AttackType.FIRE, "B" );
     zoo.boss[bossIndex].attacks[4] = new Attack("lets out an echoing roar!");
   bossIndex++;
   //Bandit Boss
     m[mapIndex].tiles[19][94].placeBoss( mapIndex, #d28200, "- Stand and deliver!", new Monster("Bandit Boss", "banditBoss.png", 160, 28, 30, 9, 18, 9, 22, 0, AttackType.NONE, 20), false);
-    zoo.boss[bossIndex].attacks[0] = new Attack("flings knives.", 65, true );
-    zoo.boss[bossIndex].attacks[1] = new Attack("flicks a poison knife.", 65, false, Debuff.POISON );
-    zoo.boss[bossIndex].attacks[2] = new Attack("conjures spikes of stone.", 65, false, AttackStat.MAG, AttackType.EARTH );
-    zoo.boss[bossIndex].attacks[3] = new Attack("thrusts for the heart!", 70, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[4] = new Attack("slices for the neck!", 70, false, Debuff.SLEEP );
+    zoo.boss[bossIndex].attacks[0] = new Attack("flings knives.", 65, true, "P" );
+    zoo.boss[bossIndex].attacks[1] = new Attack("flicks a poison knife.", 65, false, Debuff.POISON, "P" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("conjures spikes of stone.", 65, false, AttackStat.MAG, AttackType.EARTH, "E" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("thrusts for the heart!", 70, false, Debuff.SLEEP, "P" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("slices for the neck!", 70, false, Debuff.SLEEP, "S" );
   bossIndex++;
   //Queen Bee                                                                                                //String n, String image,  health, s,  d, c, m,  w, sp, g, AttackType weak
   m[mapIndex].tiles[17][43].placeBoss( mapIndex, #cd7100, "This is the buzzing heart of the swarm.", new Monster("Queen", "queenBee2.png", 150, 28, 35, 8, 20, 7, 25, 0, AttackType.NONE), false);
-    zoo.boss[bossIndex].attacks[0] = new Attack("delivers a crushing bite.", 80, false, Debuff.POISON );
-    zoo.boss[bossIndex].attacks[1] = new Attack("jabs with her barbed stinger.", 70, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[2] = new Attack("commands her hive to crush you!", 55, false, AttackStat.MAG, AttackType.EARTH );
-    zoo.boss[bossIndex].attacks[3] = new Attack("summons a swarm!", 70, true );
-    zoo.boss[bossIndex].attacks[4] = new Attack("sprays pollen.", 30, true, Debuff.SLEEP );
+    zoo.boss[bossIndex].attacks[0] = new Attack("delivers a crushing bite.", 80, false, Debuff.POISON, "T" );
+    zoo.boss[bossIndex].attacks[1] = new Attack("jabs with her barbed stinger.", 70, false, Debuff.SLEEP, "P" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("commands her hive to crush you!", 55, false, AttackStat.MAG, AttackType.EARTH, "B" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("summons a swarm!", 70, true, "T" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("sprays pollen.", 30, true, Debuff.SLEEP, "W" );
   bossIndex++;
   
   //Danger Map 5
@@ -1984,41 +1984,41 @@ void createTestRoom()
   m[mapIndex].tiles[43][1].placeBoss( mapIndex, color(150, 80, 40), "Tiny Rat", new Monster("Tiny Rat", "GreyRat.png",  1, 1, 1, 1, 6, 1, 4, 0, AttackType.FIRE), true);
     zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
     zoo.boss[bossIndex].attacks[1] = new Attack("scurries.");
-    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 20, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 20, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 20, false);
+    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 20, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 20, false, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 20, false, "B");
   bossIndex++;
   //Rat
   m[mapIndex].tiles[39][1].placeBoss( mapIndex, color(150, 80, 40), "Rat", new Monster("Rat", "SlimyRat.png",  4, 3, 2, 1, 6, 1, 2, 0, AttackType.FIRE), true);
     zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
     zoo.boss[bossIndex].attacks[1] = new Attack("scurries.");
-    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 30, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 30, false);
+    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 30, false, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 30, false, "B");
   bossIndex++;
   //Large Rat
   m[mapIndex].tiles[35][1].placeBoss( mapIndex, color(150, 80, 40), "Large Rat", new Monster("Large Rat", "DarkRat.png",  7, 4, 2, 1, 6, 1, 2, 0, AttackType.FIRE), true);
     zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
     zoo.boss[bossIndex].attacks[1] = new Attack("scurries.");
-    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 35, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 35, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 35, false);
+    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 35, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 35, false, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 35, false, "B");
   bossIndex++;
   //Giant Rat
   m[mapIndex].tiles[31][1].placeBoss( mapIndex, color(150, 80, 40), "Giant Rat", new Monster("Giant Rat", "BrownRat.png", 18, 5, 5, 1, 12, 1, 3, 0, AttackType.FIRE), true );
     zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
     zoo.boss[bossIndex].attacks[1] = new Attack("squeaks.");
-    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 29, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 34, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 39, false);
+    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 29, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 34, false, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 39, false, "B");
   bossIndex++;
   //Rat Queen
   m[mapIndex].tiles[27][1].placeBoss( mapIndex, color(200, 80, 40), "Rat Queen.", new Monster("Rat Queen", "RedRat.png", 35, 12, 5, 2, 24, 3, 5, 0, AttackType.NONE), true );
     zoo.boss[bossIndex].attacks[0] = new Attack("eyes you hungrily.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 35, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("bites and scratches.", 40, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("whips her tail.", 35, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("summons her brood!", 30, true);
+    zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 35, false, "B");
+    zoo.boss[bossIndex].attacks[2] = new Attack("bites and scratches.", 40, false, "S");
+    zoo.boss[bossIndex].attacks[3] = new Attack("whips her tail.", 35, false, "S");
+    zoo.boss[bossIndex].attacks[4] = new Attack("summons her brood!", 30, true, "B");
   bossIndex++;
     
   //Act 1 Items
@@ -2043,49 +2043,49 @@ void createTestRoom()
   //Escaped Rat
   m[mapIndex].tiles[43][7].placeBoss( mapIndex, color(150, 80, 40), "Escaped Rat.", new Monster("Escaped Rat", "BrownRat.png", 20, 11, 15, 2, 0, 2, 4, 0, AttackType.FIRE), true );
     zoo.boss[bossIndex].attacks[0] = new Attack("squeaks angrily.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 30, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites and claws.", 40, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("swipes with its tail.", 30, true);
+    zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 30, false, "B");
+    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 30, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites and claws.", 40, false, "S");
+    zoo.boss[bossIndex].attacks[4] = new Attack("swipes with its tail.", 30, true, "S");
   bossIndex++;
   //Large Rat
   m[mapIndex].tiles[39][7].placeBoss( mapIndex, color(150, 80, 40), "Large Rat.", new Monster("Large Rat", "DarkRat.png",    7, 4, 2, 1, 0, 1, 2, 0, AttackType.FIRE), true);
     zoo.boss[bossIndex].attacks[0] = new Attack("squeaks.");
     zoo.boss[bossIndex].attacks[1] = new Attack("scurries.");
-    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 40, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 40, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 40,  false);
+    zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 40, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 40, false, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("bites.", 40,  false, "B");
   bossIndex++;
   //Spider
   m[mapIndex].tiles[35][7].placeBoss( mapIndex, color(0,100,0), "Spider.", new Monster("Spider",  "GreenSpider.png",  9, 5, 13, 2, 0, 2, 4, 0, AttackType.NONE), true);
-    zoo.boss[bossIndex].attacks[0] = new Attack("scratches.", 35, false);
-    zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 35, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("bites your foot.", 5, false, Debuff.POISON);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites your arm.", 5, false, Debuff.POISON);
-    zoo.boss[bossIndex].attacks[4] = new Attack("bites your leg.", 5, false, Debuff.POISON);
+    zoo.boss[bossIndex].attacks[0] = new Attack("scratches.", 35, false, "S");
+    zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 35, false, "S");
+    zoo.boss[bossIndex].attacks[2] = new Attack("bites your foot.", 5, false, Debuff.POISON, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites your arm.", 5, false, Debuff.POISON, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("bites your leg.", 5, false, Debuff.POISON, "B");
   bossIndex++;
   //Red Spiders
   m[mapIndex].tiles[31][7].placeBoss( mapIndex, color(200,0,0), "Red Spider.", new Monster("Red Spider", "RedSpider.png", 10, 5, 10, 3, 0, 3, 5, 0, AttackType.NONE), true );
     zoo.boss[bossIndex].attacks[0] = new Attack("scurries forward.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("bites your arm.", 30, false, Debuff.POISON);
-    zoo.boss[bossIndex].attacks[2] = new Attack("bites your leg.", 35, false, Debuff.POISON);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites your neck.", 45, false, Debuff.POISON);
-    zoo.boss[bossIndex].attacks[4] = new Attack("bites your hand.", 25, false, Debuff.POISON);
+    zoo.boss[bossIndex].attacks[1] = new Attack("bites your arm.", 30, false, Debuff.POISON, "T");
+    zoo.boss[bossIndex].attacks[2] = new Attack("bites your leg.", 35, false, Debuff.POISON, "T");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites your neck.", 45, false, Debuff.POISON, "T");
+    zoo.boss[bossIndex].attacks[4] = new Attack("bites your hand.", 25, false, Debuff.POISON, "T");
   bossIndex++;
   //The man-wolf
   m[mapIndex].tiles[27][7].placeBoss( mapIndex, color(58,39,30), "The Man-wolf.", new Monster("Man-wolf", "BrownWerewolf.png", 50, 20, 20, 3, 0, 5, 40, 0, AttackType.FIRE), true );
     zoo.boss[bossIndex].attacks[0] = new Attack("howls!");
-    zoo.boss[bossIndex].attacks[1] = new Attack("claws.", 40, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("rends and claws!", 40, true);
-    zoo.boss[bossIndex].attacks[3] = new Attack("rends.", 40, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("bites!", 50, false);
+    zoo.boss[bossIndex].attacks[1] = new Attack("claws.", 40, false, "S");
+    zoo.boss[bossIndex].attacks[2] = new Attack("rends and claws!", 40, true, "S");
+    zoo.boss[bossIndex].attacks[3] = new Attack("rends.", 40, false, "S");
+    zoo.boss[bossIndex].attacks[4] = new Attack("bites!", 50, false, "T");
   bossIndex++;
   //Burning Rat
   m[mapIndex].tiles[43][11].placeBoss( mapIndex, color(150, 80, 40), "Burning Rat.", new Monster("Burning Rat", "fireRat.png", 45, 9, 10, 3, 9, 5, 7, 0, AttackType.ICE), true);
-    zoo.boss[bossIndex].attacks[0] = new Attack("bites.", 35, false);
-    zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 35, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("coughs out fire.", 20, true, AttackStat.MAG, AttackType.FIRE);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites with its glowing mouth.", 40, false, AttackStat.MAG, AttackType.FIRE);
+    zoo.boss[bossIndex].attacks[0] = new Attack("bites.", 35, false, "B");
+    zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 35, false, "B");
+    zoo.boss[bossIndex].attacks[2] = new Attack("coughs out fire.", 20, true, AttackStat.MAG, AttackType.FIRE, "F");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites with its glowing mouth.", 40, false, AttackStat.MAG, AttackType.FIRE, "B");
     zoo.boss[bossIndex].attacks[4] = new Attack("coughs up black smoke.");
   bossIndex++;
     
@@ -2104,104 +2104,104 @@ void createTestRoom()
   
   //Skeleton
   m[mapIndex].tiles[43][13].placeBoss( mapIndex, color(230), "Skeleton.", new Monster("Skeleton", "Skeleton.png", 35, 9, 1, 2, 1, 3, 6, 0, AttackType.HOLY),true );
-    zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false);
-    zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 40, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false);
+    zoo.boss[bossIndex].attacks[0] = new Attack("tackles.", 40, false, "B");
+    zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 40, false, "S");
+    zoo.boss[bossIndex].attacks[2] = new Attack("throws a rib.", 45, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its skull.", 45, false, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("clubs with a femur!", 55, false, "B");
   bossIndex++;
   m[mapIndex].tiles[39][13].placeBoss( mapIndex, color(230,230,200), "Fragile Skeleton.", new Monster("Fragile Skeleton",  "WeakSkeleton2.png",  20, 10, 20, 2, 0, 3, 7, 0, AttackType.HOLY), true);
     zoo.boss[bossIndex].attacks[0] = new Attack("crumbles as it moves.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 40, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("lunges forward.", 45, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 50, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("flails wildly.", 30, true);
+    zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 40, false, "S");
+    zoo.boss[bossIndex].attacks[2] = new Attack("lunges forward.", 45, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 50, false, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("flails wildly.", 30, true, "B");
   bossIndex++;
   m[mapIndex].tiles[35][13].placeBoss( mapIndex, color(230,150,50), "Sturdy Skeleton.", new Monster("Sturdy Skeleton",  "WeakSkeleton3.png",  30, 15, 10, 3, 0, 2, 5, 0, AttackType.HOLY), true);
     zoo.boss[bossIndex].attacks[0] = new Attack("rattles.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("bashes.", 45, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("bashes with a rock.", 50, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("slams its body.", 55, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("strikes with a bone spur.", 50, false);
+    zoo.boss[bossIndex].attacks[1] = new Attack("bashes.", 45, false, "B");
+    zoo.boss[bossIndex].attacks[2] = new Attack("bashes with a rock.", 50, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("slams its body.", 55, false, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("strikes with a bone spur.", 50, false, "B");
   bossIndex++;
   m[mapIndex].tiles[31][13].placeBoss( mapIndex, color(230,230,200), "Fragile Skeleton 2", new Monster("Fragile Skeleton",  "WeakSkeleton.png",  20, 14, 20, 3, 0, 4, 8, 0, AttackType.HOLY), true);
     zoo.boss[bossIndex].attacks[0] = new Attack("crumbles as it moves.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("cuts.", 40, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("lunges forward.", 45, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 50, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("flails wildly.", 30, true);
+    zoo.boss[bossIndex].attacks[1] = new Attack("cuts.", 40, false, "S");
+    zoo.boss[bossIndex].attacks[2] = new Attack("lunges forward.", 45, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 50, false, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("flails wildly.", 30, true, "B");
   bossIndex++;
   m[mapIndex].tiles[27][13].placeBoss( mapIndex, color(230,150,50), "Sturdy Skeleton 2", new Monster("Sturdy Skeleton",  "WeakSkeleton4.png",  35, 17, 10, 4, 0, 3, 7, 0, AttackType.HOLY), true);
     zoo.boss[bossIndex].attacks[0] = new Attack("rattles.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("bashes.", 45, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("bashes with a rock.", 50, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("slams its axe.", 55, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("strikes with a bone spur.", 50, false);
+    zoo.boss[bossIndex].attacks[1] = new Attack("bashes.", 45, false, "B");
+    zoo.boss[bossIndex].attacks[2] = new Attack("bashes with a rock.", 50, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("slams its axe.", 55, false, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("strikes with a bone spur.", 50, false, "B");
   bossIndex++;
   m[mapIndex].tiles[23][13].placeBoss( mapIndex, color(50), "Blackened Skeleton.", new Monster("Blackened Skeleton",  "DarkSkeleton.png",  45, 19, 5, 7, 0, 4, 6, 0, AttackType.HOLY), true);
     zoo.boss[bossIndex].attacks[0] = new Attack("laughs.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("strikes with its knee.", 45, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("strikes your chest.", 55, false);
-    zoo.boss[bossIndex].attacks[3] = new Attack("slams with its arm.", 55, false);
-    zoo.boss[bossIndex].attacks[4] = new Attack("gives an icy stare.", 30, true, AttackStat.MAG, AttackType.ICE);
+    zoo.boss[bossIndex].attacks[1] = new Attack("strikes with its knee.", 45, false, "B");
+    zoo.boss[bossIndex].attacks[2] = new Attack("strikes your chest.", 55, false, "B");
+    zoo.boss[bossIndex].attacks[3] = new Attack("slams with its arm.", 55, false, "B");
+    zoo.boss[bossIndex].attacks[4] = new Attack("gives an icy stare.", 30, true, AttackStat.MAG, AttackType.ICE, "I");
   bossIndex++;
   m[mapIndex].tiles[19][13].placeBoss( mapIndex, color(90,90,90), "Skeletal Guardian.", new Monster("Skeletal Guardian", "DarkScimitarSkeleton.png", 50, 15, 5, 7, 0, 5, 9, 0, AttackType.HOLY), true);
     zoo.boss[bossIndex].attacks[0] = new Attack("prepares for your attack.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("swings its sword.", 45, false);
-    zoo.boss[bossIndex].attacks[2] = new Attack("swings wide!", 45, true );
-    zoo.boss[bossIndex].attacks[3] = new Attack("bashes with the pommel.", 45, false );
-    zoo.boss[bossIndex].attacks[4] = new Attack("lunges!", 55, false );
+    zoo.boss[bossIndex].attacks[1] = new Attack("swings its sword.", 45, false, "S");
+    zoo.boss[bossIndex].attacks[2] = new Attack("swings wide!", 45, true, "S" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("bashes with the pommel.", 45, false, "B" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("lunges!", 55, false, "B" );
   bossIndex++;
   //Necromancer
   m[mapIndex].tiles[15][13].placeBoss( mapIndex, color(77,20,20), "Necromancer.", new Monster("Body of Necromancer", "Necro.png", 150, 20, 15, 6, 15, 10, 10, 50, AttackType.HOLY) );
-    zoo.boss[bossIndex].attacks[0] = new Attack("stabs with a wicked knife.", 45, false, Debuff.POISON);
-    zoo.boss[bossIndex].attacks[1] = new Attack("exhales chilling air.", 40, true, AttackStat.MAG, AttackType.ICE );
-    zoo.boss[bossIndex].attacks[2] = new Attack("drops stones to bury you!", 55, false, AttackStat.MAG, AttackType.EARTH );
-    zoo.boss[bossIndex].attacks[3] = new Attack("drops stones to bury you!", 55, false, AttackStat.MAG, AttackType.EARTH );
-    zoo.boss[bossIndex].attacks[4] = new Attack("causes your very bones to freeze!", 55, true, AttackStat.MAG, AttackType.ICE );
+    zoo.boss[bossIndex].attacks[0] = new Attack("stabs with a wicked knife.", 45, false, Debuff.POISON, "B");
+    zoo.boss[bossIndex].attacks[1] = new Attack("exhales chilling air.", 40, true, AttackStat.MAG, AttackType.ICE, "I" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("drops stones to bury you!", 55, false, AttackStat.MAG, AttackType.EARTH, "E" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("drops stones to bury you!", 55, false, AttackStat.MAG, AttackType.EARTH, "E" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("causes your very bones to freeze!", 55, true, AttackStat.MAG, AttackType.ICE, "I" );
   bossIndex++;
   //Crypt Guardians
   m[mapIndex].tiles[43][17].placeBoss( mapIndex, color(255), "Alar. (Axe)", new Monster("Body of Alar", "Crypt1.png", 50, 13, 10, 7, 1, 3, 9, 0, AttackType.HOLY) );
-      zoo.boss[bossIndex].attacks[0] = new Attack("strikes with its knee.", 40, false);
-      zoo.boss[bossIndex].attacks[1] = new Attack("kicks.", 40, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("swings wide.", 40, true);
-      zoo.boss[bossIndex].attacks[3] = new Attack("swings its axe!", 60, false);
-      zoo.boss[bossIndex].attacks[4] = new Attack("swings its axe!", 60, false);
+      zoo.boss[bossIndex].attacks[0] = new Attack("strikes with its knee.", 40, false, "B");
+      zoo.boss[bossIndex].attacks[1] = new Attack("kicks.", 40, false, "B");
+      zoo.boss[bossIndex].attacks[2] = new Attack("swings wide.", 40, true, "S");
+      zoo.boss[bossIndex].attacks[3] = new Attack("swings its axe!", 60, false, "S");
+      zoo.boss[bossIndex].attacks[4] = new Attack("swings its axe!", 60, false, "S");
   bossIndex++;
   m[mapIndex].tiles[39][17].placeBoss( mapIndex, color(255), "Corel. (Hide)", new Monster("Body of Corel", "Crypt6.png", 50, 13, 15, 7, 1, 3, 9, 0, AttackType.HOLY) );
       zoo.boss[bossIndex].attacks[0] = new Attack("growls.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 40, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("lunges like a beast!", 60, false);
-      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its jaw!", 60, false);
-      zoo.boss[bossIndex].attacks[4] = new Attack("bashes with its club!!", 60, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("swipes.", 40, false, "S");
+      zoo.boss[bossIndex].attacks[2] = new Attack("lunges like a beast!", 60, false, "B");
+      zoo.boss[bossIndex].attacks[3] = new Attack("bashes with its jaw!", 60, false, "B");
+      zoo.boss[bossIndex].attacks[4] = new Attack("bashes with its club!!", 60, false, "B");
   bossIndex++;
   m[mapIndex].tiles[35][17].placeBoss( mapIndex, color(255), "Ruath. (Purifier)", new Monster("Body of Ruath", "Crypt2.png", 50, 8, 10, 6, 8, 6, 9, 0, AttackType.HOLY) );
       zoo.boss[bossIndex].attacks[0] = new Attack("intones muddled words.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("strikes with its hand.", 40, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("smites!", 60, false, AttackStat.STR, AttackType.HOLY);
-      zoo.boss[bossIndex].attacks[3] = new Attack("shines with holy light.", 30, true, AttackStat.MAG, AttackType.HOLY);
-      zoo.boss[bossIndex].attacks[4] = new Attack("swings its mace!", 60, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("strikes with its hand.", 40, false, "B");
+      zoo.boss[bossIndex].attacks[2] = new Attack("smites!", 60, false, AttackStat.STR, AttackType.HOLY, "H");
+      zoo.boss[bossIndex].attacks[3] = new Attack("shines with holy light.", 30, true, AttackStat.MAG, AttackType.HOLY, "H");
+      zoo.boss[bossIndex].attacks[4] = new Attack("swings its mace!", 60, false, "B");
   bossIndex++;
   m[mapIndex].tiles[31][17].placeBoss( mapIndex, color(255), "Zan. (Armor)", new Monster("Body of Zan", "Crypt3.png", 50, 9, 10, 10, 1, 4, 9, 0, AttackType.HOLY) );
       zoo.boss[bossIndex].attacks[0] = new Attack("readies for your attack.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("attacks.", 45, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("strikes with the flat of its blade.", 50, false);
-      zoo.boss[bossIndex].attacks[3] = new Attack("stabs at you.", 55, false);
-      zoo.boss[bossIndex].attacks[4] = new Attack("swings its weapon!", 60, false);
+      zoo.boss[bossIndex].attacks[1] = new Attack("attacks.", 45, false, "S");
+      zoo.boss[bossIndex].attacks[2] = new Attack("strikes with the flat of its blade.", 50, false, "B");
+      zoo.boss[bossIndex].attacks[3] = new Attack("stabs at you.", 55, false, "B");
+      zoo.boss[bossIndex].attacks[4] = new Attack("swings its weapon!", 60, false, "S");
   bossIndex++;
   m[mapIndex].tiles[27][17].placeBoss( mapIndex, color(255), "Ivy. (Robe)", new Monster("Body of Ivy", "Crypt4.png", 50, 2, 10, 2, 8, 9, 7, 0, AttackType.HOLY) );
       zoo.boss[bossIndex].attacks[0] = new Attack("gazes silently.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("swings its staff.", 45, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("levitates a tomb stone.", 50, false, AttackStat.MAG, AttackType.EARTH );
-      zoo.boss[bossIndex].attacks[3] = new Attack("speaks a secret word.", 55, false, AttackStat.MAG, AttackType.HOLY );
-      zoo.boss[bossIndex].attacks[4] = new Attack("summons a storm of tomb dust!", 50, true, AttackStat.MAG, AttackType.WIND );
+      zoo.boss[bossIndex].attacks[1] = new Attack("swings its staff.", 45, false, "B");
+      zoo.boss[bossIndex].attacks[2] = new Attack("levitates a tomb stone.", 50, false, AttackStat.MAG, AttackType.EARTH, "E" );
+      zoo.boss[bossIndex].attacks[3] = new Attack("speaks a secret word.", 55, false, AttackStat.MAG, AttackType.HOLY, "H" );
+      zoo.boss[bossIndex].attacks[4] = new Attack("summons a storm of tomb dust!", 50, true, AttackStat.MAG, AttackType.WIND, "W" );
   bossIndex++;
   m[mapIndex].tiles[23][17].placeBoss( mapIndex, color(255), "Erar. (Flamecaster)", new Monster("Body of Erar", "Crypt5.png", 50, 2, 10, 2, 9, 8, 7, 0, AttackType.HOLY) );
       zoo.boss[bossIndex].attacks[0] = new Attack("makes arcane gestures.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("swings its staff.", 45, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("causes the crypt to shake!", 45, true, AttackStat.MAG, AttackType.EARTH );
-      zoo.boss[bossIndex].attacks[3] = new Attack("delivers an icy touch.", 50, false, AttackStat.MAG, AttackType.ICE );
-      zoo.boss[bossIndex].attacks[4] = new Attack("conjures a ring of fire!", 55, true, AttackStat.MAG, AttackType.FIRE );
+      zoo.boss[bossIndex].attacks[1] = new Attack("swings its staff.", 45, false, "B");
+      zoo.boss[bossIndex].attacks[2] = new Attack("causes the crypt to shake!", 45, true, AttackStat.MAG, AttackType.EARTH, "E" );
+      zoo.boss[bossIndex].attacks[3] = new Attack("delivers an icy touch.", 50, false, AttackStat.MAG, AttackType.ICE, "I" );
+      zoo.boss[bossIndex].attacks[4] = new Attack("conjures a ring of fire!", 55, true, AttackStat.MAG, AttackType.FIRE, "F" );
   bossIndex++;
   
   //Act 3 Items
@@ -2231,10 +2231,10 @@ void createTestRoom()
   //Bilge Rat
   m[mapIndex].tiles[43][19].placeBoss( mapIndex, color(#4c585c), "Bilge Rat.", new Monster("Bilge Rat",  "blueRat.png",  30, 19, 15, 5, 5, 4, 12, 0, AttackType.FIRE), true);
       zoo.boss[bossIndex].attacks[0] = new Attack("coughs up salt water.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 40, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 55, false);
-      zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 55, false);
-      zoo.boss[bossIndex].attacks[4] = new Attack("sprays icy seawater.", 30, true, AttackStat.MAG, AttackType.ICE);
+      zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 40, false, "S");
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 55, false, "B");
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites.", 55, false, "B");
+      zoo.boss[bossIndex].attacks[4] = new Attack("sprays icy seawater.", 30, true, AttackStat.MAG, AttackType.ICE, "I");
       //zoo.boss[bossIndex].attacks[0] = new Attack("bites.", 55, false, Debuff.PARA);
       //zoo.boss[bossIndex].attacks[1] = new Attack("scratches.", 40, false, Debuff.PARA);
       //zoo.boss[bossIndex].attacks[2] = new Attack("bites.", 55, false, Debuff.PARA);
@@ -2244,26 +2244,26 @@ void createTestRoom()
   //Abyss Rat
   m[mapIndex].tiles[39][19].placeBoss( mapIndex, color(140,150,150), "Abyss Rat.", new Monster("Abyss Rat",  "abyssRat.png",  40, 10, 20, 4, 13, 8, 10, 0, AttackType.HOLY), true);
       zoo.boss[bossIndex].attacks[0] = new Attack("watches you silently.");
-      zoo.boss[bossIndex].attacks[1] = new Attack("sprays icy seawater.", 30, true, AttackStat.MAG, AttackType.ICE);
-      zoo.boss[bossIndex].attacks[2] = new Attack("bites with an icy fang.", 35, false, AttackStat.MAG, AttackType.ICE);
-      zoo.boss[bossIndex].attacks[3] = new Attack("bites with an icy fang.", 35, false, AttackStat.MAG, AttackType.ICE);
-      zoo.boss[bossIndex].attacks[4] = new Attack("sprays icy seawater.", 30, false, AttackStat.MAG, AttackType.ICE);
+      zoo.boss[bossIndex].attacks[1] = new Attack("sprays icy seawater.", 30, true, AttackStat.MAG, AttackType.ICE, "I");
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites with an icy fang.", 35, false, AttackStat.MAG, AttackType.ICE, "I");
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites with an icy fang.", 35, false, AttackStat.MAG, AttackType.ICE, "I");
+      zoo.boss[bossIndex].attacks[4] = new Attack("sprays icy seawater.", 30, false, AttackStat.MAG, AttackType.ICE, "I");
   bossIndex++;
   //Giant Bilge
   m[mapIndex].tiles[35][19].placeBoss( mapIndex, color(#4c585c), "Giant Bilge Rat.", new Monster("Giant Bilge Rat", "blueRatBig.png", 100, 15, 5, 5, 0, 4, 12, 0, AttackType.FIRE), true);
-      zoo.boss[bossIndex].attacks[0] = new Attack("whips its tail.", 50, false);
-      zoo.boss[bossIndex].attacks[1] = new Attack("stomps.", 50, false);
-      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 65, false );
-      zoo.boss[bossIndex].attacks[3] = new Attack("bites!", 65, false );
-      zoo.boss[bossIndex].attacks[4] = new Attack("throws its body!", 60, true );
+      zoo.boss[bossIndex].attacks[0] = new Attack("whips its tail.", 50, false, "S");
+      zoo.boss[bossIndex].attacks[1] = new Attack("stomps.", 50, false, "B");
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 65, false, "B" );
+      zoo.boss[bossIndex].attacks[3] = new Attack("bites!", 65, false, "B" );
+      zoo.boss[bossIndex].attacks[4] = new Attack("throws its body!", 60, true, "B" );
   bossIndex++;
   //Ratlord
   m[mapIndex].tiles[31][19].placeBoss( mapIndex, color(140,150,150), "Deep Ratlord.", new Monster("Deep Ratlord", "abyssBig.png", 150, 18, 10, 4, 10, 4, 15, 0, AttackType.HOLY), true);
-      zoo.boss[bossIndex].attacks[0] = new Attack("sprays icy seawater.", 40, true, AttackStat.MAG, AttackType.ICE);
-      zoo.boss[bossIndex].attacks[1] = new Attack("tosses you aside!", 70, false );
-      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 70, false );
-      zoo.boss[bossIndex].attacks[3] = new Attack("sweeps its tail!", 55, true );
-      zoo.boss[bossIndex].attacks[4] = new Attack("grips you with icy claws!", 60, false, AttackStat.MAG, AttackType.ICE);
+      zoo.boss[bossIndex].attacks[0] = new Attack("sprays icy seawater.", 40, true, AttackStat.MAG, AttackType.ICE, "I");
+      zoo.boss[bossIndex].attacks[1] = new Attack("tosses you aside!", 70, false, "B" );
+      zoo.boss[bossIndex].attacks[2] = new Attack("bites!", 70, false, "B" );
+      zoo.boss[bossIndex].attacks[3] = new Attack("sweeps its tail!", 55, true, "S" );
+      zoo.boss[bossIndex].attacks[4] = new Attack("grips you with icy claws!", 60, false, AttackStat.MAG, AttackType.ICE, "B");
   bossIndex++;
   
   //Act 4 Items
@@ -2279,72 +2279,72 @@ void createTestRoom()
   //Act 5 Monsters
   //Nectarseeker                                                                                                                  //String n, String image,  health, s,  d, c, m,  w, sp, g, AttackType weak
   m[mapIndex].tiles[43][25].placeBoss( mapIndex, color(#f5c800), "This creature has an intoxicating smell.", new Monster("Nectarseeker", "Wasp.png", 60, 20, 30, 4, 1, 5, 18, 0, AttackType.WIND), false);
-    zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false );
-    zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE );
+    zoo.boss[bossIndex].attacks[0] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "B" );
+    zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false, "B" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "B" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "B" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE, "B" );
   bossIndex++;
   //Drone
   m[mapIndex].tiles[39][25].placeBoss( mapIndex, color(#f5c800), "Drone.", new Monster("Drone", "WaspSmall.png", 45, 20, 30, 4, 1, 5, 20, 0, AttackType.WIND, 2) );
     zoo.boss[bossIndex].attacks[0] = new Attack("buzzes around your heads.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false );
-    zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE );
+    zoo.boss[bossIndex].attacks[1] = new Attack("bites.", 55, false, "B" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "B" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("jabs with its stinger!", 60, false, Debuff.SLEEP, "B" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("emits a high-pitched tone.", 20, true, AttackStat.MAG, AttackType.NONE, "B" );
   bossIndex++;
   //Swarm
   m[mapIndex].tiles[35][25].placeBoss( mapIndex, color(#f5c800), "Swarm", new Monster("Swarm", "swarm.png", 60, 10, 10, 2, 1, 5, 25, 0, AttackType.WIND, 2) );
     zoo.boss[bossIndex].attacks[0] = new Attack("surrounds you.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("bites and scratches.", 55, false );
-    zoo.boss[bossIndex].attacks[2] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[3] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[4] = new Attack("descends upon you.", 40, true );
+    zoo.boss[bossIndex].attacks[1] = new Attack("bites and scratches.", 55, false, "S" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP, "B" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("jabs and stings.", 50, false, Debuff.SLEEP, "B" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("descends upon you.", 40, true, "B" );
   //Wax Golem (1st)                                                                                            //String n, String image,  health, s,  d,  c, m,  w, sp, g, AttackType weak
   m[mapIndex].tiles[31][25].placeBoss( mapIndex, color(#a18000), "Slow Wax Golem", new Monster("Wax Golem", "honeyGolem.png", 100, 24, 15, 9, 1, 4,  13, 0, AttackType.FIRE, 10), false);
-    zoo.boss[bossIndex].attacks[0] = new Attack("slams its fist.", 60, false );
-    zoo.boss[bossIndex].attacks[1] = new Attack("swings its elbow.", 60, false );
-    zoo.boss[bossIndex].attacks[2] = new Attack("stomps its foot.", 60, false );
-    zoo.boss[bossIndex].attacks[3] = new Attack("sprays hot wax!", 50, false, AttackStat.STR, AttackType.FIRE );
+    zoo.boss[bossIndex].attacks[0] = new Attack("slams its fist.", 60, false, "B" );
+    zoo.boss[bossIndex].attacks[1] = new Attack("swings its elbow.", 60, false, "B" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("stomps its foot.", 60, false, "B" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("sprays hot wax!", 50, false, AttackStat.STR, AttackType.FIRE, "B" );
     zoo.boss[bossIndex].attacks[4] = new Attack("reattaches is broken pieces.");
   bossIndex++;
   //Wax Golem (2nd)
   m[mapIndex].tiles[27][25].placeBoss( mapIndex, color(#a18000), "Fast Wax Golem", new Monster("Wax Golem", "honeyGolem.png", 120, 24, 18, 9, 1, 4,  16, 0, AttackType.FIRE, 10), false);
-    zoo.boss[bossIndex].attacks[0] = new Attack("swings its fists!", 65, true );
-    zoo.boss[bossIndex].attacks[1] = new Attack("swings its elbow.", 65, false );
-    zoo.boss[bossIndex].attacks[2] = new Attack("stomps its foot.", 65, false );
-    zoo.boss[bossIndex].attacks[3] = new Attack("flings hot wax!", 70, false, AttackStat.STR, AttackType.FIRE );
+    zoo.boss[bossIndex].attacks[0] = new Attack("swings its fists!", 65, true, "B" );
+    zoo.boss[bossIndex].attacks[1] = new Attack("swings its elbow.", 65, false, "B" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("stomps its foot.", 65, false, "B" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("flings hot wax!", 70, false, AttackStat.STR, AttackType.FIRE, "B" );
     zoo.boss[bossIndex].attacks[4] = new Attack("lets out an echoing roar!");
   bossIndex++;
   //Queen Bee                                                                                                //String n, String image,  health, s,  d, c, m,  w, sp, g, AttackType weak
   m[mapIndex].tiles[23][25].placeBoss( mapIndex, #cd7100, "Queen", new Monster("Queen", "queenBee2.png", 150, 28, 35, 8, 20, 7, 25, 0, AttackType.NONE), false);
-    zoo.boss[bossIndex].attacks[0] = new Attack("delivers a crushing bite.", 80, false, Debuff.POISON );
-    zoo.boss[bossIndex].attacks[1] = new Attack("jabs with her barbed stinger.", 70, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[2] = new Attack("commands her hive to crush you!", 55, false, AttackStat.MAG, AttackType.EARTH );
-    zoo.boss[bossIndex].attacks[3] = new Attack("summons a swarm!", 70, true );
-    zoo.boss[bossIndex].attacks[4] = new Attack("sprays pollen.", 30, true, Debuff.SLEEP );
+    zoo.boss[bossIndex].attacks[0] = new Attack("delivers a crushing bite.", 80, false, Debuff.POISON, "B" );
+    zoo.boss[bossIndex].attacks[1] = new Attack("jabs with her barbed stinger.", 70, false, Debuff.SLEEP, "B" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("commands her hive to crush you!", 55, false, AttackStat.MAG, AttackType.EARTH, "B" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("summons a swarm!", 70, true, "B" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("sprays pollen.", 30, true, Debuff.SLEEP, "W" );
   //Bandit
   bossIndex++;
   m[mapIndex].tiles[43][29].placeBoss( mapIndex, #AF3232, "Bandit", new Monster("Bandit", "bandit.png", 90, 26, 30, 7, 1, 4, 20, 0, AttackType.NONE, 10) );
     zoo.boss[bossIndex].attacks[0] = new Attack("tries to get behind you.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[2] = new Attack("stabs with a knife.", 50, false, AttackStat.DEX, AttackType.NONE );
-    zoo.boss[bossIndex].attacks[3] = new Attack("strikes with his sword.", 70, false );
-    zoo.boss[bossIndex].attacks[4] = new Attack("flings knives!", 50, true );
+    zoo.boss[bossIndex].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP, "S" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("stabs with a knife.", 50, false, AttackStat.DEX, AttackType.NONE, "B" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("strikes with his sword.", 70, false, "B" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("flings knives!", 50, true, "B" );
   //Bandit Mage
   m[mapIndex].tiles[39][29].placeBoss( mapIndex, #3232AF, "Bandit Mage", new Monster("Bandit Mage", "banditMage.png", 90, 7, 20, 4, 15, 7, 18, 0, AttackType.NONE, 10) );
     zoo.boss[bossIndex].attacks[0] = new Attack("begins chanting a spell.");
-    zoo.boss[bossIndex].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[2] = new Attack("summons a ball of fire.", 50, false, AttackStat.MAG, AttackType.FIRE );
-    zoo.boss[bossIndex].attacks[3] = new Attack("summons shards of ice.", 55, false, AttackStat.MAG, AttackType.ICE );
-    zoo.boss[bossIndex].attacks[4] = new Attack("conjures a tempest!", 55, true, AttackStat.MAG, AttackType.WIND );
+    zoo.boss[bossIndex].attacks[1] = new Attack("uses a toxin.", 55, false, Debuff.SLEEP, "S" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("summons a ball of fire.", 50, false, AttackStat.MAG, AttackType.FIRE, "F" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("summons shards of ice.", 55, false, AttackStat.MAG, AttackType.ICE, "I" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("conjures a tempest!", 55, true, AttackStat.MAG, AttackType.WIND, "W" );
   //Bandit Boss
   m[mapIndex].tiles[35][29].placeBoss( mapIndex, #d28200, "Bandit Boss", new Monster("Bandit Boss", "banditBoss.png", 160, 28, 30, 9, 18, 9, 22, 0, AttackType.NONE, 20) );
-    zoo.boss[bossIndex].attacks[0] = new Attack("flings knives.", 65, true );
-    zoo.boss[bossIndex].attacks[1] = new Attack("flicks a poison knife.", 65, false, Debuff.POISON );
-    zoo.boss[bossIndex].attacks[2] = new Attack("conjures spikes of stone.", 65, false, AttackStat.MAG, AttackType.EARTH );
-    zoo.boss[bossIndex].attacks[3] = new Attack("thrusts for the heart!", 70, false, Debuff.SLEEP );
-    zoo.boss[bossIndex].attacks[4] = new Attack("slices for the neck!", 70, false, Debuff.SLEEP );
+    zoo.boss[bossIndex].attacks[0] = new Attack("flings knives.", 65, true, "B" );
+    zoo.boss[bossIndex].attacks[1] = new Attack("flicks a poison knife.", 65, false, Debuff.POISON, "B" );
+    zoo.boss[bossIndex].attacks[2] = new Attack("conjures spikes of stone.", 65, false, AttackStat.MAG, AttackType.EARTH, "E" );
+    zoo.boss[bossIndex].attacks[3] = new Attack("thrusts for the heart!", 70, false, Debuff.SLEEP, "B" );
+    zoo.boss[bossIndex].attacks[4] = new Attack("slices for the neck!", 70, false, Debuff.SLEEP, "S" );
   bossIndex++;
   
   //Act 5 Items

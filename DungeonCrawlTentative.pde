@@ -18,6 +18,7 @@
   //Bombs: keep from crit?
   //Still getting into un-endable text loop (debug mode?)
   //Have a Ritisu priest talk about reagents
+  //Improve bomb damage
 
 //To change once font is chosen:
   //cleric owed money
@@ -49,6 +50,7 @@ import ddf.minim.ugens.*;
 //Hero gained a level while dead (3rd position, was revived once)
 //Damage seems to be increasing a bit quickly (did ~60 to Big gray rat)
 //Cost of ostinato went to 0 - must have negative rhythm (couldn't replicate)
+//Defensive Strike did not give extra energy on crit
 
 //TO DO:
 //Finish up boat in Waraka harbor
@@ -158,12 +160,14 @@ float volume;
 //AudioPlayer titleScreenMusic;
 
 //Image data
-PImage tileImage[] = new PImage[200]; //I've since used this for more than just tiles
-PImage battleBack[] = new PImage[10]; //Backgrounds for battles
-PImage iconImage[] = new PImage[50];  //Icons for buttons, need to move some items from tileImage
-PImage effectImage[] = new PImage[10]; //Images for effects. Will eventually include spell effects.
+PImage tileImage[] = new PImage[200];  //I've since used this for more than just tiles
+PImage battleBack[] = new PImage[10];  //Backgrounds for battles
+PImage iconImage[] = new PImage[50];   //Icons for buttons, need to move some items from tileImage
+PImage effectImage[] = new PImage[50]; //Images for effects. Will eventually include spell effects.
 PImage cursor;
 PImage border;
+//Animation data
+ArrayList<Animation> animations = new ArrayList<Animation>();
 
 //Item data
 Loot [][] lootList = new Loot[8][itemCount]; //UPDATE AS FLOORS ARE ADDED!!
@@ -242,143 +246,7 @@ void setup()
   
   println("Loading graphics data...");
   //Setting up image files (MOVE THIS TO Artist)
-  tileImage[0] = loadImage("wall.png"); tileImage[0].resize(30,0);
-  tileImage[1] = loadImage("tree.png"); tileImage[1].resize(40,40);
-  tileImage[2] = loadImage("darkTree.png"); tileImage[2].resize(40,40);
-  tileImage[3] = loadImage("flower.png"); tileImage[3].resize(30,0);
-  for(int i = 1; i <= 16; i++)
-  { tileImage[3+i] = loadImage("water"+i+".png"); tileImage[3+i].resize(30,0); }
-  for(int i = 1; i <= 8; i++)
-  { tileImage[19+i] = loadImage("save"+i+".png"); tileImage[19+i].resize(40,0); }
-  tileImage[28] = loadImage("barrel.png"); tileImage[28].resize(30,0);
-  tileImage[29] = loadImage("barrelEmpty.png"); tileImage[29].resize(30,0);
-  tileImage[30] = loadImage("chest.png"); tileImage[30].resize(30,0);
-  tileImage[31] = loadImage("chestBone.png"); tileImage[31].resize(30,0);
-  tileImage[32] = loadImage("chestDark.png"); tileImage[32].resize(30,0);
-  tileImage[33] = loadImage("chestGold.png"); tileImage[33].resize(30,0);
-  tileImage[34] = loadImage("chestSilver.png"); tileImage[34].resize(30,0);
-  tileImage[35] = loadImage("chestSnow.png"); tileImage[35].resize(30,0);
-  tileImage[36] = loadImage("sign.png"); tileImage[36].resize(30,0);
-  tileImage[37] = loadImage("signUsed.png"); tileImage[37].resize(30,0);
-  tileImage[38] = loadImage("door.png"); tileImage[38].resize(30,0);
-  tileImage[39] = loadImage("doorDouble.png"); tileImage[39].resize(30,0);
-  tileImage[40] = loadImage("portcullis.png"); tileImage[40].resize(30,0);
-  tileImage[41] = loadImage("gateCemetery.png"); tileImage[41].resize(30,0);
-  tileImage[42] = loadImage("grave.png"); tileImage[42].resize(30,0);
-  tileImage[43] = loadImage("stainedGlass.png"); tileImage[43].resize(30,0);
-  tileImage[44] = loadImage("treeDead.png"); tileImage[44].resize(45,40);
-  tileImage[45] = loadImage("wallDark.png"); tileImage[45].resize(30,0);
-  tileImage[46] = loadImage("wallSand.png"); tileImage[46].resize(30,0);
-  tileImage[47] = loadImage("treePath.png"); tileImage[47].resize(40,40);
-  tileImage[48] = loadImage("merchant.png"); tileImage[48].resize(30,0);
-  tileImage[49] = loadImage("wallDark.png"); tileImage[49].resize(30,0);
-  tileImage[50] = loadImage("wallSand.png"); tileImage[50].resize(30,0);
-  tileImage[51] = loadImage("StoneGargoyle.png"); tileImage[51].resize(30,0);
-  tileImage[52] = loadImage("BlackGargoyle.png"); tileImage[52].resize(30,0);
-  tileImage[53] = loadImage("JadeGargoyle.png"); tileImage[53].resize(30,0);
-  tileImage[54] = loadImage("portcullis.png"); tileImage[54].resize(30,0);
-  tileImage[55] = loadImage("tent.png"); tileImage[55].resize(30,0);
-  tileImage[56] = loadImage("stairs.png"); tileImage[56].resize(30,0);
-  tileImage[57] = loadImage("wood.png"); tileImage[57].resize(30,0);
-  tileImage[58] = loadImage("woodDark.png"); tileImage[58].resize(30,0);
-  tileImage[59] = loadImage("woodLight.png"); tileImage[59].resize(30,0);
-  tileImage[60] = loadImage("WhiteWerewolf.png"); tileImage[60].resize(30,0);
-  tileImage[61] = loadImage("chestGold.png"); tileImage[61].resize(30,0);
-  tileImage[62] = loadImage("chestDark.png"); tileImage[62].resize(30,0);
-  tileImage[63] = loadImage("SignEquipment.png"); tileImage[63].resize(30,0);
-  tileImage[64] = loadImage("SignFood.png"); tileImage[64].resize(30,0);
-  tileImage[65] = loadImage("SignPotion.png"); tileImage[65].resize(30,0);
-  tileImage[66] = loadImage("SignInn.png"); tileImage[66].resize(30,0);
-  tileImage[67] = loadImage("rubble.png"); tileImage[67].resize(30,0);
-  tileImage[68] = loadImage("Sack.png"); tileImage[68].resize(50,0);
-  tileImage[69] = loadImage("caveBrown3.png"); tileImage[69].resize(30,0);
-  tileImage[70] = loadImage("cave3.png"); tileImage[70].resize(30,0);
-  //tileImage[70] = loadImage("caveYellow.png"); tileImage[70].resize(30,0);
-  tileImage[71] = loadImage("treeDead4.png"); tileImage[71].resize(45,40);
-  tileImage[72] = loadImage("TileRoof3.png"); tileImage[72].resize(30,34);
-  tileImage[73] = loadImage("crops.png"); tileImage[73].resize(30,30);
-  tileImage[74] = loadImage("TileRoofBlue.png"); tileImage[74].resize(30,34);
-  tileImage[75] = loadImage("bookshelf2.png"); tileImage[75].resize(30,30);
-  tileImage[76] = loadImage("bookshelfEmpty.png"); tileImage[76].resize(30,30);
-  tileImage[77] = loadImage("bed2.png"); tileImage[77].resize(30,30);
-  tileImage[78] = loadImage("blackBook.png"); tileImage[78].resize(20,0);
-  tileImage[79] = loadImage("chestBone.png"); tileImage[79].resize(30,0);
-  tileImage[80] = loadImage("blueBook.png"); tileImage[80].resize(20,0);
-  tileImage[81] = loadImage("brokenGlass.png"); tileImage[81].resize(90,0);
-  tileImage[82] = loadImage("Bread.png"); tileImage[82].resize(30,0);
-  tileImage[83] = loadImage("Meat.png"); tileImage[83].resize(30,0);
-  tileImage[84] = loadImage("Fruit.png"); tileImage[84].resize(30,0);
-  tileImage[85] = loadImage("Crab.png"); tileImage[85].resize(30,0);
-  tileImage[86] = loadImage("wallDarkCracked.png"); tileImage[86].resize(30,0);
-  tileImage[87] = loadImage("stairsWood.png");   tileImage[87].resize(30,0);
-  tileImage[88] = loadImage("crate2.png");       tileImage[88].resize(30,0);
-  tileImage[89] = loadImage("crate.png");        tileImage[89].resize(30,0);
-  tileImage[90] = loadImage("potionGreen.png");  tileImage[90].resize(56,0);
-  tileImage[91] = loadImage("potionBlue.png");   tileImage[91].resize(56,0);
-  tileImage[92] = loadImage("potionYellow.png"); tileImage[92].resize(56,0);
-  tileImage[93] = loadImage("potionRed.png");    tileImage[93].resize(56,0);
-  tileImage[94] = loadImage("chain.png");        tileImage[94].resize(0,30);
-  tileImage[95] = loadImage("fatRat.png");       tileImage[95].resize(0,30);
-  tileImage[96] = loadImage("chain_hole.png");   tileImage[96].resize(0,30);
-  tileImage[97] = loadImage("caveYellow.png");   tileImage[97].resize(0,30);
-  tileImage[98] = loadImage("mountain2.png");    tileImage[98].resize(40,40);
-  tileImage[99] = loadImage("mountainCave.png"); tileImage[99].resize(40,40);
-  tileImage[100]= loadImage("tile3.png");        tileImage[100].resize(30,0);
-  tileImage[101]= loadImage("fenceC.png");       tileImage[101].resize(30,0);
-  tileImage[102]= loadImage("fenceH.png");       tileImage[102].resize(30,0);
-  tileImage[103]= loadImage("fenceV.png");       tileImage[103].resize(30,0);
-  tileImage[104]= loadImage("fenceC2.png");      tileImage[104].resize(30,0);
-  tileImage[105]= loadImage("flowerBlue.png");   tileImage[105].resize(30,0);
-  tileImage[106]= loadImage("curtain.png");      tileImage[106].resize(30,0);
-  tileImage[107]= loadImage("gameBoard.png");    tileImage[107].resize(30,0);
-  tileImage[108]= loadImage("curtainHalf.png");  tileImage[108].resize(30,0);
-  tileImage[109]= loadImage("stoneSlab.png");    tileImage[109].resize(30,0);
-  tileImage[110]= loadImage("curtainRed.png");   tileImage[110].resize(30,0);
-  tileImage[111]= loadImage("curtainHalfRed.png");tileImage[111].resize(30,0);
-  tileImage[112]= loadImage("barrelHoney.png");  tileImage[112].resize(30,0);
-  tileImage[113]= loadImage("caveDoor.png");     tileImage[113].resize(30,0);
-  tileImage[114]= loadImage("caveHole.png");     tileImage[114].resize(30,0);
-  tileImage[115]= loadImage("doorFrame.png");    tileImage[115].resize(30,0);
-  tileImage[116]= loadImage("gateFrame.png");    tileImage[116].resize(30,0);
-  tileImage[117]= loadImage("combHalf.png");     tileImage[117].resize(30,0);
-  tileImage[118]= loadImage("combFull.png");     tileImage[118].resize(30,0);
-  tileImage[119]= loadImage("caveOverlay.png");  tileImage[119].resize(30,0);
-  tileImage[120]= loadImage("caveBrownOverlay.png");tileImage[120].resize(30,0);
-  tileImage[121]= loadImage("chestGoopy.png");   tileImage[121].resize(30,0);
-  tileImage[122]= loadImage("woodCracked.png");  tileImage[122].resize(30,0);
-  tileImage[123]= loadImage("wallCracked.png");  tileImage[123].resize(30,0);
-  tileImage[124]= loadImage("tent_outer.png");   tileImage[124].resize(30,0);
-  tileImage[125]= loadImage("stalagmite.png");   tileImage[125].resize(40,0);
-  tileImage[126]= loadImage("stalagmite2.png");  tileImage[126].resize(40,0);
-  tileImage[127]= loadImage("fireBomb.png");     tileImage[127].resize(45,0);
-  tileImage[128]= loadImage("reagents.png");     tileImage[128].resize(56,0);
-  tileImage[129]= loadImage("iceBomb.png");      tileImage[129].resize(45,0);
-  tileImage[130]= loadImage("acidBomb.png");     tileImage[130].resize(45,0);
-  tileImage[131]= loadImage("thunderBomb3.png"); tileImage[131].resize(45,0);
-  
-  iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
-  iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
-  iconImage[2] = loadImage("heater_main2.png");     iconImage[2].resize(56,0);
-  iconImage[3] = loadImage("heater_primary.png");   iconImage[3].resize(58,0);
-  iconImage[4] = loadImage("heater_secondary.png"); iconImage[4].resize(58,0);
-  iconImage[5] = loadImage("scale_primary.png");    iconImage[5].resize(56,0);
-  iconImage[6] = loadImage("scale_secondary.png");  iconImage[6].resize(56,0);
-  iconImage[7] = loadImage("fist_hue_light.png");   iconImage[7].resize(56,0);
-  
-  //670x180
-  battleBack[0] = loadImage("forest5.png"); //resize?esize(56,0);
-  battleBack[1] = loadImage("stoneWall.png"); //resize?
-  battleBack[2] = loadImage("graveyard4.png"); //resize?
-  battleBack[3] = loadImage("cave.png"); //resize?
-  battleBack[4] = loadImage("woodWall.png");
-  battleBack[5] = loadImage("beeCave2.png"); battleBack[5].resize(670,0);
-  battleBack[6] = loadImage("testBack2.png");
-  battleBack[7] = loadImage("stoneWallWindow.png");battleBack[7].resize(670,0);
-  battleBack[8] = loadImage("waterCave9.png");     battleBack[8].resize(670,0);
-  
-  effectImage[0] = loadImage("bardBonus.png");      effectImage[0].resize(30,0);
-  
-  border = loadImage("stoneBorder.png");            border.resize(750,750);
+  loadImages(); //Done in Artist tab
   
   Sound s = new Sound(this);
   s.volume(1);
@@ -1271,6 +1139,10 @@ void keyPressed()
     locationMapOn = true;
   if( debugMode && key == 'N' )
     noClip = !noClip;
+  if( debugMode && key == 'O' )
+    animations.add( new Animation( 5, 0, 0, 3 ) );
+  if( debugMode && key == 'P' )
+    animations.add( new Animation( 9, 0, 4 ) );
   //if( debugMode && key == 'r' )
   //  party.reagents--;
   //if(key == '1')
@@ -1473,6 +1345,7 @@ void keyPressed()
       {
         displayTextLine( party.hero[battle.turn].name + " defends!");
         party.hero[battle.turn].defending = true;
+        vanGogh.addAnimation( "block", battle.turn, battle.turn );
         battle.setBattleDelay();
         battle.resumeInitiative();
       }

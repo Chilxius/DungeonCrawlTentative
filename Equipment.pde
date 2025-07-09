@@ -7,6 +7,7 @@ class Equipment extends Item
   String imageName;
   AttackType element;
   Debuff status;
+  String animationType;
   
   public Equipment()
   {
@@ -17,6 +18,7 @@ class Equipment extends Item
   {
     super( e.name, e.value );
     isWeapon = e.isWeapon;
+    animationType = e.animationType;
     element = determineElement(e.power);
     status = determineStatus(e.power);
     power = e.power;
@@ -39,6 +41,7 @@ class Equipment extends Item
   {
     super( n, v );
     isWeapon = IW;
+    animationType = setAnimationType(name);
     element = determineElement(p);
     status = determineStatus(p);
     power = p;
@@ -79,6 +82,7 @@ class Equipment extends Item
   {
     super( n, v );
     isWeapon = IW;
+    animationType = setAnimationType(name);
     element = determineElement(p);
     status = determineStatus(p);
     power = p;
@@ -98,6 +102,32 @@ class Equipment extends Item
     allowedJobs[6]=j6;
     allowedJobs[7]=j7;
     allowedJobs[8]=j8;
+  }
+  
+  private String setAnimationType( String n )
+  {
+    switch(n)
+    {
+      //Bludgeoning
+      case "Fist":
+      case "Staff":
+      case "Club":
+      case "Purifier":
+      case "Flamecaller Staff":
+      case "Chain":
+      case "":
+        return "punch";
+        
+      //Piercing
+      case "Ivory Knife":
+      case "Knife":
+      case "Ratfang":
+      case "Dagger":
+        return "pierce";
+        
+      //Slashing
+      default: return "slash";
+    }
   }
   
   public AttackType determineElement( float p )

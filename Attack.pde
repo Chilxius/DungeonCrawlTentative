@@ -22,6 +22,7 @@ class Attack
   String secondLine;
   
   String fullDescription = "NO DATA";
+  String animationType;
   
   Debuff debuff;
   
@@ -35,6 +36,7 @@ class Attack
     stat = a.stat;
     type = a.type;
     cost = a.cost;
+    animationType = a.animationType;
   }
   
   public Attack( String d ) //for turn wasteing moves
@@ -58,6 +60,7 @@ class Attack
     healing = false;
     stat = AttackStat.NONE;
     type = AttackType.BUFF;
+    animationType = "H";
   }
   
   public Attack( String d, int p, boolean all, boolean heal ) //healing move
@@ -68,36 +71,37 @@ class Attack
     healing = heal;
     stat = AttackStat.MAG;
     type = AttackType.HOLY;
+    animationType = "H";
   }
   
-  public Attack( String d, int p, boolean all ) //normal physical attacks
+  public Attack( String d, int p, boolean all, String ani ) //normal physical attacks
   {
-    this(d,p,all,true,AttackStat.STR,AttackType.NONE);
+    this(d,p,all,true,AttackStat.STR,AttackType.NONE,ani);
   }
   
-  public Attack( String d, int p, boolean all, Debuff bad  ) //normal physical attacks with status ailments
+  public Attack( String d, int p, boolean all, Debuff bad, String ani  ) //normal physical attacks with status ailments
   {
-    this(d,p,all,true,AttackStat.STR,AttackType.NONE,bad);
+    this(d,p,all,true,AttackStat.STR,AttackType.NONE,bad,ani);
   }
   
-  public Attack( String d, int p, boolean all, boolean wep, AttackStat s ) //attacks that use different stats but have no type
+  public Attack( String d, int p, boolean all, boolean wep, AttackStat s, String ani ) //attacks that use different stats but have no type
   {
-    this(d,p,all,wep,s,AttackType.NONE);
+    this(d,p,all,wep,s,AttackType.NONE,ani);
   }
   
-  public Attack( String d, int p, boolean all, boolean wep, AttackType t ) //attacks that use str stats but have an attack type
+  public Attack( String d, int p, boolean all, boolean wep, AttackType t, String ani ) //attacks that use str stats but have an attack type
   {
-    this(d,p,all,wep,AttackStat.STR,t);
+    this(d,p,all,wep,AttackStat.STR,t,ani);
   }
   
-  public Attack( String d, int p, boolean all, AttackStat s, AttackType t ) //typical monster skill (no weapon)
+  public Attack( String d, int p, boolean all, AttackStat s, AttackType t, String ani ) //typical monster skill (no weapon)
   {
-    this(d,p,all,false,s,t);
+    this(d,p,all,false,s,t,ani);
   }
 
-  public Attack( String d, int p, boolean all, boolean wep, AttackStat s, AttackType t ) //description, power, does it hit all, used stat, attack type
+  public Attack( String d, int p, boolean all, boolean wep, AttackStat s, AttackType t, String ani ) //description, power, does it hit all, used stat, attack type
   {
-    this( d, p, all, wep, s, t, Debuff.NONE );
+    this( d, p, all, wep, s, t, Debuff.NONE, ani );
     //description = d;
     //power = p;
     //targetAll = all;
@@ -107,7 +111,7 @@ class Attack
     //type = t;
   }
 
-  public Attack( String d, int p, boolean all, boolean wep, AttackStat s, AttackType t, Debuff bad ) //description, power, does it hit all, used stat, attack type, debuff type
+  public Attack( String d, int p, boolean all, boolean wep, AttackStat s, AttackType t, Debuff bad, String ani ) //description, power, does it hit all, used stat, attack type, debuff type
   {
     description = d;
     power = p;
@@ -117,6 +121,7 @@ class Attack
     stat = s;
     type = t;
     debuff = bad;
+    animationType = ani;
   }
   
   public color appropriateColor()

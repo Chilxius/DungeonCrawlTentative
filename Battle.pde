@@ -395,9 +395,24 @@ class Battle
     if(turn<3) //hero attack
     {
       if( skillSelection == -1 ) //not a skill
+      {
         displayTextLine(list[attackerIndex].name + " attacks " + list[defenderIndex].name + "!");
+        vanGogh.addAnimation( party.hero[turn].weapon.animationType, attackerIndex, defenderIndex);
+      }
       else
       {
+        //Animation or skills
+        vanGogh.runSkillAnimation( party.hero[turn].job, skillSelection, party.hero[attackerIndex].skill[skillSelection], attackerIndex, d );
+        
+        //if( party.hero[attackerIndex].skill[skillSelection].targetAll ) //Run animation for all alive monsters
+        //{
+        //  for( int i = 0; i < 3; i++ )
+        //    if( list[3+i].active )
+        //      vanGogh.addAnimation( party.hero[attackerIndex].skill[skillSelection].animationType, 3+i );
+        //}
+        //else
+        //  vanGogh.addAnimation( party.hero[attackerIndex].skill[skillSelection].animationType, defenderIndex );
+        
         party.hero[attackerIndex].payForSkill(skillSelection);
         party.hero[attackerIndex].handleSkillEffect(true,skillSelection);
         String outputText = list[attackerIndex].name + " uses "+ party.hero[attackerIndex].skill[skillSelection].description + "!";
@@ -413,6 +428,16 @@ class Battle
     else
     {
       enemyAttackIndex = int(random(5)); //choose random attack for monster to use
+      
+      if( battleMonsters[attackerIndex-3].attacks[enemyAttackIndex].targetAll ) //Multi-target animation
+      {
+        for( int i = 0; i < 3; i++ )
+          if( list[i].active )
+            vanGogh.addAnimation( battleMonsters[attackerIndex-3].attacks[enemyAttackIndex].animationType, attackerIndex, i );
+      }
+      else //Single-target
+        vanGogh.addAnimation( battleMonsters[attackerIndex-3].attacks[enemyAttackIndex].animationType, attackerIndex, defenderIndex );
+      
       String outputText = list[attackerIndex].name + " " + battleMonsters[attackerIndex-3].attacks[enemyAttackIndex].description;
       if(outputText.length() < 40)
         displayTextLine(list[attackerIndex].name + " " + battleMonsters[attackerIndex-3].attacks[enemyAttackIndex].description );
@@ -446,6 +471,7 @@ class Battle
     String outputText = list[attackerIndex].name + " throws a" + bombName(potionType) + " bomb!";
     displayTextLine(outputText);
     
+    vanGogh.addAnimation( bombName(potionType), a, d );
     setBattleDelay();
     battleDelayed = true;
     waitingForText = true;

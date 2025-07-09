@@ -2,6 +2,10 @@
 //illustrations. Mostly this is to keep the main
 //program clean (Processing can't collapse methods)
 
+//Battle animations class in this tab
+
+//Loading images function in this tab
+
 class Artist
 {
   float animationStage;
@@ -71,6 +75,86 @@ class Artist
     if(noteStage >= TWO_PI)
       noteStage-=TWO_PI;
     
+    //Battle animations
+    for(int i = animations.size()-1; i >= 0; i--)
+    {
+      animations.get(i).run();
+      if( animations.get(i).stage > animations.get(i).endStage )
+        animations.remove(i);
+    }
+  }
+  
+  public void addAnimation( int type, int u, int target )
+  {
+    animations.add( new Animation( type, u, target ) );
+  }
+  
+  public void addAnimation( String name, int u, int target )
+  {
+    if( name == null )
+    {
+      if(debugMode) println("Null Attack");
+      return;
+    }
+    
+    int typeIndex = -1;
+    
+    switch( name )
+    {
+      case "block":     typeIndex = 1; break;
+      case "slash":
+      case "S":         typeIndex = 2; break;
+      case "punch":
+      case "B":         typeIndex = 3; break;
+      case "heal":
+      case "H":         typeIndex = 4; break;
+      case " Flame":    typeIndex = 5; break;
+      case "n Ice":     typeIndex = 6; break;
+      case "n Acid":    typeIndex = 7; break;
+      case " Thunder":  typeIndex = 8; break;
+      case "pierce":
+      case "P":         typeIndex = 9; break;
+      case "bite":
+      case "T":/*teeth*/typeIndex = 10; break;
+      
+      case " ": typeIndex = 0; break;
+      
+      default: typeIndex = 0;
+    }
+    
+    addAnimation( typeIndex, u, target );
+  }
+  
+  void runSkillAnimation( Job j, int index, Attack skill, int user, int target )
+  {
+    int jobIndex = jobToNumber(j);
+    if( skill.targetAll ) //Run animation for all alive monsters
+    {
+      //Check if it targets friendlies
+      if( skill.type == AttackType.BUFF || skill.healing )
+      {
+        for(int i = 0; i < 3; i++)
+          if( skill.healing || battle.list[i].active ) //If hero is alive or skill heals
+            animations.add( new Animation( jobIndex, index, user, target ) );
+            //vanGogh.addAnimation( skill.animationType, user, i );
+      }
+      else //Targets baddies
+      {
+        for( int i = 0; i < 3; i++ )
+          if( battle.list[3+i].active )
+            animations.add( new Animation( jobIndex, index, user, 3+i ) );
+            //vanGogh.addAnimation( skill.animationType, user, 3+i );
+      }
+    }
+    else //Single target
+    {
+      if( skill.type == AttackType.BUFF || skill.healing )
+        animations.add( new Animation( jobIndex, index, user, target-3 ) );
+        //vanGogh.addAnimation( skill.animationType, user, target-3 );
+      else
+        animations.add( new Animation( jobIndex, index, user, target ) );
+        //vanGogh.addAnimation( skill.animationType, user, target );
+    }
   }
   
   public float stage()
@@ -663,11 +747,11 @@ class Artist
     
     switch(types)
     {
-      case 1: amount = 0;  break;
-      case 2: amount = 10; break;
-      case 3: amount = 25; break;
-      case 4: amount = 50; break;
-      default: amount = 0; break;
+      case 1:  amount =  0; break;
+      case 2:  amount = 10; break;
+      case 3:  amount = 25; break;
+      case 4:  amount = 50; break;
+      default: amount =  0; break;
     }
     fill(255); textAlign(CENTER);
     textSize(15*fontScale); text("SYNERGY",645,220);
@@ -1464,7 +1548,7 @@ class Artist
     {
       restFadeIn=false;
       party.healAll();
-      party.reagents = party.hero[1].level/2;
+      party.reagents = party.hero[1].level;
     }
     if(restOpacity <= 0)
     {
@@ -1571,7 +1655,7 @@ class Artist
         drawDefendIcon(100+250*i,155,party.hero[i].favColor,party.hero[i].inverseColor,party.hero[i].job,false);
   }
   
-  void drawShield( float x, float y, int heroIndex )
+  void drawShield( float x, float y, int heroIndex ) //defunct?
   {
     push();
     tint(party.hero[heroIndex].favColor);
@@ -1750,7 +1834,7 @@ class Artist
     }
     */
     
-    fill(c); textSize(10*fontScale);
+    fill(200); textSize(10*fontScale);
     text("A",x+25,y+27);
   }
   
@@ -1842,7 +1926,7 @@ class Artist
     
     if( drawD )
     {
-      fill(c); textSize(10*fontScale);
+      fill(200); textSize(10*fontScale);
       text("D",x+25,y+27);
     }
     
@@ -1939,7 +2023,7 @@ class Artist
       circle(x-3,y+12,4);
     }
     
-    fill(c); textSize(10*fontScale);
+    fill(200); textSize(10*fontScale);
     text("S",x+25,y+27);
   }
   
@@ -1957,7 +2041,7 @@ class Artist
     imageMode(CENTER);
     image(tileImage[68],x,y);
     
-    fill(c); textSize(10*fontScale);
+    fill(200); textSize(10*fontScale);
     text("X",x+25,y+27);
   }
   
@@ -3387,4 +3471,531 @@ class Artist
     text( text, x, y );
     pop();
   }
+}
+
+//********************************************************//
+//Controls animations for battle effects
+class Animation
+{
+  int index;
+  int target; // 0-hero1  1-hero2  2-hero3  3-enemy1  4-enemy2  5-enemy3  6-allHeroes 7-allEnemies
+  int user;   // same as target
+  int stage;  //ends after stage 3 - stage > 3 will not display and will trigger cleanup
+  int endStage; //for non-standard animations that break above rule
+  int timer;  //for each stage
+  int speed = 100;  //for animations that play at different speeds
+  int frames = 3;   //3 for most standard animations
+  
+  float xPos, yPos;
+  
+  HeroSkill skill = HeroSkill.NONE;
+  
+  public Animation( int type, int u, int tar )
+  {
+    user = u;
+    index = findIndexByType( type );
+    adjustSpeed( type );
+    target = tar;
+    adjustPositions( target );
+    stage = -1;  //start blank
+    endStage = 3; //standard
+    timer = millis() + int(battleTextSpeed*1000) - (speed*endStage); //three frames before damage appears
+  }
+  
+  public Animation( int j, int s, int u, int t )
+  {
+    this( 0, u, t );
+    skill = skillArray[j*8+s];
+    adjust(skill);
+  }
+  
+  private void adjustPositions(int t)
+  {
+    if( t % 3 == 0 ) xPos = frameWidth/5;
+    else if(t%3==1 ) xPos = frameWidth/2;
+    else             xPos = frameWidth*0.8;
+    
+    if( t < 3 ) yPos = 500;
+    else        yPos = 275;
+  }
+  
+  //For non-standard animations
+  private void adjust( HeroSkill s )
+  {
+    switch(s)
+    {
+      case TH_1: //knives
+        endStage = 10;
+        speed = 100;
+        break;
+    }
+    
+    timer = millis() + int(battleTextSpeed*1000) - (speed*endStage);
+  }
+  
+  private void adjustSpeed(int t) //Should always end at the same time
+  {
+    switch(t)
+    {
+      case 10: speed = 150;
+    }
+  }
+  
+  public void run()
+  {
+    //No image
+    if( index < -1 || stage == endStage )
+    {
+      stage = endStage; //Ready to end
+      return;
+    }
+    
+    //Run active animation
+    if( stage >= 0 )
+    {
+      if( skill == HeroSkill.NONE )
+      {
+        image( effectImage[index+stage], xPos, yPos );
+      }
+      else
+      {
+        switch( skill ) //Hope there's a cleaner way to do this
+        {
+          //KNIGHT
+          case KN_1:  //Shield Bash
+            if( stage == 0 || stage == 1 )
+            {
+              tint(party.hero[battle.turn].favColor);     image( iconImage[3], xPos, yPos+(25-25*stage), 150-(stage*50), 150-(stage*50) );
+              tint(party.hero[battle.turn].inverseColor); image( iconImage[4], xPos, yPos+(25-25*stage), 150-(stage*50), 150-(stage*50) );
+              noTint(); image( iconImage[2], xPos, yPos+(25-25*stage), 150-(stage*50), 150-(stage*50) );
+            }
+            else
+              image( effectImage[12], xPos, yPos );
+            break;
+          case KN_2:  //Armor Break
+            if( stage == 0 ) image( effectImage[34], xPos, yPos );
+            if( stage == 1 ) image( effectImage[35], xPos, yPos );
+            if( stage == 2 ) image( effectImage[36], xPos, yPos );
+            break;
+          case KN_3:  //Divine Grace
+            if( stage == 0 ) image( effectImage[37], frameWidth/2, 500 );
+            if( stage == 1 ) image( effectImage[38], frameWidth/2, 500 );
+            if( stage == 2 ) image( effectImage[39], frameWidth/2, 500 );
+            break;
+          case KN_4:  //
+            break;
+          case KN_5:  //
+            break;
+          case KN_6:  //
+            break;
+          case KN_7:  //
+            break;
+          case KN_8:  //
+            break;
+            
+          //BARBARIAN
+          case BR_1:  //
+            break;
+          case BR_2:  //
+            break;
+          case BR_3:  //
+            break;
+          case BR_4:  //
+            break;
+          case BR_5:  //
+            break;
+          case BR_6:  //
+            break;
+          case BR_7:  //
+            break;
+          case BR_8:  //
+            break;
+            
+          //SAURIAN
+          case SR_1:  //
+            break;
+          case SR_2:  //
+            break;
+          case SR_3:  //
+            break;
+          case SR_4:  //
+            break;
+          case SR_5:  //
+            break;
+          case SR_6:  //
+            break;
+          case SR_7:  //
+            break;
+          case SR_8:  //
+            break;
+            
+          //MARTIAL ARTIST
+          case MA_1:  //
+            break;
+          case MA_2:  //
+            break;
+          case MA_3:  //
+            break;
+          case MA_4:  //
+            break;
+          case MA_5:  //
+            break;
+          case MA_6:  //
+            break;
+          case MA_7:  //
+            break;
+          case MA_8:  //
+            break;
+            
+          //BARD
+          case BD_1:  //
+            break;
+          case BD_2:  //
+            break;
+          case BD_3:  //
+            break;
+          case BD_4:  //
+            break;
+          case BD_5:  //
+            break;
+          case BD_6:  //
+            break;
+          case BD_7:  //
+            break;
+          case BD_8:  //
+            break;
+            
+          //THIEF
+          case TH_1:  //KNIVES
+            image( effectImage[40+stage], frameWidth/2, 275 );
+            break;
+          case TH_2:  //
+            break;
+          case TH_3:  //
+            break;
+          case TH_4:  //
+            break;
+          case TH_5:  //
+            break;
+          case TH_6:  //
+            break;
+          case TH_7:  //
+            break;
+          case TH_8:  //
+            break;
+            
+          //DRUID
+          case DR_1:  //
+            break;
+          case DR_2:  //
+            break;
+          case DR_3:  //
+            break;
+          case DR_4:  //
+            break;
+          case DR_5:  //
+            break;
+          case DR_6:  //
+            break;
+          case DR_7:  //
+            break;
+          case DR_8:  //
+            break;
+            
+          //MAGE
+          case MG_1:  //
+            break;
+          case MG_2:  //
+            break;
+          case MG_3:  //
+            break;
+          case MG_4:  //
+            break;
+          case MG_5:  //
+            break;
+          case MG_6:  //
+            break;
+          case MG_7:  //
+            break;
+          case MG_8:  //
+            break;
+            
+          //PRIEST
+          case PR_1:  //
+            break;
+          case PR_2:  //
+            break;
+          case PR_3:  //
+            break;
+          case PR_4:  //
+            break;
+          case PR_5:  //
+            break;
+          case PR_6:  //
+            break;
+          case PR_7:  //
+            break;
+          case PR_8:  //
+            break;
+        }
+      }
+    }
+      
+    if( millis() > timer )
+    {
+      timer += speed;
+      stage++;
+    }
+  }
+  
+  private int findIndexByType( int i )
+  {
+    switch( i )
+    {
+      case 0: return 1;   //test circle animation
+      case 1: return 4;   //block animation
+      case 2: return 7;   //slash animation
+      case 3: return 10;  //punch animation
+      case 4: return 13;  //heal animation
+      case 5: return 16;  //fire bomb animation
+      case 6: return 19;  //ice bomb animation
+      case 7: return 22;  //acid bomb animation
+      case 8: return 25;  //thunder bomb animation
+      case 9: return 28;  //pierce animation
+      case 10: return 31; //bite animation
+      default: return -1; //not in list
+    }
+  }
+}
+
+public enum HeroSkill
+{
+  KN_1, KN_2, KN_3, KN_4, KN_5, KN_6, KN_7, KN_8,
+  BR_1, BR_2, BR_3, BR_4, BR_5, BR_6, BR_7, BR_8,
+  SR_1, SR_2, SR_3, SR_4, SR_5, SR_6, SR_7, SR_8,
+  MA_1, MA_2, MA_3, MA_4, MA_5, MA_6, MA_7, MA_8,
+  BD_1, BD_2, BD_3, BD_4, BD_5, BD_6, BD_7, BD_8,
+  TH_1, TH_2, TH_3, TH_4, TH_5, TH_6, TH_7, TH_8,
+  DR_1, DR_2, DR_3, DR_4, DR_5, DR_6, DR_7, DR_8,
+  MG_1, MG_2, MG_3, MG_4, MG_5, MG_6, MG_7, MG_8,
+  PR_1, PR_2, PR_3, PR_4, PR_5, PR_6, PR_7, PR_8,
+  
+  NONE
+}
+
+HeroSkill skillArray[] =
+{ HeroSkill.KN_1, HeroSkill.KN_2, HeroSkill.KN_3, HeroSkill.KN_4, HeroSkill.KN_5, HeroSkill.KN_6, HeroSkill.KN_7, HeroSkill.KN_8,
+  HeroSkill.BR_1, HeroSkill.BR_2, HeroSkill.BR_3, HeroSkill.BR_4, HeroSkill.BR_5, HeroSkill.BR_6, HeroSkill.BR_7, HeroSkill.BR_8,
+  HeroSkill.SR_1, HeroSkill.SR_2, HeroSkill.SR_3, HeroSkill.SR_4, HeroSkill.SR_5, HeroSkill.SR_6, HeroSkill.SR_7, HeroSkill.SR_8,
+  HeroSkill.MA_1, HeroSkill.MA_2, HeroSkill.MA_3, HeroSkill.MA_4, HeroSkill.MA_5, HeroSkill.MA_6, HeroSkill.MA_7, HeroSkill.MA_8,
+  HeroSkill.BD_1, HeroSkill.BD_2, HeroSkill.BD_3, HeroSkill.BD_4, HeroSkill.BD_5, HeroSkill.BD_6, HeroSkill.BD_7, HeroSkill.BD_8,
+  HeroSkill.TH_1, HeroSkill.TH_2, HeroSkill.TH_3, HeroSkill.TH_4, HeroSkill.TH_5, HeroSkill.TH_6, HeroSkill.TH_7, HeroSkill.TH_8,
+  HeroSkill.DR_1, HeroSkill.DR_2, HeroSkill.DR_3, HeroSkill.DR_4, HeroSkill.DR_5, HeroSkill.DR_6, HeroSkill.DR_7, HeroSkill.DR_8,
+  HeroSkill.MG_1, HeroSkill.MG_2, HeroSkill.MG_3, HeroSkill.MG_4, HeroSkill.MG_5, HeroSkill.MG_6, HeroSkill.MG_7, HeroSkill.MG_8,
+  HeroSkill.PR_1, HeroSkill.PR_2, HeroSkill.PR_3, HeroSkill.PR_4, HeroSkill.PR_5, HeroSkill.PR_6, HeroSkill.PR_7, HeroSkill.PR_8 };
+
+//********************************************************//
+void loadImages()
+{
+  tileImage[0] = loadImage("wall.png"); tileImage[0].resize(30,0);
+  tileImage[1] = loadImage("tree.png"); tileImage[1].resize(40,40);
+  tileImage[2] = loadImage("darkTree.png"); tileImage[2].resize(40,40);
+  tileImage[3] = loadImage("flower.png"); tileImage[3].resize(30,0);
+  for(int i = 1; i <= 16; i++)
+  { tileImage[3+i] = loadImage("water"+i+".png"); tileImage[3+i].resize(30,0); }
+  for(int i = 1; i <= 8; i++)
+  { tileImage[19+i] = loadImage("save"+i+".png"); tileImage[19+i].resize(40,0); }
+  tileImage[28] = loadImage("barrel.png"); tileImage[28].resize(30,0);
+  tileImage[29] = loadImage("barrelEmpty.png"); tileImage[29].resize(30,0);
+  tileImage[30] = loadImage("chest.png"); tileImage[30].resize(30,0);
+  tileImage[31] = loadImage("chestBone.png"); tileImage[31].resize(30,0);
+  tileImage[32] = loadImage("chestDark.png"); tileImage[32].resize(30,0);
+  tileImage[33] = loadImage("chestGold.png"); tileImage[33].resize(30,0);
+  tileImage[34] = loadImage("chestSilver.png"); tileImage[34].resize(30,0);
+  tileImage[35] = loadImage("chestSnow.png"); tileImage[35].resize(30,0);
+  tileImage[36] = loadImage("sign.png"); tileImage[36].resize(30,0);
+  tileImage[37] = loadImage("signUsed.png"); tileImage[37].resize(30,0);
+  tileImage[38] = loadImage("door.png"); tileImage[38].resize(30,0);
+  tileImage[39] = loadImage("doorDouble.png"); tileImage[39].resize(30,0);
+  tileImage[40] = loadImage("portcullis.png"); tileImage[40].resize(30,0);
+  tileImage[41] = loadImage("gateCemetery.png"); tileImage[41].resize(30,0);
+  tileImage[42] = loadImage("grave.png"); tileImage[42].resize(30,0);
+  tileImage[43] = loadImage("stainedGlass.png"); tileImage[43].resize(30,0);
+  tileImage[44] = loadImage("treeDead.png"); tileImage[44].resize(45,40);
+  tileImage[45] = loadImage("wallDark.png"); tileImage[45].resize(30,0);
+  tileImage[46] = loadImage("wallSand.png"); tileImage[46].resize(30,0);
+  tileImage[47] = loadImage("treePath.png"); tileImage[47].resize(40,40);
+  tileImage[48] = loadImage("merchant.png"); tileImage[48].resize(30,0);
+  tileImage[49] = loadImage("wallDark.png"); tileImage[49].resize(30,0);
+  tileImage[50] = loadImage("wallSand.png"); tileImage[50].resize(30,0);
+  tileImage[51] = loadImage("StoneGargoyle.png"); tileImage[51].resize(30,0);
+  tileImage[52] = loadImage("BlackGargoyle.png"); tileImage[52].resize(30,0);
+  tileImage[53] = loadImage("JadeGargoyle.png"); tileImage[53].resize(30,0);
+  tileImage[54] = loadImage("portcullis.png"); tileImage[54].resize(30,0);
+  tileImage[55] = loadImage("tent.png"); tileImage[55].resize(30,0);
+  tileImage[56] = loadImage("stairs.png"); tileImage[56].resize(30,0);
+  tileImage[57] = loadImage("wood.png"); tileImage[57].resize(30,0);
+  tileImage[58] = loadImage("woodDark.png"); tileImage[58].resize(30,0);
+  tileImage[59] = loadImage("woodLight.png"); tileImage[59].resize(30,0);
+  tileImage[60] = loadImage("WhiteWerewolf.png"); tileImage[60].resize(30,0);
+  tileImage[61] = loadImage("chestGold.png"); tileImage[61].resize(30,0);
+  tileImage[62] = loadImage("chestDark.png"); tileImage[62].resize(30,0);
+  tileImage[63] = loadImage("SignEquipment.png"); tileImage[63].resize(30,0);
+  tileImage[64] = loadImage("SignFood.png"); tileImage[64].resize(30,0);
+  tileImage[65] = loadImage("SignPotion.png"); tileImage[65].resize(30,0);
+  tileImage[66] = loadImage("SignInn.png"); tileImage[66].resize(30,0);
+  tileImage[67] = loadImage("rubble.png"); tileImage[67].resize(30,0);
+  tileImage[68] = loadImage("Sack.png"); tileImage[68].resize(50,0);
+  tileImage[69] = loadImage("caveBrown3.png"); tileImage[69].resize(30,0);
+  tileImage[70] = loadImage("cave3.png"); tileImage[70].resize(30,0);
+  //tileImage[70] = loadImage("caveYellow.png"); tileImage[70].resize(30,0);
+  tileImage[71] = loadImage("treeDead4.png"); tileImage[71].resize(45,40);
+  tileImage[72] = loadImage("TileRoof3.png"); tileImage[72].resize(30,34);
+  tileImage[73] = loadImage("crops.png"); tileImage[73].resize(30,30);
+  tileImage[74] = loadImage("TileRoofBlue.png"); tileImage[74].resize(30,34);
+  tileImage[75] = loadImage("bookshelf2.png"); tileImage[75].resize(30,30);
+  tileImage[76] = loadImage("bookshelfEmpty.png"); tileImage[76].resize(30,30);
+  tileImage[77] = loadImage("bed2.png"); tileImage[77].resize(30,30);
+  tileImage[78] = loadImage("blackBook.png"); tileImage[78].resize(20,0);
+  tileImage[79] = loadImage("chestBone.png"); tileImage[79].resize(30,0);
+  tileImage[80] = loadImage("blueBook.png"); tileImage[80].resize(20,0);
+  tileImage[81] = loadImage("brokenGlass.png"); tileImage[81].resize(90,0);
+  tileImage[82] = loadImage("Bread.png"); tileImage[82].resize(30,0);
+  tileImage[83] = loadImage("Meat.png"); tileImage[83].resize(30,0);
+  tileImage[84] = loadImage("Fruit.png"); tileImage[84].resize(30,0);
+  tileImage[85] = loadImage("Crab.png"); tileImage[85].resize(30,0);
+  tileImage[86] = loadImage("wallDarkCracked.png"); tileImage[86].resize(30,0);
+  tileImage[87] = loadImage("stairsWood.png");   tileImage[87].resize(30,0);
+  tileImage[88] = loadImage("crate2.png");       tileImage[88].resize(30,0);
+  tileImage[89] = loadImage("crate.png");        tileImage[89].resize(30,0);
+  tileImage[90] = loadImage("potionGreen.png");  tileImage[90].resize(56,0);
+  tileImage[91] = loadImage("potionBlue.png");   tileImage[91].resize(56,0);
+  tileImage[92] = loadImage("potionYellow.png"); tileImage[92].resize(56,0);
+  tileImage[93] = loadImage("potionRed.png");    tileImage[93].resize(56,0);
+  tileImage[94] = loadImage("chain.png");        tileImage[94].resize(0,30);
+  tileImage[95] = loadImage("fatRat.png");       tileImage[95].resize(0,30);
+  tileImage[96] = loadImage("chain_hole.png");   tileImage[96].resize(0,30);
+  tileImage[97] = loadImage("caveYellow.png");   tileImage[97].resize(0,30);
+  tileImage[98] = loadImage("mountain2.png");    tileImage[98].resize(40,40);
+  tileImage[99] = loadImage("mountainCave.png"); tileImage[99].resize(40,40);
+  tileImage[100]= loadImage("tile3.png");        tileImage[100].resize(30,0);
+  tileImage[101]= loadImage("fenceC.png");       tileImage[101].resize(30,0);
+  tileImage[102]= loadImage("fenceH.png");       tileImage[102].resize(30,0);
+  tileImage[103]= loadImage("fenceV.png");       tileImage[103].resize(30,0);
+  tileImage[104]= loadImage("fenceC2.png");      tileImage[104].resize(30,0);
+  tileImage[105]= loadImage("flowerBlue.png");   tileImage[105].resize(30,0);
+  tileImage[106]= loadImage("curtain.png");      tileImage[106].resize(30,0);
+  tileImage[107]= loadImage("gameBoard.png");    tileImage[107].resize(30,0);
+  tileImage[108]= loadImage("curtainHalf.png");  tileImage[108].resize(30,0);
+  tileImage[109]= loadImage("stoneSlab.png");    tileImage[109].resize(30,0);
+  tileImage[110]= loadImage("curtainRed.png");   tileImage[110].resize(30,0);
+  tileImage[111]= loadImage("curtainHalfRed.png");tileImage[111].resize(30,0);
+  tileImage[112]= loadImage("barrelHoney.png");  tileImage[112].resize(30,0);
+  tileImage[113]= loadImage("caveDoor.png");     tileImage[113].resize(30,0);
+  tileImage[114]= loadImage("caveHole.png");     tileImage[114].resize(30,0);
+  tileImage[115]= loadImage("doorFrame.png");    tileImage[115].resize(30,0);
+  tileImage[116]= loadImage("gateFrame.png");    tileImage[116].resize(30,0);
+  tileImage[117]= loadImage("combHalf.png");     tileImage[117].resize(30,0);
+  tileImage[118]= loadImage("combFull.png");     tileImage[118].resize(30,0);
+  tileImage[119]= loadImage("caveOverlay.png");  tileImage[119].resize(30,0);
+  tileImage[120]= loadImage("caveBrownOverlay.png");tileImage[120].resize(30,0);
+  tileImage[121]= loadImage("chestGoopy.png");   tileImage[121].resize(30,0);
+  tileImage[122]= loadImage("woodCracked.png");  tileImage[122].resize(30,0);
+  tileImage[123]= loadImage("wallCracked.png");  tileImage[123].resize(30,0);
+  tileImage[124]= loadImage("tent_outer.png");   tileImage[124].resize(30,0);
+  tileImage[125]= loadImage("stalagmite.png");   tileImage[125].resize(40,0);
+  tileImage[126]= loadImage("stalagmite2.png");  tileImage[126].resize(40,0);
+  tileImage[127]= loadImage("fireBomb.png");     tileImage[127].resize(45,0);
+  tileImage[128]= loadImage("reagents.png");     tileImage[128].resize(56,0);
+  tileImage[129]= loadImage("iceBomb.png");      tileImage[129].resize(45,0);
+  tileImage[130]= loadImage("acidBomb.png");     tileImage[130].resize(45,0);
+  tileImage[131]= loadImage("thunderBomb3.png"); tileImage[131].resize(45,0);
+  
+  iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
+  iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
+  iconImage[2] = loadImage("heater_main2.png");     iconImage[2].resize(56,0);
+  iconImage[3] = loadImage("heater_primary.png");   iconImage[3].resize(58,0);
+  iconImage[4] = loadImage("heater_secondary.png"); iconImage[4].resize(58,0);
+  iconImage[5] = loadImage("scale_primary.png");    iconImage[5].resize(56,0);
+  iconImage[6] = loadImage("scale_secondary.png");  iconImage[6].resize(56,0);
+  iconImage[7] = loadImage("fist_hue_light.png");   iconImage[7].resize(56,0);
+  
+  //670x180
+  battleBack[0] = loadImage("forest5.png"); //resize?esize(56,0);
+  battleBack[1] = loadImage("stoneWall.png"); //resize?
+  battleBack[2] = loadImage("graveyard4.png"); //resize?
+  battleBack[3] = loadImage("cave.png"); //resize?
+  battleBack[4] = loadImage("woodWall.png");
+  battleBack[5] = loadImage("beeCave2.png"); battleBack[5].resize(670,0);
+  battleBack[6] = loadImage("testBack2.png");
+  battleBack[7] = loadImage("stoneWallWindow.png");battleBack[7].resize(670,0);
+  battleBack[8] = loadImage("waterCave9.png");     battleBack[8].resize(670,0);
+  
+  effectImage[0] = loadImage("bardBonus.png");  effectImage[0].resize(30,0);
+  
+  border = loadImage("stoneBorder.png");            border.resize(750,750);
+  
+  //TEST - TYPE: 0
+  effectImage[1] = loadImage("testRing1.png");  effectImage[1].resize(200,0);
+  effectImage[2] = loadImage("testRing2.png");  effectImage[2].resize(200,0);
+  effectImage[3] = loadImage("testRing3.png");  effectImage[3].resize(200,0);
+  //BLOCK - TYPE: 1
+  effectImage[4] = loadImage("shield3.png");    effectImage[4].resize(200,0);
+  effectImage[5] = loadImage("blank.png");      effectImage[5].resize(200,0);
+  effectImage[6] = loadImage("shield3.png");    effectImage[6].resize(200,0);
+  //SLASH - TYPE: 2
+  effectImage[7] = loadImage("slash1.png");     effectImage[7].resize(200,0);
+  effectImage[8] = loadImage("slash2.png");     effectImage[8].resize(200,0);
+  effectImage[9] = loadImage("slash3.png");     effectImage[9].resize(200,0);
+  //PUNCH - TYPE: 3
+  effectImage[10] = loadImage("punch1.png");    effectImage[10].resize(200,0);
+  effectImage[11] = loadImage("punch2.png");    effectImage[11].resize(200,0);
+  effectImage[12] = loadImage("punch3.png");    effectImage[12].resize(200,0);
+  //HEAL - TYPE: 4
+  effectImage[13] = loadImage("heal1.png");    effectImage[13].resize(200,0);
+  effectImage[14] = loadImage("heal2.png");    effectImage[14].resize(200,0);
+  effectImage[15] = loadImage("heal3.png");    effectImage[15].resize(200,0);
+  //FIRE BOMB - TYPE: 5
+  effectImage[16] = loadImage("fireBomb1.png");    effectImage[16].resize(125,0);
+  effectImage[17] = loadImage("fireBomb2.png");    effectImage[17].resize(135,0);
+  effectImage[18] = loadImage("fireBomb3.png");    effectImage[18].resize(145,0);
+  //FIRE BOMB - TYPE: 6
+  effectImage[19] = loadImage("iceBomb1.png");    effectImage[19].resize(125,0);
+  effectImage[20] = loadImage("iceBomb2.png");    effectImage[20].resize(135,0);
+  effectImage[21] = loadImage("iceBomb3.png");    effectImage[21].resize(145,0);
+  //ACID BOMB - TYPE: 7
+  effectImage[22] = loadImage("acidBomb1.png");    effectImage[22].resize(125,0);
+  effectImage[23] = loadImage("acidBomb2.png");    effectImage[23].resize(160,0);
+  effectImage[24] = loadImage("acidBomb3.png");    effectImage[24].resize(150,0);
+  //THUNDER BOMB - TYPE: 8
+  //effectImage[25] = loadImage("thunderBomb1.png");    effectImage[25].resize(125,0);
+  //effectImage[26] = loadImage("thunderBomb2.png");    effectImage[26].resize(160,0);
+  //effectImage[27] = loadImage("thunderBomb3.png");    effectImage[27].resize(150,0);
+  //PIERCE - TYPE: 9
+  effectImage[28] = loadImage("pierce1.png");    effectImage[28].resize(200,0);
+  effectImage[29] = loadImage("pierce2.png");    effectImage[29].resize(200,0);
+  effectImage[30] = loadImage("pierce3.png");    effectImage[30].resize(200,0);
+  //BITE - TYPE: 10
+  effectImage[31] = loadImage("bite1.png");    effectImage[31].resize(170,0);
+  effectImage[32] = loadImage("bite2.png");    effectImage[32].resize(200,0);
+  effectImage[33] = loadImage("bite3.png");    effectImage[33].resize(190,0);
+  //ARMOR BREAK - TYPE: 11
+  effectImage[34] = loadImage("split1.png");    effectImage[34].resize(200,0);
+  effectImage[35] = loadImage("split2.png");    effectImage[35].resize(200,0);
+  effectImage[36] = loadImage("split3.png");    effectImage[36].resize(200,0);
+  //DIVINE GRACE - TYPE: 12
+  effectImage[37] = loadImage("grace1.png");    effectImage[37].resize(0,200);
+  effectImage[38] = loadImage("grace2.png");    effectImage[38].resize(0,200);
+  effectImage[39] = loadImage("grace3.png");    effectImage[39].resize(0,200);
+  //KNIVES - TYPE: 13
+  effectImage[40] = loadImage("knife1.png");    effectImage[40].resize(0,200);
+  effectImage[41] = loadImage("knife2.png");    effectImage[41].resize(0,200);
+  effectImage[42] = loadImage("knife3.png");    effectImage[42].resize(0,200);
+  effectImage[43] = loadImage("knife4.png");    effectImage[43].resize(0,200);
+  effectImage[44] = loadImage("knife5.png");    effectImage[44].resize(0,200);
+  effectImage[45] = loadImage("knife6.png");    effectImage[45].resize(0,200);
+  effectImage[46] = loadImage("knife7.png");    effectImage[46].resize(0,200);
+  effectImage[47] = loadImage("knife8.png");    effectImage[47].resize(0,200);
+  effectImage[48] = loadImage("knife9.png");    effectImage[48].resize(0,200);
+  effectImage[49] = loadImage("knife10.png");   effectImage[49].resize(0,200);
 }
