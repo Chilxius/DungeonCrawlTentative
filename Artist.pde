@@ -43,6 +43,8 @@ class Artist
   PImage skillButton[] = new PImage[9];
   PImage blackVanguard;
   
+  boolean fastAnimation = false; //for half-delay skills (ex: flash punch)
+  
   public Artist()
   {
     animationStage = 0;
@@ -3502,6 +3504,12 @@ class Animation
     timer = millis() + int(battleTextSpeed*1000) - (speed*endStage); //three frames before damage appears
   }
   
+  public Animation( int type, int u, int tar, float delay ) //For different battleTextSpeeds (primarily for block)
+  {
+    this(type, u, tar);
+    timer = millis() + int(delay*1000) - (speed*endStage);
+  }
+  
   public Animation( int j, int s, int u, int t )
   {
     this( 0, u, t );
@@ -3524,9 +3532,48 @@ class Animation
   {
     switch(s)
     {
+      case BR_2: //cleave
+        endStage = 6;
+        speed = 75;
+        break;
+      case BR_3: //blood rage
+        target = user;
+        adjustPositions(target);
+        break;
+      case MA_1: //stone ist
+        endStage = 4;
+        break;
+      case MA_2: //flash punch
+        endStage = 2;
+        speed = 50;
+        vanGogh.fastAnimation = true;
+        //println("DELAY: " + battle.battleDelayCounter);
+        //battle.battleDelayCounter -= battleTextSpeed/2;
+        //battle.setBattleDelay( battleTextSpeed/2 );
+        timer = millis() + int(battleTextSpeed/2*1000) - (speed*endStage);
+        return;
+      case MA_3: //hurricane kick
+        endStage = 8;
+        speed = 100;
+        break;
       case TH_1: //knives
         endStage = 10;
-        speed = 100;
+        break;
+      case TH_2: //toxin
+        endStage = 7;
+        break;
+      case TH_3: //razor
+        endStage = 5;
+        speed = 200;
+        break;
+      case PR_1: //light
+        endStage = 4;
+        break;
+      case PR_2: //comfort
+        endStage = 6;
+        break;
+      case PR_3: //bless
+        endStage = 4;
         break;
     }
     
@@ -3537,7 +3584,8 @@ class Animation
   {
     switch(t)
     {
-      case 10: speed = 150;
+      case 1:  speed = 50;   break;//block
+      case 10: speed = 150; break;//bite
     }
   }
   
@@ -3565,9 +3613,9 @@ class Animation
           case KN_1:  //Shield Bash
             if( stage == 0 || stage == 1 )
             {
-              tint(party.hero[battle.turn].favColor);     image( iconImage[3], xPos, yPos+(25-25*stage), 150-(stage*50), 150-(stage*50) );
-              tint(party.hero[battle.turn].inverseColor); image( iconImage[4], xPos, yPos+(25-25*stage), 150-(stage*50), 150-(stage*50) );
-              noTint(); image( iconImage[2], xPos, yPos+(25-25*stage), 150-(stage*50), 150-(stage*50) );
+              //tint(party.hero[battle.turn].favColor);     image( iconImage[3], xPos, yPos+(25-25*stage), 150-(stage*50), 150-(stage*50) );
+              //tint(party.hero[battle.turn].inverseColor); image( iconImage[4], xPos, yPos+(25-25*stage), 150-(stage*50), 150-(stage*50) );
+              noTint(); image( effectImage[57], xPos, yPos+(25-25*stage), 150-(stage*50), 150-(stage*50) );
             }
             else
               image( effectImage[12], xPos, yPos );
@@ -3594,11 +3642,14 @@ class Animation
             break;
             
           //BARBARIAN
-          case BR_1:  //
+          case BR_1:  //BLOOD STRIKE
+            image( effectImage[78+stage], xPos, yPos );
             break;
-          case BR_2:  //
+          case BR_2:  //CLEAVE
+            image( effectImage[81+stage], frameWidth/2, 275 );
             break;
-          case BR_3:  //
+          case BR_3:  //RAGE
+            image( effectImage[87+stage], xPos, yPos );
             break;
           case BR_4:  //
             break;
@@ -3612,9 +3663,11 @@ class Animation
             break;
             
           //SAURIAN
-          case SR_1:  //
+          case SR_1:  //REND
+            image( effectImage[98+stage], xPos, yPos );
             break;
-          case SR_2:  //
+          case SR_2:  //PREY
+            image( effectImage[101+stage], xPos, yPos );
             break;
           case SR_3:  //
             break;
@@ -3630,11 +3683,19 @@ class Animation
             break;
             
           //MARTIAL ARTIST
-          case MA_1:  //
+          case MA_1:  //STONE FIST
+            if( stage == 0 ) image( effectImage[10], xPos, yPos );
+            if( stage == 1 ) image( effectImage[11], xPos, yPos );
+            if( stage == 2 ) image( effectImage[90], xPos, yPos );
+            if( stage == 3 ) image( effectImage[91], xPos, yPos );
             break;
-          case MA_2:  //
+          case MA_2:  //FLASH PUNCH
+            image( effectImage[92+stage], xPos, yPos );
             break;
-          case MA_3:  //
+          case MA_3:  //HURRICANE KICK
+            image( effectImage[94+stage%3], frameWidth/2, 275 );
+            //image( effectImage[97],         frameWidth/2 + (stage*stage*5*(pow(-1,stage))), 275 );
+            image( effectImage[97],         frameWidth/4 + ((stage-1)*frameWidth*(3.0/4/8)), 275 );
             break;
           case MA_4:  //
             break;
@@ -3669,9 +3730,11 @@ class Animation
           case TH_1:  //KNIVES
             image( effectImage[40+stage], frameWidth/2, 275 );
             break;
-          case TH_2:  //
+          case TH_2:  //TOXIN
+            image( effectImage[50+stage], xPos, yPos );
             break;
-          case TH_3:  //
+          case TH_3:  //RAZOR
+            image( effectImage[58+stage], xPos, yPos );
             break;
           case TH_4:  //
             break;
@@ -3721,11 +3784,14 @@ class Animation
             break;
             
           //PRIEST
-          case PR_1:  //
+          case PR_1:  //DIVINE LIGHT
+            image( effectImage[64+stage], xPos, yPos );
             break;
-          case PR_2:  //
+          case PR_2:  //DIVINE COMFORT
+            image( effectImage[68+stage], xPos, yPos );
             break;
-          case PR_3:  //
+          case PR_3:  //BLESSING
+            image( effectImage[74+stage], frameWidth/2, 500 );
             break;
           case PR_4:  //
             break;
@@ -3940,9 +4006,9 @@ void loadImages()
   effectImage[2] = loadImage("testRing2.png");  effectImage[2].resize(200,0);
   effectImage[3] = loadImage("testRing3.png");  effectImage[3].resize(200,0);
   //BLOCK - TYPE: 1
-  effectImage[4] = loadImage("shield3.png");    effectImage[4].resize(200,0);
-  effectImage[5] = loadImage("blank.png");      effectImage[5].resize(200,0);
-  effectImage[6] = loadImage("shield3.png");    effectImage[6].resize(200,0);
+  effectImage[4] = loadImage("shield1.png");    effectImage[4].resize(200,0);
+  effectImage[5] = loadImage("shield2.png");      effectImage[5].resize(200,0);
+  effectImage[6] = loadImage("shield2.png");    effectImage[6].resize(200,0);
   //SLASH - TYPE: 2
   effectImage[7] = loadImage("slash1.png");     effectImage[7].resize(200,0);
   effectImage[8] = loadImage("slash2.png");     effectImage[8].resize(200,0);
@@ -3998,4 +4064,73 @@ void loadImages()
   effectImage[47] = loadImage("knife8.png");    effectImage[47].resize(0,200);
   effectImage[48] = loadImage("knife9.png");    effectImage[48].resize(0,200);
   effectImage[49] = loadImage("knife10.png");   effectImage[49].resize(0,200);
+  //TOXIN - TYPE: 14
+  effectImage[50] = loadImage("toxin1.png");    effectImage[50].resize(0,120);
+  effectImage[51] = loadImage("toxin2.png");    effectImage[51].resize(0,120);
+  effectImage[52] = loadImage("toxin3.png");    effectImage[52].resize(0,120);
+  effectImage[53] = loadImage("toxin4.png");    effectImage[53].resize(0,120);
+  effectImage[54] = loadImage("toxin5.png");    effectImage[54].resize(0,120);
+  effectImage[55] = loadImage("toxin6.png");    effectImage[55].resize(0,130);
+  effectImage[56] = loadImage("toxin7.png");    effectImage[56].resize(0,140);
+  //SHIELD BASH
+  effectImage[57] = loadImage("shieldBack.png");effectImage[57].resize(0,200);
+  //RAZOR
+  effectImage[58] = loadImage("razor1.png");    effectImage[58].resize(0,160);
+  effectImage[59] = loadImage("razor2.png");    effectImage[59].resize(0,160);
+  effectImage[60] = loadImage("razor3.png");    effectImage[60].resize(0,160);
+  effectImage[61] = loadImage("razor4.png");    effectImage[61].resize(0,160);
+  effectImage[62] = loadImage("razor5.png");    effectImage[62].resize(0,160);
+  effectImage[63] = loadImage("razor6.png");    effectImage[63].resize(0,160);
+  //DIVINE LIGHT
+  effectImage[64] = loadImage("light1.png");    effectImage[64].resize(0,180);
+  effectImage[65] = loadImage("light2.png");    effectImage[65].resize(0,180);
+  effectImage[66] = loadImage("light3.png");    effectImage[66].resize(0,180);
+  effectImage[67] = loadImage("light4.png");    effectImage[67].resize(0,180);
+  //DIVINE COMFORT
+  effectImage[68] = loadImage("comfort1.png");  effectImage[68].resize(0,160);
+  effectImage[69] = loadImage("comfort2.png");  effectImage[69].resize(0,160);
+  effectImage[70] = loadImage("comfort3.png");  effectImage[70].resize(0,160);
+  effectImage[71] = loadImage("comfort4.png");  effectImage[71].resize(0,160);
+  effectImage[72] = loadImage("comfort5.png");  effectImage[72].resize(0,160);
+  effectImage[73] = loadImage("comfort6.png");  effectImage[73].resize(0,160);
+  //BLESSING
+  effectImage[74] = loadImage("bless1.png");    effectImage[74].resize(0,180);
+  effectImage[75] = loadImage("bless2.png");    effectImage[75].resize(0,180);
+  effectImage[76] = loadImage("bless3.png");    effectImage[76].resize(0,180);
+  effectImage[77] = loadImage("bless4.png");    effectImage[77].resize(0,180);
+  //BLOOD STRIKE
+  effectImage[78] = loadImage("strike1.png");  effectImage[78].resize(0,200);
+  effectImage[79] = loadImage("strike2.png");  effectImage[79].resize(0,200);
+  effectImage[80] = loadImage("strike3.png");  effectImage[80].resize(0,200);
+  //CLEAVE
+  effectImage[81] = loadImage("cleave1.png");    effectImage[81].resize(frameWidth,0);
+  effectImage[82] = loadImage("cleave2.png");    effectImage[82].resize(frameWidth,0);
+  effectImage[83] = loadImage("cleave3.png");    effectImage[83].resize(frameWidth,0);
+  effectImage[84] = loadImage("cleave4.png");    effectImage[84].resize(frameWidth,0);
+  effectImage[85] = loadImage("cleave5.png");    effectImage[85].resize(frameWidth,0);
+  effectImage[86] = loadImage("cleave6.png");    effectImage[86].resize(frameWidth,0);
+  //BLOOD RAGE
+  effectImage[87] = loadImage("rage1.png");    effectImage[87].resize(0,200);
+  effectImage[88] = loadImage("rage2.png");    effectImage[88].resize(0,200);
+  effectImage[89] = loadImage("rage3.png");    effectImage[89].resize(0,200);
+  //STONE FIST
+  effectImage[90] = loadImage("stoneFist1.png");   effectImage[90].resize(0,200);
+  effectImage[91] = loadImage("stoneFist_2.png");  effectImage[91].resize(0,200);
+  //FLASH PUNCH
+  effectImage[92] = loadImage("flash1.png");    effectImage[92].resize(200,0);
+  effectImage[93] = loadImage("flash2.png");    effectImage[93].resize(200,0);
+  //WIND
+  effectImage[94] = loadImage("tornado1.png");    effectImage[94].resize(0,200);
+  effectImage[95] = loadImage("tornado2.png");    effectImage[95].resize(0,200);
+  effectImage[96] = loadImage("tornado3.png");    effectImage[96].resize(0,200);
+  //KICK
+  effectImage[97] = loadImage("kick.png");    effectImage[97].resize(160,0);
+  //REND
+  effectImage[98] = loadImage("rend1.png");   effectImage[98].resize(0,200);
+  effectImage[99] = loadImage("rend2.png");   effectImage[99].resize(0,200);
+  effectImage[100] = loadImage("rend3.png");  effectImage[100].resize(0,200);
+  //PREY
+  effectImage[101] = loadImage("prey1.png");    effectImage[101].resize(200,0);
+  effectImage[102] = loadImage("prey2.png");    effectImage[102].resize(200,0);
+  effectImage[103] = loadImage("prey3.png");    effectImage[103].resize(200,0);
 }

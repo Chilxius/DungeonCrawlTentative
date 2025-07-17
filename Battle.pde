@@ -481,7 +481,13 @@ class Battle
   
   public void setBattleDelay() //delays by a number of seconds equal to battleSpeed
   {
-    setBattleDelay( battleTextSpeed );
+    if( vanGogh.fastAnimation )
+    {
+      vanGogh.fastAnimation = false;
+      setBattleDelay( battleTextSpeed/2 );
+    }
+    else
+      setBattleDelay( battleTextSpeed );
   }
   
   public void setBattleDelay( float delay ) //delays by a number of seconds equal to delay

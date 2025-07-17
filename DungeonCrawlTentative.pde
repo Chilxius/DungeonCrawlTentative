@@ -1,4 +1,4 @@
-//CURRENT TASK: //<>//
+//CURRENT TASK: //<>// //<>//
   //Improve Rend damge
   //Need a little more exp in forest before man-wolf
   //Increase Prey damage
@@ -81,6 +81,7 @@ import ddf.minim.ugens.*;
 //Poison seems to be killing heroes properly
 //poison dealt 1 but removed 2 (couldn't reproduce)
 //I cut the value of armor in half in the code to normalize damage - might need to re-test earlier levels
+//Animations seem to be multi-dispaying; it was less transparent due to layering.
 
 //Turned sound off for the time being. Will include later with Beads
 import processing.sound.*;
@@ -163,7 +164,7 @@ float volume;
 PImage tileImage[] = new PImage[200];  //I've since used this for more than just tiles
 PImage battleBack[] = new PImage[10];  //Backgrounds for battles
 PImage iconImage[] = new PImage[50];   //Icons for buttons, need to move some items from tileImage
-PImage effectImage[] = new PImage[50]; //Images for effects. Will eventually include spell effects.
+PImage effectImage[] = new PImage[110]; //Images for effects. Will eventually include spell effects.
 PImage cursor;
 PImage border;
 //Animation data
@@ -186,7 +187,7 @@ SavePoint lastSave = new SavePoint(); //should defalt to starting position
 boolean confirmSave = false;
 ProgressSwitch itemSwitches[] = new ProgressSwitch[itemCount]; //don't know how big this will get
 ProgressSwitch doorSwitches[] = new ProgressSwitch[doorCount]; //or this
-ProgressSwitch bossSwitches[] = new ProgressSwitch[bossCount];  //or, in fact, this
+ProgressSwitch bossSwitches[] = new ProgressSwitch[bossCount]; //or, in fact, this
 static int itemSwitchCount = 0;
 static int doorSwitchCount = 0;
 static int bossSwitchCount = 0;
@@ -438,7 +439,7 @@ public String inputText() //Retrieves the text in the box and switches game stat
     else
     {
       step = HeroCreationStep.JOB;
-      input = Input.HERO_JOB_CHOICE; //<>//
+      input = Input.HERO_JOB_CHOICE; //<>// //<>//
       if(textBuffer.equals(""))
         textBuffer = randomName();
       advanceText("What is "+textBuffer+"'s Job");
@@ -809,9 +810,9 @@ String bonkText( char direction ) //for when the heroes run into obstacles
   return "Bonk";
 }
 
-boolean partyNextToBoss( int index ) //party is orthaganally adjacent to a boss //<>//
+boolean partyNextToBoss( int index ) //party is orthaganally adjacent to a boss //<>// //<>//
 {
-  //for( int i = 0; i < bossSwitches.length; i++ ) //<>// //<>//
+  //for( int i = 0; i < bossSwitches.length; i++ ) //<>// //<>// //<>//
   //{
     if( ( ( party.X == bossSwitches[index].X-1 || party.X == bossSwitches[index].X+1 ) && party.Y == bossSwitches[index].Y ) 
     ||  ( ( party.Y == bossSwitches[index].Y-1 || party.Y == bossSwitches[index].Y+1 ) && party.X == bossSwitches[index].X ) )
@@ -1140,7 +1141,7 @@ void keyPressed()
   if( debugMode && key == 'N' )
     noClip = !noClip;
   if( debugMode && key == 'O' )
-    animations.add( new Animation( 5, 0, 0, 3 ) );
+    animations.add( new Animation( 2, 1, 1, 4 ) );
   if( debugMode && key == 'P' )
     animations.add( new Animation( 9, 0, 4 ) );
   //if( debugMode && key == 'r' )
@@ -1237,9 +1238,9 @@ void keyPressed()
       confirmSave = false;
     }
     if(display == Display.MAP && key == 'R' && ( m[party.floor].tiles[party.X][party.Y].obj == Object.TENT || m[party.floor].tiles[party.X][party.Y].obj == Object.BED ) ) //rest
-    { //<>//
+    { //<>// //<>//
       if(party.needsRest())
-      { //<>// //<>//
+      { //<>// //<>// //<>//
         input = Input.NONE;
         vanGogh.beginRestFadeout();
       }
@@ -1254,9 +1255,9 @@ void keyPressed()
         {
           if( party.addToInventory(m[party.floor].tiles[party.X][party.Y].itemForSale) ) //should take care of full inventory
             party.gold -= m[party.floor].tiles[party.X][party.Y].itemPrice;
-        } //<>//
+        } //<>// //<>//
         else
-          displayTextLine( "You cannot afford the " + m[party.floor].tiles[party.X][party.Y].itemForSale.name +"." ); //party does not have enough gold //<>// //<>//
+          displayTextLine( "You cannot afford the " + m[party.floor].tiles[party.X][party.Y].itemForSale.name +"." ); //party does not have enough gold //<>// //<>// //<>//
       }
       else if( m[party.floor].tiles[party.X][party.Y].type == TileType.SELL ) //sell
       {
@@ -1306,15 +1307,15 @@ void keyPressed()
     //if(key == 'a') key = 49; //convert      this causes
     //if(key == 's') key = 50; //to           issues when trying
     //if(key == 'd') key = 51; //numbers      to move quickly
-    //if(key == 'f') key = 52;                and using stairs/doors //<>//
+    //if(key == 'f') key = 52;                and using stairs/doors //<>// //<>//
     
-    if(key == ' ') //<>// //<>//
+    if(key == ' ') //<>// //<>// //<>//
     {
       display = Display.MAP;
       input = Input.EXPLORING;
-    } //<>//
+    } //<>// //<>//
     else if(key > 48 && key < 53)
-    { //<>// //<>//
+    { //<>// //<>// //<>//
       if(display == Display.FOOD_MENU && party.hasFood(key-48))
       {
         consumableValue = (key-48)*10;
@@ -1345,8 +1346,9 @@ void keyPressed()
       {
         displayTextLine( party.hero[battle.turn].name + " defends!");
         party.hero[battle.turn].defending = true;
-        vanGogh.addAnimation( "block", battle.turn, battle.turn );
-        battle.setBattleDelay();
+        //vanGogh.addAnimation( "block", battle.turn, battle.turn, battleTextSpeed/2 );
+        animations.add( new Animation( 1, battle.turn, battle.turn, battleTextSpeed/2 ) );
+        battle.setBattleDelay(battleTextSpeed/2);
         battle.resumeInitiative();
       }
       
@@ -1603,7 +1605,7 @@ void keyPressed()
   
   if(key == '`') //for placing a break point
   {
-    println("DEBUG"); //<>// //<>//
+    println("DEBUG"); //<>// //<>// //<>//
     println(party.X + " " + party.Y);
     println(dm[party.floor].dangerValueChar(party.X,party.Y));
   }
@@ -1616,7 +1618,7 @@ void keyPressed()
 }
 
 void keyReleased()
-{ //<>//
+{ //<>// //<>//
   if( key == 'y' )
     dangerMapOn = false;
   if( key == 'u' )
@@ -1742,7 +1744,7 @@ void mousePressed()
   }
   if( input == Input.HERO_SELECT || input == Input.BATTLE_ITEM_HERO_CHOICE ) //clicked on hero
   {
-    if(dist( mouseX,mouseY, 150+frameX,320+frameY)<37.5) { key='1'; keyPressed(); } //<>//
+    if(dist( mouseX,mouseY, 150+frameX,320+frameY)<37.5) { key='1'; keyPressed(); } //<>// //<>//
     if(dist( mouseX,mouseY, 350+frameX,320+frameY)<37.5) { key='2'; keyPressed(); }
     if(dist( mouseX,mouseY, 550+frameX,320+frameY)<37.5) { key='3'; keyPressed(); }
   }
