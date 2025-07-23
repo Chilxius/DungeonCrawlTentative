@@ -1,4 +1,11 @@
 //CURRENT TASK: //<>// //<>//
+  //Create 'use' icon
+  //Let buttons depress
+  //Fade buttons out more (at least the arrows)
+  //Create closed eye-con
+  //Create cancel button
+  //Work on select-key system
+
   //Improve Rend damge
   //Need a little more exp in forest before man-wolf
   //Increase Prey damage
@@ -141,6 +148,8 @@ ArrayList<GhostNumber> floatingNumbers = new ArrayList<GhostNumber>();
 int windowX, windowY; //position of program window
 int frameWidth, frameHeight; //dimensions of game window  //These are not implemented
 int frameX, frameY; //position of game window (corner)    //to work for all sizes yet.
+boolean showUX = true; //show/hide clickable UI buttons
+int UIButtonClicked = 0; //which button to depress
 
 //Sound effects
 Sound s;
@@ -161,10 +170,11 @@ float volume;
 //AudioPlayer titleScreenMusic;
 
 //Image data
-PImage tileImage[] = new PImage[200];  //I've since used this for more than just tiles
-PImage battleBack[] = new PImage[10];  //Backgrounds for battles
-PImage iconImage[] = new PImage[50];   //Icons for buttons, need to move some items from tileImage
-PImage effectImage[] = new PImage[110]; //Images for effects. Will eventually include spell effects.
+PImage tileImage[]    = new PImage[200]; //I've since used this for more than just tiles
+PImage battleBack[]   = new PImage[10];  //Backgrounds for battles
+PImage iconImage[]    = new PImage[50];  //Icons for buttons, need to move some items from tileImage
+PImage effectImage[]  = new PImage[110]; //Images for effects. Will eventually include spell effects.
+PImage mouseUXImage[] = new PImage[10];   //Images for mouse controls
 PImage cursor;
 PImage border;
 //Animation data
@@ -934,6 +944,29 @@ boolean mouseInBox( float boxX, float boxY ) //assumes boxes are 70x70
   if( mouseX-frameX > boxX-35 && mouseX-frameX < boxX+35 && mouseY-frameY > boxY-35 && mouseY-frameY < boxY+35 )
     return true;
   return false;
+}
+
+public int mouseInZone() //For UI overlay
+{
+  //Eye
+  if( dist( mouseX, mouseY, 622.5+25, 510+25 ) < 75 ) return 1;
+  //Move
+  if( dist( mouseX, mouseY, 622.5+25, 370+25 ) < 75 ) return 9;
+  
+  //Food
+  if( dist( mouseX, mouseY, 77.5+25, 230+25 ) < 75 ) return 6;
+  //Potion
+  if( dist( mouseX, mouseY, 77.5+25, 370+25 ) < 75 ) return 7;
+  //Key Item
+  if( dist( mouseX, mouseY, 77.5+25, 510+25 ) < 75 ) return 8;
+
+  //Arrows (lower priority)
+  if( dist( mouseX, mouseY, 350+25, 190+25 ) < 75 ) return 2;
+  if( dist( mouseX, mouseY, 170+25, 370+25 ) < 75 ) return 3;
+  if( dist( mouseX, mouseY, 350+25, 550+25 ) < 75 ) return 4;
+  if( dist( mouseX, mouseY, 530+25, 370+25 ) < 75 ) return 5;
+  
+  return 0;
 }
   
 public color appropriateColor( AttackType element )
@@ -1822,6 +1855,23 @@ void mouseReleased()
 {
   heroDataDisplayed[0]=heroDataDisplayed[1]=heroDataDisplayed[2]=false;
   slider[0]=slider[1]=slider[2]=slider[3]=slider[4]=slider[5]=slider[6]=false;
+  
+  //Mouse-click controls for map exploration
+  if( input == Input.EXPLORING )
+    switch( mouseInZone() )
+    {
+      case 1: showUX = !showUX; break;
+      
+      case 2: key = 'w'; keyPressed(); break;
+      case 3: key = 'a'; keyPressed(); break;
+      case 4: key = 's'; keyPressed(); break;
+      case 5: key = 'd'; keyPressed(); break;
+      
+      case 6: key = 'E'; keyPressed(); break;
+      case 7: key = 'D'; keyPressed(); break;
+      case 8: key = 'o'; keyPressed(); break;
+      case 9: key = '>'; keyPressed(); break;
+    }
 }
 
 public enum Input

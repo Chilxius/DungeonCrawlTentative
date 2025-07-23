@@ -3473,6 +3473,47 @@ class Artist
     text( text, x, y );
     pop();
   }
+  
+  public void drawMouseUXOverlay()
+  {
+    push();
+    imageMode(CENTER);
+    tint(255,175);
+    if( showUX )
+    {
+       image(mouseUXImage[0],350,190);
+       image(mouseUXImage[1],170,370);
+       image(mouseUXImage[2],350,550);
+       image(mouseUXImage[3],530,370);
+       image(mouseUXImage[5],77.5,230);
+       image(mouseUXImage[6],77.5,370);
+       image( mouseUXImage[7],77.5,510);
+       image(mouseUXImage[4],622.5,510);
+       image( mouseUXImage[8],622.5,370);
+    }
+    else
+      switch( mouseInZone() )
+      {
+        //Move
+        case 2: image(mouseUXImage[0],350,190); break;
+        case 3: image(mouseUXImage[1],170,370); break;
+        case 4: image(mouseUXImage[2],350,550); break;
+        case 5: image(mouseUXImage[3],530,370); break;
+        //Food
+        case 6: image(mouseUXImage[5],77.5,230); break;
+        //Potion
+        case 7: image(mouseUXImage[6],77.5,370); break;
+        //Key
+        case 8: image( mouseUXImage[7],77.5,510); break;
+        //Search
+        case 1: image(mouseUXImage[4],622.5,510); break;
+        //Door/entrance
+        case 9: image( mouseUXImage[8],622.5,370);
+      }
+    pop();
+  }
+  
+
 }
 
 //********************************************************//
@@ -3985,6 +4026,16 @@ void loadImages()
   iconImage[5] = loadImage("scale_primary.png");    iconImage[5].resize(56,0);
   iconImage[6] = loadImage("scale_secondary.png");  iconImage[6].resize(56,0);
   iconImage[7] = loadImage("fist_hue_light.png");   iconImage[7].resize(56,0);
+  
+  mouseUXImage[0] = loadImage("moveU.png");       mouseUXImage[0].resize(150,0);
+  mouseUXImage[1] = loadImage("moveL.png");       mouseUXImage[1].resize(150,0);
+  mouseUXImage[2] = loadImage("moveD.png");       mouseUXImage[2].resize(150,0);
+  mouseUXImage[3] = loadImage("moveR.png");       mouseUXImage[3].resize(150,0);
+  mouseUXImage[4] = loadImage("lookEye.png");     mouseUXImage[4].resize(100,0);
+  mouseUXImage[5] = loadImage("Bread.png");       mouseUXImage[5].resize(100,0);
+  mouseUXImage[6] = loadImage("potionGreen.png"); mouseUXImage[6].resize(100,0);
+  mouseUXImage[7] = loadImage("key.png");         mouseUXImage[7].resize(100,0);
+  mouseUXImage[8] = loadImage("enter.png");       mouseUXImage[8].resize(100,0);
   
   //670x180
   battleBack[0] = loadImage("forest5.png"); //resize?esize(56,0);
