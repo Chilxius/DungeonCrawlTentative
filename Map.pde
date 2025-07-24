@@ -56,7 +56,8 @@ class Map
     //println(tiles[party.X][party.Y].type);
     tiles[party.X][party.Y].drawForegroundObject(); //Re-draws the tile art if the heroes move behind it
     
-    vanGogh.drawMouseUXOverlay();
+    if(showUX || input != Input.ADVANCE_TEXT) //Hide UI during text advance in hide mode
+      vanGogh.drawMouseUXOverlay();
     
     if(vanGogh.titleCardDuration > 0) //Location Title Card
       vanGogh.drawLocationTitleCard();

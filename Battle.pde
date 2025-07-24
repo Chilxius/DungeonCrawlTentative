@@ -158,7 +158,10 @@ class Battle
                 m[party.floor].tiles[bossSwitches[currentBoss].X][bossSwitches[currentBoss].Y].removeBoss();
                 bossSwitches[currentBoss].active=false;
                 currentBoss = -1; //switch off boss mode
+                
               }
+              //Hand icon color changes after each battle
+              handIndex = (handIndex+1)%3;
               return false;
           }
       }

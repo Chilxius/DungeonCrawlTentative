@@ -366,6 +366,9 @@ class Artist
     fill(200); textAlign(CENTER); textSize(25*fontScale);
     text("Select by number or",frameWidth/2,560);
     text("press space to cancel.",frameWidth/2,580);
+    
+    //Draw clickable cancel arrow
+    image( mouseUXImage[9], 650,550);
   }
   
   public void checkMouseInFoodBox( int index ) //highlights food options when moused over
@@ -399,10 +402,19 @@ class Artist
     fill(200); textAlign(CENTER); textSize(40*fontScale);
     text("Select Potion",frameWidth/2,150);
     
-    drawPotion(150,200,1,rand1);
-    drawPotion(150,400,1,rand2);
-    drawPotion(530,200,1,rand3);
-    drawPotion(530,400,1,rand4);
+    //drawPotion(150,200,1,rand1);
+    //drawPotion(150,400,1,rand2);
+    //drawPotion(530,200,1,rand3);
+    //drawPotion(530,400,1,rand4);
+    push();
+    imageMode(CENTER);
+    image( tileImage[93], 150, 200 );
+    image( tileImage[91], 150, 325 );
+    image( tileImage[92], 150, 450 );
+    image( tileImage[90], 530, 200 );
+    image( tileImage[132], 530, 325 );
+    image( tileImage[133], 530, 450 );
+    pop();
         
     for( Item i : items )
       if( i.value == 12 )
@@ -427,6 +439,10 @@ class Artist
     fill(200); textAlign(CENTER); textSize(25*fontScale);
     text("Select by number or",frameWidth/2,560);
     text("press space to cancel.",frameWidth/2,580);
+    
+    //Draw clickable cancel arrow
+    imageMode(CENTER);
+    image( mouseUXImage[9], 650,550);
   }
   
   public void loadSkillIcons()
@@ -972,6 +988,10 @@ class Artist
         text("capital (X) to put aisde for sale.",frameWidth/2,540);
       }
     }
+    
+    //Draw clickable cancel arrow
+    imageMode(CENTER);
+    image( mouseUXImage[9], 650,450);
   }
   
   public void beginGameoverAnimation()
@@ -3474,22 +3494,32 @@ class Artist
     pop();
   }
   
+  private color handColor( int hero )
+  {
+    if( party.hero[hero].job == Job.SAURIAN )
+      return color(red(party.hero[hero].favColor)/1.5,green(party.hero[hero].favColor)/1.5,blue(party.hero[hero].favColor)/1.5);
+      
+    return color(55+0.67*party.hero[hero].skinColor,30+0.67*party.hero[hero].skinColor,20+0.63*party.hero[hero].skinColor);
+  }
+  
   public void drawMouseUXOverlay()
   {
     push();
     imageMode(CENTER);
-    tint(255,175);
     if( showUX )
     {
+       tint(255,175);
        image(mouseUXImage[0],350,190);
        image(mouseUXImage[1],170,370);
        image(mouseUXImage[2],350,550);
        image(mouseUXImage[3],530,370);
+       noTint();
        image(mouseUXImage[5],77.5,230);
        image(mouseUXImage[6],77.5,370);
        image( mouseUXImage[7],77.5,510);
        image(mouseUXImage[4],622.5,510);
        image( mouseUXImage[8],622.5,370);
+       push();tint(handColor(handIndex));image( mouseUXImage[10],622.5,230);pop();
     }
     else
       switch( mouseInZone() )
@@ -3505,10 +3535,14 @@ class Artist
         case 7: image(mouseUXImage[6],77.5,370); break;
         //Key
         case 8: image( mouseUXImage[7],77.5,510); break;
-        //Search
-        case 1: image(mouseUXImage[4],622.5,510); break;
+        //Use
+        case 10:
+          push(); tint(handColor(handIndex));
+          image( mouseUXImage[10],622.5,230); pop(); break;
         //Door/entrance
-        case 9: image( mouseUXImage[8],622.5,370);
+        case 9: image( mouseUXImage[8],622.5,370); break;
+        //UI On/Off
+        case 1: image(mouseUXImage[4],622.5,510); break;
       }
     pop();
   }
@@ -4017,6 +4051,8 @@ void loadImages()
   tileImage[129]= loadImage("iceBomb.png");      tileImage[129].resize(45,0);
   tileImage[130]= loadImage("acidBomb.png");     tileImage[130].resize(45,0);
   tileImage[131]= loadImage("thunderBomb3.png"); tileImage[131].resize(45,0);
+  tileImage[132]= loadImage("potionOrange.png"); tileImage[132].resize(56,0);
+  tileImage[133]= loadImage("potionPurple.png"); tileImage[133].resize(56,0);
   
   iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
   iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
@@ -4036,6 +4072,8 @@ void loadImages()
   mouseUXImage[6] = loadImage("potionGreen.png"); mouseUXImage[6].resize(100,0);
   mouseUXImage[7] = loadImage("key.png");         mouseUXImage[7].resize(100,0);
   mouseUXImage[8] = loadImage("enter.png");       mouseUXImage[8].resize(100,0);
+  mouseUXImage[9] = loadImage("greenArrow.png");  mouseUXImage[9].resize(80,0);
+  mouseUXImage[10] = loadImage("handIcon.png");   mouseUXImage[10].resize(100,0);
   
   //670x180
   battleBack[0] = loadImage("forest5.png"); //resize?esize(56,0);
@@ -4058,7 +4096,7 @@ void loadImages()
   effectImage[3] = loadImage("testRing3.png");  effectImage[3].resize(200,0);
   //BLOCK - TYPE: 1
   effectImage[4] = loadImage("shield1.png");    effectImage[4].resize(200,0);
-  effectImage[5] = loadImage("shield2.png");      effectImage[5].resize(200,0);
+  effectImage[5] = loadImage("shield2.png");    effectImage[5].resize(200,0);
   effectImage[6] = loadImage("shield2.png");    effectImage[6].resize(200,0);
   //SLASH - TYPE: 2
   effectImage[7] = loadImage("slash1.png");     effectImage[7].resize(200,0);
@@ -4069,9 +4107,9 @@ void loadImages()
   effectImage[11] = loadImage("punch2.png");    effectImage[11].resize(200,0);
   effectImage[12] = loadImage("punch3.png");    effectImage[12].resize(200,0);
   //HEAL - TYPE: 4
-  effectImage[13] = loadImage("heal1.png");    effectImage[13].resize(200,0);
-  effectImage[14] = loadImage("heal2.png");    effectImage[14].resize(200,0);
-  effectImage[15] = loadImage("heal3.png");    effectImage[15].resize(200,0);
+  effectImage[13] = loadImage("heal1.png");     effectImage[13].resize(200,0);
+  effectImage[14] = loadImage("heal2.png");     effectImage[14].resize(200,0);
+  effectImage[15] = loadImage("heal3.png");     effectImage[15].resize(200,0);
   //FIRE BOMB - TYPE: 5
   effectImage[16] = loadImage("fireBomb1.png");    effectImage[16].resize(125,0);
   effectImage[17] = loadImage("fireBomb2.png");    effectImage[17].resize(135,0);
