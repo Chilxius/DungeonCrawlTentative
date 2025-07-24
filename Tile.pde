@@ -536,6 +536,8 @@ class Tile
     event = true;
     repeatable = true;
     eventText=i.shopString(price);
+    //if( itemForSale instanceof Equipment )  //Didn't work; happened before Heroes had names
+    //  eventText += "  "+itemForSale.usableByText();
   }
   
   public void placeBuyer()
@@ -664,7 +666,17 @@ class Tile
   
   public void playEvent() //text not displaying if less than 3
   {
-    if(eventText!="")pushTextLine(eventText);
+    //For listing who can use equipment
+    if( itemForSale != null && itemForSale instanceof Equipment )
+    {
+      pushTextLine(String.format("%-43s", eventText)+itemForSale.usableByText());
+      //String theString = eventText;
+      //for( int i = theString.length(); i < 43; i++ ) theString+=" ";
+      //theString += itemForSale.usableByText();
+      //pushTextLine(theString);
+      ////pushTextLine(eventText + itemForSale.usableByText()); //For equipment shops
+    }
+    else if(eventText!="")pushTextLine(eventText);
     if(!repeatable)
       event=false;
   }

@@ -136,6 +136,11 @@ class Item
   {
     return name+": "+p+" Gold";
   }
+  
+  public String usableByText()
+  {
+    return "SHOULD NOT DISPLAY FOR ITEMS";
+  }
 }
 
 public String keyName( Key k )

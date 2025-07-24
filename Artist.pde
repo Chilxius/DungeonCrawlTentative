@@ -3514,14 +3514,20 @@ class Artist
        image(mouseUXImage[2],350,550);
        image(mouseUXImage[3],530,370);
        noTint();
-       image(mouseUXImage[5],77.5,230);
+       if( m[party.floor].tiles[party.X][party.Y].obj == Object.TENT || m[party.floor].tiles[party.X][party.Y].obj == Object.BED )
+       {image(mouseUXImage[12],77.5,230);}
+       else{image(mouseUXImage[5],77.5,230);}
        image(mouseUXImage[6],77.5,370);
        image( mouseUXImage[7],77.5,510);
        image(mouseUXImage[4],622.5,510);
        image( mouseUXImage[8],622.5,370);
-       push();tint(handColor(handIndex));image( mouseUXImage[10],622.5,230);pop();
+       //Coin or Hand
+       if( m[party.floor].tiles[party.X][party.Y].type == TileType.SHOP || m[party.floor].tiles[party.X][party.Y].type == TileType.SELL )
+       image( mouseUXImage[11],622.5,230 );
+       else {push();tint(handColor(handIndex));image( mouseUXImage[10],622.5,230);pop();}
     }
     else
+    {
       switch( mouseInZone() )
       {
         //Move
@@ -3529,25 +3535,36 @@ class Artist
         case 3: image(mouseUXImage[1],170,370); break;
         case 4: image(mouseUXImage[2],350,550); break;
         case 5: image(mouseUXImage[3],530,370); break;
-        //Food
-        case 6: image(mouseUXImage[5],77.5,230); break;
+        //Food / Sleep
+        case 6: if( m[party.floor].tiles[party.X][party.Y].obj == Object.TENT || m[party.floor].tiles[party.X][party.Y].obj == Object.BED )
+        {image(mouseUXImage[12],77.5,230); break;}
+        else{image(mouseUXImage[5],77.5,230); break;}
         //Potion
         case 7: image(mouseUXImage[6],77.5,370); break;
         //Key
         case 8: image( mouseUXImage[7],77.5,510); break;
-        //Use
+        //Use / Commerce
         case 10:
-          push(); tint(handColor(handIndex));
-          image( mouseUXImage[10],622.5,230); pop(); break;
+          if( m[party.floor].tiles[party.X][party.Y].type == TileType.SHOP || m[party.floor].tiles[party.X][party.Y].type == TileType.SELL )
+          {
+            image( mouseUXImage[11],622.5,230 );
+          }
+          else
+          {
+            //push(); 
+            tint(handColor(handIndex));
+            image( mouseUXImage[10],622.5,230); 
+            //pop();
+          }
+          break;
         //Door/entrance
         case 9: image( mouseUXImage[8],622.5,370); break;
         //UI On/Off
         case 1: image(mouseUXImage[4],622.5,510); break;
       }
+    }
     pop();
   }
-  
-
 }
 
 //********************************************************//
@@ -4074,6 +4091,8 @@ void loadImages()
   mouseUXImage[8] = loadImage("enter.png");       mouseUXImage[8].resize(100,0);
   mouseUXImage[9] = loadImage("greenArrow.png");  mouseUXImage[9].resize(80,0);
   mouseUXImage[10] = loadImage("handIcon.png");   mouseUXImage[10].resize(100,0);
+  mouseUXImage[11] = loadImage("goldPiece.png");  mouseUXImage[11].resize(100,0);
+  mouseUXImage[12] = loadImage("zzz.png");        mouseUXImage[12].resize(100,0);
   
   //670x180
   battleBack[0] = loadImage("forest5.png"); //resize?esize(56,0);

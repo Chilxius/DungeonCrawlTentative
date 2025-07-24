@@ -3,6 +3,7 @@
   //Add cancel button to more screens
   //Work on select-key system
   //Re-color base hero fists?
+  //Make sleep and bargain buttons work
 
   //Improve Rend damge
   //Need a little more exp in forest before man-wolf
@@ -173,7 +174,7 @@ PImage tileImage[]    = new PImage[200]; //I've since used this for more than ju
 PImage battleBack[]   = new PImage[10];  //Backgrounds for battles
 PImage iconImage[]    = new PImage[50];  //Icons for buttons, need to move some items from tileImage
 PImage effectImage[]  = new PImage[110]; //Images for effects. Will eventually include spell effects.
-PImage mouseUXImage[] = new PImage[11];   //Images for mouse controls
+PImage mouseUXImage[] = new PImage[13];   //Images for mouse controls
 PImage cursor;
 PImage border;
 //Animation data
@@ -1288,7 +1289,7 @@ void keyPressed()
     }
     if(display == Display.MAP && key == 'B' ) //buy/sell
     {
-        if( m[party.floor].tiles[party.X][party.Y].type == TileType.SHOP ) //buy
+      if( m[party.floor].tiles[party.X][party.Y].type == TileType.SHOP ) //buy
       {
         if( party.gold >= m[party.floor].tiles[party.X][party.Y].itemPrice ) //party has enough gold
         {

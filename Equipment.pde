@@ -183,6 +183,36 @@ class Equipment extends Item
     return name+": "+p+" Gold  "+(int)power+" Power";
   }
   
+  public String usableByText() //List the heros that can use the item (for shops)
+  {
+    String returnString = "Usable by: ";
+    boolean noOne = true;
+    //for( Job j: allowedJobs )
+    //  for(int i = 0; i < 3; i++)
+    //    if( party.hero[i].job == j )
+    //    {
+    //      if( !noOne )
+    //      {
+    //        returnString += ", ";
+    //      }
+    //      returnString += party.hero[i].name;
+    //      noOne = false;
+    //    }
+        
+    for( Hero h: party.hero )
+      if( usableBy( h.job ) )
+      {
+        if( !noOne)
+          returnString += ", ";
+        returnString += h.name;
+        noOne=false;
+      }
+    
+    for( int i = 0; i < allowedJobs.length; i++ ) println( allowedJobs[i] );
+    if( noOne ) returnString += "Nobody";
+    return returnString;
+  }
+  
   public int getPower()
   {
     return (int)power;
