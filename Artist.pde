@@ -969,8 +969,8 @@ class Artist
       else if( dist( mouseX,mouseY, 575,345)<37.5)
         text(party.hero[2].name,frameWidth/2,410);
       textSize(25*fontScale);
-      text("Select by number or",frameWidth/2,460);
-      text("press space to cancel.",frameWidth/2,480);
+      text("Select by number or press",frameWidth/2,460);
+      text("arrow or (space) to cancel.",frameWidth/2,480);
     }
     else
     {
@@ -985,7 +985,7 @@ class Artist
       {
         textSize(25*fontScale);
         text("Equip by number or press", frameWidth/2,510);
-        text("capital (X) to put aisde for sale.",frameWidth/2,540);
+        text("arrow or (X) to put aisde for sale.",frameWidth/2,540);
       }
     }
     
@@ -3515,9 +3515,9 @@ class Artist
        image(mouseUXImage[3],530,370);
        noTint();
        if( m[party.floor].tiles[party.X][party.Y].obj == Object.TENT || m[party.floor].tiles[party.X][party.Y].obj == Object.BED )
-       {image(mouseUXImage[12],77.5,230);}
+       {image(mouseUXImage[6],77.5,230);}
        else{image(mouseUXImage[5],77.5,230);}
-       image(mouseUXImage[6],77.5,370);
+       image(mouseUXImage[potionIndex],77.5,370);
        image( mouseUXImage[7],77.5,510);
        image(mouseUXImage[4],622.5,510);
        image( mouseUXImage[8],622.5,370);
@@ -3537,10 +3537,10 @@ class Artist
         case 5: image(mouseUXImage[3],530,370); break;
         //Food / Sleep
         case 6: if( m[party.floor].tiles[party.X][party.Y].obj == Object.TENT || m[party.floor].tiles[party.X][party.Y].obj == Object.BED )
-        {image(mouseUXImage[12],77.5,230); break;}
+        {image(mouseUXImage[6],77.5,230); break;}
         else{image(mouseUXImage[5],77.5,230); break;}
         //Potion
-        case 7: image(mouseUXImage[6],77.5,370); break;
+        case 7: image(mouseUXImage[potionIndex],77.5,370); break;
         //Key
         case 8: image( mouseUXImage[7],77.5,510); break;
         //Use / Commerce
@@ -4086,13 +4086,20 @@ void loadImages()
   mouseUXImage[3] = loadImage("moveR.png");       mouseUXImage[3].resize(150,0);
   mouseUXImage[4] = loadImage("lookEye.png");     mouseUXImage[4].resize(100,0);
   mouseUXImage[5] = loadImage("Bread.png");       mouseUXImage[5].resize(100,0);
-  mouseUXImage[6] = loadImage("potionGreen.png"); mouseUXImage[6].resize(100,0);
+  mouseUXImage[6] = loadImage("zzz.png");         mouseUXImage[6].resize(100,0);
   mouseUXImage[7] = loadImage("key.png");         mouseUXImage[7].resize(100,0);
-  mouseUXImage[8] = loadImage("enter.png");       mouseUXImage[8].resize(100,0);
-  mouseUXImage[9] = loadImage("greenArrow.png");  mouseUXImage[9].resize(80,0);
+  mouseUXImage[8] = loadImage("greenArrow.png");  mouseUXImage[8].resize(100,0);
+  mouseUXImage[9] = loadImage("enter.png");       mouseUXImage[9].resize(80,0);
   mouseUXImage[10] = loadImage("handIcon.png");   mouseUXImage[10].resize(100,0);
   mouseUXImage[11] = loadImage("goldPiece.png");  mouseUXImage[11].resize(100,0);
-  mouseUXImage[12] = loadImage("zzz.png");        mouseUXImage[12].resize(100,0);
+  mouseUXImage[12] = loadImage("potionGreen.png");  mouseUXImage[12].resize(100,0);
+  mouseUXImage[13] = loadImage("potionRed.png");    mouseUXImage[13].resize(100,0);
+  mouseUXImage[14] = loadImage("potionBlue.png");   mouseUXImage[14].resize(100,0);
+  mouseUXImage[15] = loadImage("potionYellow.png"); mouseUXImage[15].resize(100,0);
+  mouseUXImage[16] = loadImage("potionPurple.png"); mouseUXImage[16].resize(100,0);
+  mouseUXImage[17] = loadImage("potionOrange.png"); mouseUXImage[17].resize(100,0);
+  mouseUXImage[18] = loadImage("potionTeal.png");   mouseUXImage[18].resize(100,0);
+  mouseUXImage[19] = loadImage("potionPink.png");   mouseUXImage[19].resize(100,0);
   
   //670x180
   battleBack[0] = loadImage("forest5.png"); //resize?esize(56,0);

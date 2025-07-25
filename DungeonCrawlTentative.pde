@@ -3,7 +3,7 @@
   //Add cancel button to more screens
   //Work on select-key system
   //Re-color base hero fists?
-  //Make sleep and bargain buttons work
+  //Fix click-through from hero selection to arrow
 
   //Improve Rend damge
   //Need a little more exp in forest before man-wolf
@@ -150,6 +150,7 @@ int frameX, frameY; //position of game window (corner)    //to work for all size
 boolean showUX = false; //show/hide clickable UI buttons
 int UIButtonClicked = 0; //which button to depress
 int handIndex = 0; //which hero's hand color is used for icon
+int potionIndex = 12; //which color potion is displayed
 
 //Sound effects
 Sound s;
@@ -174,7 +175,7 @@ PImage tileImage[]    = new PImage[200]; //I've since used this for more than ju
 PImage battleBack[]   = new PImage[10];  //Backgrounds for battles
 PImage iconImage[]    = new PImage[50];  //Icons for buttons, need to move some items from tileImage
 PImage effectImage[]  = new PImage[110]; //Images for effects. Will eventually include spell effects.
-PImage mouseUXImage[] = new PImage[13];   //Images for mouse controls
+PImage mouseUXImage[] = new PImage[20];   //Images for mouse controls
 PImage cursor;
 PImage border;
 //Animation data
@@ -389,7 +390,7 @@ void draw()
   
   vanGogh.drawAndCleanupFloatingNumbers();
   
-  if(heroDataDisplayed[0]||heroDataDisplayed[1]||heroDataDisplayed[2])
+  if((heroDataDisplayed[0]||heroDataDisplayed[1]||heroDataDisplayed[2])&&(input == Input.EXPLORING || input == Input.BATTLE_MENU ))
   {
     if     (heroDataDisplayed[0]) vanGogh.drawHeroData(0);
     else if(heroDataDisplayed[1]) vanGogh.drawHeroData(1);
@@ -1214,7 +1215,7 @@ void keyPressed()
       if(!attemptMove("left")&&display!=Display.BATTLE)displayTextLine(bonkText('l'));
     if(key == 'd' || keyCode == RIGHT || key == '6')
       if(!attemptMove("right")&&display!=Display.BATTLE)displayTextLine(bonkText('r'));
-    if(key == 's' || keyCode == DOWN || key == '5' || key == '2')
+    if(key == 's' || keyCode == DOWN || key == '5')
       if(!attemptMove("down")&&display!=Display.BATTLE)displayTextLine(bonkText('d'));
     if(key == 'w' || keyCode == UP || key == '8')
       if(!attemptMove("up")&&display!=Display.BATTLE)displayTextLine(bonkText('u'));
@@ -1223,6 +1224,10 @@ void keyPressed()
       if(m[party.floor].isStair(party.X,party.Y))
       //if(m[party.floor].tiles[party.X][party.Y].type==TileType.STAIR || m[party.floor].tiles[party.X][party.Y].type==TileType.STAIR_DOOR)
         changeMap();
+        
+    if( key == '1' ) heroDataDisplayed[0]=true;
+    if( key == '2' ) heroDataDisplayed[1]=true;
+    if( key == '3' ) heroDataDisplayed[2]=true;
     
     //Moved into a boss space
     if(currentBoss != -1)
@@ -1397,6 +1402,11 @@ void keyPressed()
         
       if( key == 'x')
         input = Input.BATTLE_ITEM;
+        
+      //Hero info
+      if( key == '1' ) heroDataDisplayed[0]=true;
+      if( key == '2' ) heroDataDisplayed[1]=true;
+      if( key == '3' ) heroDataDisplayed[2]=true;
     }
     else if(input == Input.BATTLE_ATTACK_TARGET)
     {
@@ -1468,7 +1478,8 @@ void keyPressed()
         if( key == '3' )
         {
           SFX[3].play();
-          //potionDrinkSound.rewind();
+          potionIndex++;
+          if(potionIndex>19)potionIndex=12;
           if( party.consume(36,0) )
           {
             input = Input.BATTLE_MENU;
@@ -1502,7 +1513,8 @@ void keyPressed()
       if( key == '1' || key == '2' || key == '3' )
       {
         SFX[3].play();
-        //potionDrinkSound.rewind();
+        potionIndex++;
+        if(potionIndex>19)potionIndex=12;
         if( party.consume(potionType*12,key-49) ) //-49 to account for array index offset
         {
           input = Input.BATTLE_MENU;
@@ -1610,8 +1622,10 @@ void keyPressed()
          SFX[4].play(); //foodBiteSound.rewind(); }
          
         if(reason == HeroSelectReason.DRINK)
-         SFX[3].play(); //potionDrinkSound.rewind(); }
-         
+          SFX[3].play();
+        potionIndex++;
+        if(potionIndex>19)potionIndex=12;
+        
         party.consume(consumableValue,key-49); //-49 to account for array index offset
         consumableValue = 0;
         display = Display.MAP;
@@ -1658,7 +1672,11 @@ void keyPressed()
 }
 
 void keyReleased()
-{ //<>// //<>//
+{ //<>//
+  if( key == '1' )heroDataDisplayed[0]=false;
+  if( key == '2' )heroDataDisplayed[1]=false;
+  if( key == '3' )heroDataDisplayed[2]=false;
+  
   if( key == 'y' )
     dangerMapOn = false;
   if( key == 'u' )
@@ -1851,10 +1869,10 @@ void mousePressed()
     if(mouseX > 500+frameX && mouseX < 694+frameX && mouseY > 4+frameY && mouseY < 150+frameY)
       heroDataDisplayed[2]=true;
   }
-
+  
   //Testing
   if(debugMode)
-    println(mouseX + " " + mouseY);
+    println(mouseX + " " + mouseY + " " + display);
   //println("Bard:" + party.hero[1].bardBonus);
   //party.hero[2].energize(1);
   //party.hero[0].bardBonus++;
@@ -1880,16 +1898,24 @@ void mouseReleased()
       case 4: key = 's'; keyPressed(); break;
       case 5: key = 'd'; keyPressed(); break;
       
-      case 6: key = 'E'; keyPressed(); break;
+      case 6:
+      if( m[party.floor].tiles[party.X][party.Y].obj == Object.TENT || m[party.floor].tiles[party.X][party.Y].obj == Object.BED )
+        key = 'R';
+      else key = 'E'; keyPressed(); break;
       case 7: key = 'D'; keyPressed(); break;
       case 8: key = 'o'; keyPressed(); break;
       case 9: key = '>'; keyPressed(); break;
-      case 10:key = ' '; keyPressed(); break;
+      case 10:
+      if( m[party.floor].tiles[party.X][party.Y].type == TileType.SHOP || m[party.floor].tiles[party.X][party.Y].type == TileType.SELL )
+        key = 'B';
+      //else if( display == Display.EQUIP )
+      //  key = 'X';
+      else key = ' '; keyPressed(); break;
     }
-  //if( input == Input.HERO_SELECT || input == Input.BATTLE_ITEM_HERO_CHOICE ) //clicked on hero
-  //{
-  //  if( mouseX > 630 && mouseX < 730 && mouseY > 430 && mouseY < 530 ) { key=' '; keyPressed(); }
-  //}
+  if( display == Display.EQUIP )
+  {
+    if( mouseX > 630 && mouseX < 730 && mouseY > 430 && mouseY < 530 ) { key='X'; keyPressed(); }
+  }
 }
 
 public enum Input
