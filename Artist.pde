@@ -1467,6 +1467,16 @@ class Artist
     }
   }
   
+  void drawTextConfirmButton() //525, 575
+  {
+    fill(150); stroke(200); strokeWeight(4);
+    circle(535-25,575-25,50);
+    fill(230); strokeWeight(3);
+    triangle(550-25,575-25, 525-25,562-25, 525-25,588-25); //510,575, 535,562, 535,583
+    //if( dist(mouseX-frameX,mouseY-frameY,525,575) < 27 )
+    //  text("BACK",40,85);
+  }
+  
   void beginBattleAnimation()
   {
     animationStage = 0;
@@ -3492,6 +3502,7 @@ class Artist
     fill(255);
     text( text, x, y );
     pop();
+    int additionGoesHere;
   }
   
   private color handColor( int hero )
@@ -3509,10 +3520,10 @@ class Artist
     if( showUX )
     {
        tint(255,175);
-       image(mouseUXImage[0],350,190);
-       image(mouseUXImage[1],170,370);
-       image(mouseUXImage[2],350,550);
-       image(mouseUXImage[3],530,370);
+       image(mouseUXImage[20],350,190);
+       image(mouseUXImage[21],170,370);
+       image(mouseUXImage[22],350,550);
+       image(mouseUXImage[23],530,370);
        noTint();
        if( m[party.floor].tiles[party.X][party.Y].obj == Object.TENT || m[party.floor].tiles[party.X][party.Y].obj == Object.BED )
        {image(mouseUXImage[6],77.5,230);}
@@ -3521,20 +3532,22 @@ class Artist
        image( mouseUXImage[7],77.5,510);
        image(mouseUXImage[4],622.5,510);
        image( mouseUXImage[8],622.5,370);
-       //Coin or Hand
+       //Coin or Hand or Save
        if( m[party.floor].tiles[party.X][party.Y].type == TileType.SHOP || m[party.floor].tiles[party.X][party.Y].type == TileType.SELL )
        image( mouseUXImage[11],622.5,230 );
+       else if(m[party.floor].tiles[party.X][party.Y].obj == Object.SAVEPOINT )
+       image( mouseUXImage[24],622.5,230 );
        else {push();tint(handColor(handIndex));image( mouseUXImage[10],622.5,230);pop();}
     }
     else
     {
       switch( mouseInZone() )
       {
-        //Move
-        case 2: image(mouseUXImage[0],350,190); break;
-        case 3: image(mouseUXImage[1],170,370); break;
-        case 4: image(mouseUXImage[2],350,550); break;
-        case 5: image(mouseUXImage[3],530,370); break;
+        ////Move
+        //case 2: image(mouseUXImage[0],350,190); break;
+        //case 3: image(mouseUXImage[1],170,370); break;
+        //case 4: image(mouseUXImage[2],350,550); break;
+        //case 5: image(mouseUXImage[3],530,370); break;
         //Food / Sleep
         case 6: if( m[party.floor].tiles[party.X][party.Y].obj == Object.TENT || m[party.floor].tiles[party.X][party.Y].obj == Object.BED )
         {image(mouseUXImage[6],77.5,230); break;}
@@ -3543,12 +3556,12 @@ class Artist
         case 7: image(mouseUXImage[potionIndex],77.5,370); break;
         //Key
         case 8: image( mouseUXImage[7],77.5,510); break;
-        //Use / Commerce
+        //Use / Commerce / Save
         case 10:
           if( m[party.floor].tiles[party.X][party.Y].type == TileType.SHOP || m[party.floor].tiles[party.X][party.Y].type == TileType.SELL )
-          {
             image( mouseUXImage[11],622.5,230 );
-          }
+          else if(m[party.floor].tiles[party.X][party.Y].obj == Object.SAVEPOINT )
+            image( mouseUXImage[24],622.5,230 );
           else
           {
             //push(); 
@@ -3562,6 +3575,14 @@ class Artist
         //UI On/Off
         case 1: image(mouseUXImage[4],622.5,510); break;
       }
+    }
+    switch( mouseInZone() )
+    {
+      //Move
+      case 2: image(mouseUXImage[0],350,190); break;
+      case 3: image(mouseUXImage[1],170,370); break;
+      case 4: image(mouseUXImage[2],350,550); break;
+      case 5: image(mouseUXImage[3],530,370); break;
     }
     pop();
   }
@@ -4089,7 +4110,7 @@ void loadImages()
   mouseUXImage[6] = loadImage("zzz.png");         mouseUXImage[6].resize(100,0);
   mouseUXImage[7] = loadImage("key.png");         mouseUXImage[7].resize(100,0);
   mouseUXImage[8] = loadImage("greenArrow.png");  mouseUXImage[8].resize(100,0);
-  mouseUXImage[9] = loadImage("enter.png");       mouseUXImage[9].resize(80,0);
+  mouseUXImage[9] = loadImage("exit.png");        mouseUXImage[9].resize(80,0);
   mouseUXImage[10] = loadImage("handIcon.png");   mouseUXImage[10].resize(100,0);
   mouseUXImage[11] = loadImage("goldPiece.png");  mouseUXImage[11].resize(100,0);
   mouseUXImage[12] = loadImage("potionGreen.png");  mouseUXImage[12].resize(100,0);
@@ -4100,6 +4121,11 @@ void loadImages()
   mouseUXImage[17] = loadImage("potionOrange.png"); mouseUXImage[17].resize(100,0);
   mouseUXImage[18] = loadImage("potionTeal.png");   mouseUXImage[18].resize(100,0);
   mouseUXImage[19] = loadImage("potionPink.png");   mouseUXImage[19].resize(100,0);
+  mouseUXImage[20] = loadImage("smallU.png");     mouseUXImage[20].resize(150,0);
+  mouseUXImage[21] = loadImage("smallL.png");     mouseUXImage[21].resize(150,0);
+  mouseUXImage[22] = loadImage("smallD.png");     mouseUXImage[22].resize(150,0);
+  mouseUXImage[23] = loadImage("smallR.png");     mouseUXImage[23].resize(150,0);
+  mouseUXImage[24] = loadImage("crystal.png");    mouseUXImage[24].resize(100,0);
   
   //670x180
   battleBack[0] = loadImage("forest5.png"); //resize?esize(56,0);

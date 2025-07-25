@@ -1,9 +1,9 @@
 //CURRENT TASK: //<>// //<>//
-  //Let buttons depress
   //Add cancel button to more screens
   //Work on select-key system
   //Re-color base hero fists?
-  //Fix click-through from hero selection to arrow
+  //Make start-of-combat text be ghost words
+  //Status icons for baddies
 
   //Improve Rend damge
   //Need a little more exp in forest before man-wolf
@@ -175,7 +175,7 @@ PImage tileImage[]    = new PImage[200]; //I've since used this for more than ju
 PImage battleBack[]   = new PImage[10];  //Backgrounds for battles
 PImage iconImage[]    = new PImage[50];  //Icons for buttons, need to move some items from tileImage
 PImage effectImage[]  = new PImage[110]; //Images for effects. Will eventually include spell effects.
-PImage mouseUXImage[] = new PImage[20];   //Images for mouse controls
+PImage mouseUXImage[] = new PImage[25];   //Images for mouse controls
 PImage cursor;
 PImage border;
 //Animation data
@@ -344,6 +344,8 @@ void draw()
   {
     vanGogh.drawHeroBoxes( party.hero );
     drawConditions(); // <- move to drawHeroBoxes
+    if( step == HeroCreationStep.NAME && input == Input.TYPING && !awaitingFileName)
+      vanGogh.drawTextConfirmButton();
   }
   
   //Hero creation process only
@@ -418,6 +420,11 @@ void draw()
     m[party.floor].drawDangerMap( party.X, party.Y );
   if( locationMapOn )
     m[party.floor].drawLocationMap( party.X, party.Y );
+    
+  //TESTING
+  textSize(25);
+  fill(0);
+  text("INPUT: "+input + "     STEP: "+step, width/2, 0);
 }
 
 void drawConditions()
@@ -1277,6 +1284,12 @@ void keyPressed()
       SFX[6].play();
       saveGame(saveFileName+".txt");
     }
+    else if (key == '\u0007')  // ASCII bell character — not typable
+    {
+      advanceText("GAME SAVED");
+      SFX[6].play();
+      saveGame(saveFileName+".txt");
+    }
     else if(confirmSave)
     {
       advanceText("Save aborted");
@@ -1766,7 +1779,15 @@ void mouseClicked()
 
 void mousePressed()
 {
-  if( step == HeroCreationStep.JOB )
+  if( step == HeroCreationStep.NAME && !awaitingFileName )
+  {
+    if( dist(mouseX-frameX,mouseY-frameY,525-25,575-25) < 27 ) //Accept name button (realisitcally, random name button)
+    {
+      tempName = inputText(); //takes care of changing states
+      textBuffer = ""; //clears buffer
+    }
+  }
+  else if( step == HeroCreationStep.JOB )
   {
     if( dist(mouseX-frameX,mouseY-frameY,40,40) < 27 ) //back button
     {
@@ -1808,6 +1829,10 @@ void mousePressed()
     if(dist( mouseX,mouseY, 350+frameX,320+frameY)<37.5) { key='2'; keyPressed(); }
     if(dist( mouseX,mouseY, 550+frameX,320+frameY)<37.5) { key='3'; keyPressed(); }
     if( mouseX > 630 && mouseX < 730 && mouseY > 430 && mouseY < 530 ) { key=' '; keyPressed(); }
+  }
+  else if( display == Display.EQUIP ) //For red exit arrow - putting equipment aside for sale
+  {
+    if( mouseX > 630 && mouseX < 730 && mouseY > 430 && mouseY < 530 ) { key='X'; keyPressed(); }
   }
   else if( input == Input.BATTLE_SKILL ) //clicked on skill or cancel
   {
@@ -1857,6 +1882,36 @@ void mousePressed()
     if( mouseInBox(baseX-75,545) ) { key = 's'; keyPressed(); }
     if( mouseInBox(baseX+75,545) ) { key = 'x'; keyPressed(); }
   }
+  else if(input == Input.ADVANCE_TEXT && mouseInTextBox() ) //waiting for player to hit space
+  {
+    advanceNextTextLine();
+  }
+  else if( input == Input.EXPLORING )//Mouse-click controls for map exploration
+  {
+    switch( mouseInZone() )
+    {
+      case 1: showUX = !showUX; break;
+      
+      case 2: key = 'w'; keyPressed(); break;
+      case 3: key = 'a'; keyPressed(); break;
+      case 4: key = 's'; keyPressed(); break;
+      case 5: key = 'd'; keyPressed(); break;
+      
+      case 6:
+      if( m[party.floor].tiles[party.X][party.Y].obj == Object.TENT || m[party.floor].tiles[party.X][party.Y].obj == Object.BED )
+        key = 'R';
+      else key = 'E'; keyPressed(); break;
+      case 7: key = 'D'; keyPressed(); break;
+      case 8: key = 'o'; keyPressed(); break;
+      case 9: key = '>'; keyPressed(); break;
+      case 10:
+      if( m[party.floor].tiles[party.X][party.Y].type == TileType.SHOP || m[party.floor].tiles[party.X][party.Y].type == TileType.SELL )
+        key = 'B';
+      else if( m[party.floor].tiles[party.X][party.Y].obj == Object.SAVEPOINT )
+        key = '\u0007';
+      else key = ' '; keyPressed(); break;
+    }
+  }
   
   //This displays hero stats if their boxes are clicked
   if( (display == Display.MAP || display == Display.BATTLE )
@@ -1883,39 +1938,7 @@ void mouseReleased()
 {
   heroDataDisplayed[0]=heroDataDisplayed[1]=heroDataDisplayed[2]=false;
   slider[0]=slider[1]=slider[2]=slider[3]=slider[4]=slider[5]=slider[6]=false;
-  
-  if(input == Input.ADVANCE_TEXT && mouseInTextBox() ) //waiting for player to hit space
-    advanceNextTextLine();
-
-  //Mouse-click controls for map exploration
-  if( input == Input.EXPLORING )
-    switch( mouseInZone() )
-    {
-      case 1: showUX = !showUX; break;
-      
-      case 2: key = 'w'; keyPressed(); break;
-      case 3: key = 'a'; keyPressed(); break;
-      case 4: key = 's'; keyPressed(); break;
-      case 5: key = 'd'; keyPressed(); break;
-      
-      case 6:
-      if( m[party.floor].tiles[party.X][party.Y].obj == Object.TENT || m[party.floor].tiles[party.X][party.Y].obj == Object.BED )
-        key = 'R';
-      else key = 'E'; keyPressed(); break;
-      case 7: key = 'D'; keyPressed(); break;
-      case 8: key = 'o'; keyPressed(); break;
-      case 9: key = '>'; keyPressed(); break;
-      case 10:
-      if( m[party.floor].tiles[party.X][party.Y].type == TileType.SHOP || m[party.floor].tiles[party.X][party.Y].type == TileType.SELL )
-        key = 'B';
-      //else if( display == Display.EQUIP )
-      //  key = 'X';
-      else key = ' '; keyPressed(); break;
-    }
-  if( display == Display.EQUIP )
-  {
-    if( mouseX > 630 && mouseX < 730 && mouseY > 430 && mouseY < 530 ) { key='X'; keyPressed(); }
-  }
+  UIButtonClicked = -1;
 }
 
 public enum Input
