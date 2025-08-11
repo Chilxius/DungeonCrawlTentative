@@ -254,15 +254,34 @@ class Artist
     fill(0);  rectMode(CORNER);
     stroke(200);
     strokeWeight(5);
-    rect(100,100,frameWidth-200,frameHeight-200,20);
+    rect(50,100,frameWidth-100,frameHeight-200,20);
     
     fill(200); textAlign(LEFT); textSize(25*fontScale);
-    text("Keys you have collected:",120,130);
+    text("Key items you have collected:",120,130);
+    textSize(20*fontScale);
+    for(int i = 0,j = 0; i < keys.length; i++)
+      if(keys[i]!=Key.NONE)
+      {
+        text(keyName(keys[i]),60+(300*int(j/15)),(130+30*(j+1))-(450*int(j/15)));
+        j++;
+      }
+  }
+  
+  public void drawPickKeyInterface( Key keys[] )
+  {
+    //Draw Window
+    fill(0);  rectMode(CORNER);
+    stroke(200);  strokeWeight(5);
+    rect(100,100,frameWidth-200,frameHeight-200,20);
+    
+    fill(200); textAlign(LEFT);  textSize(25*fontScale);
+    text("Select an item to use:",120,130);
     textSize(20*fontScale);
     for(int i = 0,j = 0; i < keys.length; i++)
       if(keys[i]!=Key.NONE)
       { 
-        text(keyName(keys[i]),120+(250*int(j/15)),(130+30*(j+1))-(450*int(j/15)));
+        char button = getKeyToPress(j);
+        text(button + ") " + keyName(keys[i]),60+(300*int(j/15)),(130+30*(j+1))-(450*int(j/15)));
         j++;
       }
   }

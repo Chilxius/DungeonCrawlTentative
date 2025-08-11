@@ -654,6 +654,60 @@ class Tile
     return false;
   }
   
+  public boolean singleKeyInteract( int keyIndex )
+  {
+    //testing
+    println( "Attempted key: " + party.keyInventory[keyIndex] + " on " + type + " with key type: " + k );
+    if( keyIndex < 0 || keyIndex > party.keyInventory.length ) println("ATTEMPTED TO USE A BAD KEY INDEX IN singleKeyInteract");
+    
+    if( party.keyInventory[keyIndex] == k )
+    {
+      switch( k )
+      {
+        case CHARIS:
+          party.addToInventory( new Item( Key.CHARIS ) );
+          advanceText("Father Charis's Key opens the door.");
+          SFX[0].play();
+          break;
+        case CHARIS_NOTES:
+          advanceText("- His notes. His work! Enter, quickly!");
+          SFX[7].play();
+          break;
+        case CHEESE:
+          displayTextLine("It hungrily grabs the cheese from you and waddles away to enjoy it.");
+          SFX[4].play();
+          break;
+        case GRAVE_NOTES:
+          advanceText("- TEXT FOR GRAVE NOTES");
+          break;
+        case GATE:
+          SFX[7].play();
+          advanceText("The gate creaks open.");
+          break;
+        case PASSPORT:
+          SFX[8].play();
+          advanceText("- Everything is in order. You may proceed.");
+          break;
+        case GRAVE:
+          SFX[0].play();
+          advanceText("She nods in approval.");
+          break;
+        default:
+          advanceText("You use your " + keyName(k) + ".");
+          SFX[0].play();
+          break;
+      }
+      party.keyInventory[keyIndex] = Key.NONE;
+      interactive = false;
+      //openDoorSound.play();
+      return true;
+    }
+    advanceText("It doesn't work."); //You can't get ye flask
+    if( k != Key.CHEESE )
+      SFX[2].play();
+    return false;
+  }
+  
   public boolean isPathable()
   {
     return pathable;
@@ -977,6 +1031,7 @@ public enum Key //special items for interactive tiles
   PASSPORT, GRAVE, CAVE,
   DRAGON, NONE,
   
+  //For bomb kits (Fire, Ice, Acid, Wind)
   F,I,A,W,
   FI,FA,FW,IA,IW,AW,
   FIA,FIW,FAW,IAW,

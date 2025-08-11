@@ -636,9 +636,9 @@ void createFloor1()
   exits.add( new Portal(1,77,49,1,98,49) );
   
   //Library
-  exits.add( new Portal(1,9,60,2,80,27) );
+  exits.add( new Portal(1,9,60,2,80,27,"Irohill") );
   //Werehouse Exit
-  exits.add( new Portal(1,57,57,2,83,20) );
+  exits.add( new Portal(1,57,57,2,83,20,"Irohill") );
   //Library Secret
   exits.add( new Portal(1,20,40,1,52,49,"?") );
   

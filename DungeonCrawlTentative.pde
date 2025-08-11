@@ -1,6 +1,7 @@
 //CURRENT TASK: //<>// //<>//
   //Add cancel button to more screens
   //Work on select-key system
+  //  Add method to remove useless keys (with string for specific instance)
   //Re-color base hero fists?
   //Make start-of-combat text be ghost words
   //Status icons for baddies
@@ -422,9 +423,12 @@ void draw()
     m[party.floor].drawLocationMap( party.X, party.Y );
     
   //TESTING
-  textSize(25);
-  fill(0);
-  text("INPUT: "+input + "     STEP: "+step, width/2, 0);
+  if(debugMode)
+  {
+    textSize(25);
+    fill(0);
+    text("INPUT: "+input + "     STEP: "+step, width/2, 0);
+  }
 }
 
 void drawConditions()
@@ -1158,6 +1162,16 @@ public int bombCost( int type )
     default: return 99;
   }
 }
+
+//For choosing key items with keyboard
+//Might number up to 30
+char getKeyToPress( int index )
+{
+  if( index < 9 )
+    return char(49+index);
+  else
+    return char( 56+index );
+}
   
 Input appropriateInputMode()
 {
@@ -1682,6 +1696,29 @@ void keyPressed()
   //if(key == 'l') //for testing
     //vanGogh.startScreenShake(40,false);
     //floatingNumbers.add( new GhostNumber(140,320,color(255),12345678) );
+  if( key == ']' )//testing
+  {
+    party.addToInventory( new Item(Key.COPPER_KEY) );
+    party.addToInventory( new Item(Key.SKELETON_KEY) );
+    party.addToInventory( new Item(Key.IRON_KEY) );
+    party.addToInventory( new Item(Key.CRYPT_KEY) );
+    party.addToInventory( new Item(Key.CHEESE) );
+    party.addToInventory( new Item(Key.CHARIS_NOTES) );
+    party.addToInventory( new Item(Key.GRAVE_NOTES) );
+    party.addToInventory( new Item(Key.GATE) );
+    party.addToInventory( new Item(Key.DRAGON) );
+    party.addToInventory( new Item(Key.PASSPORT) );
+    party.addToInventory( new Item(Key.GRAVE) );
+    party.addToInventory( new Item(Key.CAVE) );
+    party.addToInventory( new Item(Key.FAW) );
+  }
+  if( key == '[' )//testing
+  {
+    //for(int i = 0; i < 30; i++)
+    //  println( i + ": " + getKeyToPress(i) );
+    //m[party.floor].tiles[party.X][party.Y].singleKeyInteract( party.keyInventory[0] );
+    m[party.floor].tiles[party.X][party.Y].singleKeyInteract( 0 );
+  }
 }
 
 void keyReleased()
@@ -1943,7 +1980,7 @@ void mouseReleased()
 
 public enum Input
 {
-  NONE, ADVANCE_TEXT, TYPING, EXPLORING, ITEM_USE,
+  NONE, ADVANCE_TEXT, TYPING, EXPLORING, ITEM_USE, KEY_USE,
   HERO_SELECT,
   BATTLE_MENU, BATTLE_ATTACK_TARGET, BATTLE_SKILL, BATTLE_SKILL_TARGET, BATTLE_HEAL_TARGET, BATTLE_ITEM, BATTLE_ITEM_HERO_CHOICE, BATTLE_ITEM_TARGET,
   HERO_JOB_CHOICE, HERO_COLOR_CHOICE
@@ -1957,7 +1994,7 @@ public enum HeroCreationStep //for the initial setup
 public enum Display
 {
   MAIN_MENU, MAP, BATTLE, KEY_LIST, ITEM_LIST, 
-  FOOD_MENU, POTION_MENU, HELP_MENU, HERO_SELECT, EQUIP,
+  FOOD_MENU, POTION_MENU, HELP_MENU, KEY_MENU, HERO_SELECT, EQUIP,
   CREDITS, NONE
 }
 

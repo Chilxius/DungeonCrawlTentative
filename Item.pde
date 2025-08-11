@@ -156,7 +156,7 @@ public String keyName( Key k )
     case CHEESE: return "pungent wheel of cheese";
     case DRAGON: return "Dragon Key";
     case GATE: return "Iron Gate Key";
-    case CHARIS_NOTES: return "notebook with Charis's seal";
+    case CHARIS_NOTES: return "book with Charis's seal";
     case GRAVE_NOTES: return "Charis and Pavel's notes";
     case PASSPORT: return "Passport Documents";
     case GRAVE: return "Graveyard Girl's Key";

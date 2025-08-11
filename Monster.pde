@@ -173,7 +173,7 @@ class Monster
     }
     if(party.partyDead())
     {
-      input = input.NONE; //<>// //<>//
+      input = input.NONE; //<>// //<>// //<>//
       vanGogh.beginGameoverAnimation();
     }
     battle.setBattleDelay();
@@ -201,7 +201,7 @@ class Monster
   
   public boolean takePoisonDamage( int pos ) //true if monster dies
   {
-    //println("TAKING POISON DAMAGE"); //<>// //<>//
+    //println("TAKING POISON DAMAGE"); //<>// //<>// //<>//
     if(poison<=0)
       return false;
     int poisonDamage = max(poison/2,1); //minimum 1 damage
