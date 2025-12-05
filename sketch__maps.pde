@@ -1894,6 +1894,9 @@ void createFloor6()
   //First waterway treasure
   //createLoot(lootIndex++, mapIndex, 5, 91, ITEM );
   
+  //Temporary: self-insert
+  m[mapIndex].tiles[33][13].placeOccupant(#D8B234, "Hello, I'm Chilxius, the game developer. This is the end of the current build. Feel free to explore the cave, but it's just a loop for now. Hope you enjoyed the game so far! I know it's a bit difficult, but that's by design. I'll add the rest of the battle animations soon, and replace the hero images with proper sprites. Did you solve the graveyard riddles? Did you find all four dragon keys? How about all six Doubloons?");
+  
   //Inspect shipwreck
   m[mapIndex].tiles[44][13].createEvent(false, "- The wreckage of a small boat is caught against a stalagmite.");
   //Kat's Ice Bomb Kit
