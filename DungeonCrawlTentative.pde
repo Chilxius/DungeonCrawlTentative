@@ -94,7 +94,7 @@ import ddf.minim.ugens.*;
 import processing.sound.*;
 
 //For Debug Mode
-boolean debugMode = true;
+boolean debugMode = false;
 
 int mapCount = 10;
 Map [] m = new Map[mapCount];
@@ -464,7 +464,7 @@ public String inputText() //Retrieves the text in the box and switches game stat
       input = Input.HERO_JOB_CHOICE; //<>// //<>//
       if(textBuffer.equals(""))
         textBuffer = randomName();
-      advanceText("What is "+textBuffer+"'s Job");
+      advanceText("What is "+textBuffer+"'s Job?");
     }
   }
   
@@ -1712,13 +1712,21 @@ void keyPressed()
     party.addToInventory( new Item(Key.CAVE) );
     party.addToInventory( new Item(Key.FAW) );
   }
-  if( key == '[' )//testing
-  {
+  
+  //{
     //for(int i = 0; i < 30; i++)
     //  println( i + ": " + getKeyToPress(i) );
     //m[party.floor].tiles[party.X][party.Y].singleKeyInteract( party.keyInventory[0] );
-    m[party.floor].tiles[party.X][party.Y].singleKeyInteract( 0 );
-  }
+    //m[party.floor].tiles[party.X][party.Y].singleKeyInteract( 0 );
+  //}
+  //if( ( key == 'o' || key == '7' ) && m[party.floor].tiles[party.X][party.Y].interactive) //open
+  
+  if( key == '[' ) //testing
+    if(m[party.floor].tiles[party.X][party.Y].singleKeyInteract(0))
+    {
+      m[party.floor].openDoorsAround(party.X,party.Y);
+      //openDoorSound.rewind();
+    }
 }
 
 void keyReleased()

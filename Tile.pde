@@ -775,6 +775,16 @@ class Tile
     rect(xPos,yPos,30,30);
     //if(type == TileType.FLOOR )
     //  image(tileImage[100],xPos,yPos);
+    //Grass background
+    if(type == TileType.GRASS || type == TileType.FLOWER || type == TileType.FLOWER_BLUE || type == TileType.TREE || type == TileType.DARK_TREE || type == TileType.TREE_PATH || type == TileType.FENCE_OBJ)
+      image(tileImage[134],xPos,yPos);
+    if(type == TileType.DIRT || type == TileType.CAMP )
+      image(tileImage[135],xPos,yPos);
+    if(type == TileType.GRASS_DARK || type == TileType.DEAD_TREE || type == TileType.DEAD_TREE_PATH || type == TileType.GRAVE )
+      image(tileImage[136],xPos,yPos);
+    if(type == TileType.CROP || type == TileType.DIRT_DARK || type == TileType.COMB )
+      image(tileImage[137],xPos,yPos);
+      
     if(type == TileType.WALL || type == TileType.SECRET_WALL)
       image(tileImage[0],xPos,yPos);
     else if(type == TileType.DARK_WALL || type == TileType.SECRET_DARK_WALL || type == TileType.DARK_WALL_CLIMBABLE)

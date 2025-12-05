@@ -4110,6 +4110,10 @@ void loadImages()
   tileImage[131]= loadImage("thunderBomb3.png"); tileImage[131].resize(45,0);
   tileImage[132]= loadImage("potionOrange.png"); tileImage[132].resize(56,0);
   tileImage[133]= loadImage("potionPurple.png"); tileImage[133].resize(56,0);
+  tileImage[134]= loadImage("grass3.png");       tileImage[134].resize(30,0);
+  tileImage[135]= loadImage("dirt.png");         tileImage[135].resize(30,0);
+  tileImage[136]= loadImage("grassDark.png");    tileImage[136].resize(30,0);
+  tileImage[137]= loadImage("dirtDark.png");     tileImage[137].resize(30,0);
   
   iconImage[0] = loadImage("buckler_main.png");     iconImage[0].resize(56,0);
   iconImage[1] = loadImage("buckler_color.png");    iconImage[1].resize(58,0);
