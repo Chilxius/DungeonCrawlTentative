@@ -5,6 +5,7 @@
   //Re-color base hero fists?
   //Make start-of-combat text be ghost words
   //Status icons for baddies
+  //Fix movement arrows - not working right
 
   //Improve Rend damge
   //Need a little more exp in forest before man-wolf
@@ -26,6 +27,7 @@
   //Still getting into un-endable text loop (debug mode?)
   //Have a Ritisu priest talk about reagents
   //Improve bomb damage
+  //Shield bash shouldn't gain element
 
 //To change once font is chosen:
   //cleric owed money
@@ -58,6 +60,7 @@ import ddf.minim.ugens.*;
 //Damage seems to be increasing a bit quickly (did ~60 to Big gray rat)
 //Cost of ostinato went to 0 - must have negative rhythm (couldn't replicate)
 //Defensive Strike did not give extra energy on crit
+//Got NO MORE MESSAGES bug with Kat at river
 
 //TO DO:
 //Finish up boat in Waraka harbor
